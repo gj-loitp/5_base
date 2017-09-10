@@ -1,7 +1,5 @@
 <resources>
 
     <!-- Global -->
-    <dimen name="action_bar_top_padding">55dp</dimen>
-    <dimen name="toolbar_padding_top">25dp</dimen>
 
 </resources>

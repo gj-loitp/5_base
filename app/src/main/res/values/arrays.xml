@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="number_array">
-        <item name="44">44</item>
-        <item name="45">45</item>
-        <item name="49">49</item>
-        <item name="72">72</item>
-        <item name="73">73</item>
-        <item name="76">76</item>
-        <item name="78">78</item>
-    </string-array>
-
 </resources>

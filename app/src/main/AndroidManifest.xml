@@ -2,45 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vn.puresolutions.livestar">
 
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.android.vending.BILLING" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
-    <!-- GCM -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="vn.LS.LiveStar.permission.C2D_MESSAGE" />
-
-    <permission
-        android:name="vn.LS.LiveStar.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
-    <uses-feature
-        android:name="android.hardware.camera.front"
-        android:required="true" />
-
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
-    <uses-feature
-        android:name="android.hardware.screen.portrait"
-        android:required="true" />
 
     <application
         android:name="vn.puresolutions.livestarv3.app.LSApplication"
@@ -50,130 +15,10 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SplashActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.OnboardingActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SignInActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/SignInTheme"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".activity.SignUpActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/SignInTheme"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".activity.ForgotPasswordActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SignInTheme"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <!--<activity
-            android:name=".activity.RoomActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />-->
-        <activity
-            android:name=".activity.RoomActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.RequireLoginActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleInstance"
-            android:screenOrientation="landscape"
-            android:theme="@style/TransparentTheme" />
-        <activity
-            android:name=".activity.SuggestPurchaseActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleInstance"
-            android:theme="@style/TransparentTheme" />
-        <activity
-            android:name=".activity.PurchaseActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.WebActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.RankActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SearchActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <!-- Facebook -->
-        <activity xmlns:tools="http://schemas.android.com/tools"
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"
-            android:theme="@style/FacebookTheme"
-            tools:replace="android:theme" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
-        <!-- GCM -->
-        <receiver
-            android:name="com.google.android.gms.gcm.GcmReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <category android:name="vn.LS.LiveStar" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".notification.gcm.LSGcmListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".notification.gcm.LSInstanceIDListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".notification.gcm.LSRegistrationIntentService"
-            android:exported="false" />
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="21974ff7b3149db2a201e146593699f7dbed2495" />
-
-        <activity
             android:name="vn.puresolutions.livestarv3.activity.homescreen.HomeMainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.login.LoginActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.room.RoomActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
         <activity
             android:name="vn.puresolutions.livestarv3.activity.splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -183,134 +28,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="livestar" />
-            </intent-filter>
-            -->
         </activity>
         <activity
-            android:name="vn.puresolutions.livestarv3.activity.onair.OnAirNewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.schedule.ScheduleActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.notification.NotificationActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.FollowerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.FollowingActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.bank.getcoin.newdesign.GetCoinPagerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.bank.getcoin.olddesign.card.GetCoinByCardActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.bank.getcoin.olddesign.internetbanking.GetCoinByInternetBankingActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.bank.getcoin.olddesign.sms.GetCoinBySMSActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.EditInfoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.EditInfoNotifyActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.EditInfoChangePassActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.RoomManagerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.ProfileLevelActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.ScheduleManagerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.VideoManagerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.bank.manager.BankHistoryActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.livestream.LivestreamActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.userprofile.LiveUserProfileActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.livestream.SaveVideoActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TransparentTheme" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.notification.NotificationContentActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.login.RegisterActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.login.VerifyOtpActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.login.ForgotPassActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.login.ChangePassOtpActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="vn.puresolutions.livestarv3.activity.TestAPIActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.homescreen.GoToPrivateRoomActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TransparentTheme" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.homescreen.GoToPrivateRoomNoCoinActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TransparentTheme" />
-        <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
-        <activity
-            android:name="vn.puresolutions.livestarv3.activity.WebActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
     </application>

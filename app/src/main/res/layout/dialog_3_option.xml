@@ -57,7 +57,6 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/ln_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/scrollView"

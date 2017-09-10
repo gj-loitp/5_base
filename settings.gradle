@@ -1,1 +1,1 @@
-include ':app', ':core', ':emojicon', ':videoplayer', ':progressButton', ':calendar', ':smartTabLayout', ':viewpagerIndicator', ':libstream'
+include ':app', ':core'

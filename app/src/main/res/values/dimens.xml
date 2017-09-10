@@ -1,212 +1,56 @@
 <resources>
 
     <!-- Global -->
-    <dimen name="action_bar_top_padding">20dp</dimen>
-    <dimen name="toolbar_padding_top">0dp</dimen>
-    <dimen name="text_view_money_left_padding">3dp</dimen>
-    <dimen name="text_view_money_right_padding">8dp</dimen>
-    <dimen name="text_view_money_text_size">14sp</dimen>
-    <dimen name="dialog_close_image_margin_top">35dp</dimen>
 
     <!-- For View -->
-    <dimen name="view_margin_huge">32dp</dimen>
-    <dimen name="view_margin_large">24dp</dimen>
     <dimen name="view_margin_medium">16dp</dimen>
-    <dimen name="view_margin_small">8dp</dimen>
-    <dimen name="view_margin_micro">4dp</dimen>
-
-    <dimen name="view_padding_huge">32dp</dimen>
-    <dimen name="view_padding_large">24dp</dimen>
-    <dimen name="view_padding_medium">16dp</dimen>
-    <dimen name="view_padding_small">8dp</dimen>
-    <dimen name="view_padding_micro">4dp</dimen>
 
     <!-- For Tab Bar -->
-    <dimen name="tab_height">52dp</dimen>
 
     <!-- For Text Size -->
-    <dimen name="text_size_very_small">10sp</dimen>
-    <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_large">18sp</dimen>
-    <dimen name="text_size_huge">32sp</dimen>
-    <dimen name="text_size_20">20sp</dimen>
-    <dimen name="text_size_25">25sp</dimen>
-    <dimen name="text_size_45">45sp</dimen>
 
     <!-- Corner radius -->
-    <dimen name="corner_5">5dp</dimen>
-    <dimen name="corner_10">10dp</dimen>
-    <dimen name="corner_15">15dp</dimen>
-    <dimen name="corner_20">20dp</dimen>
-
-    <dimen name="gift_exp_text_size">14sp</dimen>
 
     <!-- For Icon -->
-    <dimen name="icon_micro">14dp</dimen>
-    <dimen name="icon_small">32dp</dimen>
-    <dimen name="icon_medium">56dp</dimen>
-    <dimen name="icon_large">60dp</dimen>
-    <dimen name="icon_huge">150dp</dimen>
 
     <!-- On Air -->
-    <dimen name="on_air_button_padding_top_bottom">6dp</dimen>
-    <dimen name="on_air_info_container_bottom_margin">80dp</dimen>
-    <dimen name="on_air_heart_text_size">14sp</dimen>
-    <dimen name="on_air_heart_image_padding">6dp</dimen>
-    <dimen name="on_air_heart_image_size">26dp</dimen>
-    <dimen name="on_air_viewers_text_size">14sp</dimen>
-    <dimen name="on_air_viewers_image_padding">4dp</dimen>
-    <dimen name="on_air_viewers_image_size">26dp</dimen>
-    <dimen name="on_air_recycler_item_padding">20dp</dimen>
-    <dimen name="on_air_room_title_padding_top_bottom">5dp</dimen>
-    <dimen name="on_air_room_title_padding_left_right">10dp</dimen>
-    <dimen name="on_air_room_title_text_size">16sp</dimen>
-    <dimen name="on_air_room_title_marginBottom">4dp</dimen>
-    <dimen name="on_air_room_status_container_padding_left_right">4dp</dimen>
-    <dimen name="on_air_room_divider_width">30dp</dimen>
-    <dimen name="on_air_room_divider_height">4dp</dimen>
-
-    <dimen name="on_air_item_padding_top">40dp</dimen>
 
     <!-- Gifts -->
-    <dimen name="gift_view_height">160dp</dimen>
-    <dimen name="gift_image_width">80dp</dimen>
-    <dimen name="gift_image_height">60dp</dimen>
-    <dimen name="gift_quantity_item_quantity_min_width">60dp</dimen>
-    <dimen name="gift_quantity_item_icon_size">15dp</dimen>
-    <dimen name="gift_quantity_recycler_height">100dp</dimen>
 
     <!-- Lounges -->
-    <dimen name="lounge_view_width">210dp</dimen>
-    <dimen name="lounge_image_chair_width">90dp</dimen>
-    <dimen name="lounge_image_chair_height">106dp</dimen>
-    <dimen name="lounge_avatar_size">50dp</dimen>
-    <dimen name="lounge_avatar_marginTop">15dp</dimen>
-    <dimen name="lounge_avatar_marginLeft">20dp</dimen>
-    <dimen name="lounge_buy_chair_quantity_width">100dp</dimen>
-    <dimen name="lounge_dialog_edit_text_price_padding_top_bottom">12dp</dimen>
 
     <!-- Actions -->
-    <dimen name="action_recycler_item_padding">10dp</dimen>
-    <dimen name="action_view_width">260dp</dimen>
-    <dimen name="action_image_width">50dp</dimen>
-    <dimen name="action_image_height">40dp</dimen>
-    <dimen name="action_progress_bar_width">60dp</dimen>
-    <dimen name="action_progress_bar_height">5dp</dimen>
-    <dimen name="action_vote_image_width">41dp</dimen>
-    <dimen name="action_vote_image_height">29dp</dimen>
-    <dimen name="action_vote_number_min_width">25dp</dimen>
 
     <!-- Room -->
-    <dimen name="room_heart_view_width">100dp</dimen>
-    <dimen name="room_heart_icon_margin_left">55dp</dimen>
-    <dimen name="room_heart_text_view_heart_number_margin_left">-3dp</dimen>
-    <dimen name="room_heart_text_view_heart_number_margin_top">20dp</dimen>
-    <dimen name="room_hide_icon_size">22dp</dimen>
-    <dimen name="room_left_menu_width">120dp</dimen>
 
     <!-- Sign In -->
-    <dimen name="sign_in_text_size">14sp</dimen>
 
     <!-- Chat -->
-    <dimen name="chat_width">280dp</dimen>
-    <dimen name="chat_height">200dp</dimen>
-    <dimen name="chat_icon_size">26dp</dimen>
-    <dimen name="chat_text_size">12sp</dimen>
 
     <!-- Idol Profile -->
-    <dimen name="idol_profile_avatar_size">60dp</dimen>
-    <dimen name="idol_profile_avatar_conner_radius">30dp</dimen>
-    <dimen name="idol_profile_sns_icon_size">20dp</dimen>
 
     <!-- Audiences -->
-    <dimen name="audiences_view_width">230dp</dimen>
-    <dimen name="audiences_view_vip_icon_height">40dp</dimen>
 
     <!-- Schedule -->
-    <dimen name="schedule_list_padding_top">60dp</dimen>
 
     <!-- Purchase -->
-    <dimen name="purchase_dialog_icon_width">120dp</dimen>
-    <dimen name="purchase_dialog_icon_height">88dp</dimen>
-    <dimen name="purchase_coin_info_icon_size">120dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_10">10dp</dimen>
-    <dimen name="padding_8">8dp</dimen>
-    <dimen name="txt_10">10dp</dimen>
-    <dimen name="txt_7">7dp</dimen>
     <dimen name="margin_5">5dp</dimen>
-    <dimen name="margin_2">2dp</dimen>
-    <dimen name="txt_24">24dp</dimen>
-    <dimen name="txt_28">28dp</dimen>
-    <dimen name="txt_30">30dp</dimen>
-    <dimen name="txt_40">40dp</dimen>
-    <dimen name="padding_1">1dp</dimen>
-    <dimen name="padding_3">3dp</dimen>
-    <dimen name="round_5">5dp</dimen>
-    <dimen name="round_10">10dp</dimen>
     <dimen name="round_15">15dp</dimen>
     <dimen name="txt_18">18dp</dimen>
     <dimen name="txt_16">16dp</dimen>
-    <dimen name="w_60">60dp</dimen>
-    <dimen name="w_80">80dp</dimen>
-    <dimen name="h_80">80dp</dimen>
-    <dimen name="w_90">90dp</dimen>
-    <dimen name="w_95">95dp</dimen>
-    <dimen name="h_90">90dp</dimen>
     <dimen name="w_50">50dp</dimen>
-    <dimen name="h_50">50dp</dimen>
     <dimen name="h_1">1dp</dimen>
     <dimen name="margin_20">20dp</dimen>
-    <dimen name="margin_30">30dp</dimen>
-    <dimen name="margin_40">40dp</dimen>
-    <dimen name="w_40">40dp</dimen>
-    <dimen name="w_0.5">0.5dp</dimen>
     <dimen name="w_1">1dp</dimen>
-    <dimen name="w_0">0dp</dimen>
-    <dimen name="w_3">3dp</dimen>
-    <dimen name="w_150">150dp</dimen>
-    <dimen name="h_150">150dp</dimen>
-    <dimen name="w_10">10dp</dimen>
-    <dimen name="h_10">10dp</dimen>
-    <dimen name="w_15">15dp</dimen>
-    <dimen name="h_15">15dp</dimen>
     <dimen name="w_20">20dp</dimen>
-    <dimen name="w_25">25dp</dimen>
-    <dimen name="h_25">25dp</dimen>
     <dimen name="w_30">30dp</dimen>
-    <dimen name="h_20">20dp</dimen>
-    <dimen name="h_30">30dp</dimen>
     <dimen name="w_70">70dp</dimen>
-    <dimen name="h_70">70dp</dimen>
-    <dimen name="w_110">110dp</dimen>
-    <dimen name="h_110">110dp</dimen>
-    <dimen name="w_120">120dp</dimen>
-    <dimen name="h_120">120dp</dimen>
-    <dimen name="w_130">130dp</dimen>
-    <dimen name="h_130">130dp</dimen>
-    <dimen name="w_200">200dp</dimen>
-    <dimen name="h_100">100dp</dimen>
     <dimen name="w_100">100dp</dimen>
-    <dimen name="txt_9">9dp</dimen>
-    <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_10">10dp</dimen>
-    <dimen name="txt_12">12dp</dimen>
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_20">20dp</dimen>
     <dimen name="padding_35">35dp</dimen>
-    <dimen name="padding_25">25dp</dimen>
-    <dimen name="padding_40">40dp</dimen>
-    <dimen name="h_250">250dp</dimen>
-    <dimen name="h_200">200dp</dimen>
-    <dimen name="h_40">40dp</dimen>
-    <dimen name="h_60">60dp</dimen>
-    <dimen name="margin_55">55dp</dimen>
-    <dimen name="w_140">140dp</dimen>
-    <dimen name="w_155">155dp</dimen>
-    <dimen name="w_500">500dp</dimen>
-    <dimen name="w_250">250dp</dimen>
-    <dimen name="w_5">5dp</dimen>
 
 </resources>
