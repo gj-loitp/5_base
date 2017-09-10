@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    tools:context="vn.puresolutions.livestarv3.activity.userprofile.EditInfoChangePassActivity">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/w_3">
+
+        <vn.puresolutions.livestarv3.view.LActionBar
+            android:id="@+id/labChangePass_Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.CardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+    <vn.puresolutions.livestarv3.view.LEdittextPassword
+        android:id="@+id/lepChangePass_OldPass"
+        style="@style/edit_text_common"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword|numberPassword"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+    <vn.puresolutions.livestarv3.view.LEdittextPassword
+        android:id="@+id/lepChangePass_NewPass"
+        style="@style/edit_text_common"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword|numberPassword"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+    <vn.puresolutions.livestarv3.view.LEdittextPassword
+        android:id="@+id/lepChangePass_ReNewPass"
+        style="@style/edit_text_common"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword|numberPassword"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnChangePass_Update"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/background_button_non_enable"
+        android:enabled="false"
+        android:text="@string/update"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+</LinearLayout>

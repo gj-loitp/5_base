@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingBottom="@dimen/view_padding_small"
+    android:paddingLeft="@dimen/view_padding_micro"
+    android:paddingRight="@dimen/view_padding_micro"
+    android:paddingTop="@dimen/view_padding_small">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_purchase_item"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/view_padding_large"
+        android:paddingLeft="@dimen/view_padding_medium"
+        android:paddingRight="@dimen/view_padding_medium"
+        android:paddingTop="@dimen/view_padding_large">
+
+        <TextView
+            android:id="@+id/vipPackageItem_tvName"
+            style="@style/text_view_white"
+            android:layout_marginBottom="@dimen/view_margin_medium"
+            android:ellipsize="end"
+            android:text="VIP 1"
+            android:textColor="@color/redButtonColor"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_medium" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/vipPackageItem_imgPackage"
+            android:layout_width="@dimen/purchase_dialog_icon_width"
+            android:layout_height="@dimen/purchase_dialog_icon_height"
+            fresco:actualImageScaleType="fitCenter"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:placeholderImage="@drawable/ic_vip1" />
+
+        <TextView
+            android:id="@+id/vipPackageItem_tvPrice"
+            style="@style/text_view_white"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="đ2,000"
+            android:textSize="@dimen/text_size_medium" />
+    </LinearLayout>
+
+</LinearLayout>

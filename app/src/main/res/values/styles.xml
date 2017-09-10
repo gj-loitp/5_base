@@ -1,0 +1,162 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowBackground">@color/White</item>
+        <item name="android:backgroundDimEnabled">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SignInTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/img_onboarding1</item>
+    </style>
+
+    <style name="TransparentTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/black_30</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="FacebookTheme" parent="TransparentTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:progressBarStyle">@style/progress_bar_facebook</item>
+        <item name="android:indeterminateProgressStyle">@style/progress_bar_facebook</item>
+    </style>
+
+    <style name="layout_scaled">
+        <item name="android:paddingTop">@dimen/view_padding_small</item>
+        <item name="android:paddingBottom">@dimen/view_padding_small</item>
+        <item name="android:paddingLeft">@dimen/view_padding_small</item>
+        <item name="android:paddingRight">@dimen/view_padding_small</item>
+    </style>
+
+    <style name="button">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingLeft">@dimen/view_padding_large</item>
+        <item name="android:paddingRight">@dimen/view_padding_large</item>
+        <item name="android:textColor">@color/buttonColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">fonts/proxima-nova-light.otf</item>
+    </style>
+
+    <style name="button_dialog" parent="button">
+        <item name="android:paddingLeft">@dimen/view_padding_medium</item>
+        <item name="android:paddingRight">@dimen/view_padding_medium</item>
+        <item name="android:background">@color/accentRed</item>
+    </style>
+
+    <style name="button_dialog_border" parent="button_dialog">
+        <item name="android:background">@drawable/background_dialog_button_border</item>
+    </style>
+
+    <style name="progress_bar">
+        <item name="android:indeterminateDrawable">@drawable/animation_progress_bar</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="progress_bar_facebook">
+        <item name="android:indeterminateDrawable">@android:color/transparent</item>
+    </style>
+
+    <style name="edit_text">
+        <item name="android:paddingTop">@dimen/view_padding_small</item>
+        <item name="android:paddingBottom">@dimen/view_padding_small</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:drawablePadding">@dimen/view_margin_large</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="edit_text_common">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:singleLine">true</item>
+        <!--<item name="android:inputType">textNoSuggestions</item>-->
+    </style>
+
+    <style name="edit_text_border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:alpha">0.5</item>
+    </style>
+
+    <style name="button_progress" parent="button">
+        <item name="android:paddingLeft">@dimen/view_padding_huge</item>
+        <item name="android:paddingRight">@dimen/view_padding_huge</item>
+        <item name="cpb_selectorIdle">@drawable/selector_button_progress</item>
+        <item name="cpb_selectorComplete">@drawable/selector_button_progress</item>
+        <item name="cpb_selectorError">@drawable/selector_button_progress</item>
+        <item name="cpb_iconError">@android:drawable/ic_dialog_alert</item>
+        <item name="cpb_colorIndicatorBackground">@android:color/transparent</item>
+        <item name="cpb_colorProgress">@android:color/transparent</item>
+        <item name="cpb_colorIndicator">@color/redButtonColor</item>
+        <item name="cpb_paddingProgress">2dp</item>
+    </style>
+
+    <style name="dialog_animation">
+        <item name="android:windowEnterAnimation">@anim/enter_up</item>
+        <item name="android:windowExitAnimation">@anim/exit_up</item>
+    </style>
+
+    <!-- Fonts-->
+    <style name="proxima_light" parent="android:TextAppearance">
+        <item name="fontPath">fonts/proxima-nova-light.otf</item>
+    </style>
+
+    <style name="proxima" parent="android:TextAppearance">
+        <item name="fontPath">fonts/proxima-nova-regular.otf</item>
+    </style>
+
+    <style name="proxima_semibold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/proxima-nova-semibold.otf</item>
+    </style>
+
+    <style name="opensans_bold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/OpenSans-Bold.ttf</item>
+    </style>
+
+    <style name="layout_menu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/view_padding_huge</item>
+    </style>
+
+    <style name="image_view_menu">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="full_screen_dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="LowerTabLayout" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="LSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#2a37db</item>
+        <item name="colorSwitchThumbNormal">#2a37db</item>
+        <!--<item name="android:colorForeground">#2a37db</item>-->
+    </style>
+</resources>

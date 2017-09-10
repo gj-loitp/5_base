@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dialogRoomBackground">
+
+    <ImageView
+        android:id="@+id/dialogVipBenefit_imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:layout_marginTop="@dimen/dialog_close_image_margin_top"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_close_white_thin" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialogVipBenefit_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="VIP"
+            android:textAllCaps="true"
+            android:textColor="@color/redButtonColor"
+            android:textSize="@dimen/text_size_medium" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dialogVipBenefit_imgVip"
+            android:layout_width="@dimen/purchase_dialog_icon_width"
+            android:layout_height="@dimen/purchase_dialog_icon_height"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            app:actualImageScaleType="fitCenter"
+            app:placeholderImage="@drawable/ic_vip1"
+            app:placeholderImageScaleType="fitCenter" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/dialogVipBenefit_imgPre"
+                android:layout_width="@dimen/icon_small"
+                android:layout_height="@dimen/icon_small"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/view_margin_small"
+                android:src="@drawable/ic_arrow_left" />
+
+            <ImageView
+                android:id="@+id/dialogVipBenefit_imgNext"
+                android:layout_width="@dimen/icon_small"
+                android:layout_height="@dimen/icon_small"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/view_margin_small"
+                android:src="@drawable/ic_arrow_right" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_view_white"
+                    android:text="@string/vip_benefit_title"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvChatCharacters"
+                    style="@style/text_view_white"
+                    android:text="@string/chat_number"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvScreenText"
+                    style="@style/text_view_white"
+                    android:text="@string/screen_text"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvScreenTextAffect"
+                    style="@style/text_view_white"
+                    android:text="@string/screen_text_effect"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvKick"
+                    style="@style/text_view_white"
+                    android:text="@string/kick"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvKey"
+                    style="@style/text_view_white"
+                    android:text="Được vào phòng thường"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/dialogVipBenefit_tvFrame"
+                    style="@style/text_view_white"
+                    android:text="@string/fame"
+                    android:textSize="@dimen/text_size_medium" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:background="@color/white" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dialogVipBenefit_rclPackages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</FrameLayout>

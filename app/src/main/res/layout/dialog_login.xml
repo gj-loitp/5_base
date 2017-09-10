@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/requireLoginActivity_vwEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/requireLoginActivity_container"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/requireLoginActivity_imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/requireLoginActivity_container"
+        android:layout_alignLeft="@+id/requireLoginActivity_container"
+        android:layout_alignTop="@+id/requireLoginActivity_container"
+        android:layout_alignBottom="@+id/requireLoginActivity_container"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background_login" />
+
+    <View
+        android:background="#99000000"
+        android:layout_alignTop="@id/requireLoginActivity_imgBackground"
+        android:layout_alignBottom="@id/requireLoginActivity_imgBackground"
+        android:layout_alignLeft="@id/requireLoginActivity_imgBackground"
+        android:layout_alignRight="@id/requireLoginActivity_imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/requireLoginActivity_container"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="@dimen/view_padding_huge">
+
+        <TextView
+            android:id="@+id/requireLoginActivity_tvNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/notifyLogin"
+            android:textAppearance="@style/text_view_sign_in" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:layout_marginBottom="@dimen/view_margin_medium"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/white"/>
+
+        <RelativeLayout
+            android:id="@+id/requireLoginActivity_buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/requireLoginActivity_btnSignIn"
+                style="@style/button"
+                android:background="@color/redButtonColor"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/requireLoginActivity_vwDivider"
+                android:text="@string/sign_in" />
+
+            <View
+                android:id="@+id/requireLoginActivity_vwDivider"
+                android:layout_width="@dimen/view_margin_medium"
+                android:layout_height="1px"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/requireLoginActivity_btnSignUp"
+                style="@style/button"
+                android:background="@color/redButtonColor"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/requireLoginActivity_vwDivider"
+                android:text="@string/sign_up" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/requireLoginActivity_tvWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="xin chao so dien thoai: 32434543534"
+            android:textAppearance="@style/text_view_sign_in"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/requireLoginActivity_btnMBF"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:background="@color/backgroundMobifone"
+            android:drawableLeft="@drawable/ic_mobifone"
+            android:text="@string/login_with_mobifone" />
+
+        <Button
+            android:id="@+id/requireLoginActivity_btnSignInFB"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:background="@color/backgroundFacebook"
+            android:drawableLeft="@drawable/ic_facebook"
+            android:text="@string/login_with_facebook" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/requireLoginActivity_imgClose"
+        android:layout_width="@dimen/icon_small"
+        android:layout_height="@dimen/icon_small"
+        android:layout_alignRight="@+id/requireLoginActivity_container"
+        android:layout_alignTop="@+id/requireLoginActivity_container"
+        android:layout_marginRight="-16dp"
+        android:layout_marginTop="-16dp"
+        android:src="@drawable/ic_close_dialog" />
+
+</RelativeLayout>

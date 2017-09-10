@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/room_left_menu_width"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundRoomView">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/roomLeftMenuView_vwPurchase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:padding="@dimen/view_padding_medium">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+                android:src="@drawable/selector_room_purchase" />
+
+            <TextView
+                style="@style/text_view_white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/view_margin_small"
+                android:text="@string/purchase_coin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/roomLeftMenuView_vwAudiences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:padding="@dimen/view_padding_medium">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+                android:src="@drawable/selector_audiences" />
+
+            <TextView
+                style="@style/text_view_white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/view_margin_small"
+                android:text="@string/audience" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/roomLeftMenuView_vwCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:padding="@dimen/view_padding_medium">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+                android:src="@drawable/selector_calendar" />
+
+            <TextView
+                style="@style/text_view_white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/view_margin_small"
+                android:text="@string/calendar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

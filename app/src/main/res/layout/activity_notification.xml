@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    tools:context="vn.puresolutions.livestarv3.activity.notification.FrmNotification">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="15dp"
+         android:orientation="horizontal">
+
+         <TextView
+             android:textStyle="bold"
+             android:textSize="18sp"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="5"
+             android:text="@string/notifiscreen_notify" />
+
+         <ImageView
+             android:background="@color/accentRed"
+             android:layout_width="0dp"
+             android:layout_height="20dp"
+             android:layout_weight="0.5" />
+     </LinearLayout>-->
+    <vn.puresolutions.livestarv3.view.LActionBar
+        android:id="@+id/labNotifyScreen_labHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvNotifyScreen_Notify"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="vn.puresolutions.livestarv3.activity.userprofile.EditInfoActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/flEditProfileScreen_Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/w_1">
+
+        <vn.puresolutions.livestarv3.view.LActionBar
+            android:id="@+id/labEditInfo_Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+    </android.support.v7.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/flEditProfileScreen_Avatar"
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/w_100"
+        android:layout_below="@+id/flEditProfileScreen_Header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_15">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdvEditProfileScreen_Avatar"
+            android:layout_width="@dimen/w_100"
+            android:layout_height="@dimen/w_100"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            fresco:placeholderImage="@color/WhiteSmoke"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:roundAsCircle="true" />
+
+        <ImageView
+            android:id="@+id/ivEditProfileScreen_ChangeAvatar"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/h_40"
+            android:layout_gravity="bottom|right"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/editblue" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flEditProfileScreen_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flEditProfileScreen_Avatar"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20">
+
+        <EditText
+            android:id="@+id/edtEditInfo_Name"
+            style="@style/edit_text_common"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:hint="Nhập tên"
+            android:paddingRight="@dimen/padding_35"
+            android:textColorHint="@color/Gray" />
+
+        <ImageView
+            android:id="@+id/imvEditInfo_editName"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/h_30"
+            android:layout_gravity="end"
+            android:src="@drawable/edit" />
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rgProfileScreen_Gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flEditProfileScreen_Name"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_15"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbProfileScreen_No"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/unknow" />
+
+        <RadioButton
+            android:id="@+id/rbProfileScreen_Male"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/rbProfileScreen_Female"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/female" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/rlEditProfileScreen_Birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgProfileScreen_Gender"
+        android:layout_margin="@dimen/margin_20"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivEditProfileScreen_Cake"
+            android:layout_width="@dimen/w_20"
+            android:layout_height="@dimen/h_20"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/gato" />
+
+        <TextView
+            android:id="@+id/tvEditProfileScreen_Birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_toEndOf="@id/ivEditProfileScreen_Cake"
+            android:layout_toRightOf="@id/ivEditProfileScreen_Cake"
+            android:gravity="center|left"
+            android:text="dd/mm/yy" />
+
+        <ImageView
+            android:id="@+id/ivEditProfileScreen_EditBirthday"
+            android:layout_width="@dimen/w_25"
+            android:layout_height="@dimen/h_25"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_toRightOf="@+id/tvEditProfileScreen_Birthday"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/edit" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btnEditProfileScreen_ChangePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlEditProfileScreen_Birthday"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_20"
+        android:background="@drawable/background_editscreen_update"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/padding_20"
+        android:paddingRight="@dimen/padding_20"
+        android:paddingTop="@dimen/padding_10"
+        android:text="@string/change_password" />
+
+    <TextView
+        android:id="@+id/btnEditProfileScreen_UpdateProfile"
+        android:layout_width="@dimen/w_150"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEditProfileScreen_ChangePass"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_button_non_enable"
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/padding_20"
+        android:paddingRight="@dimen/padding_20"
+        android:paddingTop="@dimen/padding_10"
+        android:text="Cập nhật"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bkg_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:gravity="center"
+        android:text="@string/you_have_no_enought_coins"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/txt_18"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/view_group_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_10">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_gift"
+            android:layout_width="@dimen/w_60"
+            android:layout_height="@dimen/w_60"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@color/transparent"
+            fresco:placeholderImageScaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_coin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:gravity="center"
+            android:textColor="@color/Gray"
+            android:textSize="@dimen/txt_16" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_1"
+        android:layout_below="@+id/view_group_body"
+        android:background="@color/Gray" />
+
+    <LinearLayout
+        android:id="@+id/ln_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/bt_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_no_coin_cancel"
+                android:gravity="center"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_5"
+                android:text="@string/cancel"
+                android:textAllCaps="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@drawable/text_black_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/bt_get_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_no_coin_get_coin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_5"
+                android:text="@string/get_coin_all_cap"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/White" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

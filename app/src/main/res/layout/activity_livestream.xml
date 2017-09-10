@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/w_100"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/primaryColor"
+        app:indicatorName="PacmanIndicator" />
+
+    <RelativeLayout
+        android:id="@+id/view_group_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <vn.puresolutions.livestarv3.view.LBottomLiveStream
+            android:id="@+id/l_bottom_live_stream"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+        <vn.puresolutions.livestarv3.view.LChatView
+            android:id="@+id/l_chat_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <vn.puresolutions.livestarv3.view.LTopLivestream
+            android:id="@+id/l_top_live_stream"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</FrameLayout>

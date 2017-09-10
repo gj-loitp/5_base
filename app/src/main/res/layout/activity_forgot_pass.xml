@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="vn.puresolutions.livestarv3.activity.login.ForgotPassActivity">
+
+    <vn.puresolutions.livestarv3.view.LActionBar
+        android:id="@+id/labForgotScreen_labHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_weight="0.8"
+        android:text="@string/loginscreen_forgot_describe" />
+
+    <vn.puresolutions.livestarv3.view.LEdittextClear
+        android:id="@+id/edtForgotScreen_Phone"
+        style="@style/edit_text_common"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/btnForgotScreen_GetPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/background_button_non_enable"
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/padding_35"
+        android:paddingRight="@dimen/padding_35"
+        android:paddingTop="@dimen/padding_10"
+        android:text="@string/get_new_pass"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10" />
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/onboardingActivity_vpgPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/onboardActivity_tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:layout_marginTop="@dimen/view_margin_huge"
+        android:paddingTop="@dimen/view_margin_huge"
+        android:text="@string/skip"
+        android:textSize="14sp"
+        android:textAppearance="@style/proxima_light"
+        android:textColor="@color/accentRed"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/view_margin_huge"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:layout_marginBottom="@dimen/view_margin_medium"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <Button
+            style="@style/button"
+            android:id="@+id/onboardActivity_btnSignInFB"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/view_margin_medium"
+            android:drawableLeft="@drawable/ic_facebook"
+            android:background="@color/backgroundFacebook"
+            android:text="@string/login_with_facebook"/>
+
+        <Button
+            style="@style/button"
+            android:id="@+id/onboardActivity_btnSignInMBF"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/view_margin_medium"
+            android:drawableLeft="@drawable/ic_mobifone"
+            android:background="@color/backgroundMobifone"
+            android:text="@string/login_with_mobifone"/>
+
+        <Button
+            style="@style/button"
+            android:id="@+id/onboardActivity_btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/view_margin_large"
+            android:drawableLeft="@drawable/ic_email"
+            android:background="@color/accentYellow"
+            android:text="@string/login_with_email"/>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/onboardingActivity_pageIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            custom:radius="3dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

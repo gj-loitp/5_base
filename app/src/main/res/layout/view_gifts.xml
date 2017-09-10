@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/gift_view_height"
+    android:background="@color/backgroundRoomView"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/view_margin_small"
+        android:layout_marginRight="@dimen/view_margin_medium"
+        android:layout_marginTop="@dimen/view_margin_small">
+
+        <TextView
+            android:id="@+id/viewGifts_tvNormalGift"
+            style="@style/text_view_tab_gift"
+            android:text="@string/normal_gift"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/viewGifts_tvSpecialGift"
+            style="@style/text_view_tab_gift"
+            android:layout_toRightOf="@id/viewGifts_tvNormalGift"
+            android:text="@string/special_gift"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/viewGifts_tvTitleUserCoin"
+            style="@style/text_view_white"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/viewGifts_tvUserCoin"
+            android:text="@string/your_account_coin" />
+
+        <TextView
+            android:id="@id/viewGifts_tvUserCoin"
+            style="@style/text_view_money"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/view_margin_small" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/viewGifts_rclGifts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/viewGifts_prgLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/viewGifts_tvNoData"
+            style="@style/text_view_white"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/view_padding_large"
+            android:text="@string/there_are_no_data"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

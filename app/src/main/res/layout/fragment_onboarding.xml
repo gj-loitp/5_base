@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ls_onboardFragment_imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_onboarding1" />
+
+    <TextView
+        android:id="@+id/ls_onboardFragment_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ls_onboardFragment_tvDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/view_margin_medium"
+        android:background="@color/backgroundTextOnboarding"
+        android:paddingBottom="@dimen/view_margin_small"
+        android:paddingLeft="@dimen/view_margin_medium"
+        android:paddingRight="@dimen/view_margin_medium"
+        android:paddingTop="@dimen/view_margin_small"
+        android:text="@string/onboard_title1"
+        android:textColor="@color/accentRed"
+        android:textAppearance="@style/proxima"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/ls_onboardFragment_tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="250dp"
+        android:layout_marginLeft="@dimen/view_margin_huge"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:background="@color/backgroundTextOnboarding"
+        android:paddingBottom="@dimen/view_margin_small"
+        android:paddingLeft="@dimen/view_margin_medium"
+        android:paddingRight="@dimen/view_margin_medium"
+        android:paddingTop="@dimen/view_margin_small"
+        android:text="@string/onboard_description1"
+        android:textColor="@color/white"
+        android:textAppearance="@style/proxima_light"
+        android:textSize="14sp" />
+
+</RelativeLayout>

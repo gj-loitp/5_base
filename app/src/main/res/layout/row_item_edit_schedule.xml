@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize" />
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvResultSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/h_120"
+        android:layout_below="@+id/ll_space"
+        app:cardCornerRadius="@dimen/corner_5"
+        app:cardElevation="@dimen/w_1"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/imvScheduleScreen_Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/app_name"
+            android:gravity="center|bottom|right"
+            android:src="@drawable/delete_button_grey" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_20"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlEditScheduleScreen_Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvEditScheduleScreen_Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:hint="DD/MM/YYYY"
+                    android:inputType="date"
+                    android:text="DD/MM/YYYY" />
+
+                <ImageView
+                    android:id="@+id/imvScheduleScreen_EditDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/h_25"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/tvEditScheduleScreen_Date"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/lich" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlEditScheduleScreen_Date"
+                android:layout_marginTop="@dimen/margin_10">
+
+                <TextView
+                    android:id="@+id/tvEditScheduleScreen_Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:hint="HH:MM"
+                    android:text="HH:MM" />
+
+                <ImageView
+                    android:id="@+id/imvScheduleScreen_EditTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/h_25"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/tvEditScheduleScreen_Time"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/edit" />
+
+                <vn.puresolutions.livestarv3.view.LTextViewHorizontal
+                    android:id="@+id/lthScheduleScreen_Saved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/imvScheduleScreen_EditTime" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

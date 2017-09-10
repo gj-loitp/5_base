@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scrool_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <vn.puresolutions.livestarv3.view.LPosterView
+                    android:id="@+id/l_poster_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <vn.puresolutions.livestarv3.view.LIdolFollowOrSuggestView
+                    android:id="@+id/l_idol_follow_or_suggest_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l_poster_view" />
+
+                <vn.puresolutions.livestarv3.view.LCategoryView
+                    android:id="@+id/l_category_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l_idol_follow_or_suggest_view" />
+
+                <vn.puresolutions.livestarv3.view.LRoomByCategoryView
+                    android:id="@+id/l_room_by_category_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l_category_view" />
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:realtimeBlurRadius="5dp"
+            app:realtimeOverlayColor="@color/WhiteTrans80" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/yup" />
+            </LinearLayout>
+
+            <vn.puresolutions.livestarv3.view.LIconView
+                android:id="@+id/l_icon_onair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_20" />
+
+            <vn.puresolutions.livestarv3.view.LIconView
+                android:id="@+id/l_icon_calenadar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_20" />
+
+            <vn.puresolutions.livestarv3.view.LIconView
+                android:id="@+id/l_icon_notificationr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_5" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

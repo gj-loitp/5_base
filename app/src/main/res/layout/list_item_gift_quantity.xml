@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/giftQuantityItem_tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_margin_small"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:gravity="center"
+        android:paddingTop="@dimen/view_padding_small"
+        android:paddingBottom="@dimen/view_padding_small"
+        android:textAppearance="@style/text_view_dialog_dark"
+        android:textSize="14sp"
+        android:minWidth="@dimen/gift_quantity_item_quantity_min_width"/>
+
+    <ImageView
+        android:id="@+id/giftQuantityItem_imgCover"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/gift_quantity_item_icon_size"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/heart" />
+
+</LinearLayout>

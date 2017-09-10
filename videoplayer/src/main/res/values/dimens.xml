@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="control_size">26dp</dimen>
+    <dimen name="view_margin_medium">16dp</dimen>
+    <dimen name="icon_play_size">48dp</dimen>
+</resources>

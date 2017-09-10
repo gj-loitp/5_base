@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<string name="webService_URL">http://api.livestar.vn/api/v1/</string>-->
+    <!--<string name="webService_URL">http://35.187.255.95:1337/api/</string>-->
+    <string name="webService_URL">http://dev.livestar.vn:1010/api/</string>
+
+    <string name="format_avatar" formatted="false">%s/users/%s/avatar</string>
+
+    <string name="ls_socketUrl">http://live.livestar.vn/room</string>
+    <string name="ls_notificationSocketUrl">http://live.livestar.vn/notification</string>
+    <string name="ls_web_payment_url">http://www.livestar.vn/payment?token=%s</string>
+    <string name="ls_web_payment_url_v3">http://www.livestar.vn/paymentforapp?token=%s</string>
+    <string name="ls_web_about_us_url">http://www.livestar.vn/gioi-thieu</string>
+    <string name="facebook_app_id">1546370315661210</string>
+    <string name="youtube_api_key">AIzaSyAbtsEKGaSBihUPCmbApb_aLuOEOXs5XW8</string>
+
+    <string name="ls_link_preview_facebook">http://www.livestar.vn/assets/images/logo.png</string>
+    <string name="livestar_policy">http://m.livestar.vn/policy</string>
+    <string name="ls_link_invite_facebook">https://fb.me/1564409660523942</string>
+
+    <string name="gcm_sender_id">299882248754</string>
+    <string name="facebook_share_link_format">http://www.livestar.vn/rooms/%s</string>
+
+    <string name="about_url">http://m.livestar.vn/gioi-thieu</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+    <item android:duration="170" android:drawable="@drawable/ic_progress1"/>
+    <item android:duration="170" android:drawable="@drawable/ic_progress2"/>
+    <item android:duration="170" android:drawable="@drawable/ic_progress3"/>
+    <item android:duration="170" android:drawable="@drawable/ic_progress4"/>
+    <item android:duration="170" android:drawable="@drawable/ic_progress5"/>
+</animation-list>

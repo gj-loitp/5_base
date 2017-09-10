@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/action_view_width"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundRoomView"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/viewActions_lnlUserCoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/view_margin_large"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/text_view_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_account"
+            android:textSize="@dimen/text_view_money_text_size" />
+
+        <TextView
+            android:id="@+id/viewActions_tvUserCoin"
+            style="@style/text_view_money"
+            android:layout_marginLeft="@dimen/view_margin_medium"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewActions_vwDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/view_margin_huge"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:layout_marginTop="@dimen/view_margin_medium"
+        android:background="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/viewActions_rclActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/viewActions_prgLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/viewActions_tvNoData"
+            style="@style/text_view_white"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/view_padding_large"
+            android:text="@string/there_are_no_data"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

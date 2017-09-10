@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    tools:context="vn.puresolutions.livestarv3.activity.userprofile.VideoManagerActivity">
+
+    <vn.puresolutions.livestarv3.view.LActionBar
+        android:id="@+id/labVideoManager_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/imvVideoManager_Title"
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/h_100"
+        android:layout_below="@+id/labVideoManager_Title"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/video" />
+
+    <TextView
+        android:id="@+id/tvRoomManager_CountVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imvVideoManager_Title"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="@dimen/text_size_25"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvVideoManager_Video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRoomManager_CountVideo"
+        android:layout_margin="@dimen/margin_5"
+        android:gravity="center"
+        android:text="Video đã lưu" />
+
+    <View
+        android:id="@+id/vVideoManager_Line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/tvVideoManager_Video"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@color/LightGrey" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvVideoManager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vVideoManager_Line"
+        android:layout_margin="@dimen/margin_5" />
+</RelativeLayout>

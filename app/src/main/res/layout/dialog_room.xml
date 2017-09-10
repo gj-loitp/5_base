@@ -1,0 +1,76 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dialogRoomBackground">
+
+    <ImageView
+        android:id="@+id/dialogRoom_imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/view_margin_huge"
+        android:layout_marginTop="@dimen/dialog_close_image_margin_top"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_close_white_thin" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialogRoom_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            android:text="@string/selected_gift_quantity"
+            android:textAppearance="@style/text_view_dialog_dark" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            android:background="@color/white" />
+
+        <FrameLayout
+            android:id="@+id/dialogRoom_lnlContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dialogRoom_btnCancel"
+                style="@style/button_dialog_border"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginRight="@dimen/view_margin_small"
+                android:text="@string/cancel"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/dialogRoom_btnOk"
+                style="@style/button_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="@dimen/view_margin_small"
+                android:text="@string/ok" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

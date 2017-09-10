@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dialogGiftQuantity_lvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_huge"/>
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/dialogGiftQuantity_cbRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_medium"
+        android:text="@string/remember_selection"
+        android:textAppearance="@style/text_view_dialog_dark"
+        android:textColor="@color/white"
+        app:buttonTint="@color/white" />
+
+</LinearLayout>

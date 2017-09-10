@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chatView_rcvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chat_height"
+        android:layout_above="@+id/chatInput"/>
+
+    <LinearLayout
+        android:id="@+id/chatInput"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_margin_large"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_weight="0.7"
+            android:id="@+id/chatView_imgIconMsg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/chat_icon_size"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_chat_active"/>
+
+        <LinearLayout
+            android:layout_weight="6"
+            android:id="@+id/chatView_lnlInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/view_margin_medium"
+            android:layout_toRightOf="@+id/chatView_imgIconMsg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    style="@style/edit_text"
+                    android:id="@+id/chatView_edtInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="@dimen/view_margin_small"
+                    android:imeOptions="actionDone|flagNoExtractUi"
+                    android:textAppearance="@style/proxima"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="0dp"
+                    android:textSize="@dimen/chat_text_size"
+                    android:hint="@string/lets_chat"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/chatView_imgSend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_send_active"/>
+    </LinearLayout>
+</RelativeLayout>

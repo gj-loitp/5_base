@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:id="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/view_group_chat_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/WhiteTrans"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_5"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bt_edit_text"
+                android:hint="@string/share_with_host"
+                android:maxLength="100"
+                android:maxLines="1"
+                android:padding="@dimen/padding_5"
+                android:textColorHint="@color/LightGrey" />
+
+            <TextView
+                android:id="@+id/tv_send_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:background="@drawable/bt_send"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_15"
+                android:paddingTop="@dimen/padding_5"
+                android:text="@string/send"
+                android:textAllCaps="false"
+                android:textColor="@color/White"
+                android:textSize="@dimen/txt_18"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/view_group_controller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10">
+
+            <LinearLayout
+                android:id="@+id/view_group_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_black"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_3">
+
+                <ImageView
+                    android:layout_width="@dimen/w_30"
+                    android:layout_height="@dimen/w_30"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/chat_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:text="@string/chat_with_idol"
+                    android:textColor="@color/White" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bt_0"
+                    android:layout_width="@dimen/w_40"
+                    android:layout_height="@dimen/w_40"
+                    android:background="@drawable/gift_button" />
+
+                <Button
+                    android:id="@+id/bt_1"
+                    android:layout_width="@dimen/w_40"
+                    android:layout_height="@dimen/w_40"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:background="@drawable/heart_button" />
+
+                <Button
+                    android:id="@+id/bt_2"
+                    android:layout_width="@dimen/w_40"
+                    android:layout_height="@dimen/w_40"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:background="@drawable/expand_button" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_group_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bkg_view_more_of_livestream"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_10"
+            android:text="@string/open_more"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/Black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h_1"
+            android:background="@color/LightGrey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_20">
+
+            <vn.puresolutions.livestarv3.view.LTextViewVertical
+                android:id="@+id/l_text_view_share_fb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <vn.puresolutions.livestarv3.view.LTextViewVertical
+                android:id="@+id/l_text_view_calendar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_group_gifts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/black_65"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_gifts"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/h_200" />
+    </LinearLayout>
+
+</FrameLayout>

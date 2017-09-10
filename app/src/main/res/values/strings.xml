@@ -1,0 +1,402 @@
+<resources>
+    <string name="app_name">YUP</string>
+    <string name="success">Thành công</string>
+    <string name="error">Lỗi</string>
+    <string name="cant_connect_to_internet">Vui lòng kiểm tra kết nối mạng của bạn nhé!</string>
+    <string name="warning">Cảnh báo</string>
+    <string name="an_error_has_occurred">Server đang bảo trì, xin vui lòng thử lại sau.</string>
+    <string name="connection_failure">CONNECTION_FAILURE</string>
+    <string name="error_fb_login">Vui lòng kiểm tra lại tài khoản Facebook của bạn!</string>
+    <string name="email_not_found">Email không tồn tại, vui lòng nhập lại nhé!</string>
+    <string name="email_duplicate">Email đã tồn tại, vui lòng nhập lại nhé!</string>
+    <string name="loginscreen_signup"> Đăng ký ngay!</string>
+    <string name="loginscreen_editsigin_username">Số điện thoại</string>
+    <string name="loginscreen_editsigin_password">Mật khẩu</string>
+    <string name="loginscreen_forgot_describe">Nhập email hoặc số điện thoại của bạn để lấy lại mật khẩu</string>
+    <string name="loginscreen_forgot_title">Quên mật khẩu</string>
+    <string name="loginscreen_forgot_title_otp">Xác nhận đổi mật khẩu</string>
+    <string name="loginscreen_forgot_title_otp_topdetail">Mã xác nhận đổi mật khẩu đã được chuyển \nđến email/số điện thoại của bạn. Vui lòng nhập mã \nđể xác nhận đổi mật khẩu</string>
+    <string name="loginscreen_forgot_title_newpass">Đổi mật khẩu</string>
+    <string name="loginscreen_forgot_btn">Lấy mật khẩu</string>
+    <string name="loginscreen_forgot_hint">Email/Số điện thoại</string>
+    <string name="loginscreen_forgot_success">Mật khẩu đã được gửi đến địa chỉ email hoặc số điện thoại bạn đăng ký. Vui lòng kiểm tra thông tin để dăng nhập lại.</string>
+    <string name="loginscreen_signup_title">Đăng ký tài khoản</string>
+    <string name="loginscreen_signup_name_hint">Nhập tên bạn muốn hiển thị</string>
+    <string name="loginscreen_signup_password">Mật khẩu của bạn</string>
+    <string name="loginscreen_signup_repassword">Xác nhận mật khẩu</string>
+    <string name="loginscreen_signup_phonenum">Số điện thoại</string>
+    <string name="loginscreen_signin_detail">Bạn cần đăng nhập \nđể thực hiện chức năng này</string>
+    <string name="loginscreen_signup_verify_phonenum_title">Xác thực số điện thoại</string>
+    <string name="loginscreen_signup_verify_phonenum_label">Mã OTP: %d</string>
+    <string name="loginscreen_signup_verify_phonenum_description">Mã OTP đã được gửi đến số điện thoại bạn đăng ký. Vui lòng nhập mã để xác thực</string>
+    <string name="loginscreen_signup_verify_phonenum_btn">Xác thực</string>
+    <string name="loginscreen_signup_resend_phonenum_btn">Gửi lại mã</string>
+    <string name="changepass_otp_label_pass">Mật khẩu mới *</string>
+    <string name="changepass_otp_label_repass">Xác nhận mật khẩu *</string>
+    <string name="changepass_otp_edt_pass">Mật khẩu của bạn</string>
+    <string name="changepass_oldpass">Mật khẩu đang dùng</string>
+    <string name="changepass_newpass">Mật khẩu mới</string>
+    <string name="changepass_title">Cập nhật mật khẩu</string>
+    <string name="changepass_renewpass">Nhập lại mật khẩu mới</string>
+    <string name="changepass_otp_edt_repass">Xác nhận mật khẩu</string>
+    <string name="searchscreen_searchbar_hint">Nhập tên idol,video hoặc từ khóa</string>
+    <string name="searchscreen_not_found">Không có kết quả nào được hiển thị. \nVui lòng nhập từ khóa khác.</string>
+    <string name="searchscreen_amount_result">%d kết quả</string>
+    <string name="searchscreen_watch_video">Xem video</string>
+    <string name="searchscreen_go_room">Vào room</string>
+    <string name="changepass_success">Đổi mật khẩu thành công</string>
+    <string name="notifiscreen_notify">Thông báo (%d thư mới)</string>
+    <string name="profilescreen_title">Trang cá nhân</string>
+    <string name="profilescreen_live_title">Hồ sơ cá nhân</string>
+    <string name="profilescreen_logout">Đăng Xuất</string>
+    <string name="profilescreen_level_title">Cấp Level</string>
+    <string name="profilescreen_level_label">Level %d</string>
+    <string name="profilescreen_level_label_levelup">Cách tăng điểm level nhanh chóng</string>
+    <string name="profilescreen_level_label_benefit">Quyền lợi</string>
+    <string name="profilescreen_level_progress" formatted="false">Cần %d điểm để lên cấp %d</string>
+    <string name="edit_profilescreen_title">Sửa thông tin cá nhân</string>
+    <string name="edit_profilescreen_title_notify">Cài đặt thông báo</string>
+    <string name="roommanagerscreen_category">Chọn thể loại</string>
+    <string name="roommanagerscreen_title">Quản lý phòng diễn</string>
+    <string name="roommanagerscreen_count_schedule">%d lịch diễn hiện tại</string>
+    <string name="schedulerscreen_count_schedule">%d lịch diễn hiện có</string>
+
+    <string name="following_title">Đang theo dõi (%d)</string>
+    <string name="following_no_result">Hiện tại %s chưa theo dõi ai!</string>
+    <string name="follower_no_result">Hiện tại %s chưa có người theo dõi!</string>
+    <string name="follower_title">Người theo dõi (%d)</string>
+    <string name="follower_following_status">Idol đang livestream, Click để xem</string>
+    <string name="dialog_content_phone_empty">SĐT hoặc Email không hợp lệ \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_pass_not_match">Mật khẩu không trùng khớp \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_fill_pass">Mật khẩu mới không hợp lệ \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_otp_error">Mã OTP mới không hợp lệ \nVui lòng kiểm tra và nhập lại mã OTP.</string>
+    <string name="dialog_content_otp_error_limit">Bạn đã gửi lại mã OTP quá 3 lần/ ngày. \nBạn vui lòng kiểm tra lại SĐT hoặc thử lại sau</string>
+    <string name="dialog_content_phone_invalid">SĐT không hợp lệ \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_changepass_success">Đổi mật khẩu thành công \n Vui lòng đăng nhập lại.</string>
+    <string name="dialog_content_fill_invalid">Vui lòng điền đầy đủ và kiểm tra các thông tin.</string>
+    <string name="dialog_content_fill_otp">Vui lòng điền đầy đủ mã OTP.</string>
+    <string name="dialog_content_forgot_error">SĐT không tồn tại \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_search_invalid">Từ khóa không hợp lệ \nVui lòng kiểm tra lại.</string>
+    <string name="dialog_content_register_phone_used">SĐT đã sử dụng Vui lòng kiểm tra lại.</string>
+    <string name="dialog_content_register_phone_invalid">SĐT không hợp lệ Vui lòng kiểm tra lại.</string>
+    <string name="dialog_content_signin_phone_invalid">SĐT hoặc mật khẩu không hợp lệ \nVui lòng kiểm tra lại.</string>
+    <string name="update">Cập nhật</string>
+    <string name="search_description_onAir">Idol đang livestream.Click để xem!</string>
+    <string name="search_description_offAir">Idol chưa on air. Click để xem hồ sơ idol!</string>
+    <string name="search_description_video">Video đã lưu của idol. Click để xem!</string>
+    <string name="search_action_room">Vào room</string>
+    <string name="search_action_video">Xem video</string>
+    <string name="search_action_resume">Xem hồ sơ</string>
+    <string name="coin_amount">%d xu</string>
+    <string name="endlive_time">%s phút</string>
+
+
+    <string name="no">Bỏ Qua</string>
+    <string name="yes">Đồng Ý</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="date_format_value" formatted="false">%1$d / %2$d / %3$d </string>
+    <string name="schedule_date_format">dd/MM</string>
+    <string name="connect_timeout">Mạng bạn đang chậm quá, vui lòng thử lại sau nha!</string>
+
+    <string name="skip">Skip</string>
+    <string name="login_again">Vui lòng đăng nhập lại!</string>
+    <string name="login_with_facebook">Đăng nhập với Facebook</string>
+    <string name="login_with_email">Đăng nhập với Email</string>
+    <string name="login_with_mobifone">Đăng nhập với Mobifone</string>
+    <string name="on_air">On Air</string>
+    <string name="there_are_no_data">Không có dữ liệu</string>
+    <string name="on_air_idol_not_found">Chưa có idol nào On Air !</string>
+    <string name="your_account_coin">Tài khoản của bạn:</string>
+    <string name="your_account">Tài khoản:</string>
+    <string name="normal_gift">Quà tặng thường</string>
+    <string name="special_gift">Quà tặng đặc biệt</string>
+
+    <string name="onboard_title1">Thỏa mãn đam mê</string>
+    <string name="onboard_title2">Rủng rỉnh tiền túi</string>
+    <string name="onboard_title3">Kết bạn bốn phương</string>
+    <string name="onboard_title4">Gặp gỡ thần tượng</string>
+    <string name="onboard_description1">Bạn muốn được làm idol? Bạn có giọng hát hay nhưng lại không có ma nào thèm nghe? Hãy để LiveStar đưa tài năng của bạn lại gần nhiều người hơn.</string>
+    <string name="onboard_description2">Không chỉ được cất tiếng hát, bạn có cơ hội nâng cao thu nhập của mình nữa đấy. Với món quà bạn nhận được từ khán giả, LiveStar sẽ quy đổi cho bạn món tiền tương đương.</string>
+    <string name="onboard_description3">Bằng hệ thống tương tác hai chiều, LiveStar là nơi bạn có thể giao lưu, gặp gỡ và kết nối những tâm hồn đồng điệu, có cùng sở thích lại với nhau.</string>
+    <string name="onboard_description4">Không chỉ được nghe thần tượng mình hát mà bạn còn có thể chat trực tuyến, tặng quà cho họ nữa luôn đấy. Còn không mau mau đặt chỗ ở LiveStar gấp.</string>
+
+    <string name="enter_email_or_phone_number">Nhập email hoặc số điện thoại</string>
+    <string name="enter_password">Nhập mật khẩu</string>
+    <string name="forgot_pass"><u>Quên mật khẩu?</u></string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_in_message">Chào mừng bạn đã quay trở lại! Đăng nhập ngay để trải nghiệm thú vị cùng Livestar nhé!</string>
+    <string name="sign_up_here"><u>Hoặc đăng ký tại đây</u></string>
+    <string name="sign_up_message">Bạn chưa phải là thành viên sao? Hãy đăng kí ngay để có những trải nghiệm cực kì thú vị nhé!</string>
+    <string name="forgot_password_guide">Bạn đã quên mật khẩu?\nVui lòng nhập email của bạn hoặc số điện thoại nếu là user mobifone</string>
+    <string name="enter_email">Nhập email</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="agree_with">Tôi đồng ý với các</string>
+    <string name="term_of_service">điều khoản</string>
+    <string name="accept_term_of_service">Vui lòng đồng ý với các điều khoản.</string>
+    <string name="signing_in">Đang đăng nhập&#8230;</string>
+    <string name="go_next">Tiếp theo</string>
+    <string name="email_or_phone_numer_invalid">Email hoặc số điện thoại không hợp lệ!</string>
+    <string name="forgot_password_successfully">Vui lòng kiểm tra email của bạn!</string>
+    <string name="forgot_password_sms_tutorial">
+        <![CDATA[
+	        Bạn quên mật khẩu ư?<br>Không sao, hãy soạn tin<br><b><font color=\"0xDE006F\">"MK"</font></b> gửi <b><font color=\"0xDE006F\">9387</font></b><br>để nhận lại mật khẩu của mình nhé
+	    ]]>
+    </string>
+    <string name="sign_in_sms_forgot_password">
+        <![CDATA[
+	        Nếu đã nhận được tin nhắn,<br>mời bạn <b><font color=\"0xDE006F\">đăng nhập</font></b>
+	    ]]>
+    </string>
+
+    <string name="email_empty_error">Vui lòng nhập email</string>
+    <string name="email_invalid_error">Email không hợp lệ</string>
+    <string name="password_empty_error">Vui lòng nhập mật khẩu</string>
+    <string name="confirm_password_empty_error">Vui lòng xác nhận mật khẩu</string>
+    <string name="password_not_match">Mật khẩu không trùng khớp</string>
+    <string name="signInFail">Email hoặc mật khẩu không đúng, vui lòng thử lại!</string>
+    <string name="signUpSuccess">Bạn đã đăng ký thành công!</string>
+    <string name="signUpFail">Email đã tồn tại, vui lòng thử lại!</string>
+
+    <string name="update_message">LiveStar đã có version mới, bạn có muốn cập nhật không?</string>
+    <string name="force_update_message">LiveStar đã có version mới, vui lòng cập nhật để sử dụng được những tính năng mới của app!</string>
+    <string name="not_enough_buy_gift">Tài khoản của bạn không đủ để mua món quà này.\nBạn có muốn nạp thêm xu?</string>
+    <string name="gain_exp_message">+ %s exp</string>
+    <string name="selected_gift_quantity">Chọn số lượng quà tặng</string>
+    <string name="lounge_price">Giá ghế</string>
+    <string name="remember_selection">Ghi nhớ lựa chọn</string>
+
+    <string name="cancel">Huỷ</string>
+    <string name="ok">OK</string>
+    <string name="notifyLogin">Vui lòng đăng nhập để trò chuyện cùng idol và khám phá các tính năng đầy thú vị của LiveStar nhé!</string>
+
+    <string name="lets_chat">Tám nào!</string>
+    <string name="giftMessageFormat" formatted="false">%s đã gửi %s %s  đến %s</string>
+    <string name="heartMessageFormat" formatted="false">%s đã gửi %s trái tim tới %s</string>
+    <string name="vipCommingMessageFormat" formatted="false">Chào mừng VIP %s %s đã vào phòng</string>
+    <string name="guest">Khán giả</string>
+    <string name="chair_price">Giá ghế</string>
+    <string name="please_input_price">Vui lòng nhập vào giá tiền</string>
+
+    <string name="sign_up_sms_tutorial">
+        <![CDATA[
+	        Bạn là thuê bao mobifone?<br>Đăng ký bằng cách gửi tin nhắn<br><b><font color=\"0xDE006F\">"DK"</font></b> gửi <b><font color=\"0xDE006F\">9387</font></b>
+	    ]]>
+    </string>
+    <string name="composite">Soạn tin</string>
+    <string name="sign_in_sms">
+        <![CDATA[
+	        Nếu đã đăng ký thành công,<br>mời bạn <b><font color=\"0xDE006F\">đăng nhập</font></b>
+	    ]]>
+    </string>
+    <string name="welcome_phone_number">Xin chào số điện thoại: %s</string>
+    <string name="not_enough_heart">Bạn chưa có tim để tặng, chờ thêm chút nữa nhé!</string>
+
+    <string name="menu">Menu</string>
+    <string name="coming_up">Sắp diễn</string>
+    <string name="ranking">Xếp hạng</string>
+    <string name="schedule">Lịch diễn</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="buy_coin">Nạp xu</string>
+    <string name="profile">Trang cá nhân</string>
+    <string name="about">Giới thiệu</string>
+
+    <string name="heartNumberFormat">Yêu thích: %s</string>
+    <string name="buy_lounge_message">Vui lòng nhập cao hơn mức giá hiện có</string>
+    <string name="video_quality">Chất lượng</string>
+    <string name="share">Share</string>
+    <string name="audience">Khán giả</string>
+    <string name="calendar">Lịch diễn</string>
+
+    <string name="follow_idol_successfully">Bạn đã theo dõi idol này.\nChúc bạn vui vẻ nhé!</string>
+
+    <string name="setupIABFailed">Không thể thiết lập In App Billing trên thiết bị của bạn</string>
+    <string name="buyProductFailed">Giao dịch không thành công: %d</string>
+
+    <string name="purchase_vip">Mua Vip</string>
+    <string name="purchase_coin">Nạp Xu</string>
+    <string name="other_method">Hình thức khác</string>
+    <string name="buy_vip_confirm_title">Bạn chắc chắn với sự lựa chọn\nnày chứ?</string>
+    <string name="buy_vip_confirm_message">Giá quá rẻ cho những ưu đãi\ntuyệt vời phải không nào?</string>
+    <string name="vote_success">Vote thành công.</string>
+    <string name="buying">Đang mua…</string>
+    <string name="day">Ngày</string>
+    <string name="current_vip_point_message">Tài khoản của bạn:</string>
+    <string name="warning_when_user_use_other_account">Bạn chưa hoàn tất giao dịch khi mua gói xu này bằng tài khoản khác. Vui lòng hoàn tất giao dịch trước khi mua lại lần nữa</string>
+
+    <string name="purchase_vip_success">Mua gói VIP thành công</string>
+    <string name="purchase_coin_success">Mua xu thành công</string>
+    <string name="verifying">Đang xác thực…</string>
+    <string name="not_enough_money_to_purchase">Bạn không có đủ xu để mua gói vip này</string>
+    <string name="not_enough_buy_vip">Tài khoản của bạn không đủ để mua gói vip này.\nBạn có muốn nạp thêm xu?</string>
+    <string name="buy_vip_instruction_message">
+        <![CDATA[
+	        Soạn tin <b><font color=\"0xDE006F\">%s</font></b> gửi <b><font color=\"0xDE006F\">9387</font></b> để mua gói vip này nhé!
+	    ]]>
+    </string>
+    <string name="PURCHASE_COIN_FAILED">Mua xu thất bại</string>
+    <string name="buy_vip">Mua VIP</string>
+    <string name="benefit">Quyền lợi</string>
+    <string name="vip_benefit_title">Được ưu tiên xếp hạng</string>
+    <string name="chat_number">Số lượng kí tự chat: %d</string>
+    <string name="screen_text">Screen text: %ds/lần</string>
+    <string name="screen_text_effect">Screen text effect: %s</string>
+    <string name="kick">Được %s</string>
+    <string name="fame">Tỷ lệ tăng FAME: %s</string>
+    <string name="three_month_vip_price">Giá 3 tháng:</string>
+    <string name="reward">Tặng</string>
+    <string name="buy">Mua</string>
+    <string name="six_month_vip_price">Giá 6 tháng:</string>
+    <string name="twelve_month_vip_price">Giá 12 tháng:</string>
+    <string name="related_package_format">Giá %s ngày: </string>
+    <string name="follow">Theo dõi</string>
+    <string name="followed">Đang theo dõi</string>
+    <string name="coin_running_out_message">Bạn gần hết xu rồi, vui lòng nạp thêm xu để\ntặng quà cho idol nhé!</string>
+    <string name="nope">Thôi</string>
+    <string name="already_shared_room">Bạn đã chia sẽ phòng này rồi!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="search_not_found">Oops!\n Không tìm thấy idol \n vui lòng nhập từ khóa khác </string>
+    <string name="search_not_result">
+    <![CDATA[
+            <h1>Oops!</h1>Không tìm thấy idol <br> vui lòng nhập từ khóa khác
+	    ]]>
+    </string>
+    <string name="send">Gửi</string>
+    <string name="share_with_host">Chia sẻ cùng Host......</string>
+    <string name="open_more">Mở rộng</string>
+    <string name="share_fb">Chia sẻ</string>
+    <string name="plus_follow">+ Follow</string>
+    <string name="chat_with_idol">Chat với Idol</string>
+    <string name="chat_with_user">Chat với User</string>
+    <string name="_0">0</string>
+    <string name="get_coin"><![CDATA[Nạp>]]></string>
+    <string name="hint_search">Nhập tên idol hoặc từ khóa</string>
+    <string name="pls_type_sth_in_search_view">Xin mời nhập từ khóa vào ô tìm kiếm</string>
+    <string name="current_day">Trong ngày</string>
+    <string name="next_day_3">3 ngày tới</string>
+    <string name="next_day_7">7 ngày tới</string>
+    <string name="all_day">Tất cả</string>
+    <string name="home">Trang chủ</string>
+    <string name="select_get_coin_method">Chọn phương thức nạp xu</string>
+    <string name="sms">SMS</string>
+    <string name="mobile_card">Thẻ cào\nđiện thoại</string>
+    <string name="internet_banking">Internet\nBanking</string>
+    <string name="via_sms">Qua SMS</string>
+    <string name="choose_branch">1. Chọn nhà mạng</string>
+    <string name="get_coin_">Nạp xu</string>
+    <string name="p_50">50 xu\n(50.000vnd)</string>
+    <string name="p_100">100 xu\n(100.000vnd)</string>
+    <string name="p_200">200 xu\n(200.000vnd)</string>
+    <string name="coin_manager">Quản lý tài sản</string>
+    <string name="viettel">Viettel</string>
+    <string name="mobifone">Mobifone</string>
+    <string name="vinaphone">Vinaphone</string>
+    <string name="choose_coin_package">2. Chọn gói xu (1xu=100vnd)</string>
+    <string name="choose_coin_package_1">1. Chọn gói xu (1xu=100vnd)</string>
+    <string name="format">Cú pháp</string>
+    <string name="none">Không</string>
+    <string name="to_be_continue">Tiếp tục</string>
+    <string name="via_card">Qua thẻ cào điện thoại</string>
+    <string name="via_internet_banking">Qua Internet Banking</string>
+    <string name="fpt_gate">FPT Gate</string>
+    <string name="zing">Zing</string>
+    <string name="one_cash">Onecash</string>
+    <string name="mega_cash">MegaCash</string>
+    <string name="input_card_code">2. Nhập mã thẻ cào</string>
+    <string name="input_card_code_hint">Nhập mã thẻ cào</string>
+    <string name="input_seri_number">3. Nhập số Sêri</string>
+    <string name="input_seri_number_hint">Nhập số Sêri</string>
+    <string name="done">HOÀN THÀNH</string>
+    <string name="choose_bank">2. Chọn ngân hàng</string>
+    <string name="noti">Thông báo</string>
+    <string name="get_coin_all_cap">NẠP XU</string>
+    <string name="all">Tất cả</string>
+    <string name="dj">DJ</string>
+    <string name="hot_boy">Hot boy</string>
+    <string name="hot_girl">Hot girl</string>
+    <string name="nghe_sy">Nghệ sỹ</string>
+    <string name="number">Số lượng</string>
+    <string name="cost_per_unit">Giá đơn vị</string>
+    <string name="total_cost">Tổng xu</string>
+    <string name="cost">Mệnh giá</string>
+    <string name="total_number">Tổng số</string>
+    <string name="turn_off_private_livestream">Đã bật chế độ hạn chế. Ấn vào để chuyển sang chế độ công khai cho mọi người xem</string>
+    <string name="reminder">Nhắc nhở</string>
+    <string name="do_you_want_to_exit_livestream">Bạn muốn dừng Livestream?</string>
+    <string name="exit_livestream_yes">Có</string>
+    <string name="exit_livestream_no">Không</string>
+    <string name="do_you_want_to_save_video">Bạn có muốn lưu Video?</string>
+    <string name="easy_to_watch_again">Dễ dàng xem lại mọi lúc mọi nơi</string>
+    <string name="type_video_name">Nhập tên video</string>
+    <string name="video_name_cannot_be_empty">Tên video không được bỏ trống</string>
+    <string name="watcher">Người xem</string>
+    <string name="heart">Tim</string>
+    <string name="share_number">Lượt share</string>
+    <string name="gift">Quà tặng</string>
+    <string name="back_to_home">QUAY LẠI TRANG CHỦ</string>
+    <string name="calendar_month">Lịch tháng</string>
+    <string name="fall_in_love_with_hot_girl_in_vietnam">Fall in love with hot girl in Vietnam</string>
+    <string name="room_by_category_is_empty">Woahhhhh, hiện tại thể loại %s chưa có Idol nào on air cả. Bạn vui lòng thử lại sau nhé</string>
+    <string name="room_is_not_onair">%s hiện chưa phát live. Bạn quay trở lại sau nhé</string>
+    <string name="room_idol_is_not_onair">Idol %s hiện chưa phát live. Bạn quay trở lại sau nhé</string>
+    <string name="alert">Thông báo</string>
+    <string name="no_connection_msg">Cần phải có kết nối để sử dụng</string>
+    <string name="open_connection">Mở kết nối</string>
+    <string name="press_back_again_to_exit_app">Nhấn thêm lần nữa để thoát ứng dụng</string>
+    <string name="err">Không thể tải dữ liệu vào lúc này, xin vui lòng thử lại sau</string>
+    <string name="err_get_giif">Không thể tải dữ liệu quà tặng vào lúc này, xin vui lòng thử lại sau</string>
+    <string name="err_send_giif">Không thể gửi quà tặng vào lúc này, xin vui lòng thử lại sau</string>
+    <string name="logout_success">Đăng xuất thành công</string>
+    <string name="loggin_successfully">Đăng nhập thành công</string>
+    <string name="alert_watching_room">Vui lòng giữ lịch sự khi chat trong room. Mọi hình thức vi phạm hoặc phát ngôn xúc phạm sau khi bị phản ánh sẽ bị ban</string>
+    <string name="history_spend_is_empty">Hiện chưa có giao dịch nào</string>
+    <string name="history_gift_is_empty">Bạn hiện chưa có quà tặng được nhận. Hãy kêu gọi người xem tặng quà khi livestream. Khi bạn được nhận được tổng quà tặng với trị giá trên 5000 xu, Livestar sẽ liên hệ để mời bạn làm idol với mức lương hàng tháng vô cùng hấp dẫn.</string>
+    <string name="room_is_private">Chương trình hạn chế người xem</string>
+    <string name="ticket_price">GIÁ VÉ</string>
+    <string name="like">Thích</string>
+    <string name="by_ticket_all_cap">MUA VÉ</string>
+    <string name="watch_prev_live">XEM PHIÊN DIỄN TRƯỚC</string>
+    <string name="not_enoght_coint">Bạn không còn đủ xu để mua vé</string>
+    <string name="err_buy_ticket">Đã có lỗi xảy ra khi mua vé. Xin vui lòng thử lại sau</string>
+    <string name="err_unknow">Lỗi chưa xác định</string>
+    <string name="resent_otp_success">Đã gửi lại mã thành công</string>
+    <string name="otp_code_is_invalid">Mã OTP không hợp lệ</string>
+    <string name="register_complete_success">Đăng ký thành công!\nVui lòng đăng nhập để sử dụng ứng dụng</string>
+    <string name="update_banner_success">Đổi ảnh phòng thành công !</string>
+    <string name="update_room_name_success">Tên phòng đã được cập nhật</string>
+    <string name="update_room_description_success">Mô tả phòng đã được cập nhật</string>
+    <string name="update_room_type_success">Thể loại đã được cập nhật</string>
+    <string name="err_select_crop_image">Đã có lỗi xảy ra khi chọn ảnh, bạn vui lòng liên hệ với nhà phát triển để được hỗ trợ</string>
+    <string name="switch_to_restrict_mode">Chuyển sang chế độ hạn chế?</string>
+    <string name="switch_to_restrict_mode_msg">Với chế độ này, yêu cầu người dùng phải mua vé xem chương trình của bạn. Giá vé được quy định là 10 xu</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="switch_to_public_mode">Bạn đang phát live với chế độ công khai</string>
+    <string name="switch_to_restrict_mode_success">Bạn đang phát live với chế độ hạn chế</string>
+    <string name="you_have_no_enought_coins">Bạn không đủ xu</string>
+    <string name="unknow">Chưa rõ</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="notify">Thông báo</string>
+    <string name="restrict_msg_user_is_not_idol">Chức năng hạn chế người xem, yêu cầu mua vé xem. Vui lòng liên hệ với YUP nếu muốn thực hiện chức năng này</string>
+    <string name="close">Đóng</string>
+    <string name="contact">Liên hệ</string>
+    <string name="change_real_coin">Đổi tiền mặt</string>
+    <string name="change_real_coin_below_2000">Bạn cần có đủ tối thiểu 2000 Ucoin để đổi sang tiền mặt</string>
+    <string name="policy_msg">Bằng việc đăng nhập ứng dụng, tôi đã đồng ý với các điều khoản sử dung và chính sách bảo mật</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="guide_level_up">Hướng dẫn lên Level</string>
+    <string name="get_new_pass">Lấy mật khẩu</string>
+    <string name="type_pass_again">Nhập lại mật khẩu</string>
+    <string name="type_your_name">Nhập tên bạn</string>
+    <string name="add_schedule">Thêm lịch diễn</string>
+    <string name="hint_description_status_room">Mô tả về cá nhân và phòng diễn</string>
+    <string name="choose_type">CHỌN THỂ LOẠI</string>
+    <string name="pls_update_room_info">Bạn vui lòng cập nhập thông tin phòng diễn</string>
+    <string name="no_data">Hiện tại chưa có dữ liệu</string>
+    <string name="saved">Đã lưu</string>
+    <string name="to_be_idol">Bạn cần phải là Idol để thực hiện tính năng này. Hãy liên hệ với YUP\'s team để trở thành Idol nhé!</string>
+    <string name="is_bought_ticket">Bạn đã mua vé cho phòng này rồi, do đó bạn sẽ được vào xem mà không cần mua nữa.</string>
+</resources>

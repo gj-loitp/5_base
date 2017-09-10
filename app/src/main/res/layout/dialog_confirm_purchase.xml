@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/view_padding_large"
+    android:paddingRight="@dimen/view_padding_large">
+
+    <TextView
+        android:id="@+id/confirmBuyVipDialog_tvPackageName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="@dimen/view_padding_medium"
+        android:text="VIP 1"
+        android:textColor="@color/redButtonColor"
+        android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        android:id="@+id/confirmBuyVipDialog_tvCoin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_margin_medium"
+        android:layout_marginTop="@dimen/view_margin_large"
+        android:gravity="center"
+        android:text="140"
+        android:textAppearance="@style/text_view_dialog_dark"
+        android:textSize="@dimen/text_size_medium" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/confirmBuyVipDialog_imgPackage"
+        android:layout_width="@dimen/purchase_dialog_icon_width"
+        android:layout_height="@dimen/purchase_dialog_icon_height"
+        android:contentDescription="@null"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:placeholderImage="@drawable/img_coin_package"
+        fresco:placeholderImageScaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/confirmBuyVipDialog_tvPrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:gravity="center"
+        android:text="đ2.000"
+        android:textAppearance="@style/text_view_dialog_dark"
+        android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        android:id="@+id/confirmBuyVipDialog_tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/view_padding_large"
+        android:paddingTop="@dimen/view_padding_medium"
+        android:text="@string/buy_vip_confirm_message"
+        android:textAppearance="@style/text_view_dialog_dark"
+        android:textSize="@dimen/text_size_medium" />
+
+</LinearLayout>
+

@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="vn.puresolutions.livestarv3.activity.login.ChangePassOtpActivity">
+
+    <!-- TODO: Update blank fragment layout -->
+    <vn.puresolutions.livestarv3.view.LActionBar
+        android:id="@+id/labChangPassOtpScreen_labHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/labChangPassOtpScreen_labHeader"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_10">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/changepass_otp_label_pass" />
+        <!--<EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_register_edittext"
+            android:hint="@string/changepass_otp_edt_pass"
+            android:inputType="textPassword|numberPassword"
+            style="@style/edit_text_common"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15" />-->
+        <vn.puresolutions.livestarv3.view.LEdittextPassword
+            android:id="@+id/lepChangPassOtpScreen_NewPass"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="textPassword" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/changepass_otp_label_repass" />
+        <!--<EditText
+            android:id="@+id/edtFrmChangePass_ReNewPass"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_register_edittext"
+            android:hint="@string/changepass_otp_edt_repass"
+            android:inputType="textPassword|numberPassword"
+            style="@style/edit_text_common"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15" />-->
+        <vn.puresolutions.livestarv3.view.LEdittextPassword
+            android:id="@+id/lepChangPassOtpScreen_ReNewPass"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="textPassword" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnChangPassOtpScreen_Update"
+            android:layout_width="@dimen/w_150"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/background_button_non_enable"
+            android:enabled="false"
+            android:text="@string/update"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+    </LinearLayout>
+
+</RelativeLayout>

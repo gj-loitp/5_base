@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/giftItem_imgGift"
+            android:layout_width="@dimen/gift_image_width"
+            android:layout_height="@dimen/gift_image_height"
+            fresco:actualImageScaleType="fitCenter" />
+
+        <ProgressBar
+            android:id="@+id/loadingItem_pgbLoading"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/giftItem_tvPrice"
+        style="@style/text_view_money"
+        android:layout_marginTop="@dimen/view_padding_small" />
+
+</LinearLayout>

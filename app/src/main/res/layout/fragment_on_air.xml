@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onAirFragment_srlRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/onAirFragment_rltContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/onAirFragment_imgBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:fadeDuration="0"
+            fresco:placeholderImage="@drawable/img_onboarding1"
+            fresco:placeholderImageScaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundOnAir" />
+
+        <ProgressBar
+            style="@style/progress_bar"
+            android:id="@+id/onAirFragment_prgLoading"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/onAirFragment_tvNoData"
+            style="@style/text_view_white"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/view_padding_large"
+            android:text="@string/on_air_idol_not_found"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/onAirFragment_rclIdols"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_65">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/purchaseVipFragment_vwRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <vn.puresolutions.livestar.custom.view.CoinInfoView
+                android:id="@+id/purchaseVipFragment_vwCoinInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+
+            <View
+                android:id="@+id/purchaseVipFragment_vwDivider"
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/purchaseVipFragment_vwCoinInfo"
+                android:layout_centerHorizontal="true"
+                android:background="@color/grey" />
+
+            <Button
+                android:id="@+id/purchaseVipFragment_btnVipInfo"
+                style="@style/button_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/purchaseVipFragment_vwDivider"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/view_margin_medium"
+                android:text="@string/benefit"
+                android:textAllCaps="true" />
+
+            <vn.puresolutions.livestar.custom.view.GridCenterView
+                android:id="@+id/purchaseVipFragment_contentView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/purchaseVipFragment_btnVipInfo"
+                android:layout_marginTop="@dimen/view_margin_small"
+                android:orientation="vertical"
+                app:spanNumber="@integer/vip_item_span_number" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/purchaseVipFragment_pgbLoading"
+        style="@style/progress_bar"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>
+
+
+

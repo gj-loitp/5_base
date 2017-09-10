@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ls_tabView_tvTitle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp"
+    android:background="@drawable/background_tab_view"
+    android:gravity="center"
+    android:paddingLeft="@dimen/view_margin_large"
+    android:paddingRight="@dimen/view_margin_large"
+    android:textColor="@android:color/white"
+    android:textSize="@dimen/text_size_medium" />

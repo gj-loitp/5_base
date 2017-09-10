@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_login"
+    android:orientation="vertical"
+    tools:context="vn.puresolutions.livestarv3.activity.login.LoginActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize" />
+
+            <ImageView
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:scaleType="centerCrop"
+                android:text="@string/loginscreen_signin_detail"
+                android:textSize="@dimen/text_size_20" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imvLoginScreen_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/back_button"
+            android:text="@string/app_name"
+            android:textAllCaps="false" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_5">
+
+            <vn.puresolutions.livestarv3.view.LEdittextClear
+                android:id="@+id/edtLoginScreen_Username"
+                style="@style/edit_text_common"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_20"
+                android:inputType="textNoSuggestions" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_5">
+
+            <vn.puresolutions.livestarv3.view.LEdittextPassword
+                android:id="@+id/edtLoginScreen_Password"
+                style="@style/edit_text_common"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_20"
+                android:hint="@string/loginscreen_editsigin_password"
+                android:inputType="textPassword" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/btnLoginScreen_Login"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_40"
+            android:layout_marginRight="@dimen/margin_40"
+            android:layout_weight="1"
+            android:background="@drawable/background_button_non_enable"
+            android:enabled="false"
+            android:padding="@dimen/padding_5"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/h_15"
+                android:layout_weight="0.2"
+                android:scaleType="centerInside"
+                android:src="@drawable/key" />
+
+            <TextView
+                android:id="@+id/tvLoginScreen_ForgotPass"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Quên mật khẩu?"
+                android:textColor="@drawable/text_gray_primary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnlLoginScreen_LoginFb"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_40"
+            android:layout_marginRight="@dimen/margin_40"
+            android:layout_weight="1"
+            android:background="@drawable/background_loginscreen_btnloginfb"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_5">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="0.1"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/facebook" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Đăng nhập qua Facebook"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chưa có tài khoản? " />
+
+            <TextView
+                android:id="@+id/tvLoginScreen_SignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/loginscreen_signup"
+                android:textColor="@drawable/text_blue_primary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/policy_msg"
+            android:textColor="@drawable/text_gray_primary"
+            android:textSize="@dimen/txt_12" />
+    </LinearLayout>
+</LinearLayout>
