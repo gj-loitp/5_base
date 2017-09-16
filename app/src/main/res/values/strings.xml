@@ -1,26 +1,7 @@
 <resources>
     <string name="app_name">YUP</string>
-    <string name="success">Thành công</string>
-    <string name="cant_connect_to_internet">Vui lòng kiểm tra kết nối mạng của bạn nhé!</string>
-    <string name="an_error_has_occurred">Server đang bảo trì, xin vui lòng thử lại sau.</string>
-    <string name="email_not_found">Email không tồn tại, vui lòng nhập lại nhé!</string>
-    <string name="email_duplicate">Email đã tồn tại, vui lòng nhập lại nhé!</string>
 
-    <string name="dialog_content_register_phone_invalid">SĐT không hợp lệ Vui lòng kiểm tra lại.</string>
-
-
-    <string name="date_format">dd/MM/yyyy</string>
-    <string name="connect_timeout">Mạng bạn đang chậm quá, vui lòng thử lại sau nha!</string>
-
-    <string name="cancel">Huỷ</string>
-    <string name="ok">OK</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 
-    <string name="noti">Thông báo</string>
-    <string name="get_coin_all_cap">NẠP XU</string>
-    <string name="alert">Thông báo</string>
-    <string name="no_connection_msg">Cần phải có kết nối để sử dụng</string>
-    <string name="open_connection">Mở kết nối</string>
-    <string name="you_have_no_enought_coins">Bạn không đủ xu</string>
 </resources>

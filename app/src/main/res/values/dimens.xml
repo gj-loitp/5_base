@@ -3,7 +3,6 @@
     <!-- Global -->
 
     <!-- For View -->
-    <dimen name="view_margin_medium">16dp</dimen>
 
     <!-- For Tab Bar -->
 
@@ -34,23 +33,8 @@
     <!-- Schedule -->
 
     <!-- Purchase -->
-    <dimen name="padding_5">5dp</dimen>
-    <dimen name="padding_10">10dp</dimen>
-    <dimen name="margin_5">5dp</dimen>
-    <dimen name="round_15">15dp</dimen>
-    <dimen name="txt_18">18dp</dimen>
-    <dimen name="txt_16">16dp</dimen>
     <dimen name="w_50">50dp</dimen>
-    <dimen name="h_1">1dp</dimen>
-    <dimen name="margin_20">20dp</dimen>
-    <dimen name="w_1">1dp</dimen>
-    <dimen name="w_20">20dp</dimen>
-    <dimen name="w_30">30dp</dimen>
-    <dimen name="w_70">70dp</dimen>
-    <dimen name="w_100">100dp</dimen>
     <dimen name="margin_10">10dp</dimen>
-    <dimen name="padding_15">15dp</dimen>
-    <dimen name="padding_20">20dp</dimen>
     <dimen name="padding_35">35dp</dimen>
 
 </resources>

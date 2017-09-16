@@ -15,16 +15,6 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="vn.loitp.app.activity.splash.SplashActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-        <activity
             android:name="vn.loitp.app.activity.TestAPIActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait">

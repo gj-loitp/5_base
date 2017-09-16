@@ -18,7 +18,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.livestar.R;
-import vn.loitp.app.utilities.v3.LUIUtil;
+import vn.loitp.app.utilities.LUIUtil;
 
 //TODO remove scrollbar
 //TODO change const debug

@@ -14,7 +14,6 @@
         android:src="@drawable/splash_bg" />
 
     <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"

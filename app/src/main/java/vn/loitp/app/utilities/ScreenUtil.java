@@ -1,4 +1,4 @@
-package vn.loitp.app.utilities.v3;
+package vn.loitp.app.utilities;
 
 import android.content.Context;
 import android.view.KeyCharacterMap;
