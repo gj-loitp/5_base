@@ -9,6 +9,7 @@ import vn.loitp.app.activity.placeholderview.androidadvanceimagegallery.AndroidA
 import vn.loitp.app.activity.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
 import vn.loitp.app.activity.placeholderview.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity;
 import vn.loitp.app.activity.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity;
+import vn.loitp.app.activity.placeholderview.androidtinderswipe.AndroidTinderSwipeActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -46,6 +47,14 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidExpandableNewsFreedActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_android_tinder_swipe).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, AndroidTinderSwipeActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
