@@ -311,7 +311,7 @@ public class LUIUtil {
             return;
         }
         swipeRefreshLayout.setColorSchemeResources(
-                R.color.primaryColor,
+                R.color.colorPrimary,
                 R.color.vip1,
                 R.color.vip2,
                 R.color.vip3,
