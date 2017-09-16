@@ -7,6 +7,7 @@ import android.view.View;
 
 import vn.loitp.app.activity.placeholderview.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
 import vn.loitp.app.activity.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
+import vn.loitp.app.activity.placeholderview.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity;
 import vn.loitp.app.activity.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -37,6 +38,14 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidAdvanceImageGalleryActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_android_expandable_news_feed).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, AndroidExpandableNewsFreedActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

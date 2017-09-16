@@ -31,6 +31,12 @@
                 android:layout_height="wrap_content"
                 android:text="Android Advance Image Gallery" />
 
+            <Button
+                android:id="@+id/bt_android_expandable_news_feed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Expandable News Feed" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
