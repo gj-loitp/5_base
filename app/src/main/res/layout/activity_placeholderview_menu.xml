@@ -19,6 +19,12 @@
                 android:layout_height="wrap_content"
                 android:text="Android Navigation Drawer" />
 
+            <Button
+                android:id="@+id/bt_android_beginner_image_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Beginner Image Galleryr" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
