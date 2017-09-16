@@ -4,21 +4,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mindorks.placeholderview.PlaceHolderView;
+import com.mindorks.placeholderview.InfinitePlaceHolderView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
 public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
-    private PlaceHolderView mGalleryView;
+    private InfinitePlaceHolderView mGalleryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
+        mGalleryView = (InfinitePlaceHolderView) findViewById(R.id.galleryView);
         setupGallery();
         findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,20 +52,31 @@ public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
     private void setupGallery() {
         List<Image> imageList = Utils.loadImages(this.getApplicationContext());
         List<Image> newImageList = new ArrayList<>();
-        for (int i = 0; i < (imageList.size() > 10 ? 10 : imageList.size()); i++) {
+        for (int i = 0; i < imageList.size(); i++) {
             newImageList.add(imageList.get(i));
         }
-
-        newImageList.addAll(newImageList);
-        newImageList.addAll(newImageList);
-        newImageList.addAll(newImageList);
-        newImageList.addAll(newImageList);
-        newImageList.addAll(newImageList);
-
         mGalleryView.addView(new ImageTypeSmallList(this.getApplicationContext(), newImageList));
 
         for (int i = imageList.size() - 1; i >= 0; i--) {
             mGalleryView.addView(new ImageTypeBig(this.getApplicationContext(), mGalleryView, imageList.get(i).getImageUrl()));
         }
+
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        mGalleryView.setLoadMoreResolver(new LoadMoreView(mGalleryView, newImageList));
+    }
+
+    private List<Image> loadMore() {
+        List<Image> imageList = Utils.loadImages(this.getApplicationContext());
+        List<Image> newImageList = new ArrayList<>();
+        for (int i = 0; i < imageList.size(); i++) {
+            newImageList.add(imageList.get(i));
+        }
+        LLog.d(TAG, ">>>loadMore " + newImageList.size());
+        return newImageList;
     }
 }
