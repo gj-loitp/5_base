@@ -54,6 +54,13 @@ public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
         for (int i = 0; i < (imageList.size() > 10 ? 10 : imageList.size()); i++) {
             newImageList.add(imageList.get(i));
         }
+
+        newImageList.addAll(newImageList);
+        newImageList.addAll(newImageList);
+        newImageList.addAll(newImageList);
+        newImageList.addAll(newImageList);
+        newImageList.addAll(newImageList);
+
         mGalleryView.addView(new ImageTypeSmallList(this.getApplicationContext(), newImageList));
 
         for (int i = imageList.size() - 1; i >= 0; i--) {

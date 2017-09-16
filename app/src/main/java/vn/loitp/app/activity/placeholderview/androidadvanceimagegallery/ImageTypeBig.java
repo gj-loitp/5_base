@@ -15,6 +15,7 @@ import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
 /**
@@ -25,7 +26,7 @@ import vn.loitp.livestar.R;
 @NonReusable
 @Layout(R.layout.gallery_item_big)
 public class ImageTypeBig {
-
+    private final static String TAG = ImageTypeBig.class.getSimpleName();
     @View(R.id.imageView)
     private ImageView imageView;
 
@@ -37,6 +38,7 @@ public class ImageTypeBig {
         mContext = context;
         mPlaceHolderView = placeHolderView;
         mUlr = ulr;
+        LLog.d(TAG, "ImageTypeBig");
     }
 
     @Resolve
