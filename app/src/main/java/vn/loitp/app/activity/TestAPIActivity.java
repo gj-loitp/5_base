@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import loitp.utils.util.ToastUtils;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
@@ -64,12 +65,12 @@ public class TestAPIActivity extends BaseActivity {
             public void onSuccess(GetPoster[] result) {
                 LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                ToastUtils.showShort(LSApplication.getInstance().getGson().toJson(result));
             }
 
             @Override
             public void onFail(Throwable e) {
                 handleException(e);
-                LLog.d(TAG, "onFail " + e.toString());
             }
 
             @Override
@@ -86,12 +87,12 @@ public class TestAPIActivity extends BaseActivity {
             public void onSuccess(CategoryGet[] result) {
                 LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                ToastUtils.showShort(LSApplication.getInstance().getGson().toJson(result));
             }
 
             @Override
             public void onFail(Throwable e) {
                 handleException(e);
-                LLog.d(TAG, "onFail " + e.toString());
             }
 
             @Override
