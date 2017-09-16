@@ -19,7 +19,7 @@ import vn.loitp.livestar.R;
 
 @Layout(R.layout.load_more_view)
 public class LoadMoreView {
-    public static final int LOAD_VIEW_SET_COUNT = 2;
+    public static final int LOAD_VIEW_SET_COUNT = 5;
     private InfinitePlaceHolderView mLoadMoreView;
     private List<Image> mFeedList;
 

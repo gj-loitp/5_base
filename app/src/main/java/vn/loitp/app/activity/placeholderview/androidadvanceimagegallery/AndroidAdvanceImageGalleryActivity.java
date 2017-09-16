@@ -61,13 +61,14 @@ public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
             mGalleryView.addView(new ImageTypeBig(this.getApplicationContext(), mGalleryView, imageList.get(i).getImageUrl()));
         }
 
-        newImageList.addAll(loadMore());
-        newImageList.addAll(loadMore());
-        newImageList.addAll(loadMore());
-        newImageList.addAll(loadMore());
-        newImageList.addAll(loadMore());
-        newImageList.addAll(loadMore());
         mGalleryView.setLoadMoreResolver(new LoadMoreView(mGalleryView, newImageList));
+
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
+        newImageList.addAll(loadMore());
     }
 
     private List<Image> loadMore() {
