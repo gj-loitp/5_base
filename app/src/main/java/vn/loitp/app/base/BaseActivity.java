@@ -44,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void setCustomStatusBar(boolean shouldChangeStatusBarTintToDark) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decor = getWindow().getDecorView();
             if (shouldChangeStatusBarTintToDark) {
                 //white status bar with black icons
@@ -61,6 +61,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             //black status bar with white icons
             getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.Black));
             getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.Black));
+        }*/
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         }
     }
 
