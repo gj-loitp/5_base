@@ -20,7 +20,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "loitp.anhdv.yup"
+        applicationId "loitp.basemaster"
         minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
@@ -54,7 +54,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             output.outputFile = new File(
-                    output.outputFile.parent, "LiveStar_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk")
+                    output.outputFile.parent, "BaseMaster_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk")
         }
     }
 
