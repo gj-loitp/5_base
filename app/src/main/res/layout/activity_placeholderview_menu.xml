@@ -43,6 +43,11 @@
                 android:layout_height="wrap_content"
                 android:text="Android Tinder Swipe" />
 
+            <Button
+                android:id="@+id/bt_android_infinite_list_with_load_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Infinite List with Load More" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
