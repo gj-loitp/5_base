@@ -23,7 +23,13 @@
                 android:id="@+id/bt_android_beginner_image_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Beginner Image Galleryr" />
+                android:text="Android Beginner Image Galleryy" />
+
+            <Button
+                android:id="@+id/bt_android_advance_image_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Advance Image Gallery" />
 
         </LinearLayout>
     </ScrollView>

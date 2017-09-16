@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.placeholderview.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
 import vn.loitp.app.activity.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
 import vn.loitp.app.activity.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -28,6 +29,14 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidBeginnerImageGalleryActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_android_advance_image_gallery).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, AndroidAdvanceImageGalleryActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
