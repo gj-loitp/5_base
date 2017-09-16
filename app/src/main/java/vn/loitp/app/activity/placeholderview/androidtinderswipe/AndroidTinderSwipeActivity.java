@@ -2,7 +2,9 @@ package vn.loitp.app.activity.placeholderview.androidtinderswipe;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 
 import com.mindorks.placeholderview.SwipeDecor;
@@ -21,9 +23,20 @@ public class AndroidTinderSwipeActivity extends BaseActivity {
         mSwipeView = (SwipePlaceHolderView) findViewById(R.id.swipeView);
         mContext = getApplicationContext();
 
+        mSwipeView = (SwipePlaceHolderView) findViewById(R.id.swipeView);
+        mContext = getApplicationContext();
+
+        int bottomMargin = Utils.dpToPx(160);
+        Point windowSize = Utils.getDisplaySize(getWindowManager());
         mSwipeView.getBuilder()
                 .setDisplayViewCount(3)
+                .setIsUndoEnabled(true)
+                .setHeightSwipeDistFactor(10)
+                .setWidthSwipeDistFactor(5)
                 .setSwipeDecor(new SwipeDecor()
+                        .setViewWidth(windowSize.x)
+                        .setViewHeight(windowSize.y - bottomMargin)
+                        .setViewGravity(Gravity.TOP)
                         .setPaddingTop(20)
                         .setRelativeScale(0.01f)
                         .setSwipeInMsgLayoutId(R.layout.tinder_swipe_in_msg_view)
@@ -45,6 +58,13 @@ public class AndroidTinderSwipeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 mSwipeView.doSwipe(true);
+            }
+        });
+
+        findViewById(R.id.undoBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.undoLastSwipe();
             }
         });
     }

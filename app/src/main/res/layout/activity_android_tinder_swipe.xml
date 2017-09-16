@@ -17,7 +17,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@mipmap/ic_launcher"
-            android:tint="@color/vip3" />
+            android:tint="@color/vip4" />
 
         <ImageButton
             android:id="@+id/acceptBtn"
@@ -25,7 +25,14 @@
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
             android:background="@mipmap/ic_launcher"
-            android:tint="@color/vip4" />
+            android:tint="@color/vip1" />
+
+        <ImageButton
+            android:id="@+id/undoBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@android:drawable/ic_menu_revert" />
     </LinearLayout>
 
     <com.mindorks.placeholderview.SwipePlaceHolderView
