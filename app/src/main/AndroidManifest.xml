@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name="vn.loitp.app.app.LSApplication"
         android:allowBackup="true"
@@ -59,6 +62,46 @@
         <activity
             android:name="vn.loitp.app.activity.alarm.SmartScheduleActivity"
             android:screenOrientation="portrait" />
+
+
+        <!--FOR ALARM DEMO APP-->
+        <activity
+            android:name="vn.loitp.app.activity.alarmdemoapp.AlarmMe"
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="vn.loitp.app.activity.alarmdemoapp.EditAlarm"
+            android:label="Edit alarm" />
+
+        <activity
+            android:name="vn.loitp.app.activity.alarmdemoapp.AlarmNotification"
+            android:label="Alarm notification" />
+
+        <activity
+            android:name="vn.loitp.app.activity.alarmdemoapp.Preferences"
+            android:label="Preferences" />
+
+        <activity
+            android:name="vn.loitp.app.activity.alarmdemoapp.About"
+            android:label="About" />
+
+        <receiver
+            android:name="vn.loitp.app.activity.alarmdemoapp.AlarmReceiver"
+            android:process=":remote" />
+
+        <receiver android:name="vn.loitp.app.activity.alarmdemoapp.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <!--FOR ALARM DEMO APP-->
 
     </application>
 </manifest>
