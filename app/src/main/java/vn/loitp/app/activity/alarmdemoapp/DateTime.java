@@ -99,9 +99,6 @@ public class DateTime {
                     res += ("" == res) ? mShortDayNames[i] : ", " + mShortDayNames[i];
         }
 
-//    alarm.getNextOccurence();
-//    res += " (" + formatDate(alarm) + ")";
-
         return res;
     }
 

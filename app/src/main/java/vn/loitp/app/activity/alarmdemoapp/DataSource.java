@@ -20,13 +20,14 @@
 package vn.loitp.app.activity.alarmdemoapp;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import vn.loitp.app.utilities.LLog;
 
 public class DataSource {
     private static final String TAG = "AlarmMe";
@@ -51,7 +52,7 @@ public class DataSource {
     }
 
     private static void load() {
-        Log.i(TAG, "DataSource.load()");
+        LLog.d(TAG, "DataSource.load()");
 
         mList = new ArrayList<Alarm>();
         mNextId = 1;
@@ -78,7 +79,7 @@ public class DataSource {
     }
 
     public static void save() {
-        Log.i(TAG, "DataSource.save()");
+        LLog.d(TAG, "DataSource.save()");
 
         try {
             DataOutputStream dos = new DataOutputStream(mContext.openFileOutput(DATA_FILE_NAME, Context.MODE_PRIVATE));

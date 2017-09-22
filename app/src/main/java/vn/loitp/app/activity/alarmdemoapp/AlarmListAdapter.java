@@ -23,13 +23,13 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
 class AlarmListAdapter extends BaseAdapter {
@@ -47,7 +47,7 @@ class AlarmListAdapter extends BaseAdapter {
         mContext = context;
         mDataSource = DataSource.getInstance(context);
 
-        Log.i(TAG, "AlarmListAdapter.create()");
+        LLog.d(TAG, "AlarmListAdapter.create()");
 
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
@@ -70,7 +70,7 @@ class AlarmListAdapter extends BaseAdapter {
     }
 
     public void updateAlarms() {
-        Log.i(TAG, "AlarmListAdapter.updateAlarms()");
+        LLog.d(TAG, "AlarmListAdapter.updateAlarms()");
         for (int i = 0; i < mDataSource.size(); i++)
             mDataSource.update(mDataSource.get(i));
         dataSetChanged();
@@ -147,7 +147,7 @@ class AlarmListAdapter extends BaseAdapter {
             alarm.toIntent(intent);
             sender = PendingIntent.getBroadcast(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, alarm.getDate(), sender);
-            Log.i(TAG, "AlarmListAdapter.setAlarm(" + alarm.getId() + ", '" + alarm.getTitle() + "', " + alarm.getDate() + ")");
+            LLog.d(TAG, "AlarmListAdapter.setAlarm(" + alarm.getId() + ", '" + alarm.getTitle() + "', " + alarm.getDate() + ")");
         }
     }
 

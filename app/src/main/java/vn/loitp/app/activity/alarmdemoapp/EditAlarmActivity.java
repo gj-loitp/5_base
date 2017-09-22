@@ -44,7 +44,7 @@ import java.util.GregorianCalendar;
 
 import vn.loitp.livestar.R;
 
-public class EditAlarm extends Activity {
+public class EditAlarmActivity extends Activity {
     private EditText mTitle;
     private CheckBox mAlarmEnabled;
     private Spinner mOccurence;

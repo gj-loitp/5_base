@@ -33,7 +33,6 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -41,6 +40,7 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
 public class AlarmNotification extends Activity {
@@ -84,7 +84,7 @@ public class AlarmNotification extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "AlarmNotification.onDestroy()");
+        LLog.d(TAG, "AlarmNotification.onDestroy()");
 
         stop();
     }
@@ -92,7 +92,7 @@ public class AlarmNotification extends Activity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.i(TAG, "AlarmNotification.onNewIntent()");
+        LLog.d(TAG, "AlarmNotification.onNewIntent()");
 
         addNotification(mAlarm);
 
@@ -104,7 +104,7 @@ public class AlarmNotification extends Activity {
         mAlarm = new Alarm(this);
         mAlarm.fromIntent(intent);
 
-        Log.i(TAG, "AlarmNotification.start('" + mAlarm.getTitle() + "')");
+        LLog.d(TAG, "AlarmNotification.start('" + mAlarm.getTitle() + "')");
 
         mTextView.setText(mAlarm.getTitle());
 
@@ -117,7 +117,7 @@ public class AlarmNotification extends Activity {
     }
 
     private void stop() {
-        Log.i(TAG, "AlarmNotification.stop()");
+        LLog.d(TAG, "AlarmNotification.stop()");
 
         mTimer.cancel();
         mRingtone.stop();
@@ -143,7 +143,7 @@ public class AlarmNotification extends Activity {
         PendingIntent activity;
         Intent intent;
 
-        Log.i(TAG, "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
+        LLog.d(TAG, "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
         intent = new Intent(this.getApplicationContext(), AlarmMe.class);
         intent.setAction(Intent.ACTION_MAIN);
@@ -171,7 +171,7 @@ public class AlarmNotification extends Activity {
     private class PlayTimerTask extends TimerTask {
         @Override
         public void run() {
-            Log.i(TAG, "AlarmNotification.PalyTimerTask.run()");
+            LLog.d(TAG, "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
         }

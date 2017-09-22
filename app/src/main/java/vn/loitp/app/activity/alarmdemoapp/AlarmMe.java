@@ -22,7 +22,6 @@ package vn.loitp.app.activity.alarmdemoapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -32,12 +31,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
-//  Toast.makeText(getApplicationContext(), "Delete" + index, Toast.LENGTH_SHORT).show();
-
 public class AlarmMe extends Activity {
-    private final String TAG = "AlarmMe";
+    private final String TAG = AlarmMe.class.getSimpleName();
 
     private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
@@ -55,11 +53,11 @@ public class AlarmMe extends Activity {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_alarm_list);
 
-        Log.i(TAG, "AlarmMe.onCreate()");
+        LLog.d(TAG, "AlarmMe.onCreate()");
 
-        mAlarmList = (ListView) findViewById(R.id.alarm_list);
+        mAlarmList = (ListView) findViewById(R.id.lv_alarm);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
         mAlarmList.setAdapter(mAlarmListAdapter);
@@ -72,23 +70,20 @@ public class AlarmMe extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "AlarmMe.onDestroy()");
-//    mAlarmListAdapter.save();
+        LLog.d(TAG, "AlarmMe.onDestroy()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.i(TAG, "AlarmMe.onResume()");
+        LLog.d(TAG, "AlarmMe.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 
     public void onAddAlarmClick(View view) {
-        Intent intent = new Intent(getBaseContext(), EditAlarm.class);
-
+        Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
-
         AlarmMe.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
     }
 
@@ -114,7 +109,7 @@ public class AlarmMe extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.layout.menu, menu);
+        menuInflater.inflate(R.menu.menu_alarm, menu);
         return true;
     }
 
@@ -135,7 +130,7 @@ public class AlarmMe extends Activity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        if (v.getId() == R.id.alarm_list) {
+        if (v.getId() == R.id.lv_alarm) {
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
             menu.setHeaderTitle(mAlarmListAdapter.getItem(info.position).getTitle());
@@ -151,7 +146,7 @@ public class AlarmMe extends Activity {
         int index = item.getItemId();
 
         if (index == CONTEXT_MENU_EDIT) {
-            Intent intent = new Intent(getBaseContext(), EditAlarm.class);
+            Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
 
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
@@ -174,8 +169,7 @@ public class AlarmMe extends Activity {
 
     private AdapterView.OnItemClickListener mListOnItemClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(getBaseContext(), EditAlarm.class);
-
+            Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMe.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
