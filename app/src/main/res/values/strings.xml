@@ -3,4 +3,30 @@
     <string name="open_drawer">open_drawer</string>
     <string name="close_drawer">close_drawer</string>
 
+    <string name="job_type_spinner_prompt">Choose a Job type</string>
+    <string name="network_type_spinner_prompt">Choose the Network type</string>
+
+    <string name="action_reset">Reset</string>
+
+    <string name="job_type">Job Type</string>
+    <string name="network_type">Network Type</string>
+    <string name="requires_charging">Requires Charging</string>
+    <string name="is_periodic">Is Periodic</string>
+    <string name="job_interval">Interval (millis)</string>
+    <string name="schedule_job_btn">Schedule Smart Job</string>
+    <string name="remove_job_btn">Remove Periodic Smart Job</string>
+
+    <string-array name="job_type_array">
+        <item>Best Job Type based on params</item>
+        <item>Handler Type Job</item>
+        <item>Alarm Type Job</item>
+        <item>PeriodicTask Type Job</item>
+    </string-array>
+
+    <string-array name="network_type_array">
+        <item>Any</item>
+        <item>Mobile Data (Metered)</item>
+        <item>WiFi (Un-Metered)</item>
+    </string-array>
+
 </resources>

@@ -25,6 +25,12 @@
                 android:layout_height="wrap_content"
                 android:text="PlaceHolderView" />
 
+            <Button
+                android:id="@+id/bt_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alarm smart-scheduler-android" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

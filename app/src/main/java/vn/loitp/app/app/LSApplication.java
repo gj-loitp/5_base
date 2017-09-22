@@ -9,12 +9,8 @@ import loitp.utils.util.Utils;
 import vn.loitp.livestar.R;
 import vn.loitp.livestar.corev3.api.restclient.RestClient;
 
-/**
- * Created by Phu Tran on 8/3/2016.
- * Email: Phu.TranHoang@harveynash.vn
- * Harvey Nash Vietnam
- */
 public class LSApplication extends MultiDexApplication {
+    private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;
     private Gson gson;
 
@@ -28,6 +24,8 @@ public class LSApplication extends MultiDexApplication {
         Utils.init(this);
         //TODO truyen token
         RestClient.init(getString(R.string.webService_URL), "token");
+
+
     }
 
     public Gson getGson() {

@@ -93,4 +93,10 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.2'
     compile 'com.google.code.gson:gson:2.7'
+
+    /*https://android-arsenal.com/details/1/2688#!description*/
+    //compile 'com.evernote:android-job:1.1.11'
+
+    /*https://android-arsenal.com/details/1/4755*/
+    compile 'io.hypertrack:smart-scheduler:0.0.8'
 }

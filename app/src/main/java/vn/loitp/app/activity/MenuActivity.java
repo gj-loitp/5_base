@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.alarm.SmartScheduleActivity;
 import vn.loitp.app.activity.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -27,6 +28,15 @@ public class MenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
+        findViewById(R.id.bt_alarm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SmartScheduleActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
