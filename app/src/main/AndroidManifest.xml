@@ -59,5 +59,6 @@
         <activity
             android:name="vn.loitp.app.activity.alarm.SmartScheduleActivity"
             android:screenOrientation="portrait" />
+
     </application>
 </manifest>
