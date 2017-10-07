@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.alarmdemoapp.AlarmMe;
+import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -19,7 +20,7 @@ public class MenuActivity extends BaseActivity {
         findViewById(R.id.bt_api).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, TestAPIActivity.class);
+                Intent intent = new Intent(activity, MenuAPIActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

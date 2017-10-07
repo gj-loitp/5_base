@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="vn.loitp.app.activity.TestAPIActivity"
+            android:name="vn.loitp.app.activity.api.test.TestAPIActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
@@ -60,7 +60,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.alarm.SmartScheduleActivity"
+            android:name="vn.loitp.app.activity.api.MenuAPIActivity"
             android:screenOrientation="portrait" />
 
 
