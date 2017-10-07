@@ -2,10 +2,12 @@ package vn.loitp.app.activity.customviews.placeholderview.androidbeginnerimagega
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.mindorks.placeholderview.PlaceHolderView;
 
+import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.livestar.R;
 
@@ -17,8 +19,13 @@ public class AndroidBeginnerImageGalleryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
-        for (int i = 0; i < 50; i++) {
-            mGalleryView.addView(new GalleryItem(getResources().getDrawable(R.drawable.iv)));
+        for (int i = 0; i < 100; i++) {
+            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(activity, R.drawable.iv), i, new GalleryItem.Callback() {
+                @Override
+                public void onClick(int position) {
+                    ToastUtils.showShort("Click " + position);
+                }
+            }));
         }
     }
 
