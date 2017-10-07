@@ -14,25 +14,27 @@
 
         <ImageButton
             android:id="@+id/rejectBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@mipmap/ic_launcher"
-            android:tint="@color/vip4" />
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:background="@drawable/ic_thumb_up_black_48dp"
+            android:contentDescription="@string/app_name" />
 
         <ImageButton
             android:id="@+id/acceptBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="@mipmap/ic_launcher"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:background="@drawable/ic_thumb_down_black_48dp"
+            android:contentDescription="@string/app_name"
             android:tint="@color/vip1" />
 
         <ImageButton
             android:id="@+id/undoBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="@android:drawable/ic_menu_revert" />
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:background="@drawable/ic_replay_black_48dp"
+            android:contentDescription="@string/app_name" />
     </LinearLayout>
 
     <com.mindorks.placeholderview.SwipePlaceHolderView
