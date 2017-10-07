@@ -27,6 +27,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alarm" />
+
+            <Button
+                android:id="@+id/bt_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery" />
         </LinearLayout>
     </ScrollView>
 

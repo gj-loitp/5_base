@@ -71,6 +71,9 @@
         <activity
             android:name="vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoActivity"
+            android:screenOrientation="portrait" />
 
         <!--FOR ALARM DEMO APP-->
         <activity

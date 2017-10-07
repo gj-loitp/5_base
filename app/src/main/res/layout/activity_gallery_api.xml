@@ -23,6 +23,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_demo"
         android:layout_below="@+id/bt_2">
 
         <TextView
@@ -33,6 +34,13 @@
             android:textColor="@color/grey"
             android:textSize="@dimen/txt_10" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/bt_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Run Demo" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
