@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -27,6 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 
 public class DateTime {
     private Context mContext;

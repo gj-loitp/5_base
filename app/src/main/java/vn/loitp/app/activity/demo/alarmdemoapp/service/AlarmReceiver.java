@@ -17,17 +17,31 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class BootCompletedReceiver extends BroadcastReceiver {
+import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
+import vn.loitp.app.utilities.LLog;
+
+public class AlarmReceiver extends BroadcastReceiver {
+    private final String TAG = "AlarmMeActivity";
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        // just create AlarmListAdapter and it will load alarms and start them
-        new AlarmListAdapter(context);
+        Intent newIntent = new Intent(context, AlarmNotification.class);
+        Alarm alarm = new Alarm(context);
+
+        alarm.fromIntent(intent);
+        alarm.toIntent(newIntent);
+        newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        LLog.d(TAG, "AlarmReceiver.onReceive('" + alarm.getTitle() + "')");
+
+        context.startActivity(newIntent);
     }
 }
 

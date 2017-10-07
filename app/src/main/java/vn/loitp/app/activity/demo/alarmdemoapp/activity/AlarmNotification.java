@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -40,12 +40,14 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
+import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
-public class AlarmNotification extends Activity {
-    private final String TAG = "AlarmMe";
-
+public class AlarmNotification extends BaseActivity {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
     private final long[] mVibratePattern = {0, 500, 500};
@@ -66,8 +68,6 @@ public class AlarmNotification extends Activity {
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
                         WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
                         WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-
-        setContentView(R.layout.notification);
 
         mDateTime = new DateTime(this);
         mTextView = (TextView) findViewById(R.id.alarm_title_text);
@@ -127,6 +127,7 @@ public class AlarmNotification extends Activity {
 
     public void onDismissClick(View view) {
         finish();
+        LUIUtil.transActivityFadeIn(activity);
     }
 
     private void readPreferences() {
@@ -145,7 +146,7 @@ public class AlarmNotification extends Activity {
 
         LLog.d(TAG, "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
-        intent = new Intent(this.getApplicationContext(), AlarmMe.class);
+        intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -166,6 +167,7 @@ public class AlarmNotification extends Activity {
     @Override
     public void onBackPressed() {
         finish();
+        LUIUtil.transActivityFadeIn(activity);
     }
 
     private class PlayTimerTask extends TimerTask {
@@ -174,7 +176,28 @@ public class AlarmNotification extends Activity {
             LLog.d(TAG, "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
+            LUIUtil.transActivityFadeIn(activity);
         }
+    }
+
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected Activity setActivity() {
+        return this;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.notification;
     }
 }
 

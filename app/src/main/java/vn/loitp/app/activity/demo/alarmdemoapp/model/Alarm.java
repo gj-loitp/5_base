@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
 import android.content.Intent;

@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.service;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -42,9 +42,13 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
+import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
-public class EditAlarmActivity extends Activity {
+public class EditAlarmActivity extends BaseActivity {
     private EditText mTitle;
     private CheckBox mAlarmEnabled;
     private Spinner mOccurence;
@@ -68,7 +72,6 @@ public class EditAlarmActivity extends Activity {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.edit);
 
         mTitle = (EditText) findViewById(R.id.title);
         mAlarmEnabled = (CheckBox) findViewById(R.id.alarm_checkbox);
@@ -138,11 +141,13 @@ public class EditAlarmActivity extends Activity {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();
+        LUIUtil.transActivityFadeIn(activity);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
+        LUIUtil.transActivityFadeIn(activity);
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -233,6 +238,26 @@ public class EditAlarmActivity extends Activity {
         builder.setNegativeButton("Cancel", null);
 
         return builder.create();
+    }
+
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected Activity setActivity() {
+        return this;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.edit;
     }
 }
 

@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,12 +31,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
+import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
+import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
-public class AlarmMe extends Activity {
-    private final String TAG = AlarmMe.class.getSimpleName();
-
+public class AlarmMeActivity extends BaseActivity {
     private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
     private Alarm mCurrentAlarm;
@@ -53,9 +56,8 @@ public class AlarmMe extends Activity {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.activity_alarm_list);
 
-        LLog.d(TAG, "AlarmMe.onCreate()");
+        LLog.d(TAG, "AlarmMeActivity.onCreate()");
 
         mAlarmList = (ListView) findViewById(R.id.lv_alarm);
 
@@ -70,13 +72,33 @@ public class AlarmMe extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(TAG, "AlarmMe.onDestroy()");
+        LLog.d(TAG, "AlarmMeActivity.onDestroy()");
+    }
+
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected Activity setActivity() {
+        return this;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_alarm_list;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(TAG, "AlarmMe.onResume()");
+        LLog.d(TAG, "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 
@@ -84,7 +106,8 @@ public class AlarmMe extends Activity {
         Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
-        AlarmMe.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
+        AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
+        LUIUtil.transActivityFadeIn(this);
     }
 
     @Override
@@ -118,10 +141,6 @@ public class AlarmMe extends Activity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            return true;
-        } else if (R.id.menu_about == item.getItemId()) {
-            Intent intent = new Intent(getBaseContext(), About.class);
-            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -172,7 +191,7 @@ public class AlarmMe extends Activity {
             Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
-            AlarmMe.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
+            AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
         }
     };
 

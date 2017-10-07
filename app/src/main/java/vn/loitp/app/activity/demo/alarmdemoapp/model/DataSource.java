@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
 
@@ -30,7 +30,7 @@ import java.util.Collections;
 import vn.loitp.app.utilities.LLog;
 
 public class DataSource {
-    private static final String TAG = "AlarmMe";
+    private static final String TAG = "AlarmMeActivity";
 
     private static final DataSource mDataSource = new DataSource();
     private static Context mContext = null;

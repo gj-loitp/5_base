@@ -17,7 +17,7 @@
  *
  *************************************************************************/
 
-package vn.loitp.app.activity.alarmdemoapp;
+package vn.loitp.app.activity.demo.alarmdemoapp.adapter;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -29,11 +29,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.DataSource;
+import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
+import vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
-class AlarmListAdapter extends BaseAdapter {
-    private final String TAG = "AlarmMe";
+public class AlarmListAdapter extends BaseAdapter {
+    private final String TAG = "AlarmMeActivity";
 
     private Context mContext;
     private DataSource mDataSource;

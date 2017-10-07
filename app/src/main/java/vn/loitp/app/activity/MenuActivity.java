@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.alarmdemoapp.AlarmMe;
+import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -33,10 +33,10 @@ public class MenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
-        findViewById(R.id.bt_alarm_demo_app).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AlarmMe.class);
+                Intent intent = new Intent(activity, MenuDemoActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
