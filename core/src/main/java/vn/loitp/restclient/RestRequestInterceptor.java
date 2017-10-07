@@ -1,4 +1,4 @@
-package vn.loitp.livestar.corev3.api.restclient;
+package vn.loitp.restclient;
 
 import java.io.IOException;
 import java.util.Enumeration;

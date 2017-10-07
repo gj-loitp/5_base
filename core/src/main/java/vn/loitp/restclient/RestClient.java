@@ -1,4 +1,4 @@
-package vn.loitp.livestar.corev3.api.restclient;
+package vn.loitp.restclient;
 
 import android.text.TextUtils;
 
@@ -14,7 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import vn.loitp.livestar.corev3.api.parser.DateTypeDeserializer;
+import vn.loitp.DateTypeDeserializer;
 
 public class RestClient {
     private static final int TIMEOUT_TIME = 1;
@@ -22,6 +22,10 @@ public class RestClient {
     private static final String AUTHORIZATION = "Authorization";
     private static Retrofit retrofit;
     private static RestRequestInterceptor restRequestInterceptor;
+
+    public static void init(String baseApiUrl) {
+        init(baseApiUrl, "");
+    }
 
     public static void init(String baseApiUrl, String token) {
         if (TextUtils.isEmpty(baseApiUrl)) {

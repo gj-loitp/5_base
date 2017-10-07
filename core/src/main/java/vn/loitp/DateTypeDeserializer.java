@@ -1,4 +1,4 @@
-package vn.loitp.livestar.corev3.api.parser;
+package vn.loitp;
 
 import android.util.Log;
 

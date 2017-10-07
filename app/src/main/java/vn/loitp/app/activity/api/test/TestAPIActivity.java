@@ -5,13 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
@@ -19,7 +12,7 @@ import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 import vn.loitp.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.livestar.corev3.api.model.v3.getposter.GetPoster;
-import vn.loitp.livestar.corev3.api.restclient.RestClient;
+import vn.loitp.restclient.RestClient;
 import vn.loitp.livestar.corev3.api.service.LSService;
 
 public class TestAPIActivity extends BaseActivity {

@@ -6,8 +6,6 @@ import android.support.multidex.MultiDexApplication;
 import com.google.gson.Gson;
 
 import loitp.utils.util.Utils;
-import vn.loitp.livestar.R;
-import vn.loitp.livestar.corev3.api.restclient.RestClient;
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
@@ -22,10 +20,6 @@ public class LSApplication extends MultiDexApplication {
             gson = new Gson();
         }
         Utils.init(this);
-        //TODO truyen token
-        RestClient.init(getString(R.string.webService_URL), "token");
-
-
     }
 
     public Gson getGson() {
