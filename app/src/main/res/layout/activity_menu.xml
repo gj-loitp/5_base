@@ -26,12 +26,6 @@
                 android:text="PlaceHolderView" />
 
             <Button
-                android:id="@+id/bt_alarm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Alarm smart-scheduler-android" />
-
-            <Button
                 android:id="@+id/bt_alarm_demo_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
