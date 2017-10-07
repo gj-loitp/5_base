@@ -13,7 +13,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
-import vn.loitp.app.activity.demo.gallery.GalleryDemoActivity;
+import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
@@ -56,7 +56,7 @@ public class GalleryAPIActivity extends BaseActivity {
         findViewById(R.id.bt_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, GalleryDemoActivity.class);
+                Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
