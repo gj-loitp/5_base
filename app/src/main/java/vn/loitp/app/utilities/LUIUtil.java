@@ -32,6 +32,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.InputStream;
 import java.lang.reflect.Field;
 
@@ -333,5 +336,11 @@ public class LUIUtil {
 
     public static void setTextBold(TextView textBold) {
         textBold.setTypeface(null, Typeface.BOLD);
+    }
+
+    public static void printBeautyJson(Object o, TextView textView) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(o);
+        textView.setText(json);
     }
 }

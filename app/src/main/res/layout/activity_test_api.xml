@@ -29,7 +29,9 @@
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Black" />
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_10" />
 
         </LinearLayout>
     </ScrollView>

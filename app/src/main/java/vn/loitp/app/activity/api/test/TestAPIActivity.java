@@ -5,10 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 import vn.loitp.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.livestar.corev3.api.model.v3.getposter.GetPoster;
@@ -62,8 +69,9 @@ public class TestAPIActivity extends BaseActivity {
         subscribe(service.getPoster(3), new ApiSubscriber<GetPoster[]>() {
             @Override
             public void onSuccess(GetPoster[] result) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                //tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                LUIUtil.printBeautyJson(result, tv);
             }
 
             @Override
@@ -83,8 +91,9 @@ public class TestAPIActivity extends BaseActivity {
         subscribe(service.categoryGet(), new ApiSubscriber<CategoryGet[]>() {
             @Override
             public void onSuccess(CategoryGet[] result) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                //tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                LUIUtil.printBeautyJson(result, tv);
             }
 
             @Override
