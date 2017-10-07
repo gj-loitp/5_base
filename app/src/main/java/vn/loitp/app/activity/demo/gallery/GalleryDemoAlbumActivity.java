@@ -2,12 +2,19 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
 
+import com.mindorks.placeholderview.PlaceHolderView;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.util.List;
+
+import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.flickr.FlickrConst;
+import vn.loitp.flickr.model.Photoset;
 import vn.loitp.flickr.model.WrapperPhotosetGetlist;
 import vn.loitp.flickr.service.FlickrService;
 import vn.loitp.livestar.R;
@@ -15,13 +22,16 @@ import vn.loitp.restclient.RestClient;
 
 public class GalleryDemoAlbumActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
-    private WrapperPhotosetGetlist mWrapperPhotosetGetlist;
+    private PlaceHolderView mGalleryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
+        mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
+        mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
+        photosetsGetList();
     }
 
     @Override
@@ -59,7 +69,15 @@ public class GalleryDemoAlbumActivity extends BaseActivity {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
+                List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
+                for (int i = 0; i < photosetList.size(); i++) {
+                    mGalleryView.addView(new PhotoItem(activity, photosetList.get(i), i, new PhotoItem.Callback() {
+                        @Override
+                        public void onClick(Photoset photoset, int position) {
+                            ToastUtils.showShort("Click " + position);
+                        }
+                    }));
+                }
                 avi.smoothToHide();
             }
 

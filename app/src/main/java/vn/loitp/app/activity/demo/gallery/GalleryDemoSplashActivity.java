@@ -9,6 +9,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
+import vn.loitp.restclient.RestClient;
 
 public class GalleryDemoSplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
@@ -16,12 +17,14 @@ public class GalleryDemoSplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RestClient.init(getString(R.string.flickr_URL));
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryDemoAlbumActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
+                finish();
             }
         });
     }
