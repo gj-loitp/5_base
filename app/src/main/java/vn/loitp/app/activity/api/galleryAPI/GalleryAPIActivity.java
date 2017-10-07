@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.galleryAPI;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.wang.avi.AVLoadingIndicatorView;
@@ -20,6 +21,8 @@ import vn.loitp.restclient.RestClient;
 public class GalleryAPIActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
     private TextView tv;
+    private Button bt1;
+    private Button bt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,9 @@ public class GalleryAPIActivity extends BaseActivity {
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
         tv = (TextView) findViewById(R.id.tv);
-        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+        bt1 = (Button) findViewById(R.id.bt_1);
+        bt2 = (Button) findViewById(R.id.bt_2);
+        bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 photosetsGetList();
@@ -69,9 +74,10 @@ public class GalleryAPIActivity extends BaseActivity {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<Object>() {
             @Override
             public void onSuccess(Object result) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
                 avi.smoothToHide();
+                bt1.setVisibility(View.VISIBLE);
             }
 
             @Override
