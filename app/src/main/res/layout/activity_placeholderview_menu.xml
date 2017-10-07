@@ -2,7 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/padding_5">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Menu Place Holder View"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_20" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,37 +26,37 @@
                 android:id="@+id/bt_android_navigation_drawer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Navigation Drawer" />
+                android:text="Navigation Drawer" />
 
             <Button
                 android:id="@+id/bt_android_beginner_image_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Beginner Image Galleryy" />
+                android:text="Beginner Image Galleryy" />
 
             <Button
                 android:id="@+id/bt_android_advance_image_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Advance Image Gallery" />
+                android:text="Advance Image Gallery" />
 
             <Button
                 android:id="@+id/bt_android_expandable_news_feed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Expandable News Feed" />
+                android:text="Expandable News Feed" />
 
             <Button
                 android:id="@+id/bt_android_tinder_swipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Tinder Swipe" />
+                android:text="Tinder Swipe" />
 
             <Button
                 android:id="@+id/bt_android_infinite_list_with_load_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Android Infinite List with Load More" />
+                android:text="Infinite List with Load More" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
