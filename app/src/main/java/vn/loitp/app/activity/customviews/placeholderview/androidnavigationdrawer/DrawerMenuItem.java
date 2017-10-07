@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.placeholderview.androidnavigationdrawe
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
@@ -11,6 +10,7 @@ import com.mindorks.placeholderview.annotations.Position;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+import loitp.utils.util.ToastUtils;
 import vn.loitp.livestar.R;
 
 /**
@@ -85,35 +85,35 @@ public class DrawerMenuItem {
     private void onMenuItemClick() {
         switch (mMenuPosition) {
             case DRAWER_MENU_ITEM_PROFILE:
-                Toast.makeText(mContext, "Profile", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Profile");
                 if (mCallBack != null) mCallBack.onProfileMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_REQUESTS:
-                Toast.makeText(mContext, "Requests", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Requests");
                 if (mCallBack != null) mCallBack.onRequestMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_GROUPS:
-                Toast.makeText(mContext, "Groups", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Groups");
                 if (mCallBack != null) mCallBack.onGroupsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_MESSAGE:
-                Toast.makeText(mContext, "Messages", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Messages");
                 if (mCallBack != null) mCallBack.onMessagesMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_NOTIFICATIONS:
-                Toast.makeText(mContext, "Notifications", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Notifications");
                 if (mCallBack != null) mCallBack.onNotificationsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_SETTINGS:
-                Toast.makeText(mContext, "Settings", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Settings");
                 if (mCallBack != null) mCallBack.onSettingsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_TERMS:
-                Toast.makeText(mContext, "Terms", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Terms");
                 if (mCallBack != null) mCallBack.onTermsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_LOGOUT:
-                Toast.makeText(mContext, "Logout", Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("Logout");
                 if (mCallBack != null) mCallBack.onLogoutMenuSelected();
                 break;
         }

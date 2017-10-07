@@ -2,24 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mainView"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="@dimen/w_80"
     android:gravity="center|left"
     android:orientation="horizontal"
-    android:paddingLeft="20dp">
+    android:padding="@dimen/padding_5">
 
     <ImageView
         android:id="@+id/itemIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:src="@mipmap/ic_launcher"
-        android:tint="@color/vip1" />
+        android:tint="@color/grey" />
 
     <TextView
         android:id="@+id/itemNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/margin_10"
         android:text="Menu Item"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="14sp" />
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_14" />
 </LinearLayout>
