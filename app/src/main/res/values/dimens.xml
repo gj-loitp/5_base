@@ -49,6 +49,9 @@
     <dimen name="margin_20">20dp</dimen>
     <dimen name="w_5">5dp</dimen>
     <dimen name="w_3">3dp</dimen>
+    <dimen name="w_1">1dp</dimen>
     <dimen name="w_100">100dp</dimen>
+    <dimen name="w_60">60dp</dimen>
+    <dimen name="txt_10">10dp</dimen>
 
 </resources>

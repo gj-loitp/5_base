@@ -32,7 +32,6 @@ public class AndroidExpandableNewsFreedActivity extends BaseActivity {
                 mExpandableView.addView(new InfoView(mContext, info));
             }
         }
-
         setLoadMoreListener(mExpandableView);
     }
 

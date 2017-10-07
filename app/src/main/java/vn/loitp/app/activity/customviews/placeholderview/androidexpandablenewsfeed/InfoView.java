@@ -5,12 +5,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.expand.ChildPosition;
 import com.mindorks.placeholderview.annotations.expand.ParentPosition;
 
+import loitp.utils.util.ToastUtils;
 import vn.loitp.livestar.R;
 
 /**
@@ -52,5 +54,20 @@ public class InfoView {
         captionTxt.setText(mInfo.getCaption());
         timeTxt.setText(mInfo.getTime());
         Glide.with(mContext).load(mInfo.getImageUrl()).into(imageView);
+    }
+
+    @Click(R.id.titleTxt)
+    private void onClickTitle() {
+        ToastUtils.showShort(titleTxt.getText().toString());
+    }
+
+    @Click(R.id.captionTxt)
+    private void onClickCaption() {
+        ToastUtils.showShort(captionTxt.getText().toString());
+    }
+
+    @Click(R.id.imageView)
+    private void onClickImage() {
+        ToastUtils.showShort(mInfo.getImageUrl());
     }
 }
