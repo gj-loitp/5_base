@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="178dp"
+    android:layout_height="@dimen/w_250"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:paddingLeft="30dp">
+    android:paddingLeft="@dimen/padding_10">
 
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="left|top"
-        android:layout_marginTop="55dp"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_width="@dimen/w_150"
+        android:layout_height="@dimen/w_150"
+        android:layout_marginTop="@dimen/margin_10"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv" />
 
     <TextView
         android:id="@+id/nameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="@dimen/margin_20"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_14" />
 
     <TextView
         android:id="@+id/emailTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
-        android:textStyle="normal" />
+        android:layout_marginTop="@dimen/margin_5"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_5"
+        android:text="Custom anything"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_14" />
 </LinearLayout>

@@ -18,11 +18,11 @@ import java.util.Random;
 
 public class LStoreUtil {
     static String TAG = LStoreUtil.class.getSimpleName();
-    static String folderName = "Livestar";
+    static String folderName = "Loitp";
     static String folderPath;
 
-    public static String FOLDER_TRANSLATE = ".Livestar";
-    public static String FILE_TRANSLATE_FAV_SENTENCE = "Livestar.txt";
+    public static String FOLDER_TRANSLATE = ".Loitp";
+    public static String FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt";
 
     public interface CallbackReadFile {
         public void onFinish(String result);

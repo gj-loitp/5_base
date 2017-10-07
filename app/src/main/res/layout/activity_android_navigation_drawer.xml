@@ -13,15 +13,31 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar_home" />
 
-        <com.mindorks.placeholderview.PlaceHolderView
-            android:id="@+id/galleryView"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical" />
+            android:padding="@dimen/padding_5"
+            android:text="Touch Menu Icon"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_20"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_14" />
+        </ScrollView>
     </LinearLayout>
 
     <FrameLayout
-        android:layout_width="250dp"
+        android:layout_width="@dimen/w_250"
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:background="@android:color/white">

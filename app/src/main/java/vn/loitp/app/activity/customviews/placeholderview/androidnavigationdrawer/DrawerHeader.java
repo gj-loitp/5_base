@@ -28,7 +28,7 @@ public class DrawerHeader {
 
     @Resolve
     private void onResolved() {
-        nameTxt.setText("Janishar Ali");
-        emailTxt.setText("janishar.ali@gmail.com");
+        nameTxt.setText("Loitp");
+        emailTxt.setText("www.muathu@gmail.com\nfreuss47@gmail.com");
     }
 }

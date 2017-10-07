@@ -6,17 +6,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.mindorks.placeholderview.PlaceHolderView;
 
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.livestar.R;
 
 public class AndroidNavigationDrawerActivity extends BaseActivity {
     private PlaceHolderView mDrawerView;
     private DrawerLayout mDrawer;
     private Toolbar mToolbar;
-    private PlaceHolderView mGalleryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,10 @@ public class AndroidNavigationDrawerActivity extends BaseActivity {
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerView = (PlaceHolderView) findViewById(R.id.drawerView);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
         setupDrawer();
+
+        TextView tv = (TextView) findViewById(R.id.tv);
+        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
     }
 
     private void setupDrawer() {
