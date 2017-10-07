@@ -17,6 +17,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 import vn.loitp.app.utilities.LUIUtil;
 
@@ -107,7 +108,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void handleException(Throwable throwable) {
-
+        LLog.e("handleException", throwable.toString());
     }
 
     protected abstract boolean setFullScreen();
