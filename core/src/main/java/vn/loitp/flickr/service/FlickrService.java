@@ -57,4 +57,15 @@ public interface FlickrService {
                                                         @Query("primary_photo_extras") String primary_photo_extras,
                                                         @Query("format") String format,
                                                         @Query("nojsoncallback") int nojsoncallback);
+
+    @GET("rest/")
+    Observable<Object> photosetsGetPhotos(@Query("method") String method,
+                                          @Query("api_key") String api_key,
+                                          @Query("photoset_id") String photoset_id,
+                                          @Query("user_id") String user_id,
+                                          @Query("extras") String extras,
+                                          @Query("per_page") int per_page,
+                                          @Query("page") int page,
+                                          @Query("format") String format,
+                                          @Query("nojsoncallback") int nojsoncallback);
 }

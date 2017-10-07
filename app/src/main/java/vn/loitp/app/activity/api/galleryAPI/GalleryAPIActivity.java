@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.api.galleryAPI;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +12,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
@@ -28,6 +29,8 @@ public class GalleryAPIActivity extends BaseActivity {
     private Button bt1;
     private Button bt2;
 
+    private WrapperPhotosetGetlist mWrapperPhotosetGetlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,12 @@ public class GalleryAPIActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 photosetsGetList();
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogSelectPhotoset();
             }
         });
     }
@@ -77,16 +86,12 @@ public class GalleryAPIActivity extends BaseActivity {
         int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
-            public void onSuccess(WrapperPhotosetGetlist result) {
+            public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                LUIUtil.printBeautyJson(result, tv);
+                mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
+                LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
                 avi.smoothToHide();
                 bt2.setVisibility(View.VISIBLE);
-
-                List<Photoset> photosetList = result.getPhotosets().getPhotoset();
-                for (int i = 0; i < photosetList.size(); i++) {
-                    LLog.d(TAG, i + " : " + photosetList.get(i).getTitle().getContent());
-                }
             }
 
             @Override
@@ -95,5 +100,26 @@ public class GalleryAPIActivity extends BaseActivity {
                 avi.smoothToHide();
             }
         });
+    }
+
+    private void showDialogSelectPhotoset() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Choose:");
+
+        List<Photoset> photosetList = mWrapperPhotosetGetlist.getPhotosets().getPhotoset();
+        String[] items = new String[photosetList.size()];
+        for (int i = 0; i < photosetList.size(); i++) {
+            //LLog.d(TAG, i + " : " + photosetList.get(i).getTitle().getContent());
+            items[i] = photosetList.get(i).getTitle().getContent();
+        }
+
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                LLog.d(TAG, "onClick " + position);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
