@@ -36,5 +36,7 @@
     <dimen name="w_50">50dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="padding_35">35dp</dimen>
+    <dimen name="txt_20">20dp</dimen>
+    <dimen name="padding_5">5dp</dimen>
 
 </resources>
