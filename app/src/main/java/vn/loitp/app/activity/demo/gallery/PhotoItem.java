@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.demo.gallery;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mindorks.placeholderview.Animation;
 import com.mindorks.placeholderview.annotations.Animate;
@@ -20,13 +20,16 @@ import vn.loitp.livestar.R;
  * Created by www.muathu@gmail.com on 9/16/2017.
  */
 
-@Animate(Animation.CARD_LEFT_IN_ASC)
+//@Animate(Animation.SCALE_UP_ASC)
 @NonReusable
 @Layout(R.layout.item_photo)
 public class PhotoItem {
 
     @View(R.id.imageView)
     private ImageView imageView;
+
+    @View(R.id.tv)
+    private TextView tv;
 
     private Activity activity;
     private Photoset photoset;
@@ -42,6 +45,8 @@ public class PhotoItem {
     @Resolve
     private void onResolved() {
         LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView);
+        String s = photoset.getTitle().getContent() + " (" + photoset.getPhotos() + ")";
+        tv.setText(s);
     }
 
     @Click(R.id.imageView)
