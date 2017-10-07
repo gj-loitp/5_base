@@ -19,6 +19,30 @@
                 android:layout_height="wrap_content"
                 android:text="Demo Call API" />
 
+            <Button
+                android:id="@+id/bt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery API" />
+
+            <Button
+                android:id="@+id/bt_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Truyen Tranh API" />
+
+            <Button
+                android:id="@+id/bt_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Truyen Chu API" />
+
+            <Button
+                android:id="@+id/bt_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Translate API" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

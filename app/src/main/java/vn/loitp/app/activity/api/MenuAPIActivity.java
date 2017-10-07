@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -18,6 +19,14 @@ public class MenuAPIActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TestAPIActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, GalleryAPIActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
