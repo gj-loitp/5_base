@@ -14,6 +14,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.utilities.LLog;
+
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.
  */
@@ -34,7 +36,7 @@ public class Utils {
             }
             return imageList;
         } catch (Exception e) {
-            Log.d(TAG, "seedGames parseException " + e);
+            LLog.d(TAG, "seedGames parseException " + e);
             e.printStackTrace();
             return null;
         }

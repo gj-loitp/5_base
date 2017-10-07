@@ -47,5 +47,8 @@
     <dimen name="margin_55">55dp</dimen>
     <dimen name="txt_14">14dp</dimen>
     <dimen name="margin_20">20dp</dimen>
+    <dimen name="w_5">5dp</dimen>
+    <dimen name="w_3">3dp</dimen>
+    <dimen name="w_100">100dp</dimen>
 
 </resources>

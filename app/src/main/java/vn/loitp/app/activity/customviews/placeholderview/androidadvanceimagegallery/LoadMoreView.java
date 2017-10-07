@@ -52,7 +52,7 @@ public class LoadMoreView {
                 @Override
                 public void run() {
                     int count = mLoadMoreView.getViewCount();
-                    Log.d("DEBUG", ">>>before count " + count);
+                    LLog.d("DEBUG", ">>>before count " + count);
                     for (int i = count - 1; i < (count - 1 + LoadMoreView.LOAD_VIEW_SET_COUNT) && mFeedList.size() > i; i++) {
                         mLoadMoreView.addView(new ImageTypeBig(mLoadMoreView.getContext(), mLoadMoreView, mFeedList.get(i).getImageUrl()));
                         if (i == mFeedList.size() - 1) {

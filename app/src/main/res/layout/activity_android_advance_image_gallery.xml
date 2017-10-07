@@ -8,7 +8,7 @@
         android:id="@+id/remove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Remove" />
+        android:text="Remove All" />
 
     <com.mindorks.placeholderview.InfinitePlaceHolderView
         android:id="@+id/galleryView"

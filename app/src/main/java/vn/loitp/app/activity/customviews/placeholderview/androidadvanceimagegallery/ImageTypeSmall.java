@@ -15,6 +15,7 @@ import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+import loitp.utils.util.ToastUtils;
 import vn.loitp.livestar.R;
 
 /**
@@ -51,6 +52,6 @@ public class ImageTypeSmall {
 
     @Click(R.id.imageView)
     private void onClick() {
-        Toast.makeText(mContext, "Touch " + mUlr, Toast.LENGTH_SHORT).show();
+        ToastUtils.showShort("Touch " + mUlr);
     }
 }
