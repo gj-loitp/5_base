@@ -7,7 +7,7 @@ import android.view.View;
 
 import vn.loitp.app.activity.alarmdemoapp.AlarmMe;
 import vn.loitp.app.activity.api.MenuAPIActivity;
-import vn.loitp.app.activity.placeholderview.PlaceHolderViewMenuActivity;
+import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -25,10 +25,10 @@ public class MenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
-        findViewById(R.id.bt_place_holder_view).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_custom_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
+                Intent intent = new Intent(activity, MenuCustomViewsActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

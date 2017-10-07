@@ -32,35 +32,38 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.PlaceHolderViewMenuActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidtinderswipe.AndroidTinderSwipeActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidtinderswipe.AndroidTinderSwipeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.placeholderview.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity"
+            android:name="vn.loitp.app.activity.customviews.placeholderview.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.api.MenuAPIActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.MenuCustomViewsActivity"
             android:screenOrientation="portrait" />
 
 

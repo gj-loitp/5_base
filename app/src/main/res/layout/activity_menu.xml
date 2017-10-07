@@ -21,11 +21,11 @@
         android:text="API" />
 
     <Button
-        android:id="@+id/bt_place_holder_view"
+        android:id="@+id/bt_custom_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="PlaceHolderView" />
+        android:text="Custom views" />
 
     <Button
         android:id="@+id/bt_alarm_demo_app"
