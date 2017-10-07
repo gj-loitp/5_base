@@ -197,7 +197,7 @@ public class AlarmNotification extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.notification;
+        return R.layout.activity_alarm_notification;
     }
 }
 

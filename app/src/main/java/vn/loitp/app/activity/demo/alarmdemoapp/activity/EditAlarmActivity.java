@@ -257,7 +257,7 @@ public class EditAlarmActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.edit;
+        return R.layout.activity_alarm_edit;
     }
 }
 
