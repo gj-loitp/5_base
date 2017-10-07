@@ -81,7 +81,7 @@ public class GalleryAPIActivity extends BaseActivity {
         String userID = FlickrConst.USER_KEY;
         int page = 1;
         int perPage = 500;
-        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS;
+        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         String format = FlickrConst.FORMAT;
         int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
@@ -117,9 +117,39 @@ public class GalleryAPIActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int position) {
                 LLog.d(TAG, "onClick " + position);
+                photosetsGetPhotos(photosetList.get(position).getId());
             }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void photosetsGetPhotos(String photosetID) {
+        tv.setText("");
+        avi.smoothToShow();
+        FlickrService service = RestClient.createService(FlickrService.class);
+        String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
+        String apiKey = FlickrConst.API_KEY;
+        String userID = FlickrConst.USER_KEY;
+        int page = 1;
+        int perPage = 500;
+        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
+        String format = FlickrConst.FORMAT;
+        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
+        subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback), new ApiSubscriber<Object>() {
+            @Override
+            public void onSuccess(Object wrapperPhotosetGetlist) {
+                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
+                avi.smoothToHide();
+                bt2.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                handleException(e);
+                avi.smoothToHide();
+            }
+        });
     }
 }
