@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp"
-    app:cardElevation="1dp"
-    android:layout_margin="5dp"
-    app:cardBackgroundColor="@android:color/holo_blue_dark">
+    android:layout_margin="@dimen/margin_5"
+    app:cardBackgroundColor="@android:color/holo_blue_dark"
+    app:cardCornerRadius="@dimen/w_5"
+    app:cardElevation="@dimen/w_3">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp"
-        android:gravity="left">
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_10">
+
         <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="1dp">
+            android:layout_margin="@dimen/margin_10"
+            app:cardCornerRadius="@dimen/w_5"
+            app:cardElevation="@dimen/w_3">
+
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/w_60"
+                android:layout_height="@dimen/w_80"
                 android:layout_gravity="top"
-                android:scaleType="centerCrop"/>
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop" />
         </android.support.v7.widget.CardView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/titleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:typeface="sans"
-                android:textStyle="normal"/>
+                android:textSize="@dimen/txt_14" />
+
             <TextView
                 android:id="@+id/captionTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_10"
                 android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:typeface="sans"
-                android:textStyle="normal"/>
+                android:textSize="@dimen/txt_10" />
+
             <TextView
                 android:id="@+id/timeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="right"
+                android:layout_marginTop="@dimen/margin_10"
                 android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:typeface="sans"
-                android:textStyle="normal"/>
+                android:textSize="@dimen/txt_10" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
