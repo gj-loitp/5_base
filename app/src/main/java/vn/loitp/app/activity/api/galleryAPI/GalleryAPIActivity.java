@@ -8,12 +8,16 @@ import android.widget.TextView;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.util.List;
+
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.flickr.FlickrConst;
+import vn.loitp.flickr.model.Photoset;
+import vn.loitp.flickr.model.WrapperPhotosetGetlist;
 import vn.loitp.flickr.service.FlickrService;
 import vn.loitp.livestar.R;
 import vn.loitp.restclient.RestClient;
@@ -71,13 +75,18 @@ public class GalleryAPIActivity extends BaseActivity {
         String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS;
         String format = FlickrConst.FORMAT;
         int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<Object>() {
+        subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
-            public void onSuccess(Object result) {
+            public void onSuccess(WrapperPhotosetGetlist result) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
                 avi.smoothToHide();
-                bt1.setVisibility(View.VISIBLE);
+                bt2.setVisibility(View.VISIBLE);
+
+                List<Photoset> photosetList = result.getPhotosets().getPhotoset();
+                for (int i = 0; i < photosetList.size(); i++) {
+                    LLog.d(TAG, i + " : " + photosetList.get(i).getTitle().getContent());
+                }
             }
 
             @Override

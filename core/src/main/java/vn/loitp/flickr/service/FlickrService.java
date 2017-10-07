@@ -14,6 +14,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 import rx.Observable;
+import vn.loitp.flickr.model.WrapperPhotosetGetlist;
 import vn.loitp.livestar.corev3.api.model.CommonResponse;
 import vn.loitp.livestar.corev3.api.model.v3.audiences.Audiences;
 import vn.loitp.livestar.corev3.api.model.v3.bank.MobilePackage;
@@ -48,12 +49,12 @@ import vn.loitp.livestar.corev3.api.model.v3.startlive.StartLive;
 
 public interface FlickrService {
     @GET("rest/")
-    Observable<Object> photosetsGetList(@Query("method") String method,
-                                 @Query("api_key") String api_key,
-                                 @Query("user_id") String user_id,
-                                 @Query("page") int page,
-                                 @Query("per_page") int per_page,
-                                 @Query("primary_photo_extras") String primary_photo_extras,
-                                 @Query("format") String format,
-                                 @Query("nojsoncallback") int nojsoncallback);
+    Observable<WrapperPhotosetGetlist> photosetsGetList(@Query("method") String method,
+                                                        @Query("api_key") String api_key,
+                                                        @Query("user_id") String user_id,
+                                                        @Query("page") int page,
+                                                        @Query("per_page") int per_page,
+                                                        @Query("primary_photo_extras") String primary_photo_extras,
+                                                        @Query("format") String format,
+                                                        @Query("nojsoncallback") int nojsoncallback);
 }
