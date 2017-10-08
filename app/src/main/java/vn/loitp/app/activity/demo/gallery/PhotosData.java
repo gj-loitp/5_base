@@ -59,4 +59,13 @@ public class PhotosData {
         }
         return this.photoList.get(position);
     }
+
+    public int getPosition(String photoID) {
+        for (int i = 0; i < this.photoList.size(); i++) {
+            if (photoID.equals(this.photoList.get(i).getId())) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -24,8 +24,9 @@ public class GalleryDemoSlideActivity extends BaseActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new SlidePagerAdapter());
 
-        int position = getIntent().getIntExtra("position", 0);
-        LLog.d(TAG, "position " + position);
+        String photoID = getIntent().getStringExtra("photoID");
+        int position = PhotosData.getInstance().getPosition(photoID);
+        LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
     }
 
