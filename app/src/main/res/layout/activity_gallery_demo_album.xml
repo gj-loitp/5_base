@@ -3,13 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="@color/grey"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_5"
+        android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_20" />
 
     <com.mindorks.placeholderview.PlaceHolderView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tv"
         android:scrollbars="vertical" />
 
     <com.wang.avi.AVLoadingIndicatorView

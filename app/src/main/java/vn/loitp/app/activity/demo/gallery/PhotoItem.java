@@ -44,7 +44,7 @@ public class PhotoItem {
 
     @Resolve
     private void onResolved() {
-        LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView);
+        LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView, 50, 80);
         String s = photoset.getTitle().getContent() + " (" + photoset.getPhotos() + ")";
         tv.setText(s);
     }

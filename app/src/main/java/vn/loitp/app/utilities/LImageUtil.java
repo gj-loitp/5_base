@@ -13,4 +13,8 @@ public class LImageUtil {
     public static void load(Activity activity, String url, ImageView imageView) {
         Glide.with(activity).load(url).into(imageView);
     }
+
+    public static void load(Activity activity, String url, ImageView imageView, int sizeW, int sizeH) {
+        Glide.with(activity).load(url).override(sizeW, sizeH).into(imageView);
+    }
 }
