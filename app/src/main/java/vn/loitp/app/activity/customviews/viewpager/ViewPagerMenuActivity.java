@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.api.MenuAPIActivity;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.ParallaxViewPagerActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -18,9 +18,9 @@ public class ViewPagerMenuActivity extends BaseActivity {
         findViewById(R.id.bt_parallax_viewpager).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuAPIActivity.class);
-                //startActivity(intent);
-                //LUIUtil.transActivityFadeIn(activity);
+                Intent intent = new Intent(activity, ParallaxViewPagerActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
             }
         });
     }
