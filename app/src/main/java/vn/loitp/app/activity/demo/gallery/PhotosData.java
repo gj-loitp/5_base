@@ -45,4 +45,18 @@ public class PhotosData {
         this.photoList.clear();
         LLog.d(TAG, "size: " + this.photoList.size());
     }
+
+    public int getSize() {
+        if (this.photoList == null || this.photoList.isEmpty()) {
+            return 0;
+        }
+        return this.photoList.size();
+    }
+
+    public Photo getPhoto(int position) {
+        if (this.photoList == null || this.photoList.isEmpty() || position < 0 || position > this.photoList.size()) {
+            return null;
+        }
+        return this.photoList.get(position);
+    }
 }

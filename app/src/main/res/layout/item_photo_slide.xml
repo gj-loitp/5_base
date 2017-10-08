@@ -4,19 +4,21 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
 
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black_trans_99"
         android:gravity="center"
         android:padding="@dimen/padding_5"
-        android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_20" />
+        android:textSize="@dimen/txt_14" />
 </RelativeLayout>

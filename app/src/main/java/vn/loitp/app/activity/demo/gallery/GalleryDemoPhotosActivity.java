@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.gallery;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import java.util.List;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.flickr.FlickrConst;
 import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
@@ -117,7 +119,11 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                     mGalleryView.addView(new PhotosItem(activity, photoList.get(i), i, new PhotosItem.Callback() {
                         @Override
                         public void onClick(Photo photo, int position) {
-                            LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
+                            //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
+                            Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
+                            intent.putExtra("position", position);
+                            startActivity(intent);
+                            LUIUtil.transActivityFadeIn(activity);
                         }
                     }));
                 }
