@@ -44,8 +44,8 @@ public class PhotosItem {
     @Resolve
     private void onResolved() {
         LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
-        //String s = photo.getTitle().getContent() + " (" + photo.getPhotos() + ")";
-        //tv.setText(s);
+        String s = "Original size: "+photo.getWidthO() + "x" + photo.getHeightO();
+        tv.setText(s);
     }
 
     @Click(R.id.imageView)
