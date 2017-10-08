@@ -13,12 +13,11 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/black_trans_99"
-        android:gravity="center"
         android:padding="@dimen/padding_5"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_14" />
+        android:textSize="@dimen/txt_7" />
 </RelativeLayout>

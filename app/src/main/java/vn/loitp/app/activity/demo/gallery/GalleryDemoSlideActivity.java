@@ -13,6 +13,7 @@ import android.widget.TextView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LImageUtil;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.livestar.R;
 
@@ -57,10 +58,13 @@ public class GalleryDemoSlideActivity extends BaseActivity {
             Photo photo = PhotosData.getInstance().getPhoto(position);
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide, collection, false);
+
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
             LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
+
             TextView tv = (TextView) layout.findViewById(R.id.tv);
-            tv.setText(photo.getWidthO() + "x" + photo.getHeightO());
+            LUIUtil.printBeautyJson(photo, tv);
+
             collection.addView(layout);
             return layout;
         }

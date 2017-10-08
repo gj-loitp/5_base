@@ -53,6 +53,7 @@
     <dimen name="w_100">100dp</dimen>
     <dimen name="w_60">60dp</dimen>
     <dimen name="txt_10">10dp</dimen>
+    <dimen name="txt_7">10dp</dimen>
     <dimen name="margin_75">75dp</dimen>
 
 </resources>
