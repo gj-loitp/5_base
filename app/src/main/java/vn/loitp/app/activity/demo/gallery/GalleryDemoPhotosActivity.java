@@ -112,11 +112,12 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                 tvTitle.setText(s);
 
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
+                PhotosData.getInstance().addPhoto(photoList);
                 for (int i = 0; i < photoList.size(); i++) {
                     mGalleryView.addView(new PhotosItem(activity, photoList.get(i), i, new PhotosItem.Callback() {
                         @Override
                         public void onClick(Photo photo, int position) {
-                            //do nothing
+                            LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                         }
                     }));
                 }
@@ -132,5 +133,11 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                 isLoading = true;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        PhotosData.getInstance().clearData();
+        super.onBackPressed();
     }
 }
