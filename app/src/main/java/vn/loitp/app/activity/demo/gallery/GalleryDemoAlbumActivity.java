@@ -76,7 +76,6 @@ public class GalleryDemoAlbumActivity extends BaseActivity {
                         public void onClick(Photoset photoset, int position) {
                             Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
                             intent.putExtra("photosetID", photoset.getId());
-                            intent.putExtra("title", photoset.getTitle().getContent());
                             startActivity(intent);
                             LUIUtil.transActivityFadeIn(activity);
                         }

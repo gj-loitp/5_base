@@ -1,9 +1,10 @@
 
 package vn.loitp.flickr.model.photosetgetphotos;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class Photoset {
 
@@ -24,19 +25,19 @@ public class Photoset {
     private List<Photo> photo = null;
     @SerializedName("page")
     @Expose
-    private String page;
+    private int page;
     @SerializedName("per_page")
     @Expose
-    private double perPage;
+    private int perPage;
     @SerializedName("perpage")
     @Expose
-    private double perpage;
+    private int perpage;
     @SerializedName("pages")
     @Expose
-    private double pages;
+    private int pages;
     @SerializedName("total")
     @Expose
-    private String total;
+    private int total;
     @SerializedName("title")
     @Expose
     private String title;
@@ -81,43 +82,43 @@ public class Photoset {
         this.photo = photo;
     }
 
-    public String getPage() {
+    public int getPage() {
         return page;
     }
 
-    public void setPage(String page) {
+    public void setPage(int page) {
         this.page = page;
     }
 
-    public double getPerPage() {
+    public int getPerPage() {
         return perPage;
     }
 
-    public void setPerPage(double perPage) {
+    public void setPerPage(int perPage) {
         this.perPage = perPage;
     }
 
-    public double getPerpage() {
+    public int getPerpage() {
         return perpage;
     }
 
-    public void setPerpage(double perpage) {
+    public void setPerpage(int perpage) {
         this.perpage = perpage;
     }
 
-    public double getPages() {
+    public int getPages() {
         return pages;
     }
 
-    public void setPages(double pages) {
+    public void setPages(int pages) {
         this.pages = pages;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 
