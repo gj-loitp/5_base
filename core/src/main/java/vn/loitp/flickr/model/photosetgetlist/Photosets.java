@@ -1,5 +1,5 @@
 
-package vn.loitp.flickr.model;
+package vn.loitp.flickr.model.photosetgetlist;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mindorks.placeholderview.Animation;
-import com.mindorks.placeholderview.annotations.Animate;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
@@ -13,7 +11,8 @@ import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
 import vn.loitp.app.utilities.LImageUtil;
-import vn.loitp.flickr.model.Photoset;
+import vn.loitp.flickr.model.photosetgetlist.Photoset;
+import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.livestar.R;
 
 /**
@@ -23,7 +22,7 @@ import vn.loitp.livestar.R;
 //@Animate(Animation.SCALE_UP_ASC)
 @NonReusable
 @Layout(R.layout.item_photo)
-public class PhotoItem {
+public class PhotosItem {
 
     @View(R.id.imageView)
     private ImageView imageView;
@@ -32,32 +31,32 @@ public class PhotoItem {
     private TextView tv;
 
     private Activity activity;
-    private Photoset photoset;
+    private Photo photo;
     private int position;
 
-    public PhotoItem(Activity activity, Photoset photoset, int position, Callback callback) {
+    public PhotosItem(Activity activity, Photo photo, int position, Callback callback) {
         this.activity = activity;
-        this.photoset = photoset;
+        this.photo = photo;
         this.position = position;
         this.callback = callback;
     }
 
     @Resolve
     private void onResolved() {
-        LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView, 50, 80);
-        String s = photoset.getTitle().getContent() + " (" + photoset.getPhotos() + ")";
-        tv.setText(s);
+        LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
+        //String s = photo.getTitle().getContent() + " (" + photo.getPhotos() + ")";
+        //tv.setText(s);
     }
 
     @Click(R.id.imageView)
     private void onClick() {
         if (callback != null) {
-            callback.onClick(photoset, position);
+            callback.onClick(photo, position);
         }
     }
 
     public interface Callback {
-        public void onClick(Photoset photoset, int position);
+        public void onClick(Photo photo, int position);
     }
 
     private Callback callback;
