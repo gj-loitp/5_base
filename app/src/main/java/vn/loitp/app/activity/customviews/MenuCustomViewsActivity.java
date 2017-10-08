@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
+import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -19,6 +20,14 @@ public class MenuCustomViewsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_view_pager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ViewPagerMenuActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

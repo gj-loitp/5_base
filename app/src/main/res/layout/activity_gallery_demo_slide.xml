@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
 
-    <vn.loitp.app.views.parrallaxviewpager.ParallaxViewPager
+    <vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.ParallaxViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -1,4 +1,4 @@
-package vn.loitp.app.views.parrallaxviewpager;
+package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager;
 
 /**
  * Created by www.muathu@gmail.com on 9/9/2017.

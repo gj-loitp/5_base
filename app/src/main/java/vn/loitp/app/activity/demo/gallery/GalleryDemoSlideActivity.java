@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.gallery;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,8 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LImageUtil;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.app.views.parrallaxviewpager.Mode;
-import vn.loitp.app.views.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.Mode;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.livestar.R;
 

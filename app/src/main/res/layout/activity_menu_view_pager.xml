@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Menu Custom View"
+        android:text="View Pager Menu"
         android:textColor="@color/black"
         android:textSize="@dimen/txt_20" />
 
@@ -19,21 +19,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/bt_place_holder_view"
+                android:id="@+id/bt_parallax_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Place holder view" />
-            <Button
-                android:id="@+id/bt_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="View Pager" />
+                android:layout_height="wrap_content"
+                android:text="Parallax View Pager" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
