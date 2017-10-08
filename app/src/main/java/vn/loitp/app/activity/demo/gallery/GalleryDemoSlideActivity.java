@@ -14,6 +14,8 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LImageUtil;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.app.views.parrallaxviewpager.Mode;
+import vn.loitp.app.views.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.livestar.R;
 
@@ -22,7 +24,8 @@ public class GalleryDemoSlideActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
+        viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
 
         String photoID = getIntent().getStringExtra("photoID");
