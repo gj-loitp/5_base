@@ -87,7 +87,7 @@
             android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.ParallaxViewPagerActivity"
+            android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.ParallaxViewPagerActivity"
             android:screenOrientation="portrait" />
 
         <!--FOR ALARM DEMO APP-->

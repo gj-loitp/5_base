@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view;
+package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.Mode;
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.Mode;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.livestar.R;
 

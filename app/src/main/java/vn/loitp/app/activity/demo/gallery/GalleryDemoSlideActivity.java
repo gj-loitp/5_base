@@ -13,8 +13,8 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LImageUtil;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.Mode;
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.view.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.Mode;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.livestar.R;
 
