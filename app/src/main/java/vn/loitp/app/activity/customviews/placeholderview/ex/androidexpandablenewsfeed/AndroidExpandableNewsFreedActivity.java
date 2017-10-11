@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.ExpandablePlaceHolderView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class AndroidExpandableNewsFreedActivity extends BaseActivity {
@@ -25,6 +26,9 @@ public class AndroidExpandableNewsFreedActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mContext = this.getApplicationContext();
         mExpandableView = (ExpandablePlaceHolderView) findViewById(R.id.expandableView);
+
+        LUIUtil.setPullLikeIOSVertical(mExpandableView);
+
         for (Feed feed : Utils.loadFeeds(this.getApplicationContext())) {
             mExpandableView.addView(new HeadingView(mContext, feed.getHeading()));
             for (Info info : feed.getInfoList()) {

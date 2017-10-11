@@ -11,6 +11,7 @@ import android.widget.TextView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class AndroidNavigationDrawerActivity extends BaseActivity {
@@ -23,6 +24,9 @@ public class AndroidNavigationDrawerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerView = (PlaceHolderView) findViewById(R.id.drawerView);
+
+        LUIUtil.setPullLikeIOSVertical(mDrawerView);
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setupDrawer();
 

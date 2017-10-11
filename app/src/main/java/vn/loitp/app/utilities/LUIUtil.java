@@ -20,6 +20,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.Html;
 import android.text.Spannable;
@@ -38,6 +39,7 @@ import com.google.gson.GsonBuilder;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 import vn.loitp.livestar.R;
 
 /**
@@ -342,5 +344,22 @@ public class LUIUtil {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(o);
         textView.setText(json);
+    }
+
+    public static void setPullLikeIOSVertical(RecyclerView recyclerView) {
+        //guide: https://github.com/EverythingMe/overscroll-decor
+
+        // Horizontal
+        //OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
+
+        // Vertical
+        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+    }
+
+    public static void setPullLikeIOSHorizontal(RecyclerView recyclerView) {
+        //guide: https://github.com/EverythingMe/overscroll-decor
+
+        // Horizontal
+        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
     }
 }

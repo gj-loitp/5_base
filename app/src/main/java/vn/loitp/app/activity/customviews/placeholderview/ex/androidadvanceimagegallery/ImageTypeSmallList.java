@@ -12,6 +12,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.an
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.NonReusable;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 /**
@@ -36,6 +37,7 @@ public class ImageTypeSmallList {
 
     @Resolve
     private void onResolved() {
+        LUIUtil.setPullLikeIOSHorizontal(mPlaceHolderView);
         mPlaceHolderView.getBuilder()
                 .setHasFixedSize(false)
                 .setItemViewCacheSize(10)

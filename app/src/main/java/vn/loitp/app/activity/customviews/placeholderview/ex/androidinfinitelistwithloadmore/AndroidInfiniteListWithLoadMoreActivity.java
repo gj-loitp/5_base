@@ -9,6 +9,7 @@ import java.util.List;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class AndroidInfiniteListWithLoadMoreActivity extends BaseActivity {
@@ -18,6 +19,9 @@ public class AndroidInfiniteListWithLoadMoreActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLoadMoreView = (InfinitePlaceHolderView) findViewById(R.id.loadMoreView);
+
+        LUIUtil.setPullLikeIOSVertical(mLoadMoreView);
+
         setupView();
     }
 

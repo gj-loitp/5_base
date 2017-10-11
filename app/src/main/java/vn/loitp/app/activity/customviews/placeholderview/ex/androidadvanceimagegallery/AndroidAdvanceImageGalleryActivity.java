@@ -10,6 +10,7 @@ import java.util.List;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
@@ -19,6 +20,9 @@ public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mGalleryView = (InfinitePlaceHolderView) findViewById(R.id.galleryView);
+
+        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+
         setupGallery();
         findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {
             @Override
