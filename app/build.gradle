@@ -101,5 +101,5 @@ dependencies {
 
     compile 'com.google.code.gson:gson:2.7'
 
-    compile 'me.everything:overscroll-decor-android:1.0.4'//https://github.com/EverythingMe/overscroll-decor
+    //compile 'me.everything:overscroll-decor-android:1.0.4'//https://github.com/EverythingMe/overscroll-decor
 }

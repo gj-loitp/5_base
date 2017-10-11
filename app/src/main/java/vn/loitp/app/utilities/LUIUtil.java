@@ -39,7 +39,7 @@ import com.google.gson.GsonBuilder;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 
-import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import vn.loitp.app.views.overscroll._lib.overscroll.OverScrollDecoratorHelper;
 import vn.loitp.livestar.R;
 
 /**
