@@ -4,12 +4,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import com.mindorks.placeholderview.InfinitePlaceHolderView;
-import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.infinite.LoadMore;
-
 import java.util.List;
 
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.infinite.LoadMore;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 

@@ -37,7 +37,7 @@
             android:contentDescription="@string/app_name" />
     </LinearLayout>
 
-    <com.mindorks.placeholderview.SwipePlaceHolderView
+    <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

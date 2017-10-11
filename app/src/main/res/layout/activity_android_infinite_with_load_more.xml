@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Clear All" />
 
-    <com.mindorks.placeholderview.InfinitePlaceHolderView
+    <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView
         android:id="@+id/loadMoreView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

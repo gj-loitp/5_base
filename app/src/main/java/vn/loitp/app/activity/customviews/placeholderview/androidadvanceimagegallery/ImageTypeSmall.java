@@ -2,20 +2,19 @@ package vn.loitp.app.activity.customviews.placeholderview.androidadvanceimagegal
 
 import android.content.Context;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.mindorks.placeholderview.Animation;
-import com.mindorks.placeholderview.PlaceHolderView;
-import com.mindorks.placeholderview.annotations.Animate;
-import com.mindorks.placeholderview.annotations.Click;
-import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.LongClick;
-import com.mindorks.placeholderview.annotations.NonReusable;
-import com.mindorks.placeholderview.annotations.Resolve;
-import com.mindorks.placeholderview.annotations.View;
 
 import loitp.utils.util.ToastUtils;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.Animation;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Animate;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Click;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.LongClick;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.NonReusable;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
 import vn.loitp.livestar.R;
 
 /**

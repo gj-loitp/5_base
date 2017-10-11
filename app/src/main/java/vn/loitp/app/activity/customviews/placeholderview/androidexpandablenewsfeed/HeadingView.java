@@ -5,16 +5,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.Resolve;
-import com.mindorks.placeholderview.annotations.View;
-import com.mindorks.placeholderview.annotations.expand.Collapse;
-import com.mindorks.placeholderview.annotations.expand.Expand;
-import com.mindorks.placeholderview.annotations.expand.Parent;
-import com.mindorks.placeholderview.annotations.expand.ParentPosition;
-import com.mindorks.placeholderview.annotations.expand.SingleTop;
-import com.mindorks.placeholderview.annotations.expand.Toggle;
-
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.Collapse;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.Expand;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.Parent;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.ParentPosition;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.SingleTop;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.Toggle;
 import vn.loitp.livestar.R;
 
 /**

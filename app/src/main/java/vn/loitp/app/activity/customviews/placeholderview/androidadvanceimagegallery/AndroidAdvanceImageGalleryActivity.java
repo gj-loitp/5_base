@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mindorks.placeholderview.InfinitePlaceHolderView;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;

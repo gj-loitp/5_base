@@ -3,16 +3,15 @@ package vn.loitp.app.activity.customviews.placeholderview.androidadvanceimagegal
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.mindorks.placeholderview.Animation;
-import com.mindorks.placeholderview.PlaceHolderView;
-import com.mindorks.placeholderview.annotations.Animate;
-import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.NonReusable;
-import com.mindorks.placeholderview.annotations.Resolve;
-import com.mindorks.placeholderview.annotations.View;
-
 import java.util.List;
 
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.Animation;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Animate;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.NonReusable;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
 import vn.loitp.livestar.R;
 
 /**

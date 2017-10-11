@@ -42,7 +42,7 @@
         android:layout_gravity="left"
         android:background="@android:color/white">
 
-        <com.mindorks.placeholderview.PlaceHolderView
+        <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView
             android:id="@+id/drawerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

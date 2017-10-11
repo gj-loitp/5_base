@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.mindorks.placeholderview.PlaceHolderView
+    <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView
         android:id="@+id/placeholderview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

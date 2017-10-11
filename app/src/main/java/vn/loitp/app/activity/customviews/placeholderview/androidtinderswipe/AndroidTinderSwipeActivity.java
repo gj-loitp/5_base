@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 
-import com.mindorks.placeholderview.SwipeDecor;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
-
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipeDecor;
+import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipePlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.livestar.R;
 
