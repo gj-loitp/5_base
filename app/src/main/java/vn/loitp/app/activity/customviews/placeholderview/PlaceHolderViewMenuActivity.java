@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.placeholderview.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
-import vn.loitp.app.activity.customviews.placeholderview.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
-import vn.loitp.app.activity.customviews.placeholderview.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity;
-import vn.loitp.app.activity.customviews.placeholderview.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity;
-import vn.loitp.app.activity.customviews.placeholderview.androidnavigationdrawer.AndroidNavigationDrawerActivity;
-import vn.loitp.app.activity.customviews.placeholderview.androidtinderswipe.AndroidTinderSwipeActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.AndroidNavigationDrawerActivity;
+import vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe.AndroidTinderSwipeActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
