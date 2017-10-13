@@ -40,6 +40,7 @@
     <dimen name="margin_10">10dp</dimen>
     <dimen name="padding_35">35dp</dimen>
     <dimen name="txt_20">20dp</dimen>
+    <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="w_250">250dp</dimen>
@@ -55,5 +56,9 @@
     <dimen name="txt_10">10dp</dimen>
     <dimen name="txt_7">10dp</dimen>
     <dimen name="margin_75">75dp</dimen>
-
+    <dimen name="label_title_size">14sp</dimen>
+    <dimen name="padding_label_view">10dp</dimen>
+    <dimen name="margin_between_labels">3dp</dimen>
+    <dimen name="padding_icon_cross">5dp</dimen>
+    <dimen name="round_15">15dp</dimen>
 </resources>

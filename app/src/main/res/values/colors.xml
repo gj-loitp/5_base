@@ -11,6 +11,7 @@
     <color name="colorAccent">#1660d1</color>
     <color name="White">#FFFFFF</color>
     <color name="LightGrey">#D3D3D3</color>
+    <color name="transparent">#00000000</color>
     <color name="Black">#000000</color>
 
     <color name="white">#ffffff</color>
@@ -26,4 +27,6 @@
     <color name="alarm_title_active">#444444</color>
     <color name="alarm_title_outdated">#888888</color>
     <color name="alarm_details">#888888</color>
+
+    <color name="default_background_label">#ff303030</color>
 </resources>
