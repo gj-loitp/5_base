@@ -102,4 +102,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
 
     //compile 'me.everything:overscroll-decor-android:1.0.4'//https://github.com/EverythingMe/overscroll-decor
+    compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
 }
