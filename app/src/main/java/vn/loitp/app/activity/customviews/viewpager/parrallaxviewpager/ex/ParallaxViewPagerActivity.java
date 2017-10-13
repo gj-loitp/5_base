@@ -15,6 +15,7 @@ import java.util.List;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.Mode;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class ParallaxViewPagerActivity extends BaseActivity {
@@ -25,7 +26,7 @@ public class ParallaxViewPagerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-
+        LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
             resList.add(R.drawable.iv);
         }
