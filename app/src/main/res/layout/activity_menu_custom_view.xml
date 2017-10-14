@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Menu Custom View"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:textSize="@dimen/txt_20" />
 
     <ScrollView
@@ -25,16 +25,16 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_place_holder_view"
+                android:id="@+id/bt_action_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Place holder view" />
+                android:text="Action bar (Blur)" />
 
             <Button
-                android:id="@+id/bt_view_pager"
+                android:id="@+id/bt_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="View Pager" />
+                android:text="Button" />
 
             <Button
                 android:id="@+id/bt_keyword_view"
@@ -43,10 +43,10 @@
                 android:text="Keyword/Hot tags" />
 
             <Button
-                android:id="@+id/bt_button"
+                android:id="@+id/bt_place_holder_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Place holder view" />
 
             <Button
                 android:id="@+id/bt_progress_loading"
@@ -59,6 +59,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Switch" />
+
+            <Button
+                android:id="@+id/bt_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Pager" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient android:angle="270" android:endColor="@color/redButtonColor_Tran" android:startColor="@color/redButtonColor_Tran" />
+
+            <!--<stroke android:width="@dimen/w_1" android:color="@color/redButtonColor_Tran" />-->
+
+            <corners android:radius="@dimen/round_45" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+
+        </shape>
+    </item>
+
+</selector>

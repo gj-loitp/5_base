@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Change the color of a SwitchCompat"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:textSize="@dimen/txt_20" />
 
     <LinearLayout

@@ -35,7 +35,7 @@
                 android:id="@+id/nameAgeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/txt_20"
                 android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
                 android:id="@+id/locationNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/txt_14" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

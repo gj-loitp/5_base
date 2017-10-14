@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Menu Progress Loading View"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:textSize="@dimen/txt_20" />
 
     <ScrollView

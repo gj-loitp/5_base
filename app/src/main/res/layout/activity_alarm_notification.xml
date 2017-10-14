@@ -14,8 +14,8 @@
         android:gravity="center"
         android:padding="8dip"
         android:text="..."
-        android:textColor="@color/blue"
-        android:textSize="@dimen/txt_32"
+        android:textColor="@color/Blue"
+        android:textSize="@dimen/txt_30"
         android:textStyle="bold" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

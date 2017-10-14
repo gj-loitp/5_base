@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.customviews.actionbar.ActionbarActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
@@ -68,7 +69,14 @@ public class MenuCustomViewsActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
-
+        findViewById(R.id.bt_action_bar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ActionbarActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
     }
 
     @Override

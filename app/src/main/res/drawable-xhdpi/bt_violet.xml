@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/primaryColor" />
+
+            <stroke android:width="@dimen/w_1" android:color="@color/primaryColor" />
+
+            <corners android:radius="@dimen/round_45" />
+
+            <!--dont change 3dp-->
+            <padding android:bottom="@dimen/padding_3" android:left="@dimen/padding_3" android:right="@dimen/padding_3" android:top="@dimen/padding_3" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient android:angle="270" android:endColor="@color/watch_profile" android:startColor="@color/watch_profile" />
+
+            <stroke android:width="@dimen/w_1" android:color="@color/watch_profile" />
+
+            <corners android:radius="@dimen/round_45" />
+
+            <!--dont change 3dp-->
+            <padding android:bottom="@dimen/padding_3" android:left="@dimen/padding_3" android:right="@dimen/padding_3" android:top="@dimen/padding_3" />
+        </shape>
+    </item>
+
+</selector>

@@ -1,66 +1,112 @@
 <resources>
-
-    <!-- Global -->
-
-    <!-- For View -->
-
-    <!-- For Tab Bar -->
-
-    <!-- For Text Size -->
-
-    <!-- Corner radius -->
-
-    <!-- For Icon -->
-
-    <!-- On Air -->
-
-    <!-- Gifts -->
-
-    <!-- Lounges -->
-
-    <!-- Actions -->
-
-    <!-- Room -->
-
-    <!-- Sign In -->
-
-    <!-- Chat -->
-
-    <!-- Idol Profile -->
-
-    <!-- Audiences -->
-
-    <!-- Schedule -->
-
-    <!-- Purchase -->
-    <dimen name="w_40">40dp</dimen>
-    <dimen name="w_50">50dp</dimen>
-    <dimen name="w_80">80dp</dimen>
-    <dimen name="w_150">150dp</dimen>
-    <dimen name="margin_5">5dp</dimen>
-    <dimen name="margin_10">10dp</dimen>
-    <dimen name="padding_35">35dp</dimen>
-    <dimen name="txt_20">20dp</dimen>
-    <dimen name="padding_3">3dp</dimen>
+    <dimen name="view_margin_large">24dp</dimen>
+    <dimen name="view_margin_medium">16dp</dimen>
+    <dimen name="view_padding_huge">32dp</dimen>
+    <dimen name="view_padding_small">8dp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+    <dimen name="text_size_45">45sp</dimen>
+    <dimen name="corner_5">5dp</dimen>
     <dimen name="padding_5">5dp</dimen>
-    <dimen name="padding_10">10dp</dimen>
-    <dimen name="w_250">250dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
     <dimen name="padding_30">30dp</dimen>
-    <dimen name="margin_55">55dp</dimen>
-    <dimen name="txt_14">14dp</dimen>
-    <dimen name="margin_20">20dp</dimen>
-    <dimen name="w_5">5dp</dimen>
-    <dimen name="w_3">3dp</dimen>
-    <dimen name="w_1">1dp</dimen>
-    <dimen name="w_100">100dp</dimen>
-    <dimen name="w_60">60dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_13">13dp</dimen>
     <dimen name="txt_10">10dp</dimen>
-    <dimen name="txt_7">10dp</dimen>
+    <dimen name="txt_11">11dp</dimen>
+    <dimen name="txt_8">8dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="txt_24">24dp</dimen>
+    <dimen name="txt_28">28dp</dimen>
+    <dimen name="txt_20">20dp</dimen>
+    <dimen name="txt_30">30dp</dimen>
+    <dimen name="txt_40">40dp</dimen>
+    <dimen name="padding_1">1dp</dimen>
+    <dimen name="padding_3">3dp</dimen>
+    <dimen name="round_5">5dp</dimen>
+    <dimen name="round_10">10dp</dimen>
+    <dimen name="round_15">15dp</dimen>
+    <dimen name="round_45">45dp</dimen>
+    <dimen name="round_80">80dp</dimen>
+    <dimen name="txt_18">18dp</dimen>
+    <dimen name="txt_16">16dp</dimen>
+    <dimen name="w_60">60dp</dimen>
+    <dimen name="w_75">75dp</dimen>
+    <dimen name="w_78">78dp</dimen>
+    <dimen name="w_80">80dp</dimen>
+    <dimen name="w_90">90dp</dimen>
+    <dimen name="w_95">95dp</dimen>
+    <dimen name="w_50">50dp</dimen>
+    <dimen name="h_50">50dp</dimen>
+    <dimen name="h_1">1dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="w_40">40dp</dimen>
+    <dimen name="w_0.5">0.5dp</dimen>
+    <dimen name="w_1">1dp</dimen>
+    <dimen name="w_0">0dp</dimen>
+    <dimen name="w_3">3dp</dimen>
+    <dimen name="w_150">150dp</dimen>
+    <dimen name="w_10">10dp</dimen>
+    <dimen name="w_7">7dp</dimen>
+    <dimen name="h_10">10dp</dimen>
+    <dimen name="w_15">15dp</dimen>
+    <dimen name="w_5">5dp</dimen>
+    <dimen name="h_15">15dp</dimen>
+    <dimen name="w_20">20dp</dimen>
+    <dimen name="w_25">25dp</dimen>
+    <dimen name="h_25">25dp</dimen>
+    <dimen name="w_30">30dp</dimen>
+    <dimen name="h_20">20dp</dimen>
+    <dimen name="h_30">30dp</dimen>
+    <dimen name="w_70">70dp</dimen>
+    <dimen name="w_65">65dp</dimen>
+    <dimen name="w_73">73dp</dimen>
+    <dimen name="h_70">70dp</dimen>
+    <dimen name="w_110">110dp</dimen>
+    <dimen name="h_110">110dp</dimen>
+    <dimen name="w_120">120dp</dimen>
+    <dimen name="h_120">120dp</dimen>
+    <dimen name="w_200">200dp</dimen>
+    <dimen name="w_350">350dp</dimen>
+    <dimen name="w_300">300dp</dimen>
+    <dimen name="h_100">100dp</dimen>
+    <dimen name="w_100">100dp</dimen>
+    <dimen name="w_130">130dp</dimen>
+    <dimen name="h_130">130dp</dimen>
+    <dimen name="h_180">180dp</dimen>
+    <dimen name="txt_9">9dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_11">11dp</dimen>
+    <dimen name="margin_9">9dp</dimen>
+    <dimen name="txt_12">12dp</dimen>
+    <dimen name="txt_14">14dp</dimen>
+    <dimen name="txt_32">32dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_35">35dp</dimen>
+    <dimen name="padding_25">25dp</dimen>
+    <dimen name="padding_40">40dp</dimen>
+    <dimen name="padding_60">60dp</dimen>
+    <dimen name="h_200">200dp</dimen>
+    <dimen name="margin_55">55dp</dimen>
     <dimen name="margin_75">75dp</dimen>
+    <dimen name="w_140">140dp</dimen>
+    <dimen name="w_500">500dp</dimen>
+    <dimen name="w_250">250dp</dimen>
+    <dimen name="txt_150">150dp</dimen>
+    <dimen name="w_180">180dp</dimen>
+    <dimen name="icon_cross">23dp</dimen>
     <dimen name="label_title_size">14sp</dimen>
     <dimen name="padding_label_view">10dp</dimen>
     <dimen name="margin_between_labels">3dp</dimen>
     <dimen name="padding_icon_cross">5dp</dimen>
-    <dimen name="round_15">15dp</dimen>
-    <dimen name="txt_32">32dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
 </resources>
