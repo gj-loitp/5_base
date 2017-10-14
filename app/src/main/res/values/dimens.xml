@@ -62,4 +62,5 @@
     <dimen name="margin_between_labels">3dp</dimen>
     <dimen name="padding_icon_cross">5dp</dimen>
     <dimen name="round_15">15dp</dimen>
+    <dimen name="txt_32">32dp</dimen>
 </resources>

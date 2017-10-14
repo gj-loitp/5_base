@@ -98,6 +98,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.animation.MenuAnimationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.animation.animationview.AnimationViewActivity"
+            android:screenOrientation="portrait" />
 
         <!--FOR ALARM DEMO APP-->
         <activity

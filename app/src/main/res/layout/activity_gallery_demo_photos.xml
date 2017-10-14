@@ -25,7 +25,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/txt_20" />
 
-    <com.mindorks.placeholderview.PlaceHolderView
+    <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
