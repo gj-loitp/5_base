@@ -7,6 +7,7 @@ import android.view.View;
 
 import vn.loitp.app.activity.customviews.actionbar.ActionbarActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
+import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.activity.customviews.progress_loadingview.MenuProgressLoadingViewsActivity;
@@ -73,6 +74,14 @@ public class MenuCustomViewsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ActionbarActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_imageview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ImageViewMenuActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
