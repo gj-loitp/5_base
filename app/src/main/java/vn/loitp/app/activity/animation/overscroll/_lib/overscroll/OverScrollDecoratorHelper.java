@@ -1,4 +1,4 @@
-package vn.loitp.app.views.overscroll._lib.overscroll;
+package vn.loitp.app.activity.animation.overscroll._lib.overscroll;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,12 +11,12 @@ import android.widget.HorizontalScrollView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.AbsListViewOverScrollDecorAdapter;
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.HorizontalScrollViewOverScrollDecorAdapter;
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.StaticOverScrollDecorAdapter;
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.AbsListViewOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.HorizontalScrollViewOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.StaticOverScrollDecorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
 
 /**
  * @author amit

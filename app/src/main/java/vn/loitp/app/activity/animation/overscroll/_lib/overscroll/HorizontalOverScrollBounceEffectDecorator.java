@@ -1,18 +1,13 @@
-package vn.loitp.app.views.overscroll._lib.overscroll;
+package vn.loitp.app.activity.animation.overscroll._lib.overscroll;
 
 import android.view.MotionEvent;
 import android.view.View;
 
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.IOverScrollDecoratorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.IOverScrollDecoratorAdapter;
 
-/**
- * A concrete implementation of {@link me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase} for a vertical orientation.
- *
- * @author amit
- */
-public class VerticalOverScrollBounceEffectDecorator extends OverScrollBounceEffectDecoratorBase {
+public class HorizontalOverScrollBounceEffectDecorator extends OverScrollBounceEffectDecoratorBase {
 
-    protected static class MotionAttributesVertical extends MotionAttributes {
+    protected static class MotionAttributesHorizontal extends MotionAttributes {
 
         public boolean init(View view, MotionEvent event) {
 
@@ -25,28 +20,28 @@ public class VerticalOverScrollBounceEffectDecorator extends OverScrollBounceEff
             // Allow for counter-orientation-direction operations (e.g. item swiping) to run fluently.
             final float dy = event.getY(0) - event.getHistoricalY(0, 0);
             final float dx = event.getX(0) - event.getHistoricalX(0, 0);
-            if (Math.abs(dx) > Math.abs(dy)) {
+            if (Math.abs(dx) < Math.abs(dy)) {
                 return false;
             }
 
-            mAbsOffset = view.getTranslationY();
-            mDeltaOffset = dy;
+            mAbsOffset = view.getTranslationX();
+            mDeltaOffset = dx;
             mDir = mDeltaOffset > 0;
 
             return true;
         }
     }
 
-    protected static class AnimationAttributesVertical extends AnimationAttributes {
+    protected static class AnimationAttributesHorizontal extends AnimationAttributes {
 
-        public AnimationAttributesVertical() {
-            mProperty = View.TRANSLATION_Y;
+        public AnimationAttributesHorizontal() {
+            mProperty = View.TRANSLATION_X;
         }
 
         @Override
         protected void init(View view) {
-            mAbsOffset = view.getTranslationY();
-            mMaxOffset = view.getHeight();
+            mAbsOffset = view.getTranslationX();
+            mMaxOffset = view.getWidth();
         }
     }
 
@@ -58,42 +53,42 @@ public class VerticalOverScrollBounceEffectDecorator extends OverScrollBounceEff
      *
      * @param viewAdapter The view's encapsulation.
      */
-    public VerticalOverScrollBounceEffectDecorator(IOverScrollDecoratorAdapter viewAdapter) {
+    public HorizontalOverScrollBounceEffectDecorator(IOverScrollDecoratorAdapter viewAdapter) {
         this(viewAdapter, DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD, DEFAULT_TOUCH_DRAG_MOVE_RATIO_BCK, DEFAULT_DECELERATE_FACTOR);
     }
 
     /**
      * C'tor, creating the effect with explicit arguments.
-     * @param viewAdapter The view's encapsulation.
+     *
+     * @param viewAdapter       The view's encapsulation.
      * @param touchDragRatioFwd Ratio of touch distance to actual drag distance when in 'forward' direction.
      * @param touchDragRatioBck Ratio of touch distance to actual drag distance when in 'backward'
      *                          direction (opposite to initial one).
-     * @param decelerateFactor Deceleration factor used when decelerating the motion to create the
-     *                         bounce-back effect.
+     * @param decelerateFactor  Deceleration factor used when decelerating the motion to create the
+     *                          bounce-back effect.
      */
-    public VerticalOverScrollBounceEffectDecorator(IOverScrollDecoratorAdapter viewAdapter,
-                                                   float touchDragRatioFwd, float touchDragRatioBck, float decelerateFactor) {
+    public HorizontalOverScrollBounceEffectDecorator(IOverScrollDecoratorAdapter viewAdapter, float touchDragRatioFwd, float touchDragRatioBck, float decelerateFactor) {
         super(viewAdapter, decelerateFactor, touchDragRatioFwd, touchDragRatioBck);
     }
 
     @Override
     protected MotionAttributes createMotionAttributes() {
-        return new MotionAttributesVertical();
+        return new MotionAttributesHorizontal();
     }
 
     @Override
     protected AnimationAttributes createAnimationAttributes() {
-        return new AnimationAttributesVertical();
+        return new AnimationAttributesHorizontal();
     }
 
     @Override
     protected void translateView(View view, float offset) {
-        view.setTranslationY(offset);
+        view.setTranslationX(offset);
     }
 
     @Override
     protected void translateViewAndEvent(View view, float offset, MotionEvent event) {
-        view.setTranslationY(offset);
-        event.offsetLocation(offset - event.getY(0), 0f);
+        view.setTranslationX(offset);
+        event.offsetLocation(offset - event.getX(0), 0f);
     }
 }

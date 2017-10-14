@@ -1,4 +1,4 @@
-package vn.loitp.app.views.overscroll._lib.overscroll;
+package vn.loitp.app.activity.animation.overscroll._lib.overscroll;
 
 import android.view.View;
 

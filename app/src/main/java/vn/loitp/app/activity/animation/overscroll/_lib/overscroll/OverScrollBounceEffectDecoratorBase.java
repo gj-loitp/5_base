@@ -1,4 +1,4 @@
-package vn.loitp.app.views.overscroll._lib.overscroll;
+package vn.loitp.app.activity.animation.overscroll._lib.overscroll;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import vn.loitp.app.views.overscroll._lib.overscroll.adapters.IOverScrollDecoratorAdapter;
+import vn.loitp.app.activity.animation.overscroll._lib.overscroll.adapters.IOverScrollDecoratorAdapter;
 
-import static vn.loitp.app.views.overscroll._lib.overscroll.IOverScrollState.STATE_BOUNCE_BACK;
-import static vn.loitp.app.views.overscroll._lib.overscroll.IOverScrollState.STATE_DRAG_END_SIDE;
-import static vn.loitp.app.views.overscroll._lib.overscroll.IOverScrollState.STATE_DRAG_START_SIDE;
-import static vn.loitp.app.views.overscroll._lib.overscroll.IOverScrollState.STATE_IDLE;
+import static vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollState.STATE_BOUNCE_BACK;
+import static vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollState.STATE_DRAG_END_SIDE;
+import static vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollState.STATE_DRAG_START_SIDE;
+import static vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollState.STATE_IDLE;
 
 /**
  * A standalone view decorator adding over-scroll with a smooth bounce-back effect to (potentially) any view -

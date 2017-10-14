@@ -1,4 +1,4 @@
-package vn.loitp.app.views.overscroll._lib.overscroll;
+package vn.loitp.app.activity.animation.overscroll._lib.overscroll;
 
 /**
  * A callback-listener enabling over-scroll effect clients to subscribe to <b>real-time</b> updates
