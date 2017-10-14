@@ -67,6 +67,12 @@
                 android:text="Switch" />
 
             <Button
+                android:id="@+id/bt_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Textview" />
+
+            <Button
                 android:id="@+id/bt_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
