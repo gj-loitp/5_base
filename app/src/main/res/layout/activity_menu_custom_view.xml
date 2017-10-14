@@ -53,6 +53,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Progress/Loading View" />
+
+            <Button
+                android:id="@+id/bt_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Switch" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

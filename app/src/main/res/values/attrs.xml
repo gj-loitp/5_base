@@ -63,4 +63,10 @@
         <attr name="indicatorName" format="string" />
         <attr name="indicatorColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="LColorSwitchCompat">
+        <attr name="toggleOnColor" format="color" />
+        <attr name="toggleOffColor" format="color" />
+        <attr name="bgOnColor" format="color" />
+        <attr name="bgOffColor" format="color" />
+    </declare-styleable>
 </resources>

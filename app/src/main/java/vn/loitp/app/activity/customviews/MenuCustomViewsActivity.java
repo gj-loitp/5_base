@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.activity.customviews.progress_loadingview.MenuProgressLoadingViewsActivity;
+import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -59,6 +60,15 @@ public class MenuCustomViewsActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_switch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SwitchToggleMenuActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
     }
 
     @Override
