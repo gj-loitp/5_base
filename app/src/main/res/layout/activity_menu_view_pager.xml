@@ -21,13 +21,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/bt_parallax_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Parallax View Pager" />
+
+            <Button
+                android:id="@+id/bt_detect_viewpager_swipe_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detect ViewPager SwipeOut" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

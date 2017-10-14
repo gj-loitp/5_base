@@ -369,6 +369,52 @@ public class LUIUtil {
         OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
     }
 
+    public static void setPullLikeIOSHorizontal(ViewPager viewPager, Callback callback) {
+        //guide: https://github.com/EverythingMe/overscroll-decor
+        IOverScrollDecor decor = OverScrollDecoratorHelper.setUpOverScroll(viewPager);
+        if (callback != null) {
+            decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
+                @Override
+                public void onOverScrollUpdate(IOverScrollDecor decor, int state, float offset) {
+                    final View view = decor.getView();
+                    if (offset > 0) {
+                        // 'view' is currently being over-scrolled from the top.
+                        lastOffset = offset;
+                        isUp = true;
+                        //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
+                    } else if (offset < 0) {
+                        // 'view' is currently being over-scrolled from the bottom.
+                        lastOffset = offset;
+                        isUp = false;
+                        //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
+                    } else {
+                        // No over-scroll is in-effect.
+                        // This is synonymous with having (state == STATE_IDLE).
+                        //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
+                        if (isUp) {
+                            //LLog.d(TAG, "________________ up " + lastOffset);
+                            if (lastOffset > 1.8f) {
+                                callback.onUpOrLeftRefresh(lastOffset);
+                                LSoundUtil.startMusicFromAsset(viewPager.getContext(), "ting.ogg");
+                            } else {
+                                callback.onUpOrLeft(lastOffset);
+                            }
+                        } else {
+                            //LLog.d(TAG, "________________ down " + lastOffset);
+                            if (lastOffset < -1.8f) {
+                                callback.onDownOrRightRefresh(lastOffset);
+                            } else {
+                                callback.onDownOrRight(lastOffset);
+                            }
+                        }
+                        lastOffset = 0;
+                        isUp = false;
+                    }
+                }
+            });
+        }
+    }
+
     private static float lastOffset = 0.0f;
     private static boolean isUp = false;
 
@@ -422,14 +468,18 @@ public class LUIUtil {
                         if (isUp) {
                             //LLog.d(TAG, "________________ up " + lastOffset);
                             if (lastOffset > 1.8f) {
-                                callback.onUpRefresh(lastOffset);
+                                callback.onUpOrLeftRefresh(lastOffset);
                                 LSoundUtil.startMusicFromAsset(recyclerView.getContext(), "ting.ogg");
                             } else {
-                                callback.onUp(lastOffset);
+                                callback.onUpOrLeft(lastOffset);
                             }
                         } else {
                             //LLog.d(TAG, "________________ down " + lastOffset);
-                            callback.onDown(lastOffset);
+                            if (lastOffset < -1.8f) {
+                                callback.onDownOrRightRefresh(lastOffset);
+                            } else {
+                                callback.onDownOrRight(lastOffset);
+                            }
                         }
                         lastOffset = 0;
                         isUp = false;
@@ -440,11 +490,13 @@ public class LUIUtil {
     }
 
     public interface Callback {
-        public void onUp(float offset);
+        public void onUpOrLeft(float offset);
 
-        public void onUpRefresh(float offset);
+        public void onUpOrLeftRefresh(float offset);
 
-        public void onDown(float offset);
+        public void onDownOrRight(float offset);
+
+        public void onDownOrRightRefresh(float offset);
     }
 
     public static void setPullLikeIOSVertical(ViewPager viewPager) {
@@ -457,7 +509,7 @@ public class LUIUtil {
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
     }
 
-    public static void setPullLikeIOSVertical(ListView listView ) {
+    public static void setPullLikeIOSVertical(ListView listView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(listView);
     }
