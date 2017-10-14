@@ -60,6 +60,7 @@ public class AlarmMeActivity extends BaseActivity {
         LLog.d(TAG, "AlarmMeActivity.onCreate()");
 
         mAlarmList = (ListView) findViewById(R.id.lv_alarm);
+        LUIUtil.setPullLikeIOSVertical(mAlarmList);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
         mAlarmList.setAdapter(mAlarmListAdapter);
@@ -141,6 +142,7 @@ public class AlarmMeActivity extends BaseActivity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
+            LUIUtil.transActivityFadeIn(activity);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -170,6 +172,7 @@ public class AlarmMeActivity extends BaseActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
+            LUIUtil.transActivityFadeIn(activity);
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -192,6 +195,7 @@ public class AlarmMeActivity extends BaseActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
+            LUIUtil.transActivityFadeIn(activity);
         }
     };
 

@@ -9,11 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:padding="@dimen/padding_35"
-        android:scaleType="centerInside"
-        android:src="@drawable/splash_bg" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv" />
 
-    <com.wang.avi.AVLoadingIndicatorView
+    <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"

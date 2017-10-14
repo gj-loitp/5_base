@@ -21,15 +21,17 @@
         android:visibility="gone" />
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@+id/bt_demo"
-        android:layout_below="@+id/bt_2">
+        android:layout_below="@+id/bt_2"
+        android:fillViewport="true">
 
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="@dimen/padding_5"
             android:textColor="@color/grey"
             android:textSize="@dimen/txt_10" />

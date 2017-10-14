@@ -33,6 +33,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -454,6 +455,11 @@ public class LUIUtil {
     public static void setPullLikeIOSVertical(ScrollView scrollView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+    }
+
+    public static void setPullLikeIOSVertical(ListView listView ) {
+        //guide: https://github.com/EverythingMe/overscroll-decor
+        OverScrollDecoratorHelper.setUpOverScroll(listView);
     }
 
     public static void setPullLikeIOSVertical(HorizontalScrollView scrollView) {

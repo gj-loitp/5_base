@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/vip5"
     android:fillViewport="true"
     android:orientation="vertical">
 
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallPulseIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallGridPulseIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallClipRotateIndicator" />
 
         </LinearLayout>
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallClipRotatePulseIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="SquareSpinIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallClipRotateMultipleIndicator" />
 
         </LinearLayout>
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallPulseRiseIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallRotateIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="CubeTransitionIndicator" />
 
         </LinearLayout>
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallZigZagIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallZigZagDeflectIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallTrianglePathIndicator" />
 
         </LinearLayout>
@@ -147,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallClipRotateMultipleIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -155,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallScaleIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="LineScaleIndicator" />
 
         </LinearLayout>
@@ -178,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="LineScalePartyIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -186,7 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallScaleMultipleIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -194,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallPulseSyncIndicator" />
 
         </LinearLayout>
@@ -209,7 +209,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallBeatIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -217,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="LineScalePulseOutIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -225,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         </LinearLayout>
@@ -240,7 +240,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallScaleRippleIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -248,7 +248,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallScaleRippleMultipleIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -256,7 +256,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallSpinFadeLoaderIndicator" />
         </LinearLayout>
 
@@ -270,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="LineSpinFadeLoaderIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -278,7 +278,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="TriangleSkewSpinIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -286,7 +286,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="PacmanIndicator" />
         </LinearLayout>
 
@@ -300,7 +300,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="BallGridBeatIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -308,7 +308,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="SemiCircleSpinIndicator" />
 
             <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
@@ -316,7 +316,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_10"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/colorPrimary"
                 app:indicatorName="MyCustomIndicator" />
         </LinearLayout>
     </LinearLayout>

@@ -19,8 +19,6 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_view);
-        LUIUtil.setPullLikeIOSVertical(scrollView);
 
         findViewById(R.id.bt_api).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="4dip">
+    android:padding="@dimen/padding_5">
 
     <TextView
         android:id="@+id/alarm_title_text"
@@ -15,7 +15,7 @@
         android:padding="8dip"
         android:text="..."
         android:textColor="@color/blue"
-        android:textSize="32dip"
+        android:textSize="@dimen/txt_32"
         android:textStyle="bold" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,7 +23,7 @@
         android:layout_height="0sp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="8dip">
+        android:padding="@dimen/padding_5">
 
         <View
             android:layout_width="0sp"

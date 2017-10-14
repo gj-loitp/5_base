@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ScrollView;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -18,8 +18,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.app.utilities.LLog;
-import vn.loitp.livestar.R;
 import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.livestar.R;
 
 //TODO remove scrollbar
 //TODO change const debug
@@ -42,6 +42,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setCustomStatusBar(true);
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());
+        ScrollView scrollView = (ScrollView) activity.findViewById(R.id.scroll_view);
+        if (scrollView != null) {
+            LUIUtil.setPullLikeIOSVertical(scrollView);
+        }
     }
 
     protected void setCustomStatusBar(boolean shouldChangeStatusBarTintToDark) {

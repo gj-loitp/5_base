@@ -40,7 +40,7 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
         avi.smoothToHide();
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
-
+        LUIUtil.setPullLikeIOSVertical(mGalleryView);
         String photosetID = getIntent().getStringExtra("photosetID");
         photosetsGetPhotos(photosetID);
 

@@ -33,8 +33,7 @@ public class OverScrollDecoratorHelper {
      * by this convenience method.
      *
      * @param recyclerView The view.
-     * @param orientation Either {@link #ORIENTATION_HORIZONTAL} or {@link #ORIENTATION_VERTICAL}.
-     *
+     * @param orientation  Either {@link #ORIENTATION_HORIZONTAL} or {@link #ORIENTATION_VERTICAL}.
      * @return The over-scroll effect 'decorator', enabling further effect configuration.
      */
     public static IOverScrollDecor setUpOverScroll(RecyclerView recyclerView, int orientation) {
@@ -48,7 +47,7 @@ public class OverScrollDecoratorHelper {
         }
     }
 
-    public IOverScrollDecor setUpOverScroll(ListView listView) {
+    public static IOverScrollDecor setUpOverScroll(ListView listView) {
         return new VerticalOverScrollBounceEffectDecorator(new AbsListViewOverScrollDecorAdapter(listView));
     }
 
@@ -68,9 +67,8 @@ public class OverScrollDecoratorHelper {
      * Set up the over-scroll over a generic view, assumed to always be over-scroll ready (e.g.
      * a plain text field, image view).
      *
-     * @param view The view.
+     * @param view        The view.
      * @param orientation One of {@link #ORIENTATION_HORIZONTAL} or {@link #ORIENTATION_VERTICAL}.
-     *
      * @return The over-scroll effect 'decorator', enabling further effect configuration.
      */
     public static IOverScrollDecor setUpStaticOverScroll(View view, int orientation) {
