@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 
 import vn.loitp.app.activity.animation.MenuAnimationActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
@@ -18,6 +19,9 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_view);
+        LUIUtil.setPullLikeIOSVertical(scrollView);
+
         findViewById(R.id.bt_api).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
