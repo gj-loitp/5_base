@@ -23,7 +23,7 @@
         android:layout_below="@+id/tv"
         android:scrollbars="vertical" />
 
-    <com.wang.avi.AVLoadingIndicatorView
+    <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
