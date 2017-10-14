@@ -25,6 +25,7 @@
     <dimen name="txt_20">20dp</dimen>
     <dimen name="txt_30">30dp</dimen>
     <dimen name="txt_40">40dp</dimen>
+    <dimen name="txt_80">80dp</dimen>
     <dimen name="padding_1">1dp</dimen>
     <dimen name="padding_3">3dp</dimen>
     <dimen name="round_5">5dp</dimen>
