@@ -14,7 +14,7 @@
             android:id="@+id/blur_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_80"
+            app:realtimeBlurRadius="@dimen/round_15"
             app:realtimeOverlayColor="@color/WhiteTrans" />
 
         <LinearLayout
