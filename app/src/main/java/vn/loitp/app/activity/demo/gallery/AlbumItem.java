@@ -19,7 +19,7 @@ import vn.loitp.livestar.R;
 
 //@Animate(Animation.SCALE_UP_ASC)
 @NonReusable
-@Layout(R.layout.item_photo)
+@Layout(R.layout.item_img)
 public class AlbumItem {
 
     @View(R.id.imageView)
