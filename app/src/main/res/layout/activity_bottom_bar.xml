@@ -20,7 +20,7 @@
                 android:layout_gravity="right"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/iv" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:id="@+id/tv"
@@ -30,8 +30,9 @@
                 android:textColor="@color/Black" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 android:src="@drawable/iv" />

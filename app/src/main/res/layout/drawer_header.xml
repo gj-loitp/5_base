@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/margin_10"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/iv" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/nameTxt"

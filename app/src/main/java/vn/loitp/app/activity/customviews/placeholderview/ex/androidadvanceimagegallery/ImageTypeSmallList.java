@@ -37,12 +37,11 @@ public class ImageTypeSmallList {
 
     @Resolve
     private void onResolved() {
-        LUIUtil.setPullLikeIOSHorizontal(mPlaceHolderView);
         mPlaceHolderView.getBuilder()
                 .setHasFixedSize(false)
                 .setItemViewCacheSize(10)
                 .setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-
+        LUIUtil.setPullLikeIOSHorizontal(mPlaceHolderView);
         for (Image image : mImageList) {
             mPlaceHolderView.addView(new ImageTypeSmall(mContext, mPlaceHolderView, image.getImageUrl()));
         }

@@ -31,8 +31,8 @@
                 android:layout_marginTop="@dimen/margin_30"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/iv"
-                app:civ_border_color="@color/vip1"
-                app:civ_border_width="@dimen/w_1" />
+                app:civ_border_color="@color/vip3"
+                app:civ_border_width="@dimen/w_10" />
 
             <vn.loitp.app.activity.customviews.imageview.circleimageview._lib.LCircleImageView
                 android:layout_width="@dimen/w_80"

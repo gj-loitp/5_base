@@ -16,14 +16,13 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/w_70" />
+                android:layout_height="?android:attr/actionBarSize" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
                 android:src="@drawable/iv" />
 
             <TextView
@@ -33,6 +32,14 @@
                 android:padding="@dimen/padding_5"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/txt_10" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo" />
         </LinearLayout>
     </ScrollView>
 

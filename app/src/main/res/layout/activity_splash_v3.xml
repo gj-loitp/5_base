@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/iv" />
+        android:src="@drawable/logo" />
 
     <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
         style="@style/AVLoadingIndicatorView.Large"

@@ -23,7 +23,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseActivity {
 
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         for (int i = 0; i < 100; i++) {
-            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(activity, R.drawable.iv), i, new GalleryItem.Callback() {
+            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(activity, R.drawable.logo), i, new GalleryItem.Callback() {
                 @Override
                 public void onClick(int position) {
                     ToastUtils.showShort("Click " + position);
