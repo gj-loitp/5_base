@@ -25,16 +25,16 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_score_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score Text" />
-
-            <Button
                 android:id="@+id/bt_countdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Countdown TextView" />
+
+            <Button
+                android:id="@+id/bt_score_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Score Text" />
 
         </LinearLayout>
     </ScrollView>
