@@ -31,6 +31,12 @@
                 android:text="Action bar (Blur)" />
 
             <Button
+                android:id="@+id/bt_bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bottom Navigation Bar" />
+
+            <Button
                 android:id="@+id/bt_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
