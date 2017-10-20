@@ -33,11 +33,11 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
     private int previousPos;
     private int currentPos;
     public final static int PAGE_NONE = -1;
-    public final static int PAGE_HOME = 0;
-    public final static int PAGE_SEARCH = 1;
-    public final static int PAGE_LIVESTREAM = -2;
-    public final static int PAGE_RANKING = 2;
-    public final static int PAGE_PROFILE = 3;
+    public final static int PAGE_0 = 0;
+    public final static int PAGE_1 = 1;
+    public final static int PAGE_2 = 2;
+    public final static int PAGE_3 = 3;
+    public final static int PAGE_4 = 4;
 
     public LBottomBar(Context context) {
         super(context);
@@ -83,41 +83,41 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         //LLog.d(TAG, "onClickRootView");
         switch (v.getId()) {
             case R.id.bt_icon_0:
-                if (currentPos != PAGE_HOME) {
+                if (currentPos != PAGE_0) {
                     previousPos = currentPos;
-                    currentPos = PAGE_HOME;
+                    currentPos = PAGE_0;
                     onClickItem(currentPos);
                     updateView(btIcon0);
                 }
                 break;
             case R.id.bt_icon_1:
-                if (currentPos != PAGE_SEARCH) {
+                if (currentPos != PAGE_1) {
                     previousPos = currentPos;
-                    currentPos = PAGE_SEARCH;
+                    currentPos = PAGE_1;
                     onClickItem(currentPos);
                     updateView(btIcon1);
                 }
                 break;
             case R.id.bt_icon_2:
-                if (currentPos != PAGE_LIVESTREAM) {
+                if (currentPos != PAGE_2) {
                     previousPos = currentPos;
-                    currentPos = PAGE_LIVESTREAM;
+                    currentPos = PAGE_2;
                     onClickItem(currentPos);
                     updateView(btIcon2);
                 }
                 break;
             case R.id.bt_icon_3:
-                if (currentPos != PAGE_RANKING) {
+                if (currentPos != PAGE_3) {
                     previousPos = currentPos;
-                    currentPos = PAGE_RANKING;
+                    currentPos = PAGE_3;
                     onClickItem(currentPos);
                     updateView(btIcon3);
                 }
                 break;
             case R.id.bt_icon_4:
-                if (currentPos != PAGE_PROFILE) {
+                if (currentPos != PAGE_4) {
                     previousPos = currentPos;
-                    currentPos = PAGE_PROFILE;
+                    currentPos = PAGE_4;
                     onClickItem(currentPos);
                     updateView(btIcon4);
                 }
@@ -127,11 +127,9 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
 
     private void updateView(ImageView imageView) {
         LAnimationUtil.play(imageView, Techniques.Pulse);
-        if (imageView == btIcon2) {
-            return;
-        }
         btIcon0.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
         btIcon1.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
+        btIcon2.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
         btIcon3.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
         btIcon4.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
         imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color.bottom_press_icon));
@@ -158,24 +156,24 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         previousPos = currentPos;
         currentPos = position;
         switch (position) {
-            case PAGE_HOME:
-                onClickItem(PAGE_HOME);
+            case PAGE_0:
+                onClickItem(PAGE_0);
                 updateView(btIcon0);
                 break;
-            case PAGE_SEARCH:
-                onClickItem(PAGE_SEARCH);
+            case PAGE_1:
+                onClickItem(PAGE_1);
                 updateView(btIcon1);
                 break;
-            case PAGE_LIVESTREAM:
-                onClickItem(PAGE_LIVESTREAM);
+            case PAGE_2:
+                onClickItem(PAGE_2);
                 updateView(btIcon2);
                 break;
-            case PAGE_RANKING:
-                onClickItem(PAGE_RANKING);
+            case PAGE_3:
+                onClickItem(PAGE_3);
                 updateView(btIcon3);
                 break;
-            case PAGE_PROFILE:
-                onClickItem(PAGE_PROFILE);
+            case PAGE_4:
+                onClickItem(PAGE_4);
                 updateView(btIcon4);
                 break;
         }

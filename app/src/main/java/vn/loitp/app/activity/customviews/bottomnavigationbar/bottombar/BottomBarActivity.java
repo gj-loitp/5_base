@@ -18,13 +18,7 @@ public class BottomBarActivity extends BaseActivity {
         TextView tv = (TextView) findViewById(R.id.tv);
         tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
 
-        LBottomBar lBottomBar = (LBottomBar) findViewById(R.id.bottom_bar);
-        lBottomBar.setOnItemClick(new LBottomBar.Callback() {
-            @Override
-            public void OnClickItem(int position) {
-                ToastUtils.showShort("Touch " + position);
-            }
-        });
+        setupBottomBar();
     }
 
     @Override
@@ -45,5 +39,15 @@ public class BottomBarActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_bottom_bar;
+    }
+
+    private void setupBottomBar() {
+        LBottomBar lBottomBar = (LBottomBar) findViewById(R.id.bottom_bar);
+        lBottomBar.setOnItemClick(new LBottomBar.Callback() {
+            @Override
+            public void OnClickItem(int position) {
+                ToastUtils.showShort("Touch " + position);
+            }
+        });
     }
 }

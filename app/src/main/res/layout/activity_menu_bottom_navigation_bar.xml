@@ -28,7 +28,7 @@
                 android:id="@+id/bt_bottom_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bottom Bar" />
+                android:text="Bottom Bar (Blur)" />
 
         </LinearLayout>
     </ScrollView>

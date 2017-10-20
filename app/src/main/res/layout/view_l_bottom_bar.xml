@@ -51,8 +51,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_launcher"
-                android:tint="@color/Red" />
+                android:src="@mipmap/ic_launcher" />
             <!--<vn.loitpanhdv.yup.view.shinebuttonlib.ShineButton
                 android:id="@+id/bt_icon_0"
                 android:layout_width="@dimen/w_30"
@@ -79,8 +78,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_launcher"
-                android:tint="@color/DimGray" />
+                android:src="@mipmap/ic_launcher" />
         </LinearLayout>
 
         <FrameLayout
@@ -99,8 +97,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_launcher"
-                android:tint="@color/DeepPink" />
+                android:src="@mipmap/ic_launcher" />
         </FrameLayout>
 
         <LinearLayout
@@ -120,8 +117,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_launcher"
-                android:tint="@color/Blue" />
+                android:src="@mipmap/ic_launcher" />
         </LinearLayout>
 
         <LinearLayout
@@ -141,8 +137,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_10"
                 android:scaleType="centerInside"
-                android:src="@mipmap/ic_launcher"
-                android:tint="@color/Black" />
+                android:src="@mipmap/ic_launcher" />
         </LinearLayout>
     </LinearLayout>
 
