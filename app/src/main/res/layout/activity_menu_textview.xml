@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="Score Text" />
 
+            <Button
+                android:id="@+id/bt_countdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Countdown TextView" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

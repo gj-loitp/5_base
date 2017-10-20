@@ -93,6 +93,10 @@ public class LAnimationUtil {
         play(view, duration, 1, techniques, 0, null);
     }
 
+    public static void playDuration(View view, Techniques techniques, int duration, Callback callback) {
+        play(view, duration, 1, techniques, 0, callback);
+    }
+
     public static void playRotate(View view, Animation.AnimationListener animationListener) {
         RotateAnimation anim = new RotateAnimation(0.0f, 90.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setInterpolator(new LinearInterpolator());
