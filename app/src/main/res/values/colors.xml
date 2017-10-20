@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="app_color">#B41482</color>
     <color name="vip1">#d3131f</color>
     <color name="vip2">#19875c</color>
     <color name="vip3">#1660d1</color>
@@ -10,25 +9,11 @@
     <color name="black_65">#A6000000</color>
     <color name="black_85">#D9000000</color>
 
-    <color name="purple_20">#F2E8FF</color>
     <color name="grey">#818181</color>
     <color name="white">#ffffff</color>
-    <color name="grey_2">#EEEEEE</color>
     <color name="black_2">#05000000</color>
     <color name="black_5">#10000000</color>
-    <color name="black_30">#4D000000</color>
-    <color name="backgroundStatusViewOnAir">#E32039</color>
-    <color name="backgroundCircleTextViewBlue">#811CFC</color>
-    <color name="backgroundCircleTextViewRed">#F51E59</color>
-    <color name="redButtonColor">#E61B33</color>
-    <color name="facebook">#4169E1</color>
-    <color name="redButtonColor_Tran">#55E61B33</color>
-    <color name="grey_400">#F1EFF0</color>
-    <color name="backgroundButtonGreen">#5CDB94</color>
-    <color name="background_coin_pkg">#00A7BC</color>
-    <color name="backgroundButtonGreen_Tran">#555CDB94</color>
 
-    <color name="orangeButtonColor">#FEB018</color>
     <color name="primaryColor">#00A7BC</color>
     <color name="colorPrimary">#00A7BC</color>
     <color name="colorAccent">#00A7BC</color>
@@ -37,36 +22,13 @@
     <color name="White">#FFFFFF</color>
     <color name="WhiteTrans">#55FFFFFF</color>
     <color name="WhiteTrans99">#99FFFFFF</color>
-    <color name="LightPink">#FFB6C1</color>
-    <color name="Orange">#FFA500</color>
     <color name="DeepPink">#FF1493</color>
     <color name="bottom_press_icon">#b41482</color>
     <color name="Red">#FF0000</color>
-    <color name="WhiteSmoke">#F5F5F5</color>
-    <color name="WhiteSmokeTrans">#55F5F5F5</color>
-    <color name="Violet">#EE82EE</color>
-    <color name="watch_profile">#ff384f</color>
     <color name="LightGrey">#D3D3D3</color>
-    <color name="Gray">#808080</color>
-    <color name="SwitchOnBkg">#949bed</color>
-    <color name="SwitchOffBkg">#a0a0a0</color>
-    <color name="SwitchOnTrack">#2a37db</color>
-    <color name="SwitchOffTrack">#cacbcc</color>
-    <color name="LightSlateGray">#778899</color>
     <color name="DimGray">#696969</color>
-    <color name="Cyan">#00FFFF</color>
-    <color name="DarkCyan">#008B8B</color>
-    <color name="DarkCyanTrans">#55008B8B</color>
     <color name="Blue">#0000FF</color>
-    <color name="MediumBlue">#0000CD</color>
     <color name="Black">#000000</color>
-
-    <color name="green_border">#1d864b</color>
-    <color name="green_border_tran">#551d864b</color>
-    <color name="orange_border">#995d29</color>
-    <color name="orange_border_tran">#55995d29</color>
-    <color name="red_border">#b8547a</color>
-    <color name="red_border_tran">#55b8547a</color>
 
     <color name="alarm_title_active">#444444</color>
     <color name="alarm_title_outdated">#888888</color>

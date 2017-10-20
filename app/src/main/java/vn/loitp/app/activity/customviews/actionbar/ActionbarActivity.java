@@ -15,25 +15,7 @@ public class ActionbarActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        LActionBar lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
-        TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar));
-
-        lActionBar.setOnClickBack(new LActionBar.Callback() {
-            @Override
-            public void onClickBack() {
-                onBackPressed();
-            }
-
-            @Override
-            public void onClickMenu() {
-                ToastUtils.showShort("onClickMenu");
-            }
-        });
-        lActionBar.showMenuIcon();
-        lActionBar.setImageMenuIcon(R.mipmap.ic_launcher);
-        lActionBar.setTvTitle("Demo ActionbarActivity");
+        setupActionBar();
     }
 
     @Override
@@ -54,5 +36,26 @@ public class ActionbarActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_action_bar;
+    }
+
+    private void setupActionBar() {
+        LActionBar lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
+        TextView tv = (TextView) findViewById(R.id.tv);
+        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar));
+
+        lActionBar.setOnClickBack(new LActionBar.Callback() {
+            @Override
+            public void onClickBack() {
+                onBackPressed();
+            }
+
+            @Override
+            public void onClickMenu() {
+                ToastUtils.showShort("onClickMenu");
+            }
+        });
+        lActionBar.showMenuIcon();
+        lActionBar.setImageMenuIcon(R.mipmap.ic_launcher);
+        lActionBar.setTvTitle("Demo ActionbarActivity");
     }
 }

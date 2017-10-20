@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/add_alarm"
         style="@style/widget"
         android:onClick="onAddAlarmClick"
         android:text="Add alarm" />

@@ -19,10 +19,11 @@
                 android:layout_height="@dimen/w_70" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_350"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:src="@drawable/iv" />
 
             <TextView
@@ -30,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_5"
-                android:textColor="@color/Black" />
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_10" />
         </LinearLayout>
     </ScrollView>
 

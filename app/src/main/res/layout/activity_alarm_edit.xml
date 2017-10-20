@@ -86,13 +86,11 @@
         android:padding="8sp">
 
         <Button
-            android:id="@+id/done"
             style="@style/edit_button"
             android:onClick="onDoneClick"
             android:text="Done" />
 
         <Button
-            android:id="@+id/cancel"
             style="@style/edit_button"
             android:onClick="onCancelClick"
             android:text="Cancel" />
