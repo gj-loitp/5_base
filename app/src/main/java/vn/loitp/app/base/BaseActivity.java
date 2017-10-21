@@ -2,14 +2,19 @@ package vn.loitp.app.base;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,6 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
     protected Activity activity;
     protected String TAG;
+    private RelativeLayout rootView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (scrollView != null) {
             LUIUtil.setPullLikeIOSVertical(scrollView);
         }
+        rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
     }
 
     protected void setCustomStatusBar(boolean shouldChangeStatusBarTintToDark) {
@@ -131,9 +138,35 @@ public abstract class BaseActivity extends AppCompatActivity {
         LUIUtil.transActivityFadeIn(activity);
     }
 
+    private TextView tvConnectStt;
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        if (!event.isConnected()) {
+            if (rootView != null) {
+                if (tvConnectStt == null) {
+                    LLog.d(TAG, "tvConnectStt == null");
+                    tvConnectStt = new TextView(activity);
+                    tvConnectStt.setTextColor(Color.WHITE);
+                    tvConnectStt.setBackgroundColor(Color.RED);
+                    tvConnectStt.setPadding(20, 20, 20, 20);
+                    tvConnectStt.setText("isConnected: " + event.isConnected());
+
+                    RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
+                    rootView.addView(tvConnectStt, rLParams);
+                } else {
+                    LLog.d(TAG, "tvConnectStt != null");
+                    tvConnectStt.setText("isConnected: " + event.isConnected());
+                }
+            }
+        } else {
+            if (tvConnectStt != null) {
+                tvConnectStt.setVisibility(View.GONE);
+                tvConnectStt = null;
+            }
+        }
     }
 
     @Override
