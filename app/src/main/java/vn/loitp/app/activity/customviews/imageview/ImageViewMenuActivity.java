@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
+import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -19,6 +20,14 @@ public class ImageViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircleImageViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_stretchy_imageview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, StrectchyImageViewActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
