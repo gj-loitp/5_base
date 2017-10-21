@@ -1,12 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
-    android:orientation="vertical">
+    android:background="@color/White">
 
     <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.ExpandablePlaceHolderView
         android:id="@+id/expandableView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
-</LinearLayout>
+</RelativeLayout>
