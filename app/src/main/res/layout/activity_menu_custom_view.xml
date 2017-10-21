@@ -67,6 +67,12 @@
                 android:text="Progress/Loading View" />
 
             <Button
+                android:id="@+id/bt_sticker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sticker" />
+
+            <Button
                 android:id="@+id/bt_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
