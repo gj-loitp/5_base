@@ -103,4 +103,7 @@ dependencies {
 
     //compile 'me.everything:overscroll-decor-android:1.0.4'//https://github.com/EverythingMe/overscroll-decor
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
+
+    compile 'com.google.android.gms:play-services-plus:10.2.1'
+
 }
