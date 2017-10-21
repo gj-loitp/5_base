@@ -193,5 +193,11 @@
         </receiver>
         <!--FOR ALARM DEMO APP-->
 
+        <receiver android:name="vn.loitp.app.utilities.LConectifyBroadcast">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>
