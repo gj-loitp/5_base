@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -151,6 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     tvConnectStt.setTextColor(Color.WHITE);
                     tvConnectStt.setBackgroundColor(Color.RED);
                     tvConnectStt.setPadding(20, 20, 20, 20);
+                    tvConnectStt.setGravity(Gravity.CENTER);
                     tvConnectStt.setText("isConnected: " + event.isConnected());
 
                     RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
