@@ -8,6 +8,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import vn.loitp.app.data.EventBusData;
+
 /**
  * Created by Loitp on 5/6/2017.
  */
@@ -36,10 +38,10 @@ public class LConectifyBroadcast extends BroadcastReceiver {
                 LLog.d(TAG, "isConnectedFast");
                 isConnectedFast = true;
             }
-            //LHandlerConnection.getInstance().getOnConnectionChaned().onConnect(isConnectedFast, isConnectedWifi, isConnectedMobile);
+            EventBusData.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
         } else {
             LLog.d(TAG, "!isConnected");
-            //LHandlerConnection.getInstance().getOnConnectionChaned().onDisconnect();
+            EventBusData.getInstance().sendConnectChange(false, false, false, false);
         }
     }
 }
