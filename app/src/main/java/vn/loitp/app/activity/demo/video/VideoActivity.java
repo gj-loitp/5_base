@@ -3,11 +3,6 @@ package vn.loitp.app.activity.demo.video;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
-
-import android.util.Log;
 import android.view.Surface;
 import android.widget.TextView;
 
@@ -38,6 +33,10 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
+
+import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LLog;
+import vn.loitp.livestar.R;
 
 public class VideoActivity extends BaseActivity implements VideoRendererEventListener {
 
@@ -112,32 +111,32 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
         player.addListener(new ExoPlayer.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest) {
-                Log.v(TAG, "Listener-onTimelineChanged...");
+                LLog.d(TAG, "Listener-onTimelineChanged...");
             }
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-                Log.v(TAG, "Listener-onTracksChanged...");
+                LLog.d(TAG, "Listener-onTracksChanged...");
             }
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                Log.v(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
+                LLog.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                Log.v(TAG, "Listener-onPlayerStateChanged..." + playbackState);
+                LLog.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
             }
 
             @Override
             public void onRepeatModeChanged(int repeatMode) {
-                Log.v(TAG, "Listener-onRepeatModeChanged...");
+                LLog.d(TAG, "Listener-onRepeatModeChanged...");
             }
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                Log.v(TAG, "Listener-onPlayerError...");
+                LLog.d(TAG, "Listener-onPlayerError...");
                 player.stop();
                 player.prepare(loopingSource);
                 player.setPlayWhenReady(true);
@@ -145,12 +144,12 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
 
             @Override
             public void onPositionDiscontinuity() {
-                Log.v(TAG, "Listener-onPositionDiscontinuity...");
+                LLog.d(TAG, "Listener-onPositionDiscontinuity...");
             }
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-                Log.v(TAG, "Listener-onPlaybackParametersChanged...");
+                LLog.d(TAG, "Listener-onPlaybackParametersChanged...");
             }
         });
 
@@ -200,7 +199,7 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-        Log.v(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
+        LLog.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
         resolutionTextView.setText("RES:(WxH):" + width + "X" + height + "\n           " + height + "p");
     }
 
@@ -217,31 +216,31 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
     @Override
     public void onStop() {
         super.onStop();
-        Log.v(TAG, "onStop()...");
+        LLog.d(TAG, "onStop()...");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.v(TAG, "onStart()...");
+        LLog.d(TAG, "onStart()...");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.v(TAG, "onResume()...");
+        LLog.d(TAG, "onResume()...");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.v(TAG, "onPause()...");
+        LLog.d(TAG, "onPause()...");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.v(TAG, "onDestroy()...");
+        LLog.d(TAG, "onDestroy()...");
         player.release();
     }
 }
