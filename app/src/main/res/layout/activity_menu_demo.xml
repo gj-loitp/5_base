@@ -35,6 +35,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gallery" />
+
+            <Button
+                android:id="@+id/bt_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Video" />
         </LinearLayout>
     </ScrollView>
 

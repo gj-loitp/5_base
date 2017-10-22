@@ -158,6 +158,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.video.VideoActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
@@ -195,7 +198,7 @@
 
         <receiver android:name="vn.loitp.app.utilities.LConectifyBroadcast">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
