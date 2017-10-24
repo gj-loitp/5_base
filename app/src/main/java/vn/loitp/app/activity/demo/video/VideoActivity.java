@@ -53,7 +53,6 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
         resolutionTextView = (TextView) findViewById(R.id.resolution_textView);
         simpleExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.player_view);
 
-/*        // 1. Create a default TrackSelector
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -103,7 +102,6 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
         MediaSource videoSource = new HlsMediaSource(mp4VideoUri, dataSourceFactory, 1, null, null);
         final LoopingMediaSource loopingSource = new LoopingMediaSource(videoSource);
 
-        // Prepare the player with the source.
         player.prepare(loopingSource);
 
         player.addListener(new ExoPlayer.EventListener() {
@@ -151,20 +149,23 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
             }
         });
 
-        player.setPlayWhenReady(true); //run file/link when ready to play.
+        player.setPlayWhenReady(true);
         player.setVideoDebugListener(this); //for listening to resolution change and  outputing the resolution
-        */
+
+        /*
 
         //MPD
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this, "ExoPlayer"));
+        //DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this, "ExoPlayer"));
         Uri uri = Uri.parse("http://yt-dash-mse-test.commondatastorage.googleapis.com/media/feelings_vp9-20130806-manifest.mpd");
         DashMediaSource dashMediaSource = new DashMediaSource(uri, dataSourceFactory, new DefaultDashChunkSource.Factory(dataSourceFactory), null, null);
-        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
+        //BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        //TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
         player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
-        simpleExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.player_view);
+
         simpleExoPlayerView.setPlayer(player);
         player.prepare(dashMediaSource);
+
+        */
     }
 
     @Override
