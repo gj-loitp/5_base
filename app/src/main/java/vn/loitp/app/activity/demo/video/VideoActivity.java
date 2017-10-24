@@ -159,15 +159,12 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this, "ExoPlayer"));
         Uri uri = Uri.parse("http://yt-dash-mse-test.commondatastorage.googleapis.com/media/feelings_vp9-20130806-manifest.mpd");
         DashMediaSource dashMediaSource = new DashMediaSource(uri, dataSourceFactory, new DefaultDashChunkSource.Factory(dataSourceFactory), null, null);
-
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
-
-        SimpleExoPlayer simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
-
+        player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
         simpleExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.player_view);
-        simpleExoPlayerView.setPlayer(simpleExoPlayer);
-        simpleExoPlayer.prepare(dashMediaSource);
+        simpleExoPlayerView.setPlayer(player);
+        player.prepare(dashMediaSource);
     }
 
     @Override
