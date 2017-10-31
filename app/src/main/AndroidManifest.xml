@@ -167,6 +167,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"

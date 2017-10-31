@@ -42,6 +42,11 @@
                 android:layout_height="wrap_content"
                 android:text="Stretchy ImageView " />
 
+            <Button
+                android:id="@+id/bt_zoom_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ZoomImageView " />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
