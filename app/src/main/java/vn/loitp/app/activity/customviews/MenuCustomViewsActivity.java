@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity;
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
+import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.activity.customviews.progress_loadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
@@ -118,6 +119,14 @@ public class MenuCustomViewsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, GooglePlusButtonActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, LayoutMenuActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
