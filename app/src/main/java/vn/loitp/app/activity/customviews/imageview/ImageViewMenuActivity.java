@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
+import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
@@ -46,6 +47,14 @@ public class ImageViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ZoomImageViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_fidgetspinner).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, FidgetSpinnerImageViewActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
