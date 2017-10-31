@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -32,6 +33,15 @@ public class TextViewMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_color_textview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ColorTextViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
     }
 
     @Override

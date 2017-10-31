@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_color_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color TextView" />
+
+            <Button
                 android:id="@+id/bt_countdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
