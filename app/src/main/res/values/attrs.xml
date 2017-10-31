@@ -76,20 +76,30 @@
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
     <declare-styleable name="ZoomEngine">
-        <attr name="hasClickableChildren" format="boolean"/>
-        <attr name="overScrollable" format="boolean"/>
-        <attr name="overScrollHorizontal" format="boolean"/>
-        <attr name="overScrollVertical" format="boolean"/>
-        <attr name="overPinchable" format="boolean"/>
-        <attr name="minZoom" format="float"/>
-        <attr name="maxZoom" format="float"/>
+        <attr name="hasClickableChildren" format="boolean" />
+        <attr name="overScrollable" format="boolean" />
+        <attr name="overScrollHorizontal" format="boolean" />
+        <attr name="overScrollVertical" format="boolean" />
+        <attr name="overPinchable" format="boolean" />
+        <attr name="minZoom" format="float" />
+        <attr name="maxZoom" format="float" />
         <attr name="minZoomType" format="enum">
-            <enum name="zoom" value="0"/>
-            <enum name="realZoom" value="1"/>
+            <enum name="zoom" value="0" />
+            <enum name="realZoom" value="1" />
         </attr>
         <attr name="maxZoomType" format="enum">
-            <enum name="zoom" value="0"/>
-            <enum name="realZoom" value="1"/>
+            <enum name="zoom" value="0" />
+            <enum name="realZoom" value="1" />
         </attr>
+    </declare-styleable>
+    <declare-styleable name="RoundedImage">
+        <attr name="rounded_radius" format="float" />
+    </declare-styleable>
+    <declare-styleable name="CircleImage">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="add_shadow" format="boolean" />
+        <attr name="shadow_color" format="color" />
+        <attr name="shadow_radius" format="float" />
     </declare-styleable>
 </resources>

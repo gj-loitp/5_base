@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
+import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
@@ -59,6 +60,15 @@ public class ImageViewMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_cirlularroundrect_imageview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, CircularRoundRectImageViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
     }
 
     @Override

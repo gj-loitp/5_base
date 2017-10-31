@@ -31,6 +31,12 @@
                 android:text="Circle ImageView" />
 
             <Button
+                android:id="@+id/bt_cirlularroundrect_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Circular Roundrect ImageView" />
+
+            <Button
                 android:id="@+id/bt_fidgetspinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

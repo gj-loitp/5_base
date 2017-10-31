@@ -173,6 +173,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
