@@ -42,6 +42,12 @@
                 android:layout_height="wrap_content"
                 android:text="Score Text" />
 
+            <Button
+                android:id="@+id/bt_scroll_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scroll Number" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
