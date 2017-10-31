@@ -1,14 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.zoomlayout;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.ParallaxViewPagerActivity;
+import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
+
+//read more
+//https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
 
 public class ZoomLayoutActivity extends BaseActivity {
 
@@ -16,6 +17,25 @@ public class ZoomLayoutActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("Click button bt_1");
+            }
+        });
+        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("Click button bt_2");
+            }
+        });
+
+        /*zoomLayout.getEngine().panTo(x, y, true);
+        zoomLayout.getEngine().panBy(deltaX, deltaY, true);
+        zoomLayout.getEngine().zoomTo(zoom, true);
+        zoomLayout.getEngine().zoomBy(factor, true);
+        zoomLayout.getEngine().realZoomTo(realZoom, true);
+        zoomLayout.getEngine().moveTo(zoom, x, y, true);*/
     }
 
     @Override
