@@ -8,6 +8,7 @@ import cn.jzvd.JZVideoPlayerStandard;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.livestar.R;
 
+//TODO remove in gradle
 //guide https://android-arsenal.com/details/1/3269
 public class JZVideoPlayerActivity extends BaseActivity {
 
