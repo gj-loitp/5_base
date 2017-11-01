@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -32,6 +33,15 @@ public class ButtonMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_circular_image_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, CircularImageClickActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
     }
 
     @Override
