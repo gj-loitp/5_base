@@ -8,6 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
+import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity;
 import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity;
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
@@ -127,6 +128,14 @@ public class MenuCustomViewsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, LayoutMenuActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_edit_text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, EditTextMenuActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

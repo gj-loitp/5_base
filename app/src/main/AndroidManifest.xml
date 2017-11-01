@@ -197,6 +197,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
