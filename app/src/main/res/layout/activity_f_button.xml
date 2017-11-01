@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,29 +15,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
+            <vn.loitp.app.activity.customviews.button.fbutton.lib.FButton
+                android:id="@+id/primary_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Menu Button"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
-            <Button
-                android:id="@+id/bt_f_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="FButton" />
-
-            <Button
-                android:id="@+id/bt_shine_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Shine Button" />
+                android:text="Primary Button"
+                android:textColor="@android:color/white"
+                fbutton:buttonColor="@color/fbutton_color_turquoise"
+                fbutton:shadowEnabled="true" />
 
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
 
