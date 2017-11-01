@@ -109,4 +109,5 @@ dependencies {
     compile 'com.google.android.exoplayer:exoplayer:r2.5.4'
     compile 'com.google.android.exoplayer:extension-ima:r2.5.4'
 
+    compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
 }
