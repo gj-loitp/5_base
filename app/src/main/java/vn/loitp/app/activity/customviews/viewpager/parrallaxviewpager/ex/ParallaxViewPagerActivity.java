@@ -15,6 +15,7 @@ import java.util.List;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.Mode;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.ParallaxViewPager;
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -27,7 +28,7 @@ public class ParallaxViewPagerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-        LUIUtil.setPullLikeIOSVertical(viewPager);
+        //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
             resList.add(LStoreUtil.getRandomColor());
         }
@@ -61,11 +62,17 @@ public class ParallaxViewPagerActivity extends BaseActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
+            LLog.d(TAG, "res " + res);
             LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            imageView.setBackgroundColor(res);
+            //imageView.setBackgroundColor(res);
+            if (position % 2 == 0) {
+                imageView.setImageResource(R.drawable.iv);
+            } else {
+                imageView.setImageResource(R.drawable.logo);
+            }
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
             tv.setText(position + "/" + resList.size());
