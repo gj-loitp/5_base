@@ -49,4 +49,6 @@
     <dimen name="mtf_cardHeight_initial">4dp</dimen>
     <dimen name="mtf_cardHeight_final">55dp</dimen>
     <dimen name="mtf_corner_radius">4dp</dimen>
+
+    <dimen name="biu_text_start_size">20sp</dimen>
 </resources>

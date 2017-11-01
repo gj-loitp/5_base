@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -16,25 +18,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <vn.loitp.app.activity.customviews.edittext.biuedittext.lib.BiuEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Menu EditText"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
+                android:hint="Type something"
+                android:textColor="@color/White"
+                android:textColorHint="@color/White"
+                app:biu_duration="800"
+                app:biu_text_color="@color/White"
+                app:biu_text_scale="1"
+                app:biu_text_start_size="12sp"
+                app:biu_type="flyup" />
 
-            <Button
-                android:id="@+id/bt_material_text_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="MaterialTextField " />
-
-            <Button
-                android:id="@+id/bt_biu_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="BiuEditText " />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
