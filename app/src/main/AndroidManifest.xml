@@ -213,6 +213,9 @@
             android:name="vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
