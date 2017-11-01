@@ -15,7 +15,12 @@ public class FButtonActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        findViewById(R.id.primary_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showShort("onClick");
+            }
+        });
     }
 
     @Override
