@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewAct
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity;
+import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -50,7 +51,14 @@ public class TextViewMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
-
+        findViewById(R.id.bt_zoom_textview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ZoomTextViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
     }
 
     @Override

@@ -182,6 +182,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
