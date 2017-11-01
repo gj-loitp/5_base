@@ -22,6 +22,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.livestar.R;
+
 /**
  * Created by wuhaojie on 2016/7/19 20:39.
  */
