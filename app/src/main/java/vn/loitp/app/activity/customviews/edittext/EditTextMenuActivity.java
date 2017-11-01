@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
+import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -18,7 +18,7 @@ public class EditTextMenuActivity extends BaseActivity {
         findViewById(R.id.bt_material_text_field).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, ScoreTextViewActivity.class);
+                Intent intent = new Intent(activity, MaterialTextFieldActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

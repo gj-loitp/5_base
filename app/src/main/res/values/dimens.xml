@@ -45,4 +45,8 @@
     <dimen name="fbutton_default_padding_top">5dp</dimen>
     <dimen name="fbutton_default_padding_bottom">5dp</dimen>
     <dimen name="fbutton_default_shadow_height">4dp</dimen>
+
+    <dimen name="mtf_cardHeight_initial">4dp</dimen>
+    <dimen name="mtf_cardHeight_final">55dp</dimen>
+    <dimen name="mtf_corner_radius">4dp</dimen>
 </resources>
