@@ -131,4 +131,7 @@
             <enum name="monospace" value="3" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="TranslucentView">
+        <attr name="translucentBackgroundColor" format="color" />
+    </declare-styleable>
 </resources>
