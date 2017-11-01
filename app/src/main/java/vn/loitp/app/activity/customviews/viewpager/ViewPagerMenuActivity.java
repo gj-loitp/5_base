@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
-import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerActivity;
+import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.ParallaxViewPagerActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -36,7 +36,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
         findViewById(R.id.bt_double_viewpager).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, DoubleViewPagerActivity.class);
+                Intent intent = new Intent(activity, DoubleViewPagerSplashActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

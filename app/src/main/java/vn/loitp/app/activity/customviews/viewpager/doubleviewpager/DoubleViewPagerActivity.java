@@ -1,21 +1,27 @@
 package vn.loitp.app.activity.customviews.viewpager.doubleviewpager;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v4.view.PagerAdapter;
 
-import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity;
+import java.util.ArrayList;
+
+import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.lib.DoubleViewPager;
+import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.lib.DoubleViewPagerAdapter;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class DoubleViewPagerActivity extends BaseActivity {
+    private DoubleViewPager viewpager;
+    private int horizontalChilds;
+    private int verticalChilds;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        loadDataFromSplash();
+        loadUI();
     }
 
     @Override
@@ -35,6 +41,26 @@ public class DoubleViewPagerActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_menu_switch_toggle;
+        return R.layout.activity_double_viewpager;
+    }
+
+    private void loadDataFromSplash() {
+        horizontalChilds = getIntent().getExtras().getInt("HORIZONTAL");
+        verticalChilds = getIntent().getExtras().getInt("VERTICAL");
+    }
+
+    private void loadUI() {
+
+        ArrayList<PagerAdapter> verticalAdapters = new ArrayList<PagerAdapter>();
+        generateVerticalAdapters(verticalAdapters);
+
+        viewpager = (DoubleViewPager) findViewById(R.id.pager);
+        viewpager.setAdapter(new DoubleViewPagerAdapter(getApplicationContext(), verticalAdapters));
+    }
+
+    private void generateVerticalAdapters(ArrayList<PagerAdapter> verticalAdapters) {
+        for (int i = 0; i < horizontalChilds; i++) {
+            verticalAdapters.add(new VerticalPagerAdapter(this, i, verticalChilds));
+        }
     }
 }
