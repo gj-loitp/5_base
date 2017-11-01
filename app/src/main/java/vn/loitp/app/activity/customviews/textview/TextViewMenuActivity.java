@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewAct
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity;
+import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
@@ -59,6 +60,15 @@ public class TextViewMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_vertical_marquee_textview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, VerticalMarqueeTextViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+
     }
 
     @Override
