@@ -21,8 +21,8 @@
                 android:id="@+id/bt_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text="Chọn chương" />
+                android:text="Chọn chương"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_title"
