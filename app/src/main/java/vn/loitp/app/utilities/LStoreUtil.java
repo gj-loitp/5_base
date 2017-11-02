@@ -14,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Random;
 
 public class LStoreUtil {
@@ -23,6 +25,26 @@ public class LStoreUtil {
 
     public static String FOLDER_TRANSLATE = ".Loitp";
     public static String FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt";
+
+    private static final String EXTENSION = ".db";
+    public static final String FOLDER_TRUYENTRANHTUAN = "foldertruyentranhtuan";
+    public static final String FOLDER_DOWNLOADED_COMIC = "foldertruyentranhtuan";
+    public static final String FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode" + EXTENSION;
+    public static final String FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist" + EXTENSION;
+    public static final String FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite" + EXTENSION;
+    public static final String FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic" + EXTENSION;
+
+    public static String getFileNameComic(String url) {
+        url = url.replace("/", "");
+        url = url.replace(".", "");
+        url = url.replace(":", "");
+        url = url.replace("-", "");
+        return url + EXTENSION;
+    }
+
+    public static String createFileImage(int i) {
+        return "p" + i + EXTENSION;
+    }
 
     public interface CallbackReadFile {
         public void onFinish(String result);
@@ -122,7 +144,9 @@ public class LStoreUtil {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                callbackWriteFile.onFinish(isSuccess);
+                if (callbackWriteFile != null) {
+                    callbackWriteFile.onFinish(isSuccess);
+                }
             }
         }.execute();
     }
@@ -212,7 +236,12 @@ public class LStoreUtil {
       * return true if save success
       * return false if save failed
       * */
-    /*public boolean saveHTMLCodeFromURLToSDCard(String link, String folderName, String fileName) {
+    /*public static boolean saveHTMLCodeFromURLToSDCard(Context context, String link, String
+    folderName, String fileName) {
+        return saveHTMLCodeFromURLToSDCard((Activity) context, link, folderName, fileName);
+    }*/
+
+    public static boolean saveHTMLCodeFromURLToSDCard(Context context, String link, String folderName, String fileName) {
         boolean state = false;
         InputStream is = null;
         try {
@@ -226,14 +255,14 @@ public class LStoreUtil {
             }
             br.close();
             is.close();
-            LLog.dialog(TAG, "saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString());
-            writeToFile(folderName, fileName, stringBuilder.toString());
+            //LLog.d(TAG, "saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString());
+            writeToFile((Activity) context, folderName, fileName, stringBuilder.toString());
             state = true;
         } catch (Exception e) {
-            LLog.dialog(TAG, "saveHTMLCodeFromURLToSDCard failed: " + e.toString());
+            //LLog.d(TAG, "saveHTMLCodeFromURLToSDCard failed: " + e.toString());
         }
         return state;
-    }*/
+    }
 
     /*
       save bitmap to sdcard
@@ -338,5 +367,9 @@ public class LStoreUtil {
     public static int getRandomColor() {
         Random rnd = new Random();
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+    }
+
+    public static String getPathOfFileNameMainComicsListHTMLCode(Context context) {
+        return getFolderPath(context) + "/" + LStoreUtil.FOLDER_TRUYENTRANHTUAN + "/" + LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_HTML_CODE;
     }
 }
