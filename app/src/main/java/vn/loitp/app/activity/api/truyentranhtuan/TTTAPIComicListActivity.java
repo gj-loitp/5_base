@@ -27,7 +27,7 @@ import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
-public class TruyenTranhTuanAPIActivity extends BaseActivity {
+public class TTTAPIComicListActivity extends BaseActivity {
     private List<Comic> comicList = new ArrayList<>();
     private int numberOfParseDataTryAgain = 0;
     private int numberOfDoTaskTryAgain = 0;
@@ -63,7 +63,7 @@ public class TruyenTranhTuanAPIActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_api_truyentranhtuan;
+        return R.layout.activity_api_ttt_comic_list;
     }
 
     private class GetComicTask extends AsyncTask<Void, Void, Void> {
