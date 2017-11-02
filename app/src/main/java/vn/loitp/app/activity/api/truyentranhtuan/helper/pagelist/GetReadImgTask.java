@@ -1,108 +1,90 @@
-package vn.loitp.app.activity.api.truyentranhtuan;
+package vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
+import android.os.AsyncTask;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.DataNode;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-import loitp.utils.util.ToastUtils;
-import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.utilities.LLog;
 
-public class TTTAPIPageListActivity extends BaseActivity {
-    private TextView tv;
+/**
+ * Created by www.muathu@gmail.com on 11/2/2017.
+ */
+
+public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
+    private final String TAG = getClass().getSimpleName();
+    //private List<Chap> chapList = new ArrayList<>();
+    private List<String> imagesListOfOneChap = new ArrayList<>();//list img per chap
+    private String link = "";
+
     private AVLoadingIndicatorView avi;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+    public interface Callback {
+        public void onSuccess(List<String> imagesListOfOneChap);
 
-        String currentLink = "http://truyentranhtuan.com/one-piece-chuong-69/";
-        new GetReadImgTask(currentLink, avi, new GetReadImgTask.Callback() {
-            @Override
-            public void onSuccess(List<String> imagesListOfOneChap) {
-                LUIUtil.printBeautyJson(imagesListOfOneChap, tv);
-            }
+        public void onError();
+    }
 
-            @Override
-            public void onError() {
-                ToastUtils.showShort("onError");
-            }
-        }).execute();
+    private Callback callback;
+
+    public GetReadImgTask(String link, AVLoadingIndicatorView avi, Callback callback) {
+        this.link = link;
+        this.avi = avi;
+        this.callback = callback;
     }
 
     @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_api_ttt_page_list;
-    }
-
-    /*private class GetReadImgTask extends AsyncTask<Void, Void, Void> {
-        private String link = "";
-
-        GetReadImgTask(String link) {
-            this.link = link;
+    protected void onPreExecute() {
+        if (imagesListOfOneChap != null) {
+            imagesListOfOneChap.clear();
         }
+        avi.smoothToShow();
+        super.onPreExecute();
+    }
 
-        @Override
-        protected void onPreExecute() {
-            if (imagesListOfOneChap != null) {
-                imagesListOfOneChap.clear();
-            }
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            LLog.d(TAG, "doInBackground");
-            imagesListOfOneChap = doTask(link);
-            LLog.d(TAG, ">>>imagesListOfOneChap: " + LSApplication.getInstance().getGson().toJson
-                    (imagesListOfOneChap));
-            if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
-                for (int i = 0; i < imagesListOfOneChap.size(); i++) {
-                    String urlImg = imagesListOfOneChap.get(i);
-                    if (urlImg.contains("http://images2-focus-opensocial.googleusercontent.com")) {
-                        int index = urlImg.lastIndexOf("url=http");
-                        String tmp = urlImg.substring(index + 4, urlImg.length());
-                        LLog.d(TAG, "tmp: " + tmp);
-                        imagesListOfOneChap.set(i, tmp);
-                    }
+    @Override
+    protected Void doInBackground(Void... voids) {
+        LLog.d(TAG, "doInBackground");
+        imagesListOfOneChap = doTask(link);
+        LLog.d(TAG, ">>>imagesListOfOneChap: " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
+        if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
+            for (int i = 0; i < imagesListOfOneChap.size(); i++) {
+                String urlImg = imagesListOfOneChap.get(i);
+                if (urlImg.contains("http://images2-focus-opensocial.googleusercontent.com")) {
+                    int index = urlImg.lastIndexOf("url=http");
+                    String tmp = urlImg.substring(index + 4, urlImg.length());
+                    LLog.d(TAG, "tmp: " + tmp);
+                    imagesListOfOneChap.set(i, tmp);
                 }
             }
-            return null;
         }
+        return null;
+    }
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            LLog.d(TAG, "onPostExecute: " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
-
-            *//*if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
-                initViewPager();
-            } else {
-                showDialogConfirmCannotRead();
-            }*//*
-            super.onPostExecute(aVoid);
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        LLog.d(TAG, "onPostExecute: " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
+        if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
+            if (callback != null) {
+                callback.onSuccess(imagesListOfOneChap);
+            }
+        } else {
+            if (callback != null) {
+                callback.onError();
+            }
         }
+        avi.smoothToHide();
+        super.onPostExecute(aVoid);
     }
 
     private List<String> doTask(String link) {
@@ -175,5 +157,5 @@ public class TTTAPIPageListActivity extends BaseActivity {
             LLog.d(TAG, "err : " + e.toString() + " doTask again");
             return null;
         }
-    }*/
+    }
 }
