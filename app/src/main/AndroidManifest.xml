@@ -222,6 +222,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.api.truyentranhtuan.TruyenTranhTuanAPIActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
