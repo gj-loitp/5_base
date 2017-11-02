@@ -6,53 +6,41 @@ import com.google.gson.annotations.SerializedName;
 
 public class Chap {
 
-  @SerializedName("tit")
-  @Expose
-  private String tit;
+    @SerializedName("tit")
+    @Expose
+    private String tit;
 
-  public boolean isReaded() {
-    return isReaded;
-  }
+    @SerializedName("url")
+    @Expose
 
-  public void setReaded(boolean readed) {
-    isReaded = readed;
-  }
+    private String url;
 
-  @SerializedName("url")
-  @Expose
+    /**
+     * @return The tit
+     */
+    public String getTit() {
+        return tit;
+    }
 
-  private String url;
+    /**
+     * @param tit The tit
+     */
+    public void setTit(String tit) {
+        this.tit = tit;
+    }
 
-  @SerializedName("isReaded")
-  @Expose
-  private boolean isReaded;
+    /**
+     * @return The url
+     */
+    public String getUrl() {
+        return url;
+    }
 
-  /**
-   * @return The tit
-   */
-  public String getTit() {
-    return tit;
-  }
-
-  /**
-   * @param tit The tit
-   */
-  public void setTit(String tit) {
-    this.tit = tit;
-  }
-
-  /**
-   * @return The url
-   */
-  public String getUrl() {
-    return url;
-  }
-
-  /**
-   * @param url The url
-   */
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    /**
+     * @param url The url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

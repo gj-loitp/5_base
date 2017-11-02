@@ -3,8 +3,6 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
-import com.google.gson.reflect.TypeToken;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,15 +11,11 @@ import org.jsoup.select.Elements;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chap;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.app.common.Constants;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LStoreUtil;
 
@@ -80,16 +74,14 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                     LLog.d(TAG, "NullPointerException " + e.toString());
                 }
 
-                stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n"
-                        + tttChap.getInfo().getSummary() + "\n\n";
-                LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(url), LSApplication.getInstance().getGson().toJson(tttChap), null);
-                getChapSuccess = true;
+                stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
+                getChapSuccess = LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(url), LSApplication.getInstance().getGson().toJson(tttChap));
             }
 
             //save url img cover to list comic -> tttChap.getInfo().getCover()
-            if (tttChap.getInfo().getCover() != null) {
+            /*if (tttChap.getInfo().getCover() != null) {
                 updateInfoToComicList(url, tttChap.getInfo().getCover(), tttChap.getInfo().getType());
-            }
+            }*/
         }
         return null;
     }
@@ -166,13 +158,9 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 LLog.d(TAG, "Exception get info: " + e.toString());
             }
 
-            //get oldChapList (json exist)
-            List<Chap> oldChapList = getOldChapList(link);
-
             Elements eChap = document.select("span[class=chapter-name]");
             for (Element x : eChap) {
                 Chap chap = new Chap();
-                chap.setReaded(false);
                 //LLog.d(TAG, "tvTitle: " + x.text());//+Anima 74
                 chap.setTit(x.text());
                 Elements linkChap = x.select("a");
@@ -180,15 +168,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 // .com/anima-chuong-74/
                 chap.setUrl(linkChap.attr("href"));
 
-                //chapList.add(chap);
-                Chap checkedChap = checkChapExist(chap, oldChapList);
-                if (checkedChap == null) {
-                    //LLog.d(TAG, "chap is !exist");
-                    chapList.add(chap);
-                } else {
-                    //LLog.d(TAG, "chap is exist");
-                    chapList.add(checkedChap);
-                }
+                chapList.add(chap);
             }
 
             //url, ngay release chap, tam thoi chua can dung
@@ -212,139 +192,5 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
             doTask(link);
         }
         return tttChap;
-    }
-
-    private Chap checkChapExist(Chap newChap, List<Chap> oldListChap) {
-        Chap existChap = null;
-        for (Chap oldChap : oldListChap) {
-            String oldTit = oldChap.getTit();
-            String newTit = newChap.getTit();
-            String oldUrl = oldChap.getUrl();
-            String newUrl = newChap.getUrl();
-            //LLog.d(TAG, "check: " + oldTit + newTit);
-            //LLog.d(TAG, "check: " + oldUrl + newUrl);
-            if (oldTit.equalsIgnoreCase(newTit) && oldUrl.equalsIgnoreCase(newUrl)) {
-                existChap = oldChap;
-                break;
-            }
-        }
-        return existChap;
-    }
-
-
-    private List<Chap> getOldChapList(String link) {
-        /*LFileUtil.readTxtFromFolder(activity, LFileUtil.FOLDER_TRUYENTRANHTUAN, LFileUtil
-                .getFileNameComic(link), new EventReadFromFolder() {
-            @Override
-            public void onSuccess(String oldJson) {
-                LLog.d(TAG, "getOldChapList onSuccess");
-                if (oldJson != null && !oldJson.isEmpty()) {
-                    TTTChap oldTTTChap = LApplication.getGson().fromJson(oldJson, TTTChap.class);
-                    if (oldTTTChap != null) {
-                        if (oldTTTChap.getChaps() != null) {
-                            if (oldTTTChap.getChaps().getChap() != null) {
-                                oldChapList = oldTTTChap.getChaps().getChap();
-                            }
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onError() {
-                LLog.d(TAG, "getOldChapList onError");
-            }
-        });*/
-
-        List<Chap> oldChapList = new ArrayList<>();
-        String oldJson = LStoreUtil.readTxtFromFolder(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(link));
-        if (oldJson != null && !oldJson.isEmpty()) {
-            TTTChap oldTTTChap = LSApplication.getInstance().getGson().fromJson(oldJson, TTTChap.class);
-            if (oldTTTChap != null) {
-                if (oldTTTChap.getChaps() != null) {
-                    if (oldTTTChap.getChaps().getChap() != null) {
-                        oldChapList = oldTTTChap.getChaps().getChap();
-                    }
-                }
-            }
-        }
-        return oldChapList;
-    }
-
-    private void updateInfoToComicList(final String urlComic, final String imgCover, final String type) {
-        LLog.d(TAG, "urlComic: " + urlComic + ",imgCover: " + imgCover);
-
-        //save to comic list
-        LStoreUtil.readTxtFromFolder(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, new LStoreUtil.EventReadFromFolder() {
-            @Override
-            public void onSuccess(String jsonTTTComic) {
-                LLog.d(TAG, "updateInfoToComicList if >>> jsonTTTComic: " + jsonTTTComic);
-                if (jsonTTTComic != null && !jsonTTTComic.isEmpty()) {
-                    TTTComic tttComic = LSApplication.getInstance().getGson().fromJson(jsonTTTComic, TTTComic.class);
-                    if (tttComic.getComics() != null) {
-                        List<Comic> comicList = tttComic.getComics().getComic();
-                        LLog.d(TAG, "comicList size: " + comicList.size());
-                        int pos = Constants.NOT_FOUND;
-                        for (int i = 0; i < comicList.size(); i++) {
-                            if (comicList.get(i).getUrl().equals(urlComic)) {
-                                pos = i;
-                                break;
-                            }
-                        }
-                        LLog.d(TAG, "find at: " + pos);
-                        if (pos != Constants.NOT_FOUND) {
-                            comicList.get(pos).setUrlImg(imgCover);
-                            comicList.get(pos).setType(type);
-                            LLog.d(TAG, "setUrlImg: " + LSApplication.getInstance().getGson().toJson(comicList.get(pos)));
-                        }
-                        LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, LSApplication.getInstance().getGson().toJson(tttComic), null);
-                    }
-                } else {
-                    LLog.d(TAG, "updateInfoToComicList else");
-                }
-            }
-
-            @Override
-            public void onError() {
-                LLog.d(TAG, "updateInfoToComicList onError");
-            }
-        });
-
-        //save to favourite list
-        LStoreUtil.readTxtFromFolder(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, new LStoreUtil.EventReadFromFolder() {
-            @Override
-            public void onSuccess(String jsonFavouriteComic) {
-                LLog.d(TAG, "FILE_NAME_MAIN_COMICS_LIST_FAVOURITE onSuccess: " + jsonFavouriteComic);
-                List<Comic> tmpComicList = new ArrayList<>();
-                if (jsonFavouriteComic == null || jsonFavouriteComic.isEmpty()) {
-                    LLog.d(TAG, "jsonFavouriteComic is null or empty -> do nothing");
-                } else {
-                    LLog.d(TAG, "jsonFavouriteComic is fine");
-                    tmpComicList = LSApplication.getInstance().getGson().fromJson(jsonFavouriteComic, new TypeToken<List<Comic>>() {
-                    }.getType());
-                    LLog.d(TAG, "tmpComicList size: " + tmpComicList.size());
-                    int pos = Constants.NOT_FOUND;
-                    for (int i = 0; i < tmpComicList.size(); i++) {
-                        if (tmpComicList.get(i).getUrl().equals(urlComic)) {
-                            pos = i;
-                            break;
-                        }
-                    }
-                    LLog.d(TAG, "find at: " + pos);
-                    if (pos != Constants.NOT_FOUND) {
-                        tmpComicList.get(pos).setUrlImg(imgCover);
-                        LLog.d(TAG, "setUrlImg: " + LSApplication.getInstance().getGson().toJson(tmpComicList.get(pos)));
-                        LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, LSApplication.getInstance().getGson().toJson(tmpComicList), null);
-                    } else {
-                        LLog.d(TAG, "find at NOT_FOUND >>> do nothing");
-                    }
-                }
-            }
-
-            @Override
-            public void onError() {
-                LLog.d(TAG, "updateInfoToComicList FILE_NAME_MAIN_COMICS_LIST_FAVOURITE onError");
-            }
-        });
     }
 }
