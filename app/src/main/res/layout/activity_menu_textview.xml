@@ -55,6 +55,12 @@
                 android:text="Translucent View" />
 
             <Button
+                android:id="@+id/bt_type_writer_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type Writer Textview" />
+
+            <Button
                 android:id="@+id/bt_vertical_marquee_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
