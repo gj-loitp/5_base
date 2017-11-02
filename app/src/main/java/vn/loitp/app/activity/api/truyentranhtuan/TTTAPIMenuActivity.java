@@ -22,6 +22,14 @@ public class TTTAPIMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_comic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, TTTAPIComicReadActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
     }
 
     @Override

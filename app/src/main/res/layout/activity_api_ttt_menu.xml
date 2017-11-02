@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="Lấy danh sách truyện" />
 
+            <Button
+                android:id="@+id/bt_comic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đọc truyện" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
