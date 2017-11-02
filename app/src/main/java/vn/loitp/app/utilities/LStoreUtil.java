@@ -190,6 +190,59 @@ public class LStoreUtil {
         }.execute();
     }
 
+    public interface EventReadFromFolder {
+        public void onSuccess(String data);
+
+        public void onError();
+    }
+
+    /*
+   * read text file from folder in background
+   */
+    public static void readTxtFromFolder(final Activity activity, final String folderName, final String fileName, final EventReadFromFolder eventReadFromFolder) {
+        new AsyncTask<Void, Void, Void>() {
+            private StringBuilder text = null;
+            private boolean runTaskSuccess = true;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                String path = LStoreUtil.getFolderPath(activity) + (folderName == null ? "/" :
+                        (folderName + "/")) + fileName;
+                LLog.d(TAG, "path: " + path);
+                File txtFile = new File(path);
+                text = new StringBuilder();
+                try {
+                    BufferedReader reader = new BufferedReader(new FileReader(txtFile));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        text.append(line + '\n');
+                    }
+                    reader.close();
+                } catch (IOException e) {
+                    runTaskSuccess = false;
+                    LLog.d(TAG, "readTxtFromFolder===" + e.toString());
+
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                if (runTaskSuccess) {
+                    eventReadFromFolder.onSuccess(text.toString());
+                } else {
+                    eventReadFromFolder.onError();
+                }
+                super.onPostExecute(aVoid);
+            }
+        }.execute();
+    }
+
     /*
     * read text file in raw folder
     */
