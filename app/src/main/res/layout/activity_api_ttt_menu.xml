@@ -28,7 +28,7 @@
                 android:id="@+id/bt_comic_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lấy danh sách truyện" />
+                android:text="Lấy danh sách tất cả truyện" />
 
         </LinearLayout>
     </ScrollView>

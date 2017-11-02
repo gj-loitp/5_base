@@ -17,8 +17,6 @@ import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class TTTAPIComicListActivity extends BaseActivity {
-    private List<Comic> comicList = new ArrayList<>();
-
     private TextView tv;
     private AVLoadingIndicatorView avi;
 
