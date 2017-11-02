@@ -34,7 +34,13 @@
                 android:id="@+id/bt_chap_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Danh sách chương trong 1 truyện" />
+                android:text="Danh sách chương ONEPIECE" />
+
+            <Button
+                android:id="@+id/bt_page_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách trang ONEPIECE - Chap 69" />
 
         </LinearLayout>
     </ScrollView>
