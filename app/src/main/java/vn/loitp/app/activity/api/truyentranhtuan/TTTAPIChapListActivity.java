@@ -13,7 +13,7 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
-public class TTTAPIComicReadActivity extends BaseActivity {
+public class TTTAPIChapListActivity extends BaseActivity {
     private TextView tvTitle;
     private TextView tv;
     private AVLoadingIndicatorView avi;
@@ -59,6 +59,6 @@ public class TTTAPIComicReadActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_api_ttt_comic_read;
+        return R.layout.activity_api_ttt_chap_list;
     }
 }
