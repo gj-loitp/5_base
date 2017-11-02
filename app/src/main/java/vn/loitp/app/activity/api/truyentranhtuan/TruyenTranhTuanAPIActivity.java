@@ -18,6 +18,7 @@ import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
+import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.common.Constants;
@@ -33,12 +34,14 @@ public class TruyenTranhTuanAPIActivity extends BaseActivity {
     private final int MAX_TRY_AGAIN = 4;
 
     private TextView tv;
+    private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         tv = (TextView) findViewById(R.id.tv);
+        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
         new GetComicTask(Constants.MAIN_LINK_TRUYENTRANHTUAN).execute();
     }
@@ -75,6 +78,7 @@ public class TruyenTranhTuanAPIActivity extends BaseActivity {
         @Override
         protected void onPreExecute() {
             LLog.d(TAG, "GetComicTask onPreExecute");
+            avi.smoothToShow();
             super.onPreExecute();
         }
 
@@ -159,6 +163,7 @@ public class TruyenTranhTuanAPIActivity extends BaseActivity {
             } else {
                 ToastUtils.showShort("Error");
             }
+            avi.smoothToHide();
             super.onPostExecute(aVoid);
         }
     }
