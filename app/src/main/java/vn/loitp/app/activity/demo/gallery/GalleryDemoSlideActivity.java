@@ -27,6 +27,8 @@ public class GalleryDemoSlideActivity extends BaseActivity {
         viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
 
+        LUIUtil.setPullLikeIOSVertical(viewPager);
+
         String photoID = getIntent().getStringExtra("photoID");
         int position = PhotosData.getInstance().getPosition(photoID);
         LLog.d(TAG, "position: " + position);
@@ -59,7 +61,7 @@ public class GalleryDemoSlideActivity extends BaseActivity {
         public Object instantiateItem(ViewGroup collection, int position) {
             Photo photo = PhotosData.getInstance().getPhoto(position);
             LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
             LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
