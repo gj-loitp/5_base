@@ -17,18 +17,11 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_5">
 
-            <Button
-                android:id="@+id/bt_select"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chọn chương"
-                android:visibility="gone" />
-
             <TextView
-                android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Chap truyện OnePiece"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
