@@ -28,7 +28,6 @@ public class LStoreUtil {
 
     private static final String EXTENSION = ".db";
     public static final String FOLDER_TRUYENTRANHTUAN = "foldertruyentranhtuan";
-    public static final String FOLDER_DOWNLOADED_COMIC = "foldertruyentranhtuan";
     public static final String FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode" + EXTENSION;
     public static final String FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist" + EXTENSION;
     public static final String FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite" + EXTENSION;

@@ -42,6 +42,12 @@
                 android:layout_height="wrap_content"
                 android:text="Danh sách trang ONEPIECE - Chap 69" />
 
+            <Button
+                android:id="@+id/bt_fav_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách truyện yêu thích" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
