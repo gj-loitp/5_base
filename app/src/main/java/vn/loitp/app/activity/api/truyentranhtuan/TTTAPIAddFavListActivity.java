@@ -26,10 +26,13 @@ public class TTTAPIAddFavListActivity extends BaseActivity {
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.hide();
 
-        findViewById(R.id.bt_add_one_piece).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Comic comic = new Comic();
+                comic.setDate("29.07.2014");
+                comic.setUrl("http://truyentranhtuan.com/vuong-phong-loi-i/");
+                comic.setTitle("Vương Phong Lôi I");
                 addComic(comic);
             }
         });
@@ -56,24 +59,28 @@ public class TTTAPIAddFavListActivity extends BaseActivity {
     }
 
     private void addComic(Comic comic) {
+        avi.smoothToShow();
         new AddComicFavListTask(activity, comic, new AddComicFavListTask.Callback() {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
                 LUIUtil.printBeautyJson(comicList, tv);
                 ToastUtils.showShort("onAddComicSuccess");
+                avi.smoothToHide();
             }
 
             @Override
-            public void onComicIsExist() {
+            public void onComicIsExist(Comic mComic, List<Comic> comicList) {
+                LUIUtil.printBeautyJson(comicList, tv);
                 ToastUtils.showShort("onComicIsExist");
-                tv.setText(comic.getTitle() + " is exist");
+                avi.smoothToHide();
             }
 
             @Override
             public void onAddComicError() {
                 ToastUtils.showShort("onAddComicError");
                 tv.setText("add error");
+                avi.smoothToHide();
             }
-        });
+        }).execute();
     }
 }

@@ -27,22 +27,22 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_add_one_piece"
+                android:id="@+id/bt_add_vuongphongloi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm truyện One Piece" />
+                android:text="Thêm truyện Vương Phong Lôi I" />
 
             <Button
-                android:id="@+id/bt_add_conano"
+                android:id="@+id/bt_add_layers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm truyện Conan" />
+                android:text="Thêm truyện Layers" />
 
             <Button
-                android:id="@+id/bt_add_naruto"
+                android:id="@+id/bt_add_blackhaze"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm truyện Naruto" />
+                android:text="Thêm truyện Black Haze" />
 
             <TextView
                 android:id="@+id/tv"

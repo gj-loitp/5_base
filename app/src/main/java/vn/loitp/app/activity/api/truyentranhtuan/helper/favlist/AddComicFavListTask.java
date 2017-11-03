@@ -32,7 +32,7 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
     public interface Callback {
         public void onAddComicSuccess(Comic mComic, List<Comic> comicList);
 
-        public void onComicIsExist();
+        public void onComicIsExist(Comic mComic, List<Comic> comicList);
 
         public void onAddComicError();
     }
@@ -92,7 +92,7 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         if (callback != null) {
             if (mResult == RESULT_COMIC_IS_EXIST) {
-                callback.onComicIsExist();
+                callback.onComicIsExist(mComic, comicList);
             } else if (mResult == RESULT_ADD_COMIC_ERROR) {
                 callback.onAddComicError();
             } else if (mResult == RESULT_ADD_COMIC_SUCCESS) {
