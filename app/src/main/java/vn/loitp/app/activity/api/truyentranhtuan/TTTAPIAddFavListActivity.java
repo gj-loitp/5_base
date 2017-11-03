@@ -36,6 +36,26 @@ public class TTTAPIAddFavListActivity extends BaseActivity {
                 addComic(comic);
             }
         });
+        findViewById(R.id.bt_add_layers).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comic comic = new Comic();
+                comic.setDate("28.06.2015");
+                comic.setUrl("http://truyentranhtuan.com/layers/");
+                comic.setTitle("Layers");
+                addComic(comic);
+            }
+        });
+        findViewById(R.id.bt_add_blackhaze).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comic comic = new Comic();
+                comic.setDate("12.03.2017");
+                comic.setUrl("http://truyentranhtuan.com/black-haze/");
+                comic.setTitle("Black Haze");
+                addComic(comic);
+            }
+        });
     }
 
     @Override
