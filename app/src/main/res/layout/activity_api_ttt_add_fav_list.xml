@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Test add truyện"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <Button
+                android:id="@+id/bt_add_one_piece"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm truyện One Piece" />
+
+            <Button
+                android:id="@+id/bt_add_conano"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm truyện Conan" />
+
+            <Button
+                android:id="@+id/bt_add_naruto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm truyện Naruto" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_10" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/primaryColor"
+        app:indicatorName="PacmanIndicator" />
+</RelativeLayout>

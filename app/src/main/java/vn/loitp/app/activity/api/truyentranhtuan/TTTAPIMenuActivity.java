@@ -46,6 +46,14 @@ public class TTTAPIMenuActivity extends BaseActivity {
                 LUIUtil.transActivityFadeIn(activity);
             }
         });
+        findViewById(R.id.bt_add_to_fav_list).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, TTTAPIAddFavListActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
     }
 
     @Override

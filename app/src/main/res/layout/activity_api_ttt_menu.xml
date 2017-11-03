@@ -48,6 +48,12 @@
                 android:layout_height="wrap_content"
                 android:text="Danh sách truyện yêu thích" />
 
+            <Button
+                android:id="@+id/bt_add_to_fav_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm truyện vào danh sách truyện yêu thích" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

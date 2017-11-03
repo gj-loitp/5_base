@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
 import vn.loitp.app.common.Constants;
 
@@ -51,5 +52,21 @@ public class ComicUtils {
         comicTypeList.add(new ComicType(ComicType.TRUYEN_TRANH_VIET_NAM, Constants.MAIN_LINK_TRUYENTRANHTUAN + "/the-loai/truyen-tranh-viet-nam"));
         comicTypeList.add(new ComicType(ComicType.WEBTOON, Constants.MAIN_LINK_TRUYENTRANHTUAN + "/the-loai/webtoon"));
         return comicTypeList;
+    }
+
+    public static void addComicToFavList(Comic comic) {
+
+    }
+
+    public static boolean isComicExistIn(Comic comic, List<Comic> comicList) {
+        if (comic == null || comicList == null) {
+            throw new NullPointerException("isComicExistIn comic == null || comicList == null");
+        }
+        for (int i = 0; i < comicList.size(); i++) {
+            if (comic.getUrl().trim().equals(comicList.get(i).getUrl().trim())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

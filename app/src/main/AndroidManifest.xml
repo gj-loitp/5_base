@@ -237,6 +237,9 @@
         <activity
             android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIFavListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIAddFavListActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
