@@ -16,12 +16,14 @@ import vn.loitp.livestar.R;
 
 public class TTTAPIFavListActivity extends BaseActivity {
     private TextView tv;
+    private TextView tvTitle;
     private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = (TextView) findViewById(R.id.tv);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.hide();
 
@@ -54,6 +56,7 @@ public class TTTAPIFavListActivity extends BaseActivity {
             public void onSuccess(List<Comic> comicList) {
                 LLog.d(TAG, "onSuccess " + comicList.size());
                 LUIUtil.printBeautyJson(comicList, tv);
+                tvTitle.setText("Danh sách yêu thích: " + comicList.size());
             }
         }).execute();
     }

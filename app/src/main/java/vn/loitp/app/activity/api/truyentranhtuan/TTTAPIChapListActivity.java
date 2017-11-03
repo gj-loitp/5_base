@@ -33,6 +33,7 @@ public class TTTAPIChapListActivity extends BaseActivity {
             public void onSuccess(TTTChap tttChap) {
                 LUIUtil.printBeautyJson(tttChap, tv);
                 avi.smoothToHide();
+                tvTitle.setText("Chap truyện One Piece - size: " + tttChap.getChaps().getChap().size());
             }
 
             @Override

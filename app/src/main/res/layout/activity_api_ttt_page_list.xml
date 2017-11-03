@@ -18,6 +18,14 @@
             android:padding="@dimen/padding_5">
 
             <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
