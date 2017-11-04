@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">LoitpBaseMaster</string>
+
+    <string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
+    <string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
+
     <string name="open_drawer">open_drawer</string>
     <string name="close_drawer">close_drawer</string>
     <string name="i_love_you">I loved you:  yet the love, maybe,\n

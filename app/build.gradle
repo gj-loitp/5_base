@@ -112,4 +112,7 @@ dependencies {
     compile 'com.google.android.exoplayer:extension-ima:r2.5.4'
 
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
+
+    compile 'com.google.android.gms:play-services-ads:11.0.4'
+
 }

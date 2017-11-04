@@ -37,6 +37,9 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -55,6 +58,46 @@ import vn.loitp.livestar.R;
  */
 public class LUIUtil {
     private static String TAG = LUIUtil.class.getSimpleName();
+
+    public static AdView creatAdBanner(final AdView adView) {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                        .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
+                        .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
+                        .addTestDevice("58844B2E50AF6E33DC818387CC50E593")
+                        .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
+                        .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
+                        .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6")
+                        .addTestDevice("13308851AEDCA44443112D80A8D182CA")
+                        .build());
+            }
+        }, 1000);
+        return adView;
+    }
+
+    public static InterstitialAd creatAdFull(Activity activity, InterstitialAd interstitial) {
+        interstitial.setAdUnitId(activity.getResources().getString(R.string.str_f));
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
+                .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
+                .addTestDevice("58844B2E50AF6E33DC818387CC50E593")
+                .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
+                .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
+                .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6")
+                .addTestDevice("13308851AEDCA44443112D80A8D182CA")
+                .build();
+        interstitial.loadAd(adRequest);
+        return interstitial;
+    }
+
+    public static void displayInterstitial(InterstitialAd interstitialAd) {
+        if (interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        }
+    }
 
     /*
       * settext marquee
