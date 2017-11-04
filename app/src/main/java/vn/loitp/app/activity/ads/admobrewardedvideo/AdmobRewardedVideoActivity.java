@@ -29,6 +29,7 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        isShowAdWhenExist=false;
         llMain = (RelativeLayout) findViewById(R.id.root_view);
 
         llAd = (LinearLayout) findViewById(R.id.ll_ad);

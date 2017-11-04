@@ -22,6 +22,8 @@ public class AdmobBannerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        isShowAdWhenExist = false;
+
         adView = (AdView) findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
 

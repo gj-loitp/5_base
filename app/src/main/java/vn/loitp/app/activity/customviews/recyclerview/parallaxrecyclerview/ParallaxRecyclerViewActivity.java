@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class ParallaxRecyclerViewActivity extends BaseActivity {
@@ -14,6 +15,8 @@ public class ParallaxRecyclerViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         RecyclerView recyclerView = findViewById(R.id.rv);
         recyclerView.setAdapter(new ParallaxAdapter(this));
+
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
 
     @Override

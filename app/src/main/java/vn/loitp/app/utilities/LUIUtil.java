@@ -109,7 +109,7 @@ public class LUIUtil {
         }
         if (interstitial.isLoaded()) {
             Random r = new Random();
-            int x = r.nextInt(maxNumber);
+            int x = r.nextInt(100);
             if (x < maxNumber) {
                 interstitial.show();
             }

@@ -20,6 +20,8 @@ public class MenuActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        isShowAdWhenExist = false;
+
         findViewById(R.id.bt_api).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

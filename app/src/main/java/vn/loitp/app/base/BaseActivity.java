@@ -12,10 +12,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -40,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String TAG;
     private RelativeLayout rootView;
 
+    private InterstitialAd interstitialAd;
+
+    protected boolean isShowAdWhenExist = true;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         activity = setActivity();
@@ -51,6 +56,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         setCustomStatusBar(true);
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());
+
+        interstitialAd = LUIUtil.createAdFull(activity);
+
         ScrollView scrollView = (ScrollView) activity.findViewById(R.id.scroll_view);
         if (scrollView != null) {
             LUIUtil.setPullLikeIOSVertical(scrollView);
@@ -107,15 +115,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         compositeSubscription.add(subscription);
     }
 
-    public void forceSignIn() {
-
-    }
-
-    public void startActivityAndFinish(Class<? extends Activity> clazz) {
-        startActivity(clazz);
-        finish();
-    }
-
     public void startActivity(Class<? extends Activity> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
@@ -137,6 +136,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         LUIUtil.transActivityFadeIn(activity);
+        if (isShowAdWhenExist) {
+            LUIUtil.displayInterstitial(interstitialAd, 50);
+        }
     }
 
     private TextView tvConnectStt;
