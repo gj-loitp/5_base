@@ -7,6 +7,7 @@ import android.view.View;
 
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
+import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -37,7 +38,7 @@ public class MenuAdsActivity extends BaseActivity {
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, OverScrollActivity.class);
+                Intent intent = new Intent(activity, AdmobRewardedVideoActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
