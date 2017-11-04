@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.List;
+
+import loitp.utils.util.ToastUtils;
+import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.RemoveComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
 
 public class TTTAPIRemoveFavListActivity extends BaseActivity {
@@ -28,7 +33,7 @@ public class TTTAPIRemoveFavListActivity extends BaseActivity {
                 comic.setDate("29.07.2014");
                 comic.setUrl("http://truyentranhtuan.com/vuong-phong-loi-i/");
                 comic.setTitle("Vương Phong Lôi I");
-                //addComic(comic);
+                removeComic(comic);
             }
         });
         findViewById(R.id.bt_add_layers).setOnClickListener(new View.OnClickListener() {
@@ -38,7 +43,7 @@ public class TTTAPIRemoveFavListActivity extends BaseActivity {
                 comic.setDate("28.06.2015");
                 comic.setUrl("http://truyentranhtuan.com/layers/");
                 comic.setTitle("Layers");
-                //addComic(comic);
+                removeComic(comic);
             }
         });
         findViewById(R.id.bt_add_blackhaze).setOnClickListener(new View.OnClickListener() {
@@ -48,7 +53,7 @@ public class TTTAPIRemoveFavListActivity extends BaseActivity {
                 comic.setDate("12.03.2017");
                 comic.setUrl("http://truyentranhtuan.com/black-haze/");
                 comic.setTitle("Black Haze");
-                //addComic(comic);
+                removeComic(comic);
             }
         });
     }
@@ -73,5 +78,29 @@ public class TTTAPIRemoveFavListActivity extends BaseActivity {
         return R.layout.activity_api_ttt_remove_fav_list;
     }
 
+    private void removeComic(Comic comic) {
+        avi.smoothToShow();
+        new RemoveComicFavListTask(activity, comic, new RemoveComicFavListTask.Callback() {
+            @Override
+            public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList) {
+                ToastUtils.showShort("onRemoveComicSuccess");
+                LUIUtil.printBeautyJson(comicList, tv);
+                avi.smoothToHide();
+            }
+
+            @Override
+            public void onComicIsNotExist(Comic mComic, List<Comic> comicList) {
+                ToastUtils.showShort("onComicIsNotExist");
+                LUIUtil.printBeautyJson(comicList, tv);
+                avi.smoothToHide();
+            }
+
+            @Override
+            public void onRemoveComicError() {
+                ToastUtils.showShort("onRemoveComicError");
+                avi.smoothToHide();
+            }
+        }).execute();
+    }
 
 }

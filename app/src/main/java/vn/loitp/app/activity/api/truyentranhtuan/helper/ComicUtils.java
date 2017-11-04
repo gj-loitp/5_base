@@ -69,4 +69,16 @@ public class ComicUtils {
         }
         return false;
     }
+
+    public static int isComicExistAt(Comic comic, List<Comic> comicList) {
+        if (comic == null || comicList == null) {
+            throw new NullPointerException("isComicExistIn comic == null || comicList == null");
+        }
+        for (int i = 0; i < comicList.size(); i++) {
+            if (comic.getUrl().trim().equals(comicList.get(i).getUrl().trim())) {
+                return i;
+            }
+        }
+        return Constants.NOT_FOUND;
+    }
 }
