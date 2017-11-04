@@ -32,6 +32,13 @@
                 android:text="API" />
 
             <Button
+                android:id="@+id/bt_ads"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Ads" />
+
+            <Button
                 android:id="@+id/bt_animation"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

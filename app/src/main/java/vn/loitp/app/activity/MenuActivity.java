@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ScrollView;
 
+import vn.loitp.app.activity.ads.MenuAdsActivity;
 import vn.loitp.app.activity.animation.MenuAnimationActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
@@ -48,6 +48,14 @@ public class MenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, MenuDemoActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_ads).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, MenuAdsActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
