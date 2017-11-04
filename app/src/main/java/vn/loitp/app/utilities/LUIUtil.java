@@ -45,10 +45,12 @@ import com.google.gson.GsonBuilder;
 
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.util.Random;
 
 import vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollDecor;
 import vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.app.activity.animation.overscroll._lib.overscroll.OverScrollDecoratorHelper;
+import vn.loitp.app.common.Constants;
 import vn.loitp.livestar.R;
 
 /**
@@ -59,43 +61,58 @@ import vn.loitp.livestar.R;
 public class LUIUtil {
     private static String TAG = LUIUtil.class.getSimpleName();
 
-    public static AdView creatAdBanner(final AdView adView) {
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                        .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
-                        .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
-                        .addTestDevice("58844B2E50AF6E33DC818387CC50E593")
-                        .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
-                        .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
-                        .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6")
-                        .addTestDevice("13308851AEDCA44443112D80A8D182CA")
-                        .build());
-            }
-        }, 1000);
+    public static AdView createAdBanner(Activity activity, int adViewId) {
+        AdView adView = (AdView) activity.findViewById(adViewId);
+        createAdBanner(adView);
         return adView;
     }
 
-    public static InterstitialAd creatAdFull(Activity activity, InterstitialAd interstitial) {
-        interstitial.setAdUnitId(activity.getResources().getString(R.string.str_f));
+    public static AdView createAdBanner(AdView adView) {
+        adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(Constants.TEST_0)
+                .addTestDevice(Constants.TEST_1)
+                .addTestDevice(Constants.TEST_2)
+                .addTestDevice(Constants.TEST_3)
+                .addTestDevice(Constants.TEST_4)
+                .addTestDevice(Constants.TEST_5)
+                .addTestDevice(Constants.TEST_6)
+                .build());
+        return adView;
+    }
+
+    public static InterstitialAd createAdFull(Context context) {
+        InterstitialAd interstitial = new InterstitialAd(context);
+        interstitial.setAdUnitId(context.getResources().getString(R.string.str_f));
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
-                .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
-                .addTestDevice("58844B2E50AF6E33DC818387CC50E593")
-                .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
-                .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
-                .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6")
-                .addTestDevice("13308851AEDCA44443112D80A8D182CA")
+                .addTestDevice(Constants.TEST_0)
+                .addTestDevice(Constants.TEST_1)
+                .addTestDevice(Constants.TEST_2)
+                .addTestDevice(Constants.TEST_3)
+                .addTestDevice(Constants.TEST_4)
+                .addTestDevice(Constants.TEST_5)
+                .addTestDevice(Constants.TEST_6)
                 .build();
         interstitial.loadAd(adRequest);
         return interstitial;
     }
 
-    public static void displayInterstitial(InterstitialAd interstitialAd) {
-        if (interstitialAd.isLoaded()) {
-            interstitialAd.show();
+    public static void displayInterstitial(InterstitialAd interstitial) {
+        displayInterstitial(interstitial, 100);
+    }
+
+    public static void displayInterstitial(InterstitialAd interstitial, int maxNumber) {
+        /*if (LPref.getIsShowedGift(activity.getApplicationContext())) {
+            return;
+        }*/
+        if (interstitial == null) {
+            return;
+        }
+        if (interstitial.isLoaded()) {
+            Random r = new Random();
+            int x = r.nextInt(maxNumber);
+            if (x < maxNumber) {
+                interstitial.show();
+            }
         }
     }
 

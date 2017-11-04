@@ -23,7 +23,7 @@ public class AdmobBannerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         adView = (AdView) findViewById(R.id.adView);
-        LUIUtil.creatAdBanner(adView);
+        LUIUtil.createAdBanner(adView);
 
         TextView tv = (TextView) findViewById(R.id.tv);
         String poem = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp);

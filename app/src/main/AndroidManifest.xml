@@ -249,6 +249,9 @@
         <activity
             android:name="vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity"
+            android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
