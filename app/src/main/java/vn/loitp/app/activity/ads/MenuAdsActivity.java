@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.base.BaseActivity;
@@ -19,7 +20,7 @@ public class MenuAdsActivity extends BaseActivity {
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AnimationViewActivity.class);
+                Intent intent = new Intent(activity, AdmobBannerActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
