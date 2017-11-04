@@ -15,6 +15,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
+import vn.loitp.app.utilities.LLog;
 import vn.loitp.livestar.R;
 
 public class AdmobRewardedVideoActivity extends BaseActivity implements RewardedVideoAdListener {
@@ -39,7 +40,7 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();
 
-        llMain.setOnClickListener(new View.OnClickListener() {
+        llAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 displayRewardAd();
@@ -70,6 +71,7 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     private void loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
         avLoadingIndicatorView.smoothToShow();
+        llAd.setVisibility(View.GONE);
         mAd.loadAd(getString(R.string.str_reward), new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
@@ -83,48 +85,51 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     }
 
     private void displayRewardAd() {
+        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
         if (mAd.isLoaded()) {
             mAd.show();
+        } else {
+            loadRewardedVideoAd();
         }
     }
 
     @Override
     public void onRewarded(RewardItem reward) {
-        //LLog.d(TAG, "onRewarded " + LApplication.getGson().toJson(reward));
+        LLog.d(TAG, "onRewarded");
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-        //LLog.d(TAG, "onRewardedVideoAdLeftApplication");
+        LLog.d(TAG, "onRewardedVideoAdLeftApplication");
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
-        //LLog.d(TAG, "onRewardedVideoAdClosed");
+        LLog.d(TAG, "onRewardedVideoAdClosed");
     }
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
-        //LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
+        LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
         ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        //LLog.d(TAG, "onRewardedVideoAdLoaded");
+        LLog.d(TAG, "onRewardedVideoAdLoaded");
         avLoadingIndicatorView.smoothToHide();
         llAd.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onRewardedVideoAdOpened() {
-        //LLog.d(TAG, "onRewardedVideoAdOpened");
+        LLog.d(TAG, "onRewardedVideoAdOpened");
     }
 
     @Override
     public void onRewardedVideoStarted() {
-        //LLog.d(TAG, "onRewardedVideoStarted");
+        LLog.d(TAG, "onRewardedVideoStarted");
     }
 }
