@@ -262,7 +262,7 @@
             android:name="vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.lib.ParallaxRecyclerViewActivity"
+            android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity"
             android:screenOrientation="portrait" />
         <!--FOR ALARM DEMO APP-->
         <activity

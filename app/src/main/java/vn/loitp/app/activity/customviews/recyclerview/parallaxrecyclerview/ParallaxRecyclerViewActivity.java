@@ -1,7 +1,8 @@
-package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.lib;
+package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.livestar.R;
@@ -11,7 +12,8 @@ public class ParallaxRecyclerViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        RecyclerView recyclerView = findViewById(R.id.rv);
+        recyclerView.setAdapter(new ParallaxAdapter(this));
     }
 
     @Override
