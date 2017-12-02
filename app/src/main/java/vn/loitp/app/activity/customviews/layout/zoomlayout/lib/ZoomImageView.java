@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 
 /**

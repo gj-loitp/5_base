@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ScoreTextViewActivity extends BaseActivity {
     private TextView tv;

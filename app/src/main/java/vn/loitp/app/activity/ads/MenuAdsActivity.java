@@ -10,7 +10,7 @@ import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
 import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class MenuAdsActivity extends BaseActivity {
 

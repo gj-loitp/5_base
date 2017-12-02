@@ -21,7 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 
 public class MaterialTextField extends FrameLayout {

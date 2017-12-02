@@ -9,7 +9,7 @@ import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicato
 import vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.CircularProgressBarActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class MenuProgressLoadingViewsActivity extends BaseActivity {
 

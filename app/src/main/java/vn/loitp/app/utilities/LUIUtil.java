@@ -51,7 +51,7 @@ import vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollDec
 import vn.loitp.app.activity.animation.overscroll._lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.app.activity.animation.overscroll._lib.overscroll.OverScrollDecoratorHelper;
 import vn.loitp.app.common.Constants;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * File created on 11/3/2016.

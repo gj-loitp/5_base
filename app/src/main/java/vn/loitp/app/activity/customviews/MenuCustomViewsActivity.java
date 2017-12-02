@@ -23,7 +23,7 @@ import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class MenuCustomViewsActivity extends BaseActivity {
 

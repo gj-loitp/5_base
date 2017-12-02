@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import vn.loitp.app.base.BaseFragment;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

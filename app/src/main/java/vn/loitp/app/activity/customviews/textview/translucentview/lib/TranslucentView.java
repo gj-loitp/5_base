@@ -20,7 +20,7 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.widget.TextView;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by hugo

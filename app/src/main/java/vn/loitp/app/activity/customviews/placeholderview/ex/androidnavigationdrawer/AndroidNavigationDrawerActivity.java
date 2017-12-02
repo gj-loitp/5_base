@@ -12,7 +12,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.Pl
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AndroidNavigationDrawerActivity extends BaseActivity {
     private PlaceHolderView mDrawerView;

@@ -28,7 +28,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by james on 22/11/15.

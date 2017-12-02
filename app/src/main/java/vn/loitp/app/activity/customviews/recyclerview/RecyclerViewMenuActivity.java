@@ -8,7 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class RecyclerViewMenuActivity extends BaseActivity {
 

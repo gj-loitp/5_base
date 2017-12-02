@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by nanquan.lin on 2017/2/4.

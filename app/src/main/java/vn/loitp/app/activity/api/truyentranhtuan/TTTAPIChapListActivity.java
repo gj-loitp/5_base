@@ -11,7 +11,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class TTTAPIChapListActivity extends BaseActivity {
     private TextView tvTitle;

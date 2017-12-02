@@ -9,7 +9,7 @@ import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AndroidBeginnerImageGalleryActivity extends BaseActivity {
     private PlaceHolderView mGalleryView;

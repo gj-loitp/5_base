@@ -17,7 +17,7 @@ import android.view.Window;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * A {@link TextView} with vertical marquee effect. The animation speed can be set using

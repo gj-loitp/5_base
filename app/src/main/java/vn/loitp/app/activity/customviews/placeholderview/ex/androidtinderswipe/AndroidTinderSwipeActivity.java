@@ -10,7 +10,7 @@ import android.view.View;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipeDecor;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipePlaceHolderView;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AndroidTinderSwipeActivity extends BaseActivity {
     private SwipePlaceHolderView mSwipeView;

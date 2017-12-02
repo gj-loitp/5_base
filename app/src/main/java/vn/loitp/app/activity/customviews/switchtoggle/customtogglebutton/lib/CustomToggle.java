@@ -28,7 +28,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 
 public class CustomToggle extends View {

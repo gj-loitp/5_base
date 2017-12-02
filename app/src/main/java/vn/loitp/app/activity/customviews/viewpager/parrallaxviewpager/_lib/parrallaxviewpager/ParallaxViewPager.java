@@ -18,7 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 import static android.graphics.drawable.GradientDrawable.Orientation.LEFT_RIGHT;
 import static android.graphics.drawable.GradientDrawable.Orientation.RIGHT_LEFT;

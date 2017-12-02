@@ -16,7 +16,7 @@ import vn.loitp.flickr.FlickrConst;
 import vn.loitp.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.flickr.service.FlickrService;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 import vn.loitp.restclient.RestClient;
 
 public class GalleryDemoAlbumActivity extends BaseActivity {

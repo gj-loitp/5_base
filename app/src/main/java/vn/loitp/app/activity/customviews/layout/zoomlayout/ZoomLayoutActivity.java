@@ -6,7 +6,7 @@ import android.view.View;
 
 import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 //read more
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282

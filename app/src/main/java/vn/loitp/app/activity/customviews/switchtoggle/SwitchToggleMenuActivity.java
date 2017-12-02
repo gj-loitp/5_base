@@ -9,7 +9,7 @@ import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatS
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class SwitchToggleMenuActivity extends BaseActivity {
 

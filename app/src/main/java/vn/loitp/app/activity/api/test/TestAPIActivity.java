@@ -9,7 +9,7 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 import vn.loitp.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.livestar.corev3.api.model.v3.getposter.GetPoster;
 import vn.loitp.restclient.RestClient;

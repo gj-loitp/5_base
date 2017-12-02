@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  *

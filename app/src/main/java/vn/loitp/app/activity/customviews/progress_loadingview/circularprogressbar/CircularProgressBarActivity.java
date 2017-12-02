@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.lib.CircularProgressBar;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class CircularProgressBarActivity extends BaseActivity {
 

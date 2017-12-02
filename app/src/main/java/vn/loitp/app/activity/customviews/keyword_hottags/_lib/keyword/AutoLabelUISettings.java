@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

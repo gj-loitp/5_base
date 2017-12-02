@@ -9,7 +9,7 @@ import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.button.shinebutton._lib.LShineView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ShineButtonActivity extends BaseActivity {
     private LShineView bt0;

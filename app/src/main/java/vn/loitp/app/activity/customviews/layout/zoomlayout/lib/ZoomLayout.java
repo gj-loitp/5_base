@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Uses {@link ZoomEngine} to allow zooming and pan events onto a view hierarchy.

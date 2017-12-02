@@ -7,7 +7,7 @@ import vn.loitp.app.activity.customviews.imageview.touchimageview.lib.LTouchImag
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.utilities.LImageUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class TouchImageViewActivity extends BaseActivity {
 

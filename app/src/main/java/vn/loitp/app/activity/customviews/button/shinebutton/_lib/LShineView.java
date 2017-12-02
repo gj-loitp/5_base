@@ -11,7 +11,7 @@ import com.daimajia.androidanimations.library.Techniques;
 
 import vn.loitp.app.utilities.LAnimationUtil;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

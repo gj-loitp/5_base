@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 /**
  * Circular progress bar

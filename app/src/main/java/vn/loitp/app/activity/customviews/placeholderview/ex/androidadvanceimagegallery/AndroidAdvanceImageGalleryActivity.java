@@ -11,7 +11,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.In
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
     private InfinitePlaceHolderView mGalleryView;

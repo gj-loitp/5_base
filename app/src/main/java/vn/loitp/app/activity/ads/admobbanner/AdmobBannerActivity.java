@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
 
 public class AdmobBannerActivity extends BaseActivity {
     private AdView adView;

@@ -21,7 +21,7 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 
 public class CircleImage extends ImageView {

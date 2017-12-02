@@ -16,7 +16,7 @@ import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AdmobRewardedVideoActivity extends BaseActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;

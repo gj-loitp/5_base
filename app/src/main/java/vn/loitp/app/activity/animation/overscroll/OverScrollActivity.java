@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class OverScrollActivity extends BaseActivity {
 

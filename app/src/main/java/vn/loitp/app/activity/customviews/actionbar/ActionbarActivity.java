@@ -8,7 +8,7 @@ import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.actionbar._lib.LActionBar;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ActionbarActivity extends BaseActivity {
 

@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import vn.loitp.app.activity.customviews.textview.countdown.lib.LCountDownView;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class CountDownActivity extends BaseActivity {
 

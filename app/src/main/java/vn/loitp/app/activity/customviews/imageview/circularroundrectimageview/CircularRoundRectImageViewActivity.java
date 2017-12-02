@@ -6,7 +6,7 @@ import android.os.Bundle;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ColorGridDrawable;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomImageView;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 //guide: https://github.com/sparrow007/CircularImageview?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6166
 public class CircularRoundRectImageViewActivity extends BaseActivity {

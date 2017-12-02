@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import loitp.basemaster.BuildConfig;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.BuildConfig;
-import vn.loitp.livestar.R;
+
+import loitp.basemaster.R;
 
 public class SplashActivity extends BaseActivity {
 

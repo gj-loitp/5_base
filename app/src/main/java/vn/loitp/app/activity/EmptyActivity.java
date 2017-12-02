@@ -3,7 +3,7 @@ package vn.loitp.app.activity;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 import vn.loitp.app.base.BaseActivity;
 
 public class EmptyActivity extends BaseActivity {

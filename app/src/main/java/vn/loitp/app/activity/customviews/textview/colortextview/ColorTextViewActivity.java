@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import vn.loitp.app.activity.customviews.textview.colortextview.lib.ColorTextView;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ColorTextViewActivity extends BaseActivity {
     @Override

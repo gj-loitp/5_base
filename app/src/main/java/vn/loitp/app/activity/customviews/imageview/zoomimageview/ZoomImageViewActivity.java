@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomImageView;
 import vn.loitp.app.base.BaseActivity;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ZoomImageViewActivity extends BaseActivity {
 

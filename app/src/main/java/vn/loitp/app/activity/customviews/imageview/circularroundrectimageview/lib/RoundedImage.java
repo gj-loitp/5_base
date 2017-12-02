@@ -12,7 +12,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class RoundedImage extends ImageView {
 

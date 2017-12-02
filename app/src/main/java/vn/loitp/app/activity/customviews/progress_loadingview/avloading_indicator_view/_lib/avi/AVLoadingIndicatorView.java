@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.indicators.BallPulseIndicator;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class AVLoadingIndicatorView extends View {
 

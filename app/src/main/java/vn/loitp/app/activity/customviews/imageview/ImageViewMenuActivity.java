@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageView
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.livestar.R;
+import loitp.basemaster.R;
 
 public class ImageViewMenuActivity extends BaseActivity {
 
