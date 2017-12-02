@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Menu Place Holder View"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <Button
+                android:id="@+id/bt_android_navigation_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navigation Drawer" />
+
+            <Button
+                android:id="@+id/bt_android_beginner_image_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beginner Image Galleryy" />
+
+            <Button
+                android:id="@+id/bt_android_advance_image_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Advance Image Gallery" />
+
+            <Button
+                android:id="@+id/bt_android_expandable_news_feed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expandable News Feed" />
+
+            <Button
+                android:id="@+id/bt_android_tinder_swipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tinder Swipe" />
+
+            <Button
+                android:id="@+id/bt_android_infinite_list_with_load_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Infinite List with Load More" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

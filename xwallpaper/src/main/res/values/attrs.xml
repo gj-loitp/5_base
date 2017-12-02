@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecyclerViewPager">
+        <attr name="rvp_triggerOffset" format="float" />
+        <attr name="rvp_flingFactor" format="float" />
+        <attr name="rvp_singlePageFling" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LSProgressBar">
+        <attr name="filterColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="GridCenterView">
+        <attr name="dividerHeight" format="dimension" />
+        <attr name="dividerColor" format="reference" />
+        <attr name="spanNumber" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="ParallaxViewPager">
+        <attr name="mode">
+            <enum name="left_overlay" value="0" />
+            <enum name="right_overlay" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="outset" format="fraction|dimension" />
+        <attr name="interpolator" format="reference" />
+        <attr name="shadow_width" format="dimension" />
+        <attr name="left_shadow" format="reference" />
+        <attr name="right_shadow" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="LabelsView">
+        <attr name="max_labels" format="integer" />
+        <attr name="show_cross" format="boolean" />
+        <attr name="icon_cross" format="reference" />
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="label_background_res" format="reference" />
+        <attr name="label_clickable" format="boolean" />
+        <attr name="label_padding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ShineButton">
+        <attr name="btn_color" format="color" />
+        <attr name="btn_fill_color" format="color" />
+        <attr name="shine_count" format="integer" />
+        <attr name="shine_turn_angle" format="float" />
+        <attr name="small_shine_offset_angle" format="float" />
+        <attr name="enable_flashing" format="boolean" />
+        <attr name="allow_random_color" format="boolean" />
+        <attr name="small_shine_color" format="color" />
+        <attr name="big_shine_color" format="color" />
+        <attr name="shine_animation_duration" format="integer" />
+        <attr name="click_animation_duration" format="integer" />
+        <attr name="shine_distance_multiple" format="float" />
+        <attr name="shine_size" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="PorterImageView">
+        <attr name="siShape" format="integer|reference" />
+    </declare-styleable>
+    <declare-styleable name="AVLoadingIndicatorView">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="minHeight" format="dimension" />
+        <attr name="maxHeight" format="dimension" />
+        <attr name="indicatorName" format="string" />
+        <attr name="indicatorColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="LColorSwitchCompat">
+        <attr name="toggleOnColor" format="color" />
+        <attr name="toggleOffColor" format="color" />
+        <attr name="bgOnColor" format="color" />
+        <attr name="bgOffColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="LCircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="ZoomEngine">
+        <attr name="hasClickableChildren" format="boolean" />
+        <attr name="overScrollable" format="boolean" />
+        <attr name="overScrollHorizontal" format="boolean" />
+        <attr name="overScrollVertical" format="boolean" />
+        <attr name="overPinchable" format="boolean" />
+        <attr name="minZoom" format="float" />
+        <attr name="maxZoom" format="float" />
+        <attr name="minZoomType" format="enum">
+            <enum name="zoom" value="0" />
+            <enum name="realZoom" value="1" />
+        </attr>
+        <attr name="maxZoomType" format="enum">
+            <enum name="zoom" value="0" />
+            <enum name="realZoom" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="RoundedImage">
+        <attr name="rounded_radius" format="float" />
+    </declare-styleable>
+    <declare-styleable name="CircleImage">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="add_shadow" format="boolean" />
+        <attr name="shadow_color" format="color" />
+        <attr name="shadow_radius" format="float" />
+    </declare-styleable>
+    <declare-styleable name="ColorTextView">
+        <attr name="color_texts" format="string" />
+        <attr name="color_arrays" format="string" />
+    </declare-styleable>
+    <declare-styleable name="MultiScrollNumber">
+        <attr name="primary_number" format="integer" />
+        <attr name="target_number" format="integer" />
+        <attr name="number_size" format="integer" />
+        <!--<attr name="number_color" format="color"/>-->
+    </declare-styleable>
+    <declare-styleable name="VerticalMarqueeTextView">
+        <attr name="autoStartMarquee" format="boolean" />
+        <attr name="marqueeSpeed" format="reference|integer" />
+        <attr name="text" format="reference|string" />
+        <attr name="textSize" format="reference|dimension" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="textAppearance" format="reference" />
+        <attr name="textStyle">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+        </attr>
+        <attr name="typeface">
+            <enum name="normal" value="0" />
+            <enum name="sans" value="1" />
+            <enum name="serif" value="2" />
+            <enum name="monospace" value="3" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TranslucentView">
+        <attr name="translucentBackgroundColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="FButton">
+        <attr name="shadowEnabled" format="boolean" />
+        <attr name="buttonColor" format="color" />
+        <attr name="shadowColor" format="color" />
+        <attr name="shadowHeight" format="dimension" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="MaterialTextField">
+        <attr name="mtf_cardCollapsedHeight" format="dimension" />
+        <attr name="mtf_labelColor" format="color" />
+        <attr name="mtf_image" format="reference" />
+        <attr name="mtf_hasFocus" format="boolean" />
+        <attr name="mtf_animationDuration" format="integer" />
+        <attr name="mtf_openKeyboardOnFocus" format="boolean" />
+        <attr name="mtf_backgroundColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="BiuEditStyle">
+        <attr name="biu_text_color" format="color" />
+        <attr name="biu_text_start_size" format="dimension" />
+        <attr name="biu_text_scale" format="float" />
+        <attr name="biu_duration" format="integer" />
+        <attr name="biu_type" format="enum">
+            <enum name="flyup" value="0" />
+            <enum name="flydown" value="1" />
+        </attr>
+
+    </declare-styleable>
+    <declare-styleable name="CustomToggle">
+        <attr name="ctg_addLeftIcon" format="reference" type="drawable" />
+        <attr name="ctg_addRightIcon" format="reference" />
+        <attr name="ctg_addSlideBackgroundColor" format="color" />
+        <attr name="ctg_addSlideColor" format="color" />
+        <attr name="ctg_addMagnification" format="integer" />
+        <attr name="ctg_addAnimationTime" format="integer" />
+        <attr name="ctg_addAnimationType" format="enum">
+            <enum name="jack_animation" value="0" />
+            <enum name="phantom_animation" value="1" />
+            <enum name="extra_animation" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressBar">
+        <attr name="maximum" format="float" />
+        <attr name="progress" format="float" />
+        <attr name="animateProgress" format="boolean" />
+        <attr name="progressAnimationDuration" format="integer" />
+        <attr name="foregroundStrokeColor" format="color" />
+        <attr name="foregroundStrokeWidth" format="dimension" />
+        <attr name="drawBackgroundStroke" format="boolean" />
+        <attr name="backgroundStrokeColor" format="color" />
+        <attr name="backgroundStrokeWidth" format="dimension" />
+        <attr name="startAngle" format="float" />
+        <attr name="indeterminate" format="boolean" />
+        <attr name="indeterminateMinimumAngle" format="float" />
+        <attr name="indeterminateArcAnimationDuration" format="integer" />
+        <attr name="indeterminateRotationAnimationDuration" format="integer" />
+    </declare-styleable>
+</resources>
