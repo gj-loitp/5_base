@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="AVLoadingIndicatorView" />
 
+            <Button
+                android:id="@+id/bt_circular_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Circular Progress Bar" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -174,4 +174,21 @@
             <enum name="extra_animation" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CircularProgressBar">
+        <attr name="maximum" format="float" />
+        <attr name="progress" format="float" />
+        <attr name="animateProgress" format="boolean" />
+        <attr name="progressAnimationDuration" format="integer" />
+        <attr name="foregroundStrokeColor" format="color" />
+        <attr name="foregroundStrokeWidth" format="dimension" />
+        <attr name="drawBackgroundStroke" format="boolean" />
+        <attr name="backgroundStrokeColor" format="color" />
+        <attr name="backgroundStrokeWidth" format="dimension" />
+        <attr name="startAngle" format="float" />
+        <attr name="indeterminate" format="boolean" />
+        <attr name="indeterminateMinimumAngle" format="float" />
+        <attr name="indeterminateArcAnimationDuration" format="integer" />
+        <attr name="indeterminateRotationAnimationDuration" format="integer" />
+    </declare-styleable>
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view.AVLoadingIndicatorActivity;
+import vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.CircularProgressBarActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.livestar.R;
@@ -19,6 +20,14 @@ public class MenuProgressLoadingViewsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AVLoadingIndicatorActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_circular_progress_bar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, CircularProgressBarActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
