@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_blur_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blur ImageView" />
+
+            <Button
                 android:id="@+id/bt_cirle_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
