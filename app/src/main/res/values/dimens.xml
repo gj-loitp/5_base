@@ -51,4 +51,6 @@
     <dimen name="mtf_corner_radius">4dp</dimen>
 
     <dimen name="biu_text_start_size">20sp</dimen>
+    <dimen name="margin_150">150dp</dimen>
+    <dimen name="margin_300">300dp</dimen>
 </resources>

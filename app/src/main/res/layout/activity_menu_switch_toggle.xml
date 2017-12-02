@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="Appcompat Switch" />
 
+            <Button
+                android:id="@+id/bt_custom_toggle_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Toggle Button" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
