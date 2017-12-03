@@ -11,7 +11,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
-import vn.loitp.restclient.RestClient;
+import vn.loitp.restapi.restclient.RestClient;
 
 public class MenuAPIActivity extends BaseActivity {
     @Override

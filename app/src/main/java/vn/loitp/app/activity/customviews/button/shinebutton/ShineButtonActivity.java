@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.button.shinebutton._lib.LShineView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 public class ShineButtonActivity extends BaseActivity {
     private LShineView bt0;

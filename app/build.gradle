@@ -31,6 +31,7 @@ android {
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -71,7 +72,7 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':core')
-    compile project(':utils')
+    //compile project(':utils')
     compile 'com.android.support:support-v4:26.0.0'
     compile 'com.android.support:appcompat-v7:26.0.0'
     compile 'com.android.support:design:26.0.0'

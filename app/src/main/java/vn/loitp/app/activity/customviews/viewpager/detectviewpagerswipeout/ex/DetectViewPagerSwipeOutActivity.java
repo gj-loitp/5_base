@@ -10,13 +10,13 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.base.BaseFragment;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 public class DetectViewPagerSwipeOutActivity extends BaseActivity {
     private ViewPager viewPager;

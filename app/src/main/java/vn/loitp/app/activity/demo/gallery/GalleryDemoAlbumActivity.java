@@ -12,12 +12,12 @@ import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicato
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.flickr.FlickrConst;
-import vn.loitp.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
-import vn.loitp.flickr.service.FlickrService;
+import vn.loitp.restapi.flickr.FlickrConst;
+import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
+import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
+import vn.loitp.restapi.flickr.service.FlickrService;
 import loitp.basemaster.R;
-import vn.loitp.restclient.RestClient;
+import vn.loitp.restapi.restclient.RestClient;
 
 public class GalleryDemoAlbumActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;

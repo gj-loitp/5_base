@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.Animation;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Animate;
@@ -16,6 +15,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.an
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

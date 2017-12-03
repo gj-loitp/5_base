@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.button.shinebutton._lib.LShineView;
 import vn.loitp.app.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 //guide https://github.com/hoang8f/android-flat-button
 public class FButtonActivity extends BaseActivity {

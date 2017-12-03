@@ -8,7 +8,7 @@ import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicato
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
-import vn.loitp.restclient.RestClient;
+import vn.loitp.restapi.restclient.RestClient;
 
 public class GalleryDemoSplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;

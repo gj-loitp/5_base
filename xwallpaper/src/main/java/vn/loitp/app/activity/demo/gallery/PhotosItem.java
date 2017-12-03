@@ -10,8 +10,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.an
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
 import vn.loitp.app.utilities.LImageUtil;
-import vn.loitp.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import com.loitp.xwallpaper.R;
 
 /**

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
@@ -20,6 +19,7 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 public class TTTAPIComicListActivity extends BaseActivity {
     private TextView tvTitle;

@@ -5,7 +5,7 @@ import android.support.multidex.MultiDexApplication;
 
 import com.google.gson.Gson;
 
-import loitp.utils.util.Utils;
+import vn.loitp.utils.util.Utils;
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();

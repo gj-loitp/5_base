@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.utilities.LLog;
-import vn.loitp.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 /**
  * Created by www.muathu@gmail.com on 10/8/2017.

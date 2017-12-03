@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 //read more
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282

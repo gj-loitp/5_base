@@ -15,12 +15,12 @@ import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
-import vn.loitp.flickr.FlickrConst;
-import vn.loitp.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
-import vn.loitp.flickr.service.FlickrService;
+import vn.loitp.restapi.flickr.FlickrConst;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
+import vn.loitp.restapi.flickr.service.FlickrService;
 import loitp.basemaster.R;
-import vn.loitp.restclient.RestClient;
+import vn.loitp.restapi.restclient.RestClient;
 
 public class GalleryDemoPhotosActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;

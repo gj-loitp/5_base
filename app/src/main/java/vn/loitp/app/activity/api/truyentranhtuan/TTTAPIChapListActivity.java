@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 public class TTTAPIChapListActivity extends BaseActivity {
     private TextView tvTitle;

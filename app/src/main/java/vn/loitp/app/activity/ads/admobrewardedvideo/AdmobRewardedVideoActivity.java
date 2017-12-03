@@ -12,11 +12,11 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
-import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import loitp.basemaster.R;
+import vn.loitp.utils.util.ToastUtils;
 
 public class AdmobRewardedVideoActivity extends BaseActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;
