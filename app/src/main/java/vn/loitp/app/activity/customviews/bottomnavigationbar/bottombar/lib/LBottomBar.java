@@ -81,47 +81,47 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         //LLog.d(TAG, "onClickRootView");
-        switch (v.getId()) {
-            case R.id.bt_icon_0:
-                if (currentPos != PAGE_0) {
-                    previousPos = currentPos;
-                    currentPos = PAGE_0;
-                    onClickItem(currentPos);
-                    updateView(btIcon0);
-                }
-                break;
-            case R.id.bt_icon_1:
-                if (currentPos != PAGE_1) {
-                    previousPos = currentPos;
-                    currentPos = PAGE_1;
-                    onClickItem(currentPos);
-                    updateView(btIcon1);
-                }
-                break;
-            case R.id.bt_icon_2:
-                if (currentPos != PAGE_2) {
-                    previousPos = currentPos;
-                    currentPos = PAGE_2;
-                    onClickItem(currentPos);
-                    updateView(btIcon2);
-                }
-                break;
-            case R.id.bt_icon_3:
-                if (currentPos != PAGE_3) {
-                    previousPos = currentPos;
-                    currentPos = PAGE_3;
-                    onClickItem(currentPos);
-                    updateView(btIcon3);
-                }
-                break;
-            case R.id.bt_icon_4:
-                if (currentPos != PAGE_4) {
-                    previousPos = currentPos;
-                    currentPos = PAGE_4;
-                    onClickItem(currentPos);
-                    updateView(btIcon4);
-                }
-                break;
+        int i = v.getId();
+        if (i == R.id.bt_icon_0) {
+            if (currentPos != PAGE_0) {
+                previousPos = currentPos;
+                currentPos = PAGE_0;
+                onClickItem(currentPos);
+                updateView(btIcon0);
+            }
+
+        } else if (i == R.id.bt_icon_1) {
+            if (currentPos != PAGE_1) {
+                previousPos = currentPos;
+                currentPos = PAGE_1;
+                onClickItem(currentPos);
+                updateView(btIcon1);
+            }
+
+        } else if (i == R.id.bt_icon_2) {
+            if (currentPos != PAGE_2) {
+                previousPos = currentPos;
+                currentPos = PAGE_2;
+                onClickItem(currentPos);
+                updateView(btIcon2);
+            }
+
+        } else if (i == R.id.bt_icon_3) {
+            if (currentPos != PAGE_3) {
+                previousPos = currentPos;
+                currentPos = PAGE_3;
+                onClickItem(currentPos);
+                updateView(btIcon3);
+            }
+
+        } else if (i == R.id.bt_icon_4) {
+            if (currentPos != PAGE_4) {
+                previousPos = currentPos;
+                currentPos = PAGE_4;
+                onClickItem(currentPos);
+                updateView(btIcon4);
+            }
+
         }
     }
 

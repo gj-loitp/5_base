@@ -1,5 +1,5 @@
-apply plugin: 'com.android.application'
-//apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'android-apt'
 apply plugin: 'com.neenbedankt.android-apt'
@@ -22,7 +22,7 @@ android {
     buildToolsVersion "26.0.0"
 
     defaultConfig {
-        applicationId "loitp.basemaster"
+        //applicationId "loitp.basemaster"
         minSdkVersion 17
         targetSdkVersion 21
         versionCode 2
