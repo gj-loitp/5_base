@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.imageview.zoomimageview;
 import android.app.Activity;
 import android.os.Bundle;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomImageView;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
+import vn.loitp.views.imageview.zoomimageview.ColorGridDrawable;
 
 public class ZoomImageViewActivity extends BaseActivity {
 

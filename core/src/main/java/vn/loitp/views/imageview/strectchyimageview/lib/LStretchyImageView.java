@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.strectchyimageview.lib;
+package vn.loitp.views.imageview.strectchyimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.

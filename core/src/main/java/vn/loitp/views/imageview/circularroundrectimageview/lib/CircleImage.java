@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.lib;
+package vn.loitp.views.imageview.circularroundrectimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -21,8 +21,7 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 
-import loitp.basemaster.R;
-
+import loitp.core.R;
 
 public class CircleImage extends ImageView {
 

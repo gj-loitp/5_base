@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinner
+    <vn.loitp.views.imageview.fidgetspinnerimageview.FidgetSpinner
         android:id="@+id/fidgetspinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

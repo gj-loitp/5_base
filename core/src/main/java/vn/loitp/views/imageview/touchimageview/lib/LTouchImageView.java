@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.touchimageview.lib;
+package vn.loitp.views.imageview.touchimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.
@@ -14,7 +14,6 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -131,7 +130,7 @@ public class LTouchImageView extends ImageView {
     }
 
     @Override
-    public void setOnTouchListener(View.OnTouchListener l) {
+    public void setOnTouchListener(OnTouchListener l) {
         userTouchListener = l;
     }
 
@@ -1186,7 +1185,7 @@ public class LTouchImageView extends ImageView {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+    @TargetApi(VERSION_CODES.GINGERBREAD)
     private class CompatScroller {
         Scroller scroller;
         OverScroller overScroller;
@@ -1253,7 +1252,7 @@ public class LTouchImageView extends ImageView {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @TargetApi(VERSION_CODES.JELLY_BEAN)
     private void compatPostOnAnimation(Runnable runnable) {
         if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
             postOnAnimation(runnable);

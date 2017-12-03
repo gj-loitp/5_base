@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.imageview.touchimageview;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.customviews.imageview.touchimageview.lib.LTouchImageView;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.common.Constants;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
 public class TouchImageViewActivity extends BaseActivity {
 

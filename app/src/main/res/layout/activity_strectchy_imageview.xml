@@ -24,7 +24,7 @@
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <vn.loitp.app.activity.customviews.imageview.strectchyimageview.lib.LStretchyImageView
+            <vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView
                 android:id="@+id/iv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.circleimageview._lib;
+package vn.loitp.views.imageview.circleimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/14/2017.
@@ -25,7 +25,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 public class LCircleImageView extends ImageView {
 

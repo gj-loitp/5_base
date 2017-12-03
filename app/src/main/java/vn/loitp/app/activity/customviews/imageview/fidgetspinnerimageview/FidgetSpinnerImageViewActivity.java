@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.views.imageview.fidgetspinnerimageview.FidgetSpinner;
 
 public class FidgetSpinnerImageViewActivity extends BaseActivity {
 

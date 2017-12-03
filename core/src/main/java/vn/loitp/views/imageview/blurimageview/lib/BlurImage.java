@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.blurimageview.lib;
+package vn.loitp.views.imageview.blurimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.

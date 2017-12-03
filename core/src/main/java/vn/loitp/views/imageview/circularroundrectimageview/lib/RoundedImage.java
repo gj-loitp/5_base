@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.lib;
+package vn.loitp.views.imageview.circularroundrectimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -12,7 +12,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 public class RoundedImage extends ImageView {
 

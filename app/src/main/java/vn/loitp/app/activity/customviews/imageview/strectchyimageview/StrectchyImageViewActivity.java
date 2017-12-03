@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.imageview.strectchyimageview;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.customviews.imageview.strectchyimageview.lib.LStretchyImageView;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.common.Constants;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView;
 
 public class StrectchyImageViewActivity extends BaseActivity {
 

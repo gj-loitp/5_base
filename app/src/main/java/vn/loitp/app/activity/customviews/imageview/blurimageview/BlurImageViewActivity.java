@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import vn.loitp.app.activity.customviews.imageview.blurimageview.lib.BlurImage;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.views.imageview.blurimageview.lib.BlurImage;
 
 public class BlurImageViewActivity extends BaseActivity {
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.lib;
+package vn.loitp.views.imageview.circularroundrectimageview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.

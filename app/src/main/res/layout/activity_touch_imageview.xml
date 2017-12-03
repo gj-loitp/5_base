@@ -15,7 +15,7 @@
         android:textColor="@color/Black"
         android:textSize="@dimen/txt_20" />
 
-    <vn.loitp.app.activity.customviews.imageview.touchimageview.lib.LTouchImageView
+    <vn.loitp.views.imageview.touchimageview.lib.LTouchImageView
         android:id="@+id/iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

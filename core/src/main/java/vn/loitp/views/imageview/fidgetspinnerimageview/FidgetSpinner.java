@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview;
+package vn.loitp.views.imageview.fidgetspinnerimageview;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
