@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Core</string>
 
-    <string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
-    <string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
-    <string name="str_reward">ca-app-pub-3165963943681013/4049354711</string>
-    <string name="app_id">ca-app-pub-3165963943681013~3973333090</string>
+    <!--TODO-->
+    <string name="str_b"></string>
+    <string name="str_f"></string>
+    <string name="str_reward"></string>
+    <string name="app_id"></string>
 
     <string name="open_drawer">open_drawer</string>
     <string name="close_drawer">close_drawer</string>

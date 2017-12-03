@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.app.rxandroid.ApiSubscriber;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -14,6 +13,7 @@ import vn.loitp.restapi.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.restapi.livestar.corev3.api.model.v3.getposter.GetPoster;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.restapi.livestar.corev3.api.service.LSService;
+import vn.loitp.rxandroid.ApiSubscriber;
 
 public class TestAPIActivity extends BaseActivity {
     private TextView tv;

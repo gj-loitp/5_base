@@ -1,4 +1,4 @@
-package vn.loitp.app.rxandroid;
+package vn.loitp.rxandroid;
 
 import rx.Subscriber;
 
