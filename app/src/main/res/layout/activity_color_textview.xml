@@ -18,7 +18,6 @@
             android:orientation="vertical">
 
             <vn.loitp.app.activity.customviews.textview.colortextview.lib.ColorTextView
-                android:id="@+id/ctv_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="You can get 500 credits after connect and share the WIFI"
