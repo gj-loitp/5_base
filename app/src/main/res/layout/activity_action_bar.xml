@@ -44,7 +44,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <vn.loitp.app.activity.customviews.actionbar._lib.LActionBar
+    <vn.loitp.views.actionbar.lib.LActionBar
         android:id="@+id/l_action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

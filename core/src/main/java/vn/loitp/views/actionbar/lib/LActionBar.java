@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.actionbar._lib;
+package vn.loitp.views.actionbar.lib;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.github.mmin18.widget.RealtimeBlurView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LAnimationUtil;
 
 /**

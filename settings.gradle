@@ -1,1 +1,1 @@
-include ':app', ':core', ':xwallpaper', ':ngontinh'
+include ':app', ':core'
