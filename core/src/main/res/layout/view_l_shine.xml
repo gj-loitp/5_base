@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <vn.loitp.app.activity.customviews.button.shinebutton._lib.ShineButton
+        android:id="@+id/shine_button"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
+        android:layout_centerInParent="true"
+        app:allow_random_color="true"
+        app:click_animation_duration="200"
+        app:enable_flashing="true"
+        app:shine_animation_duration="500" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside" />
+</RelativeLayout>

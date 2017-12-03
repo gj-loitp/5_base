@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.shinebutton._lib;
+package vn.loitp.views.button.shinebutton.lib;
 
 import android.content.Context;
 import android.graphics.Bitmap;

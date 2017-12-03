@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.shinebutton._lib;
+package vn.loitp.views.button.shinebutton.lib;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 
 /**

@@ -18,7 +18,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <vn.loitp.app.activity.customviews.button.fbutton.lib.FButton
+            <vn.loitp.views.button.fbutton.lib.FButton
                 android:id="@+id/primary_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

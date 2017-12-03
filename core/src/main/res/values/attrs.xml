@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<declare-styleable name="RecyclerViewPager">
+    <declare-styleable name="RecyclerViewPager">
         <attr name="rvp_triggerOffset" format="float" />
         <attr name="rvp_flingFactor" format="float" />
         <attr name="rvp_singlePageFling" format="boolean" />
@@ -110,7 +110,7 @@
         <attr name="primary_number" format="integer" />
         <attr name="target_number" format="integer" />
         <attr name="number_size" format="integer" />
-        &lt;!&ndash;<attr name="number_color" format="color"/>&ndash;&gt;
+        <!--<attr name="number_color" format="color"/>-->
     </declare-styleable>
     <declare-styleable name="VerticalMarqueeTextView">
         <attr name="autoStartMarquee" format="boolean" />
@@ -190,5 +190,5 @@
         <attr name="indeterminateMinimumAngle" format="float" />
         <attr name="indeterminateArcAnimationDuration" format="integer" />
         <attr name="indeterminateRotationAnimationDuration" format="integer" />
-    </declare-styleable>-->
+    </declare-styleable>
 </resources>

@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.button.circularimageclick.lib.CircularClickImageButton;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton;
 
 //guide https://github.com/hoang8f/android-flat-button
 public class CircularImageClickActivity extends BaseActivity {

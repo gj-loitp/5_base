@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.shinebutton._lib;
+package vn.loitp.views.button.shinebutton.lib;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.daimajia.androidanimations.library.Techniques;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -41,7 +41,7 @@ public class LShineView extends RelativeLayout {
         this.shineButton = (ShineButton) findViewById(R.id.shine_button);
         iv.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 shineButton.performClick();
                 LAnimationUtil.play(iv, Techniques.Pulse);
                 if (callback != null) {

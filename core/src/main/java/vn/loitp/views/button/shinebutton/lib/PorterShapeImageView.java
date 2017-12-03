@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.shinebutton._lib;
+package vn.loitp.views.button.shinebutton.lib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 public class PorterShapeImageView extends PorterImageView {
     private Drawable shape;
