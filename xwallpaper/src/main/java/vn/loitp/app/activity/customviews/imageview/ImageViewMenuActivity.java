@@ -12,7 +12,7 @@ import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.Fidget
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

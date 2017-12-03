@@ -8,7 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

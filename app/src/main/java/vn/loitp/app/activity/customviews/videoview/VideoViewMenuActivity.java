@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity;
 import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class VideoViewMenuActivity extends BaseActivity {
 

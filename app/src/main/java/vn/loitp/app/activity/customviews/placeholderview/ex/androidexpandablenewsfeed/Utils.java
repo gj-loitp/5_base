@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.utilities.LLog;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

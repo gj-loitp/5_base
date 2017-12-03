@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LImageUtil;
-import vn.loitp.app.utilities.LLog;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.Mode;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager._lib.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import loitp.basemaster.R;
 

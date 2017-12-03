@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
 
-import vn.loitp.app.utilities.LLog;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * @author Chad

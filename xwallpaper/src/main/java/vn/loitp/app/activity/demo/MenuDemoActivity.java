@@ -8,7 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

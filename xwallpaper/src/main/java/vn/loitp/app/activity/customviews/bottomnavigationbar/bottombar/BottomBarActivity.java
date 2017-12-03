@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.lib.LBottomBar;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
 import com.loitp.xwallpaper.R;
 

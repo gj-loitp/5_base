@@ -8,9 +8,9 @@ import android.view.View;
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
 import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuAdsActivity extends BaseActivity {
 

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LLog;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
     private InfinitePlaceHolderView mGalleryView;

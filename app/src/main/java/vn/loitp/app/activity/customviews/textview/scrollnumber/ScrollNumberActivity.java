@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import vn.loitp.app.activity.customviews.textview.scrollnumber.lib.MultiScrollNumber;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
 //guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973

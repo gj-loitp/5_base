@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 
 import com.loitp.xwallpaper.BuildConfig;

@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 
 import vn.loitp.app.activity.customviews.sticker.lib.StickerImageView;
 import vn.loitp.app.activity.customviews.sticker.lib.StickerTextView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
 public class StickerActivity extends BaseActivity {

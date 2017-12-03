@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import vn.loitp.app.activity.customviews.textview.typewritertextview.lib.TypeWriterTextView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 public class TypeWriterTextViewActivity extends BaseActivity {

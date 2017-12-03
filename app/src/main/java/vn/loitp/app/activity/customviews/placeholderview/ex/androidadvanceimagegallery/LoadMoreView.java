@@ -9,8 +9,8 @@ import java.util.List;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.infinite.LoadMore;
-import vn.loitp.app.utilities.LLog;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

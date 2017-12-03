@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Core</string>
+
+    <string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
+    <string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
+    <string name="str_reward">ca-app-pub-3165963943681013/4049354711</string>
+    <string name="app_id">ca-app-pub-3165963943681013~3973333090</string>
+
+    <string name="open_drawer">open_drawer</string>
+    <string name="close_drawer">close_drawer</string>
+    <string name="i_love_you">I loved you:  yet the love, maybe,\n
+Has not extinguished in my heart;\n
+But hence may not it trouble thee;\n
+I do not want to make you sad.\n
+I loved you hopelessly and mutely,\n
+Now with shyness, now with jealousy being vexed;\n
+I loved you so sincerely, so fondly,\n
+Likewise may someone love you next.
+    </string>
+
+
+    <string-array name="occurence">
+        <item>Once</item>
+        <item>Weekly</item>
+    </string-array>
+
+    <string-array name="pref_alarm_play_time_entries">
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+
+    <string-array name="pref_alarm_play_time_values">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>300</item>
+    </string-array>
+
 </resources>

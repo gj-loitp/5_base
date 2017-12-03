@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
 //TODO remove in gradle

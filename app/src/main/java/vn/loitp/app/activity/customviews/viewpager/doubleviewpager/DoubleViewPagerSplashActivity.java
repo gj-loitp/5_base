@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
 public class DoubleViewPagerSplashActivity extends BaseActivity implements View.OnKeyListener {

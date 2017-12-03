@@ -9,7 +9,7 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;

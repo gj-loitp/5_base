@@ -17,8 +17,8 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.app.utilities.LLog;
-import vn.loitp.app.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LStoreUtil;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

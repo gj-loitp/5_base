@@ -12,8 +12,8 @@ import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.utilities.LLog;
-import vn.loitp.app.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LStoreUtil;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

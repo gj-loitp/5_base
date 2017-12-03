@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;

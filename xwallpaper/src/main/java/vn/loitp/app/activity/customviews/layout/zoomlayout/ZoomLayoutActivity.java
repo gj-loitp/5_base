@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.utils.util.ToastUtils;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 //read more

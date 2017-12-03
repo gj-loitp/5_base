@@ -44,9 +44,9 @@ import java.util.GregorianCalendar;
 
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class EditAlarmActivity extends BaseActivity {
     private EditText mTitle;

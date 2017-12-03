@@ -6,10 +6,10 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LStoreUtil;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class AdmobInterstitialActivity extends BaseActivity {
     private InterstitialAd interstitialAd;

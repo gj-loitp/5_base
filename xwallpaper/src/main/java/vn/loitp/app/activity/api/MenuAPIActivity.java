@@ -8,7 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 import vn.loitp.restapi.restclient.RestClient;

@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import vn.loitp.app.utilities.LLog;
+import vn.loitp.core.utilities.LLog;
 
 public class DataSource {
     private static final String TAG = "AlarmMeActivity";

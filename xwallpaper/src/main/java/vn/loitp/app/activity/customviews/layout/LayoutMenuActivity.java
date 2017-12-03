@@ -7,7 +7,7 @@ import android.view.View;
 
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

@@ -10,7 +10,7 @@ import vn.loitp.app.activity.animation.MenuAnimationActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

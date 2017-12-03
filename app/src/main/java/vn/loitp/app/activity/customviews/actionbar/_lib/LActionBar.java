@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.github.mmin18.widget.RealtimeBlurView;
 
-import vn.loitp.app.utilities.LAnimationUtil;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LAnimationUtil;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

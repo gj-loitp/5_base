@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;

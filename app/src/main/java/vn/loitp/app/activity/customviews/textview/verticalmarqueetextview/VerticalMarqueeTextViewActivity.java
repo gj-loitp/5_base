@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.textview.verticalmarqueetextview;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
 public class VerticalMarqueeTextViewActivity extends BaseActivity {

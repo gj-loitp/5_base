@@ -13,9 +13,9 @@ import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentVie
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class TextViewMenuActivity extends BaseActivity {
 

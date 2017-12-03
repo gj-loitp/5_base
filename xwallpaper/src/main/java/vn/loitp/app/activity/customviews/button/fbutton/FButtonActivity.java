@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.utils.util.ToastUtils;
-import vn.loitp.app.activity.customviews.button.shinebutton._lib.LShineView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 //guide https://github.com/hoang8f/android-flat-button

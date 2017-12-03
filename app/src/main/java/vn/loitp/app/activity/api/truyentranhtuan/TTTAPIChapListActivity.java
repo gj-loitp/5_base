@@ -8,9 +8,9 @@ import android.widget.TextView;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 public class TTTAPIChapListActivity extends BaseActivity {

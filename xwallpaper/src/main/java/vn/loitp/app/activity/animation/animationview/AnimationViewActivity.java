@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LAnimationUtil;
 import vn.loitp.app.utilities.LLog;
 import vn.loitp.app.utilities.LUIUtil;

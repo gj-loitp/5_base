@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import vn.loitp.app.activity.customviews.imageview.blurimageview.lib.BlurImage;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 public class BlurImageViewActivity extends BaseActivity {

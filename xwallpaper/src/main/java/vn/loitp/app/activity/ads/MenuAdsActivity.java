@@ -8,7 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
 import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LUIUtil;
 import com.loitp.xwallpaper.R;
 

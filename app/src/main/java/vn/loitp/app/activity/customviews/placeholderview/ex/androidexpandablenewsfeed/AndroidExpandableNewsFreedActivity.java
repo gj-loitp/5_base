@@ -10,9 +10,9 @@ import android.support.v7.widget.RecyclerView;
 
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.ExpandablePlaceHolderView;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class AndroidExpandableNewsFreedActivity extends BaseActivity {
     private ExpandablePlaceHolderView mExpandableView;

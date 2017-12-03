@@ -1,17 +1,13 @@
 package vn.loitp.app.activity.ads.admobbanner;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
 import com.loitp.xwallpaper.R;
 
-import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
-import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LStoreUtil;
 import vn.loitp.app.utilities.LUIUtil;
 

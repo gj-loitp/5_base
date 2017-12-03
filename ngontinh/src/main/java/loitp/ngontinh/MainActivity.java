@@ -1,10 +1,9 @@
 package loitp.ngontinh;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 

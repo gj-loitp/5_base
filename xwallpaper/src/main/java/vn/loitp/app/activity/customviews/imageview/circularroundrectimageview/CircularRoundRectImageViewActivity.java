@@ -3,9 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.customviews.imageview.zoomimageview.ColorGridDrawable;
-import vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomImageView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 //guide: https://github.com/sparrow007/CircularImageview?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6166

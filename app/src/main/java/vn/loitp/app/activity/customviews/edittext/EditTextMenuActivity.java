@@ -7,9 +7,9 @@ import android.view.View;
 
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class EditTextMenuActivity extends BaseActivity {
 

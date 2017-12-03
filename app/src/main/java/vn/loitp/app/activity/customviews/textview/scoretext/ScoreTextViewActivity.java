@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LLog;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LLog;
 
 public class ScoreTextViewActivity extends BaseActivity {
     private TextView tv;

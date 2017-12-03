@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LStoreUtil;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class AndroidNavigationDrawerActivity extends BaseActivity {
     private PlaceHolderView mDrawerView;

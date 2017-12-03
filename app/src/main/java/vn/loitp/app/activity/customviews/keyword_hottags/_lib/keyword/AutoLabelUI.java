@@ -12,8 +12,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.utilities.LLog;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

@@ -9,7 +9,7 @@ import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.an
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.NonReusable;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
-import vn.loitp.app.utilities.LImageUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import loitp.basemaster.R;
 

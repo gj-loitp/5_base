@@ -8,9 +8,9 @@ import android.view.View;
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
 public class MenuAPIActivity extends BaseActivity {

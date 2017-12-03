@@ -7,9 +7,10 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 
-import vn.loitp.app.utilities.LAnimationUtil;
-import vn.loitp.app.utilities.LLog;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LLog;
+
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
  */

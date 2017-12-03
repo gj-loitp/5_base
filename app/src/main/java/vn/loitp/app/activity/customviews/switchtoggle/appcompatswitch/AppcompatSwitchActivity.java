@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LStoreUtil;
+import vn.loitp.core.base.BaseActivity;
+
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LStoreUtil;
 
 public class AppcompatSwitchActivity extends BaseActivity {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;
 import vn.loitp.app.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;

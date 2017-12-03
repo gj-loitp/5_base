@@ -21,9 +21,9 @@ import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
 import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
-import vn.loitp.app.base.BaseActivity;
-import vn.loitp.app.utilities.LUIUtil;
+import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuCustomViewsActivity extends BaseActivity {
 

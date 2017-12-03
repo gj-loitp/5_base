@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import loitp.utils.util.ToastUtils;
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.lib.CustomToggle;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 
 public class CustomToggleButtonActivity extends BaseActivity {

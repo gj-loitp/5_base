@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.lib.LStretchyImageView;
-import vn.loitp.app.base.BaseActivity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.utilities.LImageUtil;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LImageUtil;
 
 public class StrectchyImageViewActivity extends BaseActivity {
 
