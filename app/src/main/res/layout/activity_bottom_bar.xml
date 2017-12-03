@@ -44,7 +44,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.lib.LBottomBar
+    <vn.loitp.views.bottombar.lib.LBottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

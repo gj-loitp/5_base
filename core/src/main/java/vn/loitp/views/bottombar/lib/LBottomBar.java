@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.lib;
+package vn.loitp.views.bottombar.lib;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.daimajia.androidanimations.library.Techniques;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LAnimationUtil;
 
 /**

@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.lib.LBottomBar;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.bottombar.lib.LBottomBar;
 
 public class BottomBarActivity extends BaseActivity {
 
