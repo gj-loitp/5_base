@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.zoomlayout.lib;
+package vn.loitp.views.layout.zoomlayout.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.

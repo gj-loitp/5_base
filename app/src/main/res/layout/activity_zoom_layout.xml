@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomLayout
+    <vn.loitp.views.layout.zoomlayout.lib.ZoomLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:hasClickableChildren="true">
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="Image View" />
         </LinearLayout>
-    </vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomLayout>
+    </vn.loitp.views.layout.zoomlayout.lib.ZoomLayout>
 
     <!--<ScrollView
         android:id="@+id/scroll_view"

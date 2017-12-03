@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.ripplelayout.lib;
+package vn.loitp.views.layout.ripplelayout.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.

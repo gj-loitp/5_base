@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.zoomlayout.lib;
+package vn.loitp.views.layout.zoomlayout.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Uses {@link ZoomEngine} to allow zooming and pan events onto a view hierarchy.

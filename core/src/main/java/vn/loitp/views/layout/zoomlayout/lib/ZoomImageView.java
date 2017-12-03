@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.zoomlayout.lib;
+package vn.loitp.views.layout.zoomlayout.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 
 /**
