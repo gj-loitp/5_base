@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <vn.loitp.app.activity.customviews.edittext.materialtextfield.lib.MaterialTextField
+            <vn.loitp.views.edittext.materialtextfield.lib.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:mtf_image="@mipmap/ic_launcher"
@@ -31,7 +31,7 @@
                     android:textColor="#333"
                     android:textSize="15sp" />
 
-            </vn.loitp.app.activity.customviews.edittext.materialtextfield.lib.MaterialTextField>
+            </vn.loitp.views.edittext.materialtextfield.lib.MaterialTextField>>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

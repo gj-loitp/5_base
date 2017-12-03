@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.edittext.materialtextfield.lib;
+package vn.loitp.views.edittext.materialtextfield.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -21,8 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
-
+import loitp.core.R;
 
 public class MaterialTextField extends FrameLayout {
     protected InputMethodManager inputMethodManager;
@@ -303,7 +302,7 @@ public class MaterialTextField extends FrameLayout {
         ViewCompat.setAlpha(editText, 0f);
         editText.setBackgroundColor(Color.TRANSPARENT);
 
-        labelTopMargin = FrameLayout.LayoutParams.class.cast(label.getLayoutParams()).topMargin;
+        labelTopMargin = LayoutParams.class.cast(label.getLayoutParams()).topMargin;
 
         customizeFromAttributes();
 

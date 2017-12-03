@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.edittext.biuedittext.lib;
+package vn.loitp.views.edittext.biuedittext.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.edittext.biuedittext.lib;
+package vn.loitp.views.edittext.biuedittext.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -28,7 +28,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by james on 22/11/15.
