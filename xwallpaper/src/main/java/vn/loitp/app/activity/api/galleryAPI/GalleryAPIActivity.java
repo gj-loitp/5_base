@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
+import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.rxandroid.ApiSubscriber;

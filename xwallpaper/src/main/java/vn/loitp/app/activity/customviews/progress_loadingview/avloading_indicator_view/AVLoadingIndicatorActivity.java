@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view;
+package vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview;
 
 import android.app.Activity;
 import android.os.Bundle;

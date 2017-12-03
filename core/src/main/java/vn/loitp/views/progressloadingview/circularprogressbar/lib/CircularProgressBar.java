@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.lib;
+package vn.loitp.views.progressloadingview.circularprogressbar.lib;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.
@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Circular progress bar

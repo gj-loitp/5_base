@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi;
+package vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;

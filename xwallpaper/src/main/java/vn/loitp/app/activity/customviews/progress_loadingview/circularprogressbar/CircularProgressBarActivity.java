@@ -1,9 +1,9 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar;
+package vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.lib.CircularProgressBar;
+import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.lib.CircularProgressBar;
 import vn.loitp.core.base.BaseActivity;
 import com.loitp.xwallpaper.R;
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.lib;
+package vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.lib;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.

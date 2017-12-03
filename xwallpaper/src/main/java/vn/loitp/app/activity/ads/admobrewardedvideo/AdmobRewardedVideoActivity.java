@@ -13,7 +13,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import loitp.utils.util.ToastUtils;
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
+import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.app.utilities.LLog;
 import com.loitp.xwallpaper.R;

@@ -1,21 +1,21 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.indicators;
+package vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.indicators;
 
 import android.animation.ValueAnimator;
 import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.Path;
 import android.view.animation.LinearInterpolator;
 
 import java.util.ArrayList;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.Indicator;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.Indicator;
 
 /**
- * Created by Jack on 2015/10/16.
+ * Created by Jack on 2015/10/20.
  */
-public class SquareSpinIndicator extends Indicator {
+public class TriangleSkewSpinIndicator extends Indicator {
 
     private float rotateX;
     private float rotateY;
@@ -23,13 +23,14 @@ public class SquareSpinIndicator extends Indicator {
     private Camera mCamera;
     private Matrix mMatrix;
 
-    public SquareSpinIndicator() {
+    public TriangleSkewSpinIndicator() {
         mCamera = new Camera();
         mMatrix = new Matrix();
     }
 
     @Override
     public void draw(Canvas canvas, Paint paint) {
+
 
         mMatrix.reset();
         mCamera.save();
@@ -42,7 +43,12 @@ public class SquareSpinIndicator extends Indicator {
         mMatrix.postTranslate(centerX(), centerY());
         canvas.concat(mMatrix);
 
-        canvas.drawRect(new RectF(getWidth() / 5, getHeight() / 5, getWidth() * 4 / 5, getHeight() * 4 / 5), paint);
+        Path path = new Path();
+        path.moveTo(getWidth() / 5, getHeight() * 4 / 5);
+        path.lineTo(getWidth() * 4 / 5, getHeight() * 4 / 5);
+        path.lineTo(getWidth() / 2, getHeight() / 5);
+        path.close();
+        canvas.drawPath(path, paint);
     }
 
     @Override

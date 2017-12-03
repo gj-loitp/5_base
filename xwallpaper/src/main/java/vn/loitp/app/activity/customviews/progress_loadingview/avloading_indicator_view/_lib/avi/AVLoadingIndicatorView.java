@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi;
+package vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.indicators.BallPulseIndicator;
+import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi.indicators.BallPulseIndicator;
 import com.loitp.xwallpaper.R;
 
 public class AVLoadingIndicatorView extends View {

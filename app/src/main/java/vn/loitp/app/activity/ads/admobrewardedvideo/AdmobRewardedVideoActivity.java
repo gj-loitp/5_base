@@ -12,11 +12,11 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class AdmobRewardedVideoActivity extends BaseActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;
@@ -29,7 +29,7 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        isShowAdWhenExist=false;
+        isShowAdWhenExist = false;
         llMain = (RelativeLayout) findViewById(R.id.root_view);
 
         llAd = (LinearLayout) findViewById(R.id.ll_ad);

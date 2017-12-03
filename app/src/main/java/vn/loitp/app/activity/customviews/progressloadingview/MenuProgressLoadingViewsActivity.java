@@ -1,12 +1,12 @@
-package vn.loitp.app.activity.customviews.progress_loadingview;
+package vn.loitp.app.activity.customviews.progressloadingview;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view.AVLoadingIndicatorActivity;
-import vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.CircularProgressBarActivity;
+import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity;
+import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;

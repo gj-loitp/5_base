@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
-import vn.loitp.app.activity.customviews.progress_loadingview.MenuProgressLoadingViewsActivity;
+import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;

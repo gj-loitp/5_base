@@ -109,10 +109,10 @@
             android:name="vn.loitp.app.activity.animation.animationview.AnimationViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.progress_loadingview.MenuProgressLoadingViewsActivity"
+            android:name="vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view.AVLoadingIndicatorActivity"
+            android:name="vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.animation.overscroll.OverScrollActivity"
@@ -272,7 +272,7 @@
             android:name="vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.progress_loadingview.circularprogressbar.CircularProgressBarActivity"
+            android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity"

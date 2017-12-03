@@ -13,9 +13,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

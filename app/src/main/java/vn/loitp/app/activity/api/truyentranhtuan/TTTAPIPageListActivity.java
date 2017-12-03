@@ -7,11 +7,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
-import vn.loitp.app.activity.customviews.progress_loadingview.avloading_indicator_view._lib.avi.AVLoadingIndicatorView;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class TTTAPIPageListActivity extends BaseActivity {
     private TextView tv;
