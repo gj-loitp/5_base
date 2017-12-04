@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.sticker.lib;
+package vn.loitp.views.sticker.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.
@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 public class StickerTextView extends StickerView {
     private AutoResizeTextView tv_main;
@@ -39,7 +38,7 @@ public class StickerTextView extends StickerView {
         tv_main.setTextSize(400);
         tv_main.setShadowLayer(4, 0, 0, Color.BLACK);
         tv_main.setMaxLines(1);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+        LayoutParams params = new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         );

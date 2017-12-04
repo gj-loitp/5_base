@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.sticker.lib;
+package vn.loitp.views.sticker.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.

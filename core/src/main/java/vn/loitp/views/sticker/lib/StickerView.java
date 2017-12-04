@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.sticker.lib;
+package vn.loitp.views.sticker.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.
@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 public abstract class StickerView extends FrameLayout {
 
@@ -79,43 +79,43 @@ public abstract class StickerView extends FrameLayout {
         int margin = convertDpToPixel(BUTTON_SIZE_DP, getContext()) / 2;
         int size = convertDpToPixel(SELF_SIZE_DP, getContext());
 
-        FrameLayout.LayoutParams this_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams this_params =
+                new LayoutParams(
                         size,
                         size
                 );
         this_params.gravity = Gravity.CENTER;
 
-        FrameLayout.LayoutParams iv_main_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams iv_main_params =
+                new LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                 );
         iv_main_params.setMargins(margin, margin, margin, margin);
 
-        FrameLayout.LayoutParams iv_border_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams iv_border_params =
+                new LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                 );
         iv_border_params.setMargins(margin, margin, margin, margin);
 
-        FrameLayout.LayoutParams iv_scale_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams iv_scale_params =
+                new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
         iv_scale_params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
 
-        FrameLayout.LayoutParams iv_delete_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams iv_delete_params =
+                new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
         iv_delete_params.gravity = Gravity.TOP | Gravity.RIGHT;
 
-        FrameLayout.LayoutParams iv_flip_params =
-                new FrameLayout.LayoutParams(
+        LayoutParams iv_flip_params =
+                new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
@@ -138,7 +138,7 @@ public abstract class StickerView extends FrameLayout {
                 }
             }
         });
-        this.iv_flip.setOnClickListener(new View.OnClickListener() {
+        this.iv_flip.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -352,7 +352,7 @@ public abstract class StickerView extends FrameLayout {
             super.onDraw(canvas);
             // Draw sticker border
 
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) this.getLayoutParams();
+            LayoutParams params = (LayoutParams) this.getLayoutParams();
 
             Log.v(TAG, "params.leftMargin: " + params.leftMargin);
 
