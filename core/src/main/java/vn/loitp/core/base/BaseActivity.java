@@ -31,6 +31,7 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.data.EventBusData;
 
 //TODO change const debug
 
@@ -142,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private TextView tvConnectStt;
 
-    /*@Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         LLog.d(TAG, "onMessageEvent " + event.isConnected());
         if (!event.isConnected()) {
@@ -182,5 +183,5 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
-    }*/
+    }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.app.data;
+package vn.loitp.data;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -16,7 +16,7 @@ public class EventBusData {
     private EventBusData() {
     }
 
-    /*public static class ConnectEvent {
+    public static class ConnectEvent {
         private boolean isConnected;
         private boolean isConnectedFast;
         private boolean isConnectedWifi;
@@ -62,5 +62,5 @@ public class EventBusData {
         connectEvent.setConnectedWifi(isConnectedWifi);
         connectEvent.setConnectedMobile(isConnectedMobile);
         EventBus.getDefault().post(connectEvent);
-    }*/
+    }
 }
