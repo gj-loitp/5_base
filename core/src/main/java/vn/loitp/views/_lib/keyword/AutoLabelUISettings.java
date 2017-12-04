@@ -1,9 +1,9 @@
-package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
+package vn.loitp.views._lib.keyword;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
+package vn.loitp.views._lib.keyword;
 
 import android.os.Parcel;
 import android.os.Parcelable;

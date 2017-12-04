@@ -3,19 +3,19 @@ package vn.loitp.app.activity.customviews.keyword_hottags;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
+import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class KeywordHotagsActivity extends BaseActivity {
-    private InfinitePlaceHolderView placeHolderView;
+    private PlaceHolderView placeHolderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        placeHolderView = (InfinitePlaceHolderView) findViewById(R.id.place_holder_view);
+        placeHolderView = (PlaceHolderView) findViewById(R.id.place_holder_view);
         LUIUtil.setPullLikeIOSVertical(placeHolderView);
 
         int max = 50;

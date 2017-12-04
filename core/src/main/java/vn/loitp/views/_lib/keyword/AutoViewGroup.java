@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
+package vn.loitp.views._lib.keyword;
 
 import android.content.Context;
 import android.util.AttributeSet;

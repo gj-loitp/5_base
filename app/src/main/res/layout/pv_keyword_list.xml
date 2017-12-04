@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />-->
 
-    <vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword.AutoLabelUI
+    <vn.loitp.views._lib.keyword.AutoLabelUI
         android:id="@+id/label_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

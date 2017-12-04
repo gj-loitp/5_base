@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
+package vn.loitp.views._lib.keyword;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

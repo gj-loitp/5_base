@@ -3,11 +3,10 @@ package vn.loitp.app.activity.customviews.keyword_hottags;
 import android.app.Activity;
 import android.support.v4.content.ContextCompat;
 
-import vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword.AutoLabelUI;
-import vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword.AutoLabelUISettings;
-import vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword.Label;
-
 import loitp.basemaster.R;
+import vn.loitp.views._lib.keyword.AutoLabelUI;
+import vn.loitp.views._lib.keyword.AutoLabelUISettings;
+import vn.loitp.views._lib.keyword.Label;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
@@ -24,7 +23,6 @@ public class PVKeywordList {
     private final String TAG = getClass().getSimpleName();
     @View(R.id.label_view)
     private AutoLabelUI mAutoLabel;
-
 
     private Activity mActivity;
     private String[] strings;

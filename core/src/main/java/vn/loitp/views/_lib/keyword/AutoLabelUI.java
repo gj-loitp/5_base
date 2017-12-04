@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.keyword_hottags._lib.keyword;
+package vn.loitp.views._lib.keyword;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 
 /**
