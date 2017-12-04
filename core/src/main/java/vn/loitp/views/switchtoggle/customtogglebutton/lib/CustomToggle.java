@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.lib;
+package vn.loitp.views.switchtoggle.customtogglebutton.lib;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.
@@ -28,8 +28,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import loitp.basemaster.R;
-
+import loitp.core.R;
 
 public class CustomToggle extends View {
 

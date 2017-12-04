@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch._lib;
+package vn.loitp.views.switchtoggle.appcompatswitch.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/3/2017.
@@ -11,7 +11,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by loitp
