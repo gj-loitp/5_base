@@ -6,10 +6,10 @@ import android.support.v4.view.PagerAdapter;
 
 import java.util.ArrayList;
 
-import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.lib.DoubleViewPager;
-import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.lib.DoubleViewPagerAdapter;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.views.viewpager.doubleviewpager.lib.DoubleViewPager;
+import vn.loitp.views.viewpager.doubleviewpager.lib.DoubleViewPagerAdapter;
 
 public class DoubleViewPagerActivity extends BaseActivity {
     private DoubleViewPager viewpager;

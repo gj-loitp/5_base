@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.doubleviewpager.lib;
+package vn.loitp.views.viewpager.doubleviewpager.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
