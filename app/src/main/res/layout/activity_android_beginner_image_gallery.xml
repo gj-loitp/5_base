@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView
+    <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

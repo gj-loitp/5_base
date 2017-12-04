@@ -6,14 +6,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Click;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.ChildPosition;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.expand.ParentPosition;
 import loitp.basemaster.R;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.expand.ChildPosition;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.expand.ParentPosition;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

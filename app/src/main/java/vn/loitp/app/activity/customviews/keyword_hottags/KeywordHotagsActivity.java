@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.keyword_hottags;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
 
 public class KeywordHotagsActivity extends BaseActivity {
     private InfinitePlaceHolderView placeHolderView;

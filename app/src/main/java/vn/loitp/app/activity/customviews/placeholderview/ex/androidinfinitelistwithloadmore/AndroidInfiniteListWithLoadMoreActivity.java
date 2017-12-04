@@ -6,11 +6,11 @@ import android.view.View;
 
 import java.util.List;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
 
 public class AndroidInfiniteListWithLoadMoreActivity extends BaseActivity {
     private InfinitePlaceHolderView mLoadMoreView;

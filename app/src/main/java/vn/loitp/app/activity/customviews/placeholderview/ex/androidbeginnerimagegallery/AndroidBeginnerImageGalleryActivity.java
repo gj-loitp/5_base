@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class AndroidBeginnerImageGalleryActivity extends BaseActivity {
     private PlaceHolderView mGalleryView;

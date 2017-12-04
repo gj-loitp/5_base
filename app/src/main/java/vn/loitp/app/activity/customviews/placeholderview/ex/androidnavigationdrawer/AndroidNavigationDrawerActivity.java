@@ -8,11 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.PlaceHolderView;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class AndroidNavigationDrawerActivity extends BaseActivity {
     private PlaceHolderView mDrawerView;

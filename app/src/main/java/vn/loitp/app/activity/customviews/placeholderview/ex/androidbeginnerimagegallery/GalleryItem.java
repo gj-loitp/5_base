@@ -2,15 +2,14 @@ package vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimag
 
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.Animation;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Animate;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Click;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.NonReusable;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
 import loitp.basemaster.R;
+import vn.loitp.views.placeholderview.lib.placeholderview.Animation;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Animate;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

@@ -7,16 +7,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.SwipePlaceHolderView;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Layout;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.Resolve;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.View;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.swipe.SwipeCancelState;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.swipe.SwipeIn;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.swipe.SwipeInState;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.swipe.SwipeOut;
-import vn.loitp.app.activity.customviews.placeholderview._lib.placeholderview.annotations.swipe.SwipeOutState;
 import loitp.basemaster.R;
+import vn.loitp.views.placeholderview.lib.placeholderview.SwipePlaceHolderView;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.swipe.SwipeCancelState;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.swipe.SwipeIn;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.swipe.SwipeInState;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.swipe.SwipeOut;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.swipe.SwipeOutState;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.
