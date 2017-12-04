@@ -58,6 +58,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Demo App" />
+
+            <Button
+                android:id="@+id/bt_rate_app"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Rate App" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

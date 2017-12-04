@@ -12,6 +12,7 @@ import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuActivity extends BaseActivity {
@@ -60,6 +61,12 @@ public class MenuActivity extends BaseActivity {
                 Intent intent = new Intent(activity, MenuAdsActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_rate_app).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LSocialUtil.rateApp(activity, getPackageName());
             }
         });
     }
