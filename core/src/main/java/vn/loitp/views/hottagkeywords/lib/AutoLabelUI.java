@@ -1,4 +1,4 @@
-package vn.loitp.views._lib.keyword;
+package vn.loitp.views.hottagkeywords.lib;
 
 import android.content.Context;
 import android.content.res.Resources;

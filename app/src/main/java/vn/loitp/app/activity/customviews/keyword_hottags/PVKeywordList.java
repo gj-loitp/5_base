@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.support.v4.content.ContextCompat;
 
 import loitp.basemaster.R;
-import vn.loitp.views._lib.keyword.AutoLabelUI;
-import vn.loitp.views._lib.keyword.AutoLabelUISettings;
-import vn.loitp.views._lib.keyword.Label;
+import vn.loitp.views.hottagkeywords.lib.AutoLabelUI;
+import vn.loitp.views.hottagkeywords.lib.AutoLabelUISettings;
+import vn.loitp.views.hottagkeywords.lib.Label;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
