@@ -9,6 +9,9 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -55,7 +58,7 @@ dependencies {
     compile 'com.daimajia.easing:library:2.0@aar'
     compile 'com.daimajia.androidanimations:library:2.2@aar'
 
-    compile 'com.github.mmin18:realtimeblurview:1.1.0'
+    //compile 'com.github.mmin18:realtimeblurview:1.1.0'
 
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.2'
