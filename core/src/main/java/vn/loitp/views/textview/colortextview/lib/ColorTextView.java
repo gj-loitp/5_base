@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.colortextview.lib;
+package vn.loitp.views.textview.colortextview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -14,7 +14,8 @@ import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
+
 
 /**
  *

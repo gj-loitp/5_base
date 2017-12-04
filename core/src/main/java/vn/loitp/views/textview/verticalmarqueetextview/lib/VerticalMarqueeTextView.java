@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.lib;
+package vn.loitp.views.textview.verticalmarqueetextview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -17,7 +17,7 @@ import android.view.Window;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * A {@link TextView} with vertical marquee effect. The animation speed can be set using

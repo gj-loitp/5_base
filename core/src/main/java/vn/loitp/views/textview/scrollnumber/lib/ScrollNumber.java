@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.scrollnumber.lib;
+package vn.loitp.views.textview.scrollnumber.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.

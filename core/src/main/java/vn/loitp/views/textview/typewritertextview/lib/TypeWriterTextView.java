@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.typewritertextview.lib;
+package vn.loitp.views.textview.typewritertextview.lib;
 
 import android.content.Context;
 import android.os.Handler;

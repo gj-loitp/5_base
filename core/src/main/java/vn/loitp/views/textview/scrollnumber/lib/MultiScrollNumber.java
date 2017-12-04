@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.scrollnumber.lib;
+package vn.loitp.views.textview.scrollnumber.lib;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -22,11 +22,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
+
 
 /**
  * Created by wuhaojie on 2016/7/19 20:39.
  */
+//guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 public class MultiScrollNumber extends LinearLayout {
     private Context mContext;
     private List<Integer> mTargetNumbers = new ArrayList<>();

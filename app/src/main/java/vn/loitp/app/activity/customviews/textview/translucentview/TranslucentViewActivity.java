@@ -6,8 +6,6 @@ import android.os.Bundle;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
-//guide https://github.com/mallethugo/translucent-android
-
 public class TranslucentViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

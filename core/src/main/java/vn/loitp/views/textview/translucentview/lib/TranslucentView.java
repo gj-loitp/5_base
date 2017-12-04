@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.translucentview.lib;
+package vn.loitp.views.textview.translucentview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -20,13 +20,16 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
+
 
 /**
  * Created by hugo
  * on 06/04/16
  * of Translucent
  */
+//guide https://github.com/mallethugo/translucent-android
+
 public class TranslucentView extends TextView {
 
     // region static properties

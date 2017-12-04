@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.countdown.lib;
+package vn.loitp.views.textview.countdown.lib;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 
