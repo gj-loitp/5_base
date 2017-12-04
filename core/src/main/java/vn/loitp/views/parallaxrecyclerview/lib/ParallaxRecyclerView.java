@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.lib;
+package vn.loitp.views.parallaxrecyclerview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.

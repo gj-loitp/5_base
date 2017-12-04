@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.lib.ParallaxRecyclerView
+    <vn.loitp.views.parallaxrecyclerview.lib.ParallaxRecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
