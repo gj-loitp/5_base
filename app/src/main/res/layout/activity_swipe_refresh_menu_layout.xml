@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="Swipe Refresh Layout with ScrollView" />
 
+            <Button
+                android:id="@+id/bt_with_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Swipe Refresh Layout with RecyclerView" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

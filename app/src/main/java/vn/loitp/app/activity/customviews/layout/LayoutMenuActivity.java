@@ -8,7 +8,6 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
-import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
