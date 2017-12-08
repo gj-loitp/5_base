@@ -11,7 +11,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
@@ -30,6 +29,11 @@ public class RecyclerViewActivity extends BaseActivity {
             public void onClick(Movie movie) {
                 ToastUtils.showShort("Click " + movie.getTitle());
             }
+
+            @Override
+            public void onLoadMore() {
+                loadMore();
+            }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -39,6 +43,23 @@ public class RecyclerViewActivity extends BaseActivity {
         LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
+    }
+
+    private void loadMore() {
+        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+            @Override
+            public void doAfter(int mls) {
+                int index = movieList.size();
+                int newItemSize = 5;
+                for (int i = index; i < index + newItemSize; i++) {
+                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);
+                    movieList.add(movie);
+                }
+                mAdapter.notifyDataSetChanged();
+                recyclerView.smoothScrollToPosition(index - newItemSize - 1);
+                ToastUtils.showShort("Finish loadMore");
+            }
+        });
     }
 
     @Override

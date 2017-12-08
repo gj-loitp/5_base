@@ -42,6 +42,11 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
             public void onClick(Movie movie) {
                 ToastUtils.showShort("Click " + movie.getTitle());
             }
+
+            @Override
+            public void onLoadMore() {
+                loadMore();
+            }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

@@ -19,6 +19,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     public interface Callback {
         public void onClick(Movie movie);
+
+        public void onLoadMore();
     }
 
     private Callback callback;
@@ -65,6 +67,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
                 }
             }
         });
+        if (position == moviesList.size() - 1) {
+            if (callback != null) {
+                callback.onLoadMore();
+            }
+        }
     }
 
     @Override
