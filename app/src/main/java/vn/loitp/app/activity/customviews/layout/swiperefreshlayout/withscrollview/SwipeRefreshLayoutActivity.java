@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.swiperefreshlayout;
+package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
 
 import android.app.Activity;
 import android.os.Bundle;

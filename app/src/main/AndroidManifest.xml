@@ -303,7 +303,10 @@
             android:label="Preferences"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutActivity"
+            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity"
             android:screenOrientation="portrait" />
 
         <receiver

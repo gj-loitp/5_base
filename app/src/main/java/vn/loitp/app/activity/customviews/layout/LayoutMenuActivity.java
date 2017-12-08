@@ -7,7 +7,8 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
-import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
+import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
@@ -36,7 +37,7 @@ public class LayoutMenuActivity extends BaseActivity {
         findViewById(R.id.bt_swipe_refresh_layout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, SwipeRefreshLayoutActivity.class);
+                Intent intent = new Intent(activity, SwipeRefreshLayoutMenuActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
