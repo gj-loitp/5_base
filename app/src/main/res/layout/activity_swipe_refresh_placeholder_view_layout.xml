@@ -9,11 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
-            android:id="@+id/galleryView"
+        <LinearLayout
+            android:id="@+id/ll_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+            android:orientation="vertical">
+
+            <!--<vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
+                android:id="@+id/galleryView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />-->
+        </LinearLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private PlaceHolderView mGalleryView;
     private PlaceHolderView.OnScrollListener mOnScrollListener;
+    private LinearLayout llMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
 
         imageList = Utils.loadImages(activity);
 
+        llMain = (LinearLayout) findViewById(R.id.ll_main);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -41,13 +44,29 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
         });
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
-        mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
-        setLoadMoreListener();
+        //mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
+        createNewPlaceHolderView();
         //LUIUtil.setPullLikeIOSVertical(mGalleryView);
 
         setupGallery();
     }
 
+    private void createNewPlaceHolderView() {
+        if (mGalleryView != null) {
+            return;
+        }
+        mGalleryView = new PlaceHolderView(activity);
+        llMain.addView(mGalleryView);
+        setLoadMoreListener();
+    }
+
+    private void removePlaceHolderView() {
+        if (mGalleryView == null) {
+            return;
+        }
+        llMain.removeView(mGalleryView);
+        mGalleryView = null;
+    }
 
     @Override
     protected boolean setFullScreen() {
@@ -81,10 +100,11 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
 
     private void refresh() {
         mGalleryView.removeAllViews();
-        mGalleryView.refresh();
+        removePlaceHolderView();
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
+                createNewPlaceHolderView();
                 setupGallery();
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -117,7 +137,6 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        LLog.d(TAG, "setLoadMoreListener");
                                         if (swipeRefreshLayout.isRefreshing()) {
                                             return;
                                         }
