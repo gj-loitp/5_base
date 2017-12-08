@@ -58,7 +58,6 @@ public class RecyclerViewActivity extends BaseActivity {
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                recyclerView.smoothScrollToPosition(index - newSize);
                 ToastUtils.showShort("Finish loadMore");
             }
         });
