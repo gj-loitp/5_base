@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplacehol
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
