@@ -96,7 +96,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                mGalleryView.addView(new ImageTypeSmallList(activity, imageList));
+                setupGallery();
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
