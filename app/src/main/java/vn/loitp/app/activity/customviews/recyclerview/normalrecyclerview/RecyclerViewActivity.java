@@ -11,6 +11,8 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.ToastUtils;
 
 public class RecyclerViewActivity extends BaseActivity {
     private List<Movie> movieList = new ArrayList<>();
@@ -22,11 +24,18 @@ public class RecyclerViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(movieList);
+        mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
+            @Override
+            public void onClick(Movie movie) {
+                ToastUtils.showShort("Click " + movie.getTitle());
+            }
+        });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
     }

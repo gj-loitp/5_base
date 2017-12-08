@@ -8,45 +8,63 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
+public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
+
+    public interface Callback {
+        public void onClick(Movie movie);
+    }
+
+    private Callback callback;
 
     private List<Movie> moviesList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView title, year, genre;
+        public LinearLayout rootView;
 
-        public MyViewHolder(View view) {
+        public MovieViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             genre = (TextView) view.findViewById(R.id.genre);
             year = (TextView) view.findViewById(R.id.year);
+            rootView = (LinearLayout) view.findViewById(R.id.root_view);
         }
     }
 
 
-    public MoviesAdapter(List<Movie> moviesList) {
+    public MoviesAdapter(List<Movie> moviesList, Callback callback) {
         this.moviesList = moviesList;
+        this.callback = callback;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_row, parent, false);
-
-        return new MyViewHolder(itemView);
+        return new MovieViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MovieViewHolder holder, int position) {
         Movie movie = moviesList.get(position);
         holder.title.setText(movie.getTitle());
         holder.genre.setText(movie.getGenre());
         holder.year.setText(movie.getYear());
+
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClick(movie);
+                }
+            }
+        });
     }
 
     @Override
