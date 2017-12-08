@@ -21,7 +21,7 @@ public class ParallaxAdapter extends RecyclerView.Adapter {
 
     private Context context;
 
-    ParallaxAdapter(Context context) {
+    public ParallaxAdapter(Context context) {
         this.context = context;
     }
 

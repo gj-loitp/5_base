@@ -3,8 +3,10 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecycler
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxAdapter;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
@@ -23,6 +25,11 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
             }
         });
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+
+        RecyclerView recyclerView = findViewById(R.id.rv);
+        recyclerView.setAdapter(new ParallaxAdapter(this));
+
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
 
     private void doTask() {
