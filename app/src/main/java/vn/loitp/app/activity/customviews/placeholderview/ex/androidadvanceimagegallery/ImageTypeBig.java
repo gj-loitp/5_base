@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimage
 
 import android.content.Context;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -28,6 +29,8 @@ public class ImageTypeBig {
     private final static String TAG = ImageTypeBig.class.getSimpleName();
     @View(R.id.imageView)
     private ImageView imageView;
+    @View(R.id.tv)
+    private TextView tv;
 
     private String mUlr;
     private Context mContext;
@@ -43,6 +46,7 @@ public class ImageTypeBig {
     @Resolve
     private void onResolved() {
         Glide.with(mContext).load(mUlr).into(imageView);
+        tv.setText(mUlr);
     }
 
     @LongClick(R.id.imageView)
