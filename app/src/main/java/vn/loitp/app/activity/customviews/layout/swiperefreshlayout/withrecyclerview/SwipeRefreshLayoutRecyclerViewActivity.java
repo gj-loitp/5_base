@@ -54,6 +54,20 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
     }
 
     private void refresh() {
+        movieList.clear();
+        mAdapter.notifyDataSetChanged();
+        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+            @Override
+            public void doAfter(int mls) {
+                prepareMovieData();
+                swipeRefreshLayout.setRefreshing(false);
+                ToastUtils.showShort("Finish refresh");
+            }
+        });
+    }
+
+    private void loadMore() {
+        swipeRefreshLayout.setRefreshing(true);
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
@@ -65,7 +79,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
                 mAdapter.notifyDataSetChanged();
                 recyclerView.smoothScrollToPosition(index);
                 swipeRefreshLayout.setRefreshing(false);
-                ToastUtils.showShort("Finish");
+                ToastUtils.showShort("Finish loadMore");
             }
         });
     }
