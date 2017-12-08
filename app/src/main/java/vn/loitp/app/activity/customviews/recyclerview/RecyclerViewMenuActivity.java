@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class RecyclerViewMenuActivity extends BaseActivity {
@@ -19,6 +20,14 @@ public class RecyclerViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ParallaxRecyclerViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_normal_recyclerview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, RecyclerViewActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

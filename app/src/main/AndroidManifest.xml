@@ -311,6 +311,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
