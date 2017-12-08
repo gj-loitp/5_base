@@ -31,6 +31,6 @@ public class SwipeRefreshLayoutActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_ripple_layout;
+        return R.layout.activity_swipe_refresh_layout;
     }
 }

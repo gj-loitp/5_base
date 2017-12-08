@@ -31,6 +31,12 @@
                 android:text="Ripple Layout" />
 
             <Button
+                android:id="@+id/bt_swipe_refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Swipe Refresh Layout" />
+
+            <Button
                 android:id="@+id/bt_zoom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

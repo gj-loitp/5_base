@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class LayoutMenuActivity extends BaseActivity {
@@ -28,6 +29,14 @@ public class LayoutMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RippleLayoutActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_swipe_refresh_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SwipeRefreshLayoutActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
