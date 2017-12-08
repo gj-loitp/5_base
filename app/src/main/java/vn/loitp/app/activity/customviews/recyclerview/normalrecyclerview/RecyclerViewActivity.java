@@ -51,7 +51,6 @@ public class RecyclerViewActivity extends BaseActivity {
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                int index = movieList.size() - 1;
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
                     Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);

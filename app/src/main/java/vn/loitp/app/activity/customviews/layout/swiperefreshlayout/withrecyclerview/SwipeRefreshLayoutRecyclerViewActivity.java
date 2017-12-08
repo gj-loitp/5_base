@@ -14,6 +14,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
@@ -72,18 +73,18 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
     }
 
     private void loadMore() {
+        LLog.d(TAG, "loadMore");
         swipeRefreshLayout.setRefreshing(true);
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                int index = movieList.size();
-                for (int i = index; i < index + 10; i++) {
+                swipeRefreshLayout.setRefreshing(false);
+                int newSize = 5;
+                for (int i = 0; i < newSize; i++) {
                     Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                recyclerView.smoothScrollToPosition(index);
-                swipeRefreshLayout.setRefreshing(false);
                 ToastUtils.showShort("Finish loadMore");
             }
         });
