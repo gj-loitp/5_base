@@ -290,15 +290,21 @@
 
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.EditAlarmActivity"
-            android:label="Edit alarm" />
+            android:label="Edit alarm"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification"
-            android:label="Alarm notification" />
+            android:label="Alarm notification"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences"
-            android:label="Preferences" />
+            android:label="Preferences"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
@@ -312,11 +318,11 @@
         </receiver>
         <!--FOR ALARM DEMO APP-->
 
-        <receiver android:name="vn.loitp.app.utilities.LConectifyBroadcast">
+        <!--<receiver android:name="vn.loitp.core.utilities.LConectifyBroadcast">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
     </application>
 </manifest>

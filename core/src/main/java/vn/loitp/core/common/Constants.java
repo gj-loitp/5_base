@@ -4,7 +4,7 @@ package vn.loitp.core.common;
  * Created by loitp
  */
 public class Constants {
-    public final static boolean IS_DEBUG = false;
+    public final static boolean IS_DEBUG = true;
 
     public static final int NOT_FOUND = -6969;
 

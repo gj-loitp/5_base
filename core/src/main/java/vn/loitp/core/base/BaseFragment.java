@@ -9,6 +9,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.utils.util.ToastUtils;
 
 /**
  * Created by khanh on 7/31/16.
@@ -47,6 +48,6 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected void handleException(Throwable throwable) {
-
+        ToastUtils.showShort(throwable.getMessage());
     }
 }

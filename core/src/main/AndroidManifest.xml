@@ -12,7 +12,11 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name">
-
+        <receiver android:name="vn.loitp.core.utilities.LConectifyBroadcast">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

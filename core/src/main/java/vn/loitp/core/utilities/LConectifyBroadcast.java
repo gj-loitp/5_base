@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import loitp.core.R;
+import vn.loitp.data.EventBusData;
 
 /**
  * Created by Loitp on 5/6/2017.
@@ -27,21 +28,21 @@ public class LConectifyBroadcast extends BroadcastReceiver {
             boolean isConnectedWifi = false;
             boolean isConnectedFast = false;
             if (LConnectivityUtil.isConnectedMobile(context)) {
-                LLog.d(TAG, "isConnectedMobile");
+                //LLog.d(TAG, "isConnectedMobile");
                 isConnectedMobile = true;
             }
             if (LConnectivityUtil.isConnectedWifi(context)) {
-                LLog.d(TAG, "isConnectedWifi");
+                //LLog.d(TAG, "isConnectedWifi");
                 isConnectedWifi = true;
             }
             if (LConnectivityUtil.isConnectedFast(context)) {
                 LLog.d(TAG, "isConnectedFast");
                 isConnectedFast = true;
             }
-            //EventBusData.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
+            EventBusData.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
         } else {
             LLog.d(TAG, "!isConnected");
-            //EventBusData.getInstance().sendConnectChange(false, false, false, false);
+            EventBusData.getInstance().sendConnectChange(false, false, false, false);
         }
     }
 }
