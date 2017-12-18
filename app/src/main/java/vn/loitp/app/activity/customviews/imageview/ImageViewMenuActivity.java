@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewAc
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity;
+import vn.loitp.app.activity.customviews.imageview.img2ascii.Img2AsciiActivity;
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
@@ -73,6 +74,14 @@ public class ImageViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircularRoundRectImageViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_img2ascii).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, Img2AsciiActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }
