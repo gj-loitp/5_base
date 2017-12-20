@@ -49,6 +49,12 @@
                 android:text="Scroll Number" />
 
             <Button
+                android:id="@+id/bt_text_decorator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Text Decorator" />
+
+            <Button
                 android:id="@+id/bt_translucent_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
