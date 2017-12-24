@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
@@ -23,6 +24,14 @@ public class TextViewMenuActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_circle_textview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, CircleTextViewActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
         findViewById(R.id.bt_score_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_circle_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Circle TextView" />
+
+            <Button
                 android:id="@+id/bt_color_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
