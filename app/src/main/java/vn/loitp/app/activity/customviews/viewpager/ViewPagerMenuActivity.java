@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerAc
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
 import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.ParallaxViewPagerActivity;
+import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
@@ -46,6 +47,14 @@ public class ViewPagerMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, DoubleViewPagerSplashActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_view_pager_tablayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ViewPagerWithTabLayoutActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

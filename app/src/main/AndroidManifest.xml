@@ -326,6 +326,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
