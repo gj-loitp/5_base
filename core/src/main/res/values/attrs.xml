@@ -196,4 +196,9 @@
         <attr name="realtimeDownsampleFactor" format="float" />
         <attr name="realtimeOverlayColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="AutoViewPager">
+        <attr name="avp_indeterminate" format="boolean" />
+        <attr name="avp_autoScroll" format="boolean" />
+        <attr name="avp_duration" format="integer" />
+    </declare-styleable>
 </resources>

@@ -323,6 +323,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"

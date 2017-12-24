@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
 import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.ParallaxViewPagerActivity;
@@ -17,6 +18,14 @@ public class ViewPagerMenuActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_auto_viewpager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, AutoViewPagerActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
         findViewById(R.id.bt_parallax_viewpager).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
