@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewAct
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity;
+import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity;
 import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity;
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity;
@@ -60,6 +61,14 @@ public class TextViewMenuActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ScrollNumberActivity.class);
+                startActivity(intent);
+                LUIUtil.transActivityFadeIn(activity);
+            }
+        });
+        findViewById(R.id.bt_selectable_textview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SelectableTextViewActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
             }

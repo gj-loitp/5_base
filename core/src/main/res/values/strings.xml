@@ -3,6 +3,6 @@
 
     <!--TODO-->
     <string name="str_f"></string>
-
+    <string name="save_conversation">대사담기</string>
 
 </resources>

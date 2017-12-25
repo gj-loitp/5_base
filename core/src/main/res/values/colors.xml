@@ -134,4 +134,7 @@
     <color name="fbutton_color_concrete">#95a5a6</color>
     <color name="fbutton_color_asbestos">#7f8c8d</color>
     <color name="fbutton_color_transparent">@android:color/transparent</color>
+
+    <color name="main_progressbar">#4fe0bc</color>
+    <color name="textColorHighlight">#9bdfd3</color>
 </resources>

@@ -55,6 +55,12 @@
                 android:text="Scroll Number" />
 
             <Button
+                android:id="@+id/bt_selectable_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SelectableTextView" />
+
+            <Button
                 android:id="@+id/bt_text_decorator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
