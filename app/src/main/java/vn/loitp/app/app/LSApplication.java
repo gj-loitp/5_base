@@ -5,6 +5,8 @@ import android.support.multidex.MultiDexApplication;
 
 import com.google.gson.Gson;
 
+import loitp.basemaster.R;
+import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
 public class LSApplication extends MultiDexApplication {
@@ -20,6 +22,7 @@ public class LSApplication extends MultiDexApplication {
             gson = new Gson();
         }
         Utils.init(this);
+        AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
     }
 
     public Gson getGson() {

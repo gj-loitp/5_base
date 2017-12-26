@@ -49,6 +49,7 @@ import java.util.Random;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
+import vn.loitp.data.AdmobData;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollStateListener;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
@@ -88,8 +89,7 @@ public class LUIUtil {
 
     public static InterstitialAd createAdFull(Context context) {
         InterstitialAd interstitial = new InterstitialAd(context);
-        //TODO get real id admod full
-        interstitial.setAdUnitId(context.getResources().getString(R.string.str_f));
+        interstitial.setAdUnitId(AdmobData.getInstance().getIdAdmobFull());
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(Constants.TEST_0)
                 .addTestDevice(Constants.TEST_1)

@@ -31,6 +31,7 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.data.AdmobData;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -137,7 +138,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onBackPressed();
         LUIUtil.transActivityFadeIn(activity);
         if (isShowAdWhenExist) {
-            LUIUtil.displayInterstitial(interstitialAd, 50);
+            LUIUtil.displayInterstitial(interstitialAd, 40);
         }
     }
 
