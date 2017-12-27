@@ -7,10 +7,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.textview.textdecorator.lib.OnTextClickListener;
-import vn.loitp.app.activity.customviews.textview.textdecorator.lib.TextDecorator;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.textview.scrollnumber.lib.MultiScrollNumber;
+import vn.loitp.views.textview.textdecorator.lib.OnTextClickListener;
+import vn.loitp.views.textview.textdecorator.lib.TextDecorator;
 
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 public class TextDecoratorActivity extends BaseActivity {
