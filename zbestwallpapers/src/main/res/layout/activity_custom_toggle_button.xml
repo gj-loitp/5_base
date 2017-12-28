@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/padding_5">
+
+    <vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle
+        android:id="@+id/toggle_xml_1"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        app:ctg_addAnimationType="extra_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="8"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="#6c817a"
+        app:ctg_addSlideColor="#ff67" />
+
+    <vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle
+        android:id="@+id/toggle_xml_2"
+        android:layout_width="500dp"
+        android:layout_height="125dp"
+        android:layout_below="@+id/toggle_xml_1"
+        android:layout_marginTop="@dimen/margin_10"
+        app:ctg_addAnimationType="jack_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="5"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="@color/primaryColor"
+        app:ctg_addSlideColor="@color/red04" />
+
+    <vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle
+        android:id="@+id/toggle_xml_3"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
+        android:layout_below="@+id/toggle_xml_2"
+        android:layout_marginTop="@dimen/margin_10"
+        app:ctg_addAnimationType="phantom_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="10"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="@color/grey"
+        app:ctg_addSlideColor="@color/Blue" />
+
+</RelativeLayout>
+

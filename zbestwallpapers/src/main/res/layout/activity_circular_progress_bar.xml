@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <vn.loitp.views.progressloadingview.circularprogressbar.lib.CircularProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="@dimen/w_150"
+                android:layout_height="@dimen/w_150"
+                app:animateProgress="false"
+                app:backgroundStrokeColor="@color/grey"
+                app:backgroundStrokeWidth="5dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/Red"
+                app:foregroundStrokeWidth="15dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="600"
+                app:indeterminateMinimumAngle="45"
+                app:indeterminateRotationAnimationDuration="1200"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="100"
+                app:startAngle="270" />
+
+            <vn.loitp.views.progressloadingview.circularprogressbar.lib.CircularProgressBar
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_10"
+                app:animateProgress="true"
+                app:backgroundStrokeColor="@color/red04"
+                app:backgroundStrokeWidth="15dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/White"
+                app:foregroundStrokeWidth="5dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="600"
+                app:indeterminateMinimumAngle="45"
+                app:indeterminateRotationAnimationDuration="1200"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="100"
+                app:startAngle="270" />
+
+            <vn.loitp.views.progressloadingview.circularprogressbar.lib.CircularProgressBar
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_10"
+                app:animateProgress="true"
+                app:backgroundStrokeColor="@color/red04"
+                app:backgroundStrokeWidth="2dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/Blue"
+                app:foregroundStrokeWidth="20dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="500"
+                app:indeterminateMinimumAngle="180"
+                app:indeterminateRotationAnimationDuration="2400"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="200"
+                app:startAngle="270" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

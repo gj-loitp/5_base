@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/tv_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Animation will appear after 1s"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_14"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Animation: None"
+        android:textColor="@color/Blue"
+        android:textSize="@dimen/txt_30"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt_select_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Select Animation" />
+
+</RelativeLayout>
+

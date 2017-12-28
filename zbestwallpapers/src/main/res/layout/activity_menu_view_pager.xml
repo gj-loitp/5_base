@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="View Pager Menu"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <Button
+                android:id="@+id/bt_auto_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Auto ViewPager" />
+
+            <Button
+                android:id="@+id/bt_parallax_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parallax ViewPager" />
+
+            <Button
+                android:id="@+id/bt_double_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Double ViewPager" />
+
+            <Button
+                android:id="@+id/bt_detect_viewpager_swipe_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detect ViewPager SwipeOut" />
+
+            <Button
+                android:id="@+id/bt_view_pager_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewPager With Tablayout" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

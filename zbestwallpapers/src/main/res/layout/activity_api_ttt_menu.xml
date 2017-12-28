@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Menu TTT API"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <Button
+                android:id="@+id/bt_comic_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lấy danh sách truyện" />
+
+            <Button
+                android:id="@+id/bt_chap_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách chương ONEPIECE" />
+
+            <Button
+                android:id="@+id/bt_page_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách trang ONEPIECE - Chap 69" />
+
+            <Button
+                android:id="@+id/bt_fav_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Danh sách truyện yêu thích" />
+
+            <Button
+                android:id="@+id/bt_add_to_fav_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm truyện vào danh sách truyện yêu thích" />
+
+            <Button
+                android:id="@+id/bt_remove_to_fav_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xóa truyện khỏi danh sách truyện yêu thích" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <vn.loitp.views.imageview.circularroundrectimageview.lib.RoundedImage
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:src="@drawable/iv"
+                app:add_shadow="true"
+                app:border_color="#ed2e2e"
+                app:border_width="3dp"
+                app:shadow_color="#a10909"
+                app:shadow_radius="20" />
+
+            <vn.loitp.views.imageview.circularroundrectimageview.lib.RoundedImage
+                android:layout_width="320dp"
+                android:layout_height="220dp"
+                android:src="@drawable/iv"
+                app:add_shadow="true"
+                app:rounded_radius="50" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
