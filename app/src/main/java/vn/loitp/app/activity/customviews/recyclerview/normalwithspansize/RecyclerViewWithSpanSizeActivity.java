@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.normalwithspansize;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -38,10 +38,20 @@ public class RecyclerViewWithSpanSizeActivity extends BaseActivity {
                 loadMore();
             }
         });
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position % 5 == 0) {
+                    return 1;
+                }
+                return 2;
+            }
+        });
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);
 
