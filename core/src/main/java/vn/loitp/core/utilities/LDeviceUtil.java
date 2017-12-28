@@ -8,6 +8,8 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Vibrator;
 
+import java.util.Random;
+
 
 /**
  * File created on 11/14/2016.
@@ -67,4 +69,8 @@ public class LDeviceUtil {
         vibrate(context, 300);
     }
 
+    public static int getRandomNumber(int max) {
+        Random r = new Random();
+        return r.nextInt(max);
+    }
 }
