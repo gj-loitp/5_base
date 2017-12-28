@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.gallery;
+package vn.loitp.app.activity;
 
 import android.app.Activity;
 import android.content.Intent;

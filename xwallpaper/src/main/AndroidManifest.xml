@@ -76,16 +76,16 @@
             android:name="vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity"
+            android:name="vn.loitp.app.activity.GalleryDemoSplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoAlbumActivity"
+            android:name="vn.loitp.app.activity.GalleryDemoAlbumActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoPhotosActivity"
+            android:name="vn.loitp.app.activity.GalleryDemoPhotosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSlideActivity"
+            android:name="vn.loitp.app.activity.GalleryDemoSlideActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.gallery;
+package vn.loitp.app.activity;
 
 import java.util.ArrayList;
 import java.util.List;
