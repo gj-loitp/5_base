@@ -123,4 +123,28 @@ public class LDialogUtil {
         dialog.show();
         alertDialogList.add(dialog);
     }
+
+    public static void showDialogList(Context context, String title) {
+        clearAll();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        if (title != null && !title.isEmpty()) {
+            builder.setTitle(title);
+        }
+        String[] animals = {"horse", "cow", "camel", "sheep", "goat"};
+        builder.setItems(animals, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: // horse
+                    case 1: // cow
+                    case 2: // camel
+                    case 3: // sheep
+                    case 4: // goat
+                }
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        alertDialogList.add(dialog);
+    }
 }

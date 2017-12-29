@@ -72,6 +72,8 @@ public class SplashActivity extends BaseActivity {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     int versionServer = Integer.parseInt(response.body().string());
                     LLog.d(TAG, "onResponse " + versionServer);
+                    isCheckReadyDone = true;
+                    goToHome();
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
                     //TODO

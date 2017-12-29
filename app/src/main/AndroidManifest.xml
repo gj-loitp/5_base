@@ -76,16 +76,16 @@
             android:name="vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GallerySplashActivity"
+            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GalleryAlbumActivity"
+            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoAlbumActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GalleryPhotosActivity"
+            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoPhotosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GallerySlideActivity"
+            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSlideActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity"
@@ -340,6 +340,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.animation.flyschool.FlySchoolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.dialog.DialogMenuActivity"
             android:screenOrientation="portrait" />
 
         <receiver
