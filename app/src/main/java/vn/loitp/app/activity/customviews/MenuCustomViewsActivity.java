@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import vn.loitp.app.activity.customviews.actionbar.ActionbarActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
@@ -26,147 +27,28 @@ import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class MenuCustomViewsActivity extends BaseActivity {
+public class MenuCustomViewsActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        findViewById(R.id.bt_place_holder_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_view_pager).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, ViewPagerMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_keyword_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, KeywordHotagsActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, ButtonMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_progress_loading).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuProgressLoadingViewsActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_switch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, SwitchToggleMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_action_bar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, ActionbarActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_imageview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, ImageViewMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_textview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, TextViewMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_bottom_bar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, BottomNavigationMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_sticker).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, StickerActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_gg_plus_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, GooglePlusButtonActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_layout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, LayoutMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_edit_text).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, EditTextMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_videoview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, VideoViewMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_recyclerview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, RecyclerViewMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_dialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, DialogMenuActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
+        findViewById(R.id.bt_place_holder_view).setOnClickListener(this);
+        findViewById(R.id.bt_view_pager).setOnClickListener(this);
+        findViewById(R.id.bt_keyword_view).setOnClickListener(this);
+        findViewById(R.id.bt_button).setOnClickListener(this);
+        findViewById(R.id.bt_progress_loading).setOnClickListener(this);
+        findViewById(R.id.bt_switch).setOnClickListener(this);
+        findViewById(R.id.bt_action_bar).setOnClickListener(this);
+        findViewById(R.id.bt_imageview).setOnClickListener(this);
+        findViewById(R.id.bt_textview).setOnClickListener(this);
+        findViewById(R.id.bt_bottom_bar).setOnClickListener(this);
+        findViewById(R.id.bt_sticker).setOnClickListener(this);
+        findViewById(R.id.bt_gg_plus_button).setOnClickListener(this);
+        findViewById(R.id.bt_layout).setOnClickListener(this);
+        findViewById(R.id.bt_edit_text).setOnClickListener(this);
+        findViewById(R.id.bt_videoview).setOnClickListener(this);
+        findViewById(R.id.bt_recyclerview).setOnClickListener(this);
+        findViewById(R.id.bt_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -187,5 +69,67 @@ public class MenuCustomViewsActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_custom_view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.bt_place_holder_view:
+                intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
+                break;
+            case R.id.bt_view_pager:
+                intent = new Intent(activity, ViewPagerMenuActivity.class);
+                break;
+            case R.id.bt_keyword_view:
+                intent = new Intent(activity, KeywordHotagsActivity.class);
+                break;
+            case R.id.bt_button:
+                intent = new Intent(activity, ButtonMenuActivity.class);
+                break;
+            case R.id.bt_progress_loading:
+                intent = new Intent(activity, MenuProgressLoadingViewsActivity.class);
+                break;
+            case R.id.bt_switch:
+                intent = new Intent(activity, SwitchToggleMenuActivity.class);
+                break;
+            case R.id.bt_action_bar:
+                intent = new Intent(activity, ActionbarActivity.class);
+                break;
+            case R.id.bt_imageview:
+                intent = new Intent(activity, ImageViewMenuActivity.class);
+                break;
+            case R.id.bt_textview:
+                intent = new Intent(activity, TextViewMenuActivity.class);
+                break;
+            case R.id.bt_bottom_bar:
+                intent = new Intent(activity, BottomNavigationMenuActivity.class);
+                break;
+            case R.id.bt_sticker:
+                intent = new Intent(activity, StickerActivity.class);
+                break;
+            case R.id.bt_gg_plus_button:
+                intent = new Intent(activity, GooglePlusButtonActivity.class);
+                break;
+            case R.id.bt_edit_text:
+                intent = new Intent(activity, EditTextMenuActivity.class);
+                break;
+            case R.id.bt_layout:
+                intent = new Intent(activity, LayoutMenuActivity.class);
+                break;
+            case R.id.bt_videoview:
+                intent = new Intent(activity, VideoViewMenuActivity.class);
+                break;
+            case R.id.bt_recyclerview:
+                intent = new Intent(activity, RecyclerViewMenuActivity.class);
+                break;
+            case R.id.bt_dialog:
+                intent = new Intent(activity, DialogMenuActivity.class);
+                break;
+        }
+        if (intent != null) {
+            startActivity(intent);
+            LUIUtil.transActivityFadeIn(activity);
+        }
     }
 }
