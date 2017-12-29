@@ -56,13 +56,14 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void checkReady() {
-        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=0B0-bfr9v36LUTk9XdXZzbDc1aG8";
+        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 LLog.d(TAG, "onFailure " + e.toString());
+                //TODO
             }
 
             @Override
@@ -73,6 +74,7 @@ public class SplashActivity extends BaseActivity {
                     LLog.d(TAG, "onResponse " + versionServer);
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    //TODO
                 }
             }
         });
