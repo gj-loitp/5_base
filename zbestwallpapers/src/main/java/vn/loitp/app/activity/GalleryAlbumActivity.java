@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 
 import java.util.List;
 
+import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -19,7 +20,7 @@ import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoAlbumActivity extends BaseActivity {
+public class GalleryAlbumActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
 
@@ -74,7 +75,7 @@ public class GalleryDemoAlbumActivity extends BaseActivity {
                     mGalleryView.addView(new AlbumItem(activity, photosetList.get(i), i, new AlbumItem.Callback() {
                         @Override
                         public void onClick(Photoset photoset, int position) {
-                            Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
+                            Intent intent = new Intent(activity, GalleryPhotosActivity.class);
                             intent.putExtra("photosetID", photoset.getId());
                             startActivity(intent);
                             LUIUtil.transActivityFadeIn(activity);

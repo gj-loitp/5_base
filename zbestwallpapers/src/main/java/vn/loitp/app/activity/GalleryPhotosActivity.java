@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import vn.loitp.app.model.PhotosData;
+import vn.loitp.app.activity.view.PhotosItem;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -22,7 +24,7 @@ import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoPhotosActivity extends BaseActivity {
+public class GalleryPhotosActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
     private TextView tvTitle;
@@ -119,7 +121,7 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                         @Override
                         public void onClick(Photo photo, int position) {
                             //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                            Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
+                            Intent intent = new Intent(activity, GallerySlideActivity.class);
                             intent.putExtra("photoID", photo.getId());
                             startActivity(intent);
                             LUIUtil.transActivityFadeIn(activity);

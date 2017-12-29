@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.activity.view;
 
 import android.app.Activity;
 import android.widget.ImageView;

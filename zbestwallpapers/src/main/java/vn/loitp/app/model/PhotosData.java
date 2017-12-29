@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.model;
 
 import java.util.ArrayList;
 import java.util.List;

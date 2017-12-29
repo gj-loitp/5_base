@@ -18,7 +18,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="vn.loitp.app.activity.GalleryDemoSplashActivity"
+            android:name="vn.loitp.app.activity.GallerySplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,13 +27,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="vn.loitp.app.activity.GalleryDemoAlbumActivity"
+            android:name="vn.loitp.app.activity.GalleryAlbumActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GalleryDemoPhotosActivity"
+            android:name="vn.loitp.app.activity.GalleryPhotosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.GalleryDemoSlideActivity"
+            android:name="vn.loitp.app.activity.GallerySlideActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

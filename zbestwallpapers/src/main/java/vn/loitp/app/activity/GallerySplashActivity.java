@@ -4,23 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoSplashActivity extends BaseActivity {
+public class GallerySplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RestClient.init(getString(R.string.flickr_URL));
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                Intent intent = new Intent(activity, GalleryDemoAlbumActivity.class);
+                Intent intent = new Intent(activity, GalleryAlbumActivity.class);
                 startActivity(intent);
                 LUIUtil.transActivityFadeIn(activity);
                 finish();
