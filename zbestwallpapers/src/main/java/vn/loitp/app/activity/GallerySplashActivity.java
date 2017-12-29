@@ -3,6 +3,7 @@ package vn.loitp.app.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -17,6 +18,8 @@ public class GallerySplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RestClient.init(getString(R.string.flickr_URL));
+        ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        LUIUtil.setImageFromAsset(activity, "bkg.jpg", ivBkg);
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
@@ -30,7 +33,7 @@ public class GallerySplashActivity extends BaseActivity {
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        return true;
     }
 
     @Override
