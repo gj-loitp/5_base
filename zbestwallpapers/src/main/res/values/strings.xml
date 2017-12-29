@@ -18,6 +18,9 @@ I loved you so sincerely, so fondly,\n
 Likewise may someone love you next.
     </string>
     <string name="copyright_loitp">Copyright © Loitp</string>
+    <string name="warning">Warning</string>
+    <string name="cannot_connect_to_server">Cannot connect to server</string>
+    <string name="confirm">Confirm</string>
 
 
     <string-array name="occurence">

@@ -7,14 +7,24 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 import loitp.basemaster.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GallerySplashActivity extends BaseActivity {
-    private AVLoadingIndicatorView avi;
+    private boolean isAnimDone = false;
+    private boolean isCheckReadyDone = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +36,74 @@ public class GallerySplashActivity extends BaseActivity {
         TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
         LUIUtil.setTextShadow(tvAppName, Color.WHITE);
 
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+        LUIUtil.setDelay(2500, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                Intent intent = new Intent(activity, GalleryAlbumActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityBottomToTopAniamtion(activity);
-                finish();
+                isAnimDone = true;
+                goToHome();
+            }
+        });
+
+        checkReady();
+    }
+
+    private void goToHome() {
+        if (isAnimDone && isCheckReadyDone) {
+            Intent intent = new Intent(activity, GalleryAlbumActivity.class);
+            startActivity(intent);
+            LUIUtil.transActivityFadeIn(activity);
+            finish();
+        }
+    }
+
+    private void showDialogNotReady() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                LDialogUtil.showDialog1(activity, getString(R.string.warning), getString(R.string.cannot_connect_to_server), getString(R.string.confirm), new LDialogUtil.Callback1() {
+                    @Override
+                    public void onClick1() {
+                        onBackPressed();
+                    }
+                });
+            }
+        });
+    }
+
+    private void checkReady() {
+        if (LPref.getCheckAppReady(activity)) {
+            isCheckReadyDone = true;
+            goToHome();
+            return;
+        }
+        LLog.d(TAG, "checkReady");
+        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1H-4tTboF2JTNRbN8RG6eTxLZQi62_Bbn";
+        Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LLog.d(TAG, "onFailure " + e.toString());
+                showDialogNotReady();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
+                    int versionServer = Integer.parseInt(response.body().string());
+                    LLog.d(TAG, "onResponse " + versionServer);
+                    if (versionServer == 1) {
+                        isCheckReadyDone = true;
+                        LPref.setCheckAppReady(activity, true);
+                        goToHome();
+                    } else {
+                        showDialogNotReady();
+                    }
+                } else {
+                    LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    showDialogNotReady();
+                }
             }
         });
     }
