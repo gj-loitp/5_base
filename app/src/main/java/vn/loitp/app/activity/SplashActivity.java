@@ -17,6 +17,7 @@ import okhttp3.Response;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SplashActivity extends BaseActivity {
@@ -70,6 +71,12 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void checkReady() {
+        if (LPref.getCheckAppReady(activity)) {
+            isCheckReadyDone = true;
+            goToHome();
+            return;
+        }
+        LLog.d(TAG, "checkReady");
         final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -88,6 +95,7 @@ public class SplashActivity extends BaseActivity {
                     LLog.d(TAG, "onResponse " + versionServer);
                     if (versionServer == 1) {
                         isCheckReadyDone = true;
+                        LPref.setCheckAppReady(activity, true);
                         goToHome();
                     } else {
                         showDialogNotReady();

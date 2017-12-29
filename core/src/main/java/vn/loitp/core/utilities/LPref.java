@@ -1,5 +1,8 @@
 package vn.loitp.core.utilities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 /**
  * File created on 11/15/2016.
  *
@@ -9,6 +12,7 @@ public class LPref {
     private String TAG = getClass().getSimpleName();
 
     private final static String PREFERENCES_FILE_NAME = "loitp";
+    private final static String CHECK_APP_READY = "CHECK_APP_READY";
     public static String JSON_LIST_DATA = "JSON_LIST_DATA";
     public static String JSON_FAV_DATA = "JSON_FAV_DATA";
     public static String JSON_AD_DATA = "JSON_AD_DATA";
@@ -40,16 +44,16 @@ public class LPref {
     }*/
     /////////////////////////////////BOOLEAN
 
-    /*public static Boolean isFirstRunApp(Context context) {
+    public static Boolean getCheckAppReady(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        return prefs.getBoolean(FIRST_RUN_APP, true);
+        return prefs.getBoolean(CHECK_APP_READY, false);
     }
 
-    public static void setFirstRunApp(Context context, Boolean value) {
+    public static void setCheckAppReady(Context context, Boolean value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
-        editor.putBoolean(FIRST_RUN_APP, value);
+        editor.putBoolean(CHECK_APP_READY, value);
         editor.apply();
-    }*/
+    }
 
     /////////////////////////////////INT
     /*public static int getViewBy(Context context) {
