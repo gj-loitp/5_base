@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.activity.splash;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import vn.loitp.app.activity.album.GalleryAlbumActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;

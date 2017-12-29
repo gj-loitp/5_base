@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.activity.slide;
 
 import android.app.Activity;
 import android.os.Bundle;

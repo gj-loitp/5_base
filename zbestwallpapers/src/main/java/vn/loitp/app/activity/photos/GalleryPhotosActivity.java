@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.activity.photos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import vn.loitp.app.activity.slide.GallerySlideActivity;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.app.activity.view.PhotosItem;
 import vn.loitp.core.base.BaseActivity;

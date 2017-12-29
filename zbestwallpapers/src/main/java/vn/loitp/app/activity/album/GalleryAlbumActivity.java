@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.app.activity.album;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.support.v7.widget.GridLayoutManager;
 
 import java.util.List;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
@@ -14,7 +16,6 @@ import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
-import loitp.basemaster.R;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
