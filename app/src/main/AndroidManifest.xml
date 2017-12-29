@@ -344,6 +344,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.DialogMenuActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"

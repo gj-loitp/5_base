@@ -59,22 +59,26 @@ public class LDialogUtil {
             builder.setTitle(title);
         }
         builder.setMessage(msg);
-        builder.setPositiveButton(button1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback2 != null) {
-                    callback2.onClick1();
+        if (button1 != null && !button1.isEmpty()) {
+            builder.setNegativeButton(button1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback2 != null) {
+                        callback2.onClick1();
+                    }
                 }
-            }
-        });
-        builder.setNegativeButton(button2, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback2 != null) {
-                    callback2.onClick2();
+            });
+        }
+        if (button2 != null && !button2.isEmpty()) {
+            builder.setPositiveButton(button2, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback2 != null) {
+                        callback2.onClick2();
+                    }
                 }
-            }
-        });
+            });
+        }
         AlertDialog dialog = builder.create();
         dialog.show();
         alertDialogList.add(dialog);
@@ -95,51 +99,57 @@ public class LDialogUtil {
             builder.setTitle(title);
         }
         builder.setMessage(msg);
-        builder.setPositiveButton(button1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback3 != null) {
-                    callback3.onClick1();
+        if (button1 != null && !button1.isEmpty()) {
+            builder.setNegativeButton(button1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback3 != null) {
+                        callback3.onClick1();
+                    }
                 }
-            }
-        });
-        builder.setNeutralButton(button2, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback3 != null) {
-                    callback3.onClick2();
+            });
+        }
+        if (button2 != null && !button2.isEmpty()) {
+            builder.setPositiveButton(button2, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback3 != null) {
+                        callback3.onClick2();
+                    }
                 }
-            }
-        });
-        builder.setNegativeButton(button3, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (callback3 != null) {
-                    callback3.onClick3();
+            });
+        }
+        if (button3 != null && !button3.isEmpty()) {
+            builder.setNeutralButton(button3, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback3 != null) {
+                        callback3.onClick3();
+                    }
                 }
-            }
-        });
+            });
+        }
         AlertDialog dialog = builder.create();
         dialog.show();
         alertDialogList.add(dialog);
     }
 
-    public static void showDialogList(Context context, String title) {
+    public interface CallbackList {
+        public void onClick(int position);
+    }
+
+    public static void showDialogList(Context context, String title, String[] arr, final CallbackList callbackList) {
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null && !title.isEmpty()) {
             builder.setTitle(title);
         }
-        String[] animals = {"horse", "cow", "camel", "sheep", "goat"};
-        builder.setItems(animals, new DialogInterface.OnClickListener() {
+        //String[] arr = {"horse", "cow", "camel", "sheep", "goat"};
+        builder.setItems(arr, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0: // horse
-                    case 1: // cow
-                    case 2: // camel
-                    case 3: // sheep
-                    case 4: // goat
+                if (callbackList != null) {
+                    callbackList.onClick(which);
                 }
             }
         });
