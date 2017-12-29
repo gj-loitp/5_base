@@ -235,6 +235,13 @@ public class LUIUtil {
         activity.overridePendingTransition(R.anim.tran_fade_in, R.anim.tran_fade_out);
     }
 
+    public static void transActivityTopToBottomAniamtion(Activity activity) {
+        activity.overridePendingTransition(0, R.anim.push_down_out);
+    }
+
+    public static void transActivityBottomToTopAniamtion(Activity activity) {
+        activity.overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+    }
     /*public static void transActivityLeftToRightAniamtion(Activity activity) {
         activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
@@ -398,6 +405,10 @@ public class LUIUtil {
     }
 
     public static void setTextShadow(TextView textView) {
+        setTextShadow(textView, Color.BLACK);
+    }
+
+    public static void setTextShadow(TextView textView, int color) {
         if (textView == null) {
             return;
         }
@@ -405,7 +416,7 @@ public class LUIUtil {
                 1f, // radius
                 1f, // dx
                 1f, // dy
-                Color.BLACK // shadow color
+                color // shadow color
         );
     }
 

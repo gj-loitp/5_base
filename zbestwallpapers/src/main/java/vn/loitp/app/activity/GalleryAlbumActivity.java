@@ -27,6 +27,7 @@ public class GalleryAlbumActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isShowAdWhenExist = false;
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);

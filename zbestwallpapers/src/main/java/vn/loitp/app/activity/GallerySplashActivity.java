@@ -2,8 +2,10 @@ package vn.loitp.app.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -20,12 +22,16 @@ public class GallerySplashActivity extends BaseActivity {
         RestClient.init(getString(R.string.flickr_URL));
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LUIUtil.setImageFromAsset(activity, "bkg.jpg", ivBkg);
+
+        TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
+        LUIUtil.setTextShadow(tvAppName, Color.WHITE);
+
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryAlbumActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LUIUtil.transActivityBottomToTopAniamtion(activity);
                 finish();
             }
         });
