@@ -8,14 +8,14 @@ import android.widget.TextView;
 import java.io.IOException;
 
 import loitp.basemaster.BuildConfig;
+import loitp.basemaster.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.core.base.BaseActivity;
-
-import loitp.basemaster.R;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -55,6 +55,20 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    private void showDialogNotReady() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                LDialogUtil.showDialog1(activity, "Warning", "This app is not available now", "Ok", new LDialogUtil.Callback1() {
+                    @Override
+                    public void onClick1() {
+                        onBackPressed();
+                    }
+                });
+            }
+        });
+    }
+
     private void checkReady() {
         final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
@@ -63,7 +77,7 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 LLog.d(TAG, "onFailure " + e.toString());
-                //TODO
+                showDialogNotReady();
             }
 
             @Override
@@ -72,11 +86,15 @@ public class SplashActivity extends BaseActivity {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     int versionServer = Integer.parseInt(response.body().string());
                     LLog.d(TAG, "onResponse " + versionServer);
-                    isCheckReadyDone = true;
-                    goToHome();
+                    if (versionServer == 1) {
+                        isCheckReadyDone = true;
+                        goToHome();
+                    } else {
+                        showDialogNotReady();
+                    }
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
-                    //TODO
+                    showDialogNotReady();
                 }
             }
         });
