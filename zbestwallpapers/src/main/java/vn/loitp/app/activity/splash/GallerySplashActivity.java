@@ -55,7 +55,7 @@ public class GallerySplashActivity extends BaseActivity {
             //Intent intent = new Intent(activity, GalleryAlbumActivity.class);
             Intent intent = new Intent(activity, GalleryMenuAlbumActivity.class);
             startActivity(intent);
-            LUIUtil.transActivityBottomToTopAniamtion(activity);
+            LUIUtil.transActivityFadeIn(activity);
             finish();
         }
     }
