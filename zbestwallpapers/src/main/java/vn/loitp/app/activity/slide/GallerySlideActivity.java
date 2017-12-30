@@ -53,7 +53,7 @@ public class GallerySlideActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_demo_slide;
+        return R.layout.activity_gallery_slide;
     }
 
     private class SlidePagerAdapter extends PagerAdapter {

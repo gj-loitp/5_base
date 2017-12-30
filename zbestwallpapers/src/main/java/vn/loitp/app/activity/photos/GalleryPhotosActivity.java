@@ -78,7 +78,7 @@ public class GalleryPhotosActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_demo_photos;
+        return R.layout.activity_gallery_photos;
     }
 
     private void photosetsGetPhotos(String photosetID) {

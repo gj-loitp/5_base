@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.album;
+package vn.loitp.app.activity.album.option0;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -54,7 +54,7 @@ public class GalleryAlbumActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_demo_album;
+        return R.layout.activity_gallery_album;
     }
 
     private void photosetsGetList() {

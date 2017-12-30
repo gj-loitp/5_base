@@ -15,13 +15,14 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.app.activity.album.GalleryAlbumActivity;
+import vn.loitp.app.activity.album.option1.GalleryMenuAlbumActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
+
 //TODO ic launcher
 //TODO admob
 public class GallerySplashActivity extends BaseActivity {
@@ -51,7 +52,8 @@ public class GallerySplashActivity extends BaseActivity {
 
     private void goToHome() {
         if (isAnimDone && isCheckReadyDone) {
-            Intent intent = new Intent(activity, GalleryAlbumActivity.class);
+            //Intent intent = new Intent(activity, GalleryAlbumActivity.class);
+            Intent intent = new Intent(activity, GalleryMenuAlbumActivity.class);
             startActivity(intent);
             LUIUtil.transActivityFadeIn(activity);
             finish();
@@ -127,6 +129,6 @@ public class GallerySplashActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_demo_splash;
+        return R.layout.activity_gallery_splash;
     }
 }
