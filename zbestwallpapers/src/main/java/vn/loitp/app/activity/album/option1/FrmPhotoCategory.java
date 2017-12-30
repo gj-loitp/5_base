@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -132,5 +134,20 @@ public class FrmPhotoCategory extends BaseFragment {
         if (!photosets.isEmpty()) {
             photosetList.removeAll(photosets);
         }
+        sort(photosetList);
+    }
+
+    private void sort(List<Photoset> photosetList) {
+        Collections.sort(photosetList, new Comparator<Photoset>() {
+            public int compare(Photoset obj1, Photoset obj2) {
+                // ## Ascending order
+                return obj1.getTitle().getContent().compareToIgnoreCase(obj2.getTitle().getContent()); // To compare string values
+                //return Integer.valueOf(obj1.getWeight()).compareTo(obj2.getWeight()); // To compare integer values
+
+                // ## Descending order
+                // return obj2.firstName.compareToIgnoreCase(obj1.firstName); // To compare string values
+                // return Integer.valueOf(obj2.empId).compareTo(obj1.empId); // To compare integer values
+            }
+        });
     }
 }
