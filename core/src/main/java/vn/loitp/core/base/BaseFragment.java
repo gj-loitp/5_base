@@ -3,12 +3,14 @@ package vn.loitp.core.base;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
+import loitp.core.R;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 /**
@@ -48,6 +50,15 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected void handleException(Throwable throwable) {
-        ToastUtils.showShort(throwable.getMessage());
+        if (throwable == null) {
+            return;
+        }
+        //ToastUtils.showShort(throwable.getMessage());
+        LDialogUtil.showDialog1(getActivity(), getString(R.string.warning), "Error: " + throwable.getMessage(), getString(R.string.confirm), new LDialogUtil.Callback1() {
+            @Override
+            public void onClick1() {
+                //getActivity().onBackPressed();
+            }
+        });
     }
 }
