@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -97,6 +98,7 @@ public class FrmPhotoCategory extends BaseFragment {
     }
 
     private void fillList(List<Photoset> photosetList) {
+        List<Photoset> photosets = new ArrayList<>();
         for (int i = 0; i < photosetList.size(); i++) {
             if (photosetList.get(i).getId().contains(Constants.ID_STT_TRUYENNGAN)
                     || photosetList.get(i).getId().contains(Constants.ID_DEVVUI)
@@ -123,9 +125,12 @@ public class FrmPhotoCategory extends BaseFragment {
                     || photosetList.get(i).getId().contains(Constants.ID_STTVUI)
                     || photosetList.get(i).getId().contains(Constants.ID_THO)
                     || photosetList.get(i).getId().contains(Constants.ID_NGAY83)) {
-                photosetList.remove(i);
-                LLog.d(TAG, "remove " + photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
+                photosets.add(photosetList.get(i));
+                //LLog.d(TAG, "remove " + photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
             }
+        }
+        if (!photosets.isEmpty()) {
+            photosetList.removeAll(photosets);
         }
     }
 }
