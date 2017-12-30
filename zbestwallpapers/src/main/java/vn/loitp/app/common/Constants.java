@@ -24,4 +24,30 @@ public class Constants {
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";*/
 
     public final static String SLIDE_MENU_POSITION = "SLIDE_MENU_POSITION";
+
+    public final static String ID_STT_TRUYENNGAN        = "72157671847280471";
+    public final static String ID_DEVVUI                = "72157672418190805";
+    public final static String ID_DOCDAOTHUVI           = "72157672326565186";
+    public final static String ID_HAIHUOC               = "72157671531607921";
+    public final static String ID_HAINAO                = "72157669339297884";
+    public final static String ID_FUNNYMANHINH          = "72157671531547221";
+    public final static String ID_FUNNYTHETHAO          = "72157669339234524";
+    public final static String ID_TROLL                 = "72157669352124323";
+    public final static String ID_TRUYENBUA             = "72157669352081793";
+    public final static String ID_TRUYENNGAN            = "72157669352027883";
+    public final static String ID_ANHTHEOTEN            = "72157670868460705";
+    public final static String ID_ANHCHESGK             = "72157670443622896";
+    public final static String ID_TUOITHODUDOI          = "72157669895520542";
+    public final static String ID_CUNGHOANGDAOHEHEHORO  = "72157669860629292";
+    public final static String ID_CUNGHOANGDAOFUNTFACT  = "72157670402137766";
+    public final static String ID_BANCOBIET             = "72157667616563254";
+    public final static String ID_QUOTEVIET             = "72157669801986381";
+    public final static String ID_TRIETLY               = "72157669728609121";
+    public final static String ID_KIEMHIEP              = "72157670209046076";
+    public final static String ID_STTTAMTRANG           = "72157669727718221";
+    public final static String ID_STTDEUCHAT            = "72157670301576595";
+    public final static String ID_STTBUON               = "72157669727595861";
+    public final static String ID_STTVUI                = "72157670301399735";
+    public final static String ID_THO                   = "72157667542396544";
+    public final static String ID_NGAY83                = "72157669727167291";
 }

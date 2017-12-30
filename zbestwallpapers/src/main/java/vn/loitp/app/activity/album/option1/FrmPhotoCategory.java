@@ -12,6 +12,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -71,8 +72,9 @@ public class FrmPhotoCategory extends BaseFragment {
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
+                fillList(photosetList);
                 for (int i = 0; i < photosetList.size(); i++) {
-                    LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
+                    //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
                     mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
                         @Override
                         public void onClick(Photoset photoset, int position) {
@@ -92,5 +94,38 @@ public class FrmPhotoCategory extends BaseFragment {
                 avi.smoothToHide();
             }
         });
+    }
+
+    private void fillList(List<Photoset> photosetList) {
+        for (int i = 0; i < photosetList.size(); i++) {
+            if (photosetList.get(i).getId().equals(Constants.ID_STT_TRUYENNGAN)
+                    || photosetList.get(i).getId().equals(Constants.ID_DEVVUI)
+                    || photosetList.get(i).getId().equals(Constants.ID_DOCDAOTHUVI)
+                    || photosetList.get(i).getId().equals(Constants.ID_HAIHUOC)
+                    || photosetList.get(i).getId().equals(Constants.ID_HAINAO)
+                    || photosetList.get(i).getId().equals(Constants.ID_FUNNYMANHINH)
+                    || photosetList.get(i).getId().equals(Constants.ID_FUNNYTHETHAO)
+                    || photosetList.get(i).getId().equals(Constants.ID_TROLL)
+                    || photosetList.get(i).getId().equals(Constants.ID_TRUYENBUA)
+                    || photosetList.get(i).getId().equals(Constants.ID_TRUYENNGAN)
+                    || photosetList.get(i).getId().equals(Constants.ID_ANHTHEOTEN)
+                    || photosetList.get(i).getId().equals(Constants.ID_ANHCHESGK)
+                    || photosetList.get(i).getId().equals(Constants.ID_TUOITHODUDOI)
+                    || photosetList.get(i).getId().equals(Constants.ID_CUNGHOANGDAOHEHEHORO)
+                    || photosetList.get(i).getId().equals(Constants.ID_CUNGHOANGDAOFUNTFACT)
+                    || photosetList.get(i).getId().equals(Constants.ID_BANCOBIET)
+                    || photosetList.get(i).getId().equals(Constants.ID_QUOTEVIET)
+                    || photosetList.get(i).getId().equals(Constants.ID_TRIETLY)
+                    || photosetList.get(i).getId().equals(Constants.ID_KIEMHIEP)
+                    || photosetList.get(i).getId().equals(Constants.ID_STTTAMTRANG)
+                    || photosetList.get(i).getId().equals(Constants.ID_STTDEUCHAT)
+                    || photosetList.get(i).getId().equals(Constants.ID_STTBUON)
+                    || photosetList.get(i).getId().equals(Constants.ID_STTVUI)
+                    || photosetList.get(i).getId().equals(Constants.ID_THO)
+                    || photosetList.get(i).getId().equals(Constants.ID_NGAY83)) {
+                LLog.d(TAG, "remove " + photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
+                photosetList.remove(i);
+            }
+        }
     }
 }
