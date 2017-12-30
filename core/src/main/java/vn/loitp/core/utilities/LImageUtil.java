@@ -39,6 +39,12 @@ public class LImageUtil {
         Glide.with(activity).load(url).into(imageView);
     }
 
+    public static void loadNoEffect(Activity activity, String url, ImageView imageView) {
+        Glide.with(activity).load(url)
+                .dontAnimate()
+                .into(imageView);
+    }
+
     public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
         Glide.with(activity).load(url)
                 .listener(new RequestListener<String, GlideDrawable>() {
