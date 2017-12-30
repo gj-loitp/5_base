@@ -3,32 +3,32 @@ package vn.loitp.app.activity.slide;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
-import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.views.overscroll.lib.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GallerySlideActivity extends BaseActivity {
+    private ImageView ivBkg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         viewPager.setAdapter(new SlidePagerAdapter());
 
         LUIUtil.setPullLikeIOSVertical(viewPager);
@@ -37,6 +37,24 @@ public class GallerySlideActivity extends BaseActivity {
         int position = PhotosData.getInstance().getPosition(photoID);
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //do nothing
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Photo photo = PhotosData.getInstance().getPhoto(position);
+                LImageUtil.load(activity, photo.getUrlO(), ivBkg, 40, 70);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //do nothing
+            }
+        });
     }
 
     @Override
