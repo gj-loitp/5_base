@@ -27,7 +27,7 @@ public class GallerySlideActivity extends BaseActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         viewPager.setAdapter(new SlidePagerAdapter());
-
+        viewPager.setOffscreenPageLimit(3);
         LUIUtil.setPullLikeIOSVertical(viewPager);
 
         String photoID = getIntent().getStringExtra(Constants.PHOTO_ID);
