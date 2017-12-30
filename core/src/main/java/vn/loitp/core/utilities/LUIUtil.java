@@ -14,9 +14,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
 import android.os.Handler;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -44,21 +41,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.util.Random;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.AdmobData;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
-import vn.loitp.views.overscroll.lib.overscroll.IOverScrollStateListener;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.views.overscroll.lib.overscroll.OverScrollDecoratorHelper;
-
-import static vn.loitp.views.overscroll.lib.overscroll.IOverScrollState.STATE_BOUNCE_BACK;
-import static vn.loitp.views.overscroll.lib.overscroll.IOverScrollState.STATE_DRAG_END_SIDE;
-import static vn.loitp.views.overscroll.lib.overscroll.IOverScrollState.STATE_DRAG_START_SIDE;
-import static vn.loitp.views.overscroll.lib.overscroll.IOverScrollState.STATE_IDLE;
 
 /**
  * File created on 11/3/2016.
@@ -577,7 +567,7 @@ public class LUIUtil {
         public void onDownOrRightRefresh(float offset);
     }
 
-    public static void setPullLikeIOSVertical(ViewPager viewPager) {
+    public static void setPullLikeIOSHorizontal(ViewPager viewPager) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(viewPager);
     }

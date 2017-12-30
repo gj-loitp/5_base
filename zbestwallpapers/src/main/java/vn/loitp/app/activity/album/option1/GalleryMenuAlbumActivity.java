@@ -2,6 +2,7 @@ package vn.loitp.app.activity.album.option1;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,6 +15,7 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GalleryMenuAlbumActivity extends BaseActivity {
@@ -33,6 +35,11 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -73,7 +80,12 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return stringList.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return stringList.get(position);
         }
     }
 }
