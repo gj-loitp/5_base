@@ -15,6 +15,7 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GalleryMenuAlbumActivity extends BaseActivity {
@@ -33,6 +34,7 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
         stringList.add("More");
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(adapter);
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
