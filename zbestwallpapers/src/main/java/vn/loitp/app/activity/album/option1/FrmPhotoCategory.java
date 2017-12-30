@@ -15,7 +15,7 @@ import vn.loitp.core.base.BaseFragment;
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmPhoto extends BaseFragment {
+public class FrmPhotoCategory extends BaseFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -30,14 +30,6 @@ public class FrmPhoto extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.item_photo, container, false);
-
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            int position = bundle.getInt(Constants.SLIDE_MENU_POSITION);
-        }
-
         return view;
-
-
     }
 }

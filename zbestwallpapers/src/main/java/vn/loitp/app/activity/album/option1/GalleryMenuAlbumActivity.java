@@ -14,7 +14,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
@@ -70,12 +69,13 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
         @Override
         public Fragment getItem(int position) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(Constants.SLIDE_MENU_POSITION, position);
-            BaseFragment fragment = null;
-            fragment = new FrmPhoto();
-            fragment.setArguments(bundle);
-            return fragment;
+            if (position == 0) {
+                return new FrmPhotoCategory();
+            } else if (position == 1) {
+                return new FrmPhotoVietnamese();
+            } else {
+                return new FrmPhotoMore();
+            }
         }
 
         @Override
