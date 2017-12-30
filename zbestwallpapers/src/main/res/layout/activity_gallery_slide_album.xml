@@ -10,7 +10,12 @@
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable" />
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/White"
+        app:tabIndicatorHeight="@dimen/w_1"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/White"
+        app:tabTextColor="@color/Lavender" />
 
     <vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager
         android:id="@+id/viewpager"
