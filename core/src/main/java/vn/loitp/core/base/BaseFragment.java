@@ -11,7 +11,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 /**
  * Created by khanh on 7/31/16.

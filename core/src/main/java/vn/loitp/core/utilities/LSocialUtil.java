@@ -1,12 +1,14 @@
 package vn.loitp.core.utilities;
 
 import android.app.Activity;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import loitp.core.R;
+import vn.loitp.utils.util.ToastUtils;
 
 
 /**
@@ -31,13 +33,13 @@ public class LSocialUtil {
         }
     }
 
-    /*public static void moreApp(Activity activity) {
-        String nameOfDeveloper = Const.NAME_OF_DEV;
+    public static void moreApp(Activity activity) {
+        String nameOfDeveloper = "NgonTinh KangKang";
         String uri = "https://play.google.com/store/apps/developer?id=" + nameOfDeveloper;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         activity.startActivity(intent);
-        LUIUtil.transActivityLeftToRightAniamtion(activity);
-    }*/
+        LUIUtil.transActivityFadeIn(activity);
+    }
 
     public static void shareApp(Activity activity) {
         try {
@@ -100,7 +102,7 @@ public class LSocialUtil {
     /*
     chat with fanpage Thugiannao
      */
-    /*public static void chatMessenger(Activity activity) {
+    public static void chatMessenger(Activity activity) {
         PackageManager packageManager = activity.getPackageManager();
         boolean isFBInstalled = false;
         try {
@@ -110,19 +112,19 @@ public class LSocialUtil {
             LLog.d(TAG, "packageManager com.facebook.orca: " + e.toString());
         }
         if (!isFBInstalled) {
-            LToast.show(activity, "Ứng dụng Messenger chưa được cài đặt trên điện thoại của bạn", 0);
+            ToastUtils.showShort("Cannot find Messenger App!");
         } else {
             Uri uri = Uri.parse("fb-messenger://user/");
             uri = ContentUris.withAppendedId(uri, Long.valueOf("947139732073591"));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             try {
                 activity.startActivity(intent);
-                LUIUtil.transActivityLeftToRightAniamtion(activity);
+                LUIUtil.transActivityFadeIn(activity);
             } catch (Exception e) {
-                LToast.show(activity, "Không thể chạy Messenger, vui lòng thử lại sau", 0);
+                ToastUtils.showShort("Cannot find Messenger App!");
             }
         }
-    }*/
+    }
 
     /*
    * send email support

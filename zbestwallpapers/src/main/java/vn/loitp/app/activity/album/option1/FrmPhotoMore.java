@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LSocialUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmPhotoMore extends BaseFragment {
+public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -26,7 +27,33 @@ public class FrmPhotoMore extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_photo_category, container, false);
+        View view = inflater.inflate(R.layout.frm_photo_more, container, false);
+        view.findViewById(R.id.bt_rate_app).setOnClickListener(this);
+        view.findViewById(R.id.bt_more_app).setOnClickListener(this);
+        view.findViewById(R.id.bt_share_app).setOnClickListener(this);
+        view.findViewById(R.id.bt_like_fb_fanpage).setOnClickListener(this);
+        view.findViewById(R.id.bt_support).setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_rate_app:
+                LSocialUtil.rateApp(getActivity(), getActivity().getPackageName());
+                break;
+            case R.id.bt_more_app:
+                LSocialUtil.moreApp(getActivity());
+                break;
+            case R.id.bt_share_app:
+                LSocialUtil.shareApp(getActivity());
+                break;
+            case R.id.bt_like_fb_fanpage:
+                LSocialUtil.likeFacebookFanpage(getActivity());
+                break;
+            case R.id.bt_support:
+                LSocialUtil.chatMessenger(getActivity());
+                break;
+        }
     }
 }
