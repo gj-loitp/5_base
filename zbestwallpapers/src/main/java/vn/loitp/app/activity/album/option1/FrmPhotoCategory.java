@@ -17,7 +17,6 @@ import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -59,6 +58,12 @@ public class FrmPhotoCategory extends BaseFragment {
     }
 
     private void photosetsGetList() {
+        final List<Photoset> photosetList = new ArrayList<>();
+        if (AlbumData.getInstance().getPhotosetList() != null) {
+            photosetList.addAll(AlbumData.getInstance().getPhotosetList());
+            setup(photosetList);
+            return;
+        }
         avi.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
@@ -73,21 +78,9 @@ public class FrmPhotoCategory extends BaseFragment {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
-                fillList(photosetList);
-                for (int i = 0; i < photosetList.size(); i++) {
-                    //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
-                    mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
-                        @Override
-                        public void onClick(Photoset photoset, int position) {
-                            Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
-                            intent.putExtra("photosetID", photoset.getId());
-                            startActivity(intent);
-                            LUIUtil.transActivityFadeIn(getActivity());
-                        }
-                    }));
-                }
-                avi.smoothToHide();
+                photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+                AlbumData.getInstance().setPhotosetList(photosetList);
+                setup(photosetList);
             }
 
             @Override
@@ -96,6 +89,23 @@ public class FrmPhotoCategory extends BaseFragment {
                 avi.smoothToHide();
             }
         });
+    }
+
+    private void setup(List<Photoset> photosetList) {
+        fillList(photosetList);
+        for (int i = 0; i < photosetList.size(); i++) {
+            //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
+            mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
+                @Override
+                public void onClick(Photoset photoset, int position) {
+                    Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
+                    intent.putExtra("photosetID", photoset.getId());
+                    startActivity(intent);
+                    LUIUtil.transActivityFadeIn(getActivity());
+                }
+            }));
+        }
+        avi.smoothToHide();
     }
 
     private void fillList(List<Photoset> photosetList) {
