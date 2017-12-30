@@ -2,9 +2,12 @@ package vn.loitp.app.activity.view;
 
 import android.app.Activity;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import loitp.basemaster.R;
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
@@ -24,6 +27,9 @@ public class PhotosItem {
     @View(R.id.imageView)
     private ImageView imageView;
 
+    @View(R.id.root_view)
+    private RelativeLayout rootView;
+
     //@View(R.id.tv)
     //private TextView tv;
 
@@ -40,6 +46,7 @@ public class PhotosItem {
 
     @Resolve
     private void onResolved() {
+        rootView.setBackgroundColor(AppUtil.getColor(activity));
         LImageUtil.load(activity, photo.getUrlO(), imageView);
         //String s = "Original size: " + photo.getWidthO() + "x" + photo.getHeightO();
         //tv.setText(s);

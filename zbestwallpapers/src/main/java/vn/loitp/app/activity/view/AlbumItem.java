@@ -2,8 +2,10 @@ package vn.loitp.app.activity.view;
 
 import android.app.Activity;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import loitp.basemaster.R;
@@ -28,6 +30,9 @@ public class AlbumItem {
     @View(R.id.tv)
     private TextView tv;
 
+    @View(R.id.root_view)
+    private RelativeLayout rootView;
+
     private Activity activity;
     private Photoset photoset;
     private int position;
@@ -41,6 +46,7 @@ public class AlbumItem {
 
     @Resolve
     private void onResolved() {
+        rootView.setBackgroundColor(AppUtil.getColor(activity));
         LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView);
         String s = photoset.getTitle().getContent() + " (" + photoset.getPhotos() + ")";
         tv.setText(s);
