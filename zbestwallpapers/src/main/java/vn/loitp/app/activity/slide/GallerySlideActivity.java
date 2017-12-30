@@ -7,15 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
+import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import loitp.basemaster.R;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
@@ -30,7 +32,7 @@ public class GallerySlideActivity extends BaseActivity {
 
         LUIUtil.setPullLikeIOSVertical(viewPager);
 
-        String photoID = getIntent().getStringExtra("photoID");
+        String photoID = getIntent().getStringExtra(Constants.PHOTO_ID);
         int position = PhotosData.getInstance().getPosition(photoID);
         LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
@@ -64,11 +66,14 @@ public class GallerySlideActivity extends BaseActivity {
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
+            RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
+            rootView.setBackgroundColor(AppUtil.getColor(activity));
 
-            TextView tv = (TextView) layout.findViewById(R.id.tv);
-            LUIUtil.printBeautyJson(photo, tv);
+            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+            LImageUtil.load(activity, photo.getUrlO(), imageView);
+
+            //TextView tv = (TextView) layout.findViewById(R.id.tv);
+            //LUIUtil.printBeautyJson(photo, tv);
 
             collection.addView(layout);
             return layout;

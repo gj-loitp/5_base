@@ -124,7 +124,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                         public void onClick(Photo photo, int position) {
                             //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                             Intent intent = new Intent(activity, GallerySlideActivity.class);
-                            intent.putExtra("photoID", photo.getId());
+                            intent.putExtra(Constants.PHOTO_ID, photo.getId());
                             startActivity(intent);
                             LUIUtil.transActivityFadeIn(activity);
                         }

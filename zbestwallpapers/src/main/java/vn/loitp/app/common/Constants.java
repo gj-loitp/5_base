@@ -25,6 +25,7 @@ public class Constants {
 
     public final static String SLIDE_MENU_POSITION = "SLIDE_MENU_POSITION";
     public final static String PHOTOSET_ID = "PHOTOSET_ID";
+    public final static String PHOTO_ID = "PHOTO_ID";
 
     public final static String ID_STT_TRUYENNGAN        = "72157671847280471";
     public final static String ID_DEVVUI                = "72157672418190805";

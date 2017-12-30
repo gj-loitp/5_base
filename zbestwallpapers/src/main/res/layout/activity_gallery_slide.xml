@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,5 +18,5 @@
         android:padding="@dimen/padding_5"
         android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_20" />
+        android:textSize="@dimen/txt_20" />-->
 </RelativeLayout>
