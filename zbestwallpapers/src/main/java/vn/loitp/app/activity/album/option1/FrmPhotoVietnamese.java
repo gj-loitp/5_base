@@ -26,7 +26,7 @@ public class FrmPhotoVietnamese extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.item_photo, container, false);
+        View view = inflater.inflate(R.layout.frm_photo_category, container, false);
         return view;
     }
 }
