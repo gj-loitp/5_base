@@ -51,7 +51,6 @@ public class FrmPhotoCategory extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_photo_category, container, false);
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        avi.smoothToHide();
         mGalleryView = (PlaceHolderView) view.findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity(), 2));
         LUIUtil.setPullLikeIOSVertical(mGalleryView);
