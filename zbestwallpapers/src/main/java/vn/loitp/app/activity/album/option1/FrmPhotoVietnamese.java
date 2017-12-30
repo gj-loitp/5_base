@@ -99,7 +99,7 @@ public class FrmPhotoVietnamese extends BaseFragment {
                 @Override
                 public void onClick(Photoset photoset, int position) {
                     Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
-                    intent.putExtra("photosetID", photoset.getId());
+                    intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                     startActivity(intent);
                     LUIUtil.transActivityFadeIn(getActivity());
                 }

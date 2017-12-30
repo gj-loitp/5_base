@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.loitp.app.activity.slide.GallerySlideActivity;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.app.activity.view.PhotosItem;
 import vn.loitp.core.base.BaseActivity;
@@ -44,7 +45,7 @@ public class GalleryPhotosActivity extends BaseActivity {
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         LUIUtil.setPullLikeIOSVertical(mGalleryView);
-        String photosetID = getIntent().getStringExtra("photosetID");
+        String photosetID = getIntent().getStringExtra(Constants.PHOTOSET_ID);
         photosetsGetPhotos(photosetID);
 
         mGalleryView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -53,7 +54,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        LLog.d(TAG, "last item");
+                        //LLog.d(TAG, "last item");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -83,10 +84,10 @@ public class GalleryPhotosActivity extends BaseActivity {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            //LLog.d(TAG, "isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos");
+        //LLog.d(TAG, "is calling photosetsGetPhotos");
         isLoading = true;
         avi.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
@@ -95,7 +96,7 @@ public class GalleryPhotosActivity extends BaseActivity {
         String userID = FlickrConst.USER_KEY;
         currentPage++;
         if (currentPage > totalPage) {
-            LLog.d(TAG, "currentPage > totalPage -> return");
+            //LLog.d(TAG, "currentPage > totalPage -> return");
             currentPage = totalPage;
             avi.smoothToHide();
             return;
@@ -110,7 +111,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
 
                 totalPage = wrapperPhotosetGetPhotos.getPhotoset().getPages();
-                LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
@@ -135,7 +136,7 @@ public class GalleryPhotosActivity extends BaseActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.d(TAG, "onFail " + e.toString());
+                //LLog.d(TAG, "onFail " + e.toString());
                 handleException(e);
                 avi.smoothToHide();
                 isLoading = true;

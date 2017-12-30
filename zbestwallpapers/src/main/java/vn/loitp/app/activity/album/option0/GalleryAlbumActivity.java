@@ -10,6 +10,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -78,7 +79,7 @@ public class GalleryAlbumActivity extends BaseActivity {
                         @Override
                         public void onClick(Photoset photoset, int position) {
                             Intent intent = new Intent(activity, GalleryPhotosActivity.class);
-                            intent.putExtra("photosetID", photoset.getId());
+                            intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                             startActivity(intent);
                             LUIUtil.transActivityFadeIn(activity);
                         }

@@ -12,7 +12,7 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,5 +21,5 @@
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_10" />-->
+        android:textSize="@dimen/txt_10" />
 </RelativeLayout>

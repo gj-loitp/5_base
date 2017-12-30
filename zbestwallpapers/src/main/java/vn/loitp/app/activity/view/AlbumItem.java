@@ -19,7 +19,7 @@ import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 //@Animate(Animation.SCALE_UP_ASC)
 @NonReusable
-@Layout(R.layout.item_img)
+@Layout(R.layout.item_album)
 public class AlbumItem {
 
     @View(R.id.imageView)
