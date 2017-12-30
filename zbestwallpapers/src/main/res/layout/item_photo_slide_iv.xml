@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/padding_100"
+    android:paddingLeft="@dimen/padding_30"
+    android:paddingRight="@dimen/padding_30"
+    android:paddingTop="@dimen/padding_30">
 
     <ImageView
         android:id="@+id/imageView"

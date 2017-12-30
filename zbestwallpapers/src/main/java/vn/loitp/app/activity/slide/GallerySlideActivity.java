@@ -35,7 +35,7 @@ public class GallerySlideActivity extends BaseActivity {
 
         String photoID = getIntent().getStringExtra(Constants.PHOTO_ID);
         int position = PhotosData.getInstance().getPosition(photoID);
-        LLog.d(TAG, "position: " + position);
+        //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
     }
 
@@ -67,8 +67,8 @@ public class GallerySlideActivity extends BaseActivity {
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
-            RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
-            rootView.setBackgroundColor(AppUtil.getColor(activity));
+            //RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
+            //rootView.setBackgroundColor(AppUtil.getColor(activity));
 
             AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
 
