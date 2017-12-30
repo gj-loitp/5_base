@@ -4,7 +4,7 @@ package vn.loitp.app.common;
  * Created by loitp
  */
 public class Constants {
-    public final static boolean IS_DEBUG = true;
+    /*public final static boolean IS_DEBUG = true;
 
     public static final int NOT_FOUND = -6969;
 
@@ -21,5 +21,7 @@ public class Constants {
     public final static String TEST_5 = "A1EC01C33BD69CD589C2AF605778C2E6";
     public final static String TEST_6 = "13308851AEDCA44443112D80A8D182CA";
 
-    public static String ASSET_FILE_GIFT = "img/ic_gift.png";
+    public static String ASSET_FILE_GIFT = "img/ic_gift.png";*/
+
+    public final static String SLIDE_MENU_POSITION = "SLIDE_MENU_POSITION";
 }
