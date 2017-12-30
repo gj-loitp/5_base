@@ -13,6 +13,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -28,6 +29,7 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
  */
 
 public class FrmPhotoCategory extends BaseFragment {
+    private final String TAG = getClass().getSimpleName();
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
 
@@ -70,6 +72,7 @@ public class FrmPhotoCategory extends BaseFragment {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
                 for (int i = 0; i < photosetList.size(); i++) {
+                    LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
                     mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
                         @Override
                         public void onClick(Photoset photoset, int position) {

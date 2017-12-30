@@ -38,6 +38,8 @@ public class LImageUtil {
         Glide.with(activity).load(url).override(sizeW, sizeH).into(imageView);
     }
 
+    //for SimpleDraweeView
+
     public static void loadImage(SimpleDraweeView simpleDraweeView, String url) {
         if (!android.text.TextUtils.isEmpty(url)) {
             Uri uri = Uri.parse(url);
@@ -45,7 +47,6 @@ public class LImageUtil {
         }
     }
 
-    //for SimpleDraweeView
     /*public static void loadAvatar(SimpleDraweeView simpleDraweeView, long id) {
         Context context = simpleDraweeView.getContext();
         String webServiceURL = context.getString(R.string.webService_URL);
