@@ -4,6 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/transparent"
     android:paddingBottom="@dimen/padding_100"
     android:paddingLeft="@dimen/padding_30"
     android:paddingRight="@dimen/padding_30"

@@ -16,10 +16,7 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.overscroll.lib.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GallerySlideActivity extends BaseActivity {
     private ImageView ivBkg;
@@ -47,7 +44,7 @@ public class GallerySlideActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosData.getInstance().getPhoto(position);
-                LImageUtil.load(activity, photo.getUrlO(), ivBkg, 40, 70);
+                LImageUtil.load(activity, photo.getUrlO(), ivBkg);
             }
 
             @Override
