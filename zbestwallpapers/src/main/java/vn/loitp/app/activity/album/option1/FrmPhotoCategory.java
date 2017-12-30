@@ -98,33 +98,33 @@ public class FrmPhotoCategory extends BaseFragment {
 
     private void fillList(List<Photoset> photosetList) {
         for (int i = 0; i < photosetList.size(); i++) {
-            if (photosetList.get(i).getId().equals(Constants.ID_STT_TRUYENNGAN)
-                    || photosetList.get(i).getId().equals(Constants.ID_DEVVUI)
-                    || photosetList.get(i).getId().equals(Constants.ID_DOCDAOTHUVI)
-                    || photosetList.get(i).getId().equals(Constants.ID_HAIHUOC)
-                    || photosetList.get(i).getId().equals(Constants.ID_HAINAO)
-                    || photosetList.get(i).getId().equals(Constants.ID_FUNNYMANHINH)
-                    || photosetList.get(i).getId().equals(Constants.ID_FUNNYTHETHAO)
-                    || photosetList.get(i).getId().equals(Constants.ID_TROLL)
-                    || photosetList.get(i).getId().equals(Constants.ID_TRUYENBUA)
-                    || photosetList.get(i).getId().equals(Constants.ID_TRUYENNGAN)
-                    || photosetList.get(i).getId().equals(Constants.ID_ANHTHEOTEN)
-                    || photosetList.get(i).getId().equals(Constants.ID_ANHCHESGK)
-                    || photosetList.get(i).getId().equals(Constants.ID_TUOITHODUDOI)
-                    || photosetList.get(i).getId().equals(Constants.ID_CUNGHOANGDAOHEHEHORO)
-                    || photosetList.get(i).getId().equals(Constants.ID_CUNGHOANGDAOFUNTFACT)
-                    || photosetList.get(i).getId().equals(Constants.ID_BANCOBIET)
-                    || photosetList.get(i).getId().equals(Constants.ID_QUOTEVIET)
-                    || photosetList.get(i).getId().equals(Constants.ID_TRIETLY)
-                    || photosetList.get(i).getId().equals(Constants.ID_KIEMHIEP)
-                    || photosetList.get(i).getId().equals(Constants.ID_STTTAMTRANG)
-                    || photosetList.get(i).getId().equals(Constants.ID_STTDEUCHAT)
-                    || photosetList.get(i).getId().equals(Constants.ID_STTBUON)
-                    || photosetList.get(i).getId().equals(Constants.ID_STTVUI)
-                    || photosetList.get(i).getId().equals(Constants.ID_THO)
-                    || photosetList.get(i).getId().equals(Constants.ID_NGAY83)) {
-                LLog.d(TAG, "remove " + photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
+            if (photosetList.get(i).getId().contains(Constants.ID_STT_TRUYENNGAN)
+                    || photosetList.get(i).getId().contains(Constants.ID_DEVVUI)
+                    || photosetList.get(i).getId().contains(Constants.ID_DOCDAOTHUVI)
+                    || photosetList.get(i).getId().contains(Constants.ID_HAIHUOC)
+                    || photosetList.get(i).getId().contains(Constants.ID_HAINAO)
+                    || photosetList.get(i).getId().contains(Constants.ID_FUNNYMANHINH)
+                    || photosetList.get(i).getId().contains(Constants.ID_FUNNYTHETHAO)
+                    || photosetList.get(i).getId().contains(Constants.ID_TROLL)
+                    || photosetList.get(i).getId().contains(Constants.ID_TRUYENBUA)
+                    || photosetList.get(i).getId().contains(Constants.ID_TRUYENNGAN)
+                    || photosetList.get(i).getId().contains(Constants.ID_ANHTHEOTEN)
+                    || photosetList.get(i).getId().contains(Constants.ID_ANHCHESGK)
+                    || photosetList.get(i).getId().contains(Constants.ID_TUOITHODUDOI)
+                    || photosetList.get(i).getId().contains(Constants.ID_CUNGHOANGDAOHEHEHORO)
+                    || photosetList.get(i).getId().contains(Constants.ID_CUNGHOANGDAOFUNTFACT)
+                    || photosetList.get(i).getId().contains(Constants.ID_BANCOBIET)
+                    || photosetList.get(i).getId().contains(Constants.ID_QUOTEVIET)
+                    || photosetList.get(i).getId().contains(Constants.ID_TRIETLY)
+                    || photosetList.get(i).getId().contains(Constants.ID_KIEMHIEP)
+                    || photosetList.get(i).getId().contains(Constants.ID_STTTAMTRANG)
+                    || photosetList.get(i).getId().contains(Constants.ID_STTDEUCHAT)
+                    || photosetList.get(i).getId().contains(Constants.ID_STTBUON)
+                    || photosetList.get(i).getId().contains(Constants.ID_STTVUI)
+                    || photosetList.get(i).getId().contains(Constants.ID_THO)
+                    || photosetList.get(i).getId().contains(Constants.ID_NGAY83)) {
                 photosetList.remove(i);
+                LLog.d(TAG, "remove " + photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
             }
         }
     }
