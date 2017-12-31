@@ -10,10 +10,25 @@
     android:paddingRight="@dimen/padding_30"
     android:paddingTop="@dimen/padding_30">
 
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bt_blur">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_3"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+    </LinearLayout>-->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_3"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 

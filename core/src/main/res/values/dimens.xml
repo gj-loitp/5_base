@@ -13,6 +13,8 @@
     <dimen name="txt_10">10dp</dimen>
     <dimen name="txt_8">8dp</dimen>
     <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
     <dimen name="txt_20">20dp</dimen>
     <dimen name="txt_30">30dp</dimen>
     <dimen name="txt_40">40dp</dimen>
