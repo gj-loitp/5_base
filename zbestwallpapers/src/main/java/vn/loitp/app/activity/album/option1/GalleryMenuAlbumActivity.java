@@ -78,7 +78,7 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
                 case 1:
                     return new FrmPhotoVietnamese();
                 case 2:
-                    return new FrmPhotoMore();
+                    return new FrmPhotoGift();
                 case 3:
                     return new FrmPhotoMore();
             }
