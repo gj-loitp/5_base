@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.slide;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -26,11 +27,12 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 public class GallerySlideActivity extends BaseActivity {
     private ImageView ivBkg0;
     private ImageView ivBkg1;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         ivBkg0 = (ImageView) findViewById(R.id.iv_bkg_0);
         ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         viewPager.setAdapter(new SlidePagerAdapter());
@@ -160,5 +162,13 @@ public class GallerySlideActivity extends BaseActivity {
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra(Constants.POSITION_OF_SILIDE, viewPager.getCurrentItem());
+        setResult(Activity.RESULT_OK, returnIntent);
+        super.onBackPressed();
     }
 }

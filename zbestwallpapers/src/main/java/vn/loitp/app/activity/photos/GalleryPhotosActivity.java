@@ -36,6 +36,8 @@ public class GalleryPhotosActivity extends BaseActivity {
     private int totalPage;
     private int perPage = 100;
 
+    private final int REQUEST_CODE = 6969;
+
     private boolean isLoading;
 
     @Override
@@ -113,9 +115,9 @@ public class GalleryPhotosActivity extends BaseActivity {
         String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         String apiKey = FlickrConst.API_KEY;
         String userID = FlickrConst.USER_KEY;
-        LLog.d(TAG, "photosetsGetPhotos currentPage " + currentPage);
+        //LLog.d(TAG, "photosetsGetPhotos currentPage " + currentPage);
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <=0 -> return");
+            //LLog.d(TAG, "currentPage <=0 -> return");
             currentPage = 0;
             avi.smoothToHide();
             return;
@@ -143,7 +145,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                             //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                             Intent intent = new Intent(activity, GallerySlideActivity.class);
                             intent.putExtra(Constants.PHOTO_ID, photo.getId());
-                            startActivity(intent);
+                            startActivityForResult(intent, REQUEST_CODE);
                             LUIUtil.transActivityFadeIn(activity);
                         }
                     }));
@@ -167,5 +169,19 @@ public class GalleryPhotosActivity extends BaseActivity {
     public void onBackPressed() {
         PhotosData.getInstance().clearData();
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            int pos = data.getIntExtra(Constants.POSITION_OF_SILIDE, vn.loitp.core.common.Constants.NOT_FOUND);
+            if (pos != vn.loitp.core.common.Constants.NOT_FOUND) {
+                //LLog.d(TAG, "onActivityResult pos " + pos);
+                if (pos >= 0) {
+                    mGalleryView.smoothScrollToPosition(pos);
+                }
+            }
+        }
     }
 }
