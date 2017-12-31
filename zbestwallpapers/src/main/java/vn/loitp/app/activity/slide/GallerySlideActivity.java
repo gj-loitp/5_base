@@ -35,6 +35,10 @@ public class GallerySlideActivity extends BaseActivity {
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
+        //load blur bkg fist
+        Photo photo = PhotosData.getInstance().getPhoto(position);
+        LImageUtil.load(activity, photo.getUrlO(), ivBkg);
+
         /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -44,7 +48,7 @@ public class GallerySlideActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosData.getInstance().getPhoto(position);
-                LImageUtil.load(activity, photo.getUrlO(), ivBkg);
+                LImageUtil.loadImage(ivBkg, photo.getUrlO());
             }
 
             @Override
@@ -86,10 +90,6 @@ public class GallerySlideActivity extends BaseActivity {
             //rootView.setBackgroundColor(AppUtil.getColor(activity));
 
             AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
-
-            //set img background blur
-            LImageUtil.loadNoEffect(activity, photo.getUrlO(), ivBkg);
-
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
             LImageUtil.load(activity, photo.getUrlO(), imageView, avLoadingIndicatorView);
 

@@ -3,6 +3,7 @@ package vn.loitp.app.app;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
 
 import loitp.basemaster.R;
@@ -23,6 +24,7 @@ public class LSApplication extends MultiDexApplication {
         }
         Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
+        Fresco.initialize(getApplicationContext());
     }
 
     public Gson getGson() {

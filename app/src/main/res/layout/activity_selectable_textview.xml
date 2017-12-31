@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/selector_emptybox"
             android:gravity="center"
-            android:textColor="@color/primaryColor"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/txt_14"
             android:visibility="visible" />
 

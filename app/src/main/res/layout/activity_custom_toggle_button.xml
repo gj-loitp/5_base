@@ -27,7 +27,7 @@
         app:ctg_addLeftIcon="@drawable/ic_play_arrow"
         app:ctg_addMagnification="5"
         app:ctg_addRightIcon="@drawable/ic_play_arrow"
-        app:ctg_addSlideBackgroundColor="@color/primaryColor"
+        app:ctg_addSlideBackgroundColor="@color/colorPrimary"
         app:ctg_addSlideColor="@color/red04" />
 
     <vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle

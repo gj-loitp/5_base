@@ -60,6 +60,6 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/primaryColor"
+        app:indicatorColor="@color/colorPrimary"
         app:indicatorName="PacmanIndicator" />
 </RelativeLayout>
