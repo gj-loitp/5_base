@@ -31,6 +31,7 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
         stringList.add("Category");
         stringList.add("Vietnamese");
+        stringList.add("Gift");
         stringList.add("More");
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -71,13 +72,17 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0) {
-                return new FrmPhotoCategory();
-            } else if (position == 1) {
-                return new FrmPhotoVietnamese();
-            } else {
-                return new FrmPhotoMore();
+            switch (position) {
+                case 0:
+                    return new FrmPhotoCategory();
+                case 1:
+                    return new FrmPhotoVietnamese();
+                case 2:
+                    return new FrmPhotoMore();
+                case 3:
+                    return new FrmPhotoMore();
             }
+            return null;
         }
 
         @Override

@@ -13,7 +13,7 @@
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/White"
         app:tabIndicatorHeight="@dimen/w_1"
-        app:tabMode="fixed"
+        app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/White"
         app:tabTextColor="@color/Lavender" />
 
