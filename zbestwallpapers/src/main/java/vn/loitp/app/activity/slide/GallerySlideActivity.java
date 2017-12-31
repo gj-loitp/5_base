@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,9 +23,10 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GallerySlideActivity extends BaseActivity {
+public class GallerySlideActivity extends BaseActivity implements OnClickListener {
     private ImageView ivBkg0;
     private ImageView ivBkg1;
     private ViewPager viewPager;
@@ -66,6 +68,8 @@ public class GallerySlideActivity extends BaseActivity {
                 //do nothing
             }
         });
+
+        findViewById(R.id.bt_download).setOnClickListener(this);
     }
 
     private void loadBlurBackground(int position, Photo photo) {
@@ -124,6 +128,21 @@ public class GallerySlideActivity extends BaseActivity {
         return R.layout.activity_gallery_slide;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_download:
+                Photo photo = PhotosData.getInstance().getPhoto(viewPager.getCurrentItem());
+                if (photo != null) {
+                    asyncTaskDownloadImage = new AsyncTaskDownloadImage(activity, photo.getUrlO());
+                    asyncTaskDownloadImage.execute();
+                }
+                break;
+        }
+    }
+
+    private AsyncTaskDownloadImage asyncTaskDownloadImage;
+
     private class SlidePagerAdapter extends PagerAdapter {
 
         @Override
@@ -166,6 +185,10 @@ public class GallerySlideActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        if (asyncTaskDownloadImage != null) {
+            asyncTaskDownloadImage.cancel(true);
+            asyncTaskDownloadImage = null;
+        }
         Intent returnIntent = new Intent();
         returnIntent.putExtra(Constants.POSITION_OF_SILIDE, viewPager.getCurrentItem());
         setResult(Activity.RESULT_OK, returnIntent);
