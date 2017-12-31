@@ -90,7 +90,7 @@
                 android:layout_height="@dimen/w_30"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/button_download" />
+                android:src="@drawable/button_share" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
