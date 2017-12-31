@@ -7,7 +7,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.util.List;
 
 import loitp.basemaster.R;
