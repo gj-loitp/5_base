@@ -59,11 +59,6 @@ public class FrmPhotoVietnamese extends BaseFragment {
 
     private void photosetsGetList() {
         final List<Photoset> photosetList = new ArrayList<>();
-        if (AlbumData.getInstance().getPhotosetList() != null) {
-            photosetList.addAll(AlbumData.getInstance().getPhotosetList());
-            setup(photosetList);
-            return;
-        }
         avi.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
@@ -79,7 +74,6 @@ public class FrmPhotoVietnamese extends BaseFragment {
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
-                AlbumData.getInstance().setPhotosetList(photosetList);
                 setup(photosetList);
             }
 
@@ -106,6 +100,7 @@ public class FrmPhotoVietnamese extends BaseFragment {
                 }
             }));
         }
+        mGalleryView.refresh();
         avi.smoothToHide();
     }
 

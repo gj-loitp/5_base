@@ -115,7 +115,7 @@ public class FrmPhotoGift extends BaseFragment implements RewardedVideoAdListene
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
         LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
-        ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
+        //ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         tvGiftNotFound.setVisibility(View.VISIBLE);
     }
 
