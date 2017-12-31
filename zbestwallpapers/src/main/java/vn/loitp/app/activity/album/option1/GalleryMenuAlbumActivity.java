@@ -14,6 +14,8 @@ import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
@@ -89,5 +91,26 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
         public CharSequence getPageTitle(int position) {
             return stringList.get(position);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        LDialogUtil.showDialog3(activity, getString(R.string.app_name), getString(R.string.msg_exit_app), getString(R.string.yes), getString(R.string.no), getString(R.string.rate), new LDialogUtil.Callback3() {
+            @Override
+            public void onClick1() {
+                finish();
+                LUIUtil.transActivityTopToBottomAniamtion(activity);
+            }
+
+            @Override
+            public void onClick2() {
+                //do nothing
+            }
+
+            @Override
+            public void onClick3() {
+                LSocialUtil.rateApp(activity, getPackageName());
+            }
+        });
     }
 }

@@ -26,6 +26,10 @@ Likewise may someone love you next.
     <string name="share_app">Share app</string>
     <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
     <string name="support_24_7">Support 24/7</string>
+    <string name="msg_exit_app">Do you want to exit this app?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="rate">Rate</string>
 
 
     <string-array name="occurence">
