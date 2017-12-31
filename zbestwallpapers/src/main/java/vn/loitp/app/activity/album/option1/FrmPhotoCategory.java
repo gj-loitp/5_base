@@ -17,6 +17,7 @@ import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -107,6 +108,7 @@ public class FrmPhotoCategory extends BaseFragment {
             }));
         }
         avi.smoothToHide();
+        LLog.d(TAG, "setup finish");
     }
 
     private void fillList(List<Photoset> photosetList) {
