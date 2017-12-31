@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -136,8 +137,10 @@ public class GallerySlideActivity extends BaseActivity {
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
             LImageUtil.load(activity, photo.getUrlO(), imageView, avLoadingIndicatorView);
 
-            //TextView tv = (TextView) layout.findViewById(R.id.tv);
+            TextView tv = (TextView) layout.findViewById(R.id.tv);
             //LUIUtil.printBeautyJson(photo, tv);
+            tv.setText("Original size: " + photo.getWidthO() + "x" + photo.getHeightO());
+            LUIUtil.setTextShadow(tv);
 
             collection.addView(layout);
             return layout;
