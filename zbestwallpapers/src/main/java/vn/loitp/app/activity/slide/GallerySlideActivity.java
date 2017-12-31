@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
@@ -19,13 +23,15 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GallerySlideActivity extends BaseActivity {
-    private ImageView ivBkg;
+    private ImageView ivBkg0;
+    private ImageView ivBkg1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        ivBkg0 = (ImageView) findViewById(R.id.iv_bkg_0);
+        ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         viewPager.setAdapter(new SlidePagerAdapter());
         viewPager.setOffscreenPageLimit(3);
         LUIUtil.setPullLikeIOSVertical(viewPager);
@@ -35,11 +41,9 @@ public class GallerySlideActivity extends BaseActivity {
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
-        //load blur bkg fist
-        Photo photo = PhotosData.getInstance().getPhoto(position);
-        LImageUtil.load(activity, photo.getUrlO(), ivBkg);
+        loadBlurBackground(position, null);
 
-        /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 //do nothing
@@ -48,14 +52,53 @@ public class GallerySlideActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosData.getInstance().getPhoto(position);
-                LImageUtil.loadImage(ivBkg, photo.getUrlO());
+                //LImageUtil.load(activity, photo.getUrlO(), ivBkg0, 30, 60);
+                //LImageUtil.loadNoEffect(activity, photo.getUrlO(), oldImage, ivBkg);
+
+                loadBlurBackground(position, photo);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
                 //do nothing
             }
-        });*/
+        });
+    }
+
+    private void loadBlurBackground(int position, Photo photo) {
+        //load blur bkg fist
+        if (photo == null) {
+            photo = PhotosData.getInstance().getPhoto(position);
+        }
+        if (position % 2 == 0) {
+            LImageUtil.load(activity, photo.getUrlO(), ivBkg0, new RequestListener<String, GlideDrawable>() {
+                @Override
+                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    ivBkg0.setVisibility(View.VISIBLE);
+                    ivBkg1.setVisibility(View.GONE);
+                    return false;
+                }
+            });
+        } else {
+            LImageUtil.load(activity, photo.getUrlO(), ivBkg1, new RequestListener<String, GlideDrawable>() {
+                @Override
+                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    ivBkg0.setVisibility(View.GONE);
+                    ivBkg1.setVisibility(View.VISIBLE);
+                    return false;
+                }
+            });
+        }
     }
 
     @Override

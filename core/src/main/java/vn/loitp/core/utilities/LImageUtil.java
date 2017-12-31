@@ -3,7 +3,6 @@ package vn.loitp.core.utilities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
@@ -29,7 +28,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
-import loitp.core.R;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
@@ -42,12 +40,18 @@ public class LImageUtil {
         Glide.with(activity).load(url).into(imageView);
     }
 
+    public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
+        Glide.with(activity).load(url)
+                .listener(glideDrawableRequestListener)
+                .into(imageView);
+    }
+
     public static void loadNoEffect(Activity activity, String url, String oldImage, ImageView imageView) {
         Glide.with(activity).load(url)
                 .thumbnail(Glide // this thumbnail request has to have the same RESULT cache key
                         .with(activity) // as the outer request, which usually simply means
                         .load(oldImage) // same size/transformation(e.g. centerCrop)/format(e.g. asBitmap)
-                        .fitCenter() // have to be explicit here to match outer load exactly
+                        .centerCrop() // have to be explicit here to match outer load exactly
                 )
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
