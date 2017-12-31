@@ -42,4 +42,28 @@
         android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_20" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                android:id="@+id/bt_download"
+                android:layout_width="@dimen/w_70"
+                android:layout_height="@dimen/w_70"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_download" />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
