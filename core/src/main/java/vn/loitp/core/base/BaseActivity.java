@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,6 +30,8 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.AdmobData;
@@ -123,6 +126,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void handleException(Throwable throwable) {
         LLog.e("handleException", throwable.toString());
+        showDialogError(throwable.getMessage());
+    }
+
+    protected void showDialogError(String errMsg) {
+        LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
+            @Override
+            public void onClick1() {
+                onBackPressed();
+            }
+        });
     }
 
     protected abstract boolean setFullScreen();
@@ -146,29 +159,50 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
-        LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
         if (!event.isConnected()) {
             if (rootView != null) {
                 if (tvConnectStt == null) {
-                    LLog.d(TAG, "tvConnectStt == null");
+                    //LLog.d(TAG, "tvConnectStt == null");
                     tvConnectStt = new TextView(activity);
                     tvConnectStt.setTextColor(Color.WHITE);
                     tvConnectStt.setBackgroundColor(Color.RED);
                     tvConnectStt.setPadding(20, 20, 20, 20);
                     tvConnectStt.setGravity(Gravity.CENTER);
-                    tvConnectStt.setText("isConnected: " + event.isConnected());
+                    tvConnectStt.setText(R.string.check_ur_connection);
 
                     RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                     rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
                     rootView.addView(tvConnectStt, rLParams);
                 } else {
-                    LLog.d(TAG, "tvConnectStt != null");
-                    tvConnectStt.setText("isConnected: " + event.isConnected());
+                    //LLog.d(TAG, "tvConnectStt != null");
+                    tvConnectStt.setText(R.string.check_ur_connection);
                 }
+                LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
             }
         } else {
             if (tvConnectStt != null) {
-                tvConnectStt.setVisibility(View.GONE);
+                LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        tvConnectStt.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
                 tvConnectStt = null;
             }
         }

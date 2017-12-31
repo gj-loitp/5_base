@@ -3,4 +3,5 @@
     <string name="save_conversation">Save</string>
     <string name="warning">Warning</string>
     <string name="confirm">Confirm</string>
+    <string name="check_ur_connection">Please check your Internet connection</string>
 </resources>
