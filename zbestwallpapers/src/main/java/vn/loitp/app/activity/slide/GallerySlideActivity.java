@@ -73,6 +73,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
 
         findViewById(R.id.bt_download).setOnClickListener(this);
         findViewById(R.id.bt_report).setOnClickListener(this);
+        findViewById(R.id.bt_share).setOnClickListener(this);
     }
 
     private void loadBlurBackground(int position, Photo photo) {
@@ -144,6 +145,9 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
             case R.id.bt_report:
                 report();
                 break;
+            case R.id.bt_share:
+                share();
+                break;
         }
     }
 
@@ -159,6 +163,13 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
                 //do nothing
             }
         });
+    }
+
+    private void share() {
+        Photo photo = PhotosData.getInstance().getPhoto(viewPager.getCurrentItem());
+        if (photo != null) {
+            LSocialUtil.share(activity, photo.getUrlO());
+        }
     }
 
     private AsyncTaskDownloadImage asyncTaskDownloadImage;

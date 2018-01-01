@@ -87,6 +87,7 @@
             android:gravity="center">
 
             <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                android:id="@+id/bt_share"
                 android:layout_width="@dimen/w_30"
                 android:layout_height="@dimen/w_30"
                 android:background="@android:color/transparent"
