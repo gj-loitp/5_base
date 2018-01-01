@@ -30,6 +30,7 @@ Likewise may someone love you next.
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="rate">Rate</string>
+    <string name="pls_why_report">Please tell us why you want to report</string>
 
 
     <string-array name="occurence">

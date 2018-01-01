@@ -20,7 +20,9 @@ import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
@@ -70,6 +72,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
         });
 
         findViewById(R.id.bt_download).setOnClickListener(this);
+        findViewById(R.id.bt_report).setOnClickListener(this);
     }
 
     private void loadBlurBackground(int position, Photo photo) {
@@ -138,7 +141,24 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
                     asyncTaskDownloadImage.execute();
                 }
                 break;
+            case R.id.bt_report:
+                report();
+                break;
         }
+    }
+
+    private void report() {
+        LDialogUtil.showDialog2(activity, getString(R.string.warning), getString(R.string.pls_why_report), getString(R.string.yes), getString(R.string.no), new LDialogUtil.Callback2() {
+            @Override
+            public void onClick1() {
+                LSocialUtil.share(activity, getString(R.string.pls_why_report));
+            }
+
+            @Override
+            public void onClick2() {
+                //do nothing
+            }
+        });
     }
 
     private AsyncTaskDownloadImage asyncTaskDownloadImage;

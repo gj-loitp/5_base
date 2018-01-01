@@ -64,7 +64,7 @@ public class LSocialUtil {
             //String sAux = "\nỨng dụng này rất bổ ích, thân mời bạn tải về cài đặt để trải nghiệm\n\n";
             //sAux = sAux + "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
             intent.putExtra(Intent.EXTRA_TEXT, msg);
-            activity.startActivity(Intent.createChooser(intent, "Vui lòng chọn"));
+            activity.startActivity(Intent.createChooser(intent, "Share via"));
             LUIUtil.transActivityFadeIn(activity);
         } catch (Exception e) {
             LLog.d(TAG, "shareApp: " + e.toString());
