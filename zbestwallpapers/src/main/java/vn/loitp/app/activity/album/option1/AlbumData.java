@@ -37,4 +37,14 @@ public class AlbumData {
     public void setPhotosetListVietnamese(List<Photoset> photosetListVietnamese) {
         this.photosetListVietnamese = photosetListVietnamese;
     }
+
+    private boolean isUseStrechImageView;
+
+    public boolean isUseStrechImageView() {
+        return isUseStrechImageView;
+    }
+
+    public void setUseStrechImageView(boolean useStrechImageView) {
+        isUseStrechImageView = useStrechImageView;
+    }
 }

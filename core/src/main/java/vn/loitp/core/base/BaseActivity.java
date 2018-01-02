@@ -151,7 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onBackPressed();
         LUIUtil.transActivityFadeIn(activity);
         if (isShowAdWhenExist) {
-            LUIUtil.displayInterstitial(interstitialAd, 40);
+            LUIUtil.displayInterstitial(interstitialAd, 50);
         }
     }
 

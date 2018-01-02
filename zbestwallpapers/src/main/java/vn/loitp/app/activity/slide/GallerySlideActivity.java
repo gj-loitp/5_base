@@ -17,6 +17,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.album.option1.AlbumData;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
@@ -180,7 +181,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
         public Object instantiateItem(ViewGroup collection, int position) {
             Photo photo = PhotosData.getInstance().getPhoto(position);
             LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(AlbumData.getInstance().isUseStrechImageView() ? R.layout.item_photo_slide_strech_iv : R.layout.item_photo_slide_iv, collection, false);
 
             //RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
             //rootView.setBackgroundColor(AppUtil.getColor(activity));
