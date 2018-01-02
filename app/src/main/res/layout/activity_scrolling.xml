@@ -37,7 +37,18 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
-                app:titleTextColor="@android:color/white" />
+                app:titleTextColor="@android:color/white">
+
+                <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                    android:id="@+id/bt_menu"
+                    android:layout_width="@dimen/w_30"
+                    android:layout_height="@dimen/w_30"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_more_vert_white_48dp" />
+            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
