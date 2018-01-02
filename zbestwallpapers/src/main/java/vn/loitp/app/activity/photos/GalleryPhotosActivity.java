@@ -12,6 +12,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.slide.GallerySlideActivity;
 import vn.loitp.app.activity.view.PhotosItem;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
