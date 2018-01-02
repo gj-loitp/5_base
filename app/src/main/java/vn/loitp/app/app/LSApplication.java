@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import loitp.basemaster.R;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
-//TODO text to speech
+//TODO
 //layout manager recyclerview
 //popup menu
 public class LSApplication extends MultiDexApplication {

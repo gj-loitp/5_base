@@ -85,6 +85,12 @@
                 android:text="Place holder view" />
 
             <Button
+                android:id="@+id/bt_popup_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Popup Menu" />
+
+            <Button
                 android:id="@+id/bt_progress_loading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

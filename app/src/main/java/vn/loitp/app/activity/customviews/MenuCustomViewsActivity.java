@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
+import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
@@ -49,6 +50,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_videoview).setOnClickListener(this);
         findViewById(R.id.bt_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_dialog).setOnClickListener(this);
+        findViewById(R.id.bt_popup_menu).setOnClickListener(this);
     }
 
     @Override
@@ -125,6 +127,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_dialog:
                 intent = new Intent(activity, DialogMenuActivity.class);
+                break;
+            case R.id.bt_popup_menu:
+                intent = new Intent(activity, PopupMenuActivity.class);
                 break;
         }
         if (intent != null) {
