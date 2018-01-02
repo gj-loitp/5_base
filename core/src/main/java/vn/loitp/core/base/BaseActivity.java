@@ -49,6 +49,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected boolean isShowAdWhenExist = true;
 
+    protected RelativeLayout getRootView() {
+        return rootView;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         activity = setActivity();

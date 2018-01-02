@@ -10,19 +10,23 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.album.option1.AlbumData;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -33,10 +37,12 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
     private ImageView ivBkg0;
     private ImageView ivBkg1;
     private ViewPager viewPager;
+    private LinearLayout llControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        llControl = (LinearLayout) findViewById(R.id.ll_control);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         ivBkg0 = (ImageView) findViewById(R.id.iv_bkg_0);
         ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
@@ -194,6 +200,38 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
             //LUIUtil.printBeautyJson(photo, tv);
             tv.setText("Original size: " + photo.getWidthO() + "x" + photo.getHeightO());
             LUIUtil.setTextShadow(tv);
+
+            imageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (llControl.getVisibility() == View.VISIBLE) {
+                        LAnimationUtil.play(llControl, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+                            @Override
+                            public void onCancel() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onEnd() {
+                                llControl.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onRepeat() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onStart() {
+                                //do nothing
+                            }
+                        });
+                    } else {
+                        llControl.setVisibility(View.VISIBLE);
+                        LAnimationUtil.play(llControl, Techniques.SlideInUp);
+                    }
+                }
+            });
 
             collection.addView(layout);
             return layout;
