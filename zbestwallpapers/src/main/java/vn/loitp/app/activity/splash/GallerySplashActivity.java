@@ -23,7 +23,6 @@ import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
-//TODO admob
 public class GallerySplashActivity extends BaseActivity {
     private boolean isAnimDone = false;
     private boolean isCheckReadyDone = false;

@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_10"
-        app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="BallPulseIndicator" />
+        app:indicatorColor="@color/White"
+        app:indicatorName="PacmanIndicator" />
 
     <TextView
         android:id="@+id/tv_gift_not_found"
