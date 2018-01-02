@@ -39,7 +39,7 @@ public class LToast {
             TextView textView = (TextView) layout.findViewById(R.id.tv_loading);
             textView.setText(msg);
             Toast toast = new Toast(context);
-            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setGravity(Gravity.BOTTOM, 0, 0);
             toast.setDuration(length);
             toast.setView(layout);
             toast.show();

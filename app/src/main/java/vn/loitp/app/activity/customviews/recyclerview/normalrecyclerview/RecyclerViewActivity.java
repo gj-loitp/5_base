@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,22 +17,24 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.LToast;
 
 public class RecyclerViewActivity extends BaseActivity {
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
+    private TextView tvType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
+        tvType = (TextView) findViewById(R.id.tv_type);
 
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie) {
-                ToastUtils.showShort("Click " + movie.getTitle());
+                LToast.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
@@ -54,6 +57,7 @@ public class RecyclerViewActivity extends BaseActivity {
                 LPopupMenu.show(activity, v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
+                        tvType.setText(menuItem.getTitle().toString());
                         switch (menuItem.getItemId()) {
                             case R.id.menu_linear_vertical:
                                 RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
@@ -81,7 +85,7 @@ public class RecyclerViewActivity extends BaseActivity {
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                ToastUtils.showShort("Finish loadMore");
+                LToast.show(activity, "Finish loadMore");
             }
         });
     }
