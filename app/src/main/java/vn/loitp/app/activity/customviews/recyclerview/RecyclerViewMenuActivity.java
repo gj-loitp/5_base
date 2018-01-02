@@ -9,6 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
+import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -20,6 +21,7 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.bt_parallax_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_normal_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_normal_recyclerview_with_spansize).setOnClickListener(this);
+        findViewById(R.id.bt_parallax_recyclerview_yayandroid).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +56,9 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.bt_normal_recyclerview_with_spansize:
                 intent = new Intent(activity, RecyclerViewWithSpanSizeActivity.class);
+                break;
+            case R.id.bt_parallax_recyclerview_yayandroid:
+                intent = new Intent(activity, ParallaxYayandroidRecyclerViewActivity.class);
                 break;
         }
         if (intent != null) {

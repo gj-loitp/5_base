@@ -1,4 +1,4 @@
-package vn.loitp.views.parallaxrecyclerview.lib;
+package vn.loitp.views.recyclerview.parallaxrecyclerview.lib;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.
