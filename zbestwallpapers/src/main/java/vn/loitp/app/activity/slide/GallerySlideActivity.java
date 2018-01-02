@@ -41,7 +41,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
         ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         viewPager.setAdapter(new SlidePagerAdapter());
         viewPager.setOffscreenPageLimit(3);
-        LUIUtil.setPullLikeIOSVertical(viewPager);
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         String photoID = getIntent().getStringExtra(Constants.PHOTO_ID);
         int position = PhotosData.getInstance().getPosition(photoID);
