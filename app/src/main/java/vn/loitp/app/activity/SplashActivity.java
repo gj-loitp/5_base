@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity {
         tv.setText("Version " + BuildConfig.VERSION_NAME);
 
         //TODO
-        boolean isNeedCheckReady = true;
+        boolean isNeedCheckReady = false;
         if (isNeedCheckReady) {
             checkReady();
         } else {
