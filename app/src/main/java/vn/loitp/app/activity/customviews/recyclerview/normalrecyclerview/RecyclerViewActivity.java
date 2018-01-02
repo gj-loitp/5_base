@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -73,6 +74,12 @@ public class RecyclerViewActivity extends BaseActivity {
                                 break;
                             case R.id.menu_gridlayoutmanager_3:
                                 recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
+                                break;
+                            case R.id.menu_staggeredgridlayoutmanager_2:
+                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                                break;
+                            case R.id.menu_staggeredgridlayoutmanager_4:
+                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
                                 break;
                         }
                     }

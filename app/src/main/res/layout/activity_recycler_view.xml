@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll" />
+
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/WhiteSmoke"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -25,12 +32,4 @@
             android:layout_height="wrap_content"
             android:text="Setting" />
     </LinearLayout>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ll" />
-
 </RelativeLayout>
