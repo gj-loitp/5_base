@@ -46,7 +46,6 @@
     <dimen name="txt_32">32dp</dimen>
     <dimen name="margin_55">55dp</dimen>
     <dimen name="margin_75">75dp</dimen>
-    <dimen name="w_250">250dp</dimen>
     <dimen name="label_title_size">14sp</dimen>
     <dimen name="padding_label_view">10dp</dimen>
     <dimen name="margin_between_labels">3dp</dimen>
@@ -68,4 +67,5 @@
     <dimen name="margin_300">300dp</dimen>
     <dimen name="w_120">120dp</dimen>
     <dimen name="w_200">200dp</dimen>
+    <dimen name="w_250">250dp</dimen>
 </resources>
