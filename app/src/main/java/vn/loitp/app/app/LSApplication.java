@@ -8,9 +8,7 @@ import com.google.gson.Gson;
 import loitp.basemaster.R;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
-//TODO
-//layout manager recyclerview
-//popup menu
+
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;
