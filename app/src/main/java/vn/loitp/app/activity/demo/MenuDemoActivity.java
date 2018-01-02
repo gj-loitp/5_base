@@ -5,12 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
+import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuDemoActivity extends BaseActivity implements View.OnClickListener {
@@ -22,6 +23,7 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.bt_gallery).setOnClickListener(this);
         findViewById(R.id.bt_video).setOnClickListener(this);
         findViewById(R.id.bt_sound).setOnClickListener(this);
+        findViewById(R.id.bt_text_to_speech).setOnClickListener(this);
 
     }
 
@@ -61,6 +63,10 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
             case R.id.bt_sound:
                 intent = new Intent(activity, SoundActivity.class);
                 break;
+            case R.id.bt_text_to_speech:
+                intent = new Intent(activity, TextToSpeechActivity.class);
+                break;
+
         }
         if (intent != null) {
             startActivity(intent);
