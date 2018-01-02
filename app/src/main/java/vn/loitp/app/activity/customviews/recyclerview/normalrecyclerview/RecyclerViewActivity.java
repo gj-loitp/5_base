@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
@@ -44,6 +47,27 @@ public class RecyclerViewActivity extends BaseActivity {
         LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
+
+        findViewById(R.id.bt_setting).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LPopupMenu.show(activity, v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
+                    @Override
+                    public void clickOnItem(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.menu_linear_vertical:
+                                RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
+                                recyclerView.setLayoutManager(lmVertical);
+                                break;
+                            case R.id.menu_linear_horizontal:
+                                RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                                recyclerView.setLayoutManager(lmHorizontal);
+                                break;
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private void loadMore() {
