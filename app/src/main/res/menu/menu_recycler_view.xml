@@ -6,4 +6,10 @@
     <item
         android:id="@+id/menu_linear_horizontal"
         android:title="LinearLayoutManager horizontal" />
+    <item
+        android:id="@+id/menu_gridlayoutmanager_2"
+        android:title="GridLayoutManager 2" />
+    <item
+        android:id="@+id/menu_gridlayoutmanager_3"
+        android:title="GridLayoutManager 3" />
 </menu>

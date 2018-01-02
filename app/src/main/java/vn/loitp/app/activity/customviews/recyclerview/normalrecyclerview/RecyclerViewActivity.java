@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -66,6 +67,12 @@ public class RecyclerViewActivity extends BaseActivity {
                             case R.id.menu_linear_horizontal:
                                 RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
                                 recyclerView.setLayoutManager(lmHorizontal);
+                                break;
+                            case R.id.menu_gridlayoutmanager_2:
+                                recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                                break;
+                            case R.id.menu_gridlayoutmanager_3:
+                                recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
                                 break;
                         }
                     }
