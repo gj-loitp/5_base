@@ -37,6 +37,12 @@
                 android:text="Gallery" />
 
             <Button
+                android:id="@+id/bt_sound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sound" />
+
+            <Button
                 android:id="@+id/bt_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
