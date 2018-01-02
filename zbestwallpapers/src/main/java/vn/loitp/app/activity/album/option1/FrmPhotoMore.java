@@ -5,15 +5,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdView;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LSocialUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
 public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
+    private AdView adView;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -33,6 +37,9 @@ public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.bt_share_app).setOnClickListener(this);
         view.findViewById(R.id.bt_like_fb_fanpage).setOnClickListener(this);
         view.findViewById(R.id.bt_support).setOnClickListener(this);
+
+        adView = (AdView) view.findViewById(R.id.adView);
+        LUIUtil.createAdBanner(adView);
         return view;
     }
 
@@ -55,5 +62,23 @@ public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
                 LSocialUtil.chatMessenger(getActivity());
                 break;
         }
+    }
+
+    @Override
+    public void onPause() {
+        adView.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        adView.destroy();
+        super.onDestroy();
     }
 }
