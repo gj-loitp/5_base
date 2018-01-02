@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import vn.loitp.app.activity.customviews.actionbar.ActionbarActivity;
+import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
@@ -96,7 +96,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 intent = new Intent(activity, SwitchToggleMenuActivity.class);
                 break;
             case R.id.bt_action_bar:
-                intent = new Intent(activity, ActionbarActivity.class);
+                intent = new Intent(activity, ActionbarMenuActivity.class);
                 break;
             case R.id.bt_imageview:
                 intent = new Intent(activity, ImageViewMenuActivity.class);

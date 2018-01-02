@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -67,9 +68,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         interstitialAd = LUIUtil.createAdFull(activity);
 
-        ScrollView scrollView = (ScrollView) activity.findViewById(R.id.scroll_view);
-        if (scrollView != null) {
-            LUIUtil.setPullLikeIOSVertical(scrollView);
+        View view = activity.findViewById(R.id.scroll_view);
+        if (view != null) {
+            if (view instanceof ScrollView) {
+                LUIUtil.setPullLikeIOSVertical((ScrollView) view);
+            } else if (view instanceof NestedScrollView) {
+                LUIUtil.setPullLikeIOSVertical((NestedScrollView) view);
+            }
         }
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
     }

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.actionbar;
+package vn.loitp.app.activity.customviews.actionbar.lactionbar;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.actionbar.lib.LActionBar;
 
-public class ActionbarActivity extends BaseActivity {
+public class LActionbarActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,6 @@ public class ActionbarActivity extends BaseActivity {
         });
         lActionBar.showMenuIcon();
         lActionBar.setImageMenuIcon(R.mipmap.ic_launcher);
-        lActionBar.setTvTitle("Demo ActionbarActivity");
+        lActionBar.setTvTitle("Demo LActionbarActivity");
     }
 }

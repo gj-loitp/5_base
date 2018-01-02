@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -127,7 +126,7 @@
             android:name="vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.actionbar.ActionbarActivity"
+            android:name="vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity"
@@ -289,27 +288,29 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity"
             android:screenOrientation="portrait" />
-        <!--FOR ALARM DEMO APP-->
+        <activity
+            android:name="vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity"
+            android:screenOrientation="portrait" />
+        <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
             android:label="@string/app_name">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.EditAlarmActivity"
             android:label="Edit alarm"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification"
             android:label="Alarm notification"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences"
             android:label="Preferences"
@@ -363,20 +364,28 @@
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
             android:process=":remote" />
-
         <receiver android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <!--FOR ALARM DEMO APP-->
+        <!-- FOR ALARM DEMO APP -->
 
-        <!--<receiver android:name="vn.loitp.core.utilities.LConectifyBroadcast">
+
+        <!--
+        <receiver android:name="vn.loitp.core.utilities.LConectifyBroadcast">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver>-->
+        </receiver>
+        -->
 
+        <activity
+            android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme"></activity>
     </application>
+
 </manifest>
