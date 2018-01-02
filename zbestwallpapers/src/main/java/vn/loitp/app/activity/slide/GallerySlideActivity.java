@@ -26,7 +26,6 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -204,6 +203,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
             imageView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    v.setClickable(false);
                     if (llControl.getVisibility() == View.VISIBLE) {
                         LAnimationUtil.play(llControl, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
                             @Override
@@ -214,6 +214,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
                             @Override
                             public void onEnd() {
                                 llControl.setVisibility(View.GONE);
+                                v.setClickable(true);
                             }
 
                             @Override
@@ -228,7 +229,27 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
                         });
                     } else {
                         llControl.setVisibility(View.VISIBLE);
-                        LAnimationUtil.play(llControl, Techniques.SlideInUp);
+                        LAnimationUtil.play(llControl, Techniques.SlideInUp, new LAnimationUtil.Callback() {
+                            @Override
+                            public void onCancel() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onEnd() {
+                                v.setClickable(true);
+                            }
+
+                            @Override
+                            public void onRepeat() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onStart() {
+                                //do nothing
+                            }
+                        });
                     }
                 }
             });
