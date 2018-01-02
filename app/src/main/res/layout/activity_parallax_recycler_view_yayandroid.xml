@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.recyclerview.parallaxrecyclerview.lib.ParallaxRecyclerView
-        android:id="@+id/rv"
+    <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
