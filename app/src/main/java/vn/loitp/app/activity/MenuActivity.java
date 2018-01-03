@@ -5,70 +5,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.ads.MenuAdsActivity;
 import vn.loitp.app.activity.animation.MenuAnimationActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class MenuActivity extends BaseActivity {
+public class MenuActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         isShowAdWhenExist = false;
 
-        findViewById(R.id.bt_api).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuAPIActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_animation).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuAnimationActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_custom_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuCustomViewsActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_demo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuDemoActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_ads).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, MenuAdsActivity.class);
-                startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
-            }
-        });
-        findViewById(R.id.bt_rate_app).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LSocialUtil.rateApp(activity, getPackageName());
-            }
-        });
+        findViewById(R.id.bt_api).setOnClickListener(this);
+        findViewById(R.id.bt_animation).setOnClickListener(this);
+        findViewById(R.id.bt_custom_view).setOnClickListener(this);
+        findViewById(R.id.bt_demo).setOnClickListener(this);
+        findViewById(R.id.bt_ads).setOnClickListener(this);
+        findViewById(R.id.bt_rate_app).setOnClickListener(this);
     }
 
     @Override
@@ -89,5 +48,34 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.bt_api:
+                intent = new Intent(activity, MenuAPIActivity.class);
+                break;
+            case R.id.bt_animation:
+                intent = new Intent(activity, MenuAnimationActivity.class);
+                break;
+            case R.id.bt_custom_view:
+                intent = new Intent(activity, MenuCustomViewsActivity.class);
+                break;
+            case R.id.bt_demo:
+                intent = new Intent(activity, MenuDemoActivity.class);
+                break;
+            case R.id.bt_ads:
+                intent = new Intent(activity, MenuAdsActivity.class);
+                break;
+            case R.id.bt_rate_app:
+                LSocialUtil.rateApp(activity, getPackageName());
+                break;
+        }
+        if (intent != null) {
+            startActivity(intent);
+            LUIUtil.transActivityFadeIn(activity);
+        }
     }
 }
