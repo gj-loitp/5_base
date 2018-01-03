@@ -62,6 +62,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+
+        //setCustomStatusBar(true);
+        //getWindow().setStatusBarColor(Color.TRANSPARENT);
         setCustomStatusBar(true);
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());
@@ -100,8 +103,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         }*/
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
-            getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            //getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            //getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+            getWindow().setNavigationBarColor(Color.TRANSPARENT);
         }
     }
 
