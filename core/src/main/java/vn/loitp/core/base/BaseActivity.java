@@ -35,7 +35,6 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.data.AdmobData;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -65,7 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         //setCustomStatusBar(true);
         //getWindow().setStatusBarColor(Color.TRANSPARENT);
-        setCustomStatusBar(true);
+        setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());
 
@@ -82,33 +81,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
     }
 
-    protected void setCustomStatusBar(boolean shouldChangeStatusBarTintToDark) {
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            View decor = getWindow().getDecorView();
-            if (shouldChangeStatusBarTintToDark) {
-                //white status bar with black icons
-                decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.White));
-                getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.Black));
-            } else {
-                //black status bar with white icons
-                decor.setSystemUiVisibility(0);
-                getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.Black));
-                getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.Black));
-            }
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //black status bar with white icons
-            getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.Black));
-            getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.Black));
-        }*/
-
+    protected void setCustomStatusBar(int colorStatusBar, int colorNavigationBar) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
             //getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
 
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-            getWindow().setNavigationBarColor(Color.TRANSPARENT);
+            getWindow().setStatusBarColor(colorStatusBar);
+            getWindow().setNavigationBarColor(colorNavigationBar);
         }
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }*/
     }
 
     @Override
