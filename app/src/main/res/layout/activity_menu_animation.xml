@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_activity_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity Transition" />
+
+            <Button
                 android:id="@+id/bt_animation_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
