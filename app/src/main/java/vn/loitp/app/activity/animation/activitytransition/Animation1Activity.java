@@ -7,7 +7,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 
 public class Animation1Activity extends BaseActivity {
-
+    //https://github.com/Binary-Finery/Bungee
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
