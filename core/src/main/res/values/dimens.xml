@@ -25,8 +25,11 @@
     <dimen name="round_80">80dp</dimen>
     <dimen name="txt_18">18dp</dimen>
     <dimen name="w_60">60dp</dimen>
+    <dimen name="w_48">48dp</dimen>
     <dimen name="w_80">80dp</dimen>
     <dimen name="w_50">50dp</dimen>
+    <dimen name="w_64">64dp</dimen>
+    <dimen name="w_300">300dp</dimen>
     <dimen name="margin_20">20dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="w_40">40dp</dimen>

@@ -7,57 +7,10 @@
     android:fitsSystemWindows="true"
     tools:context="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity">
 
-    <!--<android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_250"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@color/transparent"
-            app:expandedTitleGravity="center"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:toolbarId="@+id/toolbar">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/iv"
-                app:layout_collapseMode="pin" />
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
-                app:layout_collapseMode="pin"
-                app:titleTextColor="@android:color/white">
-
-                <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
-                    android:id="@+id/bt_menu"
-                    android:layout_width="@dimen/w_30"
-                    android:layout_height="@dimen/w_30"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="@dimen/margin_5"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_more_vert_white_48dp" />
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>-->
-
     <vn.loitp.views.LAppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/w_300"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -67,8 +20,8 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="@dimen/w_60"
+            app:expandedTitleMarginStart="@dimen/w_48"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -115,14 +68,16 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <ImageView
+                    <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/margin_5"
+                        android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
+                        android:scaleType="centerInside"
                         android:src="@drawable/ic_more_vert_white_48dp" />
                 </RelativeLayout>
 
@@ -140,7 +95,6 @@
             android:id="@+id/tv_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:gravity="center_horizontal"
             android:text="@string/large_text"
             android:textAppearance="?android:textAppearanceMedium"
