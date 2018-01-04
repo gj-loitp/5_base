@@ -24,6 +24,8 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
         findViewById(R.id.bt_fade).setOnClickListener(this);
         findViewById(R.id.bt_zoom).setOnClickListener(this);
         findViewById(R.id.bt_windmill).setOnClickListener(this);
+        findViewById(R.id.bt_diagonal).setOnClickListener(this);
+        findViewById(R.id.bt_spin).setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +83,14 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
             case R.id.bt_windmill:
                 ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL);
                 LActivityUtil.windmill(activity);
+                break;
+            case R.id.bt_diagonal:
+                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL);
+                LActivityUtil.diagonal(activity);
+                break;
+            case R.id.bt_spin:
+                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SPIN);
+                LActivityUtil.spin(activity);
                 break;
         }
     }

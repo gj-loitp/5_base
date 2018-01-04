@@ -170,6 +170,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             LActivityUtil.zoom(activity);
         } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
             LActivityUtil.windmill(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
+            LActivityUtil.diagonal(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
+            LActivityUtil.spin(activity);
         }
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);

@@ -72,6 +72,18 @@
                 android:layout_height="wrap_content"
                 android:text="windmill" />
 
+            <Button
+                android:id="@+id/bt_diagonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="diagonal" />
+
+            <Button
+                android:id="@+id/bt_spin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="spin" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
