@@ -23,4 +23,15 @@ public class Constants {
     public final static String TEST_6 = "13308851AEDCA44443112D80A8D182CA";
 
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
+
+    public static int TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0;
+    public static int TYPE_ACTIVITY_TRANSITION_SLIDELEFT = 1;
+    public static int TYPE_ACTIVITY_TRANSITION_SLIDERIGHT = 2;
+    public static int TYPE_ACTIVITY_TRANSITION_SLIDEDOWN = 3;
+    public static int TYPE_ACTIVITY_TRANSITION_SLIDEUP = 4;
+    public static int TYPE_ACTIVITY_TRANSITION_FADE = 5;
+    public static int TYPE_ACTIVITY_TRANSITION_ZOOM = 6;
+    public static int TYPE_ACTIVITY_TRANSITION_WINDMILL = 7;
+    public static int TYPE_ACTIVITY_TRANSITION_DIAGONAL = 8;
+    public static int TYPE_ACTIVITY_TRANSITION_SPIN = 9;
 }

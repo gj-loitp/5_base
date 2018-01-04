@@ -31,10 +31,13 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.data.ActivityData;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -149,10 +152,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        LUIUtil.transActivityFadeIn(activity);
+        //LUIUtil.transActivityFadeIn(activity);
+        int typeActivityTransition = ActivityData.getInstance().getType();
+        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
+            //do nothing
+        }else if(typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT){
+            LActivityUtil.slideRight(activity);
+        }
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);
         }
+
     }
 
     private TextView tvConnectStt;

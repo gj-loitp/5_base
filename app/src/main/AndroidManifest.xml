@@ -363,6 +363,9 @@
         <activity
             android:name="vn.loitp.app.activity.animation.activitytransition.Animation1Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.animation.activitytransition.Animation2Activity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
