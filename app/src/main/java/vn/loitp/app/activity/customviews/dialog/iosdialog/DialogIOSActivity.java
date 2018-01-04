@@ -8,7 +8,6 @@ import android.view.View.OnClickListener;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.LToast;
 
 public class DialogIOSActivity extends BaseActivity implements OnClickListener {
