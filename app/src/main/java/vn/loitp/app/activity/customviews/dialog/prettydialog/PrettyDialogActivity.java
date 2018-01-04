@@ -13,6 +13,7 @@ import vn.loitp.views.dialog.prettydialog.PrettyDialogCallback;
 
 //https://github.com/mjn1369/PrettyDialog
 public class PrettyDialogActivity extends BaseActivity implements OnClickListener {
+    private PrettyDialog prettyDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +59,31 @@ public class PrettyDialogActivity extends BaseActivity implements OnClickListene
     }
 
     private void show1() {
-        new PrettyDialog(this)
-                .setTitle("PrettyDialog Title")
+        prettyDialog = new PrettyDialog(activity);
+        prettyDialog.setTitle("PrettyDialog Title")
                 .setMessage("PrettyDialog Message")
                 .show();
     }
 
     private void show2() {
-        new PrettyDialog(this)
-                .setTitle("PrettyDialog Title")
+        prettyDialog = new PrettyDialog(activity);
+        prettyDialog.setTitle("PrettyDialog Title")
+                .setMessage("PrettyDialog Message")
+                .setIcon(R.drawable.pdlg_icon_info)
+                .setIconTint(R.color.pdlg_color_green)
+                .setIconCallback(new PrettyDialogCallback() {
+                    @Override
+                    public void onClick() {
+                        LToast.show(activity, "onClick setIconCallback");
+                        prettyDialog.cancel();
+                    }
+                })
+                .show();
+    }
+
+    private void show3() {
+        prettyDialog = new PrettyDialog(activity);
+        prettyDialog.setTitle("PrettyDialog Title")
                 .setMessage("PrettyDialog Message")
                 .setIcon(R.drawable.pdlg_icon_info)
                 .setIconTint(R.color.pdlg_color_green)
@@ -76,10 +93,53 @@ public class PrettyDialogActivity extends BaseActivity implements OnClickListene
                         LToast.show(activity, "onClick setIconCallback");
                     }
                 })
+                // OK button
+                .addButton(
+                        "OK",                    // button text
+                        R.color.pdlg_color_white,        // button text color
+                        R.color.pdlg_color_green,        // button background color
+                        new PrettyDialogCallback() {        // button OnClick listener
+                            @Override
+                            public void onClick() {
+                                LToast.show(activity, "onClick OK");
+                                prettyDialog.cancel();
+                            }
+                        }
+                )
+                //Cancel button
+                .addButton(
+                        "Cancel",
+                        R.color.pdlg_color_white,
+                        R.color.pdlg_color_red,
+                        new PrettyDialogCallback() {
+                            @Override
+                            public void onClick() {
+                                LToast.show(activity, "onClick Cancel");
+                                prettyDialog.cancel();
+                            }
+                        }
+                )
+                // 3rd button
+                .addButton(
+                        "Option 3",
+                        R.color.pdlg_color_black,
+                        R.color.pdlg_color_gray,
+                        new PrettyDialogCallback() {
+                            @Override
+                            public void onClick() {
+                                LToast.show(activity, "onClick Option 3");
+                                prettyDialog.cancel();
+                            }
+                        }
+                )
                 .show();
     }
 
-    private void show3() {
-
+    @Override
+    protected void onDestroy() {
+        if (prettyDialog != null) {
+            prettyDialog.cancel();
+        }
+        super.onDestroy();
     }
 }
