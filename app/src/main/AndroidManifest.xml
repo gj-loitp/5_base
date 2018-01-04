@@ -394,6 +394,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

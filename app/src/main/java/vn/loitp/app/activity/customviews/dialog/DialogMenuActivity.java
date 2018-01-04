@@ -6,19 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity;
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity;
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity;
-import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
-import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class DialogMenuActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_ios_dialog).setOnClickListener(this);
         findViewById(R.id.bt_original_dialog).setOnClickListener(this);
         findViewById(R.id.bt_pretty_dialog).setOnClickListener(this);
     }
@@ -47,6 +46,9 @@ public class DialogMenuActivity extends BaseActivity implements View.OnClickList
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
+            case R.id.bt_ios_dialog:
+                intent = new Intent(activity, DialogIOSActivity.class);
+                break;
             case R.id.bt_original_dialog:
                 intent = new Intent(activity, DialogOriginalActivity.class);
                 break;

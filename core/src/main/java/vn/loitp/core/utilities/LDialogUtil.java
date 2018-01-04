@@ -1,6 +1,7 @@
 package vn.loitp.core.utilities;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
@@ -156,5 +157,17 @@ public class LDialogUtil {
         AlertDialog dialog = builder.create();
         dialog.show();
         alertDialogList.add(dialog);
+    }
+
+    public static void show(Dialog dialog) {
+        if (dialog != null && !dialog.isShowing()) {
+            dialog.show();
+        }
+    }
+
+    public static void hide(Dialog dialog) {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.cancel();
+        }
     }
 }
