@@ -10,6 +10,11 @@ import loitp.core.R;
  */
 
 public class LActivityUtil {
+
+    public static void transActivityNoAniamtion(Context context) {
+        ((Activity) context).overridePendingTransition(0, 0);
+    }
+
     public static void slideLeft(Context context) {
         ((Activity) context).overridePendingTransition(R.anim.slide_left_enter, R.anim.slide_left_exit);
     }

@@ -217,10 +217,6 @@ public class LUIUtil {
         }
     }
 
-    public static void transActivityNoAniamtion(Activity activity) {
-        activity.overridePendingTransition(0, 0);
-    }
-
     public static void transActivityFadeIn(Activity activity) {
         activity.overridePendingTransition(R.anim.tran_fade_in, R.anim.tran_fade_out);
     }
@@ -232,21 +228,6 @@ public class LUIUtil {
     public static void transActivityBottomToTopAniamtion(Activity activity) {
         activity.overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
     }
-    /*public static void transActivityLeftToRightAniamtion(Activity activity) {
-        activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
-
-    public static void transActivityRightToLeftAniamtion(Activity activity) {
-        activity.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
-    public static void transActivityTopToBottomAniamtion(Activity activity) {
-        activity.overridePendingTransition(0, R.anim.push_down_out);
-    }
-
-    public static void transActivityBottomToTopAniamtion(Activity activity) {
-        activity.overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
-    }*/
 
     /*public static void removeShiftMode(BottomNavigationView view) {
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);

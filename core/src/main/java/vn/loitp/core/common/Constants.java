@@ -24,6 +24,7 @@ public class Constants {
 
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
 
+    public static int TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1;
     public static int TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0;
     public static int TYPE_ACTIVITY_TRANSITION_SLIDELEFT = 1;
     public static int TYPE_ACTIVITY_TRANSITION_SLIDERIGHT = 2;

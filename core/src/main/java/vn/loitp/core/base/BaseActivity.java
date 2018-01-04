@@ -152,9 +152,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //LUIUtil.transActivityFadeIn(activity);
         int typeActivityTransition = ActivityData.getInstance().getType();
-        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
+        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
+            LActivityUtil.transActivityNoAniamtion(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
             //do nothing
         } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
             LActivityUtil.slideRight(activity);

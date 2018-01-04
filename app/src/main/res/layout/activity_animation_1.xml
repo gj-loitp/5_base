@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_no_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No animation" />
+
+            <Button
                 android:id="@+id/bt_system_default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

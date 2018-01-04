@@ -16,6 +16,7 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_no_anim).setOnClickListener(this);
         findViewById(R.id.bt_system_default).setOnClickListener(this);
         findViewById(R.id.bt_slide_left).setOnClickListener(this);
         findViewById(R.id.bt_slide_right).setOnClickListener(this);
@@ -53,6 +54,10 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
         Intent intent = new Intent(activity, Animation2Activity.class);
         startActivity(intent);
         switch (v.getId()) {
+            case R.id.bt_no_anim:
+                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT);
+                LActivityUtil.transActivityNoAniamtion(activity);
+                break;
             case R.id.bt_system_default:
                 ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT);
                 break;
