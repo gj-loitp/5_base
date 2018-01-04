@@ -48,6 +48,18 @@
                 android:layout_height="wrap_content"
                 android:text="slide down" />
 
+            <Button
+                android:id="@+id/bt_slide_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="slide up" />
+
+            <Button
+                android:id="@+id/bt_fade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fade" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

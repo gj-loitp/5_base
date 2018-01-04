@@ -6,6 +6,9 @@ import android.support.multidex.MultiDexApplication;
 import com.google.gson.Gson;
 
 import loitp.basemaster.R;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
@@ -22,7 +25,10 @@ public class LSApplication extends MultiDexApplication {
             gson = new Gson();
         }
         Utils.init(this);
+        //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
+        //config activity transition default
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
     }
 
     public Gson getGson() {

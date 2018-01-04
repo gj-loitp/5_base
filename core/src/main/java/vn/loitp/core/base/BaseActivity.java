@@ -162,6 +162,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             LActivityUtil.slideLeft(activity);
         } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
             LActivityUtil.slideUp(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
+            LActivityUtil.slideDown(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
+            LActivityUtil.fade(activity);
         }
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);
