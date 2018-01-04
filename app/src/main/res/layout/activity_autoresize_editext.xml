@@ -17,7 +17,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
+            <vn.loitp.views.edittext.autoresizeedittext.AutofitEdittext
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:maxLength="50"
+                android:maxLines="2"
+                android:padding="8dp"
+                android:textSize="44sp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

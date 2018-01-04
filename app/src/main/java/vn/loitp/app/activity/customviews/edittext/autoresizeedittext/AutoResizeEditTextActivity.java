@@ -6,12 +6,10 @@ import android.os.Bundle;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 
-//guide https://github.com/xujinyang/BiuEditText
 public class AutoResizeEditTextActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
