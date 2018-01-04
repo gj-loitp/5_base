@@ -215,4 +215,20 @@
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="CircularSeekBar">
+        <attr name="enabled" format="boolean" />
+        <attr name="showIndicator" format="boolean" />
+        <attr name="min" format="float" />
+        <attr name="max" format="float" />
+        <attr name="speedMultiplier" format="float" />
+        <attr name="progressCircularSeekBar" format="float" />
+        <attr name="showProgressText" format="boolean" />
+        <attr name="ringWidth" format="float" />
+        <attr name="progressText" format="string" />
+        <attr name="showInnerCircle" format="boolean" />
+        <attr name="ringColor" format="color" />
+        <attr name="innerCircleColor" format="color" />
+        <attr name="progressTextColor" format="color" />
+        <attr name="progressTextSize" format="float" />
+    </declare-styleable>
 </resources>

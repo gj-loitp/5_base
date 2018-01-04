@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActi
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity;
+import vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
 import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity;
@@ -49,6 +50,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_layout).setOnClickListener(this);
         findViewById(R.id.bt_edit_text).setOnClickListener(this);
         findViewById(R.id.bt_videoview).setOnClickListener(this);
+        findViewById(R.id.bt_seekbar).setOnClickListener(this);
         findViewById(R.id.bt_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_dialog).setOnClickListener(this);
         findViewById(R.id.bt_popup_menu).setOnClickListener(this);
@@ -122,6 +124,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_videoview:
                 intent = new Intent(activity, VideoViewMenuActivity.class);
+                break;
+            case R.id.bt_seekbar:
+                intent = new Intent(activity, SeekbarMenuActivity.class);
                 break;
             case R.id.bt_recyclerview:
                 intent = new Intent(activity, RecyclerViewMenuActivity.class);

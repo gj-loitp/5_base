@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <vn.loitp.views.seekbar.circularseekbar.CircularSeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:enabled="true"
+                app:innerCircleColor="#e0f7e9"
+                app:max="100"
+                app:min="0"
+                app:progress="15"
+                app:progressTextColor="@android:color/black"
+                app:progressTextSize="26"
+                app:ringColor="@color/colorAccent"
+                app:ringWidth="0.5"
+                app:showIndicator="true"
+                app:showInnerCircle="true"
+                app:showProgressText="true"
+                app:speedMultiplier="2" />
+            <!-- app:progressText="xxx" -->
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

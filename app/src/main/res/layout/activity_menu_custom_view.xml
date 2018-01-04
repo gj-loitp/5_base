@@ -103,6 +103,12 @@
                 android:text="RecyclerView" />
 
             <Button
+                android:id="@+id/bt_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seekbar" />
+
+            <Button
                 android:id="@+id/bt_sticker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

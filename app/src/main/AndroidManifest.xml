@@ -397,6 +397,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
