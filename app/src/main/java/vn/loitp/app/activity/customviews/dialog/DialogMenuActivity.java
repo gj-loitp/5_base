@@ -7,6 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity;
+import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity;
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -19,6 +20,7 @@ public class DialogMenuActivity extends BaseActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_original_dialog).setOnClickListener(this);
+        findViewById(R.id.bt_pretty_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,9 @@ public class DialogMenuActivity extends BaseActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.bt_original_dialog:
                 intent = new Intent(activity, DialogOriginalActivity.class);
+                break;
+            case R.id.bt_pretty_dialog:
+                intent = new Intent(activity, PrettyDialogActivity.class);
                 break;
         }
         if (intent != null) {

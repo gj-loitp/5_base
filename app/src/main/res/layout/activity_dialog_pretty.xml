@@ -20,21 +20,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Dialog"
+                android:text="Original Dialog"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_original_dialog"
+                android:id="@+id/bt_show_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Original dialog" />
+                android:text="Simple Dialog, No Customization" />
 
             <Button
-                android:id="@+id/bt_pretty_dialog"
+                android:id="@+id/bt_show_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pretty dialog" />
+                android:text="Change Icon" />
+
+            <Button
+                android:id="@+id/bt_show_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dialog 3" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
