@@ -7,6 +7,8 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
 
 import loitp.basemaster.R;
+import vn.loitp.core.common.Constants;
+import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
@@ -25,6 +27,7 @@ public class LSApplication extends MultiDexApplication {
         Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         Fresco.initialize(getApplicationContext());
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_FADE);
     }
 
     public Gson getGson() {

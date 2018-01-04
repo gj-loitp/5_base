@@ -12,6 +12,7 @@ import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -81,7 +82,7 @@ public class GalleryAlbumActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GalleryPhotosActivity.class);
                             intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                             startActivity(intent);
-                            LUIUtil.transActivityFadeIn(activity);
+                            LActivityUtil.tranIn(activity);
                         }
                     }));
                 }

@@ -17,6 +17,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.app.activity.album.option1.GalleryMenuAlbumActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
@@ -53,7 +54,7 @@ public class GallerySplashActivity extends BaseActivity {
             //Intent intent = new Intent(activity, GalleryAlbumActivity.class);
             Intent intent = new Intent(activity, GalleryMenuAlbumActivity.class);
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
             finish();
         }
     }

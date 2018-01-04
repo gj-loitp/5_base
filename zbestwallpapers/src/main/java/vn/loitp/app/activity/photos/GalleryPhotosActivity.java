@@ -16,6 +16,7 @@ import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -146,7 +147,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GallerySlideActivity.class);
                             intent.putExtra(Constants.PHOTO_ID, photo.getId());
                             startActivityForResult(intent, REQUEST_CODE);
-                            LUIUtil.transActivityFadeIn(activity);
+                            LActivityUtil.tranIn(activity);
                         }
                     }));
                 }

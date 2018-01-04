@@ -17,6 +17,7 @@ import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -106,7 +107,7 @@ public class FrmPhotoCategory extends BaseFragment {
                     intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                     intent.putExtra(Constants.NUMBER_OF_PHOTO, photoset.getPhotos());
                     startActivity(intent);
-                    LUIUtil.transActivityFadeIn(getActivity());
+                    LActivityUtil.tranIn(getActivity());
                 }
             }));
         }
