@@ -1,1 +1,1 @@
-include ':app', ':core', ':zbestwallpapers'
+include ':app', ':core', ':zbestwallpapers', ':zbestcomic'
