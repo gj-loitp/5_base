@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_auto_resize_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AutoResizeEditText " />
+
+            <Button
                 android:id="@+id/bt_material_text_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

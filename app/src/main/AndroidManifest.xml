@@ -403,6 +403,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
