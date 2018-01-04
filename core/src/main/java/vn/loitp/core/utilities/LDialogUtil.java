@@ -1,12 +1,16 @@
 package vn.loitp.core.utilities;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import vn.loitp.views.dialog.iosdialog.iOSDialog;
 
 /**
  * Created by www.muathu@gmail.com on 12/29/2017.
@@ -169,5 +173,51 @@ public class LDialogUtil {
         if (dialog != null && dialog.isShowing()) {
             dialog.cancel();
         }
+    }
+
+    public static void showIOSDialog1(Activity activity, String title, String subtitle, String label1, boolean isBold, final Callback1 callback1) {
+        final iOSDialog iOSDialog = new iOSDialog(activity);
+        iOSDialog.setTitle(title);
+        iOSDialog.setSubtitle(subtitle);
+        iOSDialog.setPositiveLabel(label1);
+        iOSDialog.setBoldPositiveLabel(isBold);
+        iOSDialog.setPositiveListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iOSDialog.dismiss();
+                if (callback1 != null) {
+                    callback1.onClick1();
+                }
+            }
+        });
+        iOSDialog.show();
+    }
+
+    public static void showIOSDialog2(Activity activity, String title, String subtitle, String label1, String label2, boolean isBold, final Callback2 callback2) {
+        final iOSDialog iOSDialog = new iOSDialog(activity);
+        iOSDialog.setTitle(title);
+        iOSDialog.setSubtitle(subtitle);
+        iOSDialog.setNegativeLabel(label1);
+        iOSDialog.setPositiveLabel(label2);
+        iOSDialog.setBoldPositiveLabel(isBold);
+        iOSDialog.setNegativeListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iOSDialog.dismiss();
+                if (callback2 != null) {
+                    callback2.onClick1();
+                }
+            }
+        });
+        iOSDialog.setPositiveListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iOSDialog.dismiss();
+                if (callback2 != null) {
+                    callback2.onClick2();
+                }
+            }
+        });
+        iOSDialog.show();
     }
 }

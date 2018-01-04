@@ -9,6 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.LToast;
 
 public class DialogIOSActivity extends BaseActivity implements OnClickListener {
 
@@ -52,24 +53,24 @@ public class DialogIOSActivity extends BaseActivity implements OnClickListener {
     }
 
     private void show1() {
-        LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1", new LDialogUtil.Callback1() {
+        LDialogUtil.showIOSDialog1(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Allow", false, new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
-                ToastUtils.showShort("Click 1");
+                LToast.show(activity, "onClick1");
             }
         });
     }
 
     private void show2() {
-        LDialogUtil.showDialog2(activity, "Title", "Msg", "Button 1", "Button 2", new LDialogUtil.Callback2() {
+        LDialogUtil.showIOSDialog2(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Don't Allow", "Allow", true, new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
-                ToastUtils.showShort("Click 1");
+                LToast.show(activity, "onClick1");
             }
 
             @Override
             public void onClick2() {
-                ToastUtils.showShort("Click 2");
+                LToast.show(activity, "onClick2");
             }
         });
     }
