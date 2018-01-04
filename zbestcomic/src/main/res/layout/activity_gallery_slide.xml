@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/iv_bkg_0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_bkg_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_15"
+        app:realtimeOverlayColor="@color/black_35" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_5"
+        android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_20" />-->
+
+    <LinearLayout
+        android:id="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                android:id="@+id/bt_report"
+                android:layout_width="@dimen/w_30"
+                android:layout_height="@dimen/w_30"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_report" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                android:id="@+id/bt_download"
+                android:layout_width="@dimen/w_70"
+                android:layout_height="@dimen/w_70"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_download" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                android:id="@+id/bt_share"
+                android:layout_width="@dimen/w_30"
+                android:layout_height="@dimen/w_30"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_share" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
