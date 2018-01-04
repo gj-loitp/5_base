@@ -60,6 +60,18 @@
                 android:layout_height="wrap_content"
                 android:text="fade" />
 
+            <Button
+                android:id="@+id/bt_zoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="zoom" />
+
+            <Button
+                android:id="@+id/bt_windmill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="windmill" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
