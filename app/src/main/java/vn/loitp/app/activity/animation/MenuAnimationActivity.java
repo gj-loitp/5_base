@@ -11,6 +11,7 @@ import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuAnimationActivity extends BaseActivity implements View.OnClickListener {
@@ -63,7 +64,7 @@ public class MenuAnimationActivity extends BaseActivity implements View.OnClickL
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

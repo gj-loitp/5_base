@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivit
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class EditTextMenuActivity extends BaseActivity {
@@ -21,7 +22,7 @@ public class EditTextMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, MaterialTextFieldActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_biu_edit_text).setOnClickListener(new View.OnClickListener() {
@@ -29,7 +30,7 @@ public class EditTextMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, BiuEditTextActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

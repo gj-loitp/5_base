@@ -9,6 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity;
 import vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class ActionbarMenuActivity extends BaseActivity implements View.OnClickListener {
@@ -53,7 +54,7 @@ public class ActionbarMenuActivity extends BaseActivity implements View.OnClickL
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

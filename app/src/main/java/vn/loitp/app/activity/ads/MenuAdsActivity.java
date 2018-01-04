@@ -10,6 +10,7 @@ import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
 import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuAdsActivity extends BaseActivity {
@@ -23,7 +24,7 @@ public class MenuAdsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobBannerActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
@@ -31,7 +32,7 @@ public class MenuAdsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobInterstitialActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
@@ -39,7 +40,7 @@ public class MenuAdsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobRewardedVideoActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

@@ -152,7 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        int typeActivityTransition = ActivityData.getInstance().getType();
+        /*int typeActivityTransition = ActivityData.getInstance().getType();
         if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
             LActivityUtil.transActivityNoAniamtion(activity);
         } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
@@ -175,11 +175,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             LActivityUtil.diagonal(activity);
         } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
             LActivityUtil.spin(activity);
-        }
+        }*/
+        LActivityUtil.tranOut(activity);
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);
         }
-
     }
 
     private TextView tvConnectStt;

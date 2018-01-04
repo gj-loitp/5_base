@@ -217,18 +217,6 @@ public class LUIUtil {
         }
     }
 
-    public static void transActivityFadeIn(Activity activity) {
-        activity.overridePendingTransition(R.anim.tran_fade_in, R.anim.tran_fade_out);
-    }
-
-    public static void transActivityTopToBottomAniamtion(Activity activity) {
-        activity.overridePendingTransition(0, R.anim.push_down_out);
-    }
-
-    public static void transActivityBottomToTopAniamtion(Activity activity) {
-        activity.overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
-    }
-
     /*public static void removeShiftMode(BottomNavigationView view) {
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
         try {

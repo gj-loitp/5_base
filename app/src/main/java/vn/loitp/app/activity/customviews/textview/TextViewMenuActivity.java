@@ -18,6 +18,7 @@ import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.Vertic
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class TextViewMenuActivity extends BaseActivity {
@@ -30,7 +31,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircleTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_score_text).setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ScoreTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_countdown).setOnClickListener(new View.OnClickListener() {
@@ -46,7 +47,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CountDownActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_color_textview).setOnClickListener(new View.OnClickListener() {
@@ -54,7 +55,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ColorTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_scroll_number).setOnClickListener(new View.OnClickListener() {
@@ -62,7 +63,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ScrollNumberActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_selectable_textview).setOnClickListener(new View.OnClickListener() {
@@ -70,7 +71,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SelectableTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_zoom_textview).setOnClickListener(new View.OnClickListener() {
@@ -78,7 +79,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ZoomTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_vertical_marquee_textview).setOnClickListener(new View.OnClickListener() {
@@ -86,7 +87,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, VerticalMarqueeTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_translucent_view).setOnClickListener(new View.OnClickListener() {
@@ -94,7 +95,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TranslucentViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_type_writer_textview).setOnClickListener(new View.OnClickListener() {
@@ -102,7 +103,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TypeWriterTextViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_text_decorator).setOnClickListener(new View.OnClickListener() {
@@ -110,7 +111,7 @@ public class TextViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TextDecoratorActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
@@ -51,8 +52,7 @@ public class SplashActivity extends BaseActivity {
         if (isAnimDone && isCheckReadyDone) {
             Intent intent = new Intent(activity, MenuActivity.class);
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
-            finish();
+            LActivityUtil.tranIn(activity);            finish();
         }
     }
 

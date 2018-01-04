@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class ButtonMenuActivity extends BaseActivity {
@@ -22,7 +23,7 @@ public class ButtonMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ShineButtonActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_f_button).setOnClickListener(new View.OnClickListener() {
@@ -30,7 +31,7 @@ public class ButtonMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, FButtonActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_circular_image_click).setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class ButtonMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircularImageClickActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
 

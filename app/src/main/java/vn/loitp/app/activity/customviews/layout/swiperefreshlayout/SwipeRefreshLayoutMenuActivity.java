@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplacehold
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutScrollViewActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SwipeRefreshLayoutMenuActivity extends BaseActivity {
@@ -22,7 +23,7 @@ public class SwipeRefreshLayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SwipeRefreshLayoutScrollViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_with_recycler_view).setOnClickListener(new View.OnClickListener() {
@@ -30,7 +31,7 @@ public class SwipeRefreshLayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SwipeRefreshLayoutRecyclerViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_with_place_holder_view).setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class SwipeRefreshLayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SwipeRefreshLayoutPlaceHolderViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

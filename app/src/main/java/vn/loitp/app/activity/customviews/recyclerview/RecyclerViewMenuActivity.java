@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.Recycle
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class RecyclerViewMenuActivity extends BaseActivity implements View.OnClickListener {
@@ -63,7 +64,7 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

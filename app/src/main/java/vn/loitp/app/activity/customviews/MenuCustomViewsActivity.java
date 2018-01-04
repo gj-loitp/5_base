@@ -26,6 +26,7 @@ import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuCustomViewsActivity extends BaseActivity implements OnClickListener {
@@ -134,7 +135,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

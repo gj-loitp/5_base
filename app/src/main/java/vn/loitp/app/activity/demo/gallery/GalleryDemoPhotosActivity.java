@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -122,8 +123,7 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
                             intent.putExtra("photoID", photo.getId());
                             startActivity(intent);
-                            LUIUtil.transActivityFadeIn(activity);
-                        }
+                            LActivityUtil.tranIn(activity);                        }
                     }));
                 }
                 avi.smoothToHide();

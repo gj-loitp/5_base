@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivit
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class LayoutMenuActivity extends BaseActivity {
@@ -22,7 +23,7 @@ public class LayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ZoomLayoutActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_ripple_layout).setOnClickListener(new View.OnClickListener() {
@@ -30,7 +31,7 @@ public class LayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RippleLayoutActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_swipe_refresh_layout).setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class LayoutMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, SwipeRefreshLayoutMenuActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

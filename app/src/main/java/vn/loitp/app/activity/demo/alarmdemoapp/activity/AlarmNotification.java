@@ -44,6 +44,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -127,7 +128,7 @@ public class AlarmNotification extends BaseActivity {
 
     public void onDismissClick(View view) {
         finish();
-        LUIUtil.transActivityFadeIn(activity);
+        LActivityUtil.tranIn(activity);
     }
 
     private void readPreferences() {
@@ -167,7 +168,7 @@ public class AlarmNotification extends BaseActivity {
     @Override
     public void onBackPressed() {
         finish();
-        LUIUtil.transActivityFadeIn(activity);
+        LActivityUtil.tranIn(activity);
     }
 
     private class PlayTimerTask extends TimerTask {
@@ -176,7 +177,7 @@ public class AlarmNotification extends BaseActivity {
             LLog.d(TAG, "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 

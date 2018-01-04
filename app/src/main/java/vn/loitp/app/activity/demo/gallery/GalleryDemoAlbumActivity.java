@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import java.util.List;
 
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -77,8 +78,7 @@ public class GalleryDemoAlbumActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
                             intent.putExtra("photosetID", photoset.getId());
                             startActivity(intent);
-                            LUIUtil.transActivityFadeIn(activity);
-                        }
+                            LActivityUtil.tranIn(activity);                        }
                     }));
                 }
                 avi.smoothToHide();

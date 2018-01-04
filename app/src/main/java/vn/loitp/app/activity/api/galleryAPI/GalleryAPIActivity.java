@@ -13,6 +13,7 @@ import java.util.List;
 
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -57,7 +58,7 @@ public class GalleryAPIActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

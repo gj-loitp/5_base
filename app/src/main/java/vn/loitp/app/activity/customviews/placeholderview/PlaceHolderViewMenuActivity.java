@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdra
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe.AndroidTinderSwipeActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class PlaceHolderViewMenuActivity extends BaseActivity {
@@ -25,7 +26,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidNavigationDrawerActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_android_beginner_image_gallery).setOnClickListener(new View.OnClickListener() {
@@ -33,7 +34,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidBeginnerImageGalleryActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_android_advance_image_gallery).setOnClickListener(new View.OnClickListener() {
@@ -41,7 +42,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidAdvanceImageGalleryActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_android_expandable_news_feed).setOnClickListener(new View.OnClickListener() {
@@ -49,7 +50,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidExpandableNewsFreedActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_android_tinder_swipe).setOnClickListener(new View.OnClickListener() {
@@ -57,7 +58,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidTinderSwipeActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_android_infinite_list_with_load_more).setOnClickListener(new View.OnClickListener() {
@@ -65,7 +66,7 @@ public class PlaceHolderViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AndroidInfiniteListWithLoadMoreActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

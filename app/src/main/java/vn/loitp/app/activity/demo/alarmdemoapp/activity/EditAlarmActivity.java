@@ -46,6 +46,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class EditAlarmActivity extends BaseActivity {
@@ -141,14 +142,13 @@ public class EditAlarmActivity extends BaseActivity {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();
-        LUIUtil.transActivityFadeIn(activity);
+        LActivityUtil.tranIn(activity);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
-        LUIUtil.transActivityFadeIn(activity);
-    }
+        LActivityUtil.tranIn(activity);    }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

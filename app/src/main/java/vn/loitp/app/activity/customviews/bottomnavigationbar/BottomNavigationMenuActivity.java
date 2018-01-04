@@ -8,6 +8,7 @@ import android.view.View;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class BottomNavigationMenuActivity extends BaseActivity {
@@ -20,7 +21,7 @@ public class BottomNavigationMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, BottomBarActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

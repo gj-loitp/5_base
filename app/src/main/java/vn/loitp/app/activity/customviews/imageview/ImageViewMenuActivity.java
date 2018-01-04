@@ -15,6 +15,7 @@ import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageView
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class ImageViewMenuActivity extends BaseActivity {
@@ -27,7 +28,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, BlurImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_cirle_imageview).setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircleImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_stretchy_imageview).setOnClickListener(new View.OnClickListener() {
@@ -43,7 +44,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, StrectchyImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_touch_imageview).setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TouchImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_zoom_imageview).setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ZoomImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_fidgetspinner).setOnClickListener(new View.OnClickListener() {
@@ -67,7 +68,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, FidgetSpinnerImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_cirlularroundrect_imageview).setOnClickListener(new View.OnClickListener() {
@@ -75,7 +76,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircularRoundRectImageViewActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_img2ascii).setOnClickListener(new View.OnClickListener() {
@@ -83,7 +84,7 @@ public class ImageViewMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, Img2AsciiActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
 

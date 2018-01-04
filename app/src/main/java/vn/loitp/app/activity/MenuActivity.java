@@ -12,6 +12,7 @@ import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -75,7 +76,6 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
-        }
+            LActivityUtil.tranIn(activity);        }
     }
 }

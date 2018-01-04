@@ -12,6 +12,7 @@ import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuDemoActivity extends BaseActivity implements View.OnClickListener {
@@ -70,7 +71,6 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
-        }
+            LActivityUtil.tranIn(activity);        }
     }
 }

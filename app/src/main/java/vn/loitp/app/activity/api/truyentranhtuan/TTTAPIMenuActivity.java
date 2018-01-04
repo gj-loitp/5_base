@@ -7,6 +7,7 @@ import android.view.View;
 
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class TTTAPIMenuActivity extends BaseActivity {
@@ -19,7 +20,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIComicListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_chap_list).setOnClickListener(new View.OnClickListener() {
@@ -27,7 +28,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIChapListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_page_list).setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIPageListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -43,7 +44,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIFavListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_add_to_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIAddFavListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_remove_to_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class TTTAPIMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIRemoveFavListActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

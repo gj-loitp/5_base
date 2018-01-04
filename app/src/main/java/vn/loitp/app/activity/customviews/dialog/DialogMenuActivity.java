@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalAct
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class DialogMenuActivity extends BaseActivity implements View.OnClickListener {
@@ -50,7 +51,7 @@ public class DialogMenuActivity extends BaseActivity implements View.OnClickList
         }
         if (intent != null) {
             startActivity(intent);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

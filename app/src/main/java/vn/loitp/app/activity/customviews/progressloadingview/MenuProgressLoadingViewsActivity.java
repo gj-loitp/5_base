@@ -9,6 +9,7 @@ import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorv
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuProgressLoadingViewsActivity extends BaseActivity {
@@ -21,7 +22,7 @@ public class MenuProgressLoadingViewsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AVLoadingIndicatorActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_circular_progress_bar).setOnClickListener(new View.OnClickListener() {
@@ -29,7 +30,7 @@ public class MenuProgressLoadingViewsActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircularProgressBarActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

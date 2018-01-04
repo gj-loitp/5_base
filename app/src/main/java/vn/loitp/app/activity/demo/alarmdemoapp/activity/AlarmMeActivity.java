@@ -36,6 +36,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
@@ -108,7 +109,7 @@ public class AlarmMeActivity extends BaseActivity {
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
-        LUIUtil.transActivityFadeIn(this);
+        LActivityUtil.tranIn(activity);
     }
 
     @Override
@@ -142,7 +143,7 @@ public class AlarmMeActivity extends BaseActivity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -172,7 +173,7 @@ public class AlarmMeActivity extends BaseActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -195,7 +196,7 @@ public class AlarmMeActivity extends BaseActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LUIUtil.transActivityFadeIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     };
 

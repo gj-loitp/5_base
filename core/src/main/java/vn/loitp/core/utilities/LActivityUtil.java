@@ -4,12 +4,68 @@ import android.app.Activity;
 import android.content.Context;
 
 import loitp.core.R;
+import vn.loitp.core.common.Constants;
+import vn.loitp.data.ActivityData;
 
 /**
  * Created by www.muathu@gmail.com on 1/3/2018.
  */
 
 public class LActivityUtil {
+
+    public static void tranIn(Context context) {
+        int typeActivityTransition = ActivityData.getInstance().getType();
+        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
+            LActivityUtil.transActivityNoAniamtion((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
+            //do nothing
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
+            LActivityUtil.slideLeft((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
+            LActivityUtil.slideRight((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
+            LActivityUtil.slideDown((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
+            LActivityUtil.slideUp((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
+            LActivityUtil.fade((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_ZOOM) {
+            LActivityUtil.zoom((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
+            LActivityUtil.windmill((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
+            LActivityUtil.diagonal((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
+            LActivityUtil.spin((Activity) context);
+        }
+    }
+
+    public static void tranOut(Context context) {
+        int typeActivityTransition = ActivityData.getInstance().getType();
+        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
+            LActivityUtil.transActivityNoAniamtion((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
+            //do nothing
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
+            LActivityUtil.slideRight((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
+            LActivityUtil.slideLeft((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
+            LActivityUtil.slideUp((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
+            LActivityUtil.slideDown((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
+            LActivityUtil.fade((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_ZOOM) {
+            LActivityUtil.zoom((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
+            LActivityUtil.windmill((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
+            LActivityUtil.diagonal((Activity) context);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
+            LActivityUtil.spin((Activity) context);
+        }
+    }
 
     public static void transActivityNoAniamtion(Context context) {
         ((Activity) context).overridePendingTransition(0, 0);

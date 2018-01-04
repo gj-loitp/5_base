@@ -10,6 +10,7 @@ import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
@@ -23,7 +24,7 @@ public class MenuAPIActivity extends BaseActivity {
                 RestClient.init(getString(R.string.webService_URL), "token");//TODO truyen token
                 Intent intent = new Intent(activity, TestAPIActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
@@ -32,7 +33,7 @@ public class MenuAPIActivity extends BaseActivity {
                 RestClient.init(getString(R.string.flickr_URL));
                 Intent intent = new Intent(activity, GalleryAPIActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
@@ -40,7 +41,7 @@ public class MenuAPIActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIMenuActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

@@ -12,6 +12,7 @@ import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.Paralla
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class ViewPagerMenuActivity extends BaseActivity {
@@ -24,7 +25,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AutoViewPagerActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_parallax_viewpager).setOnClickListener(new View.OnClickListener() {
@@ -32,7 +33,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ParallaxViewPagerActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_detect_viewpager_swipe_out).setOnClickListener(new View.OnClickListener() {
@@ -40,7 +41,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, DetectViewPagerSwipeOutActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_double_viewpager).setOnClickListener(new View.OnClickListener() {
@@ -48,7 +49,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, DoubleViewPagerSplashActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_view_pager_tablayout).setOnClickListener(new View.OnClickListener() {
@@ -56,7 +57,7 @@ public class ViewPagerMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ViewPagerWithTabLayoutActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }

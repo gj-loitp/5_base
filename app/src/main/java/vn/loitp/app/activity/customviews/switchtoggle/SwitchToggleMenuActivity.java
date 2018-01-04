@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomT
 import vn.loitp.core.base.BaseActivity;
 
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SwitchToggleMenuActivity extends BaseActivity {
@@ -22,7 +23,7 @@ public class SwitchToggleMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AppcompatSwitchActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
         findViewById(R.id.bt_custom_toggle_button).setOnClickListener(new View.OnClickListener() {
@@ -30,7 +31,7 @@ public class SwitchToggleMenuActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CustomToggleButtonActivity.class);
                 startActivity(intent);
-                LUIUtil.transActivityFadeIn(activity);
+                LActivityUtil.tranIn(activity);
             }
         });
     }
