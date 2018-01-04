@@ -156,8 +156,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         int typeActivityTransition = ActivityData.getInstance().getType();
         if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
             //do nothing
-        }else if(typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT){
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
             LActivityUtil.slideRight(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
+            LActivityUtil.slideLeft(activity);
+        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
+            LActivityUtil.slideUp(activity);
         }
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);

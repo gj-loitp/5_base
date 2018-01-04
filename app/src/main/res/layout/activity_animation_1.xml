@@ -34,7 +34,19 @@
                 android:id="@+id/bt_slide_left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="slideLeft" />
+                android:text="slide Left" />
+
+            <Button
+                android:id="@+id/bt_slide_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="slide Right" />
+
+            <Button
+                android:id="@+id/bt_slide_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="slide down" />
 
         </LinearLayout>
     </ScrollView>

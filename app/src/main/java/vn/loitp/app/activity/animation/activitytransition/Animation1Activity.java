@@ -18,6 +18,8 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_system_default).setOnClickListener(this);
         findViewById(R.id.bt_slide_left).setOnClickListener(this);
+        findViewById(R.id.bt_slide_right).setOnClickListener(this);
+        findViewById(R.id.bt_slide_down).setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +53,14 @@ public class Animation1Activity extends BaseActivity implements OnClickListener 
             case R.id.bt_slide_left:
                 ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
                 LActivityUtil.slideLeft(activity);
+                break;
+            case R.id.bt_slide_right:
+                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT);
+                LActivityUtil.slideRight(activity);
+                break;
+            case R.id.bt_slide_down:
+                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN);
+                LActivityUtil.slideDown(activity);
                 break;
         }
     }
