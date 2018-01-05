@@ -24,13 +24,16 @@ import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
-public class GallerySplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity {
     private boolean isAnimDone = false;
     private boolean isCheckReadyDone = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        LActivityUtil.hideSystemUI(getWindow().getDecorView());
+
         RestClient.init(getString(R.string.flickr_URL));
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LUIUtil.setImageFromAsset(activity, "bkg.png", ivBkg);
@@ -51,7 +54,6 @@ public class GallerySplashActivity extends BaseActivity {
 
     private void goToHome() {
         if (isAnimDone && isCheckReadyDone) {
-            //Intent intent = new Intent(activity, GalleryAlbumActivity.class);
             Intent intent = new Intent(activity, GalleryMenuAlbumActivity.class);
             startActivity(intent);
             LActivityUtil.tranIn(activity);

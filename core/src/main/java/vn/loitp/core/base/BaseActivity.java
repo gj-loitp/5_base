@@ -64,9 +64,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
-
-        //setCustomStatusBar(true);
-        //getWindow().setStatusBarColor(Color.TRANSPARENT);
         setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());

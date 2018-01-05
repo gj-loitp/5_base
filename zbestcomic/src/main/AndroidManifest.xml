@@ -18,7 +18,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="vn.loitp.app.activity.splash.GallerySplashActivity"
+            android:name="vn.loitp.app.activity.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="vn.loitp.app.activity.home.option0.GalleryAlbumActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.photos.GalleryPhotosActivity"
             android:screenOrientation="portrait" />
