@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.album.option1;
+package vn.loitp.app.activity.home;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;

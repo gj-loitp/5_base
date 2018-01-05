@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.album.option1;
+package vn.loitp.app.activity.home;
 
 import java.util.List;
 

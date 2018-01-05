@@ -12,6 +12,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
+
 //TODO admob id
 //TODO remove gradle
 //TODO ic_launcher
@@ -30,7 +31,7 @@ public class LSApplication extends MultiDexApplication {
         Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         Fresco.initialize(getApplicationContext());
-        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL);
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
     }
 
     public Gson getGson() {

@@ -15,7 +15,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.app.activity.album.option1.GalleryMenuAlbumActivity;
+import vn.loitp.app.activity.home.option1.GalleryMenuAlbumActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;

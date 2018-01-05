@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.album.option1;
+package vn.loitp.app.activity.home.option1;
 
 import android.app.Activity;
 import android.os.Bundle;

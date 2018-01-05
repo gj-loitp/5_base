@@ -19,7 +19,7 @@ import com.bumptech.glide.request.target.Target;
 import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.album.option1.AlbumData;
+import vn.loitp.app.activity.home.option1.AlbumData;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
