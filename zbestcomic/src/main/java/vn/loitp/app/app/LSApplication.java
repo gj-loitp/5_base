@@ -16,6 +16,7 @@ import vn.loitp.utils.util.Utils;
 //TODO admob id
 //TODO remove gradle
 //TODO ic_launcher
+//TODO check splash screen, url
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;

@@ -33,7 +33,7 @@ public class GallerySplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         RestClient.init(getString(R.string.flickr_URL));
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LUIUtil.setImageFromAsset(activity, "bkg.jpg", ivBkg);
+        LUIUtil.setImageFromAsset(activity, "bkg.png", ivBkg);
 
         TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
         LUIUtil.setTextShadow(tvAppName, Color.WHITE);

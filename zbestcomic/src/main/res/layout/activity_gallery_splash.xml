@@ -14,7 +14,6 @@
         android:scaleType="centerCrop" />
 
     <!--<vn.loitp.views.realtimeblurview.RealtimeBlurView
-        android:id="@+id/blur_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_15"
