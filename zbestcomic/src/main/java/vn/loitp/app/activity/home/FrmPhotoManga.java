@@ -62,8 +62,8 @@ public class FrmPhotoManga extends BaseFragment {
 
     private void photosetsGetList() {
         avi.smoothToShow();
-        if (AlbumData.getInstance().getPhotosetListVietnamese() != null && !AlbumData.getInstance().getPhotosetListVietnamese().isEmpty()) {
-            photosetList = AlbumData.getInstance().getPhotosetListVietnamese();
+        if (AlbumData.getInstance().getPhotosetListManga() != null && !AlbumData.getInstance().getPhotosetListManga().isEmpty()) {
+            photosetList = AlbumData.getInstance().getPhotosetListManga();
             setup();
             return;
         }
@@ -110,7 +110,7 @@ public class FrmPhotoManga extends BaseFragment {
         }
         mGalleryView.refresh();
         avi.smoothToHide();
-        AlbumData.getInstance().setPhotosetListVietnamese(photosetList);
+        AlbumData.getInstance().setPhotosetListManga(photosetList);
     }
 
     private void fillList(List<Photoset> photosetList) {

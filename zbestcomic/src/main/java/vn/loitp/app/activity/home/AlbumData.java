@@ -28,14 +28,14 @@ public class AlbumData {
         this.photosetListCategory = photosetListCategory;
     }
 
-    private List<Photoset> photosetListVietnamese;
+    private List<Photoset> photosetListManga;
 
-    public List<Photoset> getPhotosetListVietnamese() {
-        return photosetListVietnamese;
+    public List<Photoset> getPhotosetListManga() {
+        return photosetListManga;
     }
 
-    public void setPhotosetListVietnamese(List<Photoset> photosetListVietnamese) {
-        this.photosetListVietnamese = photosetListVietnamese;
+    public void setPhotosetListManga(List<Photoset> photosetListManga) {
+        this.photosetListManga = photosetListManga;
     }
 
     private boolean isUseStrechImageView;
