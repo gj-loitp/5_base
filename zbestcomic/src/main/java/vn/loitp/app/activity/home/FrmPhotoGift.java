@@ -17,6 +17,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
@@ -77,18 +78,18 @@ public class FrmPhotoGift extends BaseFragment implements RewardedVideoAdListene
         llAd.setVisibility(View.GONE);
         mAd.loadAd(getString(R.string.str_reward), new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
-                .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
-                .addTestDevice("58844B2E50AF6E33DC818387CC50E593")
-                .addTestDevice("179198315EB7B069037C5BE8DEF8319A")
-                .addTestDevice("7DA8A5B216E868636B382A7B9756A4E6")
-                .addTestDevice("A1EC01C33BD69CD589C2AF605778C2E6")
-                .addTestDevice("13308851AEDCA44443112D80A8D182CA")
+                .addTestDevice(Constants.TEST_0)
+                .addTestDevice(Constants.TEST_1)
+                .addTestDevice(Constants.TEST_2)
+                .addTestDevice(Constants.TEST_3)
+                .addTestDevice(Constants.TEST_4)
+                .addTestDevice(Constants.TEST_5)
+                .addTestDevice(Constants.TEST_6)
                 .build());
     }
 
     private void displayRewardAd() {
-        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
+        //LLog.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
         if (mAd.isLoaded()) {
             mAd.show();
         } else {
@@ -98,22 +99,22 @@ public class FrmPhotoGift extends BaseFragment implements RewardedVideoAdListene
 
     @Override
     public void onRewarded(RewardItem reward) {
-        LLog.d(TAG, "onRewarded");
+        //LLog.d(TAG, "onRewarded");
     }
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-        LLog.d(TAG, "onRewardedVideoAdLeftApplication");
+        //LLog.d(TAG, "onRewardedVideoAdLeftApplication");
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
-        LLog.d(TAG, "onRewardedVideoAdClosed");
+        //LLog.d(TAG, "onRewardedVideoAdClosed");
     }
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
-        LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
+        //LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
         //ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         tvGiftNotFound.setVisibility(View.VISIBLE);
         avLoadingIndicatorView.smoothToHide();
@@ -121,7 +122,7 @@ public class FrmPhotoGift extends BaseFragment implements RewardedVideoAdListene
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        LLog.d(TAG, "onRewardedVideoAdLoaded");
+        //LLog.d(TAG, "onRewardedVideoAdLoaded");
         avLoadingIndicatorView.smoothToHide();
         llAd.setVisibility(View.VISIBLE);
         tvGiftNotFound.setVisibility(View.GONE);

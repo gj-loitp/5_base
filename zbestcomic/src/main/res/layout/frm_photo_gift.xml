@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -34,7 +34,7 @@
                 android:gravity="top|center"
                 android:text="Open gift"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/White"
+                android:textColor="@color/grey"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_10"
-        app:indicatorColor="@color/White"
+        app:indicatorColor="@color/colorPrimary"
         app:indicatorName="PacmanIndicator" />
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/margin_10"
         android:text="Gift not found"
-        android:textColor="@color/White"
+        android:textColor="@color/grey"
         android:textSize="@dimen/txt_18"
         android:textStyle="bold"
         android:visibility="gone" />
