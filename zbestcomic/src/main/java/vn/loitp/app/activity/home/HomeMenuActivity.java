@@ -30,7 +30,9 @@ public class HomeMenuActivity extends BaseActivity {
         viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
 
         stringList.add("Tất cả truyện");
-        stringList.add("Yêu thích");
+        stringList.add("Truyện yêu thích");
+        stringList.add("Truyện đã tải");
+        stringList.add("Ảnh nền Manga-Anime");
         stringList.add("Qùa tặng");
         stringList.add("Phụ lục");
 
@@ -80,6 +82,10 @@ public class HomeMenuActivity extends BaseActivity {
                 case 2:
                     return new FrmPhotoGift();
                 case 3:
+                    return new FrmPhotoGift();
+                case 4:
+                    return new FrmPhotoGift();
+                case 5:
                     return new FrmPhotoMore();
             }
             return null;
