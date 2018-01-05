@@ -31,6 +31,12 @@
                 android:text="Collapsing Toolbar Layout" />
 
             <Button
+                android:id="@+id/bt_collapsingtoolbarwithtablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Collapsing Toolbar With TabLayout" />
+
+            <Button
                 android:id="@+id/bt_l_actionbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

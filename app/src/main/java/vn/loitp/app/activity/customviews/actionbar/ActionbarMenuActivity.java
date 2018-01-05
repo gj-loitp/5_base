@@ -7,6 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity;
+import vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity;
 import vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -19,6 +20,7 @@ public class ActionbarMenuActivity extends BaseActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_collapsingtoolbarlayout).setOnClickListener(this);
         findViewById(R.id.bt_l_actionbar).setOnClickListener(this);
+        findViewById(R.id.bt_collapsingtoolbarwithtablayout).setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,9 @@ public class ActionbarMenuActivity extends BaseActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.bt_collapsingtoolbarlayout:
                 intent = new Intent(activity, CollapsingToolbarLayoutActivity.class);
+                break;
+            case R.id.bt_collapsingtoolbarwithtablayout:
+                intent = new Intent(activity, CollapsingToolbarWithTabLayoutActivity.class);
                 break;
             case R.id.bt_l_actionbar:
                 intent = new Intent(activity, LActionbarActivity.class);

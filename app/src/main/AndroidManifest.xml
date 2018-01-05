@@ -406,6 +406,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
