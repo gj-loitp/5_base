@@ -16,7 +16,7 @@
             android:layout_height="@dimen/w_10"
             android:background="@drawable/bkg_shadow_white_black" />
 
-        <com.github.mmin18.widget.RealtimeBlurView
+        <vn.loitp.views.realtimeblurview.RealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             app:realtimeBlurRadius="@dimen/round_80"
