@@ -18,7 +18,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
-public class GalleryMenuAlbumActivity extends BaseActivity {
+public class HomeMenuActivity extends BaseActivity {
     private ParallaxViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
@@ -61,7 +61,7 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_slide_album;
+        return R.layout.activity_home_menu;
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -74,9 +74,9 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FrmPhotoCategory();
+                    return new FrmPhotoGift();
                 case 1:
-                    return new FrmPhotoVietnamese();
+                    return new FrmPhotoGift();
                 case 2:
                     return new FrmPhotoGift();
                 case 3:

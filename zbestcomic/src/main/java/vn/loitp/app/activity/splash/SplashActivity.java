@@ -15,14 +15,12 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.app.activity.home.GalleryMenuAlbumActivity;
+import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.restclient.RestClient;
 
 public class SplashActivity extends BaseActivity {
     private boolean isAnimDone = false;
@@ -34,7 +32,6 @@ public class SplashActivity extends BaseActivity {
 
         LActivityUtil.hideSystemUI(getWindow().getDecorView());
 
-        RestClient.init(getString(R.string.flickr_URL));
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LUIUtil.setImageFromAsset(activity, "bkg.png", ivBkg);
 
@@ -54,7 +51,7 @@ public class SplashActivity extends BaseActivity {
 
     private void goToHome() {
         if (isAnimDone && isCheckReadyDone) {
-            Intent intent = new Intent(activity, GalleryMenuAlbumActivity.class);
+            Intent intent = new Intent(activity, HomeMenuActivity.class);
             startActivity(intent);
             LActivityUtil.tranIn(activity);
             finish();
@@ -81,14 +78,14 @@ public class SplashActivity extends BaseActivity {
             goToHome();
             return;
         }
-        LLog.d(TAG, "checkReady");
-        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1H-4tTboF2JTNRbN8RG6eTxLZQi62_Bbn";
+        //LLog.d(TAG, "checkReady");
+        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1HXia4WviPcLD3OE7OSl54sYIFoNR18yf";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                LLog.d(TAG, "onFailure " + e.toString());
+                //LLog.d(TAG, "onFailure " + e.toString());
                 showDialogNotReady();
             }
 
@@ -97,7 +94,7 @@ public class SplashActivity extends BaseActivity {
                 if (response.isSuccessful()) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     int versionServer = Integer.parseInt(response.body().string());
-                    LLog.d(TAG, "onResponse " + versionServer);
+                    //LLog.d(TAG, "onResponse " + versionServer);
                     if (versionServer == 1) {
                         isCheckReadyDone = true;
                         LPref.setCheckAppReady(activity, true);
@@ -106,7 +103,7 @@ public class SplashActivity extends BaseActivity {
                         showDialogNotReady();
                     }
                 } else {
-                    LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    //LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
                     showDialogNotReady();
                 }
             }
@@ -130,6 +127,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_splash;
+        return R.layout.activity_splash;
     }
 }

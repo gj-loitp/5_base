@@ -11,6 +11,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
+import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
 //TODO admob id
@@ -29,6 +30,7 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
+        //RestClient.init(getString(R.string.flickr_URL));
         Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         Fresco.initialize(getApplicationContext());

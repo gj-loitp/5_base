@@ -36,7 +36,7 @@
             android:name="vn.loitp.app.activity.slide.GallerySlideActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.home.GalleryMenuAlbumActivity"
+            android:name="vn.loitp.app.activity.home.HomeMenuActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>
