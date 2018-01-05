@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/colorPrimary"
             app:expandedTitleMarginEnd="@dimen/w_60"
             app:expandedTitleMarginStart="@dimen/w_48"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
