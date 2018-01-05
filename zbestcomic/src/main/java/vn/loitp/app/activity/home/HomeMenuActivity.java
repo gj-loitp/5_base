@@ -29,10 +29,10 @@ public class HomeMenuActivity extends BaseActivity {
         isShowAdWhenExist = false;
         viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
 
-        stringList.add("Category");
-        stringList.add("Vietnamese");
-        stringList.add("Gift");
-        stringList.add("More");
+        stringList.add("Tất cả truyện");
+        stringList.add("Yêu thích");
+        stringList.add("Qùa tặng");
+        stringList.add("Phụ lục");
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setMode(Mode.RIGHT_OVERLAY);
