@@ -30,7 +30,7 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
-        //RestClient.init(getString(R.string.flickr_URL));
+        RestClient.init(getString(R.string.flickr_URL));
         Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         Fresco.initialize(getApplicationContext());

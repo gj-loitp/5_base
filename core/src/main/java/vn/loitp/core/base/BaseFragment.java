@@ -52,8 +52,11 @@ public abstract class BaseFragment extends Fragment {
         if (throwable == null) {
             return;
         }
-        //ToastUtils.showShort(throwable.getMessage());
-        LDialogUtil.showDialog1(getActivity(), getString(R.string.warning), "Error: " + throwable.getMessage(), getString(R.string.confirm), new LDialogUtil.Callback1() {
+        showDialogError(throwable.getMessage());
+    }
+
+    protected void showDialogError(String errMsg) {
+        LDialogUtil.showDialog1(getActivity(), getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
                 //getActivity().onBackPressed();

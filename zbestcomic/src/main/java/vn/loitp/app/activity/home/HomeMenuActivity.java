@@ -33,6 +33,7 @@ public class HomeMenuActivity extends BaseActivity {
         stringList.add("Truyện yêu thích");
         stringList.add("Truyện đã tải");
         stringList.add("Ảnh nền Manga-Anime");
+        stringList.add("Ảnh nền");
         stringList.add("Qùa tặng");
         stringList.add("Phụ lục");
 
@@ -82,10 +83,12 @@ public class HomeMenuActivity extends BaseActivity {
                 case 2:
                     return new FrmPhotoGift();
                 case 3:
-                    return new FrmPhotoGift();
+                    return new FrmPhotoManga();
                 case 4:
-                    return new FrmPhotoGift();
+                    return new FrmPhotoCategory();
                 case 5:
+                    return new FrmPhotoGift();
+                case 6:
                     return new FrmPhotoMore();
             }
             return null;

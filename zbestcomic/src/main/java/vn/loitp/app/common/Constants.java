@@ -54,4 +54,12 @@ public class Constants {
     public final static String ID_STTVUI                = "72157670301399735";
     public final static String ID_THO                   = "72157667542396544";
     public final static String ID_NGAY83                = "72157669727167291";
+    public final static String ID_COSPLAY               = "72157675738652316";
+    public final static String ID_AVATAR                = "72157673422184280";
+    public final static String ID_FAMOUS_MANGA          = "72157671531238161";
+    public final static String ID_FUNNY_MANGA           = "72157672325785156";
+    public final static String ID_CHIBI                 = "72157670869668975";
+    public final static String ID_MANGA                 = "72157669823155670";
+    public final static String ID_ANIME                 = "72157670869122155";
+    public final static String ID_COUPLE_MANGA          = "72157669822546690";
 }
