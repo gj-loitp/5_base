@@ -7,13 +7,13 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
+import vn.loitp.app.activity.demo.ariana.ArianaActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuDemoActivity extends BaseActivity implements View.OnClickListener {
 
@@ -21,6 +21,7 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_alarm).setOnClickListener(this);
+        findViewById(R.id.bt_ariana).setOnClickListener(this);
         findViewById(R.id.bt_gallery).setOnClickListener(this);
         findViewById(R.id.bt_video).setOnClickListener(this);
         findViewById(R.id.bt_sound).setOnClickListener(this);
@@ -55,6 +56,9 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
             case R.id.bt_alarm:
                 intent = new Intent(activity, AlarmMeActivity.class);
                 break;
+            case R.id.bt_ariana:
+                intent = new Intent(activity, ArianaActivity.class);
+                break;
             case R.id.bt_gallery:
                 intent = new Intent(activity, GalleryDemoSplashActivity.class);
                 break;
@@ -71,6 +75,7 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);        }
+            LActivityUtil.tranIn(activity);
+        }
     }
 }

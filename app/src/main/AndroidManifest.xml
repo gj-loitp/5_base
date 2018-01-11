@@ -409,6 +409,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.ariana.ArianaActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
