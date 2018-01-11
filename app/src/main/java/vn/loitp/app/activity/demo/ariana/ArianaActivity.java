@@ -10,6 +10,7 @@ import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.Ariana;
 import vn.loitp.views.ariana.GradientAngle;
 
+//https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235
 public class ArianaActivity extends BaseActivity {
 
     @Override
