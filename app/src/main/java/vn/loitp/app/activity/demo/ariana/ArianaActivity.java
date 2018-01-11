@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.ariana;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -19,7 +20,8 @@ public class ArianaActivity extends BaseActivity {
 
         ImageView iv = (ImageView) findViewById(R.id.iv);
 
-        iv.setBackground(Ariana.drawable(LStoreUtil.getColors()), GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP);
+        Drawable drawable = Ariana.drawable(LStoreUtil.getColors(), GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP);
+        iv.setBackground(drawable);
     }
 
     @Override
