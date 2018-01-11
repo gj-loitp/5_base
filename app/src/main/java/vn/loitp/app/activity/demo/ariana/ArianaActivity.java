@@ -20,6 +20,8 @@ public class ArianaActivity extends BaseActivity {
 
         ImageView iv = (ImageView) findViewById(R.id.iv);
 
+
+        //TODO chưa lam xong check link git o tren
         Drawable drawable = Ariana.drawable(LStoreUtil.getColors(), GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP);
         iv.setBackground(drawable);
     }
