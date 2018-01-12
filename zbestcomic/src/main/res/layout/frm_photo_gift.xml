@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,13 +32,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
                 android:gravity="top|center"
-                android:text="Open gift"
+                android:text="@string/open_gift"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/grey"
-                android:textStyle="bold" />
+                android:textColor="@color/grey" />
 
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
@@ -56,10 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/margin_10"
-        android:text="Gift not found"
+        android:text="@string/gift_not_found"
         android:textColor="@color/grey"
         android:textSize="@dimen/txt_18"
-        android:textStyle="bold"
         android:visibility="gone" />
 </RelativeLayout>
 

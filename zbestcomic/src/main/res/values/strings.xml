@@ -32,6 +32,8 @@ Likewise may someone love you next.
     <string name="rate">Đánh giá</string>
     <string name="pls_why_report">Xin vui lòng cho chúng tôi biết lý do vì sao bạn report?</string>
     <string name="search">Tìm kiếm</string>
+    <string name="open_gift">Nhấn mở quà tặng</string>
+    <string name="gift_not_found">Hiện tại chưa có quà tặng</string>
 
     <string-array name="occurence">
         <item>Once</item>

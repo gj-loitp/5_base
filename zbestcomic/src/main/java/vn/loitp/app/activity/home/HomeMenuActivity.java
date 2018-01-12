@@ -3,13 +3,12 @@ package vn.loitp.app.activity.home;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,10 +24,9 @@ import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
-    private ParallaxViewPager viewPager;
+    private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
 
@@ -36,7 +34,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
-        viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
 
@@ -85,7 +83,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(adapter);
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
