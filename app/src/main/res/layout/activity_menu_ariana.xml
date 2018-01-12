@@ -38,6 +38,12 @@
                 android:layout_height="wrap_content"
                 android:text="Ariana ImageView" />
 
+            <Button
+                android:id="@+id/bt_ariana_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ariana TextView" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

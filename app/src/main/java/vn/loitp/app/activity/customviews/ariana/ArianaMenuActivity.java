@@ -7,9 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.ariana.iv.ArianaImageViewActivity;
-import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity;
-import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity;
-import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity;
+import vn.loitp.app.activity.customviews.ariana.tv.ArianaTextViewActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -19,6 +17,7 @@ public class ArianaMenuActivity extends BaseActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_ariana_imageview).setOnClickListener(this);
+        findViewById(R.id.bt_ariana_textview).setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +46,9 @@ public class ArianaMenuActivity extends BaseActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.bt_ariana_imageview:
                 intent = new Intent(activity, ArianaImageViewActivity.class);
+                break;
+            case R.id.bt_ariana_textview:
+                intent = new Intent(activity, ArianaTextViewActivity.class);
                 break;
         }
         if (intent != null) {
