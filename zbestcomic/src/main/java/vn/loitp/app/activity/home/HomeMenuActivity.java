@@ -12,11 +12,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
@@ -25,18 +27,21 @@ import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LAppBarLayout;
 import vn.loitp.views.LToast;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
+    private ImageView toolbarImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
+
+        AppUtil.loadBackground(activity, toolbarImage);
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
 
@@ -64,6 +69,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
                     //COLLAPSED appBarLayout min
                     LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                    AppUtil.loadBackground(activity, toolbarImage);
                 } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
                     //EXPANDED appBarLayout max
                     LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
