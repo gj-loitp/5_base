@@ -82,7 +82,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         stringList.add("Qùa tặng");
         stringList.add("Phụ lục");
 
-        findViewById(R.id.fab).setOnClickListener(this);
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -183,10 +182,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fab:
-                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                break;
             case R.id.bt_menu:
                 LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override

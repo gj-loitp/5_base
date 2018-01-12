@@ -53,7 +53,7 @@ public class FrmPhotoManga extends BaseFragment {
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
         mGalleryView = (PlaceHolderView) view.findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        //LUIUtil.setPullLikeIOSVertical(mGalleryView);
         photosetsGetList();
         return view;
     }
