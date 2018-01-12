@@ -79,14 +79,14 @@ public class GallerySplashActivity extends BaseActivity {
             goToHome();
             return;
         }
-        LLog.d(TAG, "checkReady");
+        //LLog.d(TAG, "checkReady");
         final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1H-4tTboF2JTNRbN8RG6eTxLZQi62_Bbn";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                LLog.d(TAG, "onFailure " + e.toString());
+                //LLog.d(TAG, "onFailure " + e.toString());
                 showDialogNotReady();
             }
 
@@ -95,7 +95,7 @@ public class GallerySplashActivity extends BaseActivity {
                 if (response.isSuccessful()) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     int versionServer = Integer.parseInt(response.body().string());
-                    LLog.d(TAG, "onResponse " + versionServer);
+                    //LLog.d(TAG, "onResponse " + versionServer);
                     if (versionServer == 1) {
                         isCheckReadyDone = true;
                         LPref.setCheckAppReady(activity, true);
@@ -104,7 +104,7 @@ public class GallerySplashActivity extends BaseActivity {
                         showDialogNotReady();
                     }
                 } else {
-                    LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    //LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
                     showDialogNotReady();
                 }
             }
