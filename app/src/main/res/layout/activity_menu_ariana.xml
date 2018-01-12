@@ -20,41 +20,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Demo"
+                android:text="Menu Ariana"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <Button
-                android:id="@+id/bt_alarm"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alarm" />
+                android:gravity="center"
+                android:text="Provide Multiple Gradients in ImageViews and Texts"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_14" />
 
             <Button
-                android:id="@+id/bt_gallery"
+                android:id="@+id/bt_ariana_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gallery" />
+                android:text="Ariana ImageView" />
 
-            <Button
-                android:id="@+id/bt_sound"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sound" />
-
-            <Button
-                android:id="@+id/bt_text_to_speech"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Text to speech" />
-
-            <Button
-                android:id="@+id/bt_video"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Video" />
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>
 

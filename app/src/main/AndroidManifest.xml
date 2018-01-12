@@ -410,7 +410,10 @@
             android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.ariana.ArianaActivity"
+            android:name="vn.loitp.app.activity.customviews.ariana.iv.ArianaImageViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity"
             android:screenOrientation="portrait" />
     </application>
 

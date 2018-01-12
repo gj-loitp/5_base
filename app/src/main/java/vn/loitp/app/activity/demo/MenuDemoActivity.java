@@ -7,7 +7,6 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
-import vn.loitp.app.activity.demo.ariana.ArianaActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
@@ -55,9 +54,6 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.bt_alarm:
                 intent = new Intent(activity, AlarmMeActivity.class);
-                break;
-            case R.id.bt_ariana:
-                intent = new Intent(activity, ArianaActivity.class);
                 break;
             case R.id.bt_gallery:
                 intent = new Intent(activity, GalleryDemoSplashActivity.class);

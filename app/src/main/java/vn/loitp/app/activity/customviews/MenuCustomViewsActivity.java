@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
+import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
@@ -35,6 +36,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_ariana).setOnClickListener(this);
         findViewById(R.id.bt_place_holder_view).setOnClickListener(this);
         findViewById(R.id.bt_view_pager).setOnClickListener(this);
         findViewById(R.id.bt_keyword_view).setOnClickListener(this);
@@ -80,6 +82,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
+            case R.id.bt_ariana:
+                intent = new Intent(activity, ArianaMenuActivity.class);
+                break;
             case R.id.bt_place_holder_view:
                 intent = new Intent(activity, PlaceHolderViewMenuActivity.class);
                 break;
