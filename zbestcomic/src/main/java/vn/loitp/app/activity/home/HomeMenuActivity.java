@@ -19,9 +19,11 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LAppBarLayout;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 
@@ -54,7 +56,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
         collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
 
-        /*LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
+        LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
         appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
             @Override
             public void onStateChange(LAppBarLayout.State toolbarChange) {
@@ -70,7 +72,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
                 }
             }
-        });*/
+        });
 
         stringList.add("Tất cả truyện");
         stringList.add("Truyện yêu thích");
