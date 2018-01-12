@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.home;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,9 @@ public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.bt_share_app).setOnClickListener(this);
         view.findViewById(R.id.bt_like_fb_fanpage).setOnClickListener(this);
         view.findViewById(R.id.bt_support).setOnClickListener(this);
+
+        //NestedScrollView nestedScrollView = (NestedScrollView) view.findViewById(R.id.scroll_view);
+        //LUIUtil.setPullLikeIOSVertical(nestedScrollView);
 
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);

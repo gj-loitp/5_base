@@ -96,15 +96,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
+            android:background="@color/transparent"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="bottom"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/White"
-            app:tabIndicatorHeight="@dimen/w_5"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorHeight="@dimen/w_1"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/White"
-            app:tabTextColor="@color/Lavender" />
+            app:tabSelectedTextColor="@color/Black"
+            app:tabTextColor="@color/Gray" />
     </vn.loitp.views.LAppBarLayout>
 
     <vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager
