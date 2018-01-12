@@ -101,7 +101,7 @@
             app:layout_anchorGravity="bottom"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/White"
-            app:tabIndicatorHeight="@dimen/w_3"
+            app:tabIndicatorHeight="@dimen/w_5"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/White"
             app:tabTextColor="@color/Lavender" />
