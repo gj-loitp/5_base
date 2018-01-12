@@ -1,11 +1,18 @@
 package vn.loitp.app.activity.home;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +20,14 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
-public class HomeMenuActivity extends BaseActivity {
+public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ParallaxViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
@@ -28,6 +37,45 @@ public class HomeMenuActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
         viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
+
+        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
+
+        /*LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
+        appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
+            @Override
+            public void onStateChange(LAppBarLayout.State toolbarChange) {
+                //LLog.d(TAG, "toolbarChange: " + toolbarChange);
+                if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
+                    //COLLAPSED appBarLayout min
+                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
+                    //EXPANDED appBarLayout max
+                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                } else {
+                    //IDLE appBarLayout not min not max
+                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+                }
+            }
+        });*/
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
 
         stringList.add("Tất cả truyện");
         stringList.add("Truyện yêu thích");
@@ -129,6 +177,24 @@ public class HomeMenuActivity extends BaseActivity {
                     LSocialUtil.rateApp(activity, getPackageName());
                 }
             });
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fab:
+                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                break;
+            case R.id.bt_menu:
+                LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
+                    @Override
+                    public void clickOnItem(MenuItem menuItem) {
+                        LToast.show(activity, menuItem.getTitle().toString());
+                    }
+                });
+                break;
         }
     }
 }
