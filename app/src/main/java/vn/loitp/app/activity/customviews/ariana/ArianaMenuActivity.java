@@ -8,6 +8,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.ariana.iv.ArianaImageViewActivity;
 import vn.loitp.app.activity.customviews.ariana.tv.ArianaTextViewActivity;
+import vn.loitp.app.activity.customviews.ariana.vp.ArianaViewPagerActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -18,6 +19,7 @@ public class ArianaMenuActivity extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_ariana_imageview).setOnClickListener(this);
         findViewById(R.id.bt_ariana_textview).setOnClickListener(this);
+        findViewById(R.id.bt_ariana_viewpager).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +51,9 @@ public class ArianaMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_ariana_textview:
                 intent = new Intent(activity, ArianaTextViewActivity.class);
+                break;
+            case R.id.bt_ariana_viewpager:
+                intent = new Intent(activity, ArianaViewPagerActivity.class);
                 break;
         }
         if (intent != null) {

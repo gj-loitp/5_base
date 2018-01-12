@@ -44,6 +44,12 @@
                 android:layout_height="wrap_content"
                 android:text="Ariana TextView" />
 
+            <Button
+                android:id="@+id/bt_ariana_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ariana ViewPager" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

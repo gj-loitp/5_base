@@ -417,6 +417,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.ariana.tv.ArianaTextViewActivity"
+            android:screenOrientation="portrait" /> <activity
+            android:name="vn.loitp.app.activity.customviews.ariana.vp.ArianaViewPagerActivity"
             android:screenOrientation="portrait" />
     </application>
 
