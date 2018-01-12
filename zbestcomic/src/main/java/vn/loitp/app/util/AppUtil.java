@@ -13,16 +13,19 @@ import loitp.basemaster.R;
 
 public class AppUtil {
     private static int colors[] = {
-            R.color.colorPrimary,
-            R.color.colorPrimary_50,
-            R.color.colorPrimary_100,
-            R.color.colorPrimary_200,
-            R.color.colorPrimary_300,
-            R.color.colorPrimary_400,
-            R.color.colorPrimary_600,
-            R.color.colorPrimary_700,
-            R.color.colorPrimary_800,
-            R.color.colorPrimaryDark
+            R.color.LightBlue,
+            R.color.LightCoral,
+            R.color.LightCyan,
+            R.color.LightGoldenrodYellow,
+            R.color.LightGreen,
+            R.color.LightGrey,
+            R.color.LightPink,
+            R.color.LightSalmon,
+            R.color.LightSeaGreen,
+            R.color.LightSlateGray,
+            R.color.LightSteelBlue,
+            R.color.LightYellow,
+            R.color.LightSkyBlue
     };
 
     public static int getColor(Context context) {
