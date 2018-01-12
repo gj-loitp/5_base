@@ -64,8 +64,14 @@
                         android:orientation="vertical">
 
                         <EditText
+                            android:id="@+id/et_search"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bt_tag"
+                            android:hint="@string/search"
+                            android:textColor="@color/White"
+                            android:textColorHint="@color/White"
+                            android:textCursorDrawable="@null" />
                     </LinearLayout>
 
                     <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
