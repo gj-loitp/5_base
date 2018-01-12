@@ -31,13 +31,11 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
-import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.data.ActivityData;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -149,30 +147,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        /*int typeActivityTransition = ActivityData.getInstance().getType();
-        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
-            LActivityUtil.transActivityNoAniamtion(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
-            //do nothing
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
-            LActivityUtil.slideRight(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
-            LActivityUtil.slideLeft(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
-            LActivityUtil.slideUp(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
-            LActivityUtil.slideDown(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
-            LActivityUtil.fade(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_ZOOM) {
-            LActivityUtil.zoom(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
-            LActivityUtil.windmill(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
-            LActivityUtil.diagonal(activity);
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
-            LActivityUtil.spin(activity);
-        }*/
         LActivityUtil.tranOut(activity);
         if (isShowAdWhenExist) {
             LUIUtil.displayInterstitial(interstitialAd, 50);

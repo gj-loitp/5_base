@@ -74,9 +74,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this);
-
         stringList.add("Tất cả truyện");
         stringList.add("Truyện yêu thích");
         stringList.add("Truyện đã tải");
@@ -84,6 +81,9 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         stringList.add("Ảnh nền");
         stringList.add("Qùa tặng");
         stringList.add("Phụ lục");
+
+        findViewById(R.id.fab).setOnClickListener(this);
+        findViewById(R.id.bt_menu).setOnClickListener(this);
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setMode(Mode.RIGHT_OVERLAY);
