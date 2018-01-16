@@ -41,6 +41,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         llControl = (LinearLayout) findViewById(R.id.ll_control);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         ivBkg0 = (ImageView) findViewById(R.id.iv_bkg_0);
