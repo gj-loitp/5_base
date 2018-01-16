@@ -1,7 +1,5 @@
 package vn.loitp.app.activity.home.allmanga;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.widget.Button;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.view.ComicItem;
 import vn.loitp.app.helper.ComicUtils;
 import vn.loitp.app.helper.comiclist.GetComicTask;
 import vn.loitp.app.model.comic.Comic;
@@ -96,7 +95,19 @@ public class FrmAllManga extends BaseFragment {
         getComicTask = new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
             @Override
             public void onSuccess(List<Comic> comicList) {
-
+                //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));
+                if (comicList == null || comicList.isEmpty()) {
+                    //TODO
+                } else {
+                    for (int i = 0; i < comicList.size(); i++) {
+                        placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
+                            @Override
+                            public void onClick(Comic comic, int position) {
+                                LLog.d(TAG, "onClick " + comic.getTitle());
+                            }
+                        }));
+                    }
+                }
             }
 
             @Override
