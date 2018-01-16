@@ -30,6 +30,8 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        LActivityUtil.hideSystemUI(getWindow().getDecorView());
+
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LUIUtil.setImageFromAsset(activity, "bkg.png", ivBkg);
 

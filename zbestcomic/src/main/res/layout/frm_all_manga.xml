@@ -11,6 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/bt_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5"
+            android:background="@drawable/bt_toast"
+            android:text="@string/choose_type"
+            android:textAllCaps="false" />
+
         <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
             android:id="@+id/galleryView"
             android:layout_width="match_parent"
@@ -19,12 +28,6 @@
             android:scrollbarThumbVertical="@drawable/scroll_thumb"
             android:scrollbarTrackVertical="@drawable/scroll_track"
             android:scrollbars="vertical" />
-
-        <Button
-            android:id="@+id/bt_select"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chọn thể loại" />
 
         <TextView
             android:id="@+id/tv_title"

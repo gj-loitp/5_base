@@ -34,6 +34,7 @@ Likewise may someone love you next.
     <string name="search">Tìm kiếm</string>
     <string name="open_gift">Nhấn mở quà tặng</string>
     <string name="gift_not_found">Hiện tại chưa có quà tặng</string>
+    <string name="choose_type">Chọn thể loại</string>
 
     <string-array name="occurence">
         <item>Once</item>
