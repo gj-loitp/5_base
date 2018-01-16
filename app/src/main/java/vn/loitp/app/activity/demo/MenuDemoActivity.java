@@ -7,6 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
+import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
@@ -20,6 +21,7 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_alarm).setOnClickListener(this);
+        findViewById(R.id.bt_ebook_with_realm).setOnClickListener(this);
         findViewById(R.id.bt_gallery).setOnClickListener(this);
         findViewById(R.id.bt_video).setOnClickListener(this);
         findViewById(R.id.bt_sound).setOnClickListener(this);
@@ -52,6 +54,9 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.bt_alarm:
                 intent = new Intent(activity, AlarmMeActivity.class);
+                break;
+            case R.id.bt_ebook_with_realm:
+                intent = new Intent(activity, EbookWithRealmActivity.class);
                 break;
             case R.id.bt_gallery:
                 intent = new Intent(activity, GalleryDemoSplashActivity.class);

@@ -436,6 +436,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
