@@ -26,7 +26,6 @@ import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LAppBarLayout;
-import vn.loitp.views.LToast;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
@@ -191,7 +190,23 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
-                        LToast.show(activity, menuItem.getTitle().toString());
+                        switch (menuItem.getItemId()) {
+                            case R.id.rate_app:
+                                LSocialUtil.rateApp(activity, getPackageName());
+                                break;
+                            case R.id.more_app:
+                                LSocialUtil.moreApp(activity);
+                                break;
+                            case R.id.share_app:
+                                LSocialUtil.shareApp(activity);
+                                break;
+                            case R.id.like_facebook_fanpage:
+                                LSocialUtil.likeFacebookFanpage(activity);
+                                break;
+                            case R.id.support_24_7:
+                                LSocialUtil.chatMessenger(activity);
+                                break;
+                        }
                     }
                 });
                 break;
