@@ -112,7 +112,7 @@ public class LSocialUtil {
             LLog.d(TAG, "packageManager com.facebook.orca: " + e.toString());
         }
         if (!isFBInstalled) {
-            ToastUtils.showShort("Cannot find Messenger App!");
+            LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null);
         } else {
             Uri uri = Uri.parse("fb-messenger://user/");
             uri = ContentUris.withAppendedId(uri, Long.valueOf("947139732073591"));
@@ -121,7 +121,8 @@ public class LSocialUtil {
                 activity.startActivity(intent);
                 LActivityUtil.tranIn(activity);
             } catch (Exception e) {
-                ToastUtils.showShort("Cannot find Messenger App!");
+                LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null);
+
             }
         }
     }
