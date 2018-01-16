@@ -29,7 +29,7 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 public class FrmAllManga extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private TextView tvTitle;
-    private TextView tv;
+    //private TextView tv;
     private AVLoadingIndicatorView avi;
     private Button btSelect;
 
@@ -50,7 +50,7 @@ public class FrmAllManga extends BaseFragment {
         View view = inflater.inflate(R.layout.frm_all_manga, container, false);
         btSelect = (Button) view.findViewById(R.id.bt_select);
         tvTitle = (TextView) view.findViewById(R.id.tv_title);
-        tv = (TextView) view.findViewById(R.id.tv);
+        //tv = (TextView) view.findViewById(R.id.tv);
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
         avi.hide();
 
@@ -79,12 +79,12 @@ public class FrmAllManga extends BaseFragment {
             @Override
             public void onClick(DialogInterface dialog, int position) {
                 LLog.d(TAG, "onClick " + position);
-                tv.setText("");
+                //tv.setText("");
                 tvTitle.setText("");
                 new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
                     @Override
                     public void onSuccess(List<Comic> comicList) {
-                        LUIUtil.printBeautyJson(comicList, tv);
+                        //LUIUtil.printBeautyJson(comicList, tv);
                         tvTitle.setText("Danh sách truyện: " + comicList.size());
                     }
 
