@@ -11,6 +11,7 @@ import vn.loitp.app.activity.animation.MenuAnimationActivity;
 import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
+import vn.loitp.app.activity.function.MenuFunctionActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
@@ -27,8 +28,10 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.bt_animation).setOnClickListener(this);
         findViewById(R.id.bt_custom_view).setOnClickListener(this);
         findViewById(R.id.bt_demo).setOnClickListener(this);
+        findViewById(R.id.bt_function).setOnClickListener(this);
         findViewById(R.id.bt_ads).setOnClickListener(this);
         findViewById(R.id.bt_rate_app).setOnClickListener(this);
+        findViewById(R.id.bt_more_app).setOnClickListener(this);
     }
 
     @Override
@@ -73,9 +76,16 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
             case R.id.bt_rate_app:
                 LSocialUtil.rateApp(activity, getPackageName());
                 break;
+            case R.id.bt_more_app:
+                LSocialUtil.moreApp(activity);
+                break;
+            case R.id.bt_function:
+                intent = new Intent(activity, MenuFunctionActivity.class);
+                break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);        }
+            LActivityUtil.tranIn(activity);
+        }
     }
 }

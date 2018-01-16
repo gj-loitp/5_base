@@ -27,44 +27,50 @@
             <Button
                 android:id="@+id/bt_api"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="API" />
 
             <Button
                 android:id="@+id/bt_ads"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Ads" />
 
             <Button
                 android:id="@+id/bt_animation"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Animation" />
 
             <Button
                 android:id="@+id/bt_custom_view"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Custom views" />
 
             <Button
                 android:id="@+id/bt_demo"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Demo App" />
+
+            <Button
+                android:id="@+id/bt_function"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Function" />
 
             <Button
                 android:id="@+id/bt_rate_app"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Rate App" />
+
+            <Button
+                android:id="@+id/bt_more_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="More App" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

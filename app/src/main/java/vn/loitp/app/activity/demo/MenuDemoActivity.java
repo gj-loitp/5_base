@@ -20,12 +20,10 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_alarm).setOnClickListener(this);
-        findViewById(R.id.bt_ariana).setOnClickListener(this);
         findViewById(R.id.bt_gallery).setOnClickListener(this);
         findViewById(R.id.bt_video).setOnClickListener(this);
         findViewById(R.id.bt_sound).setOnClickListener(this);
         findViewById(R.id.bt_text_to_speech).setOnClickListener(this);
-
     }
 
     @Override
