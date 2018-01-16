@@ -2,9 +2,14 @@ package vn.loitp.app.activity.photos;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -15,6 +20,7 @@ import vn.loitp.app.activity.view.PhotosItem;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -25,6 +31,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.LAppBarLayout;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -40,10 +47,51 @@ public class GalleryPhotosActivity extends BaseActivity {
     private final int REQUEST_CODE = 6969;
 
     private boolean isLoading;
-
+    private ImageView toolbarImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
+        AppUtil.loadBackground(activity, toolbarImage);
+
+        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
+
+        LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
+        appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
+            @Override
+            public void onStateChange(LAppBarLayout.State toolbarChange) {
+                //LLog.d(TAG, "toolbarChange: " + toolbarChange);
+                if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
+                    //COLLAPSED appBarLayout min
+                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
+                    //EXPANDED appBarLayout max
+                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                    AppUtil.loadBackground(activity, toolbarImage);
+                } else {
+                    //IDLE appBarLayout not min not max
+                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+                }
+            }
+        });
+
         tvTitle = (TextView) findViewById(R.id.tv_title);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
