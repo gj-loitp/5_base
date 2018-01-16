@@ -49,6 +49,12 @@
                 android:text="Countdown TextView" />
 
             <Button
+                android:id="@+id/bt_justifield_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="JustifiedTextView" />
+
+            <Button
                 android:id="@+id/bt_score_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

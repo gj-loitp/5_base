@@ -1,4 +1,4 @@
-package vn.loitp.views.textview.countdown.lib;
+package vn.loitp.views.textview.countdown;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextVie
 import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity;
+import vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity;
 import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity;
@@ -41,6 +42,7 @@ public class TextViewMenuActivity extends BaseActivity implements OnClickListene
         findViewById(R.id.bt_translucent_view).setOnClickListener(this);
         findViewById(R.id.bt_type_writer_textview).setOnClickListener(this);
         findViewById(R.id.bt_text_decorator).setOnClickListener(this);
+        findViewById(R.id.bt_justifield_textview).setOnClickListener(this);
     }
 
     @Override
@@ -102,6 +104,9 @@ public class TextViewMenuActivity extends BaseActivity implements OnClickListene
                 break;
             case R.id.bt_text_decorator:
                 intent = new Intent(activity, TextDecoratorActivity.class);
+                break;
+            case R.id.bt_justifield_textview:
+                intent = new Intent(activity, JustifiedTextViewActivity.class);
                 break;
         }
         if (intent != null) {
