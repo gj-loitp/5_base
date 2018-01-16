@@ -34,6 +34,8 @@ public class FrmAllManga extends BaseFragment {
     private List<ComicType> comicTypeList;
     private PlaceHolderView placeHolderView;
 
+    private GetComicTask getComicTask;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -61,6 +63,9 @@ public class FrmAllManga extends BaseFragment {
                 showDialogSelect();
             }
         });
+
+        run(0);
+
         return view;
     }
 
@@ -74,25 +79,10 @@ public class FrmAllManga extends BaseFragment {
             @Override
             public void onClick(int position) {
                 LLog.d(TAG, "onClick " + position);
-                getComicTask = new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
-                    @Override
-                    public void onSuccess(List<Comic> comicList) {
-
-                    }
-
-                    @Override
-                    public void onError() {
-                        ToastUtils.showShort("Error");
-                    }
-                });
-                if (getComicTask != null) {
-                    getComicTask.execute();
-                }
+                run(position);
             }
         });
     }
-
-    private GetComicTask getComicTask;
 
     @Override
     public void onDestroyView() {
@@ -100,5 +90,22 @@ public class FrmAllManga extends BaseFragment {
             getComicTask.cancel(true);
         }
         super.onDestroyView();
+    }
+
+    private void run(int position) {
+        getComicTask = new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+            @Override
+            public void onSuccess(List<Comic> comicList) {
+
+            }
+
+            @Override
+            public void onError() {
+                ToastUtils.showShort("Error");
+            }
+        });
+        if (getComicTask != null) {
+            getComicTask.execute();
+        }
     }
 }
