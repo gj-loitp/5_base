@@ -7,42 +7,20 @@
 
     <Button
         android:id="@+id/bt_select"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/margin_5"
-        android:background="@drawable/bt_toast"
+        android:layout_alignParentBottom="true"
         android:text="@string/choose_type"
         android:textAllCaps="false" />
 
     <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
-        android:id="@+id/galleryView"
+        android:id="@+id/place_hoder_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbarSize="@dimen/w_3"
         android:scrollbarThumbVertical="@drawable/scroll_thumb"
         android:scrollbarTrackVertical="@drawable/scroll_track"
         android:scrollbars="vertical" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/Black"
-        android:textSize="@dimen/txt_20" />
-
-    <!--<android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/Black"
-            android:textSize="@dimen/txt_10" />
-    </android.support.v4.widget.NestedScrollView>-->
 
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
