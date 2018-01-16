@@ -48,46 +48,7 @@
                 app:contentInsetStart="0dp"
                 app:contentInsetStartWithNavigation="0dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_55"
-                        android:orientation="vertical">
-
-                        <EditText
-                            android:id="@+id/et_search"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bt_tag"
-                            android:hint="@string/search"
-                            android:textColor="@color/White"
-                            android:textColorHint="@color/White"
-                            android:textCursorDrawable="@null" />
-                    </LinearLayout>
-
-                    <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
-                        android:id="@+id/bt_menu"
-                        android:layout_width="@dimen/w_50"
-                        android:layout_height="@dimen/w_30"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_5"
-                        android:background="?selectableItemBackgroundBorderless"
-                        android:contentDescription="@string/app_name"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_more_vert_white_48dp" />
-                </RelativeLayout>
-
-            </android.support.v7.widget.Toolbar>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </vn.loitp.views.LAppBarLayout>
@@ -102,15 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bkg_shadow_black_white"
-            android:padding="@dimen/padding_5"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_20" />
 
         <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
             android:id="@+id/avi"

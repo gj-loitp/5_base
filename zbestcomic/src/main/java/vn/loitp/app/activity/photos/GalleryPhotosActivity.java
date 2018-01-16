@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,7 +39,6 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 public class GalleryPhotosActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
-    private TextView tvTitle;
 
     private int currentPage;
     private int totalPage;
@@ -48,6 +48,8 @@ public class GalleryPhotosActivity extends BaseActivity {
 
     private boolean isLoading;
     private ImageView toolbarImage;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +70,8 @@ public class GalleryPhotosActivity extends BaseActivity {
             }
         });
 
-        /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        /*collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
         collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
         collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
 
@@ -92,7 +94,6 @@ public class GalleryPhotosActivity extends BaseActivity {
             }
         });
 
-        tvTitle = (TextView) findViewById(R.id.tv_title);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
@@ -183,7 +184,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
-                tvTitle.setText(s);
+                collapsingToolbarLayout.setTitle(s);
 
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosData.getInstance().addPhoto(photoList);
