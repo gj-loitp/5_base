@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.home;
+package vn.loitp.app.activity.home.ad;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

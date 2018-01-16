@@ -18,6 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.home.ad.FrmPhotoGift;
+import vn.loitp.app.activity.home.allmanga.FrmAllManga;
+import vn.loitp.app.activity.home.allwallpaper.FrmPhotoCategory;
+import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
+import vn.loitp.app.activity.home.favmanga.FrmFavManga;
+import vn.loitp.app.activity.home.mangawallpaper.FrmPhotoManga;
+import vn.loitp.app.activity.home.more.FrmPhotoMore;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -130,9 +137,9 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 0:
                     return new FrmAllManga();
                 case 1:
-                    return new FrmPhotoGift();
+                    return new FrmFavManga();
                 case 2:
-                    return new FrmPhotoGift();
+                    return new FrmDownloadedManga();
                 case 3:
                     return new FrmPhotoManga();
                 case 4:

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.home;
+package vn.loitp.app.activity.home.more;
 
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.home;
+package vn.loitp.app.activity.home.allwallpaper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.home.AlbumData;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;

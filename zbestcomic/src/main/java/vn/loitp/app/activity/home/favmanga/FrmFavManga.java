@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.home;
+package vn.loitp.app.activity.home.favmanga;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import vn.loitp.core.base.BaseFragment;
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmAllManga extends BaseFragment {
+public class FrmFavManga extends BaseFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FrmAllManga extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_all_manga, container, false);
+        View view = inflater.inflate(R.layout.frm_fav_manga, container, false);
         return view;
     }
 }
