@@ -1,25 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/WhiteSmoke"
+    android:fillViewport="true">
 
-    <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
-        android:id="@+id/galleryView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:layout_height="match_parent">
 
-    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
-        style="@style/AVLoadingIndicatorView.Large"
-        android:layout_width="@dimen/w_50"
-        android:layout_height="@dimen/w_50"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_55"
-        app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="PacmanIndicator" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/bt_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Chọn thể loại" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_10" />
+
+        </LinearLayout>
+        <!--<vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
+            android:id="@+id/galleryView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />-->
+
+        <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView.Large"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_55"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorName="PacmanIndicator" />
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
