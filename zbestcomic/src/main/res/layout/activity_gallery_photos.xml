@@ -62,6 +62,9 @@
             android:id="@+id/galleryView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scrollbarSize="@dimen/w_3"
+            android:scrollbarThumbVertical="@drawable/scroll_thumb"
+            android:scrollbarTrackVertical="@drawable/scroll_track"
             android:scrollbars="vertical" />
 
         <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
@@ -69,8 +72,9 @@
             style="@style/AVLoadingIndicatorView.Large"
             android:layout_width="@dimen/w_50"
             android:layout_height="@dimen/w_50"
-            android:layout_centerInParent="true"
-            app:indicatorColor="@color/White"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_55"
+            app:indicatorColor="@color/colorPrimary"
             app:indicatorName="PacmanIndicator" />
     </RelativeLayout>
 
