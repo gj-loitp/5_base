@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke"
-    android:fillViewport="true">
+    android:fillViewport="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,8 +13,9 @@
 
         <Button
             android:id="@+id/bt_select"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_margin="@dimen/margin_5"
             android:background="@drawable/bt_toast"
             android:text="@string/choose_type"
