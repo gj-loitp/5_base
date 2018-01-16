@@ -30,6 +30,6 @@ public class EmptyActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_splash_v3;
+        return R.layout.activity_empty;
     }
 }
