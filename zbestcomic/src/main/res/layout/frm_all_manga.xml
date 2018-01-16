@@ -11,40 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_5">
-
-            <Button
-                android:id="@+id/bt_select"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text="Chọn thể loại" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_10" />
-
-        </LinearLayout>
-        <!--<vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
+        <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
             android:id="@+id/galleryView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />-->
+            android:scrollbarSize="@dimen/w_3"
+            android:scrollbarThumbVertical="@drawable/scroll_thumb"
+            android:scrollbarTrackVertical="@drawable/scroll_track"
+            android:scrollbars="vertical" />
+
+        <Button
+            android:id="@+id/bt_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Chọn thể loại" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_20" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_10" />
 
         <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
             android:id="@+id/avi"
