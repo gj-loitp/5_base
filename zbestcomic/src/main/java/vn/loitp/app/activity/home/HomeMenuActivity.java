@@ -69,10 +69,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
                     //COLLAPSED appBarLayout min
                     LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
-                    AppUtil.loadBackground(activity, toolbarImage);
                 } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
                     //EXPANDED appBarLayout max
                     LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                    AppUtil.loadBackground(activity, toolbarImage);
                 } else {
                     //IDLE appBarLayout not min not max
                     LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
