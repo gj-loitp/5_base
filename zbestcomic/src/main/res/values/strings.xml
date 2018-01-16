@@ -35,6 +35,7 @@ Likewise may someone love you next.
     <string name="open_gift">Nhấn mở quà tặng</string>
     <string name="gift_not_found">Hiện tại chưa có quà tặng</string>
     <string name="choose_type">Chọn thể loại</string>
+    <string name="cannot_get_comic_list">Không thể tải danh sách truyện vào lúc này, xin vui lòng thử lại sau</string>
 
     <string-array name="occurence">
         <item>Once</item>

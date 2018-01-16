@@ -97,7 +97,7 @@ public class FrmAllManga extends BaseFragment {
             public void onSuccess(List<Comic> comicList) {
                 //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));
                 if (comicList == null || comicList.isEmpty()) {
-                    //TODO
+                    showDialogError(getString(R.string.cannot_get_comic_list));
                 } else {
                     for (int i = 0; i < comicList.size(); i++) {
                         placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
