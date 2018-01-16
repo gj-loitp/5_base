@@ -427,6 +427,9 @@
         <activity
             android:name="vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.function.gesto.GestoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

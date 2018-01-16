@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_gesto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gesto" />
+
+            <Button
                 android:id="@+id/bt_simple_finger_gesture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

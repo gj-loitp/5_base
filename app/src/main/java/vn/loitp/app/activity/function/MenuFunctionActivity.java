@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.function.gesto.GestoActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -17,6 +18,7 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
 
+        findViewById(R.id.bt_gesto).setOnClickListener(this);
         findViewById(R.id.bt_simple_finger_gesture).setOnClickListener(this);
     }
 
@@ -44,6 +46,9 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
+            case R.id.bt_gesto:
+                intent = new Intent(activity, GestoActivity.class);
+                break;
             case R.id.bt_simple_finger_gesture:
                 intent = new Intent(activity, SimpleFingerGesturesActivity.class);
                 break;
