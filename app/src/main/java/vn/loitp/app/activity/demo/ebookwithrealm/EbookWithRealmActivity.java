@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.ebookwithrealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LPref;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 public class EbookWithRealmActivity extends BaseActivity {
@@ -42,7 +43,7 @@ public class EbookWithRealmActivity extends BaseActivity {
 
         setupRecycler();
 
-        if (!Prefs.with(this).getPreLoad()) {
+        if (!LPref.getPreLoad(activity)) {
             setRealmData();
         }
 
@@ -195,6 +196,6 @@ public class EbookWithRealmActivity extends BaseActivity {
             realm.commitTransaction();
         }
 
-        Prefs.with(this).setPreLoad(true);
+        LPref.setPreLoad(activity, true);
     }
 }

@@ -18,9 +18,9 @@ import com.bumptech.glide.Glide;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.ebookwithrealm.Prefs;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
+import vn.loitp.core.utilities.LPref;
 
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
@@ -85,7 +85,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
                 realm.commitTransaction();
 
                 if (results.size() == 0) {
-                    Prefs.with(context).setPreLoad(false);
+                    LPref.setPreLoad(context, false);
                 }
 
                 notifyDataSetChanged();

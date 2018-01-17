@@ -13,6 +13,7 @@ public class LPref {
 
     private final static String PREFERENCES_FILE_NAME = "loitp";
     private final static String CHECK_APP_READY = "CHECK_APP_READY";
+    private final static String PRE_LOAD = "PRE_LOAD";
     public static String JSON_LIST_DATA = "JSON_LIST_DATA";
     public static String JSON_FAV_DATA = "JSON_FAV_DATA";
     public static String JSON_AD_DATA = "JSON_AD_DATA";
@@ -55,6 +56,16 @@ public class LPref {
         editor.apply();
     }
 
+    public static Boolean getPreLoad(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getBoolean(PRE_LOAD, false);
+    }
+
+    public static void setPreLoad(Context context, Boolean value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putBoolean(PRE_LOAD, value);
+        editor.apply();
+    }
     /////////////////////////////////INT
     /*public static int getViewBy(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
