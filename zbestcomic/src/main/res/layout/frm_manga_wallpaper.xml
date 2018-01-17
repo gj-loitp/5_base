@@ -10,6 +10,9 @@
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbarSize="@dimen/w_3"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/scroll_track"
         android:scrollbars="vertical" />
 
     <TextView
