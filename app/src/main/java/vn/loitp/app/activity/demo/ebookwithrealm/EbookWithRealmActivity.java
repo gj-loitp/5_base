@@ -193,6 +193,10 @@ public class EbookWithRealmActivity extends BaseActivity {
 
                             booksAdapter.notifyDataSetChanged();
                             recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
+
+                            /*booksAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
+                            booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
+                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*/
                         }
                     }
                 })
@@ -232,7 +236,6 @@ public class EbookWithRealmActivity extends BaseActivity {
 
                         realm.commitTransaction();
 
-                        //booksAdapter.notifyDataSetChanged();
                         booksAdapter.notifyItemChanged(position);
                     }
                 })
