@@ -5,12 +5,15 @@ import android.support.multidex.MultiDexApplication;
 
 import com.google.gson.Gson;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
+
 //TODO fb cmt
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
@@ -29,6 +32,14 @@ public class LSApplication extends MultiDexApplication {
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         //config activity transition default
         ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
+
+        //config realm
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+                .name(Realm.DEFAULT_REALM_NAME)
+                .schemaVersion(0)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
     }
 
     public Gson getGson() {

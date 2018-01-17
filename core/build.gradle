@@ -77,4 +77,7 @@ dependencies {
     //compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
 
     compile 'com.google.android.gms:play-services-ads:11.0.4'
+
+    // Realm
+    compile 'io.realm:realm-android:0.82.1'
 }
