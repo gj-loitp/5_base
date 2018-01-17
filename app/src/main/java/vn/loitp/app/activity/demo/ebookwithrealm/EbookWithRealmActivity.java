@@ -39,7 +39,6 @@ public class EbookWithRealmActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
@@ -102,6 +101,7 @@ public class EbookWithRealmActivity extends BaseActivity {
         recyclerView.setLayoutManager(layoutManager);
         booksAdapter = new BooksAdapter(this);
         recyclerView.setAdapter(booksAdapter);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
 
     private void setRealmData() {
@@ -166,14 +166,13 @@ public class EbookWithRealmActivity extends BaseActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Book book = new Book();
-                        //book.setId(RealmController.getInstance().getBooks().size() + 1);
                         book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
                         book.setTitle(editTitle.getText().toString());
                         book.setAuthor(editAuthor.getText().toString());
                         book.setImageUrl(editThumbnail.getText().toString());
 
                         if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                            Toast.makeText(activity, "Entry not saved, missing title", Toast.LENGTH_SHORT).show();
+                            ToastUtils.showShort("Entry not saved, missing title");
                         } else {
                             // Persist your data easily
                             realm.beginTransaction();
@@ -183,7 +182,7 @@ public class EbookWithRealmActivity extends BaseActivity {
                             booksAdapter.notifyDataSetChanged();
 
                             // scroll the recyclerView view to bottom
-                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);
+                            recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
                         }
                     }
                 })

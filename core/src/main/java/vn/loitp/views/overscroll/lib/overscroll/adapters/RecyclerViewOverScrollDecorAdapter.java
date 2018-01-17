@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * @author amitd
- *
  * @see HorizontalOverScrollBounceEffectDecorator
  * @see VerticalOverScrollBounceEffectDecorator
  */
@@ -24,6 +23,7 @@ public class RecyclerViewOverScrollDecorAdapter implements IOverScrollDecoratorA
      */
     protected interface Impl {
         boolean isInAbsoluteStart();
+
         boolean isInAbsoluteEnd();
     }
 
@@ -38,21 +38,18 @@ public class RecyclerViewOverScrollDecorAdapter implements IOverScrollDecoratorA
 
         final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager ||
-            layoutManager instanceof StaggeredGridLayoutManager)
-        {
+                layoutManager instanceof StaggeredGridLayoutManager) {
             final int orientation =
                     (layoutManager instanceof LinearLayoutManager
-                        ? ((LinearLayoutManager) layoutManager).getOrientation()
-                        : ((StaggeredGridLayoutManager) layoutManager).getOrientation());
+                            ? ((LinearLayoutManager) layoutManager).getOrientation()
+                            : ((StaggeredGridLayoutManager) layoutManager).getOrientation());
 
             if (orientation == LinearLayoutManager.HORIZONTAL) {
                 mImpl = new ImplHorizLayout();
             } else {
                 mImpl = new ImplVerticalLayout();
             }
-        }
-        else
-        {
+        } else {
             throw new IllegalArgumentException("Recycler views with custom layout managers are not supported by this adapter out of the box." +
                     "Try implementing and providing an explicit 'impl' parameter to the other c'tors, or otherwise create a custom adapter subclass of your own.");
         }
