@@ -75,4 +75,6 @@
     <dimen name="w_120">120dp</dimen>
     <dimen name="w_200">200dp</dimen>
     <dimen name="w_250">250dp</dimen>
+
+    <dimen name="animated_expandable_edit_text_expanded_height">35dp</dimen>
 </resources>

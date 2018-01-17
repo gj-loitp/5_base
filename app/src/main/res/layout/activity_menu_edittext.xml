@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_animated_expandable_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AnimatedExpandableEditTextActivity " />
+
+            <Button
                 android:id="@+id/bt_auto_resize_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

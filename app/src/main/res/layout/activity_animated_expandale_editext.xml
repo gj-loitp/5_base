@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg_black_colorprimary">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/form_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_group_shape"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_50"
+                    android:background="@android:color/transparent"
+                    android:hint="CPF"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:textSize="@dimen/txt_14" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_50"
+                    android:background="@android:color/transparent"
+                    android:hint="E-mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:textSize="@dimen/txt_14" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_50"
+                    android:background="@android:color/transparent"
+                    android:hint="Data de nascimento"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:textSize="@dimen/txt_14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/form_group2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/form_group_shape"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_50"
+                    android:background="@android:color/transparent"
+                    android:hint="About you"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:textSize="@dimen/txt_14" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
