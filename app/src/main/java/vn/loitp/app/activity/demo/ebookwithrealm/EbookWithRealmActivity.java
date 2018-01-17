@@ -23,20 +23,21 @@ import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.utils.util.ToastUtils;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 public class EbookWithRealmActivity extends BaseActivity {
-    private BooksAdapter adapter;
+    private BooksAdapter booksAdapter;
     private Realm realm;
-    private LayoutInflater inflater;
-    private FloatingActionButton fab;
-    private RecyclerView recycler;
+    private LayoutInflater layoutInflater;
+    private FloatingActionButton floatingActionButton;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        recycler = (RecyclerView) findViewById(R.id.recycler);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
@@ -50,19 +51,18 @@ public class EbookWithRealmActivity extends BaseActivity {
         // refresh the realm instance
         RealmController.with(this).refresh();
         // get all persisted objects
-        // create the helper adapter and notify data set changes
+        // create the helper booksAdapter and notify data set changes
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        Toast.makeText(this, "Press card item for edit, long press to remove item", Toast.LENGTH_LONG).show();
+        ToastUtils.showShort("Press card item for edit, long press to remove item");
 
         //add new item
-        fab.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                inflater = getLayoutInflater();
-                View content = inflater.inflate(R.layout.edit_item, null);
+                layoutInflater = getLayoutInflater();
+                View content = layoutInflater.inflate(R.layout.edit_item, null);
                 final EditText editTitle = (EditText) content.findViewById(R.id.title);
                 final EditText editAuthor = (EditText) content.findViewById(R.id.author);
                 final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);
@@ -89,10 +89,10 @@ public class EbookWithRealmActivity extends BaseActivity {
                                     realm.copyToRealm(book);
                                     realm.commitTransaction();
 
-                                    adapter.notifyDataSetChanged();
+                                    booksAdapter.notifyDataSetChanged();
 
-                                    // scroll the recycler view to bottom
-                                    recycler.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);
+                                    // scroll the recyclerView view to bottom
+                                    recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);
                                 }
                             }
                         })
@@ -129,26 +129,26 @@ public class EbookWithRealmActivity extends BaseActivity {
         return R.layout.activity_ebook_with_realm;
     }
 
-    public void setRealmAdapter(RealmResults<Book> books) {
+    private void setRealmAdapter(RealmResults<Book> books) {
         RealmBooksAdapter realmAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
         // Set the data and tell the RecyclerView to draw
-        adapter.setRealmAdapter(realmAdapter);
-        adapter.notifyDataSetChanged();
+        booksAdapter.setRealmAdapter(realmAdapter);
+        booksAdapter.notifyDataSetChanged();
     }
 
     private void setupRecycler() {
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        recycler.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
 
         // use a linear layout manager since the cards are vertically scrollable
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recycler.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
 
-        // create an empty adapter and add it to the recycler view
-        adapter = new BooksAdapter(this);
-        recycler.setAdapter(adapter);
+        // create an empty booksAdapter and add it to the recyclerView view
+        booksAdapter = new BooksAdapter(this);
+        recyclerView.setAdapter(booksAdapter);
     }
 
     private void setRealmData() {
@@ -156,36 +156,36 @@ public class EbookWithRealmActivity extends BaseActivity {
 
         Book book = new Book();
         book.setId(1 + System.currentTimeMillis());
-        book.setAuthor("Reto Meier");
-        book.setTitle("Android 4 Application Development");
+        book.setAuthor("1 Reto Meier");
+        book.setTitle("1 Android 4 Application Development");
         book.setImageUrl("http://api.androidhive.info/images/realm/1.png");
         books.add(book);
 
         book = new Book();
         book.setId(2 + System.currentTimeMillis());
-        book.setAuthor("Itzik Ben-Gan");
-        book.setTitle("Microsoft SQL Server 2012 T-SQL Fundamentals");
+        book.setAuthor("2 Itzik Ben-Gan");
+        book.setTitle("2 Microsoft SQL Server 2012 T-SQL Fundamentals");
         book.setImageUrl("http://api.androidhive.info/images/realm/2.png");
         books.add(book);
 
         book = new Book();
         book.setId(3 + System.currentTimeMillis());
-        book.setAuthor("Magnus Lie Hetland");
-        book.setTitle("Beginning Python: From Novice To Professional Paperback");
+        book.setAuthor("3 Magnus Lie Hetland");
+        book.setTitle("3 Beginning Python: From Novice To Professional Paperback");
         book.setImageUrl("http://api.androidhive.info/images/realm/3.png");
         books.add(book);
 
         book = new Book();
         book.setId(4 + System.currentTimeMillis());
-        book.setAuthor("Chad Fowler");
-        book.setTitle("The Passionate Programmer: Creating a Remarkable Career in Software Development");
+        book.setAuthor("4 Chad Fowler");
+        book.setTitle("4 The Passionate Programmer: Creating a Remarkable Career in Software Development");
         book.setImageUrl("http://api.androidhive.info/images/realm/4.png");
         books.add(book);
 
         book = new Book();
         book.setId(5 + System.currentTimeMillis());
-        book.setAuthor("Yashavant Kanetkar");
-        book.setTitle("Written Test Questions In C Programming");
+        book.setAuthor("5 Yashavant Kanetkar");
+        book.setTitle("5 Written Test Questions In C Programming");
         book.setImageUrl("http://api.androidhive.info/images/realm/5.png");
         books.add(book);
 
