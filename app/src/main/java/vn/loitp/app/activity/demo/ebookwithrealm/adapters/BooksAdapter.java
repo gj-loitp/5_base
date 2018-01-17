@@ -23,28 +23,22 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 import vn.loitp.core.utilities.LPref;
 
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
-
     final Context context;
     private Realm realm;
     private LayoutInflater inflater;
 
     public BooksAdapter(Context context) {
-
         this.context = context;
     }
 
-    // create new views (invoked by the layout manager)
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // inflate a new card view
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_books, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.real_item_books, parent, false);
         return new CardViewHolder(view);
     }
 
-    // replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
-
         realm = RealmController.getInstance().getRealm();
 
         // get the article
