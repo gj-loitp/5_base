@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.ebookwithrealm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -100,8 +101,8 @@ public class EbookWithRealmActivity extends BaseActivity {
         recyclerView.setLayoutManager(layoutManager);
         booksAdapter = new BooksAdapter(this, new BooksAdapter.OnClick() {
             @Override
-            public void onClick() {
-                updateItem();
+            public void onClick(Book book, int position) {
+                updateItem(book, position);
             }
 
             @Override
@@ -205,8 +206,43 @@ public class EbookWithRealmActivity extends BaseActivity {
         dialog.show();
     }
 
-    private void updateItem() {
+    private void updateItem(Book book, int position) {
+        layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View content = layoutInflater.inflate(R.layout.real_edit_item, null);
+        final EditText editTitle = (EditText) content.findViewById(R.id.title);
+        final EditText editAuthor = (EditText) content.findViewById(R.id.author);
+        final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);
 
+        editTitle.setText(book.getTitle());
+        editAuthor.setText(book.getAuthor());
+        editThumbnail.setText(book.getImageUrl());
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setView(content)
+                .setTitle("Edit Book")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        RealmResults<Book> results = realm.where(Book.class).findAll();
+
+                        realm.beginTransaction();
+                        results.get(position).setAuthor(editAuthor.getText().toString());
+                        results.get(position).setTitle(editTitle.getText().toString());
+                        results.get(position).setImageUrl(editThumbnail.getText().toString());
+
+                        realm.commitTransaction();
+
+                        booksAdapter.notifyDataSetChanged();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void deleteItem(int position) {

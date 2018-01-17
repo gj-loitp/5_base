@@ -22,7 +22,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     private LayoutInflater inflater;
 
     public interface OnClick {
-        public void onClick();
+        public void onClick(Book book, int position);
 
         public void onLongClick(int position);
     }
@@ -66,24 +66,6 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
                 if (onClick != null) {
                     onClick.onLongClick(position);
                 }
-                /*RealmResults<Book> results = realm.where(Book.class).findAll();
-
-                // Get the book title to show it in toast message
-                Book b = results.get(position);
-                String title = b.getTitle();
-
-                // All changes to data must happen in a transaction
-                realm.beginTransaction();
-
-                // remove single match
-                results.remove(position);
-                realm.commitTransaction();
-
-                if (results.size() == 0) {
-                    LPref.setPreLoad(context, false);
-                }
-
-                notifyDataSetChanged();*/
                 return false;
             }
         });
@@ -94,46 +76,8 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
             @Override
             public void onClick(View v) {
                 if (onClick != null) {
-                    onClick.onClick();
+                    onClick.onClick(book, position);
                 }
-                /*inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View content = inflater.inflate(R.layout.real_edit_item, null);
-                final EditText editTitle = (EditText) content.findViewById(R.id.title);
-                final EditText editAuthor = (EditText) content.findViewById(R.id.author);
-                final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);
-
-                editTitle.setText(book.getTitle());
-                editAuthor.setText(book.getAuthor());
-                editThumbnail.setText(book.getImageUrl());
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setView(content)
-                        .setTitle("Edit Book")
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                RealmResults<Book> results = realm.where(Book.class).findAll();
-
-                                realm.beginTransaction();
-                                results.get(position).setAuthor(editAuthor.getText().toString());
-                                results.get(position).setTitle(editTitle.getText().toString());
-                                results.get(position).setImageUrl(editThumbnail.getText().toString());
-
-                                realm.commitTransaction();
-
-                                notifyDataSetChanged();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                AlertDialog dialog = builder.create();
-                dialog.show();*/
             }
         });
     }
