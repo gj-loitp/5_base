@@ -15,6 +15,8 @@ import io.realm.Realm;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.AppUtils;
 
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     final Context context;
@@ -51,6 +53,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         holder.textAuthor.setText(book.getAuthor());
         holder.textDescription.setText(book.getDescription());
 
+        holder.imageBackground.setBackgroundColor(LUIUtil.getColor(context));
         if (book.getImageUrl() != null) {
             Glide.with(context)
                     .load(book.getImageUrl().replace("https", "http"))
