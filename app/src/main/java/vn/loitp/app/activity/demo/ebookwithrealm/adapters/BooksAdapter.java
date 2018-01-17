@@ -102,7 +102,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
             public void onClick(View v) {
 
                 inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View content = inflater.inflate(R.layout.edit_item, null);
+                View content = inflater.inflate(R.layout.real_edit_item, null);
                 final EditText editTitle = (EditText) content.findViewById(R.id.title);
                 final EditText editAuthor = (EditText) content.findViewById(R.id.author);
                 final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);

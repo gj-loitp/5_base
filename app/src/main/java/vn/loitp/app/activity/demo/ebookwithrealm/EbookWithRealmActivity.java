@@ -23,6 +23,7 @@ import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
@@ -38,6 +39,7 @@ public class EbookWithRealmActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
@@ -61,50 +63,7 @@ public class EbookWithRealmActivity extends BaseActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                layoutInflater = getLayoutInflater();
-                View content = layoutInflater.inflate(R.layout.edit_item, null);
-                final EditText editTitle = (EditText) content.findViewById(R.id.title);
-                final EditText editAuthor = (EditText) content.findViewById(R.id.author);
-                final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setView(content)
-                        .setTitle("Add book")
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                Book book = new Book();
-                                //book.setId(RealmController.getInstance().getBooks().size() + 1);
-                                book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
-                                book.setTitle(editTitle.getText().toString());
-                                book.setAuthor(editAuthor.getText().toString());
-                                book.setImageUrl(editThumbnail.getText().toString());
-
-                                if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                                    Toast.makeText(activity, "Entry not saved, missing title", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    // Persist your data easily
-                                    realm.beginTransaction();
-                                    realm.copyToRealm(book);
-                                    realm.commitTransaction();
-
-                                    booksAdapter.notifyDataSetChanged();
-
-                                    // scroll the recyclerView view to bottom
-                                    recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);
-                                }
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                addItem();
             }
         });
     }
@@ -191,5 +150,50 @@ public class EbookWithRealmActivity extends BaseActivity {
         }
 
         LPref.setPreLoad(activity, true);
+    }
+
+    private void addItem() {
+        layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.real_edit_item, null);
+        final EditText editTitle = (EditText) view.findViewById(R.id.title);
+        final EditText editAuthor = (EditText) view.findViewById(R.id.author);
+        final EditText editThumbnail = (EditText) view.findViewById(R.id.thumbnail);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setView(view)
+                .setTitle("Add book")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Book book = new Book();
+                        //book.setId(RealmController.getInstance().getBooks().size() + 1);
+                        book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
+                        book.setTitle(editTitle.getText().toString());
+                        book.setAuthor(editAuthor.getText().toString());
+                        book.setImageUrl(editThumbnail.getText().toString());
+
+                        if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
+                            Toast.makeText(activity, "Entry not saved, missing title", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Persist your data easily
+                            realm.beginTransaction();
+                            realm.copyToRealm(book);
+                            realm.commitTransaction();
+
+                            booksAdapter.notifyDataSetChanged();
+
+                            // scroll the recyclerView view to bottom
+                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);
+                        }
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
