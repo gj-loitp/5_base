@@ -16,7 +16,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.AppUtils;
 
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     final Context context;
