@@ -214,7 +214,7 @@ public class EbookWithRealmActivity extends BaseActivity {
 
         // Get the book title to show it in toast message
         Book book = results.get(position);
-        //String title = book.getTitle();
+        String title = book.getTitle();
 
         // All changes to data must happen in a transaction
         realm.beginTransaction();
@@ -227,6 +227,9 @@ public class EbookWithRealmActivity extends BaseActivity {
             LPref.setPreLoad(activity, false);
         }
 
-        booksAdapter.notifyDataSetChanged();
+        booksAdapter.notifyItemRemoved(position);
+        booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
+
+        ToastUtils.showShort("Removed book: " + title);
     }
 }
