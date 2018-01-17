@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -159,6 +158,8 @@ public class EbookWithRealmActivity extends BaseActivity {
         final EditText editAuthor = (EditText) view.findViewById(R.id.author);
         final EditText editThumbnail = (EditText) view.findViewById(R.id.thumbnail);
 
+        editThumbnail.setText("https://kenh14cdn.com/2016/photo-4-1470640589710.jpg");
+
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setView(view)
                 .setTitle("Add book")
@@ -180,8 +181,6 @@ public class EbookWithRealmActivity extends BaseActivity {
                             realm.commitTransaction();
 
                             booksAdapter.notifyDataSetChanged();
-
-                            // scroll the recyclerView view to bottom
                             recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
                         }
                     }
