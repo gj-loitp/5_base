@@ -98,7 +98,17 @@ public class EbookWithRealmActivity extends BaseActivity {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        booksAdapter = new BooksAdapter(this);
+        booksAdapter = new BooksAdapter(this, new BooksAdapter.OnClick() {
+            @Override
+            public void onClick() {
+                updateItem();
+            }
+
+            @Override
+            public void onLongClick(int position) {
+                deleteItem(position);
+            }
+        });
         recyclerView.setAdapter(booksAdapter);
         LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
@@ -193,5 +203,30 @@ public class EbookWithRealmActivity extends BaseActivity {
                 });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void updateItem() {
+
+    }
+
+    private void deleteItem(int position) {
+        RealmResults<Book> results = realm.where(Book.class).findAll();
+
+        // Get the book title to show it in toast message
+        Book book = results.get(position);
+        //String title = book.getTitle();
+
+        // All changes to data must happen in a transaction
+        realm.beginTransaction();
+
+        // remove single match
+        results.remove(position);
+        realm.commitTransaction();
+
+        if (results.size() == 0) {
+            LPref.setPreLoad(activity, false);
+        }
+
+        booksAdapter.notifyDataSetChanged();
     }
 }

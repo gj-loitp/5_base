@@ -1,34 +1,37 @@
 package vn.loitp.app.activity.demo.ebookwithrealm.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
-import vn.loitp.core.utilities.LPref;
 
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     final Context context;
     private Realm realm;
     private LayoutInflater inflater;
 
-    public BooksAdapter(Context context) {
+    public interface OnClick {
+        public void onClick();
+
+        public void onLongClick(int position);
+    }
+
+    private OnClick onClick;
+
+    public BooksAdapter(Context context, OnClick onClick) {
         this.context = context;
+        this.onClick = onClick;
     }
 
     @Override
@@ -41,17 +44,13 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         realm = RealmController.getInstance().getRealm();
 
-        // get the article
         final Book book = getItem(position);
-        // cast the generic view holder to our specific one
         final CardViewHolder holder = (CardViewHolder) viewHolder;
 
-        // set the title and the snippet
         holder.textTitle.setText(book.getTitle());
         holder.textAuthor.setText(book.getAuthor());
         holder.textDescription.setText(book.getDescription());
 
-        // load the background image
         if (book.getImageUrl() != null) {
             Glide.with(context)
                     .load(book.getImageUrl().replace("https", "http"))
@@ -64,8 +63,10 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         holder.card.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-
-                RealmResults<Book> results = realm.where(Book.class).findAll();
+                if (onClick != null) {
+                    onClick.onLongClick(position);
+                }
+                /*RealmResults<Book> results = realm.where(Book.class).findAll();
 
                 // Get the book title to show it in toast message
                 Book b = results.get(position);
@@ -82,9 +83,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
                     LPref.setPreLoad(context, false);
                 }
 
-                notifyDataSetChanged();
-
-                Toast.makeText(context, title + " is removed from Realm", Toast.LENGTH_SHORT).show();
+                notifyDataSetChanged();*/
                 return false;
             }
         });
@@ -94,8 +93,10 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
             @Override
             public void onClick(View v) {
-
-                inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                if (onClick != null) {
+                    onClick.onClick();
+                }
+                /*inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View content = inflater.inflate(R.layout.real_edit_item, null);
                 final EditText editTitle = (EditText) content.findViewById(R.id.title);
                 final EditText editAuthor = (EditText) content.findViewById(R.id.author);
@@ -132,14 +133,13 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
                             }
                         });
                 AlertDialog dialog = builder.create();
-                dialog.show();
+                dialog.show();*/
             }
         });
     }
 
     // return the size of your data set (invoked by the layout manager)
     public int getItemCount() {
-
         if (getRealmAdapter() != null) {
             return getRealmAdapter().getCount();
         }
@@ -147,7 +147,6 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     }
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
-
         public CardView card;
         public TextView textTitle;
         public TextView textAuthor;
@@ -155,9 +154,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         public ImageView imageBackground;
 
         public CardViewHolder(View itemView) {
-            // standard view holder pattern with Butterknife view injection
             super(itemView);
-
             card = (CardView) itemView.findViewById(R.id.card_books);
             textTitle = (TextView) itemView.findViewById(R.id.text_books_title);
             textAuthor = (TextView) itemView.findViewById(R.id.text_books_author);
