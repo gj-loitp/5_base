@@ -232,7 +232,8 @@ public class EbookWithRealmActivity extends BaseActivity {
 
                         realm.commitTransaction();
 
-                        booksAdapter.notifyDataSetChanged();
+                        //booksAdapter.notifyDataSetChanged();
+                        booksAdapter.notifyItemChanged(position);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -267,5 +268,9 @@ public class EbookWithRealmActivity extends BaseActivity {
         booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
         ToastUtils.showShort("Removed book: " + title);
+
+        if (RealmController.getInstance().getBooks().isEmpty()) {
+            ToastUtils.showShort("getBooks().isEmpty()");
+        }
     }
 }
