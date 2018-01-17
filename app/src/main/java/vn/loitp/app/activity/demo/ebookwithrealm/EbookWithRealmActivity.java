@@ -130,23 +130,17 @@ public class EbookWithRealmActivity extends BaseActivity {
     }
 
     private void setRealmAdapter(RealmResults<Book> books) {
-        RealmBooksAdapter realmAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
+        RealmBooksAdapter realmBooksAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
         // Set the data and tell the RecyclerView to draw
-        booksAdapter.setRealmAdapter(realmAdapter);
+        booksAdapter.setRealmAdapter(realmBooksAdapter);
         booksAdapter.notifyDataSetChanged();
     }
 
     private void setupRecycler() {
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager since the cards are vertically scrollable
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-
-        // create an empty booksAdapter and add it to the recyclerView view
         booksAdapter = new BooksAdapter(this);
         recyclerView.setAdapter(booksAdapter);
     }
