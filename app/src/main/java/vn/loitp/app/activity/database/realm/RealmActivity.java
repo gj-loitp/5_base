@@ -106,6 +106,13 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
                 clickMyBook(myBook, button);
             }
         });
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                longClickMyBook(myBook, button);
+                return true;
+            }
+        });
         ll.addView(button);
     }
 
@@ -123,7 +130,8 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void clickMyBook(MyBook myBook, Button button) {
-        logMyBook(myBook);
+        LLog.d(TAG, "clickMyBook");
+        //logMyBook(myBook);
         remove(myBook, button);
     }
 
@@ -137,5 +145,9 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         }
         mRealm.commitTransaction();
         ll.removeView(button);
+    }
+
+    private void longClickMyBook(MyBook myBook, Button button) {
+        LLog.d(TAG, "longClickMyBook");
     }
 }
