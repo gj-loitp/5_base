@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 
 public class RealmActivity extends BaseActivity implements View.OnClickListener {
@@ -24,13 +24,13 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRealm = RealmController.with(activity).getRealm();
+        mRealm = RealmController.with(getApplication()).getRealm();
         ll = (LinearLayout) findViewById(R.id.ll);
         findViewById(R.id.bt_realm).setOnClickListener(this);
         findViewById(R.id.bt_add).setOnClickListener(this);
 
         // refresh the realm instance
-        RealmController.with(this).refresh();
+        RealmController.with(getApplication()).refresh();
 
         getAll();
     }
@@ -56,14 +56,6 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mRealm != null) {
-            mRealm.close();
-        }
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_realm:
@@ -83,14 +75,14 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
 
         MyBook myBook = new MyBook();
         myBook.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
-        myBook.setTitle("Demo Book " + LDeviceUtil.getRandomNumber(Integer.MAX_VALUE));
+        myBook.setTitle((RealmController.getInstance().getBooks().size() + 1) + " title");
 
         //logMyBook(myBook);
 
         mRealm.copyToRealm(myBook);
         mRealm.commitTransaction();
 
-        getAll();
+        addButton(myBook);
     }
 
     private void logMyBook(MyBook myBook) {
@@ -105,17 +97,21 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
+    private void addButton(MyBook myBook) {
+        Button button = new Button(activity);
+        button.setText(myBook.getTitle() + " - " + myBook.getId());
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickMyBook(myBook, button);
+            }
+        });
+        ll.addView(button);
+    }
+
     private void printUI(List<MyBook> myBookList) {
         for (MyBook mb : myBookList) {
-            Button button = new Button(activity);
-            button.setText(mb.getId() + " - " + mb.getTitle());
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clickMyBook(mb, button);
-                }
-            });
-            ll.addView(button);
+            addButton(mb);
         }
     }
 
@@ -128,5 +124,18 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
 
     private void clickMyBook(MyBook myBook, Button button) {
         logMyBook(myBook);
+        remove(myBook, button);
+    }
+
+    private void remove(MyBook myBook, Button button) {
+        mRealm.beginTransaction();
+        RealmResults<MyBook> myBookRealmResults = RealmController.getInstance().removeMyBook(myBook);
+        if (!myBookRealmResults.isEmpty()) {
+            for (int i = myBookRealmResults.size() - 1; i >= 0; i--) {
+                myBookRealmResults.get(i).removeFromRealm();
+            }
+        }
+        mRealm.commitTransaction();
+        ll.removeView(button);
     }
 }

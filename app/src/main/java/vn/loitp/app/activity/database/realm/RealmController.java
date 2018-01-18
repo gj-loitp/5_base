@@ -9,7 +9,6 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 
 public class RealmController {
 
@@ -75,6 +74,13 @@ public class RealmController {
 
     public boolean hasMyBooks() {
         return !realm.allObjects(MyBook.class).isEmpty();
+    }
+
+    public RealmResults<MyBook> removeMyBook(MyBook myBook) {
+        return realm.where(MyBook.class)
+                .equalTo("title", myBook.getTitle())
+                .equalTo("id", myBook.getId())
+                .findAll();
     }
 
     //query example
