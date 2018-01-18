@@ -4,11 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_realm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Demo Ebook App With Realm" />
+
+        <Button
+            android:id="@+id/bt_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Dummy MyBook" />
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bt_realm"
+        android:layout_below="@+id/ll_buttons"
         android:fillViewport="true"
         android:padding="@dimen/padding_5">
 
@@ -25,20 +45,7 @@
                 android:text="@string/demo_realm_nclick_to_edit_long_click_to_delete"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
-
-            <Button
-                android:id="@+id/bt_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add" />
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/bt_realm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Demo Ebook App With Realm" />
 </RelativeLayout>
 
