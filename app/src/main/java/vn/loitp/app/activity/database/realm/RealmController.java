@@ -61,8 +61,19 @@ public class RealmController {
         realm.commitTransaction();
     }
 
+    public MyBook getMyBook(long id) {
+        return realm.where(MyBook.class).equalTo("id", id).findFirst();
+    }
+
     public RealmResults<MyBook> getBooks() {
         return realm.where(MyBook.class).findAll();
+    }
+
+    public RealmResults<MyBook> getBooks(MyBook myBook) {
+        return realm.where(MyBook.class)
+                .equalTo("title", myBook.getTitle())
+                .equalTo("id", myBook.getId())
+                .findAll();
     }
 
     public List<MyBook> getMyBookList() {
@@ -89,20 +100,8 @@ public class RealmController {
         });
     }
 
-    //query a single item with the given id
-    public MyBook getMyBook(String id) {
-        return realm.where(MyBook.class).equalTo("id", id).findFirst();
-    }
-
     public boolean hasMyBooks() {
         return !realm.allObjects(MyBook.class).isEmpty();
-    }
-
-    public RealmResults<MyBook> removeMyBook(MyBook myBook) {
-        return realm.where(MyBook.class)
-                .equalTo("title", myBook.getTitle())
-                .equalTo("id", myBook.getId())
-                .findAll();
     }
 
     //query example

@@ -137,7 +137,7 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
 
     private void remove(MyBook myBook, Button button) {
         mRealm.beginTransaction();
-        RealmResults<MyBook> myBookRealmResults = RealmController.getInstance().removeMyBook(myBook);
+        RealmResults<MyBook> myBookRealmResults = RealmController.getInstance().getBooks(myBook);
         if (!myBookRealmResults.isEmpty()) {
             for (int i = myBookRealmResults.size() - 1; i >= 0; i--) {
                 myBookRealmResults.get(i).removeFromRealm();
@@ -149,5 +149,14 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
 
     private void longClickMyBook(MyBook myBook, Button button) {
         LLog.d(TAG, "longClickMyBook");
+
+        mRealm.beginTransaction();
+
+        MyBook mb = RealmController.getInstance().getMyBook(myBook.getId());
+        mb.setTitle("UPDATED " + mb.getTitle());
+
+        mRealm.commitTransaction();
+
+        button.setText(myBook.getTitle() + " - " + myBook.getId());
     }
 }
