@@ -5,6 +5,8 @@ import android.app.Application;
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import io.realm.Realm;
@@ -65,6 +67,26 @@ public class RealmController {
 
     public List<MyBook> getMyBookList() {
         return new ArrayList(getBooks());
+    }
+
+    public List<MyBook> getMyBookListSortByID() {
+        List<MyBook> myBookList = new ArrayList(getBooks());
+        sort(myBookList);
+        return myBookList;
+    }
+
+    private void sort(List<MyBook> myBookList) {
+        Collections.sort(myBookList, new Comparator<MyBook>() {
+            public int compare(MyBook obj1, MyBook obj2) {
+                // ## Ascending order
+                //return obj1.firstName.compareToIgnoreCase(obj2.firstName);
+                return Long.valueOf(obj1.getId()).compareTo(obj2.getId());
+
+                // ## Descending order
+                // return obj2.firstName.compareToIgnoreCase(obj1.firstName);
+                // return Integer.valueOf(obj2.empId).compareTo(obj1.empId);
+            }
+        });
     }
 
     //query a single item with the given id
