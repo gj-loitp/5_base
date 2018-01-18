@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.ebookwithrealm.realm;
+package vn.loitp.app.activity.database.realm;
 
 import android.app.Activity;
 import android.app.Application;
@@ -51,31 +51,28 @@ public class RealmController {
         realm.refresh();
     }
 
-    //clear all objects from Book.class
     public void clearAll() {
         realm.beginTransaction();
-        realm.clear(Book.class);
+        realm.clear(MyBook.class);
         realm.commitTransaction();
     }
 
-    //find all objects in the Book.class
-    public RealmResults<Book> getBooks() {
-        return realm.where(Book.class).findAll();
+    public RealmResults<MyBook> getBooks() {
+        return realm.where(MyBook.class).findAll();
     }
 
     //query a single item with the given id
-    public Book getBook(String id) {
-        return realm.where(Book.class).equalTo("id", id).findFirst();
+    public MyBook getMyBook(String id) {
+        return realm.where(MyBook.class).equalTo("id", id).findFirst();
     }
 
-    //check if Book.class is empty
-    public boolean hasBooks() {
-        return !realm.allObjects(Book.class).isEmpty();
+    public boolean hasMyBooks() {
+        return !realm.allObjects(MyBook.class).isEmpty();
     }
 
     //query example
-    public RealmResults<Book> queryedBooks() {
-        return realm.where(Book.class)
+    public RealmResults<MyBook> queryedMyBooks() {
+        return realm.where(MyBook.class)
                 .contains("author", "Author 0")
                 .or()
                 .contains("title", "Realm")
