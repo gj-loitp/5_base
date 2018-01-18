@@ -148,7 +148,7 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void longClickMyBook(MyBook myBook, Button button) {
-        LLog.d(TAG, "longClickMyBook");
+        LLog.d(TAG, "longClickMyBook " + button.getText().toString());
 
         mRealm.beginTransaction();
 
@@ -158,5 +158,6 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         mRealm.commitTransaction();
 
         button.setText(myBook.getTitle() + " - " + myBook.getId());
+        LLog.d(TAG, "longClickMyBook done");
     }
 }
