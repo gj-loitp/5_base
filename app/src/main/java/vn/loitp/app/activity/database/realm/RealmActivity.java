@@ -28,6 +28,7 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         ll = (LinearLayout) findViewById(R.id.ll);
         findViewById(R.id.bt_realm).setOnClickListener(this);
         findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.bt_clear_all).setOnClickListener(this);
 
         // refresh the realm instance
         RealmController.with(getApplication()).refresh();
@@ -65,6 +66,11 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.bt_add:
                 add();
+                break;
+            case R.id.bt_clear_all:
+                clearUI();
+                //RealmController.getInstance().clearAllMyBook();
+                //getAll();
                 break;
         }
     }
@@ -114,6 +120,15 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
             }
         });
         ll.addView(button);
+    }
+
+    private void clearUI() {
+        List<View> viewList = ll.getTouchables();
+        for (View view : viewList) {
+            if (view instanceof Button) {
+                ll.removeView(view);
+            }
+        }
     }
 
     private void printUI(List<MyBook> myBookList) {

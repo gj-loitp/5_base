@@ -55,7 +55,7 @@ public class RealmController {
         realm.refresh();
     }
 
-    public void clearAll() {
+    public void clearAllMyBook() {
         realm.beginTransaction();
         realm.clear(MyBook.class);
         realm.commitTransaction();

@@ -18,6 +18,12 @@
             android:text="Demo Ebook App With Realm" />
 
         <Button
+            android:id="@+id/bt_clear_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear all" />
+
+        <Button
             android:id="@+id/bt_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
