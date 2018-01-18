@@ -106,6 +106,7 @@ public class GalleryMenuAlbumActivity extends BaseActivity {
             LDialogUtil.showDialog3(activity, getString(R.string.app_name), getString(R.string.msg_exit_app), getString(R.string.yes), getString(R.string.no), getString(R.string.rate), new LDialogUtil.Callback3() {
                 @Override
                 public void onClick1() {
+                    isExit = true;
                     onBackPressed();
                 }
 
