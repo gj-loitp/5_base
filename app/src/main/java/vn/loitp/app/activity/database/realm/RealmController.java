@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
@@ -59,6 +62,10 @@ public class RealmController {
 
     public RealmResults<MyBook> getBooks() {
         return realm.where(MyBook.class).findAll();
+    }
+
+    public List<MyBook> getMyBookList() {
+        return new ArrayList(getBooks());
     }
 
     //query a single item with the given id

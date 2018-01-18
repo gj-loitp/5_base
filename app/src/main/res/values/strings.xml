@@ -137,4 +137,5 @@ Likewise may someone love you next.
     <string name="label_autofit">Autofit:</string>
 
     <string name="example">This is an example</string>
+    <string name="demo_realm_nclick_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
 </resources>

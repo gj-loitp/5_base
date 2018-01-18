@@ -88,7 +88,7 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         myBook.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
         myBook.setTitle("Demo Book " + LDeviceUtil.getRandomNumber(Integer.MAX_VALUE));
 
-        logMyBook(myBook);
+        //logMyBook(myBook);
 
         mRealm.copyToRealm(myBook);
         mRealm.commitTransaction();
@@ -117,10 +117,9 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void getAll() {
-        RealmResults<MyBook> myBooks = RealmController.getInstance().getBooks();
-        List<MyBook> myBookList = new ArrayList(myBooks);
+        List<MyBook> myBookList = RealmController.getInstance().getMyBookList();
         LLog.d(TAG, "getAll: " + myBookList.size());
-        logMyBook(myBookList);
+        //logMyBook(myBookList);
         printUI(myBookList);
     }
 }

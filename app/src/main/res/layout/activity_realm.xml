@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Demo Realm"
+                android:text="@string/demo_realm_nclick_to_edit_long_click_to_delete"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
