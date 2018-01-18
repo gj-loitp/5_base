@@ -15,3 +15,23 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+##for eventbus
+#-keepattributes *Annotation*
+#-keepclassmembers class ** {
+#    @org.greenrobot.eventbus.Subscribe <methods>;
+#}
+#-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+##end for eventbus
+#
+##for realm
+#-keep class io.realm.annotations.RealmModule
+#-keep @io.realm.annotations.RealmModule class *
+#-dontwarn javax.**
+#-dontwarn io.realm.**
+##for realm
+#
+##for loading view
+#-keep class vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.** { *; }
+#-keep class vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.indicators.** { *; }
+##for loading view

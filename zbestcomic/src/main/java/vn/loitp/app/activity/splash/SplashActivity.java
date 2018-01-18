@@ -79,6 +79,7 @@ public class SplashActivity extends BaseActivity {
             return;
         }
         //LLog.d(TAG, "checkReady");
+        //https://drive.google.com/drive/u/0/folders/1GNbTkQby_csLKf__bKNI8qebBWTos5n3
         final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1HXia4WviPcLD3OE7OSl54sYIFoNR18yf";
         Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
