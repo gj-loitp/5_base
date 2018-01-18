@@ -20,6 +20,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.ad.FrmPhotoGift;
 import vn.loitp.app.activity.home.allmanga.FrmAllManga;
+import vn.loitp.app.activity.home.allmanga.FrmAllMangaTest;
 import vn.loitp.app.activity.home.allwallpaper.FrmPhotoCategory;
 import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
 import vn.loitp.app.activity.home.favmanga.FrmFavManga;
@@ -135,7 +136,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FrmAllManga();
+                    //return new FrmAllManga();
+                    return new FrmAllMangaTest();
                 case 1:
                     return new FrmFavManga();
                 case 2:
