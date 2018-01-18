@@ -6,6 +6,8 @@ import android.support.multidex.MultiDexApplication;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -38,6 +40,14 @@ public class LSApplication extends MultiDexApplication {
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         Fresco.initialize(getApplicationContext());
         ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
+
+        //config realm
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+                .name(Realm.DEFAULT_REALM_NAME)
+                .schemaVersion(0)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
     }
 
     public Gson getGson() {
