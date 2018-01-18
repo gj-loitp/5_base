@@ -49,6 +49,12 @@
                 android:text="Custom views" />
 
             <Button
+                android:id="@+id/bt_database"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Database" />
+
+            <Button
                 android:id="@+id/bt_demo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

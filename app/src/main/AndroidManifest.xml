@@ -442,6 +442,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.database.MenuDatabaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.database.realm.RealmActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
