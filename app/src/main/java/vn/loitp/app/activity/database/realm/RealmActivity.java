@@ -4,38 +4,35 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class RealmActivity extends BaseActivity implements View.OnClickListener {
     private Realm mRealm;
-    private TextView tv;
+    private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRealm = RealmController.with(activity).getRealm();
-        tv = (TextView) findViewById(R.id.tv);
+        ll = (LinearLayout) findViewById(R.id.ll);
         findViewById(R.id.bt_realm).setOnClickListener(this);
         findViewById(R.id.bt_add).setOnClickListener(this);
 
         // refresh the realm instance
         RealmController.with(this).refresh();
 
-        //getAll();
+        getAll();
     }
 
     @Override
@@ -109,11 +106,17 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void printUI(List<MyBook> myBookList) {
-        String s = "";
         for (MyBook mb : myBookList) {
-            s += mb.getId() + " - " + mb.getTitle() + "\n";
+            Button button = new Button(activity);
+            button.setText(mb.getId() + " - " + mb.getTitle());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickMyBook(mb, button);
+                }
+            });
+            ll.addView(button);
         }
-        tv.setText(s);
     }
 
     private void getAll() {
@@ -121,5 +124,9 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
         LLog.d(TAG, "getAll: " + myBookList.size());
         //logMyBook(myBookList);
         printUI(myBookList);
+    }
+
+    private void clickMyBook(MyBook myBook, Button button) {
+        logMyBook(myBook);
     }
 }

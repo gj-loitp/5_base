@@ -13,6 +13,7 @@
         android:padding="@dimen/padding_5">
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -30,14 +31,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Add" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/txt_10" />
         </LinearLayout>
     </ScrollView>
 
