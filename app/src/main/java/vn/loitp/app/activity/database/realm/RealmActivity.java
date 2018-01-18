@@ -69,8 +69,8 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.bt_clear_all:
                 clearUI();
-                //RealmController.getInstance().clearAllMyBook();
-                //getAll();
+                RealmController.getInstance().clearAllMyBook();
+                getAll();
                 break;
         }
     }
