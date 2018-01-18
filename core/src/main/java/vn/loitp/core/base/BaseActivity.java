@@ -36,6 +36,7 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.core.utilities.statusbar.StatusBarCompat;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -88,10 +89,20 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().setNavigationBarColor(colorNavigationBar);
         }
 
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }*/
+        //set color for status bar
+        //StatusBarCompat.setStatusBarColor(activity, ContextCompat.getColor(activity, R.color.Red));
+
+        //add alpha to color
+        //StatusBarCompat.setStatusBarColor(activity, ContextCompat.getColor(activity, R.color.Red), 50);
+
+        //translucent status bar
+        //StatusBarCompat.translucentStatusBar(activity);
+
+        //should hide status bar background (default black background) when SDK >= 21
+        //StatusBarCompat.translucentStatusBar(activity, true);
+
+        //set color for CollapsingToolbarLayout
+        //setStatusBarColorForCollapsingToolbar(Activity activity, AppBarLayout appBarLayout, CollapsingToolbarLayout collapsingToolbarLayout, Toolbar toolbar, int statusColor)
     }
 
     @Override
