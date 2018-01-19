@@ -83,7 +83,8 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LLog.d(TAG, "onClick " + button.getText().toString());
+                //LLog.d(TAG, "onClick " + button.getText().toString());
+                updateContact(contact, button);
             }
         });
         ll.addView(button);
@@ -97,7 +98,8 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LLog.d(TAG, "onClick " + button.getText().toString());
+                    //LLog.d(TAG, "onClick " + button.getText().toString());
+                    updateContact(contact, button);
                 }
             });
             ll.addView(button);
@@ -128,5 +130,12 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         } else {
             ToastUtils.showShort("Found: " + contact.getID() + " " + contact.getName() + " " + contact.getPhoneNumber());
         }
+    }
+
+    private void updateContact(Contact contact, Button button) {
+        contact.setName("Updated " + contact.getName());
+        int result = db.updateContact(contact);
+        LLog.d(TAG, "updateContact result " + result);
+        button.setText(contact.getID() + " " + contact.getName());
     }
 }

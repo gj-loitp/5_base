@@ -60,7 +60,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    // Getting single contact
     public Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_CONTACTS,
