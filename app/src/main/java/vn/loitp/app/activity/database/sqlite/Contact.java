@@ -5,47 +5,46 @@ package vn.loitp.app.activity.database.sqlite;
  */
 
 public class Contact {
-    private int _id;
-    private String _name;
-    private String _phone_number;
+    private int id;
+    private String name;
+    private String phoneNumber;
 
-    // Empty constructor
     public Contact() {
 
     }
 
-    public Contact(int id, String name, String _phone_number) {
-        this._id = id;
-        this._name = name;
-        this._phone_number = _phone_number;
+    public Contact(int id, String name, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
     }
 
-    public Contact(String name, String _phone_number) {
-        this._name = name;
-        this._phone_number = _phone_number;
+    public Contact(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getID() {
-        return this._id;
+        return this.id;
     }
 
     public void setID(int id) {
-        this._id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return this._name;
+        return this.name;
     }
 
     public void setName(String name) {
-        this._name = name;
+        this.name = name;
     }
 
     public String getPhoneNumber() {
-        return this._phone_number;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phone_number) {
-        this._phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 }

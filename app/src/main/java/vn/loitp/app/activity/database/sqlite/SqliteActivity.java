@@ -20,14 +20,17 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 
 public class SqliteActivity extends BaseActivity implements View.OnClickListener {
+    private DatabaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DatabaseHandler db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
 
-        db.addContact(new Contact("Ravi", "9100000000"));
+        findViewById(R.id.bt_add).setOnClickListener(this);
+
+        /*db.addContact(new Contact("Ravi", "9100000000"));
         db.addContact(new Contact("Srinivas", "9199999999"));
         db.addContact(new Contact("Tommy", "9522222222"));
         db.addContact(new Contact("Karthik", "9533333333"));
@@ -37,7 +40,7 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         for (Contact cn : contacts) {
             String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
             LLog.d(TAG, log);
-        }
+        }*/
     }
 
     @Override
@@ -63,7 +66,18 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.bt_add:
+                addContact();
+                break;
         }
+    }
+
+    private void addContact() {
+        int size = db.getContactsCount();
+        //LLog.d(TAG, "size: " + size);
+        Contact contact = new Contact();
+        contact.setName("Loitp " + size);
+        contact.setPhoneNumber("" + size);
+        db.addContact(contact);
     }
 }
