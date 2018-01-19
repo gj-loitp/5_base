@@ -27,7 +27,7 @@ public class LStoreUtil {
     public static String FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt";
 
     private static final String EXTENSION = ".db";
-    public static final String FOLDER_TRUYENTRANHTUAN = "foldertruyentranhtuan";
+    public static final String FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic";
     public static final String FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode" + EXTENSION;
     public static final String FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist" + EXTENSION;
     public static final String FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite" + EXTENSION;
