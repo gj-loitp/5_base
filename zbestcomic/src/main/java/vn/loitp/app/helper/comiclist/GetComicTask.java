@@ -12,10 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.model.comic.Comic;
-import vn.loitp.app.model.comic.Comics;
-import vn.loitp.app.model.comic.TTTComic;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
@@ -66,6 +63,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         LLog.d(TAG, "GetComicTask doInBackground");
         comicList = doTask(link);
+        LLog.d(TAG, "comicList.size(): " + comicList.size());
         if (comicList.size() < 1) {
             getComicSuccess = false;
         } else {
