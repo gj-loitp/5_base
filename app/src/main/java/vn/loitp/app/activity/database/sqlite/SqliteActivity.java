@@ -87,6 +87,13 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
                 updateContact(contact, button);
             }
         });
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                deleteContact(contact, button);
+                return true;
+            }
+        });
         ll.addView(button);
     }
 
@@ -100,6 +107,13 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
                 public void onClick(View v) {
                     //LLog.d(TAG, "onClick " + button.getText().toString());
                     updateContact(contact, button);
+                }
+            });
+            button.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    deleteContact(contact, button);
+                    return true;
                 }
             });
             ll.addView(button);
@@ -137,5 +151,11 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         int result = db.updateContact(contact);
         LLog.d(TAG, "updateContact result " + result);
         button.setText(contact.getID() + " " + contact.getName());
+    }
+
+    private void deleteContact(Contact contact, Button button) {
+        int result = db.deleteContact(contact);
+        LLog.d(TAG, "deleteContact result " + result);
+        ll.removeView(button);
     }
 }

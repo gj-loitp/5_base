@@ -106,10 +106,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Deleting single contact
-    public void deleteContact(Contact contact) {
+    public int deleteContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CONTACTS, KEY_ID + " = ?", new String[]{String.valueOf(contact.getID())});
+        int result = db.delete(TABLE_CONTACTS, KEY_ID + " = ?", new String[]{String.valueOf(contact.getID())});
         db.close();
+        return result;
     }
 
     // Getting contacts Count
