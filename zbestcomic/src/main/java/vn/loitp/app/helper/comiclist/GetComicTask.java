@@ -72,6 +72,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "comicList.size(): " + comicList.size());
             if (!comicList.isEmpty()) {
                 for (int i = 0; i < comicList.size(); i++) {
+                    //TODO add dialog progress
                     long result = db.addComic(comicList.get(i));
                     LLog.d(TAG, "addComic result: " + result);
                 }
