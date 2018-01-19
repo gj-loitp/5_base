@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.utils.util.ToastUtils;
 
 public class SqliteActivity extends BaseActivity implements View.OnClickListener {
     private DatabaseHandler db;
@@ -28,6 +30,7 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
 
         findViewById(R.id.bt_add).setOnClickListener(this);
         findViewById(R.id.bt_clear_all).setOnClickListener(this);
+        findViewById(R.id.bt_getcontact_with_id).setOnClickListener(this);
 
         getAllContact();
     }
@@ -61,6 +64,9 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
             case R.id.bt_clear_all:
                 clearAllContact();
                 break;
+            case R.id.bt_getcontact_with_id:
+                getContactWithId(2);
+                break;
         }
     }
 
@@ -83,15 +89,29 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         ll.addView(button);
     }
 
+    private void addButton() {
+        Button button = new Button(activity);
+        Contact contact = db.getContact(db.getContactsCount());
+        if (contact != null) {
+            button.setText(contact.getID() + " - " + contact.getName());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LLog.d(TAG, "onClick " + button.getText().toString());
+                }
+            });
+            ll.addView(button);
+        }
+    }
+
     private void addContact() {
         int size = db.getContactsCount();
         LLog.d(TAG, "size: " + size);
         Contact contact = new Contact();
-        contact.setName("Loitp " + size);
-        contact.setID(size);
-        contact.setPhoneNumber("" + size);
+        contact.setName("name " + (size + 1));
+        contact.setPhoneNumber("phone: " + (size + 1));
         db.addContact(contact);
-        addButton(contact);
+        addButton();
     }
 
     private void clearAllContact() {
@@ -99,5 +119,14 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
+    }
+
+    private void getContactWithId(int id) {
+        Contact contact = db.getContact(id);
+        if (contact == null) {
+            ToastUtils.showShort("Contact with ID=" + id + " not found");
+        } else {
+            ToastUtils.showShort("Found: " + contact.getID() + " " + contact.getName() + " " + contact.getPhoneNumber());
+        }
     }
 }

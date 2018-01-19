@@ -63,18 +63,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Getting single contact
     public Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.query(TABLE_CONTACTS,
                 new String[]{KEY_ID, KEY_NAME, KEY_PHONE_NUMBER}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
+            if (cursor.getCount() >= 1) {
+                return new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+            }
         }
-
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2));
-
-        return contact;
+        return null;
     }
 
     // Getting All Contacts
