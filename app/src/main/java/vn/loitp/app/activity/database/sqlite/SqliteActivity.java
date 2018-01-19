@@ -1,46 +1,35 @@
 package vn.loitp.app.activity.database.sqlite;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import io.realm.Realm;
-import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.database.realm.MyBook;
-import vn.loitp.app.activity.database.realm.RealmController;
-import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.utils.util.ToastUtils;
 
 public class SqliteActivity extends BaseActivity implements View.OnClickListener {
     private DatabaseHandler db;
+    private List<Contact> contactList = new ArrayList<>();
+    private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ll = (LinearLayout) findViewById(R.id.ll);
+
         db = new DatabaseHandler(this);
 
         findViewById(R.id.bt_add).setOnClickListener(this);
 
-        /*db.addContact(new Contact("Ravi", "9100000000"));
-        db.addContact(new Contact("Srinivas", "9199999999"));
-        db.addContact(new Contact("Tommy", "9522222222"));
-        db.addContact(new Contact("Karthik", "9533333333"));
-
-        // Reading all contacts
-        List<Contact> contacts = db.getAllContacts();
-        for (Contact cn : contacts) {
-            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
-            LLog.d(TAG, log);
-        }*/
+        getAllContact();
     }
 
     @Override
@@ -70,6 +59,25 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
                 addContact();
                 break;
         }
+    }
+
+    private void getAllContact() {
+        contactList = db.getAllContacts();
+        for (Contact contact : contactList) {
+            addButton(contact);
+        }
+    }
+
+    private void addButton(Contact contact) {
+        Button button = new Button(activity);
+        button.setText(contact.getID() + " " + contact.getName());
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LLog.d(TAG, "onClick " + button.getText().toString());
+            }
+        });
+        ll.addView(button);
     }
 
     private void addContact() {
