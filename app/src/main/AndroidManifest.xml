@@ -448,6 +448,9 @@
         <activity
             android:name="vn.loitp.app.activity.database.realm.RealmActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.database.sqlite.SqliteActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

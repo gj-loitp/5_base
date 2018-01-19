@@ -138,4 +138,5 @@ Likewise may someone love you next.
 
     <string name="example">This is an example</string>
     <string name="demo_realm_nclick_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
+    <string name="demo_sqlite_nclick_to_edit_long_click_to_delete">Demo SQLite\nClick To Edit, Long Click To Delete</string>
 </resources>

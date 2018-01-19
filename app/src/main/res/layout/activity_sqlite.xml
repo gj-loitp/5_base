@@ -4,14 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_clear_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear all" />
+
+        <Button
+            android:id="@+id/bt_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Dummy MyBook" />
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/ll_buttons"
         android:fillViewport="true"
         android:padding="@dimen/padding_5">
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -20,22 +41,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Databse"
+                android:text="@string/demo_sqlite_nclick_to_edit_long_click_to_delete"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
-
-            <Button
-                android:id="@+id/bt_sqlite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SQLite" />
-
-            <Button
-                android:id="@+id/bt_realm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Realm" />
-
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
