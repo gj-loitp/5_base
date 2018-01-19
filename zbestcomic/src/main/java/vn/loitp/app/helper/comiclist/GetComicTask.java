@@ -57,17 +57,21 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPreExecute() {
-        //LLog.d(TAG, "GetComicTask onPreExecute");
+        LLog.d(TAG, "GetComicTask onPreExecute");
         avi.smoothToShow();
         super.onPreExecute();
     }
 
-    //C1
     @Override
     protected Void doInBackground(Void... voids) {
-        //LLog.d(TAG, "GetComicTask doInBackground");
+        LLog.d(TAG, "GetComicTask doInBackground");
         comicList = doTask(link);
         if (comicList.size() < 1) {
+            getComicSuccess = false;
+        } else {
+            getComicSuccess = true;
+        }
+        /*if (comicList.size() < 1) {
             getComicSuccess = false;
         } else {
             //restore comic list with img cover url
@@ -132,13 +136,13 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                     getComicSuccess = true;
                 }
             }
-        }
+        }*/
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        //LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
+        LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
         if (getComicSuccess) {
             if (callback != null) {
                 callback.onSuccess(comicList);
