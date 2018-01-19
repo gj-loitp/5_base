@@ -3,6 +3,7 @@ package vn.loitp.core.utilities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
@@ -161,6 +162,19 @@ public class LDialogUtil {
         AlertDialog dialog = builder.create();
         dialog.show();
         alertDialogList.add(dialog);
+    }
+
+    public static ProgressDialog showProgressDialog(Context context, int max, String title, String msg, boolean isCancelAble) {
+        clearAll();
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMax(max);
+        progressDialog.setMessage(msg);
+        progressDialog.setCancelable(isCancelAble);
+        progressDialog.setTitle(title);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+        alertDialogList.add(progressDialog);
+        return progressDialog;
     }
 
     public static void show(Dialog dialog) {

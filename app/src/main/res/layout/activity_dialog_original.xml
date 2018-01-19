@@ -47,6 +47,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dialog List" />
+
+            <Button
+                android:id="@+id/bt_progress_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Progress Dialog" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

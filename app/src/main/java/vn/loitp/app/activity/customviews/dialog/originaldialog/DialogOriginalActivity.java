@@ -1,16 +1,14 @@
 package vn.loitp.app.activity.customviews.dialog.originaldialog;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 public class DialogOriginalActivity extends BaseActivity implements OnClickListener {
@@ -22,6 +20,7 @@ public class DialogOriginalActivity extends BaseActivity implements OnClickListe
         findViewById(R.id.bt_show_2).setOnClickListener(this);
         findViewById(R.id.bt_show_3).setOnClickListener(this);
         findViewById(R.id.bt_show_list).setOnClickListener(this);
+        findViewById(R.id.bt_progress_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +57,9 @@ public class DialogOriginalActivity extends BaseActivity implements OnClickListe
                 break;
             case R.id.bt_show_list:
                 showList();
+                break;
+            case R.id.bt_progress_dialog:
+                showProgress();
                 break;
         }
     }
@@ -116,5 +118,9 @@ public class DialogOriginalActivity extends BaseActivity implements OnClickListe
                 ToastUtils.showShort("Click position " + position + ", item: " + arr[position]);
             }
         });
+    }
+
+    private void showProgress() {
+        ProgressDialog progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Tile", "Message", true);
     }
 }
