@@ -34,6 +34,7 @@ public class FrmAllManga extends BaseFragment {
     private PlaceHolderView placeHolderView;
 
     private GetComicTask getComicTask;
+    private DatabaseHandler db;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class FrmAllManga extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_all_manga, container, false);
+        db = new DatabaseHandler(getActivity());
         btSelect = (Button) view.findViewById(R.id.bt_select);
         placeHolderView = (PlaceHolderView) view.findViewById(R.id.place_hoder_view);
 
@@ -92,7 +94,7 @@ public class FrmAllManga extends BaseFragment {
     }
 
     private void run(int position) {
-        getComicTask = new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+        getComicTask = new GetComicTask(getActivity(), db, comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
             @Override
             public void onSuccess(List<Comic> comicList) {
                 //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));

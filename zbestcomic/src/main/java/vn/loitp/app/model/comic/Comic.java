@@ -7,9 +7,7 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Comic extends RealmObject {
-
-    @PrimaryKey
-    private long id;
+    private int id;
 
     @SerializedName("tvTitle")
     @Expose
@@ -89,11 +87,11 @@ public class Comic extends RealmObject {
         this.type = type;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
@@ -37,6 +38,8 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     private AVLoadingIndicatorView avi;
     private Activity activity;
 
+    private DatabaseHandler db;
+
     public interface Callback {
         public void onSuccess(List<Comic> comicList);
 
@@ -45,8 +48,9 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetComicTask(Activity activity, String link, AVLoadingIndicatorView avi, Callback callback) {
+    public GetComicTask(Activity activity, DatabaseHandler db, String link, AVLoadingIndicatorView avi, Callback callback) {
         this.activity = activity;
+        this.db = db;
         this.link = link;
         this.avi = avi;
         this.callback = callback;
@@ -62,79 +66,25 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         LLog.d(TAG, "GetComicTask doInBackground");
-        comicList = doTask(link);
-        LLog.d(TAG, "comicList.size(): " + comicList.size());
+        if (db.getComicCount() == 0) {
+            LLog.d(TAG, "db.getComicCount() == 0");
+            comicList = doTask(link);
+            LLog.d(TAG, "comicList.size(): " + comicList.size());
+            if (!comicList.isEmpty()) {
+                for (int i = 0; i < comicList.size(); i++) {
+                    long result = db.addComic(comicList.get(i));
+                    LLog.d(TAG, "addComic result: " + result);
+                }
+            }
+        } else {
+            LLog.d(TAG, "db.getComicCount() != 0");
+            comicList = db.getAllComic();
+        }
         if (comicList.size() < 1) {
             getComicSuccess = false;
         } else {
             getComicSuccess = true;
         }
-        /*if (comicList.size() < 1) {
-            getComicSuccess = false;
-        } else {
-            //restore comic list with img cover url
-            String jsonTTTComic = LStoreUtil.readTxtFromFolder(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST);
-            if (jsonTTTComic == null || jsonTTTComic.isEmpty()) {
-                LLog.d(TAG, ">>>1 jsonTTTComic is null or empty >> first to create comic list");
-
-                TTTComic tttComic = new TTTComic();
-                Comics comics = new Comics();
-                comics.setComic(comicList);
-                tttComic.setComics(comics);
-                jsonTTTComic = LSApplication.getInstance().getGson().toJson(tttComic);
-                //LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
-                LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
-                getComicSuccess = true;
-            } else {
-                LLog.d(TAG, "restore readTxtFromFolder jsonTTTComic: " + jsonTTTComic);
-                if (jsonTTTComic != null && !jsonTTTComic.isEmpty()) {
-                    TTTComic tttComic = LSApplication.getInstance().getGson().fromJson(jsonTTTComic, TTTComic.class);
-                    try {
-                        List<Comic> oldComicList = tttComic.getComics().getComic();
-                        LLog.d(TAG, ">>>2 oldComicList size: " + oldComicList.size());
-                        if (!oldComicList.isEmpty()) {
-                            //restore url img cover
-                            //lay tat ca nhung comic da co san img cover url trong oldComicList
-                            List<Comic> savedInfoComicList = new ArrayList<Comic>();
-                            for (Comic comic : oldComicList) {
-                                if (comic.getUrlImg() != null) {
-                                    savedInfoComicList.add(comic);
-                                }
-                            }
-                            //LLog.d(TAG, "urlCoverComicList size: " + savedInfoComicList.size());
-
-                            //gan du lieu url img cover cho comic list moi vua tai ve
-                            for (int i = 0; i < savedInfoComicList.size(); i++) {
-                                for (int j = 0; j < comicList.size(); j++) {
-                                    if (savedInfoComicList.get(i).getUrl().equals(comicList.get(j).getUrl())) {
-                                        comicList.get(j).setUrlImg(savedInfoComicList.get(i).getUrlImg());
-                                        comicList.get(j).setType(savedInfoComicList.get(i).getType());
-                                    }
-                                }
-                            }
-                            //end restore url img cover
-                            //LLog.d(TAG, "restore success!");
-                        }
-                        getComicSuccess = true;
-                        //LLog.d(TAG, "restore success >> set getComicSuccess = true");
-                    } catch (NullPointerException e) {
-                        LLog.d(TAG, "NullPointerException " + e.toString());
-                        getComicSuccess = false;
-                    }
-                } else {
-                    //LLog.d(TAG, ">>>3 tttComic is null or empty >> first to create comic list");
-
-                    TTTComic tttComic = new TTTComic();
-                    Comics comics = new Comics();
-                    comics.setComic(comicList);
-                    tttComic.setComics(comics);
-                    jsonTTTComic = LSApplication.getInstance().getGson().toJson(tttComic);
-                    //LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
-                    LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
-                    getComicSuccess = true;
-                }
-            }
-        }*/
         return null;
     }
 
