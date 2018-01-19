@@ -13,24 +13,24 @@ import com.bumptech.glide.Glide;
 
 import io.realm.Realm;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.allmanga.model.Book;
 import vn.loitp.app.activity.home.allmanga.realm.RealmController;
+import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
+public class ComicAdapter extends RealmRecyclerViewAdapter<Comic> {
     final Context context;
     private Realm realm;
     private LayoutInflater inflater;
 
     public interface OnClick {
-        public void onClick(Book book, int position);
+        public void onClick(Comic book, int position);
 
         public void onLongClick(int position);
     }
 
     private OnClick onClick;
 
-    public BooksAdapter(Context context, OnClick onClick) {
+    public ComicAdapter(Context context, OnClick onClick) {
         this.context = context;
         this.onClick = onClick;
     }
@@ -45,19 +45,19 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         realm = RealmController.getInstance().getRealm();
 
-        final Book book = getItem(position);
+        final Comic comic = getItem(position);
         final CardViewHolder holder = (CardViewHolder) viewHolder;
 
-        holder.textTitle.setText(book.getTitle());
-        holder.textAuthor.setText(book.getAuthor());
-        holder.textDescription.setText(book.getDescription());
+        holder.textTitle.setText(comic.getTitle());
+        holder.textAuthor.setText("xxxx");
+        holder.textDescription.setText("dddd");
 
         holder.imageBackground.setBackgroundColor(LUIUtil.getColor(context));
-        if (book.getImageUrl() != null) {
+        if (comic.getUrlImg() != null) {
             Glide.with(context)
-                    .load(book.getImageUrl().replace("https", "http"))
+                    .load(comic.getUrlImg())
                     .asBitmap()
-                    .fitCenter()
+                    .centerCrop()
                     .into(holder.imageBackground);
         }
 
@@ -78,7 +78,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
             @Override
             public void onClick(View v) {
                 if (onClick != null) {
-                    onClick.onClick(book, position);
+                    onClick.onClick(comic, position);
                 }
             }
         });

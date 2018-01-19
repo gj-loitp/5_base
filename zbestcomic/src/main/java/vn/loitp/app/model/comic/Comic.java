@@ -3,7 +3,13 @@ package vn.loitp.app.model.comic;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Comic {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Comic extends RealmObject {
+
+    @PrimaryKey
+    private long id;
 
     @SerializedName("tvTitle")
     @Expose
@@ -81,5 +87,13 @@ public class Comic {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

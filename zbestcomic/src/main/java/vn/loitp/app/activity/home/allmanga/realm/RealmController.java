@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import vn.loitp.app.activity.home.allmanga.model.Book;
+import vn.loitp.app.model.comic.Comic;
 
 public class RealmController {
 
@@ -54,28 +54,28 @@ public class RealmController {
     //clear all objects from Book.class
     public void clearAll() {
         realm.beginTransaction();
-        realm.clear(Book.class);
+        realm.clear(Comic.class);
         realm.commitTransaction();
     }
 
     //find all objects in the Book.class
-    public RealmResults<Book> getBooks() {
-        return realm.where(Book.class).findAll();
+    public RealmResults<Comic> getBooks() {
+        return realm.where(Comic.class).findAll();
     }
 
     //query a single item with the given id
-    public Book getBook(String id) {
-        return realm.where(Book.class).equalTo("id", id).findFirst();
+    public Comic getBook(String id) {
+        return realm.where(Comic.class).equalTo("id", id).findFirst();
     }
 
     //check if Book.class is empty
     public boolean hasBooks() {
-        return !realm.allObjects(Book.class).isEmpty();
+        return !realm.allObjects(Comic.class).isEmpty();
     }
 
     //query example
-    public RealmResults<Book> queryedBooks() {
-        return realm.where(Book.class)
+    public RealmResults<Comic> queryedBooks() {
+        return realm.where(Comic.class)
                 .contains("author", "Author 0")
                 .or()
                 .contains("title", "Realm")

@@ -1,10 +1,7 @@
 package vn.loitp.app.activity.home.allmanga;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,8 +14,8 @@ import java.util.ArrayList;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.allmanga.model.Book;
 import vn.loitp.app.activity.home.allmanga.realm.RealmController;
+import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
@@ -30,7 +27,7 @@ import vn.loitp.utils.util.ToastUtils;
 
 public class FrmAllMangaTest extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
-    private BooksAdapter booksAdapter;
+    private ComicAdapter comicAdapter;
     private Realm realm;
     private LayoutInflater layoutInflater;
     private FloatingActionButton floatingActionButton;
@@ -64,7 +61,7 @@ public class FrmAllMangaTest extends BaseFragment {
         // refresh the realm instance
         RealmController.with(this).refresh();
         // get all persisted objects
-        // create the helper booksAdapter and notify data set changes
+        // create the helper comicAdapter and notify data set changes
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(getActivity()).getBooks());
 
@@ -80,11 +77,11 @@ public class FrmAllMangaTest extends BaseFragment {
         return view;
     }
 
-    private void setRealmAdapter(RealmResults<Book> books) {
-        RealmBooksAdapter realmBooksAdapter = new RealmBooksAdapter(getActivity().getApplicationContext(), books, true);
+    private void setRealmAdapter(RealmResults<Comic> comicRealmResults) {
+        RealmComicsAdapter realmComicsAdapter = new RealmComicsAdapter(getActivity().getApplicationContext(), comicRealmResults, true);
         // Set the data and tell the RecyclerView to draw
-        booksAdapter.setRealmAdapter(realmBooksAdapter);
-        booksAdapter.notifyDataSetChanged();
+        comicAdapter.setRealmAdapter(realmComicsAdapter);
+        comicAdapter.notifyDataSetChanged();
     }
 
     private void setupRecycler() {
@@ -92,9 +89,9 @@ public class FrmAllMangaTest extends BaseFragment {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        booksAdapter = new BooksAdapter(getActivity(), new BooksAdapter.OnClick() {
+        comicAdapter = new ComicAdapter(getActivity(), new ComicAdapter.OnClick() {
             @Override
-            public void onClick(Book book, int position) {
+            public void onClick(Comic book, int position) {
                 updateItem(book, position);
             }
 
@@ -103,52 +100,25 @@ public class FrmAllMangaTest extends BaseFragment {
                 deleteItem(position);
             }
         });
-        recyclerView.setAdapter(booksAdapter);
+        recyclerView.setAdapter(comicAdapter);
         LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
 
     private void setRealmData() {
-        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Comic> comicArrayList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Comic comic = new Comic();
+            comic.setId(i + System.currentTimeMillis());
+            comic.setDate("xxx");
+            comic.setTitle("aaaa");
+            comic.setUrlImg("https://kenh14cdn.com/2018/nara-2-1515834677681.png");
+            comicArrayList.add(comic);
+        }
 
-        Book book = new Book();
-        book.setId(1 + System.currentTimeMillis());
-        book.setAuthor("1 Reto Meier");
-        book.setTitle("1 Android 4 Application Development");
-        book.setImageUrl("http://api.androidhive.info/images/realm/1.png");
-        books.add(book);
-
-        book = new Book();
-        book.setId(2 + System.currentTimeMillis());
-        book.setAuthor("2 Itzik Ben-Gan");
-        book.setTitle("2 Microsoft SQL Server 2012 T-SQL Fundamentals");
-        book.setImageUrl("http://api.androidhive.info/images/realm/2.png");
-        books.add(book);
-
-        book = new Book();
-        book.setId(3 + System.currentTimeMillis());
-        book.setAuthor("3 Magnus Lie Hetland");
-        book.setTitle("3 Beginning Python: From Novice To Professional Paperback");
-        book.setImageUrl("http://api.androidhive.info/images/realm/3.png");
-        books.add(book);
-
-        book = new Book();
-        book.setId(4 + System.currentTimeMillis());
-        book.setAuthor("4 Chad Fowler");
-        book.setTitle("4 The Passionate Programmer: Creating a Remarkable Career in Software Development");
-        book.setImageUrl("http://api.androidhive.info/images/realm/4.png");
-        books.add(book);
-
-        book = new Book();
-        book.setId(5 + System.currentTimeMillis());
-        book.setAuthor("5 Yashavant Kanetkar");
-        book.setTitle("5 Written Test Questions In C Programming");
-        book.setImageUrl("http://api.androidhive.info/images/realm/5.png");
-        books.add(book);
-
-        for (Book b : books) {
+        for (Comic comic : comicArrayList) {
             // Persist your data easily
             realm.beginTransaction();
-            realm.copyToRealm(b);
+            realm.copyToRealm(comic);
             realm.commitTransaction();
         }
 
@@ -164,7 +134,7 @@ public class FrmAllMangaTest extends BaseFragment {
 
         editThumbnail.setText("https://kenh14cdn.com/2016/photo-4-1470640589710.jpg");
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        /*AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Add book")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -184,12 +154,12 @@ public class FrmAllMangaTest extends BaseFragment {
                             realm.copyToRealm(book);
                             realm.commitTransaction();
 
-                            booksAdapter.notifyDataSetChanged();
+                            comicAdapter.notifyDataSetChanged();
                             recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
 
-                            /*booksAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
-                            booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
-                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*/
+                            *//*comicAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
+                            comicAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
+                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*//*
                         }
                     }
                 })
@@ -200,11 +170,11 @@ public class FrmAllMangaTest extends BaseFragment {
                     }
                 });
         AlertDialog dialog = builder.create();
-        dialog.show();
+        dialog.show();*/
     }
 
-    private void updateItem(Book book, int position) {
-        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private void updateItem(Comic book, int position) {
+        /*layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View content = layoutInflater.inflate(R.layout.real_edit_item, null);
         final EditText editTitle = (EditText) content.findViewById(R.id.title);
         final EditText editAuthor = (EditText) content.findViewById(R.id.author);
@@ -229,7 +199,7 @@ public class FrmAllMangaTest extends BaseFragment {
 
                         realm.commitTransaction();
 
-                        booksAdapter.notifyItemChanged(position);
+                        comicAdapter.notifyItemChanged(position);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -239,11 +209,11 @@ public class FrmAllMangaTest extends BaseFragment {
                     }
                 });
         AlertDialog dialog = builder.create();
-        dialog.show();
+        dialog.show();*/
     }
 
     private void deleteItem(int position) {
-        RealmResults<Book> results = realm.where(Book.class).findAll();
+        /*RealmResults<Book> results = realm.where(Book.class).findAll();
 
         // Get the book title to show it in toast message
         Book book = results.get(position);
@@ -260,13 +230,13 @@ public class FrmAllMangaTest extends BaseFragment {
             LPref.setPreLoad(getActivity(), false);
         }
 
-        booksAdapter.notifyItemRemoved(position);
-        booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
+        comicAdapter.notifyItemRemoved(position);
+        comicAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
         ToastUtils.showShort("Removed book: " + title);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
             ToastUtils.showShort("getBooks().isEmpty()");
-        }
+        }*/
     }
 }
