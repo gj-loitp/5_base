@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.dialog.originaldialog;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,6 +10,7 @@ import android.view.View.OnClickListener;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 public class DialogOriginalActivity extends BaseActivity implements OnClickListener {
@@ -121,6 +123,40 @@ public class DialogOriginalActivity extends BaseActivity implements OnClickListe
     }
 
     private void showProgress() {
-        ProgressDialog progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Tile", "Message", true);
+        ProgressDialog progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Tile", "Message", false);
+        new AsyncTask<Void, Integer, Void>() {
+            int i = 0;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                for (i = 0; i < progressDialog.getMax(); i++) {
+                    publishProgress(i);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return null;
+            }
+
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                super.onProgressUpdate(values);
+                progressDialog.setProgress(values[0]);
+
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                progressDialog.dismiss();
+                super.onPostExecute(aVoid);
+            }
+        }.execute();
     }
 }
