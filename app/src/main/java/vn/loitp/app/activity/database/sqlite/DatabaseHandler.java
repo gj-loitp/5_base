@@ -128,4 +128,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return count;
     }
 
+    public void clearAllContact() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_CONTACTS);
+        db.close();
+    }
 }

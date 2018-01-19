@@ -24,7 +24,6 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_buttons"
@@ -32,7 +31,6 @@
         android:padding="@dimen/padding_5">
 
         <LinearLayout
-            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -44,6 +42,13 @@
                 android:text="@string/demo_sqlite_nclick_to_edit_long_click_to_delete"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/WhiteSmoke"
+                android:orientation="vertical" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -12,7 +12,6 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.utils.util.ToastUtils;
 
 public class SqliteActivity extends BaseActivity implements View.OnClickListener {
     private DatabaseHandler db;
@@ -28,6 +27,7 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         db = new DatabaseHandler(this);
 
         findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.bt_clear_all).setOnClickListener(this);
 
         getAllContact();
     }
@@ -58,6 +58,9 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
             case R.id.bt_add:
                 addContact();
                 break;
+            case R.id.bt_clear_all:
+                clearAllContact();
+                break;
         }
     }
 
@@ -82,10 +85,19 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
 
     private void addContact() {
         int size = db.getContactsCount();
-        //LLog.d(TAG, "size: " + size);
+        LLog.d(TAG, "size: " + size);
         Contact contact = new Contact();
         contact.setName("Loitp " + size);
+        contact.setID(size);
         contact.setPhoneNumber("" + size);
         db.addContact(contact);
+        addButton(contact);
+    }
+
+    private void clearAllContact() {
+        LLog.d(TAG, "clearAllContact");
+        ll.removeAllViews();
+        db.clearAllContact();
+        getAllContact();
     }
 }
