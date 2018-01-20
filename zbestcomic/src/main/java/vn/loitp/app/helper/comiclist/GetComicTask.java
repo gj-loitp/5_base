@@ -61,9 +61,9 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
     protected void onPreExecute() {
         LLog.d(TAG, "GetComicTask onPreExecute");
         if (db.getComicCount() == 0) {
-            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_HORIZONTAL, null, null);
         } else {
-            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_SPINNER);
+            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_SPINNER, null, null);
         }
         super.onPreExecute();
     }

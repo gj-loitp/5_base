@@ -165,7 +165,7 @@ public class LDialogUtil {
     }
 
     //style ex ProgressDialog.STYLE_HORIZONTAL
-    public static ProgressDialog showProgressDialog(Context context, int max, String title, String msg, boolean isCancelAble, int style) {
+    public static ProgressDialog showProgressDialog(Context context, int max, String title, String msg, boolean isCancelAble, int style, String buttonTitle, final Callback1 callback1) {
         clearAll();
         ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMax(max);
@@ -173,6 +173,16 @@ public class LDialogUtil {
         progressDialog.setCancelable(isCancelAble);
         progressDialog.setTitle(title);
         progressDialog.setProgressStyle(style);
+        if (buttonTitle != null) {
+            progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, buttonTitle, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (callback1 != null) {
+                        callback1.onClick1();
+                    }
+                }
+            });
+        }
         progressDialog.show();
         alertDialogList.add(progressDialog);
         return progressDialog;
