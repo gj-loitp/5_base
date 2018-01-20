@@ -117,17 +117,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return contactList;
     }
 
-    public int updateComic(Comic contact) {
+    public int updateComic(Comic comic) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TITLE, contact.getTitle());
-        values.put(KEY_URL, contact.getUrl());
-        values.put(KEY_TV_DATE, contact.getDate());
-        values.put(KEY_URLIMG, contact.getUrlImg());
-        values.put(KEY_TYPE, contact.getType());
+        values.put(KEY_TITLE, comic.getTitle());
+        values.put(KEY_URL, comic.getUrl());
+        values.put(KEY_TV_DATE, comic.getDate());
+        values.put(KEY_URLIMG, comic.getUrlImg());
+        values.put(KEY_TYPE, comic.getType());
 
-        return db.update(TABLE_COMIC_ALL, values, KEY_ID + " = ?", new String[]{String.valueOf(contact.getId())});
+        return db.update(TABLE_COMIC_ALL, values, KEY_ID + " = ?", new String[]{String.valueOf(comic.getId())});
     }
 
     public int deleteComic(Comic contact) {

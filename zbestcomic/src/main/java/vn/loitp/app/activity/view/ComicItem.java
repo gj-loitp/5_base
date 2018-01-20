@@ -51,7 +51,7 @@ public class ComicItem {
     @Resolve
     private void onResolved() {
         rootView.setBackgroundColor(AppUtil.getColor(activity));
-        //LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView);
+        LImageUtil.load(activity, comic.getUrlImg(), ivBkg);
         tvTitle.setText(comic.getTitle());
         tvDate.setText(comic.getDate());
     }
