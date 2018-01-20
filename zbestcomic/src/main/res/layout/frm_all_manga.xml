@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/choose_type"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:visibility="gone" />
 
     <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
         android:id="@+id/place_hoder_view"

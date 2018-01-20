@@ -18,6 +18,7 @@ import vn.loitp.utils.util.Utils;
 
 //TODO admob id
 //TODO remove gradle
+//TODO add comiclist type fragmeg all
 
 //done
 //TODO check splash screen, url
