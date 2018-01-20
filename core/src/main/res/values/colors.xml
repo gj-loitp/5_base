@@ -29,6 +29,7 @@
     <color name="DimGray">#696969</color>
     <color name="Blue">#0000FF</color>
     <color name="Black">#000000</color>
+    <color name="BlackTrans">#55000000</color>
 
     <color name="alarm_title_active">#444444</color>
     <color name="alarm_title_outdated">#888888</color>
