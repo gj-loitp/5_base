@@ -1,6 +1,7 @@
 package vn.loitp.app.helper.comiclist;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import org.jsoup.Jsoup;
@@ -12,17 +13,18 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.model.comic.Comic;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
  */
 
-public class GetComicTask extends AsyncTask<Void, Void, Void> {
+public class GetComicTask extends AsyncTask<Void, Integer, Void> {
     private final String TAG = getClass().getSimpleName();
 
     private int numberOfParseDataTryAgain = 0;
@@ -35,10 +37,10 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private List<Comic> comicList = new ArrayList<>();
 
-    private AVLoadingIndicatorView avi;
     private Activity activity;
 
     private DatabaseHandler db;
+    private ProgressDialog progressDialog;
 
     public interface Callback {
         public void onSuccess(List<Comic> comicList);
@@ -48,18 +50,17 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetComicTask(Activity activity, DatabaseHandler db, String link, AVLoadingIndicatorView avi, Callback callback) {
+    public GetComicTask(Activity activity, DatabaseHandler db, String link, Callback callback) {
         this.activity = activity;
         this.db = db;
         this.link = link;
-        this.avi = avi;
         this.callback = callback;
     }
 
     @Override
     protected void onPreExecute() {
         LLog.d(TAG, "GetComicTask onPreExecute");
-        avi.smoothToShow();
+        progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false);
         super.onPreExecute();
     }
 
@@ -72,9 +73,9 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "comicList.size(): " + comicList.size());
             if (!comicList.isEmpty()) {
                 for (int i = 0; i < comicList.size(); i++) {
-                    //TODO add dialog progress
                     long result = db.addComic(comicList.get(i));
-                    LLog.d(TAG, "addComic result: " + result);
+                    //LLog.d(TAG, "addComic result: " + result);
+                    publishProgress(i * 100 / comicList.size());
                 }
             }
         } else {
@@ -90,8 +91,24 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
+    protected void onProgressUpdate(Integer... values) {
+        LLog.d(TAG, "onProgressUpdate " + values[0]);
+        if (progressDialog != null) {
+            if (values[0] != progressDialog.getProgress()) {
+                progressDialog.setProgress(values[0]);
+                LLog.d(TAG, ">>>>setProgress");
+            }
+        }
+        super.onProgressUpdate(values);
+    }
+
+    @Override
     protected void onPostExecute(Void aVoid) {
         LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+            progressDialog = null;
+        }
         if (getComicSuccess) {
             if (callback != null) {
                 callback.onSuccess(comicList);
@@ -101,7 +118,6 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                 callback.onError();
             }
         }
-        avi.smoothToHide();
         super.onPostExecute(aVoid);
     }
 

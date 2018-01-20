@@ -19,7 +19,6 @@ import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -27,7 +26,6 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 
 public class FrmAllManga extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
-    private AVLoadingIndicatorView avi;
     private Button btSelect;
 
     private List<ComicType> comicTypeList;
@@ -52,9 +50,6 @@ public class FrmAllManga extends BaseFragment {
         db = new DatabaseHandler(getActivity());
         btSelect = (Button) view.findViewById(R.id.bt_select);
         placeHolderView = (PlaceHolderView) view.findViewById(R.id.place_hoder_view);
-
-        avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        avi.hide();
 
         comicTypeList = ComicUtils.getComicTypeList();
 
@@ -94,7 +89,7 @@ public class FrmAllManga extends BaseFragment {
     }
 
     private void run(int position) {
-        getComicTask = new GetComicTask(getActivity(), db, comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+        getComicTask = new GetComicTask(getActivity(), db, comicTypeList.get(position).getUrl(), new GetComicTask.Callback() {
             @Override
             public void onSuccess(List<Comic> comicList) {
                 //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));
