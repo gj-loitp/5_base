@@ -11,6 +11,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.view.ComicItem;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.helper.ComicUtils;
 import vn.loitp.app.helper.comiclist.GetComicTask;
@@ -129,12 +130,42 @@ public class FrmAllManga extends BaseFragment {
 
                     @Override
                     public void onLongClick(Comic comic, int position) {
-                        comic.setUrlImg("https://kenh14cdn.com/2016/photo-2-1470640592086.jpg");
-                        db.updateComic(comic);
-                        placeHolderView.refreshView(position);
+                        showDialogFav(comic, position);
                     }
                 }));
             }
+        }
+    }
+
+    private void showDialogFav(Comic comic, int position) {
+        if (comic.isFav() == Constants.IS_FAV) {
+            LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
+                @Override
+                public void onClick1() {
+                    //do nothing
+                }
+
+                @Override
+                public void onClick2() {
+                    comic.setFav(Constants.IS_NOT_FAV);
+                    db.updateComic(comic);
+                    placeHolderView.refreshView(position);
+                }
+            });
+        } else {
+            LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn thêm " + comic.getTitle() + " vào danh sách yêu thích? ", getString(R.string.no), getString(R.string.insert), new LDialogUtil.Callback2() {
+                @Override
+                public void onClick1() {
+                    //do nothing
+                }
+
+                @Override
+                public void onClick2() {
+                    comic.setFav(Constants.IS_FAV);
+                    db.updateComic(comic);
+                    placeHolderView.refreshView(position);
+                }
+            });
         }
     }
 }

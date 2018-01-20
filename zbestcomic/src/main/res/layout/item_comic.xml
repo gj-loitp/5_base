@@ -12,6 +12,16 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
+    <ImageView
+        android:id="@+id/iv_is_fav"
+        android:layout_width="@dimen/w_30"
+        android:layout_height="@dimen/w_30"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_5"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_thumb_up_black_48dp"
+        android:tint="@color/colorPrimary" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

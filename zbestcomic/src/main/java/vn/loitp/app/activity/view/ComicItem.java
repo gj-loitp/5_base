@@ -6,6 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
@@ -32,6 +33,9 @@ public class ComicItem {
     @View(R.id.iv_bkg)
     private ImageView ivBkg;
 
+    @View(R.id.iv_is_fav)
+    private ImageView ivIsFav;
+
     @View(R.id.tv_title)
     private TextView tvTitle;
 
@@ -55,6 +59,7 @@ public class ComicItem {
         LImageUtil.load(activity, comic.getUrlImg(), ivBkg);
         tvTitle.setText(comic.getTitle());
         tvDate.setText(comic.getDate());
+        ivIsFav.setVisibility(comic.isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
     }
 
     @Click(R.id.root_view)

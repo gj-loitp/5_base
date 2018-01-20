@@ -84,4 +84,6 @@ public class Constants {
     public final static String URL_IMG_18 = "https://c2.staticflickr.com/4/3853/32792662594_dbc57a83e2_b.jpg";
     public final static String URL_IMG_19 = "https://c1.staticflickr.com/3/2890/34338474845_e80d6b2207_b.jpg";
 
+    public final static int IS_FAV = 1;
+    public final static int IS_NOT_FAV = 0;
 }

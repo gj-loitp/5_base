@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 public class Comic extends RealmObject {
     private int id;
@@ -93,5 +92,16 @@ public class Comic extends RealmObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    //0 true, !=0 false
+    private int isFav;
+
+    public int isFav() {
+        return isFav;
+    }
+
+    public void setFav(int fav) {
+        isFav = fav;
     }
 }

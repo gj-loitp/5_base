@@ -29,6 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_TV_DATE = "tvDate";
     private static final String KEY_URLIMG = "urlImg";
     private static final String KEY_TYPE = "type";
+    private static final String KEY_IS_FAV = "isfav";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -44,7 +45,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_URL + " TEXT,"
                 + KEY_TV_DATE + " TEXT,"
                 + KEY_URLIMG + " TEXT,"
-                + KEY_TYPE + " TEXT"
+                + KEY_TYPE + " TEXT,"
+                + KEY_IS_FAV + " INTEGER"
                 + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -68,6 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_TV_DATE, comic.getDate());
         values.put(KEY_URLIMG, comic.getUrlImg());
         values.put(KEY_TYPE, comic.getType());
+        values.put(KEY_IS_FAV, comic.isFav());
 
         long result = db.insert(TABLE_COMIC_ALL, null, values);
         db.close();
@@ -77,7 +80,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Comic getComic(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_COMIC_ALL,
-                new String[]{KEY_ID, KEY_TITLE, KEY_URL, KEY_TV_DATE, KEY_URLIMG, KEY_TYPE}, KEY_ID + "=?",
+                new String[]{KEY_ID, KEY_TITLE, KEY_URL, KEY_TV_DATE, KEY_URLIMG, KEY_TYPE, KEY_IS_FAV}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -89,6 +92,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 comic.setDate(cursor.getString(3));
                 comic.setUrlImg(cursor.getString(4));
                 comic.setType(cursor.getString(5));
+                comic.setFav(Integer.parseInt(cursor.getString(6)));
                 return comic;
             }
         }
@@ -111,6 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 comic.setDate(cursor.getString(3));
                 comic.setUrlImg(cursor.getString(4));
                 comic.setType(cursor.getString(5));
+                comic.setFav(Integer.parseInt(cursor.getString(6)));
                 contactList.add(comic);
             } while (cursor.moveToNext());
         }
@@ -126,6 +131,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_TV_DATE, comic.getDate());
         values.put(KEY_URLIMG, comic.getUrlImg());
         values.put(KEY_TYPE, comic.getType());
+        values.put(KEY_IS_FAV, comic.isFav());
 
         return db.update(TABLE_COMIC_ALL, values, KEY_ID + " = ?", new String[]{String.valueOf(comic.getId())});
     }
