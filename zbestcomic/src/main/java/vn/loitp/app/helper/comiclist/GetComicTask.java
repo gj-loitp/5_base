@@ -85,11 +85,11 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
         } else {
             LLog.d(TAG, "db.getComicCount() != 0");
             comicList = db.getAllComic();
-            try {
+            /*try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 LLog.e(TAG, "InterruptedException " + e.toString());
-            }
+            }*/
         }
         if (comicList.size() < 1) {
             getComicSuccess = false;
