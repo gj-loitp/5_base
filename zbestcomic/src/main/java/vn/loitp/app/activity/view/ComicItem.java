@@ -56,7 +56,7 @@ public class ComicItem {
         tvDate.setText(comic.getDate());
     }
 
-    @Click(R.id.iv_bkg)
+    @Click(R.id.root_view)
     private void onClick() {
         if (callback != null) {
             callback.onClick(comic, position);

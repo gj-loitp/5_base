@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.home.allmanga;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class FrmAllManga extends BaseFragment {
         db = new DatabaseHandler(getActivity());
         btSelect = (Button) view.findViewById(R.id.bt_select);
         placeHolderView = (PlaceHolderView) view.findViewById(R.id.place_hoder_view);
+        placeHolderView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
 
         comicTypeList = ComicUtils.getComicTypeList();
 
