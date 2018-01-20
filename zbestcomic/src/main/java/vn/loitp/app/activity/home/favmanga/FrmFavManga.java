@@ -111,6 +111,7 @@ public class FrmFavManga extends BaseFragment {
                 public void onClick2() {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
+
                     ComicData.getInstance().getComicFavList().remove(comic);
                     placeHolderView.removeView(position);
                     checkToShowMsg();
