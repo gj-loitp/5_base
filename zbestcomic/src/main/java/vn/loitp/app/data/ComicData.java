@@ -18,6 +18,11 @@ public class ComicData {
     private ComicData() {
     }
 
+    public void clearAll() {
+        comicList = null;
+        comicFavList = null;
+    }
+
     private List<Comic> comicList;
 
     public List<Comic> getComicList() {

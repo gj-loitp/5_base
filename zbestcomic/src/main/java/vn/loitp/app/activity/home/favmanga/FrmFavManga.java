@@ -66,13 +66,19 @@ public class FrmFavManga extends BaseFragment {
         }
     }
 
-    private void setupUI() {
+    private void checkToShowMsg() {
         List<Comic> comicList = ComicData.getInstance().getComicFavList();
         if (comicList == null || comicList.isEmpty()) {
             tvMsg.setVisibility(View.VISIBLE);
         } else {
-            LLog.d(TAG, "setupUI size: " + comicList.size());
             tvMsg.setVisibility(View.GONE);
+        }
+    }
+
+    private void setupUI() {
+        List<Comic> comicList = ComicData.getInstance().getComicFavList();
+        if (comicList != null) {
+            LLog.d(TAG, "setupUI size: " + comicList.size());
             for (int i = 0; i < comicList.size(); i++) {
                 placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
                     @Override
@@ -89,6 +95,8 @@ public class FrmFavManga extends BaseFragment {
             }
         }
         avi.smoothToHide();
+        checkToShowMsg();
+
     }
 
     private void showDialogFav(Comic comic, int position) {
@@ -103,21 +111,9 @@ public class FrmFavManga extends BaseFragment {
                 public void onClick2() {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
-                    placeHolderView.refreshView(position);
-                }
-            });
-        } else {
-            LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn thêm " + comic.getTitle() + " vào danh sách yêu thích? ", getString(R.string.no), getString(R.string.insert), new LDialogUtil.Callback2() {
-                @Override
-                public void onClick1() {
-                    //do nothing
-                }
-
-                @Override
-                public void onClick2() {
-                    comic.setFav(Constants.IS_FAV);
-                    db.updateComic(comic);
-                    placeHolderView.refreshView(position);
+                    ComicData.getInstance().getComicFavList().remove(comic);
+                    placeHolderView.removeView(position);
+                    checkToShowMsg();
                 }
             });
         }
