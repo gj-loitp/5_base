@@ -60,7 +60,11 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
     @Override
     protected void onPreExecute() {
         LLog.d(TAG, "GetComicTask onPreExecute");
-        progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false);
+        if (db.getComicCount() == 0) {
+            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_HORIZONTAL);
+        } else {
+            progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_SPINNER);
+        }
         super.onPreExecute();
     }
 
@@ -81,6 +85,11 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
         } else {
             LLog.d(TAG, "db.getComicCount() != 0");
             comicList = db.getAllComic();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                LLog.e(TAG, "InterruptedException " + e.toString());
+            }
         }
         if (comicList.size() < 1) {
             getComicSuccess = false;

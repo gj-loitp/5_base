@@ -36,7 +36,7 @@ Likewise may someone love you next.
     <string name="gift_not_found">Hiện tại chưa có quà tặng</string>
     <string name="choose_type">Chọn thể loại</string>
     <string name="cannot_get_comic_list">Không thể tải danh sách truyện vào lúc này, xin vui lòng thử lại sau</string>
-    <string name="loading">Đang tải dữ liệu lần đầu tiên, xin vui lòng chờ trong giây lát.</string>
+    <string name="loading">Đang tải dữ liệu, xin vui lòng chờ trong giây lát.</string>
 
     <string-array name="occurence">
         <item>Once</item>

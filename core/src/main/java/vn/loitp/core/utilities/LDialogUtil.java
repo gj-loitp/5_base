@@ -164,14 +164,15 @@ public class LDialogUtil {
         alertDialogList.add(dialog);
     }
 
-    public static ProgressDialog showProgressDialog(Context context, int max, String title, String msg, boolean isCancelAble) {
+    //style ex ProgressDialog.STYLE_HORIZONTAL
+    public static ProgressDialog showProgressDialog(Context context, int max, String title, String msg, boolean isCancelAble, int style) {
         clearAll();
         ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMax(max);
         progressDialog.setMessage(msg);
         progressDialog.setCancelable(isCancelAble);
         progressDialog.setTitle(title);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgressStyle(style);
         progressDialog.show();
         alertDialogList.add(progressDialog);
         return progressDialog;
