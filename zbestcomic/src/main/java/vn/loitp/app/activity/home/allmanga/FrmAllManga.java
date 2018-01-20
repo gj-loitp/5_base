@@ -10,6 +10,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.view.ComicItem;
+import vn.loitp.app.data.ComicData;
 import vn.loitp.app.helper.ComicUtils;
 import vn.loitp.app.helper.comiclist.GetComicTask;
 import vn.loitp.app.model.comic.Comic;
@@ -89,31 +90,41 @@ public class FrmAllManga extends BaseFragment {
     }
 
     private void run(int position) {
-        getComicTask = new GetComicTask(getActivity(), db, comicTypeList.get(position).getUrl(), new GetComicTask.Callback() {
-            @Override
-            public void onSuccess(List<Comic> comicList) {
-                //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));
-                if (comicList == null || comicList.isEmpty()) {
-                    showDialogError(getString(R.string.cannot_get_comic_list));
-                } else {
-                    for (int i = 0; i < comicList.size(); i++) {
-                        placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
-                            @Override
-                            public void onClick(Comic comic, int position) {
-                                LLog.d(TAG, "onClick " + comic.getTitle());
-                            }
-                        }));
-                    }
+        if (ComicData.getInstance().getComicList() == null || ComicData.getInstance().getComicList().isEmpty()) {
+            getComicTask = new GetComicTask(getActivity(), db, comicTypeList.get(position).getUrl(), new GetComicTask.Callback() {
+                @Override
+                public void onSuccess(List<Comic> comicList) {
+                    //LLog.d(TAG, "onSuccess: " + LSApplication.getInstance().getGson().toJson(comicList.get(0)));
+                    ComicData.getInstance().setComicList(comicList);
+                    setupUI();
                 }
-            }
 
-            @Override
-            public void onError() {
-                ToastUtils.showShort("Error");
+                @Override
+                public void onError() {
+                    ToastUtils.showShort("Error");
+                }
+            });
+            if (getComicTask != null) {
+                getComicTask.execute();
             }
-        });
-        if (getComicTask != null) {
-            getComicTask.execute();
+        } else {
+            setupUI();
+        }
+    }
+
+    private void setupUI() {
+        List<Comic> comicList = ComicData.getInstance().getComicList();
+        if (comicList == null || comicList.isEmpty()) {
+            showDialogError(getString(R.string.cannot_get_comic_list));
+        } else {
+            for (int i = 0; i < comicList.size(); i++) {
+                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
+                    @Override
+                    public void onClick(Comic comic, int position) {
+                        LLog.d(TAG, "onClick " + comic.getTitle());
+                    }
+                }));
+            }
         }
     }
 }

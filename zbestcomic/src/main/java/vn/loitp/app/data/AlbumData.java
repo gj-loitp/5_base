@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.home;
+package vn.loitp.app.data;
 
 import java.util.List;
 

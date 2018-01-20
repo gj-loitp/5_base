@@ -13,14 +13,13 @@ import java.util.Comparator;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.AlbumData;
+import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
 import vn.loitp.app.activity.view.AlbumItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
