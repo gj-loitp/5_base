@@ -27,4 +27,14 @@ public class ComicData {
     public void setComicList(List<Comic> comicList) {
         this.comicList = comicList;
     }
+
+    private List<Comic> comicFavList;
+
+    public List<Comic> getComicFavList() {
+        return comicFavList;
+    }
+
+    public void setComicFavList(List<Comic> comicFavList) {
+        this.comicFavList = comicFavList;
+    }
 }

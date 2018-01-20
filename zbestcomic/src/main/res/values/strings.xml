@@ -40,6 +40,7 @@ Likewise may someone love you next.
     <string name="exit_app">Thoát ứng dụng</string>
     <string name="delete">Xóa</string>
     <string name="insert">Thêm</string>
+    <string name="comic_fav_list_is_empty">Danh sách yêu thích trống</string>
 
     <string-array name="occurence">
         <item>Once</item>

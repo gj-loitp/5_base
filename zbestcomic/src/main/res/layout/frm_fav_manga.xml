@@ -7,7 +7,7 @@
     android:background="@color/WhiteSmoke">
 
     <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
-        android:id="@+id/galleryView"
+        android:id="@+id/place_hoder_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
@@ -21,5 +21,15 @@
         android:layout_marginTop="@dimen/margin_55"
         app:indicatorColor="@color/colorPrimary"
         app:indicatorName="PacmanIndicator" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_55"
+        android:gravity="center"
+        android:text="@string/comic_fav_list_is_empty"
+        android:textSize="@dimen/txt_14"
+        android:visibility="gone" />
 
 </RelativeLayout>

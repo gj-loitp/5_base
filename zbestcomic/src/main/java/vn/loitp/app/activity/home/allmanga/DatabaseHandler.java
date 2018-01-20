@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.comic.Comic;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -102,6 +103,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<Comic> getAllComic() {
         List<Comic> contactList = new ArrayList<Comic>();
         String selectQuery = "SELECT  * FROM " + TABLE_COMIC_ALL;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Comic comic = new Comic();
+                comic.setId(Integer.parseInt(cursor.getString(0)));
+                comic.setTitle(cursor.getString(1));
+                comic.setUrl(cursor.getString(2));
+                comic.setDate(cursor.getString(3));
+                comic.setUrlImg(cursor.getString(4));
+                comic.setType(cursor.getString(5));
+                comic.setFav(Integer.parseInt(cursor.getString(6)));
+                contactList.add(comic);
+            } while (cursor.moveToNext());
+        }
+        return contactList;
+    }
+
+    public List<Comic> getAllComicFav() {
+        List<Comic> contactList = new ArrayList<Comic>();
+        String selectQuery = "SELECT  * FROM " + TABLE_COMIC_ALL + " WHERE " + KEY_IS_FAV + "=" + Constants.IS_FAV;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
