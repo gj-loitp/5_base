@@ -12,6 +12,7 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.LongClick;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
@@ -63,8 +64,17 @@ public class ComicItem {
         }
     }
 
+    @LongClick(R.id.root_view)
+    private void onLongClick() {
+        if (callback != null) {
+            callback.onLongClick(comic, position);
+        }
+    }
+
     public interface Callback {
         public void onClick(Comic comic, int position);
+
+        public void onLongClick(Comic comic, int position);
     }
 
     private Callback callback;

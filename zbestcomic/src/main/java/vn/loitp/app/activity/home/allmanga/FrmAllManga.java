@@ -124,6 +124,11 @@ public class FrmAllManga extends BaseFragment {
                     @Override
                     public void onClick(Comic comic, int position) {
                         LLog.d(TAG, "onClick " + comic.getTitle());
+
+                    }
+
+                    @Override
+                    public void onLongClick(Comic comic, int position) {
                         comic.setUrlImg("https://kenh14cdn.com/2016/photo-2-1470640592086.jpg");
                         db.updateComic(comic);
                         placeHolderView.refreshView(position);
