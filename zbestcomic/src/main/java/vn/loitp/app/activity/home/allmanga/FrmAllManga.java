@@ -121,7 +121,7 @@ public class FrmAllManga extends BaseFragment {
             showDialogError(getString(R.string.cannot_get_comic_list));
         } else {
             for (int i = 0; i < comicList.size(); i++) {
-                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
+                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), new ComicItem.Callback() {
                     @Override
                     public void onClick(Comic comic, int position) {
                         LLog.d(TAG, "onClick " + comic.getTitle());

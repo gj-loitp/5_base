@@ -80,15 +80,17 @@ public class FrmFavManga extends BaseFragment {
         if (comicList != null) {
             LLog.d(TAG, "setupUI size: " + comicList.size());
             for (int i = 0; i < comicList.size(); i++) {
-                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), i, new ComicItem.Callback() {
+                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), new ComicItem.Callback() {
                     @Override
                     public void onClick(Comic comic, int position) {
                         LLog.d(TAG, "onClick " + comic.getTitle());
+
 
                     }
 
                     @Override
                     public void onLongClick(Comic comic, int position) {
+                        LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
                         showDialogFav(comic, position);
                     }
                 }));
@@ -112,9 +114,11 @@ public class FrmFavManga extends BaseFragment {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
 
-                    ComicData.getInstance().getComicFavList().remove(comic);
-                    placeHolderView.removeView(position);
-                    checkToShowMsg();
+                    boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
+                    if (isRemoved) {
+                        //placeHolderView.removeView(position);//not work
+                        placeHolderView.refresh();
+                    }
                 }
             });
         }

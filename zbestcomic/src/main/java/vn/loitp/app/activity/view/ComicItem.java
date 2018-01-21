@@ -15,6 +15,7 @@ import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.LongClick;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Position;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
@@ -26,6 +27,8 @@ import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 @NonReusable
 @Layout(R.layout.item_comic)
 public class ComicItem {
+    @Position
+    private int position;
 
     @View(R.id.root_view)
     private RelativeLayout rootView;
@@ -44,12 +47,10 @@ public class ComicItem {
 
     private Activity activity;
     private Comic comic;
-    private int position;
 
-    public ComicItem(Activity activity, Comic comic, int position, Callback callback) {
+    public ComicItem(Activity activity, Comic comic, Callback callback) {
         this.activity = activity;
         this.comic = comic;
-        this.position = position;
         this.callback = callback;
     }
 
