@@ -118,6 +118,7 @@ public class FrmFavManga extends BaseFragment {
                     if (isRemoved) {
                         //placeHolderView.removeView(position);//not work
                         placeHolderView.refresh();
+                        checkToShowMsg();
                     }
                 }
             });
