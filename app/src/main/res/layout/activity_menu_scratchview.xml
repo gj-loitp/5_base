@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="ScratchView Image" />
 
+            <Button
+                android:id="@+id/bt_scratchview_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ScratchView Text" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

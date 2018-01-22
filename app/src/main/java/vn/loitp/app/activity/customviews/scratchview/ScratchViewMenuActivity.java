@@ -7,6 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity;
+import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity;
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -17,6 +18,7 @@ public class ScratchViewMenuActivity extends BaseActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_scratchview_image).setOnClickListener(this);
+        findViewById(R.id.bt_scratchview_text).setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +47,9 @@ public class ScratchViewMenuActivity extends BaseActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.bt_scratchview_image:
                 intent = new Intent(activity, ScratchViewImageActivity.class);
+                break;
+            case R.id.bt_scratchview_text:
+                intent = new Intent(activity, ScratchViewTextActivity.class);
                 break;
         }
         if (intent != null) {
