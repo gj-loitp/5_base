@@ -29,8 +29,13 @@ public class RecyclerViewWithSpanSizeActivity extends BaseActivity {
 
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
-            public void onClick(Movie movie) {
+            public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
+            }
+
+            @Override
+            public void onLongClick(Movie movie, int position) {
+
             }
 
             @Override

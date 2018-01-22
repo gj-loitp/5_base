@@ -18,7 +18,9 @@ import loitp.basemaster.R;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
     public interface Callback {
-        public void onClick(Movie movie);
+        public void onClick(Movie movie, int position);
+
+        public void onLongClick(Movie movie, int position);
 
         public void onLoadMore();
     }
@@ -63,8 +65,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onClick(movie);
+                    callback.onClick(movie, position);
                 }
+            }
+        });
+        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (callback != null) {
+                    callback.onLongClick(movie, position);
+                }
+                return true;
             }
         });
         if (position == moviesList.size() - 1) {

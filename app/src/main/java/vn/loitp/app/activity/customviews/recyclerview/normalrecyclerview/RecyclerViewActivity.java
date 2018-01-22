@@ -35,8 +35,13 @@ public class RecyclerViewActivity extends BaseActivity {
 
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
-            public void onClick(Movie movie) {
+            public void onClick(Movie movie, int position) {
                 LToast.show(activity, "Click " + movie.getTitle());
+            }
+
+            @Override
+            public void onLongClick(Movie movie, int position) {
+
             }
 
             @Override

@@ -33,8 +33,17 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
 
         mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
-            public void onClick(Movie movie) {
+            public void onClick(Movie movie, int position) {
                 LToast.show(activity, "Click " + movie.getTitle());
+            }
+
+            @Override
+            public void onLongClick(Movie movie, int position) {
+                boolean isRemoved = DummyData.getInstance().getMovieList().remove(movie);
+                if (isRemoved) {
+                    mAdapter.notifyItemRemoved(position);
+                    mAdapter.notifyItemRangeChanged(position, DummyData.getInstance().getMovieList().size());
+                }
             }
 
             @Override
