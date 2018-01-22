@@ -12,6 +12,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 public class ParallaxYayandroidRecyclerViewActivity extends BaseActivity {
+    private TestRecyclerAdapter testRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,15 @@ public class ParallaxYayandroidRecyclerViewActivity extends BaseActivity {
         ParallaxRecyclerView recyclerView = (ParallaxRecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new TestRecyclerAdapter(this));
+
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+
+        testRecyclerAdapter = new TestRecyclerAdapter(this);
+        recyclerView.setAdapter(testRecyclerAdapter);
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);
     }

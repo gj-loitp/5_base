@@ -30,13 +30,13 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             R.mipmap.test_image_4, R.mipmap.test_image_5};
     */
 
-    private String[] imageUrls = new String[]{
+    /*private String[] imageUrls = new String[]{
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg",
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg",
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_3.png",
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_4.jpg",
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_5.png",
-    };
+    };*/
 
     public TestRecyclerAdapter(Context context) {
         this.context = context;
@@ -51,7 +51,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         // viewHolder.getBackgroundImage().setImageResource(imageIds[position % imageIds.length]);
-        LImageUtil.load((Activity) context, imageUrls[position % imageUrls.length], viewHolder.getBackgroundImage());
+        LImageUtil.load((Activity) context, FakeData.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
         viewHolder.getTextView().setText("Row " + position);
 
         // # CAUTION:
@@ -61,7 +61,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
 
     @Override
     public int getItemCount() {
-        return 50;
+        return FakeData.getInstance().getStringList().size();
     }
 
     /**
@@ -87,6 +87,4 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             return textView;
         }
     }
-
-
 }
