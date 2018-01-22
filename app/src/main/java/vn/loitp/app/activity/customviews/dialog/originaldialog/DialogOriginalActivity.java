@@ -123,7 +123,7 @@ public class DialogOriginalActivity extends BaseActivity implements OnClickListe
     }
 
     private void showProgress() {
-        ProgressDialog progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Tile", "Message", false);
+        ProgressDialog progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Tile", "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null);
         new AsyncTask<Void, Integer, Void>() {
             int i = 0;
 
