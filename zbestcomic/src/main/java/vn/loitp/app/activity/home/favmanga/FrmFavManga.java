@@ -2,24 +2,22 @@ package vn.loitp.app.activity.home.favmanga;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
-import vn.loitp.app.activity.view.ComicItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
@@ -33,6 +31,8 @@ public class FrmFavManga extends BaseFragment {
     private AVLoadingIndicatorView avi;
     private DatabaseHandler db;
     private ParallaxRecyclerView recyclerView;
+    private List<Comic> comicList = new ArrayList<>();
+    private ComicAdapter comicAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -55,7 +55,19 @@ public class FrmFavManga extends BaseFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new TestRecyclerAdapter(getActivity()));
+        comicAdapter = new ComicAdapter(getActivity(), comicList, new ComicAdapter.Callback() {
+            @Override
+            public void onClick(Comic comic, int position) {
+                LLog.d(TAG, "onClick " + comic.getTitle());
+            }
+
+            @Override
+            public void onLongClick(Comic comic, int position) {
+                LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
+                showDialogFav(comic, position);
+            }
+        });
+        recyclerView.setAdapter(comicAdapter);
 
         run();
         return view;
@@ -73,7 +85,7 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void checkToShowMsg() {
-        if (ComicData.getInstance().getComicFavList() == null || ComicData.getInstance().getComicFavList().isEmpty()) {
+        if (comicList == null || comicList.isEmpty()) {
             tvMsg.setVisibility(View.VISIBLE);
         } else {
             tvMsg.setVisibility(View.GONE);
@@ -81,23 +93,11 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void setupUI() {
-        //List<Comic> comicList = ComicData.getInstance().getComicFavList();
-        if (ComicData.getInstance().getComicFavList() != null) {
+        comicList.clear();
+        comicList.addAll(ComicData.getInstance().getComicFavList());
+        if (comicList != null) {
             LLog.d(TAG, "setupUI size: " + ComicData.getInstance().getComicFavList().size());
-            for (int i = 0; i < ComicData.getInstance().getComicFavList().size(); i++) {
-                /*placeHolderView.addView(new ComicItem(getActivity(), ComicData.getInstance().getComicFavList().get(i), new ComicItem.Callback() {
-                    @Override
-                    public void onClick(Comic comic, int position) {
-                        LLog.d(TAG, "onClick " + comic.getTitle());
-                    }
-
-                    @Override
-                    public void onLongClick(Comic comic, int position) {
-                        LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
-                        showDialogFav(comic, position);
-                    }
-                }));*/
-            }
+            comicAdapter.notifyDataSetChanged();
         }
         avi.smoothToHide();
         checkToShowMsg();

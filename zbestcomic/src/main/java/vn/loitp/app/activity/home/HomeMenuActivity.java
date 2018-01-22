@@ -136,8 +136,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    //return new FrmAllManga();
-                    return new FrmFavManga();
+                    return new FrmAllManga();
                 case 1:
                     return new FrmFavManga();
                 case 2:

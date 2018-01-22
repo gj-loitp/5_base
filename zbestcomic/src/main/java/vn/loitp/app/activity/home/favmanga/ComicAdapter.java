@@ -14,22 +14,25 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 import loitp.basemaster.R;
-import vn.loitp.app.activity.view.ComicItem;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.data.ComicData;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
-public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapter.ViewHolder> {
+public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
+    private List<Comic> comicList;
 
-    public TestRecyclerAdapter(Context context) {
+    public ComicAdapter(Context context, List<Comic> comicList, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.comicList = comicList;
+        this.callback = callback;
     }
 
     public interface Callback {
@@ -38,7 +41,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
         public void onLongClick(Comic comic, int position);
     }
 
-    private ComicItem.Callback callback;
+    private Callback callback;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
@@ -48,10 +51,28 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.rootView.setBackgroundColor(AppUtil.getColor(context));
-        LImageUtil.load((Activity) context, ComicData.getInstance().getComicFavList().get(position).getUrlImg(), viewHolder.getBackgroundImage());
-        viewHolder.tvTitle.setText(ComicData.getInstance().getComicFavList().get(position).getTitle());
-        viewHolder.tvDate.setText(ComicData.getInstance().getComicFavList().get(position).getDate());
-        viewHolder.ivIsFav.setVisibility(ComicData.getInstance().getComicFavList().get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
+        LImageUtil.load((Activity) context, comicList.get(position).getUrlImg(), viewHolder.getBackgroundImage());
+        viewHolder.tvTitle.setText(comicList.get(position).getTitle());
+        viewHolder.tvDate.setText(comicList.get(position).getDate());
+        viewHolder.ivIsFav.setVisibility(comicList.get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
+
+        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClick(comicList.get(position), position);
+                }
+            }
+        });
+        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (callback != null) {
+                    callback.onLongClick(comicList.get(position), position);
+                }
+                return true;
+            }
+        });
 
         // # CAUTION:
         // Important to call this method
@@ -60,10 +81,10 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
 
     @Override
     public int getItemCount() {
-        if (ComicData.getInstance().getComicFavList() == null) {
+        if (comicList == null) {
             return 0;
         }
-        return ComicData.getInstance().getComicFavList().size();
+        return comicList.size();
     }
 
     /**
@@ -90,6 +111,4 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
         }
 
     }
-
-
 }
