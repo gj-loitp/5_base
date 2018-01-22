@@ -116,7 +116,7 @@ public class FrmFavManga extends BaseFragment {
 
                     boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                     if (isRemoved) {
-                        //placeHolderView.removeView(position);//not work
+                        placeHolderView.removeView(position);
                         placeHolderView.refresh();
                         checkToShowMsg();
                     }
