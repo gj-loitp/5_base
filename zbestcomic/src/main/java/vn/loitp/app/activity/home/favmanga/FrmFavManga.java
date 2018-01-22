@@ -2,6 +2,7 @@ package vn.loitp.app.activity.home.favmanga;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -27,10 +29,10 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 
 public class FrmFavManga extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
-    private PlaceHolderView placeHolderView;
     private TextView tvMsg;
     private AVLoadingIndicatorView avi;
     private DatabaseHandler db;
+    private ParallaxRecyclerView recyclerView;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -47,9 +49,13 @@ public class FrmFavManga extends BaseFragment {
         View view = inflater.inflate(R.layout.frm_fav_manga, container, false);
         db = new DatabaseHandler(getActivity());
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        placeHolderView = (PlaceHolderView) view.findViewById(R.id.place_hoder_view);
         tvMsg = (TextView) view.findViewById(R.id.tv_msg);
-        placeHolderView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+        recyclerView = (ParallaxRecyclerView) view.findViewById(R.id.recyclerView);
+
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(new TestRecyclerAdapter(getActivity()));
 
         run();
         return view;
@@ -79,7 +85,7 @@ public class FrmFavManga extends BaseFragment {
         if (ComicData.getInstance().getComicFavList() != null) {
             LLog.d(TAG, "setupUI size: " + ComicData.getInstance().getComicFavList().size());
             for (int i = 0; i < ComicData.getInstance().getComicFavList().size(); i++) {
-                placeHolderView.addView(new ComicItem(getActivity(), ComicData.getInstance().getComicFavList().get(i), new ComicItem.Callback() {
+                /*placeHolderView.addView(new ComicItem(getActivity(), ComicData.getInstance().getComicFavList().get(i), new ComicItem.Callback() {
                     @Override
                     public void onClick(Comic comic, int position) {
                         LLog.d(TAG, "onClick " + comic.getTitle());
@@ -90,7 +96,7 @@ public class FrmFavManga extends BaseFragment {
                         LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
                         showDialogFav(comic, position);
                     }
-                }));
+                }));*/
             }
         }
         avi.smoothToHide();
@@ -112,12 +118,12 @@ public class FrmFavManga extends BaseFragment {
 
                     //ComicData.getInstance().getComicFavList().get(position).setFav(Constants.IS_NOT_FAV);
 
-                    boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
+                    /*boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                     if (isRemoved) {
                         placeHolderView.removeView(position);
-                        //placeHolderView.refresh();
+                        placeHolderView.refresh();
                         checkToShowMsg();
-                    }
+                    }*/
 
                     //placeHolderView.refresh();
 
