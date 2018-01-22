@@ -20,6 +20,7 @@ import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActi
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity;
+import vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity;
 import vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
@@ -56,6 +57,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_dialog).setOnClickListener(this);
         findViewById(R.id.bt_popup_menu).setOnClickListener(this);
+        findViewById(R.id.bt_scratchview).setOnClickListener(this);
     }
 
     @Override
@@ -141,6 +143,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_popup_menu:
                 intent = new Intent(activity, PopupMenuActivity.class);
+                break;
+            case R.id.bt_scratchview:
+                intent = new Intent(activity, ScratchViewMenuActivity.class);
                 break;
         }
         if (intent != null) {

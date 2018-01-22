@@ -109,6 +109,12 @@
                 android:text="RecyclerView" />
 
             <Button
+                android:id="@+id/bt_scratchview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ScratchView" />
+
+            <Button
                 android:id="@+id/bt_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

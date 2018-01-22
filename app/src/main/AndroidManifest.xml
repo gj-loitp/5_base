@@ -451,6 +451,12 @@
         <activity
             android:name="vn.loitp.app.activity.database.sqlite.SqliteActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
