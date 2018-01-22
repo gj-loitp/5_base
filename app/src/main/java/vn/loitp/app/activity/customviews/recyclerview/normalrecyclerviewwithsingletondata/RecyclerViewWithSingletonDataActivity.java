@@ -11,9 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
@@ -24,7 +21,6 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
 public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
-    private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
     private TextView tvType;
@@ -35,7 +31,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         tvType = (TextView) findViewById(R.id.tv_type);
 
-        mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie) {
                 LToast.show(activity, "Click " + movie.getTitle());
@@ -98,7 +94,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
                     Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);
-                    movieList.add(movie);
+                    DummyData.getInstance().getMovieList().add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
                 LToast.show(activity, "Finish loadMore");
@@ -127,9 +123,11 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
     }
 
     private void prepareMovieData() {
-        for (int i = 0; i < 100; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
-            movieList.add(movie);
+        if (DummyData.getInstance().getMovieList().isEmpty()) {
+            for (int i = 0; i < 10; i++) {
+                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
+                DummyData.getInstance().getMovieList().add(movie);
+            }
         }
         mAdapter.notifyDataSetChanged();
     }
