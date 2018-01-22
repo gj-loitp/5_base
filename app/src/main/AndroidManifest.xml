@@ -460,6 +460,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
