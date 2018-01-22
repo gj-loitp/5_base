@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
@@ -38,9 +39,10 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_5.png",
     };*/
 
-    public TestRecyclerAdapter(Context context) {
+    public TestRecyclerAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.callback = callback;
     }
 
     @Override
@@ -53,6 +55,24 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
         // viewHolder.getBackgroundImage().setImageResource(imageIds[position % imageIds.length]);
         LImageUtil.load((Activity) context, FakeData.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
         viewHolder.getTextView().setText("Row " + position);
+
+        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClick(position);
+                }
+            }
+        });
+        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (callback != null) {
+                    callback.onLongClick(position);
+                }
+                return true;
+            }
+        });
 
         // # CAUTION:
         // Important to call this method
@@ -71,11 +91,13 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     public static class ViewHolder extends ParallaxViewHolder {
 
         private final TextView textView;
+        private final RelativeLayout rootView;
 
         public ViewHolder(View v) {
             super(v);
 
             textView = (TextView) v.findViewById(R.id.label);
+            rootView = (RelativeLayout) v.findViewById(R.id.root_view);
         }
 
         @Override
@@ -87,4 +109,12 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             return textView;
         }
     }
+
+    public interface Callback {
+        public void onClick(int pos);
+
+        public void onLongClick(int pos);
+    }
+
+    private Callback callback;
 }

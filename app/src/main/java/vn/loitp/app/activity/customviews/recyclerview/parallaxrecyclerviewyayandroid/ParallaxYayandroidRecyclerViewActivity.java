@@ -3,12 +3,11 @@ package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayan
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxAdapter;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 public class ParallaxYayandroidRecyclerViewActivity extends BaseActivity {
@@ -26,8 +25,25 @@ public class ParallaxYayandroidRecyclerViewActivity extends BaseActivity {
         FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
         FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg");
         FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_2.jpg");
+        FakeData.getInstance().getStringList().add("http://yayandroid.com/data/github_library/parallax_listview/test_image_1.jpg");
 
-        testRecyclerAdapter = new TestRecyclerAdapter(this);
+        testRecyclerAdapter = new TestRecyclerAdapter(this, new TestRecyclerAdapter.Callback() {
+            @Override
+            public void onClick(int pos) {
+                ToastUtils.showShort("onClick " + pos);
+            }
+
+            @Override
+            public void onLongClick(int pos) {
+                FakeData.getInstance().getStringList().remove(pos);
+                testRecyclerAdapter.notifyItemRemoved(pos);
+                testRecyclerAdapter.notifyItemRangeChanged(pos, FakeData.getInstance().getStringList().size());
+            }
+        });
         recyclerView.setAdapter(testRecyclerAdapter);
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);
