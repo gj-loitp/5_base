@@ -67,8 +67,7 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void checkToShowMsg() {
-        List<Comic> comicList = ComicData.getInstance().getComicFavList();
-        if (comicList == null || comicList.isEmpty()) {
+        if (ComicData.getInstance().getComicFavList() == null || ComicData.getInstance().getComicFavList().isEmpty()) {
             tvMsg.setVisibility(View.VISIBLE);
         } else {
             tvMsg.setVisibility(View.GONE);
@@ -76,16 +75,14 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void setupUI() {
-        List<Comic> comicList = ComicData.getInstance().getComicFavList();
-        if (comicList != null) {
-            LLog.d(TAG, "setupUI size: " + comicList.size());
-            for (int i = 0; i < comicList.size(); i++) {
-                placeHolderView.addView(new ComicItem(getActivity(), comicList.get(i), new ComicItem.Callback() {
+        //List<Comic> comicList = ComicData.getInstance().getComicFavList();
+        if (ComicData.getInstance().getComicFavList() != null) {
+            LLog.d(TAG, "setupUI size: " + ComicData.getInstance().getComicFavList().size());
+            for (int i = 0; i < ComicData.getInstance().getComicFavList().size(); i++) {
+                placeHolderView.addView(new ComicItem(getActivity(), ComicData.getInstance().getComicFavList().get(i), new ComicItem.Callback() {
                     @Override
                     public void onClick(Comic comic, int position) {
                         LLog.d(TAG, "onClick " + comic.getTitle());
-
-
                     }
 
                     @Override
@@ -98,7 +95,6 @@ public class FrmFavManga extends BaseFragment {
         }
         avi.smoothToHide();
         checkToShowMsg();
-
     }
 
     private void showDialogFav(Comic comic, int position) {
@@ -114,12 +110,18 @@ public class FrmFavManga extends BaseFragment {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
 
+                    //ComicData.getInstance().getComicFavList().get(position).setFav(Constants.IS_NOT_FAV);
+
                     boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                     if (isRemoved) {
                         placeHolderView.removeView(position);
-                        placeHolderView.refresh();
+                        //placeHolderView.refresh();
                         checkToShowMsg();
                     }
+
+                    //placeHolderView.refresh();
+
+                    //placeHolderView.refreshView(position);
                 }
             });
         }
