@@ -118,12 +118,12 @@ public class FrmFavManga extends BaseFragment {
 
                     //ComicData.getInstance().getComicFavList().get(position).setFav(Constants.IS_NOT_FAV);
 
-                    /*boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
+                    boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
+                    comicList.remove(comic);
                     if (isRemoved) {
-                        placeHolderView.removeView(position);
-                        placeHolderView.refresh();
+                        comicAdapter.notifyItemRemoved(position);
                         checkToShowMsg();
-                    }*/
+                    }
 
                     //placeHolderView.refresh();
 
