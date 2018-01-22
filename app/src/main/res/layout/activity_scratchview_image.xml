@@ -4,19 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <vn.loitp.views.scratchview.ScratchImageView
+        android:id="@+id/sample_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:src="@drawable/iv" />
+
+    <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_5"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/txt_14" />
 </RelativeLayout>
 

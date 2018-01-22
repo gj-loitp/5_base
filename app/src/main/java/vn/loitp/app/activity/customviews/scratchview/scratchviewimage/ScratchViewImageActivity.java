@@ -1,21 +1,31 @@
 package vn.loitp.app.activity.customviews.scratchview.scratchviewimage;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.views.scratchview.ScratchImageView;
 
 public class ScratchViewImageActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ScratchImageView scratchImageView = (ScratchImageView) findViewById(R.id.sample_image);
+        TextView textView = (TextView) findViewById(R.id.tv);
+        scratchImageView.setRevealListener(new ScratchImageView.IRevealListener() {
+            @Override
+            public void onRevealed(ScratchImageView tv) {
+                textView.setText("onRevealed");
+            }
 
+            @Override
+            public void onRevealPercentChangedListener(ScratchImageView siv, float percent) {
+                textView.setText("onRevealPercentChangedListener percent: " + percent);
+            }
+        });
     }
 
     @Override
