@@ -71,6 +71,10 @@ public class Comic extends RealmObject {
     }
 
     public String getUrlImg() {
+        //TODO remove
+        if (urlImg == null) {
+            return "https://kenh14cdn.com/2017/photo-3-1508474775887.jpg";
+        }
         return urlImg;
     }
 

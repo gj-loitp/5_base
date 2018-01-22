@@ -122,6 +122,7 @@ public class FrmFavManga extends BaseFragment {
                     comicList.remove(comic);
                     if (isRemoved) {
                         comicAdapter.notifyItemRemoved(position);
+                        comicAdapter.notifyItemRangeChanged(position, comicList.size());
                         checkToShowMsg();
                     }
 

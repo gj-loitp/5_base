@@ -59,7 +59,7 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected void onPreExecute() {
-        LLog.d(TAG, "GetComicTask onPreExecute");
+        //LLog.d(TAG, "GetComicTask onPreExecute");
         if (db.getComicCount() == 0) {
             progressDialog = LDialogUtil.showProgressDialog(activity, 100, activity.getString(R.string.app_name), activity.getString(R.string.loading), false, ProgressDialog.STYLE_HORIZONTAL, null, null);
         } else {
@@ -70,11 +70,11 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.d(TAG, "GetComicTask doInBackground");
+        //LLog.d(TAG, "GetComicTask doInBackground");
         if (db.getComicCount() == 0) {
-            LLog.d(TAG, "db.getComicCount() == 0");
+            //LLog.d(TAG, "db.getComicCount() == 0");
             comicList = doTask(link);
-            LLog.d(TAG, "comicList.size(): " + comicList.size());
+            //LLog.d(TAG, "comicList.size(): " + comicList.size());
             if (!comicList.isEmpty()) {
                 for (int i = 0; i < comicList.size(); i++) {
                     long result = db.addComic(comicList.get(i));
@@ -83,7 +83,7 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
                 }
             }
         } else {
-            LLog.d(TAG, "db.getComicCount() != 0");
+            //LLog.d(TAG, "db.getComicCount() != 0");
             comicList = db.getAllComic();
             /*try {
                 Thread.sleep(1000);
@@ -101,11 +101,11 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected void onProgressUpdate(Integer... values) {
-        LLog.d(TAG, "onProgressUpdate " + values[0]);
+        //LLog.d(TAG, "onProgressUpdate " + values[0]);
         if (progressDialog != null) {
             if (values[0] != progressDialog.getProgress()) {
                 progressDialog.setProgress(values[0]);
-                LLog.d(TAG, ">>>>setProgress");
+                //LLog.d(TAG, ">>>>setProgress");
             }
         }
         super.onProgressUpdate(values);
@@ -113,7 +113,7 @@ public class GetComicTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
+        //LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.cancel();
             progressDialog = null;
