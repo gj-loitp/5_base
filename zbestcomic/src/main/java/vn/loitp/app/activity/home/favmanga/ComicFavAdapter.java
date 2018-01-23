@@ -23,12 +23,12 @@ import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
-public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.ViewHolder> {
+public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
     private List<Comic> comicList;
 
-    public ComicAdapter(Context context, List<Comic> comicList, Callback callback) {
+    public ComicFavAdapter(Context context, List<Comic> comicList, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.comicList = comicList;

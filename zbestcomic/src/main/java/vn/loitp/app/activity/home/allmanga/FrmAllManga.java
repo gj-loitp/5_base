@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.favmanga.ComicAdapter;
+import vn.loitp.app.activity.home.favmanga.ComicFavAdapter;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.helper.ComicUtils;
@@ -35,7 +35,7 @@ public class FrmAllManga extends BaseFragment {
     private GetComicTask getComicTask;
     private DatabaseHandler db;
     private ParallaxRecyclerView recyclerView;
-    private ComicAdapter comicAdapter;
+    private ComicAllAdapter comicAllAdapter;
     private List<Comic> comicList = new ArrayList<>();
 
     @Override
@@ -58,7 +58,7 @@ public class FrmAllManga extends BaseFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        comicAdapter = new ComicAdapter(getActivity(), comicList, new ComicAdapter.Callback() {
+        comicAllAdapter = new ComicAllAdapter(getActivity(), comicList, new ComicAllAdapter.Callback() {
             @Override
             public void onClick(Comic comic, int position) {
                 LLog.d(TAG, "onClick " + comic.getTitle());
@@ -69,7 +69,7 @@ public class FrmAllManga extends BaseFragment {
                 showDialogFav(comic, position);
             }
         });
-        recyclerView.setAdapter(comicAdapter);
+        recyclerView.setAdapter(comicAllAdapter);
 
         comicTypeList = ComicUtils.getComicTypeList();
 
@@ -138,7 +138,7 @@ public class FrmAllManga extends BaseFragment {
             showDialogError(getString(R.string.cannot_get_comic_list));
         } else {
             LLog.d(TAG, "size: " + comicList.size());
-            comicAdapter.notifyDataSetChanged();
+            comicAllAdapter.notifyDataSetChanged();
         }
     }
 
@@ -154,7 +154,7 @@ public class FrmAllManga extends BaseFragment {
                 public void onClick2() {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
-                    comicAdapter.notifyItemChanged(position);
+                    comicAllAdapter.notifyItemChanged(position);
                 }
             });
         } else {
@@ -168,7 +168,7 @@ public class FrmAllManga extends BaseFragment {
                 public void onClick2() {
                     comic.setFav(Constants.IS_FAV);
                     db.updateComic(comic);
-                    comicAdapter.notifyItemChanged(position);
+                    comicAllAdapter.notifyItemChanged(position);
                 }
             });
         }

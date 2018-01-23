@@ -32,7 +32,7 @@ public class FrmFavManga extends BaseFragment {
     private DatabaseHandler db;
     private ParallaxRecyclerView recyclerView;
     private List<Comic> comicList = new ArrayList<>();
-    private ComicAdapter comicAdapter;
+    private ComicFavAdapter comicFavAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class FrmFavManga extends BaseFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        comicAdapter = new ComicAdapter(getActivity(), comicList, new ComicAdapter.Callback() {
+        comicFavAdapter = new ComicFavAdapter(getActivity(), comicList, new ComicFavAdapter.Callback() {
             @Override
             public void onClick(Comic comic, int position) {
                 LLog.d(TAG, "onClick " + comic.getTitle());
@@ -67,7 +67,7 @@ public class FrmFavManga extends BaseFragment {
                 showDialogFav(comic, position);
             }
         });
-        recyclerView.setAdapter(comicAdapter);
+        recyclerView.setAdapter(comicFavAdapter);
 
         run();
         return view;
@@ -97,7 +97,7 @@ public class FrmFavManga extends BaseFragment {
         comicList.addAll(ComicData.getInstance().getComicFavList());
         if (comicList != null) {
             LLog.d(TAG, "setupUI size: " + ComicData.getInstance().getComicFavList().size());
-            comicAdapter.notifyDataSetChanged();
+            comicFavAdapter.notifyDataSetChanged();
         }
         avi.smoothToHide();
         checkToShowMsg();
@@ -121,8 +121,8 @@ public class FrmFavManga extends BaseFragment {
                     boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                     comicList.remove(comic);
                     if (isRemoved) {
-                        comicAdapter.notifyItemRemoved(position);
-                        comicAdapter.notifyItemRangeChanged(position, comicList.size());
+                        comicFavAdapter.notifyItemRemoved(position);
+                        comicFavAdapter.notifyItemRangeChanged(position, comicList.size());
                         checkToShowMsg();
                     }
 
