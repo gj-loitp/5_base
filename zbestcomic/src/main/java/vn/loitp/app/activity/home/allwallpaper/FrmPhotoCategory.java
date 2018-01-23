@@ -37,7 +37,7 @@ public class FrmPhotoCategory extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AVLoadingIndicatorView avi;
     private ParallaxRecyclerView recyclerView;
-    private WallpaperAdapter wallpaperAdapter;
+    private AllWallpaperAdapter allWallpaperAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -103,11 +103,11 @@ public class FrmPhotoCategory extends BaseFragment {
     private void setup() {
         LLog.d(TAG, "setup");
         fillList(AlbumData.getInstance().getPhotosetListCategory());
-        if (wallpaperAdapter == null) {
-            wallpaperAdapter = new WallpaperAdapter(getActivity(), new WallpaperAdapter.Callback() {
+        if (allWallpaperAdapter == null) {
+            allWallpaperAdapter = new AllWallpaperAdapter(getActivity(), new AllWallpaperAdapter.Callback() {
                 @Override
                 public void onClick(Photoset photoset, int position) {
-                    AlbumData.getInstance().setUseStrechImageView(false);
+                    AlbumData.getInstance().setUseStrechImageView(true);
                     Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
                     intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                     intent.putExtra(Constants.NUMBER_OF_PHOTO, photoset.getPhotos());
@@ -115,26 +115,12 @@ public class FrmPhotoCategory extends BaseFragment {
                     LActivityUtil.tranIn(getActivity());
                 }
             });
-            recyclerView.setAdapter(wallpaperAdapter);
+            recyclerView.setAdapter(allWallpaperAdapter);
         }
         if (AlbumData.getInstance().getPhotosetListCategory() != null) {
             LLog.d(TAG, "setupUI size: " + AlbumData.getInstance().getPhotosetListCategory().size());
-            wallpaperAdapter.notifyDataSetChanged();
+            allWallpaperAdapter.notifyDataSetChanged();
         }
-        /*for (int i = 0; i < photosetList.size(); i++) {
-            //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
-            mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
-                @Override
-                public void onClick(Photoset photoset, int position) {
-                    AlbumData.getInstance().setUseStrechImageView(false);
-                    Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
-                    intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
-                    intent.putExtra(Constants.NUMBER_OF_PHOTO, photoset.getPhotos());
-                    startActivity(intent);
-                    LActivityUtil.tranIn(getActivity());
-                }
-            }));
-        }*/
         avi.smoothToHide();
         LLog.d(TAG, "setup finish " + AlbumData.getInstance().getPhotosetListCategory().size());
     }

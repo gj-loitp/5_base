@@ -143,8 +143,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 2:
                     return new FrmDownloadedManga();
                 case 3:
-                    //return new FrmPhotoManga();
-                    return new FrmPhotoMore();
+                    return new FrmPhotoManga();
                 case 4:
                     return new FrmPhotoCategory();
                 case 5:

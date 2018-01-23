@@ -2,7 +2,7 @@ package vn.loitp.app.activity.home.mangawallpaper;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +13,21 @@ import java.util.Comparator;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
-import vn.loitp.app.activity.view.AlbumItem;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.AlbumData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -35,7 +36,8 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 public class FrmPhotoManga extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AVLoadingIndicatorView avi;
-    private PlaceHolderView mGalleryView;
+    private ParallaxRecyclerView recyclerView;
+    private MangaWallpaperAdapter mangaWallpaperAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -51,22 +53,27 @@ public class FrmPhotoManga extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_photo_category, container, false);
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        mGalleryView = (PlaceHolderView) view.findViewById(R.id.galleryView);
-        mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+        recyclerView = (ParallaxRecyclerView) view.findViewById(R.id.recyclerView);
+
+        //recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
         //LUIUtil.setPullLikeIOSVertical(mGalleryView);
+
         photosetsGetList();
         return view;
     }
 
-    private List<Photoset> photosetList = new ArrayList<>();
-
     private void photosetsGetList() {
+        LLog.d(TAG, ">>>photosetsGetList");
         avi.smoothToShow();
+
         if (AlbumData.getInstance().getPhotosetListManga() != null && !AlbumData.getInstance().getPhotosetListManga().isEmpty()) {
-            photosetList = AlbumData.getInstance().getPhotosetListManga();
             setup();
             return;
         }
+
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
         String apiKey = FlickrConst.API_KEY;
@@ -79,13 +86,14 @@ public class FrmPhotoManga extends BaseFragment {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetlist));
+                AlbumData.getInstance().setPhotosetListManga(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
                 setup();
             }
 
             @Override
             public void onFail(Throwable e) {
+                LLog.e(TAG, "photosetsGetList: " + e.toString());
                 handleException(e);
                 avi.smoothToHide();
             }
@@ -93,10 +101,10 @@ public class FrmPhotoManga extends BaseFragment {
     }
 
     private void setup() {
-        fillList(photosetList);
-        for (int i = 0; i < photosetList.size(); i++) {
-            //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
-            mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
+        LLog.d(TAG, "setup");
+        fillList(AlbumData.getInstance().getPhotosetListManga());
+        if (mangaWallpaperAdapter == null) {
+            mangaWallpaperAdapter = new MangaWallpaperAdapter(getActivity(), new MangaWallpaperAdapter.Callback() {
                 @Override
                 public void onClick(Photoset photoset, int position) {
                     AlbumData.getInstance().setUseStrechImageView(true);
@@ -106,11 +114,15 @@ public class FrmPhotoManga extends BaseFragment {
                     startActivity(intent);
                     LActivityUtil.tranIn(getActivity());
                 }
-            }));
+            });
+            recyclerView.setAdapter(mangaWallpaperAdapter);
         }
-        mGalleryView.refresh();
+        if (AlbumData.getInstance().getPhotosetListManga() != null) {
+            LLog.d(TAG, "setupUI size: " + AlbumData.getInstance().getPhotosetListManga().size());
+            mangaWallpaperAdapter.notifyDataSetChanged();
+        }
         avi.smoothToHide();
-        AlbumData.getInstance().setPhotosetListManga(photosetList);
+        LLog.d(TAG, "setup finish " + AlbumData.getInstance().getPhotosetListManga().size());
     }
 
     private void fillList(List<Photoset> photosetList) {
