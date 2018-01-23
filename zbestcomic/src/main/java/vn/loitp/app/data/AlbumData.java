@@ -47,4 +47,9 @@ public class AlbumData {
     public void setUseStrechImageView(boolean useStrechImageView) {
         isUseStrechImageView = useStrechImageView;
     }
+
+    public void clearAll() {
+        photosetListCategory = null;
+        photosetListManga = null;
+    }
 }

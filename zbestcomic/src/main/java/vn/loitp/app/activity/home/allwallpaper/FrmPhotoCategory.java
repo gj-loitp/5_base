@@ -3,6 +3,7 @@ package vn.loitp.app.activity.home.allwallpaper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,10 @@ import java.util.Comparator;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.activity.photos.GalleryPhotosActivity;
-import vn.loitp.app.activity.view.AlbumItem;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.AlbumData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -26,8 +27,8 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -36,7 +37,8 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 public class FrmPhotoCategory extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AVLoadingIndicatorView avi;
-    private PlaceHolderView mGalleryView;
+    private ParallaxRecyclerView recyclerView;
+    private AllWallpaperAdapter allWallpaperAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -52,20 +54,23 @@ public class FrmPhotoCategory extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_photo_category, container, false);
         avi = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        mGalleryView = (PlaceHolderView) view.findViewById(R.id.galleryView);
-        mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+        recyclerView = (ParallaxRecyclerView) view.findViewById(R.id.recyclerView);
+
+        //recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
         //LUIUtil.setPullLikeIOSVertical(mGalleryView);
+
         photosetsGetList();
         return view;
     }
 
-    private List<Photoset> photosetList = new ArrayList<>();
-
     private void photosetsGetList() {
+        LLog.d(TAG, ">>>photosetsGetList");
         avi.smoothToShow();
 
         if (AlbumData.getInstance().getPhotosetListCategory() != null && !AlbumData.getInstance().getPhotosetListCategory().isEmpty()) {
-            photosetList = AlbumData.getInstance().getPhotosetListCategory();
             setup();
             return;
         }
@@ -82,13 +87,14 @@ public class FrmPhotoCategory extends BaseFragment {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetlist));
+                AlbumData.getInstance().setPhotosetListCategory(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
                 setup();
             }
 
             @Override
             public void onFail(Throwable e) {
+                LLog.e(TAG, "photosetsGetList: " + e.toString());
                 handleException(e);
                 avi.smoothToHide();
             }
@@ -96,8 +102,27 @@ public class FrmPhotoCategory extends BaseFragment {
     }
 
     private void setup() {
-        fillList(photosetList);
-        for (int i = 0; i < photosetList.size(); i++) {
+        LLog.d(TAG, "setup");
+        fillList(AlbumData.getInstance().getPhotosetListCategory());
+        if (allWallpaperAdapter == null) {
+            allWallpaperAdapter = new AllWallpaperAdapter(getActivity(), new AllWallpaperAdapter.Callback() {
+                @Override
+                public void onClick(Photoset photoset, int position) {
+                    AlbumData.getInstance().setUseStrechImageView(false);
+                    Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
+                    intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
+                    intent.putExtra(Constants.NUMBER_OF_PHOTO, photoset.getPhotos());
+                    startActivity(intent);
+                    LActivityUtil.tranIn(getActivity());
+                }
+            });
+            recyclerView.setAdapter(allWallpaperAdapter);
+        }
+        if (AlbumData.getInstance().getPhotosetListCategory() != null) {
+            LLog.d(TAG, "setupUI size: " + AlbumData.getInstance().getPhotosetListCategory().size());
+            allWallpaperAdapter.notifyDataSetChanged();
+        }
+        /*for (int i = 0; i < photosetList.size(); i++) {
             //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
             mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
                 @Override
@@ -110,11 +135,9 @@ public class FrmPhotoCategory extends BaseFragment {
                     LActivityUtil.tranIn(getActivity());
                 }
             }));
-        }
+        }*/
         avi.smoothToHide();
-        mGalleryView.refresh();
-        AlbumData.getInstance().setPhotosetListCategory(photosetList);
-        LLog.d(TAG, "setup finish " + photosetList.size());
+        LLog.d(TAG, "setup finish " + AlbumData.getInstance().getPhotosetListCategory().size());
     }
 
     private void fillList(List<Photoset> photosetList) {

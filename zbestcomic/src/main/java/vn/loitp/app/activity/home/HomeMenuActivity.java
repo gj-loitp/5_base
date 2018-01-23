@@ -25,6 +25,7 @@ import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
 import vn.loitp.app.activity.home.favmanga.FrmFavManga;
 import vn.loitp.app.activity.home.mangawallpaper.FrmPhotoManga;
 import vn.loitp.app.activity.home.more.FrmPhotoMore;
+import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
@@ -142,7 +143,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 2:
                     return new FrmDownloadedManga();
                 case 3:
-                    return new FrmPhotoManga();
+                    //return new FrmPhotoManga();
+                    return new FrmPhotoMore();
                 case 4:
                     return new FrmPhotoCategory();
                 case 5:
@@ -170,6 +172,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     public void onBackPressed() {
         if (isExit) {
             ComicData.getInstance().clearAll();
+            AlbumData.getInstance().clearAll();
             super.onBackPressed();
         } else {
             LDialogUtil.showDialog3(activity, getString(R.string.app_name), getString(R.string.msg_exit_app), getString(R.string.yes), getString(R.string.no), getString(R.string.rate), new LDialogUtil.Callback3() {

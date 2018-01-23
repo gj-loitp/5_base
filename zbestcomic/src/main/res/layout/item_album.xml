@@ -5,12 +5,16 @@
     android:layout_height="@dimen/w_250"
     android:orientation="vertical">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop" />-->
+    <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/tv"
