@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,7 +16,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.slide.GallerySlideActivity;
-import vn.loitp.app.activity.view.PhotosItem;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.app.util.AppUtil;
@@ -30,12 +29,11 @@ import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.LAppBarLayout;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 public class GalleryPhotosActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
-    private PlaceHolderView mGalleryView;
 
     private int currentPage;
     private int totalPage;
@@ -46,6 +44,9 @@ public class GalleryPhotosActivity extends BaseActivity {
     private boolean isLoading;
     private ImageView toolbarImage;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+
+    private ParallaxRecyclerView recyclerView;
+    private PhotosAdapter photosAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +94,12 @@ public class GalleryPhotosActivity extends BaseActivity {
 
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
-        mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
-        mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
-        //LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        recyclerView = (ParallaxRecyclerView) findViewById(R.id.recyclerView);
+
+        //recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setHasFixedSize(true);
+        //LUIUtil.setPullLikeIOSVertical(recyclerView);
         String photosetID = getIntent().getStringExtra(Constants.PHOTOSET_ID);
 
         String strNumberOfPhoto = getIntent().getStringExtra(Constants.NUMBER_OF_PHOTO);
@@ -116,14 +120,14 @@ public class GalleryPhotosActivity extends BaseActivity {
 
         photosetsGetPhotos(photosetID);
 
-        mGalleryView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        //LLog.d(TAG, "last item");
-                        photosetsGetPhotos(photosetID);
+                        LLog.d(TAG, "last item");
+                        //photosetsGetPhotos(photosetID);
                     }
                 }
             }
@@ -185,8 +189,8 @@ public class GalleryPhotosActivity extends BaseActivity {
 
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosData.getInstance().addPhoto(photoList);
-                for (int i = 0; i < photoList.size(); i++) {
-                    mGalleryView.addView(new PhotosItem(activity, photoList.get(i), i, new PhotosItem.Callback() {
+                if (photosAdapter == null) {
+                    photosAdapter = new PhotosAdapter(activity, photoList, new PhotosAdapter.Callback() {
                         @Override
                         public void onClick(Photo photo, int position) {
                             //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
@@ -195,7 +199,8 @@ public class GalleryPhotosActivity extends BaseActivity {
                             startActivityForResult(intent, REQUEST_CODE);
                             LActivityUtil.tranIn(activity);
                         }
-                    }));
+                    });
+                    recyclerView.setAdapter(photosAdapter);
                 }
                 avi.smoothToHide();
                 isLoading = false;
@@ -226,7 +231,7 @@ public class GalleryPhotosActivity extends BaseActivity {
             if (pos != vn.loitp.core.common.Constants.NOT_FOUND) {
                 //LLog.d(TAG, "onActivityResult pos " + pos);
                 if (pos >= 0) {
-                    mGalleryView.smoothScrollToPosition(pos);
+                    recyclerView.smoothScrollToPosition(pos);
                 }
             }
         }

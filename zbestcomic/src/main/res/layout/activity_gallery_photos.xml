@@ -58,8 +58,16 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
+        <!--<vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
             android:id="@+id/galleryView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarSize="@dimen/w_3"
+            android:scrollbarThumbVertical="@drawable/scroll_thumb"
+            android:scrollbarTrackVertical="@drawable/scroll_track"
+            android:scrollbars="vertical" />-->
+        <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbarSize="@dimen/w_3"
