@@ -37,6 +37,9 @@ public class PhotosData {
             setPhotoList(photoList);
             return;
         }
+        if (photoList.size() > 200) {
+            photoList.clear();
+        }
         this.photoList.addAll(photoList);
         LLog.d(TAG, "size: " + this.photoList.size());
     }

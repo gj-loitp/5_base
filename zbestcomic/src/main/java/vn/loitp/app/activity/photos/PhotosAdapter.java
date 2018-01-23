@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.util.List;
@@ -64,7 +63,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         // Important to call this method
         viewHolder.getBackgroundImage().reuse();
 
-        if (position == photoList.size()) {
+        if (position == photoList.size() - 1) {
             if (callback != null) {
                 callback.onLastItem(position);
             }

@@ -190,7 +190,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosData.getInstance().addPhoto(photoList);
                 if (photosAdapter == null) {
-                    photosAdapter = new PhotosAdapter(activity, photoList, new PhotosAdapter.Callback() {
+                    photosAdapter = new PhotosAdapter(activity, PhotosData.getInstance().getPhotoList(), new PhotosAdapter.Callback() {
                         @Override
                         public void onClick(Photo photo, int position) {
                             LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
