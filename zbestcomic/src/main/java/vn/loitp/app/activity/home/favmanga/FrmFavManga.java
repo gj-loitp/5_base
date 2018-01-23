@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.common.Constants;
@@ -63,11 +60,10 @@ public class FrmFavManga extends BaseFragment {
         if (ComicData.getInstance().getComicFavList() == null) {
             LLog.d(TAG, "run if");
             ComicData.getInstance().setComicFavList(db.getAllComicFav());
-            setupUI();
         } else {
             LLog.d(TAG, "run else");
-            setupUI();
         }
+        setupUI();
     }
 
     private void checkToShowMsg() {
@@ -115,18 +111,12 @@ public class FrmFavManga extends BaseFragment {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
 
-                    //ComicData.getInstance().getComicFavList().get(position).setFav(Constants.IS_NOT_FAV);
-
                     boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                     if (isRemoved) {
                         comicFavAdapter.notifyItemRemoved(position);
                         comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
                         checkToShowMsg();
                     }
-
-                    //placeHolderView.refresh();
-
-                    //placeHolderView.refreshView(position);
                 }
             });
         }
