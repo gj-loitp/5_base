@@ -199,6 +199,14 @@ public class GalleryPhotosActivity extends BaseActivity {
                             startActivityForResult(intent, REQUEST_CODE);
                             LActivityUtil.tranIn(activity);
                         }
+
+                        @Override
+                        public void onLastItem(int positionLastItem) {
+                            if (!isLoading) {
+                                LLog.d(TAG, "last item");
+                                photosetsGetPhotos(photosetID);
+                            }
+                        }
                     });
                     recyclerView.setAdapter(photosAdapter);
                 }

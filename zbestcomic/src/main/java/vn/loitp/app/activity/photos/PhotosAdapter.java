@@ -35,6 +35,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
     public interface Callback {
         public void onClick(Photo photo, int position);
+
+        public void onLastItem(int positionLastItem);
     }
 
     private Callback callback;
@@ -61,6 +63,12 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         // # CAUTION:
         // Important to call this method
         viewHolder.getBackgroundImage().reuse();
+
+        if (position == photoList.size()) {
+            if (callback != null) {
+                callback.onLastItem(position);
+            }
+        }
     }
 
     @Override
