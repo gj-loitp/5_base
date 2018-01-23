@@ -11,21 +11,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.slide.GallerySlideActivity;
 import vn.loitp.app.activity.view.PhotosItem;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.PhotosData;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
@@ -71,7 +68,7 @@ public class GalleryPhotosActivity extends BaseActivity {
         });
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        /*collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
+        /*collapsingToolbarLayout.setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
         collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
 
