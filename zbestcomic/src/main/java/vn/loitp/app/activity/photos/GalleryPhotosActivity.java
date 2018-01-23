@@ -120,7 +120,7 @@ public class GalleryPhotosActivity extends BaseActivity {
 
         photosetsGetPhotos(photosetID);
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        /*recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -131,7 +131,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                     }
                 }
             }
-        });
+        });*/
     }
 
     @Override
