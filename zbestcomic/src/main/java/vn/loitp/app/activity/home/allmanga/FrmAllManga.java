@@ -7,11 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.favmanga.ComicFavAdapter;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.helper.ComicUtils;
@@ -36,7 +34,6 @@ public class FrmAllManga extends BaseFragment {
     private DatabaseHandler db;
     private ParallaxRecyclerView recyclerView;
     private ComicAllAdapter comicAllAdapter;
-    private List<Comic> comicList = new ArrayList<>();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -58,18 +55,6 @@ public class FrmAllManga extends BaseFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        comicAllAdapter = new ComicAllAdapter(getActivity(), comicList, new ComicAllAdapter.Callback() {
-            @Override
-            public void onClick(Comic comic, int position) {
-                LLog.d(TAG, "onClick " + comic.getTitle());
-            }
-
-            @Override
-            public void onLongClick(Comic comic, int position) {
-                showDialogFav(comic, position);
-            }
-        });
-        recyclerView.setAdapter(comicAllAdapter);
 
         comicTypeList = ComicUtils.getComicTypeList();
 
@@ -132,12 +117,24 @@ public class FrmAllManga extends BaseFragment {
     }
 
     private void setupUI() {
-        comicList.clear();
-        comicList.addAll(ComicData.getInstance().getComicList());
-        if (comicList == null || comicList.isEmpty()) {
+        if (comicAllAdapter == null) {
+            comicAllAdapter = new ComicAllAdapter(getActivity(), new ComicAllAdapter.Callback() {
+                @Override
+                public void onClick(Comic comic, int position) {
+                    LLog.d(TAG, "onClick " + comic.getTitle());
+                }
+
+                @Override
+                public void onLongClick(Comic comic, int position) {
+                    showDialogFav(comic, position);
+                }
+            });
+            recyclerView.setAdapter(comicAllAdapter);
+        }
+        if (ComicData.getInstance().getComicList() == null || ComicData.getInstance().getComicList().isEmpty()) {
             showDialogError(getString(R.string.cannot_get_comic_list));
         } else {
-            LLog.d(TAG, "size: " + comicList.size());
+            LLog.d(TAG, "size: " + ComicData.getInstance().getComicList().size());
             comicAllAdapter.notifyDataSetChanged();
         }
     }
