@@ -18,6 +18,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.ComicData;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LImageUtil;
@@ -26,12 +27,10 @@ import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHo
 public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
-    private List<Comic> comicList;
 
-    public ComicFavAdapter(Context context, List<Comic> comicList, Callback callback) {
+    public ComicFavAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
-        this.comicList = comicList;
         this.callback = callback;
     }
 
@@ -51,16 +50,16 @@ public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.rootView.setBackgroundColor(AppUtil.getColor(context));
-        LImageUtil.load((Activity) context, comicList.get(position).getUrlImg(), viewHolder.getBackgroundImage());
-        viewHolder.tvTitle.setText(comicList.get(position).getTitle());
-        viewHolder.tvDate.setText(comicList.get(position).getDate());
-        viewHolder.ivIsFav.setVisibility(comicList.get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
+        LImageUtil.load((Activity) context, ComicData.getInstance().getComicFavList().get(position).getUrlImg(), viewHolder.getBackgroundImage());
+        viewHolder.tvTitle.setText(ComicData.getInstance().getComicFavList().get(position).getTitle());
+        viewHolder.tvDate.setText(ComicData.getInstance().getComicFavList().get(position).getDate());
+        viewHolder.ivIsFav.setVisibility(ComicData.getInstance().getComicFavList().get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
 
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onClick(comicList.get(position), position);
+                    callback.onClick(ComicData.getInstance().getComicFavList().get(position), position);
                 }
             }
         });
@@ -68,7 +67,7 @@ public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHo
             @Override
             public boolean onLongClick(View v) {
                 if (callback != null) {
-                    callback.onLongClick(comicList.get(position), position);
+                    callback.onLongClick(ComicData.getInstance().getComicFavList().get(position), position);
                 }
                 return true;
             }
@@ -81,10 +80,7 @@ public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        if (comicList == null) {
-            return 0;
-        }
-        return comicList.size();
+        return ComicData.getInstance().getComicFavList().size();
     }
 
     /**

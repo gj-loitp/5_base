@@ -31,7 +31,6 @@ public class FrmFavManga extends BaseFragment {
     private AVLoadingIndicatorView avi;
     private DatabaseHandler db;
     private ParallaxRecyclerView recyclerView;
-    private List<Comic> comicList = new ArrayList<>();
     private ComicFavAdapter comicFavAdapter;
 
     @Override
@@ -55,19 +54,6 @@ public class FrmFavManga extends BaseFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        comicFavAdapter = new ComicFavAdapter(getActivity(), comicList, new ComicFavAdapter.Callback() {
-            @Override
-            public void onClick(Comic comic, int position) {
-                LLog.d(TAG, "onClick " + comic.getTitle());
-            }
-
-            @Override
-            public void onLongClick(Comic comic, int position) {
-                LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
-                showDialogFav(comic, position);
-            }
-        });
-        recyclerView.setAdapter(comicFavAdapter);
 
         run();
         return view;
@@ -85,7 +71,7 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void checkToShowMsg() {
-        if (comicList == null || comicList.isEmpty()) {
+        if (ComicData.getInstance().getComicFavList() == null || ComicData.getInstance().getComicFavList().isEmpty()) {
             tvMsg.setVisibility(View.VISIBLE);
         } else {
             tvMsg.setVisibility(View.GONE);
@@ -93,9 +79,22 @@ public class FrmFavManga extends BaseFragment {
     }
 
     private void setupUI() {
-        comicList.clear();
-        comicList.addAll(ComicData.getInstance().getComicFavList());
-        if (comicList != null) {
+        if (comicFavAdapter == null) {
+            comicFavAdapter = new ComicFavAdapter(getActivity(), new ComicFavAdapter.Callback() {
+                @Override
+                public void onClick(Comic comic, int position) {
+                    LLog.d(TAG, "onClick " + comic.getTitle());
+                }
+
+                @Override
+                public void onLongClick(Comic comic, int position) {
+                    LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
+                    showDialogFav(comic, position);
+                }
+            });
+            recyclerView.setAdapter(comicFavAdapter);
+        }
+        if (ComicData.getInstance().getComicFavList() != null) {
             LLog.d(TAG, "setupUI size: " + ComicData.getInstance().getComicFavList().size());
             comicFavAdapter.notifyDataSetChanged();
         }
@@ -119,10 +118,9 @@ public class FrmFavManga extends BaseFragment {
                     //ComicData.getInstance().getComicFavList().get(position).setFav(Constants.IS_NOT_FAV);
 
                     boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
-                    comicList.remove(comic);
                     if (isRemoved) {
                         comicFavAdapter.notifyItemRemoved(position);
-                        comicFavAdapter.notifyItemRangeChanged(position, comicList.size());
+                        comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
                         checkToShowMsg();
                     }
 
