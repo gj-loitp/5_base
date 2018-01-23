@@ -20,11 +20,11 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
-public class AllWallpaperAdapter extends RecyclerView.Adapter<AllWallpaperAdapter.ViewHolder> {
+public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
 
-    public AllWallpaperAdapter(Context context, Callback callback) {
+    public WallpaperAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;

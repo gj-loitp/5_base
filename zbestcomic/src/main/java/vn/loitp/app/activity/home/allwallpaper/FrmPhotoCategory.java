@@ -37,7 +37,7 @@ public class FrmPhotoCategory extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AVLoadingIndicatorView avi;
     private ParallaxRecyclerView recyclerView;
-    private AllWallpaperAdapter allWallpaperAdapter;
+    private WallpaperAdapter wallpaperAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -103,8 +103,8 @@ public class FrmPhotoCategory extends BaseFragment {
     private void setup() {
         LLog.d(TAG, "setup");
         fillList(AlbumData.getInstance().getPhotosetListCategory());
-        if (allWallpaperAdapter == null) {
-            allWallpaperAdapter = new AllWallpaperAdapter(getActivity(), new AllWallpaperAdapter.Callback() {
+        if (wallpaperAdapter == null) {
+            wallpaperAdapter = new WallpaperAdapter(getActivity(), new WallpaperAdapter.Callback() {
                 @Override
                 public void onClick(Photoset photoset, int position) {
                     AlbumData.getInstance().setUseStrechImageView(false);
@@ -115,11 +115,11 @@ public class FrmPhotoCategory extends BaseFragment {
                     LActivityUtil.tranIn(getActivity());
                 }
             });
-            recyclerView.setAdapter(allWallpaperAdapter);
+            recyclerView.setAdapter(wallpaperAdapter);
         }
         if (AlbumData.getInstance().getPhotosetListCategory() != null) {
             LLog.d(TAG, "setupUI size: " + AlbumData.getInstance().getPhotosetListCategory().size());
-            allWallpaperAdapter.notifyDataSetChanged();
+            wallpaperAdapter.notifyDataSetChanged();
         }
         /*for (int i = 0; i < photosetList.size(); i++) {
             //LLog.d(TAG, photosetList.get(i).getTitle().getContent() + " " + photosetList.get(i).getId());
