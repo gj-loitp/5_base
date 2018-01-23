@@ -38,7 +38,7 @@ public class AlbumData {
         this.photosetListManga = photosetListManga;
     }
 
-    private boolean isUseStrechImageView;
+    /*private boolean isUseStrechImageView;
 
     public boolean isUseStrechImageView() {
         return isUseStrechImageView;
@@ -46,7 +46,7 @@ public class AlbumData {
 
     public void setUseStrechImageView(boolean useStrechImageView) {
         isUseStrechImageView = useStrechImageView;
-    }
+    }*/
 
     public void clearAll() {
         photosetListCategory = null;

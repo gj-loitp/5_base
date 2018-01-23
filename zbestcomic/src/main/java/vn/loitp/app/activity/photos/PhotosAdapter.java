@@ -49,6 +49,15 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         viewHolder.rootView.setBackgroundColor(AppUtil.getColor(context));
         LImageUtil.load((Activity) context, photoList.get(position).getUrlO(), viewHolder.getBackgroundImage());
 
+        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClick(photoList.get(position), position);
+                }
+            }
+        });
+
         // # CAUTION:
         // Important to call this method
         viewHolder.getBackgroundImage().reuse();
@@ -65,12 +74,10 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
      */
     public static class ViewHolder extends ParallaxViewHolder {
         public RelativeLayout rootView;
-        public ImageView imageView;
 
         public ViewHolder(View v) {
             super(v);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
-            imageView = (ImageView) v.findViewById(R.id.imageView);
         }
 
         @Override

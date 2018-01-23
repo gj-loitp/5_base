@@ -127,7 +127,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         LLog.d(TAG, "last item");
-                        //photosetsGetPhotos(photosetID);
+                        photosetsGetPhotos(photosetID);
                     }
                 }
             }
@@ -193,7 +193,7 @@ public class GalleryPhotosActivity extends BaseActivity {
                     photosAdapter = new PhotosAdapter(activity, photoList, new PhotosAdapter.Callback() {
                         @Override
                         public void onClick(Photo photo, int position) {
-                            //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
+                            LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                             Intent intent = new Intent(activity, GallerySlideActivity.class);
                             intent.putExtra(Constants.PHOTO_ID, photo.getId());
                             startActivityForResult(intent, REQUEST_CODE);

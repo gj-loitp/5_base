@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -187,7 +188,13 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
         public Object instantiateItem(ViewGroup collection, int position) {
             Photo photo = PhotosData.getInstance().getPhoto(position);
             LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(AlbumData.getInstance().isUseStrechImageView() ? R.layout.item_photo_slide_strech_iv : R.layout.item_photo_slide_iv, collection, false);
+            //ViewGroup layout = (ViewGroup) inflater.inflate(AlbumData.getInstance().isUseStrechImageView() ? R.layout.item_photo_slide_strech_iv : R.layout.item_photo_slide_iv, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_strech_iv, collection, false);
+
+            ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
+            if (scrollView != null) {
+                LUIUtil.setPullLikeIOSVertical(scrollView);
+            }
 
             //RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
             //rootView.setBackgroundColor(AppUtil.getColor(activity));

@@ -107,7 +107,7 @@ public class FrmPhotoManga extends BaseFragment {
             mangaWallpaperAdapter = new MangaWallpaperAdapter(getActivity(), new MangaWallpaperAdapter.Callback() {
                 @Override
                 public void onClick(Photoset photoset, int position) {
-                    AlbumData.getInstance().setUseStrechImageView(true);
+                    //AlbumData.getInstance().setUseStrechImageView(true);
                     Intent intent = new Intent(getActivity(), GalleryPhotosActivity.class);
                     intent.putExtra(Constants.PHOTOSET_ID, photoset.getId());
                     intent.putExtra(Constants.NUMBER_OF_PHOTO, photoset.getPhotos());
