@@ -47,7 +47,7 @@ public class AllWallpaperAdapter extends RecyclerView.Adapter<AllWallpaperAdapte
         LImageUtil.load((Activity) context, AlbumData.getInstance().getPhotosetListCategory().get(position).getPrimaryPhotoExtras().getUrlM(), viewHolder.getBackgroundImage());
         String s = AlbumData.getInstance().getPhotosetListCategory().get(position).getTitle().getContent() + " (" + AlbumData.getInstance().getPhotosetListCategory().get(position).getPhotos() + ")";
         viewHolder.tv.setText(s);
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
@@ -73,11 +73,13 @@ public class AllWallpaperAdapter extends RecyclerView.Adapter<AllWallpaperAdapte
     public static class ViewHolder extends ParallaxViewHolder {
         public RelativeLayout rootView;
         public TextView tv;
+        public View view;
 
         public ViewHolder(View v) {
             super(v);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
             tv = (TextView) v.findViewById(R.id.tv);
+            view = (View) v.findViewById(R.id.view);
         }
 
         @Override
