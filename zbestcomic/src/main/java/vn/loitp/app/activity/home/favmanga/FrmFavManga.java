@@ -129,6 +129,7 @@ public class FrmFavManga extends BaseFragment {
                 return;
             }
             int position = comicChangeEvent.getPosition();
+            LLog.d(TAG, "position " + position);
             if (position == vn.loitp.core.common.Constants.NOT_FOUND) {
                 return;
             }
