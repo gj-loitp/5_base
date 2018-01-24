@@ -2,6 +2,8 @@ package vn.loitp.app.data;
 
 import org.greenrobot.eventbus.EventBus;
 
+import vn.loitp.app.model.comic.Comic;
+
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.
  */
@@ -14,6 +16,34 @@ public class EventBusData {
     }
 
     private EventBusData() {
+    }
+
+    public static class ComicChangeEvent {
+        private boolean isRemoved;
+        private Comic comic;
+
+        public boolean isRemoved() {
+            return isRemoved;
+        }
+
+        public void setRemoved(boolean removed) {
+            isRemoved = removed;
+        }
+
+        public Comic getComic() {
+            return comic;
+        }
+
+        public void setComic(Comic comic) {
+            this.comic = comic;
+        }
+    }
+
+    public void sendComicChange(boolean isRemoved, Comic comic) {
+        ComicChangeEvent comicChangeEvent = new ComicChangeEvent();
+        comicChangeEvent.setRemoved(isRemoved);
+        comicChangeEvent.setComic(comic);
+        EventBus.getDefault().post(comicChangeEvent);
     }
 
     /*public static class ConnectEvent {

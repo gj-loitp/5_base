@@ -7,10 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -120,5 +125,25 @@ public class FrmFavManga extends BaseFragment {
                 }
             });
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
+        LLog.d(TAG, TAG + " onMessageEvent comicChangeEvent");
+        if (comicChangeEvent != null) {
+            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
+        }
+    }
+
+    @Override
+    public void onStart() {
+        EventBus.getDefault().register(this);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }

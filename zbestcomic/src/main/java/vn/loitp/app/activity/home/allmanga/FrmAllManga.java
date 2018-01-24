@@ -7,11 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.helper.ComicUtils;
 import vn.loitp.app.helper.comiclist.GetComicTask;
 import vn.loitp.app.model.comic.Comic;
@@ -152,6 +157,7 @@ public class FrmAllManga extends BaseFragment {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
                     comicAllAdapter.notifyItemChanged(position);
+                    EventBusData.getInstance().sendComicChange(true, comic);
                 }
             });
         } else {
@@ -166,8 +172,30 @@ public class FrmAllManga extends BaseFragment {
                     comic.setFav(Constants.IS_FAV);
                     db.updateComic(comic);
                     comicAllAdapter.notifyItemChanged(position);
+
+                    EventBusData.getInstance().sendComicChange(false, comic);
                 }
             });
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
+        LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
+        if (comicChangeEvent != null) {
+            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
+        }
+    }
+
+    @Override
+    public void onStart() {
+        EventBus.getDefault().register(this);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }
