@@ -80,14 +80,14 @@ public class GalleryPhotosActivity extends BaseActivity {
                 //LLog.d(TAG, "toolbarChange: " + toolbarChange);
                 if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
                     //COLLAPSED appBarLayout min
-                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
                 } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
                     //EXPANDED appBarLayout max
-                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
                     AppUtil.loadBackground(activity, toolbarImage);
                 } else {
                     //IDLE appBarLayout not min not max
-                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
                 }
             }
         });
@@ -156,7 +156,7 @@ public class GalleryPhotosActivity extends BaseActivity {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            //LLog.d(TAG, "isLoading true -> return");
+            LLog.d(TAG, "isLoading true -> return");
             return;
         }
         //LLog.d(TAG, "is calling photosetsGetPhotos");
@@ -168,7 +168,7 @@ public class GalleryPhotosActivity extends BaseActivity {
         String userID = FlickrConst.USER_KEY;
         //LLog.d(TAG, "photosetsGetPhotos currentPage " + currentPage);
         if (currentPage <= 0) {
-            //LLog.d(TAG, "currentPage <=0 -> return");
+            LLog.d(TAG, "currentPage <=0 -> return");
             currentPage = 0;
             avi.smoothToHide();
             return;
@@ -202,13 +202,16 @@ public class GalleryPhotosActivity extends BaseActivity {
 
                         @Override
                         public void onLastItem(int positionLastItem) {
+                            LLog.d(TAG, "last item");
                             if (!isLoading) {
-                                LLog.d(TAG, "last item");
+                                LLog.d(TAG, ">>>photosetsGetPhotos");
                                 photosetsGetPhotos(photosetID);
                             }
                         }
                     });
                     recyclerView.setAdapter(photosAdapter);
+                } else {
+                    photosAdapter.notifyDataSetChanged();
                 }
                 avi.smoothToHide();
                 isLoading = false;
@@ -217,7 +220,7 @@ public class GalleryPhotosActivity extends BaseActivity {
 
             @Override
             public void onFail(Throwable e) {
-                //LLog.d(TAG, "onFail " + e.toString());
+                LLog.d(TAG, "onFail " + e.toString());
                 handleException(e);
                 avi.smoothToHide();
                 isLoading = true;

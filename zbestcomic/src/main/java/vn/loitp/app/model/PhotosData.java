@@ -5,6 +5,7 @@ import java.util.List;
 
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.utils.util.ToastUtils;
 
 /**
  * Created by www.muathu@gmail.com on 10/8/2017.
@@ -37,16 +38,17 @@ public class PhotosData {
             setPhotoList(photoList);
             return;
         }
-        if (photoList.size() > 200) {
-            photoList.clear();
+        if (this.photoList.size() > 200) {
+            this.photoList.clear();
+            //ToastUtils.showShort("Clear");
         }
         this.photoList.addAll(photoList);
-        LLog.d(TAG, "size: " + this.photoList.size());
+        //LLog.d(TAG, "size: " + this.photoList.size());
     }
 
     public void clearData() {
         this.photoList.clear();
-        LLog.d(TAG, "size: " + this.photoList.size());
+        //LLog.d(TAG, "size: " + this.photoList.size());
     }
 
     public int getSize() {
