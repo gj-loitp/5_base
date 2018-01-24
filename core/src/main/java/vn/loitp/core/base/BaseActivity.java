@@ -135,8 +135,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void handleException(Throwable throwable) {
-        LLog.e("handleException", throwable.toString());
-        showDialogError(throwable.getMessage());
+        //LLog.e("handleException", throwable.toString());
+        if (throwable != null) {
+            showDialogError(throwable.getMessage());
+        }
     }
 
     protected void showDialogError(String errMsg) {
@@ -170,7 +172,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void showTvNoConnect() {
         if (rootView != null) {
             if (tvConnectStt == null) {
-                LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
+                //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
                 //tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.LightPink));
@@ -185,19 +187,19 @@ public abstract class BaseActivity extends AppCompatActivity {
                 rootView.addView(tvConnectStt, rLParams);
                 //rootView.requestLayout();
             } else {
-                LLog.d(TAG, "tvConnectStt != null");
+                //LLog.d(TAG, "tvConnectStt != null");
                 tvConnectStt.setText(R.string.check_ur_connection);
             }
             LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
         } else {
-            LLog.d(TAG, "rootView == null");
+            //LLog.d(TAG, "rootView == null");
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
-        TAG = "onMessageEvent";
-        LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        //TAG = "onMessageEvent";
+        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
         //onNetworkChange(event);
         if (!event.isConnected()) {//no network
             showTvNoConnect();
@@ -250,7 +252,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(!LConnectivityUtil.isConnected(activity)){
+        if (!LConnectivityUtil.isConnected(activity)) {
             showTvNoConnect();
         }
     }
