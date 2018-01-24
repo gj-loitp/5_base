@@ -113,7 +113,7 @@ public class FrmFavManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    EventBusData.getInstance().sendComicChange(true, comic, position);
+                    EventBusData.getInstance().sendComicChange(true, comic);
                 }
             });
         }
@@ -122,30 +122,32 @@ public class FrmFavManga extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + " onMessageEvent comicChangeEvent");
-        if (comicChangeEvent != null) {
+        /*if (comicChangeEvent != null) {
             LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
             if (comic == null) {
+                LLog.d(TAG, "comic null -> return");
                 return;
             }
             int position = comicChangeEvent.getPosition();
             LLog.d(TAG, "position " + position);
             if (position == vn.loitp.core.common.Constants.NOT_FOUND) {
+                LLog.d(TAG, "position NOT_FOUND null -> return");
                 return;
             }
             if (comicChangeEvent.isRemoved()) {
-                LLog.d(TAG, comic.getTitle() + " isRemoved if");
-                comic.setFav(Constants.IS_NOT_FAV);
-                db.updateComic(comic);
-
+                LLog.d(TAG, comic.getTitle() + " isRemoved true -> remove");
                 boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
                 LLog.d(TAG, "isRemoved " + isRemoved);
                 if (isRemoved) {
                     comicFavAdapter.notifyItemRemoved(position);
                     comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
                 }
+                comic.setFav(Constants.IS_NOT_FAV);
+                int rowEffected = db.updateComic(comic);
+                LLog.d(TAG, "rowEffected " + rowEffected);
             } else {
-                LLog.d(TAG, comic.getTitle() + " isRemoved else");
+                LLog.d(TAG, comic.getTitle() + " isRemoved false -> add");
                 comic.setFav(Constants.IS_FAV);
                 db.updateComic(comic);
 
@@ -155,7 +157,7 @@ public class FrmFavManga extends BaseFragment {
                 comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
             }
             checkToShowMsg();
-        }
+        }*/
     }
 
     @Override

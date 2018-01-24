@@ -154,7 +154,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    EventBusData.getInstance().sendComicChange(true, comic, position);
+                    EventBusData.getInstance().sendComicChange(true, comic);
                 }
             });
         } else {
@@ -166,7 +166,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    EventBusData.getInstance().sendComicChange(false, comic, position);
+                    EventBusData.getInstance().sendComicChange(false, comic);
                 }
             });
         }
@@ -175,7 +175,7 @@ public class FrmAllManga extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
-        if (comicChangeEvent != null) {
+        /*if (comicChangeEvent != null) {
             //LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
             if (comic == null) {
@@ -194,7 +194,7 @@ public class FrmAllManga extends BaseFragment {
                 db.updateComic(comic);
                 comicAllAdapter.notifyItemChanged(position);
             }
-        }
+        }*/
     }
 
     @Override

@@ -3,7 +3,6 @@ package vn.loitp.app.data;
 import org.greenrobot.eventbus.EventBus;
 
 import vn.loitp.app.model.comic.Comic;
-import vn.loitp.core.common.Constants;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.
@@ -22,7 +21,6 @@ public class EventBusData {
     public static class ComicChangeEvent {
         private boolean isRemoved;
         private Comic comic;
-        private int position = Constants.NOT_FOUND;
 
         public boolean isRemoved() {
             return isRemoved;
@@ -39,21 +37,12 @@ public class EventBusData {
         public void setComic(Comic comic) {
             this.comic = comic;
         }
-
-        public int getPosition() {
-            return position;
-        }
-
-        public void setPosition(int position) {
-            this.position = position;
-        }
     }
 
-    public void sendComicChange(boolean isRemoved, Comic comic, int position) {
+    public void sendComicChange(boolean isRemoved, Comic comic) {
         ComicChangeEvent comicChangeEvent = new ComicChangeEvent();
         comicChangeEvent.setRemoved(isRemoved);
         comicChangeEvent.setComic(comic);
-        comicChangeEvent.setPosition(position);
         EventBus.getDefault().post(comicChangeEvent);
     }
 
