@@ -53,7 +53,7 @@ public class ComicAllAdapter extends RecyclerView.Adapter<ComicAllAdapter.ViewHo
         viewHolder.tvDate.setText(ComicData.getInstance().getComicList().get(position).getDate());
         viewHolder.ivIsFav.setVisibility(ComicData.getInstance().getComicList().get(position).isFav() == Constants.IS_FAV ? View.VISIBLE : View.GONE);
 
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
@@ -61,7 +61,7 @@ public class ComicAllAdapter extends RecyclerView.Adapter<ComicAllAdapter.ViewHo
                 }
             }
         });
-        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+        viewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 if (callback != null) {
@@ -90,6 +90,7 @@ public class ComicAllAdapter extends RecyclerView.Adapter<ComicAllAdapter.ViewHo
         public ImageView ivIsFav;
         public TextView tvTitle;
         public TextView tvDate;
+        public View view;
 
         public ViewHolder(View v) {
             super(v);
@@ -97,6 +98,7 @@ public class ComicAllAdapter extends RecyclerView.Adapter<ComicAllAdapter.ViewHo
             ivIsFav = (ImageView) v.findViewById(R.id.iv_is_fav);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             tvDate = (TextView) v.findViewById(R.id.tv_date);
+            view = (View) v.findViewById(R.id.view);
         }
 
         @Override
