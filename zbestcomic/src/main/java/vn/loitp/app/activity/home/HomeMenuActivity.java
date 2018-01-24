@@ -34,6 +34,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.data.EventBusData;
 import vn.loitp.views.LAppBarLayout;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
@@ -229,4 +230,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         ComicData.getInstance().clearAll();
         super.onDestroy();
     }
+
+    /*@Override
+    protected void onNetworkChange(EventBusData.ConnectEvent event) {
+        super.onNetworkChange(event);
+        LLog.d(TAG, "onMessageEvent loitp: " + event.isConnected());
+    }*/
 }

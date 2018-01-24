@@ -1,6 +1,7 @@
 package vn.loitp.core.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -33,10 +34,10 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.core.utilities.statusbar.StatusBarCompat;
 import vn.loitp.data.EventBusData;
 
 //TODO change const debug
@@ -166,29 +167,40 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private TextView tvConnectStt;
 
+    private void showTvNoConnect() {
+        if (rootView != null) {
+            if (tvConnectStt == null) {
+                LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
+                tvConnectStt = new TextView(activity);
+                tvConnectStt.setTextColor(Color.WHITE);
+                //tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.LightPink));
+                tvConnectStt.setBackgroundColor(Color.RED);
+                tvConnectStt.setPadding(20, 20, 20, 20);
+                tvConnectStt.setGravity(Gravity.CENTER);
+                //tvConnectStt.setText(R.string.check_ur_connection);
+                tvConnectStt.setText(R.string.check_ur_connection_vn);
+
+                RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                rLParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);
+                rootView.addView(tvConnectStt, rLParams);
+                //rootView.requestLayout();
+            } else {
+                LLog.d(TAG, "tvConnectStt != null");
+                tvConnectStt.setText(R.string.check_ur_connection);
+            }
+            LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
+        } else {
+            LLog.d(TAG, "rootView == null");
+        }
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
-        if (!event.isConnected()) {
-            if (rootView != null) {
-                if (tvConnectStt == null) {
-                    //LLog.d(TAG, "tvConnectStt == null");
-                    tvConnectStt = new TextView(activity);
-                    tvConnectStt.setTextColor(Color.WHITE);
-                    tvConnectStt.setBackgroundColor(Color.RED);
-                    tvConnectStt.setPadding(20, 20, 20, 20);
-                    tvConnectStt.setGravity(Gravity.CENTER);
-                    tvConnectStt.setText(R.string.check_ur_connection);
-
-                    RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                    rLParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
-                    rootView.addView(tvConnectStt, rLParams);
-                } else {
-                    //LLog.d(TAG, "tvConnectStt != null");
-                    tvConnectStt.setText(R.string.check_ur_connection);
-                }
-                LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
-            }
+        TAG = "onMessageEvent";
+        LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        //onNetworkChange(event);
+        if (!event.isConnected()) {//no network
+            showTvNoConnect();
         } else {
             if (tvConnectStt != null) {
                 LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
@@ -199,7 +211,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
                     @Override
                     public void onEnd() {
-                        tvConnectStt.setVisibility(View.GONE);
+                        if (tvConnectStt != null) {
+                            tvConnectStt.setVisibility(View.GONE);
+                        }
                     }
 
                     @Override
@@ -217,15 +231,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /*protected void onNetworkChange(EventBusData.ConnectEvent event){
+
+    }*/
+
     @Override
     public void onStart() {
-        super.onStart();
         EventBus.getDefault().register(this);
+        super.onStart();
     }
 
     @Override
     public void onStop() {
-        super.onStop();
         EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!LConnectivityUtil.isConnected(activity)){
+            showTvNoConnect();
+        }
     }
 }
