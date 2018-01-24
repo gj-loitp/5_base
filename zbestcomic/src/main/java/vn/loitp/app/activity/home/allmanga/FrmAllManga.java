@@ -154,10 +154,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    comic.setFav(Constants.IS_NOT_FAV);
-                    db.updateComic(comic);
-                    comicAllAdapter.notifyItemChanged(position);
-                    EventBusData.getInstance().sendComicChange(true, comic);
+                    EventBusData.getInstance().sendComicChange(true, comic, position);
                 }
             });
         } else {
@@ -169,11 +166,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    comic.setFav(Constants.IS_FAV);
-                    db.updateComic(comic);
-                    comicAllAdapter.notifyItemChanged(position);
-
-                    EventBusData.getInstance().sendComicChange(false, comic);
+                    EventBusData.getInstance().sendComicChange(false, comic, position);
                 }
             });
         }
@@ -183,7 +176,24 @@ public class FrmAllManga extends BaseFragment {
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
         if (comicChangeEvent != null) {
-            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
+            //LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
+            Comic comic = comicChangeEvent.getComic();
+            if (comic == null) {
+                return;
+            }
+            int position = comicChangeEvent.getPosition();
+            if (position == vn.loitp.core.common.Constants.NOT_FOUND) {
+                return;
+            }
+            if (comicChangeEvent.isRemoved()) {
+                comic.setFav(Constants.IS_NOT_FAV);
+                db.updateComic(comic);
+                comicAllAdapter.notifyItemChanged(position);
+            } else {
+                comic.setFav(Constants.IS_FAV);
+                db.updateComic(comic);
+                comicAllAdapter.notifyItemChanged(position);
+            }
         }
     }
 

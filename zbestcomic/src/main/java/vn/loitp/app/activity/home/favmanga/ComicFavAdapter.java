@@ -53,7 +53,8 @@ public class ComicFavAdapter extends RecyclerView.Adapter<ComicFavAdapter.ViewHo
         LImageUtil.load((Activity) context, ComicData.getInstance().getComicFavList().get(position).getUrlImg(), viewHolder.getBackgroundImage());
         viewHolder.tvTitle.setText(ComicData.getInstance().getComicFavList().get(position).getTitle());
         viewHolder.tvDate.setText(ComicData.getInstance().getComicFavList().get(position).getDate());
-        viewHolder.ivIsFav.setVisibility(ComicData.getInstance().getComicFavList().get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
+        //viewHolder.ivIsFav.setVisibility(ComicData.getInstance().getComicFavList().get(position).isFav() == Constants.IS_FAV ? android.view.View.VISIBLE : android.view.View.GONE);
+        viewHolder.ivIsFav.setVisibility(View.GONE);
 
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
