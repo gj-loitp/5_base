@@ -14,7 +14,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -133,7 +132,7 @@ public class FrmAllManga extends BaseFragment {
                 @Override
                 public void onLongClick(Comic comic, int position) {
                     LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
-                    showDialogFav(comic);
+                    showDialogFav(comic, position);
                 }
             });
             recyclerView.setAdapter(comicAllAdapter);
@@ -146,7 +145,7 @@ public class FrmAllManga extends BaseFragment {
         }
     }
 
-    private void showDialogFav(Comic comic) {
+    private void showDialogFav(Comic comic, int position) {
         if (comic.isFav() == Constants.IS_FAV) {
             LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
                 @Override
@@ -156,8 +155,13 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    //LLog.d(TAG, "onClick2");
-                    EventBusData.getInstance().sendComicChange(true, comic);
+                    comic.setFav(Constants.IS_NOT_FAV);
+                    db.updateComic(comic);
+
+                    comicAllAdapter.notifyItemChanged(position);
+                    ComicData.getInstance().setComicList(db.getAllComic());
+
+                    EventBusData.getInstance().sendComicChange(true, comic, TAG);
                 }
             });
         } else {
@@ -169,8 +173,13 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    //LLog.d(TAG, "onClick2");
-                    EventBusData.getInstance().sendComicChange(false, comic);
+                    comic.setFav(Constants.IS_FAV);
+                    db.updateComic(comic);
+
+                    comicAllAdapter.notifyItemChanged(position);
+                    ComicData.getInstance().setComicList(db.getAllComic());
+
+                    EventBusData.getInstance().sendComicChange(false, comic, TAG);
                 }
             });
         }
@@ -180,6 +189,14 @@ public class FrmAllManga extends BaseFragment {
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
         if (comicChangeEvent != null) {
+            if (comicChangeEvent.getTag().equalsIgnoreCase(TAG)) {
+                LLog.d(TAG, "event from " + TAG + " -> do nothing");
+            } else {
+                LLog.d(TAG, "need to update UI");
+            }
+        }
+
+        /*if (comicChangeEvent != null) {
             LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
             if (comic == null) {
@@ -206,7 +223,7 @@ public class FrmAllManga extends BaseFragment {
                 ComicData.getInstance().setComicList(db.getAllComic());
                 //comicAllAdapter.notifyDataSetChanged();
             }
-        }
+        }*/
     }
 
     @Override

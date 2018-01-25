@@ -21,6 +21,7 @@ public class EventBusData {
     public static class ComicChangeEvent {
         private boolean isRemoved;
         private Comic comic;
+        private String tag;
 
         public boolean isRemoved() {
             return isRemoved;
@@ -37,12 +38,21 @@ public class EventBusData {
         public void setComic(Comic comic) {
             this.comic = comic;
         }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
     }
 
-    public void sendComicChange(boolean isRemoved, Comic comic) {
+    public void sendComicChange(boolean isRemoved, Comic comic, String tag) {
         ComicChangeEvent comicChangeEvent = new ComicChangeEvent();
         comicChangeEvent.setRemoved(isRemoved);
         comicChangeEvent.setComic(comic);
+        comicChangeEvent.setTag(tag);
         EventBus.getDefault().post(comicChangeEvent);
     }
 

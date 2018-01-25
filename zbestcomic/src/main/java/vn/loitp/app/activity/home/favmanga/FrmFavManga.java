@@ -114,7 +114,7 @@ public class FrmFavManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    EventBusData.getInstance().sendComicChange(true, comic);
+                    EventBusData.getInstance().sendComicChange(true, comic, TAG);
                 }
             });
         }
@@ -123,6 +123,13 @@ public class FrmFavManga extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
+        if (comicChangeEvent != null) {
+            if (comicChangeEvent.getTag().equalsIgnoreCase(TAG)) {
+                LLog.d(TAG, "event from " + TAG + " -> do nothing");
+            } else {
+                LLog.d(TAG, "need to update UI");
+            }
+        }
         /*if (comicChangeEvent != null) {
             LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
@@ -159,7 +166,7 @@ public class FrmFavManga extends BaseFragment {
                 comic.setFav(Constants.IS_FAV);
                 db.updateComic(comic);
 
-                ComicData.getInstance().getComicFavList().add(comic);
+                //ComicData.getInstance().setComicFavList(db.getAllComicFav());
 
                 comicFavAdapter.notifyItemInserted(ComicData.getInstance().getComicFavList().size() - 1);
                 comicFavAdapter.notifyItemRangeChanged(ComicData.getInstance().getComicFavList().size() - 1, ComicData.getInstance().getComicFavList().size());
