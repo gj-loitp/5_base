@@ -19,9 +19,9 @@ import vn.loitp.utils.util.Utils;
 //TODO admob id
 //TODO remove gradle
 //TODO add comiclist type fragmeg all
+//TODO check splash screen, url
 
 //done
-//TODO check splash screen, url
 //TODO ic_launcher
 
 public class LSApplication extends MultiDexApplication {
