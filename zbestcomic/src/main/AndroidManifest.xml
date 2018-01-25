@@ -34,6 +34,9 @@
             android:name="vn.loitp.app.activity.slide.GallerySlideActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="vn.loitp.app.activity.comicinfo.ComicInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="vn.loitp.app.activity.home.HomeMenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />

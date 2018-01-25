@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.home.allmanga;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.comicinfo.ComicInfoActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -22,8 +24,10 @@ import vn.loitp.app.helper.comiclist.GetComicTask;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.app.model.comictype.ComicType;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
@@ -127,6 +131,9 @@ public class FrmAllManga extends BaseFragment {
                 @Override
                 public void onClick(Comic comic, int position) {
                     LLog.d(TAG, "onClick " + comic.getTitle());
+                    Intent intent = new Intent(getActivity(), ComicInfoActivity.class);
+                    startActivity(intent);
+                    LActivityUtil.tranIn(getActivity());
                 }
 
                 @Override
