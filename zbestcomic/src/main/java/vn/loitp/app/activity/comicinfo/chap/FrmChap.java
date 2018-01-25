@@ -11,9 +11,13 @@ import android.view.ViewGroup;
 import com.google.android.gms.ads.AdView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.helper.chaplist.GetChapTask;
+import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.LToast;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -71,6 +75,19 @@ public class FrmChap extends BaseFragment {
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
+
+        String urlComic = "http://truyentranhtuan.com/one-piece/";
+        new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {
+            @Override
+            public void onSuccess(TTTChap tttChap) {
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(tttChap));
+            }
+
+            @Override
+            public void onError() {
+                showDialogError(getString(R.string.err_unknow));
+            }
+        }).execute();
         return view;
     }
 

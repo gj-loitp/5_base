@@ -7,6 +7,7 @@
     <string name="download_failed">Download failed!</string>
     <string name="cannot_find_messenger_app">Cannot find Messenger App!</string>
     <string name="err">Error</string>
+    <string name="err_unknow">Lỗi không xác định, xin vui lòng thử lại sau.</string>
     <string name="ok">OK</string>
     <string name="check_ur_connection_vn">Vui lòng kiểm tra kết nối của bạn</string>
 </resources>
