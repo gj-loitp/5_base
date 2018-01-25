@@ -50,22 +50,33 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/transparent"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorHeight="@dimen/w_1"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/Black"
+            app:tabTextColor="@color/Gray" />
     </vn.loitp.views.LAppBarLayout>
 
     <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/sliding_tabs"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/recyclerView"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbarSize="@dimen/w_3"
-            android:scrollbarThumbVertical="@drawable/scroll_thumb"
-            android:scrollbarTrackVertical="@drawable/scroll_track"
-            android:scrollbars="vertical" />
-
+            android:layout_height="match_parent" />
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

@@ -4,18 +4,32 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.basemaster.R;
+import vn.loitp.app.activity.home.more.FrmPhotoMore;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class ComicInfoActivity extends BaseActivity {
     private ImageView toolbarImage;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+
+    private ViewPager viewPager;
+    private ViewPagerAdapter adapter;
+    private List<String> stringList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +50,7 @@ public class ComicInfoActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         /*collapsingToolbarLayout.setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
@@ -59,6 +73,17 @@ public class ComicInfoActivity extends BaseActivity {
                 }
             }
         });*/
+
+        stringList.add("Danh sách");
+        stringList.add("Thông tin truyện");
+
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -79,5 +104,33 @@ public class ComicInfoActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_comic_info;
+    }
+
+    private class ViewPagerAdapter extends FragmentStatePagerAdapter {
+
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new FrmPhotoMore();
+                case 1:
+                    return new FrmPhotoMore();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return stringList.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return stringList.get(position);
+        }
     }
 }
