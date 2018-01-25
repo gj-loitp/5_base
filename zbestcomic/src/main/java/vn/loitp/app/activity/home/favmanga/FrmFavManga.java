@@ -130,16 +130,22 @@ public class FrmFavManga extends BaseFragment {
                 LLog.d(TAG, "comic null -> return");
                 return;
             }
-            int position = comicChangeEvent.getPosition();
-            LLog.d(TAG, "position " + position);
-            if (position == vn.loitp.core.common.Constants.NOT_FOUND) {
-                LLog.d(TAG, "position NOT_FOUND null -> return");
-                return;
-            }
             if (comicChangeEvent.isRemoved()) {
                 LLog.d(TAG, comic.getTitle() + " isRemoved true -> remove");
+                int position = ComicData.getInstance().getComicFavList().indexOf(comic);
+                LLog.d(TAG, "position " + position);
+                if (position == -1) {
+                    LLog.d(TAG, "Do not contain this comic in fav list -> try one more time");
+                    comic.setFav(comic.isFav() == Constants.IS_FAV ? Constants.IS_NOT_FAV : Constants.IS_NOT_FAV);
+                    position = ComicData.getInstance().getComicFavList().indexOf(comic);
+                    LLog.d(TAG, "position 2nd: " + position);
+                    if (position == -1) {
+                        LLog.d(TAG, "Do not contain this comic in list after trying 2 times :(");
+                        return;
+                    }
+                }
                 boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
-                LLog.d(TAG, "isRemoved " + isRemoved);
+                LLog.d(TAG, "isRemoved getComicFavList " + isRemoved);
                 if (isRemoved) {
                     comicFavAdapter.notifyItemRemoved(position);
                     comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
@@ -147,6 +153,7 @@ public class FrmFavManga extends BaseFragment {
                 comic.setFav(Constants.IS_NOT_FAV);
                 int rowEffected = db.updateComic(comic);
                 LLog.d(TAG, "rowEffected " + rowEffected);
+                LLog.d(TAG, "----------->Removed at position " + position);
             } else {
                 LLog.d(TAG, comic.getTitle() + " isRemoved false -> add");
                 comic.setFav(Constants.IS_FAV);
@@ -154,8 +161,9 @@ public class FrmFavManga extends BaseFragment {
 
                 ComicData.getInstance().getComicFavList().add(comic);
 
-                comicFavAdapter.notifyItemInserted(position);
-                comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
+                comicFavAdapter.notifyItemInserted(ComicData.getInstance().getComicFavList().size() - 1);
+                comicFavAdapter.notifyItemRangeChanged(ComicData.getInstance().getComicFavList().size() - 1, ComicData.getInstance().getComicFavList().size());
+                LLog.d(TAG, "----------->Added " + comic.getTitle() + " in " + (ComicData.getInstance().getComicFavList().size() - 1));
             }
             checkToShowMsg();
         }*/

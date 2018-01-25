@@ -194,11 +194,17 @@ public class FrmAllManga extends BaseFragment {
             if (comicChangeEvent.isRemoved()) {
                 comic.setFav(Constants.IS_NOT_FAV);
                 db.updateComic(comic);
+
                 comicAllAdapter.notifyItemChanged(position);
+                ComicData.getInstance().setComicList(db.getAllComic());
+                //comicAllAdapter.notifyDataSetChanged();
             } else {
                 comic.setFav(Constants.IS_FAV);
                 db.updateComic(comic);
                 comicAllAdapter.notifyItemChanged(position);
+
+                ComicData.getInstance().setComicList(db.getAllComic());
+                //comicAllAdapter.notifyDataSetChanged();
             }
         }
     }
