@@ -1,7 +1,6 @@
-package vn.loitp.app.activity.home.more;
+package vn.loitp.app.activity.comicinfo;
 
 import android.os.Bundle;
-import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import vn.loitp.core.utilities.LUIUtil;
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmPhotoMore extends BaseFragment implements View.OnClickListener {
+public class FrmChap extends BaseFragment implements View.OnClickListener {
     private AdView adView;
 
     @Override

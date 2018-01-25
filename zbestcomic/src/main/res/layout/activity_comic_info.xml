@@ -62,7 +62,7 @@
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/colorPrimary"
             app:tabIndicatorHeight="@dimen/w_1"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/Black"
             app:tabTextColor="@color/Gray" />
     </vn.loitp.views.LAppBarLayout>
@@ -79,4 +79,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/bt_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 </android.support.design.widget.CoordinatorLayout>

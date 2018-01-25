@@ -24,7 +24,7 @@ import vn.loitp.app.activity.home.allwallpaper.FrmPhotoCategory;
 import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
 import vn.loitp.app.activity.home.favmanga.FrmFavManga;
 import vn.loitp.app.activity.home.mangawallpaper.FrmPhotoManga;
-import vn.loitp.app.activity.home.more.FrmPhotoMore;
+import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.util.AppUtil;
@@ -34,7 +34,6 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.data.EventBusData;
 import vn.loitp.views.LAppBarLayout;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
@@ -150,7 +149,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 5:
                     return new FrmPhotoGift();
                 case 6:
-                    return new FrmPhotoMore();
+                    return new FrmMore();
             }
             return null;
         }

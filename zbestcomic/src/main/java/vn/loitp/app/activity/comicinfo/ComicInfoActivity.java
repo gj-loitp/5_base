@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.more.FrmPhotoMore;
+import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -116,9 +116,9 @@ public class ComicInfoActivity extends BaseActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FrmPhotoMore();
+                    return new FrmChap();
                 case 1:
-                    return new FrmPhotoMore();
+                    return new FrmInfo();
             }
             return null;
         }
