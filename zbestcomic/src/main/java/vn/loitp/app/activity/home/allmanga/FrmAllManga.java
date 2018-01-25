@@ -14,6 +14,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -131,7 +132,8 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onLongClick(Comic comic, int position) {
-                    showDialogFav(comic, position);
+                    LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
+                    showDialogFav(comic);
                 }
             });
             recyclerView.setAdapter(comicAllAdapter);
@@ -144,7 +146,7 @@ public class FrmAllManga extends BaseFragment {
         }
     }
 
-    private void showDialogFav(Comic comic, int position) {
+    private void showDialogFav(Comic comic) {
         if (comic.isFav() == Constants.IS_FAV) {
             LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
                 @Override
@@ -154,6 +156,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
+                    //LLog.d(TAG, "onClick2");
                     EventBusData.getInstance().sendComicChange(true, comic);
                 }
             });
@@ -166,6 +169,7 @@ public class FrmAllManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
+                    //LLog.d(TAG, "onClick2");
                     EventBusData.getInstance().sendComicChange(false, comic);
                 }
             });
@@ -181,8 +185,9 @@ public class FrmAllManga extends BaseFragment {
             if (comic == null) {
                 return;
             }
-            int position = comicChangeEvent.getPosition();
-            if (position == vn.loitp.core.common.Constants.NOT_FOUND) {
+            int position = ComicData.getInstance().getComicList().indexOf(comic);
+            if (position == -1) {
+                LLog.d(TAG, "Do not contain this comic in list");
                 return;
             }
             if (comicChangeEvent.isRemoved()) {

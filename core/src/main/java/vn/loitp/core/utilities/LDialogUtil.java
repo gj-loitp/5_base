@@ -18,6 +18,7 @@ import vn.loitp.views.dialog.iosdialog.iOSDialog;
  */
 
 public class LDialogUtil {
+    private final static String TAG = LDialogUtil.class.getSimpleName();
     private static List<AlertDialog> alertDialogList = new ArrayList<>();
 
     private static void clearAll() {
@@ -59,6 +60,7 @@ public class LDialogUtil {
     }
 
     public static void showDialog2(Context context, String title, String msg, String button1, String button2, final Callback2 callback2) {
+        //LLog.d(TAG, "showDialog2");
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null && !title.isEmpty()) {
@@ -66,6 +68,7 @@ public class LDialogUtil {
         }
         builder.setMessage(msg);
         if (button1 != null && !button1.isEmpty()) {
+            //LLog.d(TAG, "button1");
             builder.setNegativeButton(button1, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -76,6 +79,7 @@ public class LDialogUtil {
             });
         }
         if (button2 != null && !button2.isEmpty()) {
+            //LLog.d(TAG, "button2");
             builder.setPositiveButton(button2, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

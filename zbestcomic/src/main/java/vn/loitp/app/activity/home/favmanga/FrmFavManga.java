@@ -13,6 +13,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -90,7 +91,7 @@ public class FrmFavManga extends BaseFragment {
                 @Override
                 public void onLongClick(Comic comic, int position) {
                     LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
-                    showDialogFav(comic, position);
+                    showDialogFav(comic);
                 }
             });
             recyclerView.setAdapter(comicFavAdapter);
@@ -103,7 +104,7 @@ public class FrmFavManga extends BaseFragment {
         checkToShowMsg();
     }
 
-    private void showDialogFav(Comic comic, int position) {
+    private void showDialogFav(Comic comic) {
         if (comic.isFav() == Constants.IS_FAV) {
             LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
                 @Override
@@ -121,7 +122,7 @@ public class FrmFavManga extends BaseFragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
-        LLog.d(TAG, TAG + " onMessageEvent comicChangeEvent");
+        LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
         /*if (comicChangeEvent != null) {
             LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
