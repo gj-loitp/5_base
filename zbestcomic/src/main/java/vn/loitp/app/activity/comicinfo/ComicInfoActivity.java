@@ -21,9 +21,14 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
+import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.helper.chaplist.GetChapTask;
+import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class ComicInfoActivity extends BaseActivity {
     private ImageView toolbarImage;
@@ -32,11 +37,14 @@ public class ComicInfoActivity extends BaseActivity {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
+    private GetChapTask getChapTask;
+    private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
         LImageUtil.load(activity, "https://kenh14cdn.com/2016/photo-2-1470640592086.jpg", toolbarImage);
 
@@ -93,6 +101,23 @@ public class ComicInfoActivity extends BaseActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        String urlComic = "http://truyentranhtuan.com/one-piece/";
+        getChapTask = new GetChapTask(activity, urlComic, new GetChapTask.Callback() {
+            @Override
+            public void onSuccess(TTTChap tttChap) {
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(tttChap));
+
+                avi.smoothToHide();
+            }
+
+            @Override
+            public void onError() {
+                avi.smoothToHide();
+                showDialogError(getString(R.string.err_unknow));
+            }
+        });
+        getChapTask.execute();
     }
 
     @Override
@@ -145,5 +170,13 @@ public class ComicInfoActivity extends BaseActivity {
 
     private void showDialogSelect() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (getChapTask != null) {
+            getChapTask.cancel(true);
+        }
+        super.onDestroy();
     }
 }

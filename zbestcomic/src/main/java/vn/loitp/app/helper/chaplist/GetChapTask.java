@@ -16,7 +16,6 @@ import vn.loitp.app.model.chap.Chap;
 import vn.loitp.app.model.chap.Chaps;
 import vn.loitp.app.model.chap.Info;
 import vn.loitp.app.model.chap.TTTChap;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 
 /**
@@ -60,7 +59,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
             Chaps chaps = tttChap.getChaps();
             if (chaps != null) {
                 chapList = chaps.getChap();
-                LLog.d(TAG, ">>>chapList: " + LSApplication.getInstance().getGson().toJson(chapList));
+                //LLog.d(TAG, ">>>chapList: " + LSApplication.getInstance().getGson().toJson(chapList));
                 //kiem tra xem cac phan tu cua chapList co giong nhau ko
                 try {
                     if (chapList.get(0).getTit().equals(chapList.get(1).getTit())) {
@@ -68,10 +67,10 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                         for (int i = 0; i < chapList.size(); i++) {
                             chapList.get(i).setTit(chapList.get(i).getTit() + " * Chap (" + (chapList.size() - i) + ")");
                         }
-                        LLog.d(TAG, ">>>chapList: " + LSApplication.getInstance().getGson().toJson(chapList));
+                        //LLog.d(TAG, ">>>chapList: " + LSApplication.getInstance().getGson().toJson(chapList));
                     }
                 } catch (NullPointerException e) {
-                    LLog.d(TAG, "NullPointerException " + e.toString());
+                    //LLog.d(TAG, "NullPointerException " + e.toString());
                 }
 
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
@@ -88,7 +87,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, "onPostExecute " + LSApplication.getInstance().getGson().toJson(tttChap));
+        //LLog.d(TAG, "onPostExecute " + LSApplication.getInstance().getGson().toJson(tttChap));
         if (getChapSuccess) {
             if (callback != null) {
                 callback.onSuccess(tttChap);
@@ -155,7 +154,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 info.setNewChap(infoComicList.get(3));
                 info.setSummary(infoComicList.get(4));
             } catch (Exception e) {
-                LLog.d(TAG, "Exception get info: " + e.toString());
+                //LLog.d(TAG, "Exception get info: " + e.toString());
             }
 
             Elements eChap = document.select("span[class=chapter-name]");
@@ -188,7 +187,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
             if (numberOfTryAgain > MAX_TRY_AGAIN) {
                 return tttChap;
             }
-            LLog.d(TAG, "err : " + e.toString() + " doTask again");
+            //LLog.d(TAG, "err : " + e.toString() + " doTask again");
             doTask(link);
         }
         return tttChap;
