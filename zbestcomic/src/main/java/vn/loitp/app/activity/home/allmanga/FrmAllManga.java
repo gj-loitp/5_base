@@ -179,13 +179,14 @@ public class FrmAllManga extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
-        /*if (comicChangeEvent != null) {
-            //LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
+        if (comicChangeEvent != null) {
+            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
             Comic comic = comicChangeEvent.getComic();
             if (comic == null) {
                 return;
             }
             int position = ComicData.getInstance().getComicList().indexOf(comic);
+            LLog.d(TAG, "position: " + position);
             if (position == -1) {
                 LLog.d(TAG, "Do not contain this comic in list");
                 return;
@@ -199,7 +200,7 @@ public class FrmAllManga extends BaseFragment {
                 db.updateComic(comic);
                 comicAllAdapter.notifyItemChanged(position);
             }
-        }*/
+        }
     }
 
     @Override
