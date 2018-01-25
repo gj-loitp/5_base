@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -26,7 +26,7 @@ import vn.loitp.core.utilities.LUIUtil;
 public class ComicInfoActivity extends BaseActivity {
     private ImageView toolbarImage;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-
+    private FloatingActionButton btFav;
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
@@ -48,6 +48,13 @@ public class ComicInfoActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+        btFav = (FloatingActionButton) findViewById(R.id.bt_fav);
+        btFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogSelect();
             }
         });
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -132,5 +139,9 @@ public class ComicInfoActivity extends BaseActivity {
         public CharSequence getPageTitle(int position) {
             return stringList.get(position);
         }
+    }
+
+    private void showDialogSelect() {
+
     }
 }
