@@ -249,4 +249,11 @@
         <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFitTv" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="ArcDrawer">
+        <attr name="arc_width" format="dimension" />
+        <attr name="arc_cropDirection" format="enum">
+            <enum name="cropInside" value="0" />
+            <enum name="cropOutside" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>

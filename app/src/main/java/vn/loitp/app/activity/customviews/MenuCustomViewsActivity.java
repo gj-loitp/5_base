@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivi
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
+import vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
@@ -58,6 +59,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_dialog).setOnClickListener(this);
         findViewById(R.id.bt_popup_menu).setOnClickListener(this);
         findViewById(R.id.bt_scratchview).setOnClickListener(this);
+        findViewById(R.id.bt_navigation).setOnClickListener(this);
     }
 
     @Override
@@ -146,6 +148,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_scratchview:
                 intent = new Intent(activity, ScratchViewMenuActivity.class);
+                break;
+            case R.id.bt_navigation:
+                intent = new Intent(activity, NavigationMenuActivity.class);
                 break;
         }
         if (intent != null) {
