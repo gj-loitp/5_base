@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.comicinfo;
+package vn.loitp.app.activity.comicinfo.info;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

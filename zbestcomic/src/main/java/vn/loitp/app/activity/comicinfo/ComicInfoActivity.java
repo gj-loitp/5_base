@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.comicinfo.chap.FrmChap;
+import vn.loitp.app.activity.comicinfo.info.FrmInfo;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
