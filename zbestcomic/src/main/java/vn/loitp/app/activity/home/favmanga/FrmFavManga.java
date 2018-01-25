@@ -13,7 +13,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -90,8 +89,8 @@ public class FrmFavManga extends BaseFragment {
 
                 @Override
                 public void onLongClick(Comic comic, int position) {
-                    LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
-                    showDialogFav(comic);
+                    //LLog.d(TAG, "onLongClick " + comic.getTitle() + ", isFav " + comic.isFav() + ", position: " + position);
+                    showDialogFav(comic, position);
                 }
             });
             recyclerView.setAdapter(comicFavAdapter);
@@ -104,7 +103,7 @@ public class FrmFavManga extends BaseFragment {
         checkToShowMsg();
     }
 
-    private void showDialogFav(Comic comic) {
+    private void showDialogFav(Comic comic, int position) {
         if (comic.isFav() == Constants.IS_FAV) {
             LDialogUtil.showDialog2(getActivity(), getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
                 @Override
@@ -114,7 +113,19 @@ public class FrmFavManga extends BaseFragment {
 
                 @Override
                 public void onClick2() {
-                    EventBusData.getInstance().sendComicChange(true, comic, TAG);
+                    comic.setFav(Constants.IS_NOT_FAV);
+                    int rowEffected = db.updateComic(comic);
+                    LLog.d(TAG, "rowEffected " + rowEffected);
+                    if (rowEffected == 1) {
+                        boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
+                        LLog.d(TAG, "isRemoved getComicFavList " + isRemoved);
+                        if (isRemoved) {
+                            comicFavAdapter.notifyItemRemoved(position);
+                            comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
+                            ComicData.getInstance().setComicFavList(db.getAllComicFav());
+                            EventBusData.getInstance().sendComicChange(true, comic, TAG);
+                        }
+                    }
                 }
             });
         }
@@ -128,52 +139,11 @@ public class FrmFavManga extends BaseFragment {
                 LLog.d(TAG, "event from " + TAG + " -> do nothing");
             } else {
                 LLog.d(TAG, "need to update UI");
+                ComicData.getInstance().setComicFavList(db.getAllComicFav());
+                comicFavAdapter.notifyDataSetChanged();
             }
         }
-        /*if (comicChangeEvent != null) {
-            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
-            Comic comic = comicChangeEvent.getComic();
-            if (comic == null) {
-                LLog.d(TAG, "comic null -> return");
-                return;
-            }
-            if (comicChangeEvent.isRemoved()) {
-                LLog.d(TAG, comic.getTitle() + " isRemoved true -> remove");
-                int position = ComicData.getInstance().getComicFavList().indexOf(comic);
-                LLog.d(TAG, "position " + position);
-                if (position == -1) {
-                    LLog.d(TAG, "Do not contain this comic in fav list -> try one more time");
-                    comic.setFav(comic.isFav() == Constants.IS_FAV ? Constants.IS_NOT_FAV : Constants.IS_NOT_FAV);
-                    position = ComicData.getInstance().getComicFavList().indexOf(comic);
-                    LLog.d(TAG, "position 2nd: " + position);
-                    if (position == -1) {
-                        LLog.d(TAG, "Do not contain this comic in list after trying 2 times :(");
-                        return;
-                    }
-                }
-                boolean isRemoved = ComicData.getInstance().getComicFavList().remove(comic);
-                LLog.d(TAG, "isRemoved getComicFavList " + isRemoved);
-                if (isRemoved) {
-                    comicFavAdapter.notifyItemRemoved(position);
-                    comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
-                }
-                comic.setFav(Constants.IS_NOT_FAV);
-                int rowEffected = db.updateComic(comic);
-                LLog.d(TAG, "rowEffected " + rowEffected);
-                LLog.d(TAG, "----------->Removed at position " + position);
-            } else {
-                LLog.d(TAG, comic.getTitle() + " isRemoved false -> add");
-                comic.setFav(Constants.IS_FAV);
-                db.updateComic(comic);
-
-                //ComicData.getInstance().setComicFavList(db.getAllComicFav());
-
-                comicFavAdapter.notifyItemInserted(ComicData.getInstance().getComicFavList().size() - 1);
-                comicFavAdapter.notifyItemRangeChanged(ComicData.getInstance().getComicFavList().size() - 1, ComicData.getInstance().getComicFavList().size());
-                LLog.d(TAG, "----------->Added " + comic.getTitle() + " in " + (ComicData.getInstance().getComicFavList().size() - 1));
-            }
-            checkToShowMsg();
-        }*/
+        checkToShowMsg();
     }
 
     @Override

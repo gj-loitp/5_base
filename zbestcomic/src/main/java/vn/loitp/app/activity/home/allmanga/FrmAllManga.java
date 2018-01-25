@@ -193,37 +193,10 @@ public class FrmAllManga extends BaseFragment {
                 LLog.d(TAG, "event from " + TAG + " -> do nothing");
             } else {
                 LLog.d(TAG, "need to update UI");
+                ComicData.getInstance().setComicList(db.getAllComic());
+                comicAllAdapter.notifyDataSetChanged();
             }
         }
-
-        /*if (comicChangeEvent != null) {
-            LLog.d(TAG, "onMessageEvent comicChangeEvent " + comicChangeEvent.getComic().getTitle());
-            Comic comic = comicChangeEvent.getComic();
-            if (comic == null) {
-                return;
-            }
-            int position = ComicData.getInstance().getComicList().indexOf(comic);
-            LLog.d(TAG, "position: " + position);
-            if (position == -1) {
-                LLog.d(TAG, "Do not contain this comic in list");
-                return;
-            }
-            if (comicChangeEvent.isRemoved()) {
-                comic.setFav(Constants.IS_NOT_FAV);
-                db.updateComic(comic);
-
-                comicAllAdapter.notifyItemChanged(position);
-                ComicData.getInstance().setComicList(db.getAllComic());
-                //comicAllAdapter.notifyDataSetChanged();
-            } else {
-                comic.setFav(Constants.IS_FAV);
-                db.updateComic(comic);
-                comicAllAdapter.notifyItemChanged(position);
-
-                ComicData.getInstance().setComicList(db.getAllComic());
-                //comicAllAdapter.notifyDataSetChanged();
-            }
-        }*/
     }
 
     @Override
