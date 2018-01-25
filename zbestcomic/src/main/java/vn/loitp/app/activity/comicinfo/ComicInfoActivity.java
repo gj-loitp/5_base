@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.comicinfo.chap.ComicInfoData;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
 import vn.loitp.app.app.LSApplication;
@@ -109,7 +110,7 @@ public class ComicInfoActivity extends BaseActivity {
                 if (tttChap == null) {
                     showDialogError(getString(R.string.err_unknow));
                 } else {
-                    mTttChap = tttChap;
+                    ComicInfoData.getInstance().setTttChap(tttChap);
 
                     //update ui
                     btFav.setVisibility(View.VISIBLE);
@@ -187,12 +188,7 @@ public class ComicInfoActivity extends BaseActivity {
         if (getChapTask != null) {
             getChapTask.cancel(true);
         }
+        ComicInfoData.getInstance().clearAll();
         super.onDestroy();
-    }
-
-    private TTTChap mTttChap;
-
-    public TTTChap getmTttChap() {
-        return mTttChap;
     }
 }

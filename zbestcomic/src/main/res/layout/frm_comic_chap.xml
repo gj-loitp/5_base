@@ -10,6 +10,7 @@
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
         android:scrollbarSize="@dimen/w_3"
         android:scrollbarThumbVertical="@drawable/scroll_thumb"
         android:scrollbarTrackVertical="@drawable/scroll_track"
@@ -20,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/transparent"
         android:orientation="vertical">
 
         <com.google.android.gms.ads.AdView
