@@ -31,15 +31,7 @@ public class FrmChap extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_photo_more, container, false);
-        view.findViewById(R.id.bt_rate_app).setOnClickListener(this);
-        view.findViewById(R.id.bt_more_app).setOnClickListener(this);
-        view.findViewById(R.id.bt_share_app).setOnClickListener(this);
-        view.findViewById(R.id.bt_like_fb_fanpage).setOnClickListener(this);
-        view.findViewById(R.id.bt_support).setOnClickListener(this);
-
-        //NestedScrollView nestedScrollView = (NestedScrollView) view.findViewById(R.id.scroll_view);
-        //LUIUtil.setPullLikeIOSVertical(nestedScrollView);
+        View view = inflater.inflate(R.layout.frm_comic_chap, container, false);
 
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
@@ -49,21 +41,7 @@ public class FrmChap extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_rate_app:
-                LSocialUtil.rateApp(getActivity(), getActivity().getPackageName());
-                break;
-            case R.id.bt_more_app:
-                LSocialUtil.moreApp(getActivity());
-                break;
-            case R.id.bt_share_app:
-                LSocialUtil.shareApp(getActivity());
-                break;
-            case R.id.bt_like_fb_fanpage:
-                LSocialUtil.likeFacebookFanpage(getActivity());
-                break;
-            case R.id.bt_support:
-                LSocialUtil.chatMessenger(getActivity());
-                break;
+
         }
     }
 

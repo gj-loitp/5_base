@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.home.more;
 
 import android.os.Bundle;
-import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +31,7 @@ public class FrmMore extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_photo_more, container, false);
+        View view = inflater.inflate(R.layout.frm_more, container, false);
         view.findViewById(R.id.bt_rate_app).setOnClickListener(this);
         view.findViewById(R.id.bt_more_app).setOnClickListener(this);
         view.findViewById(R.id.bt_share_app).setOnClickListener(this);
