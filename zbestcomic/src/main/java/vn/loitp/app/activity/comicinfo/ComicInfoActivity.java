@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.helper.chaplist.GetChapTask;
 import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -94,20 +97,27 @@ public class ComicInfoActivity extends BaseActivity {
         stringList.add("Danh sách");
         stringList.add("Thông tin truyện");
 
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+        //TODO
         String urlComic = "http://truyentranhtuan.com/one-piece/";
         getChapTask = new GetChapTask(activity, urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {
                 LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(tttChap));
+                if (tttChap == null) {
+                    showDialogError(getString(R.string.err_unknow));
+                } else {
+                    mTttChap = tttChap;
 
+                    //update ui
+                    btFav.setVisibility(View.VISIBLE);
+                    LAnimationUtil.play(btFav, Techniques.SlideInUp);
+                    adapter = new ViewPagerAdapter(getSupportFragmentManager());
+                    viewPager.setAdapter(adapter);
+                    LUIUtil.setPullLikeIOSHorizontal(viewPager);
+                }
                 avi.smoothToHide();
             }
 
@@ -169,7 +179,7 @@ public class ComicInfoActivity extends BaseActivity {
     }
 
     private void showDialogSelect() {
-
+        //TODO
     }
 
     @Override
@@ -178,5 +188,11 @@ public class ComicInfoActivity extends BaseActivity {
             getChapTask.cancel(true);
         }
         super.onDestroy();
+    }
+
+    private TTTChap mTttChap;
+
+    public TTTChap getmTttChap() {
+        return mTttChap;
     }
 }

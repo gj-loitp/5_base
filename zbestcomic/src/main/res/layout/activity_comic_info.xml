@@ -96,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_5"
         android:tint="@color/White"
+        android:visibility="gone"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/ic_thumb_up_black_48dp" />
