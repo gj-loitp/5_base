@@ -132,6 +132,7 @@ public class FrmAllManga extends BaseFragment {
                 public void onClick(Comic comic, int position) {
                     LLog.d(TAG, "onClick " + comic.getTitle());
                     Intent intent = new Intent(getActivity(), ComicInfoActivity.class);
+                    intent.putExtra(Constants.KEY_COMIC, comic);
                     startActivity(intent);
                     LActivityUtil.tranIn(getActivity());
                 }

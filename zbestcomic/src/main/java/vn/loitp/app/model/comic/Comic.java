@@ -3,10 +3,13 @@ package vn.loitp.app.model.comic;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
+import vn.loitp.app.util.AppUtil;
 
 //public class Comic extends RealmObject {
-public class Comic {
+public class Comic implements Serializable {
     private int id;
 
     @SerializedName("tvTitle")
@@ -72,9 +75,9 @@ public class Comic {
     }
 
     public String getUrlImg() {
-        /*if (urlImg == null) {
-            return "https://kenh14cdn.com/2017/photo-3-1508474775887.jpg";
-        }*/
+        if (urlImg == null) {
+            return AppUtil.getRandomUrl();
+        }
         return urlImg;
     }
 

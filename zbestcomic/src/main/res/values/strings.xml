@@ -41,6 +41,9 @@ Likewise may someone love you next.
     <string name="delete">Xóa</string>
     <string name="insert">Thêm</string>
     <string name="comic_fav_list_is_empty">Danh sách yêu thích trống</string>
+    <string name="list">Danh sách</string>
+    <string name="comic_info">Thông tin truyện</string>
+    <string name="cannot_read_this_manga">Không thể xem được truyện này, xin vui lòng thử lại sau</string>
 
     <string-array name="occurence">
         <item>Once</item>

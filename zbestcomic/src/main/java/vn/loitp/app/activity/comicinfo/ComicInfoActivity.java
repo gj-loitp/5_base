@@ -25,8 +25,10 @@ import vn.loitp.app.activity.comicinfo.chap.ComicInfoData;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
 import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.helper.chaplist.GetChapTask;
 import vn.loitp.app.model.chap.TTTChap;
+import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
@@ -44,13 +46,23 @@ public class ComicInfoActivity extends BaseActivity {
     private GetChapTask getChapTask;
     private AVLoadingIndicatorView avi;
 
+    private Comic comic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        comic = (Comic) getIntent().getSerializableExtra(Constants.KEY_COMIC);
+        if (comic == null) {
+            showDialogError(getString(R.string.cannot_read_this_manga));
+            return;
+        }
+        LLog.d(TAG, "comic: " + LSApplication.getInstance().getGson().toJson(comic));
+
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
-        LImageUtil.load(activity, "https://kenh14cdn.com/2016/photo-2-1470640592086.jpg", toolbarImage);
+
+        LImageUtil.load(activity, comic.getUrlImg(), toolbarImage);
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
 
@@ -73,8 +85,10 @@ public class ComicInfoActivity extends BaseActivity {
         });
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        /*collapsingToolbarLayout.setTitle("");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
+        if (comic.getTitle() != null) {
+            collapsingToolbarLayout.setTitle(comic.getTitle());
+        }
+        /*collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
         collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
 
         /*LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
@@ -95,14 +109,13 @@ public class ComicInfoActivity extends BaseActivity {
             }
         });*/
 
-        stringList.add("Danh sách");
-        stringList.add("Thông tin truyện");
+        stringList.add(getString(R.string.list));
+        stringList.add(getString(R.string.comic_info));
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        //TODO
-        String urlComic = "http://truyentranhtuan.com/one-piece/";
+        String urlComic = comic.getUrl();
         getChapTask = new GetChapTask(activity, urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {

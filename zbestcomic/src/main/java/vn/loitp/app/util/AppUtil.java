@@ -61,12 +61,16 @@ public class AppUtil {
             Constants.URL_IMG_19
     };
 
+    public static String getRandomUrl() {
+        Random random = new Random();
+        int c = random.nextInt(urlImg.length);
+        return urlImg[c];
+    }
+
     public static void loadBackground(Activity activity, ImageView imageView) {
         if (imageView == null) {
             return;
         }
-        Random random = new Random();
-        int c = random.nextInt(urlImg.length);
-        LImageUtil.load(activity, urlImg[c], imageView);
+        LImageUtil.load(activity, getRandomUrl(), imageView);
     }
 }
