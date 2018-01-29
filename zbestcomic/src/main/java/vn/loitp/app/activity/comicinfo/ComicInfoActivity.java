@@ -26,6 +26,7 @@ import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.helper.chaplist.GetChapTask;
 import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.app.model.comic.Comic;

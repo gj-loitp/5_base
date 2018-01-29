@@ -87,5 +87,9 @@ public class Constants {
     public final static int IS_FAV = 1;
     public final static int IS_NOT_FAV = 0;
 
+    public final static int COMIC_IS_REMOVE = 0;
+    public final static int COMIC_IS_INSERT = 1;
+    public final static int COMIC_IS_UPDATE = 2;
+
     public final static String KEY_COMIC = "KEY_COMIC";
 }

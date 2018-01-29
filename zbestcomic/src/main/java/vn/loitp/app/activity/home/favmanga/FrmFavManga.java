@@ -123,7 +123,7 @@ public class FrmFavManga extends BaseFragment {
                             comicFavAdapter.notifyItemRemoved(position);
                             comicFavAdapter.notifyItemRangeChanged(position, ComicData.getInstance().getComicFavList().size());
                             ComicData.getInstance().setComicFavList(db.getAllComicFav());
-                            EventBusData.getInstance().sendComicChange(true, comic, TAG);
+                            EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_REMOVE, comic, TAG);
                         }
                     }
                 }

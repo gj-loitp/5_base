@@ -169,7 +169,7 @@ public class FrmAllManga extends BaseFragment {
                     comicAllAdapter.notifyItemChanged(position);
                     ComicData.getInstance().setComicList(db.getAllComic());
 
-                    EventBusData.getInstance().sendComicChange(true, comic, TAG);
+                    EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_REMOVE, comic, TAG);
                 }
             });
         } else {
@@ -187,7 +187,7 @@ public class FrmAllManga extends BaseFragment {
                     comicAllAdapter.notifyItemChanged(position);
                     ComicData.getInstance().setComicList(db.getAllComic());
 
-                    EventBusData.getInstance().sendComicChange(false, comic, TAG);
+                    EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_INSERT, comic, TAG);
                 }
             });
         }
