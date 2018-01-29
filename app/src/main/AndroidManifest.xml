@@ -472,6 +472,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -43,6 +43,12 @@
                 android:text="Circular Roundrect ImageView" />
 
             <Button
+                android:id="@+id/bt_continuous_scrollable_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continuous Scrollable ImageView" />
+
+            <Button
                 android:id="@+id/bt_fidgetspinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
