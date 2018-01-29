@@ -22,6 +22,19 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo" />
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
