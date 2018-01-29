@@ -64,7 +64,7 @@ public class ComicInfoActivity extends BaseActivity {
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
 
         if (comic.getUrlImg() == null) {
-            LImageUtil.load(activity, AppUtil.getRandomUrl(), toolbarImage);
+            //LImageUtil.load(activity, AppUtil.getRandomUrl(), toolbarImage);
         } else {
             LImageUtil.load(activity, comic.getUrlImg(), toolbarImage);
         }
@@ -125,12 +125,17 @@ public class ComicInfoActivity extends BaseActivity {
             @Override
             public void onSuccess(TTTChap tttChap) {
                 LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(tttChap));
-                if (tttChap == null) {
+                if (tttChap == null || tttChap.getInfo() == null || tttChap.getChaps() == null) {
                     showDialogError(getString(R.string.err_unknow));
                 } else {
                     ComicInfoData.getInstance().setTttChap(tttChap);
 
                     //update ui
+                    if (tttChap.getInfo().getCover() != null) {
+                        String urlImg = tttChap.getInfo().getCover();
+                        LImageUtil.load(activity, urlImg, toolbarImage);
+                    }
+
                     btFav.setVisibility(View.VISIBLE);
                     LAnimationUtil.play(btFav, Techniques.SlideInUp);
                     adapter = new ViewPagerAdapter(getSupportFragmentManager());

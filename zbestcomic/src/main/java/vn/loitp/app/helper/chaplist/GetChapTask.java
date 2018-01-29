@@ -16,6 +16,7 @@ import vn.loitp.app.model.chap.Chap;
 import vn.loitp.app.model.chap.Chaps;
 import vn.loitp.app.model.chap.Info;
 import vn.loitp.app.model.chap.TTTChap;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 
 /**
@@ -70,7 +71,9 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                         //LLog.d(TAG, ">>>chapList: " + LSApplication.getInstance().getGson().toJson(chapList));
                     }
                 } catch (NullPointerException e) {
-                    //LLog.d(TAG, "NullPointerException " + e.toString());
+                    LLog.e(TAG, "NullPointerException " + e.toString());
+                }catch (IndexOutOfBoundsException e){
+                    LLog.e(TAG, "IndexOutOfBoundsException " + e.toString());
                 }
 
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
