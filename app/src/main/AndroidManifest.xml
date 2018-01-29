@@ -469,6 +469,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.navigation.arcnavigationview.ArcNavigationViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

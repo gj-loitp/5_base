@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_14" />
+
+    <vn.loitp.views.button.buttonloading.ButtonLoading
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_5"
+        app:BL_backgroundColor="#80ffffff"
+        app:BL_circleColor="#00AFEF"
+        app:BL_circleColorSecond="#8000AFEF"
+        app:BL_enable="true"
+        app:BL_stateShow="normal"
+        app:BL_text="Click"
+        app:BL_textColor="#FFFFFF"
+        app:BL_textSize="14sp" />
+</RelativeLayout>
+
