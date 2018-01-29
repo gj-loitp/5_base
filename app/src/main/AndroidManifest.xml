@@ -475,6 +475,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.Ci
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.img2ascii.Img2AsciiActivity;
+import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
@@ -33,6 +34,7 @@ public class ImageViewMenuActivity extends BaseActivity implements OnClickListen
         findViewById(R.id.bt_cirlularroundrect_imageview).setOnClickListener(this);
         findViewById(R.id.bt_img2ascii).setOnClickListener(this);
         findViewById(R.id.bt_continuous_scrollable_imageview).setOnClickListener(this);
+        findViewById(R.id.bt_scroll_parallax_imageview).setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +87,9 @@ public class ImageViewMenuActivity extends BaseActivity implements OnClickListen
                 break;
             case R.id.bt_continuous_scrollable_imageview:
                 intent = new Intent(activity, ContinuousScrollableImageViewActivity.class);
+                break;
+            case R.id.bt_scroll_parallax_imageview:
+                intent = new Intent(activity, ScrollParallaxImageViewActivity.class);
                 break;
         }
         if (intent != null) {
