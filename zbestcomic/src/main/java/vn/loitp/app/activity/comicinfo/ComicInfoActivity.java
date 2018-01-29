@@ -24,6 +24,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.comicinfo.chap.ComicInfoData;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
+import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.EventBusData;
@@ -47,7 +48,7 @@ public class ComicInfoActivity extends BaseActivity {
     private List<String> stringList = new ArrayList<>();
     private GetChapTask getChapTask;
     private AVLoadingIndicatorView avi;
-
+    private DatabaseHandler db;
     private Comic comic;
 
     @Override
@@ -60,7 +61,7 @@ public class ComicInfoActivity extends BaseActivity {
             return;
         }
         LLog.d(TAG, "comic: " + LSApplication.getInstance().getGson().toJson(comic));
-
+        db = new DatabaseHandler(activity);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
 
@@ -135,6 +136,12 @@ public class ComicInfoActivity extends BaseActivity {
                     if (tttChap.getInfo().getCover() != null) {
                         String urlImg = tttChap.getInfo().getCover();
                         LImageUtil.load(activity, urlImg, toolbarImage);
+
+                        comic.setUrlImg(urlImg);
+                        int rowEffected = db.updateComic(comic);
+                        if (rowEffected == 1) {//update db sqlite success
+                            EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_UPDATE, comic, TAG);
+                        }
                     }
 
                     btFav.setVisibility(View.VISIBLE);
