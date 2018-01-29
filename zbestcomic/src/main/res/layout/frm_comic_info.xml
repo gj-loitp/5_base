@@ -20,16 +20,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/bt_rate_app"
+            <TextView
+                android:id="@+id/tv_info"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:text="@string/rate_app"
-                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_5"
+                android:paddingTop="@dimen/padding_50"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/txt_18" />
+                android:textSize="@dimen/txt_14" />
 
         </LinearLayout>
 
