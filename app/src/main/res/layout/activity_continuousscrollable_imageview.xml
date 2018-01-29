@@ -5,28 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:direction="right"
-        app:duration="2500"
-        app:imageSrc="@drawable/plane"
-        app:scaleType="centerInside" />
+        android:fillViewport="true">
 
-    <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:direction="right"
-        app:duration="5500"
-        app:imageSrc="@drawable/bus"
-        app:scaleType="centerInside" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/padding_5"
-        android:text="Library for animating images with continuous scrolling effects
+            <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:direction="right"
+                app:duration="2500"
+                app:imageSrc="@drawable/plane"
+                app:scaleType="centerInside" />
+
+            <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:direction="left"
+                app:duration="10000"
+                app:imageSrc="@drawable/buildings" />
+
+            <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:direction="right"
+                app:duration="5500"
+                app:imageSrc="@drawable/bus"
+                app:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="Library for animating images with continuous scrolling effects
 
 Simple android view to display images with continuous scrolling effects efficiently. You can set image source, scaleType, duration and direction. Example usages can be found in sample project." />
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
