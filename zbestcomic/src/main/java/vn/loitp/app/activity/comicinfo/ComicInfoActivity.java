@@ -29,6 +29,7 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.app.helper.chaplist.GetChapTask;
 import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.app.model.comic.Comic;
+import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
@@ -62,7 +63,11 @@ public class ComicInfoActivity extends BaseActivity {
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
 
-        LImageUtil.load(activity, comic.getUrlImg(), toolbarImage);
+        if (comic.getUrlImg() == null) {
+            LImageUtil.load(activity, AppUtil.getRandomUrl(), toolbarImage);
+        } else {
+            LImageUtil.load(activity, comic.getUrlImg(), toolbarImage);
+        }
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
 

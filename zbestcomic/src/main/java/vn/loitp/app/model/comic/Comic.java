@@ -75,9 +75,9 @@ public class Comic implements Serializable {
     }
 
     public String getUrlImg() {
-        if (urlImg == null) {
+        /*if (urlImg == null) {
             return AppUtil.getRandomUrl();
-        }
+        }*/
         return urlImg;
     }
 
