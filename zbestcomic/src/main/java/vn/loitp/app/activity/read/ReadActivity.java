@@ -22,6 +22,7 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
@@ -128,16 +129,16 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_strech_iv, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_touch_iv, collection, false);
 
             if (position >= 0 && position < imagesListOfOneChap.size()) {
-                ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
-                if (scrollView != null) {
-                    LUIUtil.setPullLikeIOSVertical(scrollView);
-                }
+                //ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
+                //if (scrollView != null) {
+                //    LUIUtil.setPullLikeIOSVertical(scrollView);
+                //}
 
                 AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
-                ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+                LTouchImageView imageView = (LTouchImageView) layout.findViewById(R.id.imageView);
                 LLog.d(TAG, ">instantiateItem: " + imagesListOfOneChap.get(position));
                 LImageUtil.load(activity, imagesListOfOneChap.get(position), imageView, avLoadingIndicatorView);
             } else {
