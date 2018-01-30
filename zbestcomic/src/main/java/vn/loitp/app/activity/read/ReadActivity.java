@@ -78,17 +78,57 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
             public void onPageSelected(int position) {
                 if (position == 0) {
                     btPrevChap.setVisibility(View.VISIBLE);
-                    btNextChap.setVisibility(View.GONE);
-
                     LAnimationUtil.play(btPrevChap, Techniques.Pulse);
                 } else if (position == imagesListOfOneChap.size() - 1) {
-                    btPrevChap.setVisibility(View.GONE);
                     btNextChap.setVisibility(View.VISIBLE);
-
                     LAnimationUtil.play(btNextChap, Techniques.Pulse);
                 } else {
-                    btPrevChap.setVisibility(View.GONE);
-                    btNextChap.setVisibility(View.GONE);
+                    if (btPrevChap.getVisibility() != View.GONE) {
+                        LAnimationUtil.play(btPrevChap, Techniques.Pulse, new LAnimationUtil.Callback() {
+                            @Override
+                            public void onCancel() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onEnd() {
+                                btPrevChap.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onRepeat() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onStart() {
+                                //do nothing
+                            }
+                        });
+                    }
+                    if (btNextChap.getVisibility() != View.GONE) {
+                        LAnimationUtil.play(btNextChap, Techniques.Pulse, new LAnimationUtil.Callback() {
+                            @Override
+                            public void onCancel() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onEnd() {
+                                btNextChap.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onRepeat() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onStart() {
+                                //do nothing
+                            }
+                        });
+                    }
                 }
             }
 
