@@ -210,7 +210,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
                 LTouchImageView imageView = (LTouchImageView) layout.findViewById(R.id.imageView);
                 LLog.d(TAG, ">instantiateItem: " + imagesListOfOneChap.get(position));
 
-                LImageUtil.load(activity, imagesListOfOneChap.get(position), imageView, avLoadingIndicatorView, R.color.transparent);
+                LImageUtil.load(activity, imagesListOfOneChap.get(position), imageView, avLoadingIndicatorView, R.color.transparent, R.drawable.err);
             } else {
                 LLog.e(TAG, "SlidePagerAdapter instantiateItem with incorrect position " + position);
             }

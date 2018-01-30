@@ -80,9 +80,10 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
+    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
         Glide.with(activity).load(url)
                 .placeholder(resPlaceHolder)
+                .error(resError)
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
                     public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
@@ -103,8 +104,12 @@ public class LImageUtil {
                 .into(imageView);
     }
 
+    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
+        load(activity, url, imageView, avLoadingIndicatorView, resPlaceHolder, Color.TRANSPARENT);
+    }
+
     public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
-        load(activity, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT);
+        load(activity, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT, Color.TRANSPARENT);
     }
 
     public static void load(Activity activity, String url, ImageView imageView, int sizeW, int sizeH) {
