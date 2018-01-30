@@ -3,6 +3,7 @@ package vn.loitp.core.utilities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
@@ -28,6 +29,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import loitp.core.R;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
@@ -78,8 +80,9 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
+    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
         Glide.with(activity).load(url)
+                .placeholder(resPlaceHolder)
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
                     public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
@@ -98,6 +101,10 @@ public class LImageUtil {
                     }
                 })
                 .into(imageView);
+    }
+
+    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
+        load(activity, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT);
     }
 
     public static void load(Activity activity, String url, ImageView imageView, int sizeW, int sizeH) {
