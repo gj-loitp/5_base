@@ -101,7 +101,6 @@ public class Comic implements Serializable {
         this.id = id;
     }
 
-    //0 true, !=0 false
     private int isFav;
 
     public int isFav() {

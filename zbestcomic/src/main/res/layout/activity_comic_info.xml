@@ -119,7 +119,6 @@
         android:tint="@color/White"
         android:visibility="gone"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_thumb_up_black_48dp" />
+        app:layout_anchorGravity="bottom|end" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -87,6 +87,7 @@ public class ComicInfoActivity extends BaseActivity {
             }
         });
         btFav = (FloatingActionButton) findViewById(R.id.bt_fav);
+        updateUIBtFav();
         btFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,5 +226,13 @@ public class ComicInfoActivity extends BaseActivity {
         }
         ComicInfoData.getInstance().clearAll();
         super.onDestroy();
+    }
+
+    private void updateUIBtFav() {
+        if (comic.isFav() == Constants.IS_FAV) {
+            btFav.setImageResource(R.drawable.ic_thumb_up_black_48dp);
+        } else {
+            btFav.setImageResource(R.drawable.ic_thumb_down_black_48dp);
+        }
     }
 }
