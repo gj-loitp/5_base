@@ -6,7 +6,6 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
@@ -18,7 +17,6 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.helper.pagelist.GetReadImgTask;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
