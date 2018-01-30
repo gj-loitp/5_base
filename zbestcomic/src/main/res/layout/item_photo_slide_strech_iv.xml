@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/transparent">
 
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bt_blur">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_3"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
-    </LinearLayout>-->
-
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -33,15 +19,6 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name" />
     </ScrollView>
-
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="@dimen/padding_5"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_8" />
 
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"

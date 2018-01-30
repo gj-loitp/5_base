@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.comicinfo.chap;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,12 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.read.ReadActivity;
 import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.model.chap.Chap;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.LToast;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -54,7 +56,9 @@ public class FrmChap extends BaseFragment {
         mAdapter = new ChapAdapter(chapList, new ChapAdapter.Callback() {
             @Override
             public void onClick(Chap chap, int position) {
-                LToast.show(getActivity(), "Click " + chap.getTit());
+                Intent intent = new Intent(getActivity(), ReadActivity.class);
+                startActivity(intent);
+                LActivityUtil.tranIn(getActivity());
             }
 
             @Override

@@ -40,5 +40,8 @@
             android:name="vn.loitp.app.activity.home.HomeMenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="vn.loitp.app.activity.read.ReadActivity"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>
