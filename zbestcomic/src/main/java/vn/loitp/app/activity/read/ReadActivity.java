@@ -78,13 +78,13 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
             public void onPageSelected(int position) {
                 if (position == 0) {
                     btPrevChap.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(btPrevChap, Techniques.Pulse);
+                    LAnimationUtil.play(btPrevChap, Techniques.SlideInRight);
                 } else if (position == imagesListOfOneChap.size() - 1) {
                     btNextChap.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(btNextChap, Techniques.Pulse);
+                    LAnimationUtil.play(btNextChap, Techniques.SlideInLeft);
                 } else {
                     if (btPrevChap.getVisibility() != View.GONE) {
-                        LAnimationUtil.play(btPrevChap, Techniques.Pulse, new LAnimationUtil.Callback() {
+                        LAnimationUtil.play(btPrevChap, Techniques.SlideOutRight, new LAnimationUtil.Callback() {
                             @Override
                             public void onCancel() {
                                 //do nothing
@@ -107,7 +107,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
                         });
                     }
                     if (btNextChap.getVisibility() != View.GONE) {
-                        LAnimationUtil.play(btNextChap, Techniques.Pulse, new LAnimationUtil.Callback() {
+                        LAnimationUtil.play(btNextChap, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
                             @Override
                             public void onCancel() {
                                 //do nothing
