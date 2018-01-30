@@ -31,16 +31,17 @@ import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.helper.chaplist.GetChapTask;
 import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.app.model.comic.Comic;
-import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.imageview.circleimageview.lib.LCircleImageView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class ComicInfoActivity extends BaseActivity {
     private ImageView toolbarImage;
+    private LCircleImageView ivCover;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private FloatingActionButton btFav;
     private ViewPager viewPager;
@@ -64,11 +65,13 @@ public class ComicInfoActivity extends BaseActivity {
         db = new DatabaseHandler(activity);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
+        ivCover = (LCircleImageView) findViewById(R.id.iv_cover);
 
         if (comic.getUrlImg() == null) {
             //LImageUtil.load(activity, AppUtil.getRandomUrl(), toolbarImage);
         } else {
             LImageUtil.load(activity, comic.getUrlImg(), toolbarImage);
+            LImageUtil.load(activity, comic.getUrlImg(), ivCover);
         }
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
@@ -136,6 +139,7 @@ public class ComicInfoActivity extends BaseActivity {
                     if (tttChap.getInfo().getCover() != null) {
                         String urlImg = tttChap.getInfo().getCover();
                         LImageUtil.load(activity, urlImg, toolbarImage);
+                        LImageUtil.load(activity, urlImg, ivCover);
 
                         comic.setUrlImg(urlImg);
                         int rowEffected = db.updateComic(comic);
