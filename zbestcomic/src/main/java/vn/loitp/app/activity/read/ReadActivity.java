@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -32,6 +33,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
     private GetReadImgTask getReadImgTask;
     private ImageView btPrevChap;
     private ImageView btNextChap;
+    private List<String> imagesListOfOneChap = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +68,17 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
         parallaxViewPager.setOffscreenPageLimit(3);
         LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
 
-        load("http://truyentranhtuan.com/one-piece-chuong-69/");
+        load(ComicInfoData.getInstance().getCurrentLinkChap());
     }
 
     private void load(String link) {
+        LLog.d(TAG, "load link " + link);
         getReadImgTask = new GetReadImgTask(link, avi, new GetReadImgTask.Callback() {
             @Override
-            public void onSuccess(List<String> imagesListOfOneChap) {
-                LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
+            public void onSuccess(List<String> stringList) {
+                LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(stringList));
+                imagesListOfOneChap = stringList;
+                parallaxViewPager.getAdapter().notifyDataSetChanged();
             }
 
             @Override
@@ -125,15 +130,19 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_strech_iv, collection, false);
 
-            ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
-            if (scrollView != null) {
-                LUIUtil.setPullLikeIOSVertical(scrollView);
+            if (position >= 0 && position < imagesListOfOneChap.size()) {
+                ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
+                if (scrollView != null) {
+                    LUIUtil.setPullLikeIOSVertical(scrollView);
+                }
+
+                AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
+                ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+                LLog.d(TAG, ">instantiateItem: " + imagesListOfOneChap.get(position));
+                LImageUtil.load(activity, imagesListOfOneChap.get(position), imageView, avLoadingIndicatorView);
+            } else {
+                LLog.e(TAG, "SlidePagerAdapter instantiateItem with incorrect position " + position);
             }
-
-            AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(activity, "https://kenh14cdn.com/2018/84a2b164b59e12659b70fc4adfbd7a33-1516711720908.jpg", imageView, avLoadingIndicatorView);
-
             collection.addView(layout);
             return layout;
         }
@@ -145,12 +154,16 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
 
         @Override
         public int getCount() {
-            return 3;
+            return imagesListOfOneChap == null ? 0 : imagesListOfOneChap.size();
         }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
+        }
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
         }
     }
 

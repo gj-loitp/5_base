@@ -56,6 +56,7 @@ public class FrmChap extends BaseFragment {
         mAdapter = new ChapAdapter(chapList, new ChapAdapter.Callback() {
             @Override
             public void onClick(Chap chap, int position) {
+                ComicInfoData.getInstance().setPosCurrentChap(position);
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 startActivity(intent);
                 LActivityUtil.tranIn(getActivity());

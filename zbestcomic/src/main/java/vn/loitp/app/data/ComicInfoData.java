@@ -28,5 +28,24 @@ public class ComicInfoData {
 
     public void clearAll() {
         tttChap = null;
+        posCurrentChap = 0;
+    }
+
+    private int posCurrentChap;
+
+    public int getPosCurrentChap() {
+        return posCurrentChap;
+    }
+
+    public void setPosCurrentChap(int posCurrentChap) {
+        this.posCurrentChap = posCurrentChap;
+    }
+
+    public String getCurrentLinkChap() {
+        try {
+            return tttChap.getChaps().getChap().get(posCurrentChap).getUrl();
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 }
