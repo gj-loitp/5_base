@@ -9,18 +9,25 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
+import java.util.List;
+
 import loitp.basemaster.R;
+import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.helper.pagelist.GetReadImgTask;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class ReadActivity extends BaseActivity {
     private ImageView ivBkg;
+    private AVLoadingIndicatorView avi;
     private ParallaxViewPager parallaxViewPager;
+    private GetReadImgTask getReadImgTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,32 +35,32 @@ public class ReadActivity extends BaseActivity {
 
         parallaxViewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
         parallaxViewPager.setMode(Mode.RIGHT_OVERLAY);
 
         parallaxViewPager.setAdapter(new SlidePagerAdapter());
         parallaxViewPager.setOffscreenPageLimit(3);
-        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager, new LUIUtil.Callback() {
+        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
+
+        load("http://truyentranhtuan.com/one-piece-chuong-69/");
+    }
+
+    private void load(String link) {
+        getReadImgTask = new GetReadImgTask(link, avi, new GetReadImgTask.Callback() {
             @Override
-            public void onUpOrLeft(float offset) {
-                //do nothing
+            public void onSuccess(List<String> imagesListOfOneChap) {
+                LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
             }
 
             @Override
-            public void onUpOrLeftRefresh(float offset) {
-                LLog.d(TAG, "onUpOrLeftRefresh");
-            }
-
-            @Override
-            public void onDownOrRight(float offset) {
-                //do nothing
-            }
-
-            @Override
-            public void onDownOrRightRefresh(float offset) {
-                LLog.d(TAG, "onDownOrRightRefresh");
+            public void onError() {
+                ToastUtils.showShort("load onError");
             }
         });
+        if (getReadImgTask != null) {
+            getReadImgTask.execute();
+        }
     }
 
     @Override
@@ -110,5 +117,13 @@ public class ReadActivity extends BaseActivity {
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (getReadImgTask != null) {
+            getReadImgTask.cancel(true);
+        }
+        super.onDestroy();
     }
 }
