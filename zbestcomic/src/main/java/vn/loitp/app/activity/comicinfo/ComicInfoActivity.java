@@ -89,7 +89,7 @@ public class ComicInfoActivity extends BaseActivity {
             }
         });
         btFav = (FloatingActionButton) findViewById(R.id.bt_fav);
-        updateUIBtFav();
+        updateUIBtFav(false);
         btFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,7 +230,7 @@ public class ComicInfoActivity extends BaseActivity {
                     comic.setFav(Constants.IS_NOT_FAV);
                     db.updateComic(comic);
 
-                    updateUIBtFav();
+                    updateUIBtFav(true);
 
                     EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_REMOVE, comic, TAG);
                 }
@@ -247,7 +247,7 @@ public class ComicInfoActivity extends BaseActivity {
                     comic.setFav(Constants.IS_FAV);
                     db.updateComic(comic);
 
-                    updateUIBtFav();
+                    updateUIBtFav(true);
 
                     EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_INSERT, comic, TAG);
                 }
@@ -264,11 +264,14 @@ public class ComicInfoActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    private void updateUIBtFav() {
+    private void updateUIBtFav(boolean isShowAnim) {
         if (comic.isFav() == Constants.IS_FAV) {
             btFav.setImageResource(R.drawable.ic_thumb_up_black_48dp);
         } else {
             btFav.setImageResource(R.drawable.ic_thumb_down_black_48dp);
+        }
+        if (isShowAnim) {
+            LAnimationUtil.play(btFav, Techniques.RubberBand);
         }
     }
 }
