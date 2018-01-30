@@ -1,7 +1,6 @@
 package vn.loitp.core.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -36,7 +35,6 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 
@@ -63,6 +61,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+            //LActivityUtil.hideSystemUI(getWindow().getDecorView());
         }
         setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
         super.onCreate(savedInstanceState);
@@ -108,7 +108,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        //AlertMessage.closeAll();
         if (!compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }

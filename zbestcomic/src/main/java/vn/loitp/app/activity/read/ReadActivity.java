@@ -3,44 +3,41 @@ package vn.loitp.app.activity.read;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.TextView;
-
-import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
-import vn.loitp.app.model.PhotosData;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
+import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class ReadActivity extends BaseActivity {
     private ImageView ivBkg;
-    private ViewPager viewPager;
+    private ParallaxViewPager parallaxViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        parallaxViewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
 
-        viewPager.setAdapter(new SlidePagerAdapter());
-        viewPager.setOffscreenPageLimit(3);
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        parallaxViewPager.setMode(Mode.RIGHT_OVERLAY);
+
+        parallaxViewPager.setAdapter(new SlidePagerAdapter());
+        parallaxViewPager.setOffscreenPageLimit(3);
+        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
     }
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        return true;
     }
 
     @Override
@@ -69,9 +66,6 @@ public class ReadActivity extends BaseActivity {
             if (scrollView != null) {
                 LUIUtil.setPullLikeIOSVertical(scrollView);
             }
-
-            //RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
-            //rootView.setBackgroundColor(AppUtil.getColor(activity));
 
             AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);

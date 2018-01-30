@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Vibrator;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 
 import java.util.Random;
 
@@ -26,12 +28,12 @@ public class LDeviceUtil {
     /*
     check device has navigation bar
      */
-    /*public boolean isNavigationBarAvailable() {
+    public boolean isNavigationBarAvailable() {
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
         boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
         //LLog.dialog(TAG, "isNavigationBarAvailable: " + (!(hasBackKey && hasHomeKey)));
         return (!(hasBackKey && hasHomeKey));
-    }*/
+    }
 
     /*
       get current android version
