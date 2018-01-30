@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.home.favmanga;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
@@ -12,12 +13,14 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.comicinfo.ComicInfoActivity;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
@@ -85,6 +88,10 @@ public class FrmFavManga extends BaseFragment {
                 @Override
                 public void onClick(Comic comic, int position) {
                     LLog.d(TAG, "onClick " + comic.getTitle());
+                    Intent intent = new Intent(getActivity(), ComicInfoActivity.class);
+                    intent.putExtra(Constants.KEY_COMIC, comic);
+                    startActivity(intent);
+                    LActivityUtil.tranIn(getActivity());
                 }
 
                 @Override
