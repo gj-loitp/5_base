@@ -31,4 +31,28 @@
         android:layout_centerInParent="true"
         app:indicatorColor="@color/white"
         app:indicatorName="PacmanIndicator" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_5">
+
+        <ImageView
+            android:id="@+id/bt_prev_chap"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/bt_next_chap"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+    </RelativeLayout>
 </RelativeLayout>

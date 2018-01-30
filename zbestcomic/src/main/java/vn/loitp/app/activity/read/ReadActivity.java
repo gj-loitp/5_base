@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.helper.pagelist.GetReadImgTask;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
@@ -23,11 +25,13 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
-public class ReadActivity extends BaseActivity {
+public class ReadActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivBkg;
     private AVLoadingIndicatorView avi;
     private ParallaxViewPager parallaxViewPager;
     private GetReadImgTask getReadImgTask;
+    private ImageView btPrevChap;
+    private ImageView btNextChap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,14 @@ public class ReadActivity extends BaseActivity {
         parallaxViewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+
+        btPrevChap = (ImageView) findViewById(R.id.bt_prev_chap);
+        btNextChap = (ImageView) findViewById(R.id.bt_next_chap);
+        btPrevChap.setOnClickListener(this);
+        btNextChap.setOnClickListener(this);
+
+        LUIUtil.setImageFromAsset(activity, Constants.ASSET_PREV_CHAP, btPrevChap);
+        LUIUtil.setImageFromAsset(activity, Constants.ASSET_NEXT_CHAP, btNextChap);
 
         parallaxViewPager.setMode(Mode.RIGHT_OVERLAY);
 
@@ -81,6 +93,18 @@ public class ReadActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_read_slide;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_prev_chap:
+                //TODO
+                break;
+            case R.id.bt_next_chap:
+                //TODO
+                break;
+        }
     }
 
     private class SlidePagerAdapter extends PagerAdapter {
