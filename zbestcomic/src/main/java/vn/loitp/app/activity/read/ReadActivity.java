@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
@@ -32,7 +33,27 @@ public class ReadActivity extends BaseActivity {
 
         parallaxViewPager.setAdapter(new SlidePagerAdapter());
         parallaxViewPager.setOffscreenPageLimit(3);
-        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
+        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager, new LUIUtil.Callback() {
+            @Override
+            public void onUpOrLeft(float offset) {
+                //do nothing
+            }
+
+            @Override
+            public void onUpOrLeftRefresh(float offset) {
+                LLog.d(TAG, "onUpOrLeftRefresh");
+            }
+
+            @Override
+            public void onDownOrRight(float offset) {
+                //do nothing
+            }
+
+            @Override
+            public void onDownOrRightRefresh(float offset) {
+                LLog.d(TAG, "onDownOrRightRefresh");
+            }
+        });
     }
 
     @Override
