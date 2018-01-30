@@ -3,10 +3,13 @@ package vn.loitp.app.activity.read;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.daimajia.androidanimations.library.Techniques;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,7 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.helper.pagelist.GetReadImgTask;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -67,6 +71,36 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
         parallaxViewPager.setAdapter(new SlidePagerAdapter());
         parallaxViewPager.setOffscreenPageLimit(3);
         LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
+
+        parallaxViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //do nothing
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    btPrevChap.setVisibility(View.VISIBLE);
+                    btNextChap.setVisibility(View.GONE);
+
+                    LAnimationUtil.play(btPrevChap, Techniques.Pulse);
+                } else if (position == imagesListOfOneChap.size() - 1) {
+                    btPrevChap.setVisibility(View.GONE);
+                    btNextChap.setVisibility(View.VISIBLE);
+
+                    LAnimationUtil.play(btNextChap, Techniques.Pulse);
+                } else {
+                    btPrevChap.setVisibility(View.GONE);
+                    btNextChap.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //do nothing
+            }
+        });
 
         load(ComicInfoData.getInstance().getCurrentLinkChap());
     }
