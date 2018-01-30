@@ -15,8 +15,10 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.helper.pagelist.GetReadImgTask;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -37,8 +39,19 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (ComicInfoData.getInstance().getTttChap() == null) {
+            showDialogError(getString(R.string.err_unknow));
+            return;
+        }
+
         parallaxViewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        try {
+            LImageUtil.load(activity, ComicInfoData.getInstance().getTttChap().getInfo().getCover(), ivBkg);
+        } catch (NullPointerException e) {
+            LLog.e(TAG, "set cover NullPointerException " + e.toString());
+        }
+
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
         btPrevChap = (ImageView) findViewById(R.id.bt_prev_chap);
