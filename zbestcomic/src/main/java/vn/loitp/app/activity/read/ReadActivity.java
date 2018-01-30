@@ -28,12 +28,11 @@ import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class ReadActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivBkg;
     private AVLoadingIndicatorView avi;
-    private ParallaxViewPager parallaxViewPager;
+    private ViewPager viewPager;
     private GetReadImgTask getReadImgTask;
     private ImageView btPrevChap;
     private ImageView btNextChap;
@@ -48,7 +47,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
 
-        parallaxViewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         try {
             LImageUtil.load(activity, ComicInfoData.getInstance().getTttChap().getInfo().getCover(), ivBkg);
@@ -65,14 +64,12 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
 
         LUIUtil.setImageFromAsset(activity, Constants.ASSET_PREV_CHAP, btPrevChap);
         LUIUtil.setImageFromAsset(activity, Constants.ASSET_NEXT_CHAP, btNextChap);
+        
+        viewPager.setAdapter(new SlidePagerAdapter());
+        viewPager.setOffscreenPageLimit(3);
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
-        parallaxViewPager.setMode(Mode.RIGHT_OVERLAY);
-
-        parallaxViewPager.setAdapter(new SlidePagerAdapter());
-        parallaxViewPager.setOffscreenPageLimit(3);
-        LUIUtil.setPullLikeIOSHorizontal(parallaxViewPager);
-
-        parallaxViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 //do nothing
@@ -112,7 +109,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
             public void onSuccess(List<String> stringList) {
                 LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(stringList));
                 imagesListOfOneChap = stringList;
-                parallaxViewPager.getAdapter().notifyDataSetChanged();
+                viewPager.getAdapter().notifyDataSetChanged();
             }
 
             @Override
