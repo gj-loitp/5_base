@@ -27,7 +27,6 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
 
 public class ReadActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivBkg;
@@ -64,7 +63,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
 
         LUIUtil.setImageFromAsset(activity, Constants.ASSET_PREV_CHAP, btPrevChap);
         LUIUtil.setImageFromAsset(activity, Constants.ASSET_NEXT_CHAP, btNextChap);
-        
+
         viewPager.setAdapter(new SlidePagerAdapter());
         viewPager.setOffscreenPageLimit(3);
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
