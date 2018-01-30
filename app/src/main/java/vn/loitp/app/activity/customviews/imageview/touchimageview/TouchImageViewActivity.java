@@ -16,7 +16,8 @@ public class TouchImageViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         LTouchImageView lTouchImageView = (LTouchImageView) findViewById(R.id.iv);
-        LImageUtil.load(activity, Constants.URL_IMG, lTouchImageView);
+        //LImageUtil.load(activity, Constants.URL_IMG, lTouchImageView);
+        LImageUtil.load(activity, "http://1.bp.blogspot.com/-DUgqgiDCO7M/VUGZ-Ag6fpI/AAAAAAADRiw/aeTYZxXsTLg/s0/1.jpg?imgmax=3000", lTouchImageView);
     }
 
     @Override
