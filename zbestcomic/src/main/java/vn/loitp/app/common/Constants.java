@@ -93,6 +93,6 @@ public class Constants {
 
     public final static String KEY_COMIC = "KEY_COMIC";
 
-    public final static String ASSET_PREV_CHAP = "img/prev_chap.png";
-    public final static String ASSET_NEXT_CHAP = "img/next_chap.png";
+    public final static String ASSET_PREV_CHAP = "prev_chap.png";
+    public final static String ASSET_NEXT_CHAP = "next_chap.png";
 }
