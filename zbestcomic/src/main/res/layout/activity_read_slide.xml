@@ -46,7 +46,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:visibility="v" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/bt_next_chap"
