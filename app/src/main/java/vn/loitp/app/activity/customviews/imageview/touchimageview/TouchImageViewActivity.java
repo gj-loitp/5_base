@@ -3,12 +3,13 @@ package vn.loitp.app.activity.customviews.imageview.touchimageview;
 import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.app.common.Constants;
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
+//note when use with glide, must have placeholder
 public class TouchImageViewActivity extends BaseActivity {
 
     @Override
@@ -16,8 +17,7 @@ public class TouchImageViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         LTouchImageView lTouchImageView = (LTouchImageView) findViewById(R.id.iv);
-        //LImageUtil.load(activity, Constants.URL_IMG, lTouchImageView);
-        LImageUtil.load(activity, "http://1.bp.blogspot.com/-DUgqgiDCO7M/VUGZ-Ag6fpI/AAAAAAADRiw/aeTYZxXsTLg/s0/1.jpg?imgmax=3000", lTouchImageView);
+        LImageUtil.load(activity, Constants.URL_IMG, lTouchImageView, R.mipmap.ic_launcher);
     }
 
     @Override

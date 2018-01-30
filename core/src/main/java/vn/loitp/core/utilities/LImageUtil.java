@@ -40,6 +40,10 @@ public class LImageUtil {
         Glide.with(activity).load(url).into(imageView);
     }
 
+    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder) {
+        Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
+    }
+
     public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
         Glide.with(activity).load(url)
                 .listener(glideDrawableRequestListener)
