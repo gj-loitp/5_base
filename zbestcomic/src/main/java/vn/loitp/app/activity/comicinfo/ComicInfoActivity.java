@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
@@ -33,6 +34,7 @@ import vn.loitp.app.model.chap.TTTChap;
 import vn.loitp.app.model.comic.Comic;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -216,7 +218,41 @@ public class ComicInfoActivity extends BaseActivity {
     }
 
     private void showDialogSelect() {
-        //TODO
+        if (comic.isFav() == Constants.IS_FAV) {
+            LDialogUtil.showDialog2(activity, getString(R.string.warning), "Bạn muốn xóa " + comic.getTitle() + " khỏi danh sách yêu thích? ", getString(R.string.no), getString(R.string.delete), new LDialogUtil.Callback2() {
+                @Override
+                public void onClick1() {
+                    //do nothing
+                }
+
+                @Override
+                public void onClick2() {
+                    comic.setFav(Constants.IS_NOT_FAV);
+                    db.updateComic(comic);
+
+                    updateUIBtFav();
+
+                    EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_REMOVE, comic, TAG);
+                }
+            });
+        } else {
+            LDialogUtil.showDialog2(activity, getString(R.string.warning), "Bạn muốn thêm " + comic.getTitle() + " vào danh sách yêu thích? ", getString(R.string.no), getString(R.string.insert), new LDialogUtil.Callback2() {
+                @Override
+                public void onClick1() {
+                    //do nothing
+                }
+
+                @Override
+                public void onClick2() {
+                    comic.setFav(Constants.IS_FAV);
+                    db.updateComic(comic);
+
+                    updateUIBtFav();
+
+                    EventBusData.getInstance().sendComicChange(Constants.COMIC_IS_INSERT, comic, TAG);
+                }
+            });
+        }
     }
 
     @Override
