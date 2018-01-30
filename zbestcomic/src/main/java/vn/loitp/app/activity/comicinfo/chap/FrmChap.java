@@ -10,7 +10,12 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.ads.AdView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.basemaster.R;
+import vn.loitp.app.data.ComicInfoData;
+import vn.loitp.app.model.chap.Chap;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -25,7 +30,8 @@ public class FrmChap extends BaseFragment {
     private AdView adView;
 
     private RecyclerView recyclerView;
-    private MoviesAdapter mAdapter;
+    private ChapAdapter mAdapter;
+    private List<Chap> chapList = new ArrayList<Chap>();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -45,20 +51,20 @@ public class FrmChap extends BaseFragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new ChapAdapter(chapList, new ChapAdapter.Callback() {
             @Override
-            public void onClick(Movie movie, int position) {
-                LToast.show(getActivity(), "Click " + movie.getTitle());
+            public void onClick(Chap chap, int position) {
+                LToast.show(getActivity(), "Click " + chap.getTit());
             }
 
             @Override
-            public void onLongClick(Movie movie, int position) {
+            public void onLongClick(Chap chap, int position) {
                 //do nothing
             }
 
             @Override
             public void onLoadMore() {
-                loadMore();
+                //loadMore();
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -68,7 +74,7 @@ public class FrmChap extends BaseFragment {
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
 
-        prepareMovieData();
+        prepareData();
         return view;
     }
 
@@ -90,17 +96,14 @@ public class FrmChap extends BaseFragment {
         super.onDestroy();
     }
 
-    private void loadMore() {
-        LLog.d(TAG, "loadMore");
-    }
-
-    private void prepareMovieData() {
-        if (DummyData.getInstance().getMovieList().isEmpty()) {
-            for (int i = 0; i < 100; i++) {
-                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
-                DummyData.getInstance().getMovieList().add(movie);
-            }
+    private void prepareData() {
+        try {
+            chapList.addAll(ComicInfoData.getInstance().getTttChap().getChaps().getChap());
+        } catch (NullPointerException e) {
+            LLog.e(TAG, "NullPointerException " + e.toString());
         }
-        mAdapter.notifyDataSetChanged();
+        if (chapList != null && mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 }

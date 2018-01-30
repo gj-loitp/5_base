@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.comicinfo.chap;
+package vn.loitp.app.data;
 
 import vn.loitp.app.model.chap.TTTChap;
 

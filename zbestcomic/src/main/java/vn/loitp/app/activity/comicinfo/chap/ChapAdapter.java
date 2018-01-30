@@ -9,25 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.model.chap.Chap;
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
+public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.MovieViewHolder> {
 
     public interface Callback {
-        public void onClick(Movie movie, int position);
+        public void onClick(Chap chap, int position);
 
-        public void onLongClick(Movie movie, int position);
+        public void onLongClick(Chap chap, int position);
 
         public void onLoadMore();
     }
 
     private Callback callback;
 
-    private List<Movie> moviesList;
+    private List<Chap> chapList;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public Button btChap;
@@ -38,8 +38,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         }
     }
 
-    public MoviesAdapter(List<Movie> moviesList, Callback callback) {
-        this.moviesList = moviesList;
+    public ChapAdapter(List<Chap> chapList, Callback callback) {
+        this.chapList = chapList;
         this.callback = callback;
     }
 
@@ -51,13 +51,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
-        Movie movie = moviesList.get(position);
-        holder.btChap.setText(movie.getTitle());
+        Chap chap = chapList.get(position);
+        holder.btChap.setText(chap.getTit());
         holder.btChap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onClick(movie, position);
+                    callback.onClick(chap, position);
                 }
             }
         });
@@ -65,12 +65,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             @Override
             public boolean onLongClick(View v) {
                 if (callback != null) {
-                    callback.onLongClick(movie, position);
+                    callback.onLongClick(chap, position);
                 }
                 return true;
             }
         });
-        if (position == moviesList.size() - 1) {
+        if (position == chapList.size() - 1) {
             if (callback != null) {
                 callback.onLoadMore();
             }
@@ -79,6 +79,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return chapList.size();
     }
 }

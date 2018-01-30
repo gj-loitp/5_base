@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.comicinfo.chap.ComicInfoData;
+import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.activity.comicinfo.chap.FrmChap;
 import vn.loitp.app.activity.comicinfo.info.FrmInfo;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;

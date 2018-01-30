@@ -5,16 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.comicinfo.chap.ComicInfoData;
+import vn.loitp.app.data.ComicInfoData;
 import vn.loitp.app.model.chap.Info;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.textview.textdecorator.lib.OnTextClickListener;
 import vn.loitp.views.textview.textdecorator.lib.TextDecorator;
 
 /**
