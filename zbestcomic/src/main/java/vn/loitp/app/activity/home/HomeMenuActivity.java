@@ -151,6 +151,9 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onSearch() {
                 LLog.d(TAG, "onSearch");
+                if (etSearch.getText().toString().isEmpty()) {
+                    isNeedToHideTvMsgSearchCount = true;
+                }
                 sendSearchEvent();
                 LKeyBoardUtil.hide(activity);
             }
@@ -332,6 +335,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 });
                 break;
             case R.id.tv_msg_search:
+                isNeedToHideTvMsgSearchCount = true;
                 etSearch.setText("");
                 sendSearchEvent();
                 break;
@@ -359,9 +363,15 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         LLog.d(TAG, "onMessageEvent loitp: " + event.isConnected());
     }*/
 
+    private boolean isNeedToHideTvMsgSearchCount;
+
     public void setSearchCount(int searchCount) {
         LLog.d(TAG, "setSearchCount");
         tvMsgSearch.setText("Tìm được " + searchCount + " truyện. Nhấn vào đây để tắt tìm kiếm");
+        if (isNeedToHideTvMsgSearchCount) {
+            isNeedToHideTvMsgSearchCount = false;
+            return;
+        }
         if (tvMsgSearch.getVisibility() != View.VISIBLE) {
             LLog.d(TAG, "tvMsgSearch VISIBLE");
             tvMsgSearch.setVisibility(View.VISIBLE);
