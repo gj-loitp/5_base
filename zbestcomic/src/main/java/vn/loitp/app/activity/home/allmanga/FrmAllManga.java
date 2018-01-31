@@ -222,7 +222,7 @@ public class FrmAllManga extends BaseFragment {
                 LLog.d(TAG, "filter with " + searchEvent.getKeyword());
                 ComicData.getInstance().filterComicListWithKeyword(searchEvent.getKeyword());
                 if (ComicData.getInstance().getComicList().isEmpty()) {
-
+                    //TODO show msg list empty
                 } else {
                     if (comicAllAdapter != null) {
                         comicAllAdapter.notifyDataSetChanged();

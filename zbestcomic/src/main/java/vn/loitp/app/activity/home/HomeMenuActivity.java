@@ -169,6 +169,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
             @Override
             public void onPageSelected(int position) {
+                tvMsgSearch.performClick();
                 if (position == 0 || position == 1 || position == 2) {
                     showEtSearch(true);
                 } else {

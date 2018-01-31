@@ -172,6 +172,10 @@ public class FrmFavManga extends BaseFragment {
                     comicFavAdapter.notifyDataSetChanged();
                     recyclerView.smoothScrollToPosition(0);
                 }
+                checkToShowMsg();
+                if (getActivity() instanceof HomeMenuActivity) {
+                    ((HomeMenuActivity) getActivity()).setSearchCount(ComicData.getInstance().getComicFavList().size());
+                }
             }
         }
     }
