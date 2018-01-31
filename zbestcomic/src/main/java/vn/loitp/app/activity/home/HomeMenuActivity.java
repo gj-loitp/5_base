@@ -10,9 +10,14 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.daimajia.androidanimations.library.Techniques;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +34,7 @@ import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
@@ -41,6 +47,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
     private ImageView toolbarImage;
+    private EditText etSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         isShowAdWhenExist = false;
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
+        etSearch = (EditText) findViewById(R.id.et_search);
 
         AppUtil.loadBackground(activity, toolbarImage);
 
@@ -76,14 +84,14 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 //LLog.d(TAG, "toolbarChange: " + toolbarChange);
                 if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
                     //COLLAPSED appBarLayout min
-                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
                 } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
                     //EXPANDED appBarLayout max
-                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
                     AppUtil.loadBackground(activity, toolbarImage);
                 } else {
                     //IDLE appBarLayout not min not max
-                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+                    //LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
                 }
             }
         });
@@ -105,6 +113,79 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                LLog.d(TAG, "onTextChanged " + s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //do nothing
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //do nothing
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0 || position == 1 || position == 2) {
+                    showEtSearch(true);
+                } else {
+                    showEtSearch(false);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //do nothing
+            }
+        });
+    }
+
+    public void showEtSearch(boolean isShow) {
+        if (etSearch != null) {
+            if (isShow) {
+                if (etSearch.getVisibility() != View.VISIBLE) {
+                    etSearch.setVisibility(View.VISIBLE);
+                    LAnimationUtil.play(etSearch, Techniques.FadeIn);
+                }
+            } else {
+                if (etSearch.getVisibility() != View.GONE) {
+                    LAnimationUtil.play(etSearch, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                        @Override
+                        public void onCancel() {
+                            //do nothing
+                        }
+
+                        @Override
+                        public void onEnd() {
+                            etSearch.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onRepeat() {
+                            //do nothing
+                        }
+
+                        @Override
+                        public void onStart() {
+                            //do nothing
+                        }
+                    });
+                }
+            }
+        }
     }
 
     @Override

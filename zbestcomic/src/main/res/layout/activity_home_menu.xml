@@ -69,6 +69,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/bt_tag"
                             android:hint="@string/search"
+                            android:maxLines="1"
+                            android:singleLine="true"
                             android:textColor="@color/White"
                             android:textColorHint="@color/White"
                             android:textCursorDrawable="@null" />
