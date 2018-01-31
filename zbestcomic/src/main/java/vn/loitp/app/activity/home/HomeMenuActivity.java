@@ -3,6 +3,7 @@ package vn.loitp.app.activity.home;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -49,6 +50,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private List<String> stringList = new ArrayList<>();
     private ImageView toolbarImage;
     private EditText etSearch;
+
+    private Handler handlerSearch = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +127,13 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 LLog.d(TAG, "onTextChanged " + s);
-
+                handlerSearch.removeCallbacksAndMessages(null);
+                handlerSearch.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        LLog.d(TAG, ">>>>>>>>>>>send event search >>> " + s);
+                    }
+                }, 1500);
             }
 
             @Override
