@@ -149,7 +149,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onSearch() {
                 LLog.d(TAG, "onSearch");
-                EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString(), stringList.get(viewPager.getCurrentItem()));
+                EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString().trim().toLowerCase(), stringList.get(viewPager.getCurrentItem()));
                 LKeyBoardUtil.hide(activity);
             }
         });
@@ -174,6 +174,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 //do nothing
             }
         });
+    }
+
+    public String getCurrentSearchKeyword() {
+        return etSearch.getText().toString().trim().toLowerCase();
     }
 
     public void showEtSearch(boolean isShow) {
