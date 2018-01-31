@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.imageview.img2ascii.lib.Img2Ascii;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.views.imageview.img2ascii.Img2Ascii;
 import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
 public class Img2AsciiActivity extends BaseActivity {

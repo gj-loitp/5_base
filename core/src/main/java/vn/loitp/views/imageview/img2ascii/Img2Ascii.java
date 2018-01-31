@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.imageview.img2ascii.lib;
+package vn.loitp.views.imageview.img2ascii;
 
 /**
  * Created by www.muathu@gmail.com on 12/18/2017.

@@ -484,6 +484,9 @@
         <activity
             android:name="vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

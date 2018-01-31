@@ -301,4 +301,10 @@
         <enum name="centerCrop" value="6" />
         <enum name="centerInside" value="7" />
     </attr>
+
+    <declare-styleable name="PanoramaImageView">
+        <attr name="piv_enablePanoramaMode" format="boolean" />
+        <attr name="piv_invertScrollDirection" format="boolean" />
+        <attr name="piv_show_scrollbar" format="boolean" />
+    </declare-styleable>
 </resources>

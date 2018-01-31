@@ -61,6 +61,12 @@
                 android:text="image2ascii" />
 
             <Button
+                android:id="@+id/bt_panorama_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Panorama Imageview" />
+
+            <Button
                 android:id="@+id/bt_scroll_parallax_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
