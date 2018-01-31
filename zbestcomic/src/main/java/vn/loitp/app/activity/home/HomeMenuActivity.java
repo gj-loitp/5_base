@@ -30,6 +30,7 @@ import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
 import vn.loitp.app.activity.home.favmanga.FrmFavManga;
 import vn.loitp.app.activity.home.mangawallpaper.FrmPhotoManga;
 import vn.loitp.app.activity.home.more.FrmMore;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.util.AppUtil;
@@ -96,13 +97,13 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        stringList.add("Tất cả truyện");
-        stringList.add("Truyện yêu thích");
-        stringList.add("Truyện đã tải");
-        stringList.add("Ảnh nền Manga-Anime");
-        stringList.add("Ảnh nền");
-        stringList.add("Qùa tặng");
-        stringList.add("Phụ lục");
+        stringList.add(Constants.MENU_ALL_MANGA);
+        stringList.add(Constants.MENU_FAV_MANGA);
+        stringList.add(Constants.MENU_DOWNLOADED_MANGA);
+        stringList.add(Constants.MENU_MANGA_WALLPAPER);
+        stringList.add(Constants.MENU_ALL_WALLPAPER);
+        stringList.add(Constants.MENU_GIFT);
+        stringList.add(Constants.MENU_MORE);
 
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
