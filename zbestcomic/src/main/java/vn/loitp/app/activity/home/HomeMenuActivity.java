@@ -39,6 +39,7 @@ import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LKeyBoardUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
@@ -52,7 +53,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private ImageView toolbarImage;
     private EditText etSearch;
 
-    private Handler handlerSearch = new Handler();
+    //private Handler handlerSearch = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +120,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        etSearch.addTextChangedListener(new TextWatcher() {
+        /*etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 //do nothing
@@ -141,6 +142,15 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void afterTextChanged(Editable s) {
                 //do nothing
+            }
+        });*/
+        
+        LUIUtil.setImeiActionSearch(etSearch, new LUIUtil.CallbackSearch() {
+            @Override
+            public void onSearch() {
+                LLog.d(TAG, "onSearch");
+                EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString(), stringList.get(viewPager.getCurrentItem()));
+                LKeyBoardUtil.hide(activity);
             }
         });
 

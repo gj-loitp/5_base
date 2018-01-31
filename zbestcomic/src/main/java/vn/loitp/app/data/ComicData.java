@@ -29,6 +29,10 @@ public class ComicData {
         return comicList;
     }
 
+    public void filterWithKeyword(String keyword) {
+
+    }
+
     public void setComicList(List<Comic> comicList) {
         this.comicList = comicList;
     }
