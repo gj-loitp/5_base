@@ -153,6 +153,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 LLog.d(TAG, "onSearch");
                 if (etSearch.getText().toString().isEmpty()) {
                     isNeedToHideTvMsgSearchCount = true;
+                } else {
+                    isNeedToHideTvMsgSearchCount = false;
                 }
                 sendSearchEvent();
                 LKeyBoardUtil.hide(activity);
@@ -346,7 +348,27 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         LLog.d(TAG, "sendSearchEvent");
         if (tvMsgSearch.getVisibility() != View.GONE) {
             LLog.d(TAG, "tvMsgSearch GONE");
-            tvMsgSearch.setVisibility(View.GONE);
+            LAnimationUtil.play(tvMsgSearch, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                @Override
+                public void onCancel() {
+                    //do nothing
+                }
+
+                @Override
+                public void onEnd() {
+                    tvMsgSearch.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onRepeat() {
+                    //do nothing
+                }
+
+                @Override
+                public void onStart() {
+                    //do nothing
+                }
+            });
         }
         EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString().trim().toLowerCase(), stringList.get(viewPager.getCurrentItem()));
     }
@@ -369,12 +391,12 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         LLog.d(TAG, "setSearchCount");
         tvMsgSearch.setText("Tìm được " + searchCount + " truyện. Nhấn vào đây để tắt tìm kiếm");
         if (isNeedToHideTvMsgSearchCount) {
-            isNeedToHideTvMsgSearchCount = false;
             return;
         }
         if (tvMsgSearch.getVisibility() != View.VISIBLE) {
             LLog.d(TAG, "tvMsgSearch VISIBLE");
             tvMsgSearch.setVisibility(View.VISIBLE);
+            LAnimationUtil.play(tvMsgSearch, Techniques.FadeIn);
         }
     }
 }
