@@ -62,12 +62,34 @@ public class ComicData {
     }
 
     private List<Comic> comicFavList;
+    private List<Comic> comicFavListClone;
 
     public List<Comic> getComicFavList() {
         return comicFavList;
     }
 
-    public void setComicFavList(List<Comic> comicFavList) {
-        this.comicFavList = comicFavList;
+    public void setComicFavList(List<Comic> comics) {
+        this.comicFavList = comics;
+        this.comicFavListClone = comics;
+    }
+
+    public void filterFavComicListWithKeyword(String keyword) {
+        LLog.d(TAG, "filterComicListWithKeyword " + keyword);
+        if (keyword == null || keyword.isEmpty()) {
+            LLog.d(TAG, ">>>if");
+            comicFavList = comicFavListClone;
+        } else {
+            LLog.d(TAG, ">>>else");
+            comicFavList = new ArrayList<>();
+            LLog.d(TAG, "filterComicListWithKeyword comicFavList " + comicFavListClone.size());
+            LLog.d(TAG, "filterComicListWithKeyword comicFavListClone " + comicFavListClone.size());
+
+            for (int i = 0; i < comicFavListClone.size(); i++) {
+                if (comicFavListClone.get(i).getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                    comicFavList.add(comicFavListClone.get(i));
+                }
+            }
+        }
+        LLog.d(TAG, "size after searching: " + comicFavList.size());
     }
 }

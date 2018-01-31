@@ -14,6 +14,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.comicinfo.ComicInfoActivity;
+import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
@@ -142,6 +143,12 @@ public class FrmFavManga extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ComicChangeEvent comicChangeEvent) {
         LLog.d(TAG, TAG + "onMessageEvent comicChangeEvent");
+        if (getActivity() instanceof HomeMenuActivity) {
+            if (!((HomeMenuActivity) getActivity()).getCurrentSearchKeyword().isEmpty()) {
+                LLog.d(TAG, "dont update list because user is searching");
+                return;
+            }
+        }
         if (comicChangeEvent != null) {
             if (comicChangeEvent.getTag().equalsIgnoreCase(TAG)) {
                 LLog.d(TAG, "event from " + TAG + " -> do nothing");
@@ -156,9 +163,16 @@ public class FrmFavManga extends BaseFragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.SearchEvent searchEvent) {
-        LLog.d(TAG, TAG + "onMessageEvent searchEvent "+ LSApplication.getInstance().getGson().toJson(searchEvent));
+        LLog.d(TAG, TAG + "onMessageEvent searchEvent " + LSApplication.getInstance().getGson().toJson(searchEvent));
         if (searchEvent != null) {
-
+            if (searchEvent.getTAG().equalsIgnoreCase(Constants.MENU_FAV_MANGA)) {
+                LLog.d(TAG, "filter with " + searchEvent.getKeyword());
+                ComicData.getInstance().filterFavComicListWithKeyword(searchEvent.getKeyword());
+                if (comicFavAdapter != null) {
+                    comicFavAdapter.notifyDataSetChanged();
+                    recyclerView.smoothScrollToPosition(0);
+                }
+            }
         }
     }
 
