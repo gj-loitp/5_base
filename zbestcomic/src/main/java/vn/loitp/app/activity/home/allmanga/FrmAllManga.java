@@ -28,7 +28,6 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
@@ -212,7 +211,13 @@ public class FrmAllManga extends BaseFragment {
     public void onMessageEvent(EventBusData.SearchEvent searchEvent) {
         LLog.d(TAG, TAG + "onMessageEvent searchEvent " + LSApplication.getInstance().getGson().toJson(searchEvent));
         if (searchEvent != null) {
-
+            if (searchEvent.getTAG().equalsIgnoreCase(Constants.MENU_ALL_MANGA)) {
+                LLog.d(TAG, "filter with " + searchEvent.getKeyword());
+                ComicData.getInstance().filterComicListWithKeyword(searchEvent.getKeyword());
+                if (comicAllAdapter != null) {
+                    comicAllAdapter.notifyDataSetChanged();
+                }
+            }
         }
     }
 

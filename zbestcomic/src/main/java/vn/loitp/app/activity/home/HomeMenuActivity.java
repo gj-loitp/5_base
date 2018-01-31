@@ -144,7 +144,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 //do nothing
             }
         });*/
-        
+
         LUIUtil.setImeiActionSearch(etSearch, new LUIUtil.CallbackSearch() {
             @Override
             public void onSearch() {
