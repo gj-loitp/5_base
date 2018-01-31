@@ -15,4 +15,12 @@
         app:piv_invertScrollDirection="false"
         app:piv_show_scrollbar="true" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_5"
+        android:text="An imageView can auto scroll with device rotating: Vertical or Horizontal"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/txt_14" />
+
 </RelativeLayout>
