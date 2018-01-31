@@ -124,6 +124,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 LLog.d(TAG, "onTextChanged " + s);
+
             }
 
             @Override

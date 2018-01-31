@@ -15,6 +15,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.comicinfo.ComicInfoActivity;
 import vn.loitp.app.activity.home.allmanga.DatabaseHandler;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -151,6 +152,14 @@ public class FrmFavManga extends BaseFragment {
             }
         }
         checkToShowMsg();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.SearchEvent searchEvent) {
+        LLog.d(TAG, TAG + "onMessageEvent searchEvent "+ LSApplication.getInstance().getGson().toJson(searchEvent));
+        if (searchEvent != null) {
+
+        }
     }
 
     @Override

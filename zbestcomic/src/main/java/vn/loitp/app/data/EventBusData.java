@@ -56,6 +56,34 @@ public class EventBusData {
         EventBus.getDefault().post(comicChangeEvent);
     }
 
+    public static class SearchEvent {
+        private String TAG;
+        private String keyword;
+
+        public String getTAG() {
+            return TAG;
+        }
+
+        public void setTAG(String TAG) {
+            this.TAG = TAG;
+        }
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+    }
+
+    public void sendSearchEvent(String keyword, String tag) {
+        SearchEvent searchEvent = new SearchEvent();
+        searchEvent.setKeyword(keyword);
+        searchEvent.setTAG(tag);
+        EventBus.getDefault().post(searchEvent);
+    }
+
     /*public static class ConnectEvent {
         private boolean isConnected;
         private boolean isConnectedFast;

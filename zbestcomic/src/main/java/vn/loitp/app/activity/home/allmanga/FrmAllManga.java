@@ -16,6 +16,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.comicinfo.ComicInfoActivity;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.ComicData;
 import vn.loitp.app.data.EventBusData;
@@ -204,6 +205,14 @@ public class FrmAllManga extends BaseFragment {
                 ComicData.getInstance().setComicList(db.getAllComic());
                 comicAllAdapter.notifyDataSetChanged();
             }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.SearchEvent searchEvent) {
+        LLog.d(TAG, TAG + "onMessageEvent searchEvent " + LSApplication.getInstance().getGson().toJson(searchEvent));
+        if (searchEvent != null) {
+
         }
     }
 
