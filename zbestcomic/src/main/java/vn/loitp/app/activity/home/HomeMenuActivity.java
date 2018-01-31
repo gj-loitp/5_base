@@ -3,7 +3,6 @@ package vn.loitp.app.activity.home;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,12 +10,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 
@@ -45,6 +43,7 @@ import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LAppBarLayout;
+import vn.loitp.views.LToast;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
@@ -52,6 +51,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private List<String> stringList = new ArrayList<>();
     private ImageView toolbarImage;
     private EditText etSearch;
+    private TextView tvMsgSearch;
 
     //private Handler handlerSearch = new Handler();
 
@@ -62,6 +62,9 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
         etSearch = (EditText) findViewById(R.id.et_search);
+        tvMsgSearch = (TextView) findViewById(R.id.tv_msg_search);
+        tvMsgSearch.setOnClickListener(this);
+        LUIUtil.setMarquee(tvMsgSearch);
 
         AppUtil.loadBackground(activity, toolbarImage);
 
@@ -329,6 +332,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     }
                 });
                 break;
+            case R.id.tv_msg_search:
+                //TODO
+                LToast.show(activity, "Touch");
+                break;
         }
     }
 
@@ -343,4 +350,11 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         super.onNetworkChange(event);
         LLog.d(TAG, "onMessageEvent loitp: " + event.isConnected());
     }*/
+
+    public void setSearchCount(int searchCount) {
+        tvMsgSearch.setText("Tìm được " + searchCount + " truyện. Nhấn vào đây để tắt tìm kiếm");
+        if (tvMsgSearch.getVisibility() != View.VISIBLE) {
+            tvMsgSearch.setVisibility(View.VISIBLE);
+        }
+    }
 }

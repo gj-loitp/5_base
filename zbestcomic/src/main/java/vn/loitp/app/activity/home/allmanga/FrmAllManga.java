@@ -221,9 +221,16 @@ public class FrmAllManga extends BaseFragment {
             if (searchEvent.getTAG().equalsIgnoreCase(Constants.MENU_ALL_MANGA)) {
                 LLog.d(TAG, "filter with " + searchEvent.getKeyword());
                 ComicData.getInstance().filterComicListWithKeyword(searchEvent.getKeyword());
-                if (comicAllAdapter != null) {
-                    comicAllAdapter.notifyDataSetChanged();
-                    recyclerView.smoothScrollToPosition(0);
+                if (ComicData.getInstance().getComicList().isEmpty()) {
+
+                } else {
+                    if (comicAllAdapter != null) {
+                        comicAllAdapter.notifyDataSetChanged();
+                        recyclerView.smoothScrollToPosition(0);
+                    }
+                }
+                if (getActivity() instanceof HomeMenuActivity) {
+                    ((HomeMenuActivity) getActivity()).setSearchCount(ComicData.getInstance().getComicList().size());
                 }
             }
         }
