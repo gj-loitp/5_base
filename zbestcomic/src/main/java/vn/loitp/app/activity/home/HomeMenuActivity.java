@@ -43,7 +43,6 @@ import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LAppBarLayout;
-import vn.loitp.views.LToast;
 
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
@@ -152,7 +151,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onSearch() {
                 LLog.d(TAG, "onSearch");
-                EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString().trim().toLowerCase(), stringList.get(viewPager.getCurrentItem()));
+                sendSearchEvent();
                 LKeyBoardUtil.hide(activity);
             }
         });
@@ -333,10 +332,19 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 });
                 break;
             case R.id.tv_msg_search:
-                //TODO
-                LToast.show(activity, "Touch");
+                etSearch.setText("");
+                sendSearchEvent();
                 break;
         }
+    }
+
+    private void sendSearchEvent() {
+        LLog.d(TAG, "sendSearchEvent");
+        if (tvMsgSearch.getVisibility() != View.GONE) {
+            LLog.d(TAG, "tvMsgSearch GONE");
+            tvMsgSearch.setVisibility(View.GONE);
+        }
+        EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString().trim().toLowerCase(), stringList.get(viewPager.getCurrentItem()));
     }
 
     @Override
@@ -352,8 +360,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     }*/
 
     public void setSearchCount(int searchCount) {
+        LLog.d(TAG, "setSearchCount");
         tvMsgSearch.setText("Tìm được " + searchCount + " truyện. Nhấn vào đây để tắt tìm kiếm");
         if (tvMsgSearch.getVisibility() != View.VISIBLE) {
+            LLog.d(TAG, "tvMsgSearch VISIBLE");
             tvMsgSearch.setVisibility(View.VISIBLE);
         }
     }
