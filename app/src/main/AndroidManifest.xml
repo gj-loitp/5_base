@@ -478,6 +478,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.pattern.MenuPatternActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

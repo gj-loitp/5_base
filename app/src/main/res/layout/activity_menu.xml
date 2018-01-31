@@ -67,6 +67,12 @@
                 android:text="Function" />
 
             <Button
+                android:id="@+id/bt_pattern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pattern" />
+
+            <Button
                 android:id="@+id/bt_rate_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.database.MenuDatabaseActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.app.activity.function.MenuFunctionActivity;
+import vn.loitp.app.activity.pattern.MenuPatternActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
@@ -34,6 +35,7 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.bt_rate_app).setOnClickListener(this);
         findViewById(R.id.bt_more_app).setOnClickListener(this);
         findViewById(R.id.bt_database).setOnClickListener(this);
+        findViewById(R.id.bt_pattern).setOnClickListener(this);
     }
 
     @Override
@@ -86,6 +88,9 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.bt_database:
                 intent = new Intent(activity, MenuDatabaseActivity.class);
+                break;
+            case R.id.bt_pattern:
+                intent = new Intent(activity, MenuPatternActivity.class);
                 break;
         }
         if (intent != null) {
