@@ -34,6 +34,7 @@ import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.AlbumData;
 import vn.loitp.app.data.ComicData;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
@@ -132,6 +133,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     @Override
                     public void run() {
                         LLog.d(TAG, ">>>>>>>>>>>send event search >>> " + s);
+                        EventBusData.getInstance().sendSearchEvent(s.toString(), stringList.get(viewPager.getCurrentItem()));
                     }
                 }, 1500);
             }
