@@ -31,6 +31,7 @@ import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
+import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GallerySlideActivity extends BaseActivity implements OnClickListener {
@@ -189,26 +190,24 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
             Photo photo = PhotosData.getInstance().getPhoto(position);
             LayoutInflater inflater = LayoutInflater.from(activity);
             //ViewGroup layout = (ViewGroup) inflater.inflate(AlbumData.getInstance().isUseStrechImageView() ? R.layout.item_photo_slide_strech_iv : R.layout.item_photo_slide_iv, collection, false);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_strech_iv, collection, false);
+            //ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_strech_iv, collection, false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_touch_iv, collection, false);
 
-            ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
+            /*ScrollView scrollView = (ScrollView) layout.findViewById(R.id.scroll_view);
             if (scrollView != null) {
                 LUIUtil.setPullLikeIOSVertical(scrollView);
-            }
-
-            //RelativeLayout rootView = (RelativeLayout) layout.findViewById(R.id.root_view);
-            //rootView.setBackgroundColor(AppUtil.getColor(activity));
+            }*/
 
             AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(activity, photo.getUrlO(), imageView, avLoadingIndicatorView);
+            LTouchImageView imageView = (LTouchImageView) layout.findViewById(R.id.imageView);
+            LImageUtil.load(activity, photo.getUrlO(), imageView, avLoadingIndicatorView, R.color.transparent, R.drawable.ic_error_svgrepo_com);
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
             //LUIUtil.printBeautyJson(photo, tv);
             tv.setText("Original size: " + photo.getWidthO() + "x" + photo.getHeightO());
             LUIUtil.setTextShadow(tv);
 
-            imageView.setOnClickListener(new OnClickListener() {
+            /*imageView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     v.setClickable(false);
@@ -260,7 +259,7 @@ public class GallerySlideActivity extends BaseActivity implements OnClickListene
                         });
                     }
                 }
-            });
+            });*/
 
             collection.addView(layout);
             return layout;

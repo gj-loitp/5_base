@@ -20,6 +20,15 @@
             android:contentDescription="@string/app_name" />
     </ScrollView>
 
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_5"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_8" />
+
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView.Large"
