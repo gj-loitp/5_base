@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
 
@@ -35,6 +36,8 @@ public class FrmChap extends BaseFragment {
     private ChapAdapter mAdapter;
     private List<Chap> chapList = new ArrayList<Chap>();
 
+    private TextView btDownloadAll;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -52,6 +55,7 @@ public class FrmChap extends BaseFragment {
         LUIUtil.createAdBanner(adView);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+        btDownloadAll = (TextView) view.findViewById(R.id.bt_download_all);
 
         mAdapter = new ChapAdapter(chapList, new ChapAdapter.Callback() {
             @Override
@@ -85,6 +89,13 @@ public class FrmChap extends BaseFragment {
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         prepareData();
+
+        btDownloadAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogMsg(getString(R.string.beta_feature));
+            }
+        });
         return view;
     }
 
