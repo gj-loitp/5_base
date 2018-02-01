@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
+
+    <Button
+        android:id="@+id/bt_rate_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/beta_feature"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_18" />
+
+</RelativeLayout>
