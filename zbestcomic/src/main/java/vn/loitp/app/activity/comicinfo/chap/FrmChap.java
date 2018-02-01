@@ -68,6 +68,11 @@ public class FrmChap extends BaseFragment {
             }
 
             @Override
+            public void onClickDownload(Chap chap, int position) {
+                showDialogMsg(getString(R.string.beta_feature));
+            }
+
+            @Override
             public void onLoadMore() {
                 //loadMore();
             }

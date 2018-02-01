@@ -9,18 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.model.chap.Chap;
 
-public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.MovieViewHolder> {
+public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.ChapHolder> {
 
     public interface Callback {
         public void onClick(Chap chap, int position);
 
         public void onLongClick(Chap chap, int position);
+
+        public void onClickDownload(Chap chap, int position);
 
         public void onLoadMore();
     }
@@ -29,12 +32,14 @@ public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.MovieViewHolde
 
     private List<Chap> chapList;
 
-    public class MovieViewHolder extends RecyclerView.ViewHolder {
+    public class ChapHolder extends RecyclerView.ViewHolder {
         public Button btChap;
+        public ImageView btDownload;
 
-        public MovieViewHolder(View view) {
+        public ChapHolder(View view) {
             super(view);
             btChap = (Button) view.findViewById(R.id.bt_chap);
+            btDownload = (ImageView) view.findViewById(R.id.bt_download);
         }
     }
 
@@ -44,13 +49,13 @@ public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.MovieViewHolde
     }
 
     @Override
-    public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ChapHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comic_chap, parent, false);
-        return new MovieViewHolder(itemView);
+        return new ChapHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MovieViewHolder holder, int position) {
+    public void onBindViewHolder(ChapHolder holder, int position) {
         Chap chap = chapList.get(position);
         holder.btChap.setText(chap.getTit());
         holder.btChap.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,14 @@ public class ChapAdapter extends RecyclerView.Adapter<ChapAdapter.MovieViewHolde
                     callback.onLongClick(chap, position);
                 }
                 return true;
+            }
+        });
+        holder.btDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClickDownload(chap, position);
+                }
             }
         });
         if (position == chapList.size() - 1) {
