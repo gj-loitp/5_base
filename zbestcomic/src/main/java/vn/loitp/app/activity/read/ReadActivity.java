@@ -142,13 +142,18 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void load(String link) {
+        TAG = "loitpload";
         LLog.d(TAG, "load link " + link);
+        if (link == null) {
+            return;
+        }
         getReadImgTask = new GetReadImgTask(link, avi, new GetReadImgTask.Callback() {
             @Override
             public void onSuccess(List<String> stringList) {
                 LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(stringList));
                 imagesListOfOneChap = stringList;
                 viewPager.getAdapter().notifyDataSetChanged();
+                viewPager.setCurrentItem(0, true);
             }
 
             @Override
@@ -185,10 +190,12 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_prev_chap:
-                //TODO
+                ComicInfoData.getInstance().setPosCurrentChap(ComicInfoData.getInstance().getPosCurrentChap() + 1);
+                load(ComicInfoData.getInstance().getCurrentLinkChap());
                 break;
             case R.id.bt_next_chap:
-                //TODO
+                ComicInfoData.getInstance().setPosCurrentChap(ComicInfoData.getInstance().getPosCurrentChap() - 1);
+                load(ComicInfoData.getInstance().getCurrentLinkChap());
                 break;
         }
     }
@@ -208,7 +215,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
 
                 AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) layout.findViewById(R.id.avi);
                 LTouchImageView imageView = (LTouchImageView) layout.findViewById(R.id.imageView);
-                LLog.d(TAG, ">instantiateItem: " + imagesListOfOneChap.get(position));
+                //LLog.d(TAG, ">instantiateItem: " + imagesListOfOneChap.get(position));
 
                 LImageUtil.load(activity, imagesListOfOneChap.get(position), imageView, avLoadingIndicatorView, R.color.transparent, R.drawable.ic_error_svgrepo_com);
             } else {
