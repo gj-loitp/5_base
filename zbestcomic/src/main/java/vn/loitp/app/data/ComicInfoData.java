@@ -32,7 +32,7 @@ public class ComicInfoData {
         posCurrentChap = 0;
     }
 
-    private int posCurrentChap = 0;
+    private int posCurrentChap;
 
     public int getPosCurrentChap() {
         return posCurrentChap;

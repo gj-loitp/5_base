@@ -149,6 +149,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
+    protected void showDialogMsg(String errMsg) {
+        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
+            @Override
+            public void onClick1() {
+                //do nothing
+            }
+        });
+    }
+
     protected abstract boolean setFullScreen();
 
     protected abstract String setTag();

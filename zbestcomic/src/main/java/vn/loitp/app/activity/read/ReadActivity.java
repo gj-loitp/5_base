@@ -76,60 +76,7 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0) {
-                    btPrevChap.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(btPrevChap, Techniques.SlideInRight);
-                } else if (position == imagesListOfOneChap.size() - 1) {
-                    btNextChap.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(btNextChap, Techniques.SlideInLeft);
-                } else {
-                    if (btPrevChap.getVisibility() != View.GONE) {
-                        LAnimationUtil.play(btPrevChap, Techniques.SlideOutRight, new LAnimationUtil.Callback() {
-                            @Override
-                            public void onCancel() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onEnd() {
-                                btPrevChap.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onRepeat() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onStart() {
-                                //do nothing
-                            }
-                        });
-                    }
-                    if (btNextChap.getVisibility() != View.GONE) {
-                        LAnimationUtil.play(btNextChap, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
-                            @Override
-                            public void onCancel() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onEnd() {
-                                btNextChap.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onRepeat() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onStart() {
-                                //do nothing
-                            }
-                        });
-                    }
-                }
+                checkToShowControl(position);
             }
 
             @Override
@@ -141,11 +88,121 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
         load(ComicInfoData.getInstance().getCurrentLinkChap());
     }
 
+    private void checkToShowControl(int position) {
+        if (position == 0) {
+            btPrevChap.setVisibility(View.VISIBLE);
+            LAnimationUtil.play(btPrevChap, Techniques.FadeIn);
+            if (btNextChap.getVisibility() != View.GONE) {
+                LAnimationUtil.play(btNextChap, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        btNextChap.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+        } else if (position == imagesListOfOneChap.size() - 1) {
+            if (btPrevChap.getVisibility() != View.GONE) {
+                LAnimationUtil.play(btPrevChap, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        btPrevChap.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+            btNextChap.setVisibility(View.VISIBLE);
+            LAnimationUtil.play(btNextChap, Techniques.FadeIn);
+        } else {
+            if (btPrevChap.getVisibility() != View.GONE) {
+                LAnimationUtil.play(btPrevChap, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        btPrevChap.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+            if (btNextChap.getVisibility() != View.GONE) {
+                LAnimationUtil.play(btNextChap, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        btNextChap.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+        }
+    }
+
     private void load(String link) {
         TAG = "loitpload";
         LLog.d(TAG, "load link " + link);
         if (link == null) {
             return;
+        }
+        LLog.d(TAG, "ComicInfoData.getInstance().getPosCurrentChap() " + ComicInfoData.getInstance().getPosCurrentChap());
+        LLog.d(TAG, "ComicInfoData.getInstance().getTttChap().getChaps().getChap().size() - 1 " + (ComicInfoData.getInstance().getTttChap().getChaps().getChap().size() - 1));
+        if (ComicInfoData.getInstance().getPosCurrentChap() == 0) {
+            showDialogMsg("Bạn đang đọc chương cuối cùng");
+        } else if (ComicInfoData.getInstance().getPosCurrentChap() == ComicInfoData.getInstance().getTttChap().getChaps().getChap().size() - 1) {
+            showDialogMsg("Bạn đang đọc chương đầu tiên");
         }
         getReadImgTask = new GetReadImgTask(link, avi, new GetReadImgTask.Callback() {
             @Override
@@ -153,7 +210,8 @@ public class ReadActivity extends BaseActivity implements View.OnClickListener {
                 LLog.d(TAG, "load onSuccess GetReadImgTask " + LSApplication.getInstance().getGson().toJson(stringList));
                 imagesListOfOneChap = stringList;
                 viewPager.getAdapter().notifyDataSetChanged();
-                viewPager.setCurrentItem(0, true);
+                viewPager.setCurrentItem(0);
+                checkToShowControl(0);
             }
 
             @Override
