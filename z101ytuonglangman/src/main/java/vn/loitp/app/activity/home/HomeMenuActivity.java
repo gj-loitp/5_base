@@ -23,16 +23,8 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.ad.FrmPhotoGift;
-import vn.loitp.app.activity.home.allmanga.FrmAllManga;
-import vn.loitp.app.activity.home.allwallpaper.FrmPhotoCategory;
-import vn.loitp.app.activity.home.downloadedmanga.FrmDownloadedManga;
-import vn.loitp.app.activity.home.favmanga.FrmFavManga;
-import vn.loitp.app.activity.home.mangawallpaper.FrmPhotoManga;
 import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.data.AlbumData;
-import vn.loitp.app.data.ComicData;
-import vn.loitp.app.data.EventBusData;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
@@ -156,7 +148,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 } else {
                     isShowTvMsgSearch = true;
                 }
-                sendSearchEvent();
                 LKeyBoardUtil.hide(activity);
             }
         });
@@ -253,15 +244,15 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FrmAllManga();
+                    return new FrmMore();
                 case 1:
-                    return new FrmFavManga();
+                    return new FrmMore();
                 case 2:
-                    return new FrmDownloadedManga();
+                    return new FrmMore();
                 case 3:
-                    return new FrmPhotoManga();
+                    return new FrmMore();
                 case 4:
-                    return new FrmPhotoCategory();
+                    return new FrmMore();
                 case 5:
                     return new FrmPhotoGift();
                 case 6:
@@ -286,8 +277,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onBackPressed() {
         if (isExit) {
-            ComicData.getInstance().clearAll();
-            AlbumData.getInstance().clearAll();
             super.onBackPressed();
         } else {
             LDialogUtil.showDialog3(activity, getString(R.string.app_name), getString(R.string.msg_exit_app), getString(R.string.yes), getString(R.string.no), getString(R.string.rate), new LDialogUtil.Callback3() {
@@ -340,24 +329,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             case R.id.tv_msg_search:
                 isShowTvMsgSearch = false;
                 etSearch.setText("");
-                sendSearchEvent();
                 break;
         }
-    }
-
-    private void sendSearchEvent() {
-        LLog.d(TAG, "sendSearchEvent");
-        if (tvMsgSearch.getVisibility() != View.GONE) {
-            LLog.d(TAG, "tvMsgSearch GONE");
-            tvMsgSearch.setVisibility(View.GONE);
-        }
-        EventBusData.getInstance().sendSearchEvent(etSearch.getText().toString().trim().toLowerCase(), stringList.get(viewPager.getCurrentItem()));
-    }
-
-    @Override
-    protected void onDestroy() {
-        ComicData.getInstance().clearAll();
-        super.onDestroy();
     }
 
     /*@Override

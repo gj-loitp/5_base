@@ -7,24 +7,13 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-
 import loitp.basemaster.R;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SplashActivity extends BaseActivity {
-    private boolean isAnimDone = false;
-    private boolean isCheckReadyDone = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,74 +30,16 @@ public class SplashActivity extends BaseActivity {
         LUIUtil.setDelay(2500, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                isAnimDone = true;
                 goToHome();
             }
         });
-
-        checkReady();
     }
 
     private void goToHome() {
-        if (isAnimDone && isCheckReadyDone) {
-            Intent intent = new Intent(activity, HomeMenuActivity.class);
-            startActivity(intent);
-            LActivityUtil.tranIn(activity);
-            finish();
-        }
-    }
-
-    private void showDialogNotReady() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                LDialogUtil.showDialog1(activity, getString(R.string.warning), getString(R.string.cannot_connect_to_server), getString(R.string.confirm), new LDialogUtil.Callback1() {
-                    @Override
-                    public void onClick1() {
-                        onBackPressed();
-                    }
-                });
-            }
-        });
-    }
-
-    private void checkReady() {
-        if (LPref.getCheckAppReady(activity)) {
-            isCheckReadyDone = true;
-            goToHome();
-            return;
-        }
-        //LLog.d(TAG, "checkReady");
-        //https://drive.google.com/drive/u/0/folders/1GNbTkQby_csLKf__bKNI8qebBWTos5n3
-        final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1HXia4WviPcLD3OE7OSl54sYIFoNR18yf";
-        Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
-        OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                //LLog.d(TAG, "onFailure " + e.toString());
-                showDialogNotReady();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
-                    int versionServer = Integer.parseInt(response.body().string());
-                    //LLog.d(TAG, "onResponse " + versionServer);
-                    if (versionServer == 1) {
-                        isCheckReadyDone = true;
-                        LPref.setCheckAppReady(activity, true);
-                        goToHome();
-                    } else {
-                        showDialogNotReady();
-                    }
-                } else {
-                    //LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
-                    showDialogNotReady();
-                }
-            }
-        });
+        Intent intent = new Intent(activity, HomeMenuActivity.class);
+        startActivity(intent);
+        LActivityUtil.tranIn(activity);
+        finish();
     }
 
     @Override
