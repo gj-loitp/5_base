@@ -10,6 +10,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
+import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity;
 import vn.loitp.app.activity.database.realm.RealmActivity;
 import vn.loitp.app.activity.database.sqlite.SqliteActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -22,6 +23,7 @@ public class MenuDatabaseActivity extends BaseActivity implements OnClickListene
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_sqlite).setOnClickListener(this);
         findViewById(R.id.bt_realm).setOnClickListener(this);
+        findViewById(R.id.bt_sqlite_asset).setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +55,9 @@ public class MenuDatabaseActivity extends BaseActivity implements OnClickListene
                 break;
             case R.id.bt_realm:
                 intent = new Intent(activity, RealmActivity.class);
+                break;
+            case R.id.bt_sqlite_asset:
+                intent = new Intent(activity, ReadSqliteAssetActivity.class);
                 break;
         }
         if (intent != null) {

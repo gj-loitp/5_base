@@ -31,6 +31,12 @@
                 android:text="SQLite" />
 
             <Button
+                android:id="@+id/bt_sqlite_asset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Read SQLite Asset" />
+
+            <Button
                 android:id="@+id/bt_realm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

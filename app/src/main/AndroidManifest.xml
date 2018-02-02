@@ -487,6 +487,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
