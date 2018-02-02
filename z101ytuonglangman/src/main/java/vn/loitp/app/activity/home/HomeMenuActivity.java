@@ -96,11 +96,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        stringList.add(Constants.MENU_ALL_MANGA);
-        stringList.add(Constants.MENU_FAV_MANGA);
-        stringList.add(Constants.MENU_DOWNLOADED_MANGA);
-        stringList.add(Constants.MENU_MANGA_WALLPAPER);
-        stringList.add(Constants.MENU_ALL_WALLPAPER);
+        stringList.add(Constants.MENU_ALL_LIST);
+        stringList.add(Constants.MENU_FAV_LIST);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -248,14 +245,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 1:
                     return new FrmMore();
                 case 2:
-                    return new FrmMore();
-                case 3:
-                    return new FrmMore();
-                case 4:
-                    return new FrmMore();
-                case 5:
                     return new FrmPhotoGift();
-                case 6:
+                case 3:
                     return new FrmMore();
             }
             return null;

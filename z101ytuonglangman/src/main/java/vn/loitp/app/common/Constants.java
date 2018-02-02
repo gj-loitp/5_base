@@ -96,11 +96,8 @@ public class Constants {
     public final static String ASSET_PREV_CHAP = "prev_chap.png";
     public final static String ASSET_NEXT_CHAP = "next_chap.png";
 
-    public final static String MENU_ALL_MANGA = "Tất cả truyện";
-    public final static String MENU_FAV_MANGA = "Truyện yêu thích";
-    public final static String MENU_DOWNLOADED_MANGA = "Truyện đã tải";
-    public final static String MENU_MANGA_WALLPAPER = "Ảnh nền Manga-Anime";
-    public final static String MENU_ALL_WALLPAPER = "Ảnh nền";
+    public final static String MENU_ALL_LIST = "Danh sách";
+    public final static String MENU_FAV_LIST = "Yêu thích";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 }
