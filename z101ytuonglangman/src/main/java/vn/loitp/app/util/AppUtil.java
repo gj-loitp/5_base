@@ -48,17 +48,7 @@ public class AppUtil {
             Constants.URL_IMG_6,
             Constants.URL_IMG_7,
             Constants.URL_IMG_8,
-            Constants.URL_IMG_9,
-            Constants.URL_IMG_10,
-            Constants.URL_IMG_11,
-            Constants.URL_IMG_12,
-            Constants.URL_IMG_13,
-            Constants.URL_IMG_14,
-            Constants.URL_IMG_15,
-            Constants.URL_IMG_16,
-            Constants.URL_IMG_17,
-            Constants.URL_IMG_18,
-            Constants.URL_IMG_19
+            Constants.URL_IMG_9
     };
 
     public static String getRandomUrl() {
