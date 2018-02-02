@@ -22,7 +22,7 @@ public class SplashActivity extends BaseActivity {
         LActivityUtil.hideSystemUI(getWindow().getDecorView());
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LUIUtil.setImageFromAsset(activity, "bkg.png", ivBkg);
+        LUIUtil.setImageFromAsset(activity, "bkg.JPG", ivBkg);
 
         TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
         LUIUtil.setTextShadow(tvAppName, Color.WHITE);
