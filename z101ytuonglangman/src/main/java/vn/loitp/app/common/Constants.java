@@ -63,26 +63,16 @@ public class Constants {
     public final static String ID_ANIME = "72157670869122155";
     public final static String ID_COUPLE_MANGA = "72157669822546690";
 
-    public final static String URL_IMG_0 = "https://c1.staticflickr.com/1/183/30735976523_d159b0dcdb_b.jpg";
-    public final static String URL_IMG_1 = "https://c1.staticflickr.com/1/524/31544855635_9c3723a5d0_b.jpg";
-    public final static String URL_IMG_2 = "https://c1.staticflickr.com/1/719/31429758521_385ddefbc6_b.jpg";
-    public final static String URL_IMG_3 = "https://c1.staticflickr.com/1/512/31545399575_f0ec1f39e9_b.jpg";
-    public final static String URL_IMG_4 = "https://c1.staticflickr.com/1/280/31429948221_eec05d8de6_b.jpg";
-    public final static String URL_IMG_5 = "https://c1.staticflickr.com/1/213/31545476545_f078380124_b.jpg";
-    public final static String URL_IMG_6 = "https://c1.staticflickr.com/1/494/31803383260_08c9ef0b75_b.jpg";
-    public final static String URL_IMG_7 = "https://c1.staticflickr.com/1/532/31803354200_6bf4e703e0_b.jpg";
-    public final static String URL_IMG_8 = "https://c1.staticflickr.com/1/412/32062566371_f04f377e82_b.jpg";
-    public final static String URL_IMG_9 = "https://c1.staticflickr.com/1/656/31339424434_e288e1078c_b.jpg";
-    public final static String URL_IMG_10 = "https://c1.staticflickr.com/1/772/31339390904_a17982041a_b.jpg";
-    public final static String URL_IMG_11 = "https://c1.staticflickr.com/1/737/31339554954_9daaab3c51_b.jpg";
-    public final static String URL_IMG_12 = "https://c1.staticflickr.com/1/299/32032635802_f7dc8b0298_b.jpg";
-    public final static String URL_IMG_13 = "https://c1.staticflickr.com/1/458/32389082111_14b9baa260_b.jpg";
-    public final static String URL_IMG_14 = "https://c1.staticflickr.com/1/445/31667664144_7571991827_b.jpg";
-    public final static String URL_IMG_15 = "https://c1.staticflickr.com/1/695/32511105675_7518d9508a_b.jpg";
-    public final static String URL_IMG_16 = "https://c1.staticflickr.com/1/261/32544143676_2af12d266f_b.jpg";
-    public final static String URL_IMG_17 = "https://c1.staticflickr.com/1/754/32642521345_7f20cc126b_b.jpg";
-    public final static String URL_IMG_18 = "https://c2.staticflickr.com/4/3853/32792662594_dbc57a83e2_b.jpg";
-    public final static String URL_IMG_19 = "https://c1.staticflickr.com/3/2890/34338474845_e80d6b2207_b.jpg";
+    public final static String URL_IMG_0 = "https://c2.staticflickr.com/8/7432/27622083363_d812106e67_b.jpg";
+    public final static String URL_IMG_1 = "https://c1.staticflickr.com/9/8652/27622218114_9ba03b612a_b.jpg";
+    public final static String URL_IMG_2 = "https://c1.staticflickr.com/9/8746/28133561502_e1ebcbc924_b.jpg";
+    public final static String URL_IMG_3 = "https://c1.staticflickr.com/1/623/32032983122_447194d78b_b.jpg";
+    public final static String URL_IMG_4 = "https://c1.staticflickr.com/9/8649/28109626972_eddfae92e6_b.jpg";
+    public final static String URL_IMG_5 = "https://c1.staticflickr.com/9/8841/28349804454_0ff92decb9_b.jpg";
+    public final static String URL_IMG_6 = "https://c1.staticflickr.com/1/664/32431756702_52f6f7c7e7_b.jpg";
+    public final static String URL_IMG_7 = "https://c1.staticflickr.com/1/767/32431753242_5a2815dc1e_b.jpg";
+    public final static String URL_IMG_8 = "https://c1.staticflickr.com/1/424/31772800263_34a9c83453_b.jpg";
+    public final static String URL_IMG_9 = "https://c2.staticflickr.com/8/7438/27768534770_955b2224bb_b.jpg";
 
     public final static int IS_FAV = 1;
     public final static int IS_NOT_FAV = 0;
