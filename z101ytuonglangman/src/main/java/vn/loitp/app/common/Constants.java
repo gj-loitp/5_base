@@ -74,18 +74,6 @@ public class Constants {
     public final static String URL_IMG_8 = "https://c1.staticflickr.com/1/424/31772800263_34a9c83453_b.jpg";
     public final static String URL_IMG_9 = "https://c2.staticflickr.com/8/7438/27768534770_955b2224bb_b.jpg";
 
-    public final static int IS_FAV = 1;
-    public final static int IS_NOT_FAV = 0;
-
-    public final static int COMIC_IS_REMOVE = 0;
-    public final static int COMIC_IS_INSERT = 1;
-    public final static int COMIC_IS_UPDATE = 2;
-
-    public final static String KEY_COMIC = "KEY_COMIC";
-
-    public final static String ASSET_PREV_CHAP = "prev_chap.png";
-    public final static String ASSET_NEXT_CHAP = "next_chap.png";
-
     public final static String MENU_ALL_LIST = "Danh sách";
     public final static String MENU_FAV_LIST = "Yêu thích";
     public final static String MENU_GIFT = "Qùa tặng";
