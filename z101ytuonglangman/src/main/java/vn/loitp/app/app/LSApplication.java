@@ -34,19 +34,19 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
-        RestClient.init(getString(R.string.flickr_URL));
-        Utils.init(this);
+        //RestClient.init(getString(R.string.flickr_URL));
+        //Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
-        Fresco.initialize(getApplicationContext());
+        //Fresco.initialize(getApplicationContext());
         ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
 
         //config realm
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+        /*RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name(Realm.DEFAULT_REALM_NAME)
                 .schemaVersion(0)
                 .deleteRealmIfMigrationNeeded()
                 .build();
-        Realm.setDefaultConfiguration(realmConfiguration);
+        Realm.setDefaultConfiguration(realmConfiguration);*/
     }
 
     public Gson getGson() {
