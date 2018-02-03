@@ -17,7 +17,6 @@ import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
 //TODO remove gradle
-//TODO add comiclist type fragmeg all
 //TODO check splash screen, url
 //TODO ic_launcher
 //TODO admob id
