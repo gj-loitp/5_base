@@ -18,6 +18,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -67,7 +68,8 @@ public class FrmAllList extends BaseFragment {
         ideaAdapter = new IdeaAdapter(getActivity(), ideaList, new IdeaAdapter.Callback() {
             @Override
             public void onClick(Idea idea, int position) {
-                //do nothing
+                LDeviceUtil.setClipboard(getActivity(), idea.getContent());
+                LToast.show(getActivity(), getString(R.string.copied));
             }
 
             @Override

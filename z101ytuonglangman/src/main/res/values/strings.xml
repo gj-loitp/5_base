@@ -46,6 +46,7 @@ Likewise may someone love you next.
     <string name="cannot_read_this_manga">Không thể xem được truyện này, xin vui lòng thử lại sau</string>
     <string name="beta_feature">Chức năng này đang được xây dựng, sẽ xuất hiện trong phiên bản cập nhật tiếp theo.</string>
     <string name="download_all">Tải toàn bộ truyện</string>
+    <string name="copied">Copied!</string>
 
     <string-array name="occurence">
         <item>Once</item>
