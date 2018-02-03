@@ -19,6 +19,7 @@ import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
@@ -72,6 +73,11 @@ public class FrmAllList extends BaseFragment {
             @Override
             public void onLongClick(Idea idea, int position) {
 
+            }
+
+            @Override
+            public void onClickShare(Idea idea, int position) {
+                LSocialUtil.share(getActivity(), idea.getContent());
             }
 
             @Override

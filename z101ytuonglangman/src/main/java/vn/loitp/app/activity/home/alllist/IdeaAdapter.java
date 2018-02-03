@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
         public void onLongClick(Idea idea, int position);
 
+        public void onClickShare(Idea idea, int position);
+
         public void onLoadMore();
     }
 
@@ -37,12 +40,14 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         public TextView tvContent;
         public TextView tvPos;
         public RelativeLayout rootView;
+        public ImageView btShare;
 
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
             tvPos = (TextView) view.findViewById(R.id.tv_pos);
             rootView = (RelativeLayout) view.findViewById(R.id.root_view);
+            btShare = (ImageView) view.findViewById(R.id.bt_share);
         }
     }
 
@@ -85,6 +90,16 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                 return true;
             }
         });
+
+        holder.btShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClickShare(idea, position);
+                }
+            }
+        });
+
         if (position == ideaList.size() - 1) {
             if (callback != null) {
                 callback.onLoadMore();
