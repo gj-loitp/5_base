@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.home.ad.FrmPhotoGift;
+import vn.loitp.app.activity.home.ad.FrmGift;
+import vn.loitp.app.activity.home.alllist.FrmAllList;
 import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.util.AppUtil;
@@ -129,11 +130,11 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FrmMore();
+                    return new FrmAllList();
                 case 1:
                     return new FrmMore();
                 case 2:
-                    return new FrmPhotoGift();
+                    return new FrmGift();
                 case 3:
                     return new FrmMore();
             }

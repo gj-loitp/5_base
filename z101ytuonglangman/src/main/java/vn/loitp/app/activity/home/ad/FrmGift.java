@@ -26,7 +26,7 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmPhotoGift extends BaseFragment implements RewardedVideoAdListener {
+public class FrmGift extends BaseFragment implements RewardedVideoAdListener {
     private final String TAG = getClass().getSimpleName();
     private RewardedVideoAd mAd;
     private AVLoadingIndicatorView avLoadingIndicatorView;
