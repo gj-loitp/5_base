@@ -24,9 +24,9 @@
             android:clickable="true"
             android:focusable="true">
 
-            <TextView
+            <vn.loitp.views.textview.justifiedtextview.JustifiedTextView
                 android:id="@+id/tv_content"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/padding_5"
                 android:paddingLeft="@dimen/padding_10"
