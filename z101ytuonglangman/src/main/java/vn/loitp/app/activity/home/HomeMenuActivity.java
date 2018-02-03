@@ -12,11 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.daimajia.androidanimations.library.Techniques;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +23,7 @@ import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LKeyBoardUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -41,8 +34,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
     private ImageView toolbarImage;
-    private EditText etSearch;
-    private TextView tvMsgSearch;
 
     //private Handler handlerSearch = new Handler();
 
@@ -52,10 +43,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         isShowAdWhenExist = false;
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
-        etSearch = (EditText) findViewById(R.id.et_search);
-        tvMsgSearch = (TextView) findViewById(R.id.tv_msg_search);
-        tvMsgSearch.setOnClickListener(this);
-        LUIUtil.setMarquee(tvMsgSearch);
 
         AppUtil.loadBackground(activity, toolbarImage);
 
@@ -110,105 +97,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        /*etSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                LLog.d(TAG, "onTextChanged " + s);
-                handlerSearch.removeCallbacksAndMessages(null);
-                handlerSearch.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        LLog.d(TAG, ">>>>>>>>>>>send event search >>> " + s);
-                        EventBusData.getInstance().sendSearchEvent(s.toString(), stringList.get(viewPager.getCurrentItem()));
-                    }
-                }, 1500);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                //do nothing
-            }
-        });*/
-
-        LUIUtil.setImeiActionSearch(etSearch, new LUIUtil.CallbackSearch() {
-            @Override
-            public void onSearch() {
-                LLog.d(TAG, "onSearch");
-                if (etSearch.getText().toString().isEmpty()) {
-                    isShowTvMsgSearch = false;
-                } else {
-                    isShowTvMsgSearch = true;
-                }
-                LKeyBoardUtil.hide(activity);
-            }
-        });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                //do nothing
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                tvMsgSearch.performClick();
-                if (position == 0 || position == 1 || position == 2) {
-                    showEtSearch(true);
-                } else {
-                    showEtSearch(false);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                //do nothing
-            }
-        });
-    }
-
-    public String getCurrentSearchKeyword() {
-        return etSearch.getText().toString().trim().toLowerCase();
-    }
-
-    public void showEtSearch(boolean isShow) {
-        if (etSearch != null) {
-            if (isShow) {
-                if (etSearch.getVisibility() != View.VISIBLE) {
-                    etSearch.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(etSearch, Techniques.FadeIn);
-                }
-            } else {
-                if (etSearch.getVisibility() != View.GONE) {
-                    LAnimationUtil.play(etSearch, Techniques.FadeOut, new LAnimationUtil.Callback() {
-                        @Override
-                        public void onCancel() {
-                            //do nothing
-                        }
-
-                        @Override
-                        public void onEnd() {
-                            etSearch.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onRepeat() {
-                            //do nothing
-                        }
-
-                        @Override
-                        public void onStart() {
-                            //do nothing
-                        }
-                    });
-                }
-            }
-        }
     }
 
     @Override
@@ -317,29 +205,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     }
                 });
                 break;
-            case R.id.tv_msg_search:
-                isShowTvMsgSearch = false;
-                etSearch.setText("");
-                break;
-        }
-    }
-
-    /*@Override
-    protected void onNetworkChange(EventBusData.ConnectEvent event) {
-        super.onNetworkChange(event);
-        LLog.d(TAG, "onMessageEvent loitp: " + event.isConnected());
-    }*/
-
-    private boolean isShowTvMsgSearch;
-
-    public void setSearchCount(int searchCount) {
-        LLog.d(TAG, "setSearchCount");
-        tvMsgSearch.setText("Tìm được " + searchCount + " kết quả với từ khóa " + etSearch.getText().toString().toUpperCase() + ". Nhấn vào đây để tắt tìm kiếm");
-        if (isShowTvMsgSearch) {
-            if (tvMsgSearch.getVisibility() != View.VISIBLE) {
-                LLog.d(TAG, "tvMsgSearch VISIBLE");
-                tvMsgSearch.setVisibility(View.VISIBLE);
-            }
         }
     }
 }
