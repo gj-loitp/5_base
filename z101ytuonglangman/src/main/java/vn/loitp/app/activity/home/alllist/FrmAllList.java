@@ -7,8 +7,15 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.ads.AdView;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.basemaster.R;
+import vn.loitp.app.data.DataManager;
+import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
@@ -16,7 +23,9 @@ import vn.loitp.core.utilities.LUIUtil;
  */
 
 public class FrmAllList extends BaseFragment {
+    private final String TAG = getClass().getSimpleName();
     private AdView adView;
+    private DataManager dataManager;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -33,6 +42,18 @@ public class FrmAllList extends BaseFragment {
         View view = inflater.inflate(R.layout.frm_all_list, container, false);
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
+
+        dataManager = new DataManager(getActivity());
+        try {
+            dataManager.createDatabase();
+            LLog.d(TAG, "init dtb success");
+        } catch (IOException e) {
+            LLog.d(TAG, "init dtb failed: " + e.toString());
+        }
+        List<Idea> ideaList = new ArrayList<>();
+        ideaList.addAll(dataManager.getAllIdea());
+
+        LLog.d(TAG, "size: " + ideaList.size());
         return view;
     }
 
