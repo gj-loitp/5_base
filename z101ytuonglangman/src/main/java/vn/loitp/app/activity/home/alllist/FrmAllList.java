@@ -63,7 +63,7 @@ public class FrmAllList extends BaseFragment {
 
         LLog.d(TAG, "size: " + ideaList.size());
 
-        ideaAdapter = new IdeaAdapter(ideaList, new IdeaAdapter.Callback() {
+        ideaAdapter = new IdeaAdapter(getActivity(), ideaList, new IdeaAdapter.Callback() {
             @Override
             public void onClick(Idea idea, int position) {
                 LToast.show(getActivity(), "Click " + idea.getContent());

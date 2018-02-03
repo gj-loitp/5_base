@@ -4,7 +4,7 @@ package vn.loitp.app.activity.home.alllist;
  * Created by www.muathu@gmail.com on 12/8/2017.
  */
 
-import android.support.v7.widget.CardView;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +16,8 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.model.Idea;
+import vn.loitp.app.util.AppUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
 
@@ -28,22 +30,25 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     }
 
     private Callback callback;
-
+    private Context context;
     private List<Idea> ideaList;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
+        public TextView tvPos;
         public RelativeLayout rootView;
 
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
+            tvPos = (TextView) view.findViewById(R.id.tv_pos);
             rootView = (RelativeLayout) view.findViewById(R.id.root_view);
         }
     }
 
 
-    public IdeaAdapter(List<Idea> ideaList, Callback callback) {
+    public IdeaAdapter(Context context, List<Idea> ideaList, Callback callback) {
+        this.context = context;
         this.ideaList = ideaList;
         this.callback = callback;
     }
@@ -58,6 +63,10 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         Idea idea = ideaList.get(position);
         holder.tvContent.setText(idea.getContent());
+
+        holder.tvPos.setBackgroundColor(AppUtil.getColor(context));
+        holder.tvPos.setText((position + 1) + "");
+        LUIUtil.setTextShadow(holder.tvPos);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
