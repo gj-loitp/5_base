@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
+        android:scrollbarSize="@dimen/w_3"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/scroll_track"
+        android:scrollbars="vertical" />
 
     <LinearLayout
         android:id="@+id/ln_adview"

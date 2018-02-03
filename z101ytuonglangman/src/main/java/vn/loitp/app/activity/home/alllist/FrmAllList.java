@@ -1,6 +1,9 @@
 package vn.loitp.app.activity.home.alllist;
 
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LToast;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -26,6 +30,8 @@ public class FrmAllList extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AdView adView;
     private DataManager dataManager;
+    private RecyclerView recyclerView;
+    private IdeaAdapter ideaAdapter;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -43,6 +49,8 @@ public class FrmAllList extends BaseFragment {
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
 
+        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+
         dataManager = new DataManager(getActivity());
         try {
             dataManager.createDatabase();
@@ -54,6 +62,27 @@ public class FrmAllList extends BaseFragment {
         ideaList.addAll(dataManager.getAllIdea());
 
         LLog.d(TAG, "size: " + ideaList.size());
+
+        ideaAdapter = new IdeaAdapter(ideaList, new IdeaAdapter.Callback() {
+            @Override
+            public void onClick(Idea idea, int position) {
+                LToast.show(getActivity(), "Click " + idea.getContent());
+            }
+
+            @Override
+            public void onLongClick(Idea idea, int position) {
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                //do nothing
+            }
+        });
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(ideaAdapter);
         return view;
     }
 
