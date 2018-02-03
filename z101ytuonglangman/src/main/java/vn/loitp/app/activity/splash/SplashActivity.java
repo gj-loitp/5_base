@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.InterstitialAd;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -14,11 +16,12 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SplashActivity extends BaseActivity {
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        interstitialAd = LUIUtil.createAdFull(activity);
         LActivityUtil.hideSystemUI(getWindow().getDecorView());
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
@@ -39,6 +42,7 @@ public class SplashActivity extends BaseActivity {
         Intent intent = new Intent(activity, HomeMenuActivity.class);
         startActivity(intent);
         LActivityUtil.tranIn(activity);
+        LUIUtil.displayInterstitial(interstitialAd, 100);
         finish();
     }
 
