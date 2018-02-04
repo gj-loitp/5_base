@@ -80,10 +80,10 @@
             android:background="@color/transparent"
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom"
-            app:tabGravity="fill"
+            app:tabGravity="center"
             app:tabIndicatorColor="@color/colorPrimary"
             app:tabIndicatorHeight="@dimen/w_1"
-            app:tabMode="scrollable"
+            app:tabMode="fixed"
             app:tabSelectedTextColor="@color/Black"
             app:tabTextColor="@color/Gray" />
     </vn.loitp.views.LAppBarLayout>

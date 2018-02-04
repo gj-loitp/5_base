@@ -85,7 +85,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         });
 
         stringList.add(Constants.MENU_ALL_LIST);
-        stringList.add(Constants.MENU_FAV_LIST);
+        //stringList.add(Constants.MENU_FAV_LIST);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -131,11 +131,11 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             switch (position) {
                 case 0:
                     return new FrmAllList();
+                //case 1:
+                //    return new FrmMore();
                 case 1:
-                    return new FrmMore();
-                case 2:
                     return new FrmGift();
-                case 3:
+                case 2:
                     return new FrmMore();
             }
             return null;
