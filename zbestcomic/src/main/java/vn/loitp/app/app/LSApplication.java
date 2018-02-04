@@ -19,6 +19,8 @@ import vn.loitp.utils.util.Utils;
 //TODO remove gradle
 //TODO add comiclist type fragmeg all
 //TODO check splash screen, url
+//TODO remove uc_launcher in asset
+
 
 //done
 //TODO ic_launcher
