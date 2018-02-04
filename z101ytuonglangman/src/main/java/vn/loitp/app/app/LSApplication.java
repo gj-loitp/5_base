@@ -16,11 +16,11 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
-//TODO remove gradle
-//TODO check splash screen, url
-//TODO ic_launcher
 //TODO admob id
 //done
+//TODO ic_launcher
+//TODO remove gradle
+//TODO check splash screen, url
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
