@@ -17,6 +17,8 @@ import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
 //TODO admob id
+//TODO remove uc_launcher in asset
+
 //done
 //TODO ic_launcher
 //TODO remove gradle
