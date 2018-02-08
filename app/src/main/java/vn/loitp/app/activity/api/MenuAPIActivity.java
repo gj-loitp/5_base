@@ -21,7 +21,7 @@ public class MenuAPIActivity extends BaseActivity {
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RestClient.init(getString(R.string.webService_URL), "token");//TODO truyen token
+                RestClient.init(getString(R.string.webService_URL), "");//TODO truyen token
                 Intent intent = new Intent(activity, TestAPIActivity.class);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);

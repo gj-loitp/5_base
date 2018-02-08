@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
@@ -58,11 +59,12 @@ public class TestAPIActivity extends BaseActivity {
 
 
     private void testGetPoster() {
+        LLog.d(TAG, "testGetPoster");
         LSService service = RestClient.createService(LSService.class);
         subscribe(service.getPoster(3), new ApiSubscriber<GetPoster[]>() {
             @Override
             public void onSuccess(GetPoster[] result) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 //tv.setText(LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
             }
@@ -80,12 +82,12 @@ public class TestAPIActivity extends BaseActivity {
     }
 
     private void testCategoryGet() {
+        LLog.d(TAG, "testCategoryGet");
         LSService service = RestClient.createService(LSService.class);
         subscribe(service.categoryGet(), new ApiSubscriber<CategoryGet[]>() {
             @Override
             public void onSuccess(CategoryGet[] result) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
-                //tv.setText(LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
             }
 
