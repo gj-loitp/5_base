@@ -1,9 +1,13 @@
 package vn.loitp.app.activity.api.test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
@@ -43,6 +47,13 @@ public class TestAPIActivity extends BaseActivity {
             public void onClick(View v) {
                 RestClient.init(getString(R.string.wtt_URL), "BIH80NYmucZwCoqPvrdI3ZU9ATB909Gi-1512972145301");
                 test();
+            }
+        });
+        findViewById(R.id.bt_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestClient.init(getString(R.string.yup_URL), "");
+                testYupProduction();
             }
         });
     }
@@ -121,6 +132,22 @@ public class TestAPIActivity extends BaseActivity {
             public void onSuccess(Object result) {
                 LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                handleException(e);
+            }
+        });
+    }
+
+    private void testYupProduction() {
+        LSService service = RestClient.createService(LSService.class);
+        subscribe(service.getPoster(10), new ApiSubscriber<GetPoster[]>() {
+            @Override
+            public void onSuccess(GetPoster[] getPosters) {
+                LLog.d(TAG, "setPoster onSuccess " + LSApplication.getInstance().getGson().toJson(getPosters));
+                LUIUtil.printBeautyJson(getPosters, tv);
             }
 
             @Override

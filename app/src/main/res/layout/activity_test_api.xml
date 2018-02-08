@@ -43,6 +43,12 @@
                 android:layout_height="wrap_content"
                 android:text="Test WTT" />
 
+            <Button
+                android:id="@+id/bt_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test YUP Production" />
+
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
