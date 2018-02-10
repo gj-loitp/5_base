@@ -113,7 +113,7 @@ public class DataManager extends SQLiteOpenHelper {
     public List<Idea> getAllIdea(String tableName) {
         List<Idea> ideaList = new ArrayList<Idea>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName, null);
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName + " order by " + KEY_IS_FAV + " asc", null);
         cursor.moveToFirst();
         do {
             Idea idea = new Idea();
