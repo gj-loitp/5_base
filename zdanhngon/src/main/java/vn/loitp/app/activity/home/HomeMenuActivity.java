@@ -137,13 +137,13 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     bundle = new Bundle();
                     bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CONNGUOI);
                     frmAllList.setArguments(bundle);
-                    return new FrmAllList();
+                    return frmAllList;
                 case 1:
                     frmAllList = new FrmAllList();
                     bundle = new Bundle();
                     bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CUOCSONG);
                     frmAllList.setArguments(bundle);
-                    return new FrmAllList();
+                    return frmAllList;
                 case 2:
                     return new FrmGift();
                 case 3:
