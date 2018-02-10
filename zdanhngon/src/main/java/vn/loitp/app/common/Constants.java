@@ -63,22 +63,23 @@ public class Constants {
     public final static String ID_ANIME = "72157670869122155";
     public final static String ID_COUPLE_MANGA = "72157669822546690";
 
-    public final static String URL_IMG_0 = "https://c2.staticflickr.com/8/7432/27622083363_d812106e67_b.jpg";
-    public final static String URL_IMG_1 = "https://c1.staticflickr.com/9/8652/27622218114_9ba03b612a_b.jpg";
-    public final static String URL_IMG_2 = "https://c1.staticflickr.com/9/8746/28133561502_e1ebcbc924_b.jpg";
-    public final static String URL_IMG_3 = "https://c1.staticflickr.com/1/623/32032983122_447194d78b_b.jpg";
-    public final static String URL_IMG_4 = "https://c1.staticflickr.com/9/8649/28109626972_eddfae92e6_b.jpg";
-    public final static String URL_IMG_5 = "https://c1.staticflickr.com/9/8841/28349804454_0ff92decb9_b.jpg";
-    public final static String URL_IMG_6 = "https://c1.staticflickr.com/1/664/32431756702_52f6f7c7e7_b.jpg";
-    public final static String URL_IMG_7 = "https://c1.staticflickr.com/1/767/32431753242_5a2815dc1e_b.jpg";
-    public final static String URL_IMG_8 = "https://c1.staticflickr.com/1/424/31772800263_34a9c83453_b.jpg";
-    public final static String URL_IMG_9 = "https://c2.staticflickr.com/8/7438/27768534770_955b2224bb_b.jpg";
+    public final static String URL_IMG_0 = "https://c1.staticflickr.com/9/8628/28864072272_11c664b40d_b.jpg";
+    public final static String URL_IMG_1 = "https://c1.staticflickr.com/9/8381/28816409494_89aae208c3_b.jpg";
+    public final static String URL_IMG_2 = "https://c1.staticflickr.com/9/8176/28818557293_0ee9546312_b.jpg";
+    public final static String URL_IMG_3 = "https://c1.staticflickr.com/9/8581/29405887746_f33c49e7bc_b.jpg";
+    public final static String URL_IMG_4 = "https://c1.staticflickr.com/9/8455/29332091972_eb3e53811d_b.jpg";
+    public final static String URL_IMG_5 = "https://c1.staticflickr.com/9/8014/29440153615_857a92ccb3_b.jpg";
+    public final static String URL_IMG_6 = "https://c1.staticflickr.com/9/8242/29332090572_2baaee6ef2_b.jpg";
+    public final static String URL_IMG_7 = "https://c1.staticflickr.com/9/8176/29332078872_d4d904a3a4_b.jpg";
+    public final static String URL_IMG_8 = "https://c1.staticflickr.com/9/8818/29360363291_464f2a3d19_b.jpg";
+    public final static String URL_IMG_9 = "https://c1.staticflickr.com/9/8546/28818510573_7a77df0ae3_b.jpg";
 
     public final static String MENU_TABLE_NAME = "MENU_TABLE_NAME";
     public final static String MENU_CONNGUOI = "Con người";
     public final static String MENU_CUOCSONG = "Cuộc sống";
     public final static String MENU_GIADINH = "Gia đình";
     public final static String MENU_GIAODUC = "Giáo dục";
+    public final static String MENU_HAIHUOC = "Hài hước";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 

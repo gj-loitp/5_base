@@ -32,6 +32,7 @@ public class DataManager extends SQLiteOpenHelper {
     public final static String TABLE_NAME_CUOCSONG = "cuocsong";
     public final static String TABLE_NAME_GIADINH = "giadinh";
     public final static String TABLE_NAME_GIAODUC = "giaoduc";
+    public final static String TABLE_NAME_HAIHUOC = "haihuoc";
     public final static String KEY_IS_FAV = "_isfavorite";
     public final static String KEY_ID = "_id";
     public final static String KEY_CONTENT = "_content";
