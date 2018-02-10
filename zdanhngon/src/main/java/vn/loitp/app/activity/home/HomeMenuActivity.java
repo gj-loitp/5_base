@@ -127,10 +127,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     }
 
     private FrmAllList genFrmAllList(int pos) {
-        FrmAllList frmAllList = null;
-        Bundle bundle = null;
-        frmAllList = new FrmAllList();
-        bundle = new Bundle();
+        FrmAllList frmAllList = new FrmAllList();
+        Bundle bundle = new Bundle();
         String tableName = null;
         switch (pos) {
             case 0:
