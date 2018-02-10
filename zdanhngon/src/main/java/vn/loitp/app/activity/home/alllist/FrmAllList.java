@@ -91,6 +91,7 @@ public class FrmAllList extends BaseFragment {
                     idea.setIsFav(Constants.IS_FAV);
                 }
                 dataManager.updateIdea(DataManager.TABLE_NAME_CONNGUOI, idea);
+                ideaAdapter.notifyItemChanged(position);
             }
 
             @Override
