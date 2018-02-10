@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdView;
 
 import java.io.IOException;
@@ -19,7 +18,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
