@@ -83,7 +83,7 @@
             app:tabGravity="center"
             app:tabIndicatorColor="@color/colorPrimary"
             app:tabIndicatorHeight="@dimen/w_1"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/Black"
             app:tabTextColor="@color/Gray" />
     </vn.loitp.views.LAppBarLayout>
