@@ -80,6 +80,8 @@ public class Constants {
     public final static String MENU_GIADINH = "Gia đình";
     public final static String MENU_GIAODUC = "Giáo dục";
     public final static String MENU_HAIHUOC = "Hài hước";
+    public final static String MENU_STATUS = "Status";
+    public final static String MENU_SUNGHIEP = "Sự nghiệp";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 

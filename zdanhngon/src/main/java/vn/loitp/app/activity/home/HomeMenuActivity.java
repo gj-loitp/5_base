@@ -90,6 +90,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         stringList.add(Constants.MENU_GIADINH);
         stringList.add(Constants.MENU_GIAODUC);
         stringList.add(Constants.MENU_HAIHUOC);
+        stringList.add(Constants.MENU_STATUS);
+        stringList.add(Constants.MENU_SUNGHIEP);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -166,8 +168,20 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                     frmAllList.setArguments(bundle);
                     return frmAllList;
                 case 5:
-                    return new FrmGift();
+                    frmAllList = new FrmAllList();
+                    bundle = new Bundle();
+                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_STATUS);
+                    frmAllList.setArguments(bundle);
+                    return frmAllList;
                 case 6:
+                    frmAllList = new FrmAllList();
+                    bundle = new Bundle();
+                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_SUNGHIEP);
+                    frmAllList.setArguments(bundle);
+                    return frmAllList;
+                case 7:
+                    return new FrmGift();
+                case 8:
                     return new FrmMore();
             }
             return null;
