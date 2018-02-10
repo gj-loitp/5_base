@@ -19,6 +19,7 @@ import vn.loitp.utils.util.Utils;
 //TODO admob id
 //TODO remove uc_launcher in asset
 //TODO ic_launcher
+//TODO bkg splash
 //TODO remove gradle
 //TODO check splash screen, url
 //done
