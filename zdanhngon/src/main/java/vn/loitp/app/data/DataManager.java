@@ -120,12 +120,21 @@ public class DataManager extends SQLiteOpenHelper {
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName + " order by " + KEY_IS_FAV + " asc", null);
         cursor.moveToFirst();
         do {
-            Idea idea = new Idea();
-            idea.setIsFav(Integer.parseInt(cursor.getString(0)));
-            idea.setId(Integer.parseInt(cursor.getString(1)));
-            idea.setContent(cursor.getString(2));
-            idea.setAuthor(cursor.getString(3));
-            ideaList.add(idea);
+            if (tableName.equals(TABLE_NAME_HAIHUOC)) {
+                Idea idea = new Idea();
+                idea.setIsFav(Integer.parseInt(cursor.getString(0)));
+                idea.setAuthor(cursor.getString(1));
+                idea.setId(Integer.parseInt(cursor.getString(2)));
+                idea.setContent(cursor.getString(3));
+                ideaList.add(idea);
+            } else {
+                Idea idea = new Idea();
+                idea.setIsFav(Integer.parseInt(cursor.getString(0)));
+                idea.setId(Integer.parseInt(cursor.getString(1)));
+                idea.setContent(cursor.getString(2));
+                idea.setAuthor(cursor.getString(3));
+                ideaList.add(idea);
+            }
         } while (cursor.moveToNext());
         return ideaList;
     }
