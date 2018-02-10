@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Idea;
 import vn.loitp.core.base.BaseFragment;
@@ -84,7 +85,12 @@ public class FrmAllList extends BaseFragment {
 
             @Override
             public void onClickFav(Idea idea, int position) {
-                
+                if (idea.getIsFav() == Constants.IS_FAV) {
+                    idea.setIsFav(Constants.IS_NOT_FAV);
+                } else {
+                    idea.setIsFav(Constants.IS_FAV);
+                }
+                dataManager.updateIdea(DataManager.TABLE_NAME_CONNGUOI, idea);
             }
 
             @Override

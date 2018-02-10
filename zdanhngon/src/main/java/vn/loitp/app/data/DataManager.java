@@ -184,7 +184,7 @@ public class DataManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }*/
-    public int updateComic(String tableName, Idea idea) {
+    public int updateIdea(String tableName, Idea idea) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
