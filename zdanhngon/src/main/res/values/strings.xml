@@ -47,6 +47,7 @@ Likewise may someone love you next.
     <string name="beta_feature">Chức năng này đang được xây dựng, sẽ xuất hiện trong phiên bản cập nhật tiếp theo.</string>
     <string name="download_all">Tải toàn bộ truyện</string>
     <string name="copied">Copied!</string>
+    <string name="noname">Khuyết danh</string>
 
     <string-array name="occurence">
         <item>Once</item>

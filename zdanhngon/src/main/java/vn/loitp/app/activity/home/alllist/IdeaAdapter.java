@@ -79,7 +79,11 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         holder.tvContent.setText(idea.getContent());
 
         holder.tvAuthor.setBackgroundColor(AppUtil.getColor(context));
-        holder.tvAuthor.setText(idea.getAuthor());
+        if (idea.getAuthor() == null) {
+            holder.tvAuthor.setText(R.string.noname);
+        } else {
+            holder.tvAuthor.setText(idea.getAuthor());
+        }
         LUIUtil.setTextShadow(holder.tvAuthor);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
