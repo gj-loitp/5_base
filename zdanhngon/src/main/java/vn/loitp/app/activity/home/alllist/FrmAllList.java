@@ -84,7 +84,7 @@ public class FrmAllList extends BaseFragment {
 
             @Override
             public void onClickFav(Idea idea, int position) {
-
+                
             }
 
             @Override

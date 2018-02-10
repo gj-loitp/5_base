@@ -1,5 +1,6 @@
 package vn.loitp.app.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -28,6 +29,10 @@ public class DataManager extends SQLiteOpenHelper {
     private final static int DATABASE_VERSION = 1;
 
     public final static String TABLE_NAME_CONNGUOI = "connguoi";
+    public final static String KEY_IS_FAV = "_isfavorite";
+    public final static String KEY_ID = "_id";
+    public final static String KEY_CONTENT = "_content";
+    public final static String KEY_AUTHOR = "_author";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -179,5 +184,15 @@ public class DataManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }*/
+    public int updateComic(String tableName, Idea idea) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(KEY_IS_FAV, idea.getIsFav());
+        values.put(KEY_ID, idea.getId());
+        values.put(KEY_CONTENT, idea.getContent());
+        values.put(KEY_AUTHOR, idea.getAuthor());
+
+        return db.update(tableName, values, KEY_ID + " = ?", new String[]{String.valueOf(idea.getId())});
+    }
 }
