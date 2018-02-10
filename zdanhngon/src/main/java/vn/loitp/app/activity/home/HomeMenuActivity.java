@@ -126,6 +126,46 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_home_menu;
     }
 
+    private FrmAllList genFrmAllList(int pos) {
+        FrmAllList frmAllList = null;
+        Bundle bundle = null;
+        frmAllList = new FrmAllList();
+        bundle = new Bundle();
+        String tableName = null;
+        switch (pos) {
+            case 0:
+                tableName = DataManager.TABLE_NAME_CONNGUOI;
+                break;
+            case 1:
+                tableName = DataManager.TABLE_NAME_CUOCSONG;
+                break;
+            case 2:
+                tableName = DataManager.TABLE_NAME_GIADINH;
+                break;
+            case 3:
+                tableName = DataManager.TABLE_NAME_GIAODUC;
+                break;
+            case 4:
+                tableName = DataManager.TABLE_NAME_HAIHUOC;
+                break;
+            case 5:
+                tableName = DataManager.TABLE_NAME_STATUS;
+                break;
+            case 6:
+                tableName = DataManager.TABLE_NAME_SUNGHIEP;
+                break;
+            case 7:
+                tableName = DataManager.TABLE_NAME_CUOCSONG;
+                break;
+            default:
+                tableName = DataManager.TABLE_NAME_CONNGUOI;
+                break;
+        }
+        bundle.putString(Constants.MENU_TABLE_NAME, tableName);
+        frmAllList.setArguments(bundle);
+        return frmAllList;
+    }
+
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
         public ViewPagerAdapter(FragmentManager fm) {
@@ -134,51 +174,16 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public Fragment getItem(int position) {
-            FrmAllList frmAllList = null;
-            Bundle bundle = null;
+
             switch (position) {
                 case 0:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CONNGUOI);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 1:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CUOCSONG);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 2:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_GIADINH);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 3:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_GIAODUC);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 4:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_HAIHUOC);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 5:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_STATUS);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
                 case 6:
-                    frmAllList = new FrmAllList();
-                    bundle = new Bundle();
-                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_SUNGHIEP);
-                    frmAllList.setArguments(bundle);
-                    return frmAllList;
+                    return genFrmAllList(position);
                 case 7:
                     return new FrmGift();
                 case 8:
