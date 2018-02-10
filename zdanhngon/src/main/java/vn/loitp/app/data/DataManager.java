@@ -120,7 +120,7 @@ public class DataManager extends SQLiteOpenHelper {
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName + " order by " + KEY_IS_FAV + " asc", null);
         cursor.moveToFirst();
         do {
-            if (tableName.equals(TABLE_NAME_HAIHUOC)) {
+            /*if (tableName.equals(TABLE_NAME_HAIHUOC)) {
                 Idea idea = new Idea();
                 idea.setIsFav(Integer.parseInt(cursor.getString(0)));
                 idea.setAuthor(cursor.getString(1));
@@ -134,7 +134,13 @@ public class DataManager extends SQLiteOpenHelper {
                 idea.setContent(cursor.getString(2));
                 idea.setAuthor(cursor.getString(3));
                 ideaList.add(idea);
-            }
+            }*/
+            Idea idea = new Idea();
+            idea.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
+            idea.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
+            idea.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
+            idea.setAuthor(cursor.getString(cursor.getColumnIndex(KEY_AUTHOR)));
+            ideaList.add(idea);
         } while (cursor.moveToNext());
         return ideaList;
     }
