@@ -86,6 +86,8 @@ public class Constants {
     public final static String MENU_THOCHE = "Thơ chế";
     public final static String MENU_TINHBAN = "Tình bạn";
     public final static String MENU_TINHYEU = "Tình yêu";
+    public final static String MENU_TOP20 = "Top 20";
+    public final static String MENU_TRITUE = "Trí tuệ";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 

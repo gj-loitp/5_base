@@ -96,6 +96,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         stringList.add(Constants.MENU_THOCHE);
         stringList.add(Constants.MENU_TINHBAN);
         stringList.add(Constants.MENU_TINHYEU);
+        stringList.add(Constants.MENU_TOP20);
+        stringList.add(Constants.MENU_TRITUE);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -168,6 +170,12 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             case 10:
                 tableName = DataManager.TABLE_NAME_TINHYEU;
                 break;
+            case 11:
+                tableName = DataManager.TABLE_NAME_TOP20;
+                break;
+            case 12:
+                tableName = DataManager.TABLE_NAME_TRITUE;
+                break;
             default:
                 tableName = DataManager.TABLE_NAME_CONNGUOI;
                 break;
@@ -198,10 +206,12 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 8:
                 case 9:
                 case 10:
-                    return genFrmAllList(position);
                 case 11:
-                    return new FrmGift();
                 case 12:
+                    return genFrmAllList(position);
+                case 13:
+                    return new FrmGift();
+                case 14:
                     return new FrmMore();
             }
             return null;
