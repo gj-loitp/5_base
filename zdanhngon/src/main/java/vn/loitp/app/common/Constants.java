@@ -82,6 +82,7 @@ public class Constants {
     public final static String MENU_HAIHUOC = "Hài hước";
     public final static String MENU_STATUS = "Status";
     public final static String MENU_SUNGHIEP = "Sự nghiệp";
+    public final static String MENU_THANHCONG = "Thành công";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 

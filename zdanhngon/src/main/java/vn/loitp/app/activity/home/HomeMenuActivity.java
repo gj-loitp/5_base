@@ -92,6 +92,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         stringList.add(Constants.MENU_HAIHUOC);
         stringList.add(Constants.MENU_STATUS);
         stringList.add(Constants.MENU_SUNGHIEP);
+        stringList.add(Constants.MENU_THANHCONG);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -153,7 +154,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 tableName = DataManager.TABLE_NAME_SUNGHIEP;
                 break;
             case 7:
-                tableName = DataManager.TABLE_NAME_CUOCSONG;
+                tableName = DataManager.TABLE_NAME_THANHCONG;
                 break;
             default:
                 tableName = DataManager.TABLE_NAME_CONNGUOI;
@@ -181,10 +182,11 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 case 4:
                 case 5:
                 case 6:
-                    return genFrmAllList(position);
                 case 7:
-                    return new FrmGift();
+                    return genFrmAllList(position);
                 case 8:
+                    return new FrmGift();
+                case 9:
                     return new FrmMore();
             }
             return null;
