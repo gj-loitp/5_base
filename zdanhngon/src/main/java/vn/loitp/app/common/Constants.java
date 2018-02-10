@@ -77,4 +77,7 @@ public class Constants {
     public final static String MENU_CONNGUOI = "Con người";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
+
+    public final static int IS_FAV = 0;
+    public final static int IS_NOT_FAV = 1;
 }

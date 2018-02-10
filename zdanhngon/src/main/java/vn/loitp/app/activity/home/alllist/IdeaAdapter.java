@@ -38,14 +38,14 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
-        public TextView tvPos;
+        public TextView tvAuthor;
         public RelativeLayout rootView;
         public ImageView btShare;
 
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
-            tvPos = (TextView) view.findViewById(R.id.tv_pos);
+            tvAuthor = (TextView) view.findViewById(R.id.tv_author);
             rootView = (RelativeLayout) view.findViewById(R.id.root_view);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
         }
@@ -69,9 +69,9 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         Idea idea = ideaList.get(position);
         holder.tvContent.setText(idea.getContent());
 
-        holder.tvPos.setBackgroundColor(AppUtil.getColor(context));
-        holder.tvPos.setText((position + 1) + "");
-        LUIUtil.setTextShadow(holder.tvPos);
+        holder.tvAuthor.setBackgroundColor(AppUtil.getColor(context));
+        holder.tvAuthor.setText(idea.getAuthor());
+        LUIUtil.setTextShadow(holder.tvAuthor);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
