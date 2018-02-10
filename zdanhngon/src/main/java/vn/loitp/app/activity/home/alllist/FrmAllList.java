@@ -35,6 +35,7 @@ public class FrmAllList extends BaseFragment {
     private DataManager dataManager;
     private RecyclerView recyclerView;
     private IdeaAdapter ideaAdapter;
+    private String currentTableName;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -52,6 +53,19 @@ public class FrmAllList extends BaseFragment {
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
 
+        Bundle bundle = getArguments();
+        if (bundle == null) {
+            LLog.d(TAG, "bundle == null");
+            showDialogError(getString(R.string.err_unknow));
+            return view;
+        }
+        currentTableName = bundle.getString(Constants.MENU_TABLE_NAME);
+        if (currentTableName == null || currentTableName.isEmpty()) {
+            LLog.d(TAG, "currentTableName == null || currentTableName.isEmpty()");
+            showDialogError(getString(R.string.err_unknow));
+            return view;
+        }
+
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
         dataManager = new DataManager(getActivity());
@@ -62,7 +76,7 @@ public class FrmAllList extends BaseFragment {
             LLog.d(TAG, "init dtb failed: " + e.toString());
         }
         List<Idea> ideaList = new ArrayList<>();
-        ideaList.addAll(dataManager.getAllIdea(DataManager.TABLE_NAME_CONNGUOI));
+        ideaList.addAll(dataManager.getAllIdea(currentTableName));
 
         LLog.d(TAG, "size: " + ideaList.size());
 
@@ -90,7 +104,7 @@ public class FrmAllList extends BaseFragment {
                 } else {
                     idea.setIsFav(Constants.IS_FAV);
                 }
-                dataManager.updateIdea(DataManager.TABLE_NAME_CONNGUOI, idea);
+                dataManager.updateIdea(currentTableName, idea);
                 ideaAdapter.notifyItemChanged(position);
             }
 

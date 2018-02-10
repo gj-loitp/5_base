@@ -74,7 +74,9 @@ public class Constants {
     public final static String URL_IMG_8 = "https://c1.staticflickr.com/1/424/31772800263_34a9c83453_b.jpg";
     public final static String URL_IMG_9 = "https://c2.staticflickr.com/8/7438/27768534770_955b2224bb_b.jpg";
 
+    public final static String MENU_TABLE_NAME = "MENU_TABLE_NAME";
     public final static String MENU_CONNGUOI = "Con người";
+    public final static String MENU_CUOCSONG = "Cuộc sống";
     public final static String MENU_GIFT = "Qùa tặng";
     public final static String MENU_MORE = "Phụ lục";
 

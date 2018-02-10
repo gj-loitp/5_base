@@ -22,6 +22,7 @@ import vn.loitp.app.activity.home.ad.FrmGift;
 import vn.loitp.app.activity.home.alllist.FrmAllList;
 import vn.loitp.app.activity.home.more.FrmMore;
 import vn.loitp.app.common.Constants;
+import vn.loitp.app.data.DataManager;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -85,6 +86,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         });
 
         stringList.add(Constants.MENU_CONNGUOI);
+        stringList.add(Constants.MENU_CUOCSONG);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 
@@ -127,14 +129,24 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public Fragment getItem(int position) {
+            FrmAllList frmAllList = null;
+            Bundle bundle = null;
             switch (position) {
                 case 0:
+                    frmAllList = new FrmAllList();
+                    bundle = new Bundle();
+                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CONNGUOI);
+                    frmAllList.setArguments(bundle);
                     return new FrmAllList();
-                //case 1:
-                //    return new FrmMore();
                 case 1:
-                    return new FrmGift();
+                    frmAllList = new FrmAllList();
+                    bundle = new Bundle();
+                    bundle.putString(Constants.MENU_TABLE_NAME, DataManager.TABLE_NAME_CUOCSONG);
+                    frmAllList.setArguments(bundle);
+                    return new FrmAllList();
                 case 2:
+                    return new FrmGift();
+                case 3:
                     return new FrmMore();
             }
             return null;
