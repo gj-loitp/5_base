@@ -13,11 +13,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.model.Idea;
 import vn.loitp.app.util.AppUtil;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
@@ -90,13 +93,32 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                 return true;
             }
         });
-
         holder.btShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClickShare(idea, position);
-                }
+                LAnimationUtil.play(holder.btShare, Techniques.RotateIn, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        if (callback != null) {
+                            callback.onClickShare(idea, position);
+                        }
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
             }
         });
 
