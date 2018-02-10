@@ -84,8 +84,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        stringList.add(Constants.MENU_ALL_LIST);
-        //stringList.add(Constants.MENU_FAV_LIST);
+        stringList.add(Constants.MENU_CONNGUOI);
         stringList.add(Constants.MENU_GIFT);
         stringList.add(Constants.MENU_MORE);
 

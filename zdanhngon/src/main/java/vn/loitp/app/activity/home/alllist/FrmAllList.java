@@ -61,7 +61,7 @@ public class FrmAllList extends BaseFragment {
             LLog.d(TAG, "init dtb failed: " + e.toString());
         }
         List<Idea> ideaList = new ArrayList<>();
-        ideaList.addAll(dataManager.getAllIdea());
+        ideaList.addAll(dataManager.getAllIdea(DataManager.TABLE_NAME_CONNGUOI));
 
         LLog.d(TAG, "size: " + ideaList.size());
 

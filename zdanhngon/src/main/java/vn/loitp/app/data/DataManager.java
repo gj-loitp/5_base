@@ -24,12 +24,10 @@ import vn.loitp.core.utilities.LLog;
 public class DataManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.zdanhngon/databases/";
-    private final static String DB_NAME = "data.db";
+    private final static String DB_NAME = "danhngon";
     private final static int DATABASE_VERSION = 1;
 
-    private final static String TABLE_NAME = "ytuong";
-    private final static String KEY_ID = "_id";
-    private final static String KEY_NOIDUNG = "noidung";
+    public final static String TABLE_NAME_CONNGUOI = "connguoi";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -107,15 +105,17 @@ public class DataManager extends SQLiteOpenHelper {
         }
     }
 
-    public List<Idea> getAllIdea() {
+    public List<Idea> getAllIdea(String tableName) {
         List<Idea> ideaList = new ArrayList<Idea>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME, null);
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName, null);
         cursor.moveToFirst();
         do {
             Idea idea = new Idea();
-            idea.setId(Integer.parseInt(cursor.getString(0)));
-            idea.setContent(cursor.getString(1));
+            idea.setIsFav(Integer.parseInt(cursor.getString(0)));
+            idea.setId(Integer.parseInt(cursor.getString(1)));
+            idea.setContent(cursor.getString(2));
+            idea.setAuthor(cursor.getString(3));
             ideaList.add(idea);
         } while (cursor.moveToNext());
         return ideaList;
