@@ -83,6 +83,11 @@ public class FrmAllList extends BaseFragment {
             }
 
             @Override
+            public void onClickFav(Idea idea, int position) {
+
+            }
+
+            @Override
             public void onLoadMore() {
                 //do nothing
             }

@@ -5,6 +5,7 @@ package vn.loitp.app.activity.home.alllist;
  */
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.Idea;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
@@ -32,6 +34,8 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
         public void onClickShare(Idea idea, int position);
 
+        public void onClickFav(Idea idea, int position);
+
         public void onLoadMore();
     }
 
@@ -44,6 +48,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         public TextView tvAuthor;
         public RelativeLayout rootView;
         public ImageView btShare;
+        public ImageView btFav;
 
         public MovieViewHolder(View view) {
             super(view);
@@ -51,6 +56,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
             tvAuthor = (TextView) view.findViewById(R.id.tv_author);
             rootView = (RelativeLayout) view.findViewById(R.id.root_view);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
+            btFav = (ImageView) view.findViewById(R.id.bt_fav);
         }
     }
 
@@ -121,7 +127,39 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                 });
             }
         });
+        if (idea.getIsFav() == Constants.IS_FAV) {
+            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightPink));
+        } else {
+            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightGrey));
+        }
+        holder.btFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(holder.btFav, Techniques.RotateIn, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
 
+                    @Override
+                    public void onEnd() {
+                        if (callback != null) {
+                            callback.onClickFav(idea, position);
+                        }
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+        });
         if (position == ideaList.size() - 1) {
             if (callback != null) {
                 callback.onLoadMore();
