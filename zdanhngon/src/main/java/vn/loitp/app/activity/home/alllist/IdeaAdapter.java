@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -28,9 +27,7 @@ import vn.loitp.core.utilities.LUIUtil;
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
 
     public interface Callback {
-        public void onClick(Idea idea, int position);
-
-        public void onLongClick(Idea idea, int position);
+        public void onClickCopy(Idea idea, int position);
 
         public void onClickShare(Idea idea, int position);
 
@@ -46,7 +43,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
         public TextView tvAuthor;
-        public RelativeLayout rootView;
+        public ImageView btCopy;
         public ImageView btShare;
         public ImageView btFav;
 
@@ -54,7 +51,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
             tvAuthor = (TextView) view.findViewById(R.id.tv_author);
-            rootView = (RelativeLayout) view.findViewById(R.id.root_view);
+            btCopy = (ImageView) view.findViewById(R.id.bt_copy);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
             btFav = (ImageView) view.findViewById(R.id.bt_fav);
         }
@@ -85,22 +82,32 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
             holder.tvAuthor.setText(idea.getAuthor());
         }
         LUIUtil.setTextShadow(holder.tvAuthor);
-
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
+        holder.btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(idea, position);
-                }
-            }
-        });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(idea, position);
-                }
-                return true;
+                LAnimationUtil.play(holder.btCopy, Techniques.RotateIn, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        if (callback != null) {
+                            callback.onClickCopy(idea, position);
+                        }
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
             }
         });
         holder.btShare.setOnClickListener(new View.OnClickListener() {

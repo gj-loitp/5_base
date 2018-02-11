@@ -81,15 +81,11 @@ public class FrmAllList extends BaseFragment {
         LLog.d(TAG, "size: " + ideaList.size());
 
         ideaAdapter = new IdeaAdapter(getActivity(), ideaList, new IdeaAdapter.Callback() {
-            @Override
-            public void onClick(Idea idea, int position) {
-                LDeviceUtil.setClipboard(getActivity(), idea.getContent());
-                LToast.show(getActivity(), getString(R.string.copied));
-            }
 
             @Override
-            public void onLongClick(Idea idea, int position) {
-                //do nothing
+            public void onClickCopy(Idea idea, int position) {
+                LDeviceUtil.setClipboard(getActivity(), idea.getContent());
+                LToast.show(getActivity(), getString(R.string.copied));
             }
 
             @Override

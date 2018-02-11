@@ -47,6 +47,17 @@
                 android:textSize="@dimen/txt_18" />
 
             <ImageView
+                android:id="@+id/bt_copy"
+                android:layout_width="@dimen/w_30"
+                android:layout_height="@dimen/w_30"
+                android:layout_below="@+id/tv_content"
+                android:layout_margin="@dimen/margin_5"
+                android:layout_toLeftOf="@+id/bt_share"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_content_copy_black_48dp"
+                android:tint="@color/LightGrey" />
+
+            <ImageView
                 android:id="@+id/bt_share"
                 android:layout_width="@dimen/w_30"
                 android:layout_height="@dimen/w_30"
