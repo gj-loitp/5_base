@@ -1,8 +1,6 @@
 package vn.loitp.app.activity.home.alllist;
 
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,20 +8,14 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.ads.AdView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
-import vn.loitp.app.model.Idea;
+import vn.loitp.app.model.Category;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.LToast;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -34,7 +26,7 @@ public class FrmAllList extends BaseFragment {
     private AdView adView;
     private RecyclerView recyclerView;
     private IdeaAdapter ideaAdapter;
-    private String currentTableName;
+    private Category currentCategory;
     private DataManager dataManager;
 
     @Override
@@ -65,9 +57,9 @@ public class FrmAllList extends BaseFragment {
             showDialogError(getString(R.string.err_unknow));
             return view;
         }
-        currentTableName = bundle.getString(Constants.MENU_TABLE_NAME);
-        if (currentTableName == null || currentTableName.isEmpty()) {
-            LLog.d(TAG, "currentTableName == null || currentTableName.isEmpty()");
+        currentCategory = (Category) bundle.getSerializable(Constants.MENU_CATEGORY);
+        if (currentCategory == null) {
+            LLog.d(TAG, "currentCategory == null || currentCategory.isEmpty()");
             showDialogError(getString(R.string.err_unknow));
             return view;
         }
@@ -75,7 +67,7 @@ public class FrmAllList extends BaseFragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
         /*List<Idea> ideaList = new ArrayList<>();
-        ideaList.addAll(dataManager.getAllIdea(currentTableName));
+        ideaList.addAll(dataManager.getAllIdea(currentCategory));
 
         LLog.d(TAG, "size: " + ideaList.size());
 
@@ -99,7 +91,7 @@ public class FrmAllList extends BaseFragment {
                 } else {
                     idea.setIsFav(Constants.IS_FAV);
                 }
-                dataManager.updateIdea(currentTableName, idea);
+                dataManager.updateIdea(currentCategory, idea);
                 ideaAdapter.notifyItemChanged(position);
             }
 

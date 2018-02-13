@@ -1,10 +1,12 @@
 package vn.loitp.app.model;
 
+import java.io.Serializable;
+
 /**
  * Created by LENOVO on 2/3/2018.
  */
 
-public class Category {
+public class Category implements Serializable {
     private int categoryId;
     private String description;
 

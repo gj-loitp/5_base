@@ -74,22 +74,9 @@ public class Constants {
     public final static String URL_IMG_8 = "https://c1.staticflickr.com/9/8818/29360363291_464f2a3d19_b.jpg";
     public final static String URL_IMG_9 = "https://c1.staticflickr.com/9/8546/28818510573_7a77df0ae3_b.jpg";
 
-    public final static String MENU_TABLE_NAME = "MENU_TABLE_NAME";
-    public final static String MENU_CONNGUOI = "Con người";
-    public final static String MENU_CUOCSONG = "Cuộc sống";
-    public final static String MENU_GIADINH = "Gia đình";
-    public final static String MENU_GIAODUC = "Giáo dục";
-    public final static String MENU_HAIHUOC = "Hài hước";
-    public final static String MENU_STATUS = "Status";
-    public final static String MENU_SUNGHIEP = "Sự nghiệp";
-    public final static String MENU_THANHCONG = "Thành công";
-    public final static String MENU_THOCHE = "Thơ chế";
-    public final static String MENU_TINHBAN = "Tình bạn";
-    public final static String MENU_TINHYEU = "Tình yêu";
-    public final static String MENU_TOP20 = "Top 20";
-    public final static String MENU_TRITUE = "Trí tuệ";
-    public final static String MENU_GIFT = "Qùa tặng";
-    public final static String MENU_MORE = "Phụ lục";
+    public final static String MENU_CATEGORY = "MENU_CATEGORY";
+    public final static String MENU_GIFT = "Gift";
+    public final static String MENU_MORE = "More";
 
     public final static int IS_FAV = 0;
     public final static int IS_NOT_FAV = 1;

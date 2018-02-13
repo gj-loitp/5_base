@@ -38,10 +38,12 @@ import vn.loitp.views.LAppBarLayout;
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
-    private List<String> stringList = new ArrayList<>();
+    private List<Category> categoryList = new ArrayList<>();
     private ImageView toolbarImage;
     private DataManager dataManager;
     //private Handler handlerSearch = new Handler();
+
+    private final int POS_PAGE_GIFT = 5;
 
     public DataManager getDataManager() {
         return dataManager;
@@ -57,6 +59,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             LLog.d(TAG, "init dtb success");
         } catch (IOException e) {
             LLog.d(TAG, "init dtb failed: " + e.toString());
+            showDialogError(getString(R.string.err_unknow));
+            return;
         }
 
         isShowAdWhenExist = false;
@@ -102,24 +106,17 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        List<Category> categoryList = dataManager.getAllCategory(DataManager.TABLE_NAME_CATEGORY);
+        categoryList = dataManager.getAllCategory(DataManager.TABLE_NAME_CATEGORY);
         LLog.d(TAG, "categoryList " + LSApplication.getInstance().getGson().toJson(categoryList));
 
-        stringList.add(Constants.MENU_CONNGUOI);
-        stringList.add(Constants.MENU_CUOCSONG);
-        stringList.add(Constants.MENU_GIADINH);
-        stringList.add(Constants.MENU_GIAODUC);
-        stringList.add(Constants.MENU_HAIHUOC);
-        stringList.add(Constants.MENU_STATUS);
-        stringList.add(Constants.MENU_SUNGHIEP);
-        stringList.add(Constants.MENU_THANHCONG);
-        stringList.add(Constants.MENU_THOCHE);
-        stringList.add(Constants.MENU_TINHBAN);
-        stringList.add(Constants.MENU_TINHYEU);
-        stringList.add(Constants.MENU_TOP20);
-        stringList.add(Constants.MENU_TRITUE);
-        stringList.add(Constants.MENU_GIFT);
-        stringList.add(Constants.MENU_MORE);
+        //add item gift and more
+        Category categoryGift = new Category();
+        categoryGift.setDescription(Constants.MENU_GIFT);
+        categoryList.add(POS_PAGE_GIFT, categoryGift);
+
+        Category categoryMore = new Category();
+        categoryMore.setDescription(Constants.MENU_MORE);
+        categoryList.add(categoryMore);
 
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
@@ -155,13 +152,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private FrmAllList genFrmAllList(int pos) {
         FrmAllList frmAllList = new FrmAllList();
         Bundle bundle = new Bundle();
-        String tableName = null;
-        switch (pos) {
-            default:
-                tableName = DataManager.TABLE_NAME_MSG;
-                break;
-        }
-        bundle.putString(Constants.MENU_TABLE_NAME, tableName);
+        Category category = categoryList.get(pos);
+        bundle.putSerializable(Constants.MENU_CATEGORY, category);
         frmAllList.setArguments(bundle);
         return frmAllList;
     }
@@ -174,38 +166,23 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public Fragment getItem(int position) {
-
-            switch (position) {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                    return genFrmAllList(position);
-                case 13:
-                    return new FrmGift();
-                case 14:
-                    return new FrmMore();
+            if (position == POS_PAGE_GIFT) {
+                return new FrmGift();
+            } else if (position == categoryList.size() - 1) {
+                return new FrmMore();
+            } else {
+                return genFrmAllList(position);
             }
-            return null;
         }
 
         @Override
         public int getCount() {
-            return stringList.size();
+            return categoryList.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return stringList.get(position);
+            return categoryList.get(position).getDescription();
         }
     }
 

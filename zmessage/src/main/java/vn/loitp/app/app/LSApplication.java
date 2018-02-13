@@ -16,6 +16,7 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
+//TODO change url flickr toolbar
 //TODO debug false
 //TODO ic_launcher
 //TODO bkg splash
