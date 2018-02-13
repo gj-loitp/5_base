@@ -22,7 +22,6 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.app.model.Msg;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
 
@@ -42,6 +41,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
+        public TextView tvAuthor;
         public ImageView btCopy;
         public ImageView btShare;
         public ImageView btFav;
@@ -49,6 +49,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
+            tvAuthor = (TextView) view.findViewById(R.id.tv_author);
             btCopy = (ImageView) view.findViewById(R.id.bt_copy);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
             btFav = (ImageView) view.findViewById(R.id.bt_fav);
@@ -72,8 +73,10 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         Msg msg = msgList.get(position);
         holder.tvContent.setText(msg.getContent());
+        int color = AppUtil.getColor(context);
+        //holder.tvContent.setTextColor(color);
 
-        //holder.tvAuthor.setBackgroundColor(AppUtil.getColor(context));
+        holder.tvAuthor.setBackgroundColor(color);
         //LUIUtil.setTextShadow(holder.tvAuthor);
 
         holder.btCopy.setOnClickListener(new View.OnClickListener() {
