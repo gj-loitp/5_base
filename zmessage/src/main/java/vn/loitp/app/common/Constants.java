@@ -78,6 +78,6 @@ public class Constants {
     public final static String MENU_GIFT = "Gift";
     public final static String MENU_MORE = "More";
 
-    public final static int IS_FAV = 0;
-    public final static int IS_NOT_FAV = 1;
+    public final static int IS_FAV = 1;
+    public final static int IS_NOT_FAV = 0;
 }

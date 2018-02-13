@@ -24,7 +24,7 @@
             android:clickable="true"
             android:focusable="true">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,13 +32,12 @@
                 android:padding="@dimen/padding_5"
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_20"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
             <TextView
                 android:id="@+id/tv_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_author"
                 android:paddingBottom="@dimen/padding_5"
                 android:paddingLeft="@dimen/padding_10"
                 android:paddingRight="@dimen/padding_10"

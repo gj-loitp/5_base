@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.model.Category;
-import vn.loitp.app.model.Idea;
+import vn.loitp.app.model.Msg;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -34,6 +34,12 @@ public class DataManager extends SQLiteOpenHelper {
 
     public final static String KEY_CATEGORY_ID = "categoryId";
     public final static String KEY_DESCRIPTION = "description";
+
+    public final static String KEY_ID = "id";
+    public final static String KEY_CONTENT = "content";
+    public final static String KEY_CATEGORY = "category";
+    public final static String KEY_IS_FAV = "isFavorite";
+    public final static String KEY_BACKUP = "backup";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -125,21 +131,22 @@ public class DataManager extends SQLiteOpenHelper {
         return categoryList;
     }
 
-    /*public List<Idea> getAllIdea(String tableName) {
-        List<Idea> ideaList = new ArrayList<Idea>();
+    public List<Msg> getAllMsg(int categoryId) {
+        List<Msg> msgList = new ArrayList<Msg>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName + " order by " + KEY_IS_FAV + " asc", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME_MSG + " where " + KEY_CATEGORY + "=" + categoryId + " order by " + KEY_IS_FAV + " desc", null);
         cursor.moveToFirst();
         do {
-            Idea idea = new Idea();
-            idea.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
-            idea.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
-            idea.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
-            idea.setAuthor(cursor.getString(cursor.getColumnIndex(KEY_AUTHOR)));
-            ideaList.add(idea);
+            Msg msg = new Msg();
+            msg.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
+            msg.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
+            msg.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
+            msg.setBackup(cursor.getString(cursor.getColumnIndex(KEY_BACKUP)));
+            msg.setCategory(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_CATEGORY))));
+            msgList.add(msg);
         } while (cursor.moveToNext());
-        return ideaList;
-    }*/
+        return msgList;
+    }
 
     /*private Vocabulary getVocabularyInListByID(int id, List<Vocabulary> vocabularyList) {
         for (Vocabulary vocabulary : vocabularyList) {
@@ -199,15 +206,16 @@ public class DataManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }*/
-    /*public int updateIdea(String tableName, Idea idea) {
+    public int updateMsg(Msg msg) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_IS_FAV, idea.getIsFav());
-        values.put(KEY_ID, idea.getId());
-        values.put(KEY_CONTENT, idea.getContent());
-        values.put(KEY_AUTHOR, idea.getAuthor());
+        values.put(KEY_IS_FAV, msg.getIsFav());
+        values.put(KEY_ID, msg.getId());
+        values.put(KEY_CONTENT, msg.getContent());
+        values.put(KEY_BACKUP, msg.getBackup());
+        values.put(KEY_CATEGORY, msg.getCategory());
 
-        return db.update(tableName, values, KEY_ID + " = ?", new String[]{String.valueOf(idea.getId())});
-    }*/
+        return db.update(TABLE_NAME_MSG, values, KEY_ID + " = ?", new String[]{String.valueOf(msg.getId())});
+    }
 }

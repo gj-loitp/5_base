@@ -19,7 +19,7 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.model.Idea;
+import vn.loitp.app.model.Msg;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -27,22 +27,21 @@ import vn.loitp.core.utilities.LUIUtil;
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
 
     public interface Callback {
-        public void onClickCopy(Idea idea, int position);
+        public void onClickCopy(Msg msg, int position);
 
-        public void onClickShare(Idea idea, int position);
+        public void onClickShare(Msg msg, int position);
 
-        public void onClickFav(Idea idea, int position);
+        public void onClickFav(Msg msg, int position);
 
         public void onLoadMore();
     }
 
     private Callback callback;
     private Context context;
-    private List<Idea> ideaList;
+    private List<Msg> msgList;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
-        public TextView tvAuthor;
         public ImageView btCopy;
         public ImageView btShare;
         public ImageView btFav;
@@ -50,7 +49,6 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
-            tvAuthor = (TextView) view.findViewById(R.id.tv_author);
             btCopy = (ImageView) view.findViewById(R.id.bt_copy);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
             btFav = (ImageView) view.findViewById(R.id.bt_fav);
@@ -58,30 +56,26 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     }
 
 
-    public IdeaAdapter(Context context, List<Idea> ideaList, Callback callback) {
+    public IdeaAdapter(Context context, List<Msg> msgList, Callback callback) {
         this.context = context;
-        this.ideaList = ideaList;
+        this.msgList = msgList;
         this.callback = callback;
     }
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_idea, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
         return new MovieViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
-        Idea idea = ideaList.get(position);
-        holder.tvContent.setText(idea.getContent());
+        Msg msg = msgList.get(position);
+        holder.tvContent.setText(msg.getContent());
 
-        holder.tvAuthor.setBackgroundColor(AppUtil.getColor(context));
-        if (idea.getAuthor() == null) {
-            holder.tvAuthor.setText(R.string.noname);
-        } else {
-            holder.tvAuthor.setText(idea.getAuthor());
-        }
-        LUIUtil.setTextShadow(holder.tvAuthor);
+        //holder.tvAuthor.setBackgroundColor(AppUtil.getColor(context));
+        //LUIUtil.setTextShadow(holder.tvAuthor);
+
         holder.btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +88,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                     @Override
                     public void onEnd() {
                         if (callback != null) {
-                            callback.onClickCopy(idea, position);
+                            callback.onClickCopy(msg, position);
                         }
                     }
 
@@ -122,7 +116,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                     @Override
                     public void onEnd() {
                         if (callback != null) {
-                            callback.onClickShare(idea, position);
+                            callback.onClickShare(msg, position);
                         }
                     }
 
@@ -138,7 +132,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                 });
             }
         });
-        if (idea.getIsFav() == Constants.IS_FAV) {
+        if (msg.getIsFav() == Constants.IS_FAV) {
             holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightPink));
         } else {
             holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightGrey));
@@ -155,7 +149,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                     @Override
                     public void onEnd() {
                         if (callback != null) {
-                            callback.onClickFav(idea, position);
+                            callback.onClickFav(msg, position);
                         }
                     }
 
@@ -171,7 +165,7 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
                 });
             }
         });
-        if (position == ideaList.size() - 1) {
+        if (position == msgList.size() - 1) {
             if (callback != null) {
                 callback.onLoadMore();
             }
@@ -180,6 +174,6 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
     @Override
     public int getItemCount() {
-        return ideaList == null ? 0 : ideaList.size();
+        return msgList == null ? 0 : msgList.size();
     }
 }
