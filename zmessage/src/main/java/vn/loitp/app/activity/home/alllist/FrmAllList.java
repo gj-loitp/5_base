@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.ads.AdView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Idea;
@@ -32,10 +32,10 @@ import vn.loitp.views.LToast;
 public class FrmAllList extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AdView adView;
-    private DataManager dataManager;
     private RecyclerView recyclerView;
     private IdeaAdapter ideaAdapter;
     private String currentTableName;
+    private DataManager dataManager;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -53,6 +53,12 @@ public class FrmAllList extends BaseFragment {
         adView = (AdView) view.findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);
 
+        dataManager = ((HomeMenuActivity) getActivity()).getDataManager();
+        if (dataManager == null) {
+            showDialogError(getString(R.string.err_unknow));
+            return view;
+        }
+
         Bundle bundle = getArguments();
         if (bundle == null) {
             LLog.d(TAG, "bundle == null");
@@ -68,14 +74,7 @@ public class FrmAllList extends BaseFragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
-        dataManager = new DataManager(getActivity());
-        try {
-            dataManager.createDatabase();
-            LLog.d(TAG, "init dtb success");
-        } catch (IOException e) {
-            LLog.d(TAG, "init dtb failed: " + e.toString());
-        }
-        List<Idea> ideaList = new ArrayList<>();
+        /*List<Idea> ideaList = new ArrayList<>();
         ideaList.addAll(dataManager.getAllIdea(currentTableName));
 
         LLog.d(TAG, "size: " + ideaList.size());
@@ -112,7 +111,7 @@ public class FrmAllList extends BaseFragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(ideaAdapter);
+        recyclerView.setAdapter(ideaAdapter);*/
         return view;
     }
 

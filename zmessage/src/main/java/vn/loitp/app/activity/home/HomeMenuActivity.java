@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +22,14 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.home.ad.FrmGift;
 import vn.loitp.app.activity.home.alllist.FrmAllList;
 import vn.loitp.app.activity.home.more.FrmMore;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
+import vn.loitp.app.model.Category;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -36,12 +40,25 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
     private ViewPagerAdapter adapter;
     private List<String> stringList = new ArrayList<>();
     private ImageView toolbarImage;
-
+    private DataManager dataManager;
     //private Handler handlerSearch = new Handler();
+
+    public DataManager getDataManager() {
+        return dataManager;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dataManager = new DataManager(activity);
+        try {
+            dataManager.createDatabase();
+            LLog.d(TAG, "init dtb success");
+        } catch (IOException e) {
+            LLog.d(TAG, "init dtb failed: " + e.toString());
+        }
+
         isShowAdWhenExist = false;
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         toolbarImage = (ImageView) findViewById(R.id.toolbar_image);
@@ -84,6 +101,9 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 }
             }
         });
+
+        List<Category> categoryList = dataManager.getAllCategory(DataManager.TABLE_NAME_CATEGORY);
+        LLog.d(TAG, "categoryList " + LSApplication.getInstance().getGson().toJson(categoryList));
 
         stringList.add(Constants.MENU_CONNGUOI);
         stringList.add(Constants.MENU_CUOCSONG);
@@ -137,47 +157,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         Bundle bundle = new Bundle();
         String tableName = null;
         switch (pos) {
-            case 0:
-                tableName = DataManager.TABLE_NAME_CONNGUOI;
-                break;
-            case 1:
-                tableName = DataManager.TABLE_NAME_CUOCSONG;
-                break;
-            case 2:
-                tableName = DataManager.TABLE_NAME_GIADINH;
-                break;
-            case 3:
-                tableName = DataManager.TABLE_NAME_GIAODUC;
-                break;
-            case 4:
-                tableName = DataManager.TABLE_NAME_HAIHUOC;
-                break;
-            case 5:
-                tableName = DataManager.TABLE_NAME_STATUS;
-                break;
-            case 6:
-                tableName = DataManager.TABLE_NAME_SUNGHIEP;
-                break;
-            case 7:
-                tableName = DataManager.TABLE_NAME_THANHCONG;
-                break;
-            case 8:
-                tableName = DataManager.TABLE_NAME_THOCHE;
-                break;
-            case 9:
-                tableName = DataManager.TABLE_NAME_TINHBAN;
-                break;
-            case 10:
-                tableName = DataManager.TABLE_NAME_TINHYEU;
-                break;
-            case 11:
-                tableName = DataManager.TABLE_NAME_TOP20;
-                break;
-            case 12:
-                tableName = DataManager.TABLE_NAME_TRITUE;
-                break;
             default:
-                tableName = DataManager.TABLE_NAME_CONNGUOI;
+                tableName = DataManager.TABLE_NAME_MSG;
                 break;
         }
         bundle.putString(Constants.MENU_TABLE_NAME, tableName);

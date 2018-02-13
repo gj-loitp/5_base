@@ -15,6 +15,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.loitp.app.model.Category;
 import vn.loitp.app.model.Idea;
 import vn.loitp.core.utilities.LLog;
 
@@ -25,26 +26,14 @@ import vn.loitp.core.utilities.LLog;
 public class DataManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.zmessage/databases/";
-    private final static String DB_NAME = "danhngon";
+    private final static String DB_NAME = "msg";
     private final static int DATABASE_VERSION = 1;
 
-    public final static String TABLE_NAME_CONNGUOI = "connguoi";
-    public final static String TABLE_NAME_CUOCSONG = "cuocsong";
-    public final static String TABLE_NAME_GIADINH = "giadinh";
-    public final static String TABLE_NAME_GIAODUC = "giaoduc";
-    public final static String TABLE_NAME_HAIHUOC = "haihuoc";
-    public final static String TABLE_NAME_STATUS = "status";
-    public final static String TABLE_NAME_SUNGHIEP = "sunghiep";
-    public final static String TABLE_NAME_THANHCONG = "thanhcong";
-    public final static String TABLE_NAME_THOCHE = "thoche";
-    public final static String TABLE_NAME_TINHBAN = "tinhban";
-    public final static String TABLE_NAME_TINHYEU = "tinhyeu";
-    public final static String TABLE_NAME_TOP20 = "top20";
-    public final static String TABLE_NAME_TRITUE = "tritue";
-    public final static String KEY_IS_FAV = "_isfavorite";
-    public final static String KEY_ID = "_id";
-    public final static String KEY_CONTENT = "_content";
-    public final static String KEY_AUTHOR = "_author";
+    public final static String TABLE_NAME_CATEGORY = "Category";
+    public final static String TABLE_NAME_MSG = "Msg";
+
+    public final static String KEY_CATEGORY_ID = "categoryId";
+    public final static String KEY_DESCRIPTION = "description";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -122,27 +111,26 @@ public class DataManager extends SQLiteOpenHelper {
         }
     }
 
-    public List<Idea> getAllIdea(String tableName) {
+    public List<Category> getAllCategory(String tableName) {
+        List<Category> categoryList = new ArrayList<Category>();
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName, null);
+        cursor.moveToFirst();
+        do {
+            Category category = new Category();
+            category.setCategoryId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_CATEGORY_ID))));
+            category.setDescription(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION)));
+            categoryList.add(category);
+        } while (cursor.moveToNext());
+        return categoryList;
+    }
+
+    /*public List<Idea> getAllIdea(String tableName) {
         List<Idea> ideaList = new ArrayList<Idea>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName + " order by " + KEY_IS_FAV + " asc", null);
         cursor.moveToFirst();
         do {
-            /*if (tableName.equals(TABLE_NAME_HAIHUOC)) {
-                Idea idea = new Idea();
-                idea.setIsFav(Integer.parseInt(cursor.getString(0)));
-                idea.setAuthor(cursor.getString(1));
-                idea.setId(Integer.parseInt(cursor.getString(2)));
-                idea.setContent(cursor.getString(3));
-                ideaList.add(idea);
-            } else {
-                Idea idea = new Idea();
-                idea.setIsFav(Integer.parseInt(cursor.getString(0)));
-                idea.setId(Integer.parseInt(cursor.getString(1)));
-                idea.setContent(cursor.getString(2));
-                idea.setAuthor(cursor.getString(3));
-                ideaList.add(idea);
-            }*/
             Idea idea = new Idea();
             idea.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
             idea.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
@@ -151,7 +139,7 @@ public class DataManager extends SQLiteOpenHelper {
             ideaList.add(idea);
         } while (cursor.moveToNext());
         return ideaList;
-    }
+    }*/
 
     /*private Vocabulary getVocabularyInListByID(int id, List<Vocabulary> vocabularyList) {
         for (Vocabulary vocabulary : vocabularyList) {
@@ -211,7 +199,7 @@ public class DataManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }*/
-    public int updateIdea(String tableName, Idea idea) {
+    /*public int updateIdea(String tableName, Idea idea) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -221,5 +209,5 @@ public class DataManager extends SQLiteOpenHelper {
         values.put(KEY_AUTHOR, idea.getAuthor());
 
         return db.update(tableName, values, KEY_ID + " = ?", new String[]{String.valueOf(idea.getId())});
-    }
+    }*/
 }
