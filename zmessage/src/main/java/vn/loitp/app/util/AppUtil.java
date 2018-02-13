@@ -17,6 +17,9 @@ import vn.loitp.core.utilities.LImageUtil;
 
 public class AppUtil {
     private static int colors[] = {
+            R.color.colorPrimary_50,
+            R.color.colorPrimary_100,
+            R.color.colorPrimary_200,
             R.color.LightBlue,
             R.color.LightCoral,
             R.color.LightCyan,
