@@ -63,16 +63,16 @@ public class Constants {
     public final static String ID_ANIME = "72157670869122155";
     public final static String ID_COUPLE_MANGA = "72157669822546690";
 
-    public final static String URL_IMG_0 = "https://c1.staticflickr.com/9/8628/28864072272_11c664b40d_b.jpg";
-    public final static String URL_IMG_1 = "https://c1.staticflickr.com/9/8381/28816409494_89aae208c3_b.jpg";
-    public final static String URL_IMG_2 = "https://c1.staticflickr.com/9/8176/28818557293_0ee9546312_b.jpg";
-    public final static String URL_IMG_3 = "https://c1.staticflickr.com/9/8581/29405887746_f33c49e7bc_b.jpg";
-    public final static String URL_IMG_4 = "https://c1.staticflickr.com/9/8455/29332091972_eb3e53811d_b.jpg";
-    public final static String URL_IMG_5 = "https://c1.staticflickr.com/9/8014/29440153615_857a92ccb3_b.jpg";
-    public final static String URL_IMG_6 = "https://c1.staticflickr.com/9/8242/29332090572_2baaee6ef2_b.jpg";
-    public final static String URL_IMG_7 = "https://c1.staticflickr.com/9/8176/29332078872_d4d904a3a4_b.jpg";
-    public final static String URL_IMG_8 = "https://c1.staticflickr.com/9/8818/29360363291_464f2a3d19_b.jpg";
-    public final static String URL_IMG_9 = "https://c1.staticflickr.com/9/8546/28818510573_7a77df0ae3_b.jpg";
+    public final static String URL_IMG_0 = "https://c2.staticflickr.com/8/7432/27622083363_d812106e67_b.jpg";
+    public final static String URL_IMG_1 = "https://c1.staticflickr.com/9/8652/27622218114_9ba03b612a_b.jpg";
+    public final static String URL_IMG_2 = "https://c1.staticflickr.com/9/8746/28133561502_e1ebcbc924_b.jpg";
+    public final static String URL_IMG_3 = "https://c1.staticflickr.com/9/8442/28798304274_75a7f6e581_b.jpg";
+    public final static String URL_IMG_4 = "https://c2.staticflickr.com/8/7675/27440984433_591b06bee0_b.jpg";
+    public final static String URL_IMG_5 = "https://c2.staticflickr.com/8/7576/27441050223_73c61e8ae1_b.jpg";
+    public final static String URL_IMG_6 = "https://c2.staticflickr.com/8/7499/27774343430_70b32de127_b.jpg";
+    public final static String URL_IMG_7 = "https://c2.staticflickr.com/8/7348/27952689342_7fb561024d_b.jpg";
+    public final static String URL_IMG_8 = "https://c2.staticflickr.com/8/7443/27441042063_31aaea63df_b.jpg";
+    public final static String URL_IMG_9 = "https://c2.staticflickr.com/8/7346/27441044793_64ac372022_b.jpg";
 
     public final static String MENU_CATEGORY = "MENU_CATEGORY";
     public final static String MENU_GIFT = "Gift";
