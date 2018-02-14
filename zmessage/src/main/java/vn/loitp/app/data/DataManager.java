@@ -136,15 +136,17 @@ public class DataManager extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME_MSG + " where " + KEY_CATEGORY + "=" + categoryId + " order by " + KEY_IS_FAV + " desc", null);
         cursor.moveToFirst();
-        do {
-            Msg msg = new Msg();
-            msg.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
-            msg.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
-            msg.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
-            msg.setBackup(cursor.getString(cursor.getColumnIndex(KEY_BACKUP)));
-            msg.setCategory(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_CATEGORY))));
-            msgList.add(msg);
-        } while (cursor.moveToNext());
+        if (cursor.getCount() > 0) {
+            do {
+                Msg msg = new Msg();
+                msg.setIsFav(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_IS_FAV))));
+                msg.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
+                msg.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
+                msg.setBackup(cursor.getString(cursor.getColumnIndex(KEY_BACKUP)));
+                msg.setCategory(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_CATEGORY))));
+                msgList.add(msg);
+            } while (cursor.moveToNext());
+        }
         return msgList;
     }
 
