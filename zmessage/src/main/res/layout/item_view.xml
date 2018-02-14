@@ -6,10 +6,10 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_10"
-        card_view:cardBackgroundColor="@color/White"
         card_view:cardCornerRadius="@dimen/padding_5"
         card_view:cardElevation="@dimen/w_3">
 
@@ -21,7 +21,7 @@
             android:clickable="true"
             android:focusable="true">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_author"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_5"
@@ -29,7 +29,7 @@
                 android:padding="@dimen/padding_5"
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_20"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
             <TextView
                 android:id="@+id/tv_content"
@@ -39,6 +39,7 @@
                 android:paddingLeft="@dimen/padding_10"
                 android:paddingRight="@dimen/padding_10"
                 android:paddingTop="@dimen/padding_5"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20"
                 android:textStyle="bold" />
 
@@ -53,7 +54,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_3"
                 android:src="@drawable/ic_content_copy_black_48dp"
-                android:tint="@color/LightGrey" />
+                android:tint="@color/Black" />
 
             <ImageView
                 android:id="@+id/bt_share"
@@ -66,7 +67,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_3"
                 android:src="@drawable/ic_share_black_48dp"
-                android:tint="@color/LightGrey" />
+                android:tint="@color/Black" />
 
             <ImageView
                 android:id="@+id/bt_fav"
@@ -79,7 +80,7 @@
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_3"
                 android:src="@drawable/ic_favorite_black_48dp"
-                android:tint="@color/LightGrey" />
+                android:tint="@color/Black" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

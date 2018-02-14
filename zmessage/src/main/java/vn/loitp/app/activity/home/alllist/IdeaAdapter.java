@@ -6,6 +6,7 @@ package vn.loitp.app.activity.home.alllist;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,18 +42,20 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvContent;
-        public TextView tvAuthor;
+        //public TextView tvAuthor;
         public ImageView btCopy;
         public ImageView btShare;
         public ImageView btFav;
+        public CardView cardView;
 
         public MovieViewHolder(View view) {
             super(view);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
-            tvAuthor = (TextView) view.findViewById(R.id.tv_author);
+            //tvAuthor = (TextView) view.findViewById(R.id.tv_author);
             btCopy = (ImageView) view.findViewById(R.id.bt_copy);
             btShare = (ImageView) view.findViewById(R.id.bt_share);
             btFav = (ImageView) view.findViewById(R.id.bt_fav);
+            cardView = (CardView) view.findViewById(R.id.card_view);
         }
     }
 
@@ -76,8 +79,10 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         int color = AppUtil.getColor(context);
         //holder.tvContent.setTextColor(color);
 
-        holder.tvAuthor.setBackgroundColor(color);
+        //holder.tvAuthor.setBackgroundColor(color);
         //LUIUtil.setTextShadow(holder.tvAuthor);
+
+        holder.cardView.setCardBackgroundColor(color);
 
         holder.btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,9 +101,9 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
             }
         });
         if (msg.getIsFav() == Constants.IS_FAV) {
-            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightPink));
+            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.DeepPink));
         } else {
-            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.LightGrey));
+            holder.btFav.setColorFilter(ContextCompat.getColor(context, R.color.Black));
         }
         holder.btFav.setOnClickListener(new View.OnClickListener() {
             @Override
