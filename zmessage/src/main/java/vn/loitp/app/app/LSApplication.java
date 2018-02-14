@@ -18,17 +18,15 @@ import vn.loitp.utils.util.Utils;
 
 //chua up len store
 
-//TODO ic_launcher
-//TODO bkg splash
-//TODO remove uc_launcher in asset
-//TODO remove gradle
-//TODO check splash screen, url
 //TODO admob id
-//TODO remove db asset danhngon
 
 //done
 //TODO change url flickr toolbar
 //TODO debug false
+//TODO ic_launcher
+//TODO bkg splash
+//TODO check splash screen, url
+//TODO remove db asset danhngon
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
