@@ -107,7 +107,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         });
 
         categoryList = dataManager.getAllCategory(DataManager.TABLE_NAME_CATEGORY);
-        LLog.d(TAG, "categoryList " + LSApplication.getInstance().getGson().toJson(categoryList));
+        categoryList.remove(categoryList.size() - 1);
+        //LLog.d(TAG, "categoryList " + LSApplication.getInstance().getGson().toJson(categoryList));
 
         //add item gift and more
         Category categoryGift = new Category();
