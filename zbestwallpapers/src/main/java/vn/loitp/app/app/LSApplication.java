@@ -12,6 +12,8 @@ import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
+//da up len store
+
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;

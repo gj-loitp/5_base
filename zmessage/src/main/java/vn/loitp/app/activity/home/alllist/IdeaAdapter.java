@@ -82,57 +82,17 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         holder.btCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(holder.btCopy, Techniques.RotateIn, new LAnimationUtil.Callback() {
-                    @Override
-                    public void onCancel() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onEnd() {
-                        if (callback != null) {
-                            callback.onClickCopy(msg, position);
-                        }
-                    }
-
-                    @Override
-                    public void onRepeat() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onStart() {
-                        //do nothing
-                    }
-                });
+                if (callback != null) {
+                    callback.onClickCopy(msg, position);
+                }
             }
         });
         holder.btShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(holder.btShare, Techniques.RotateIn, new LAnimationUtil.Callback() {
-                    @Override
-                    public void onCancel() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onEnd() {
-                        if (callback != null) {
-                            callback.onClickShare(msg, position);
-                        }
-                    }
-
-                    @Override
-                    public void onRepeat() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onStart() {
-                        //do nothing
-                    }
-                });
+                if (callback != null) {
+                    callback.onClickShare(msg, position);
+                }
             }
         });
         if (msg.getIsFav() == Constants.IS_FAV) {
@@ -143,29 +103,9 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
         holder.btFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(holder.btFav, Techniques.RotateIn, new LAnimationUtil.Callback() {
-                    @Override
-                    public void onCancel() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onEnd() {
-                        if (callback != null) {
-                            callback.onClickFav(msg, position);
-                        }
-                    }
-
-                    @Override
-                    public void onRepeat() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onStart() {
-                        //do nothing
-                    }
-                });
+                if (callback != null) {
+                    callback.onClickFav(msg, position);
+                }
             }
         });
         if (position == msgList.size() - 1) {

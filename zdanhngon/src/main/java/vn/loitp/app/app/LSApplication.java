@@ -16,6 +16,8 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
+//da up len store
+
 //done
 //TODO debug false
 //TODO ic_launcher

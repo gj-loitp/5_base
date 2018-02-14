@@ -16,6 +16,8 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
+//chua up len store
+
 //TODO change url flickr toolbar
 //TODO debug false
 //TODO ic_launcher

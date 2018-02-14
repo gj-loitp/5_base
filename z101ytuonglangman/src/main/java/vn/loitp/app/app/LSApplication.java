@@ -9,7 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
-
+//da up len store
 //done
 //TODO admob id
 //TODO ic_launcher

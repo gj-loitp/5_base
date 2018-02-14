@@ -13,6 +13,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
+////da up len store
 
 //TODO fb cmt
 public class LSApplication extends MultiDexApplication {
