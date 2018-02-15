@@ -55,7 +55,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                    <ImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
