@@ -20,12 +20,11 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.ad.FrmGift;
-import vn.loitp.app.activity.home.alllist.FrmAllList;
+import vn.loitp.app.activity.home.alllist.FrmItem;
 import vn.loitp.app.activity.home.more.FrmMore;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
-import vn.loitp.app.model.Category;
+import vn.loitp.app.model.Chap;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -38,12 +37,12 @@ import vn.loitp.views.LAppBarLayout;
 public class HomeMenuActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
-    private List<Category> categoryList = new ArrayList<>();
+    private List<Chap> chapList = new ArrayList<>();
     private ImageView toolbarImage;
     private DataManager dataManager;
     //private Handler handlerSearch = new Handler();
 
-    private final int POS_PAGE_GIFT = 5;
+    private final int POS_PAGE_GIFT = 3;
 
     public DataManager getDataManager() {
         return dataManager;
@@ -106,18 +105,18 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        categoryList = dataManager.getAllCategory(DataManager.TABLE_NAME_CATEGORY);
-        categoryList.remove(categoryList.size() - 1);
-        //LLog.d(TAG, "categoryList " + LSApplication.getInstance().getGson().toJson(categoryList));
+        chapList = dataManager.getAllChap(DataManager.TABLE_NAME);
+        chapList.remove(chapList.size() - 1);
+        //LLog.d(TAG, "chapList " + LSApplication.getInstance().getGson().toJson(chapList));
 
         //add item gift and more
-        Category categoryGift = new Category();
-        categoryGift.setDescription(Constants.MENU_GIFT);
-        categoryList.add(POS_PAGE_GIFT, categoryGift);
+        Chap chapGift = new Chap();
+        chapGift.setTitle(Constants.MENU_GIFT);
+        chapList.add(POS_PAGE_GIFT, chapGift);
 
-        Category categoryMore = new Category();
-        categoryMore.setDescription(Constants.MENU_MORE);
-        categoryList.add(categoryMore);
+        Chap chapMore = new Chap();
+        chapMore.setTitle(Constants.MENU_MORE);
+        chapList.add(chapMore);
 
         findViewById(R.id.bt_menu).setOnClickListener(this);
 
@@ -150,13 +149,13 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_home_menu;
     }
 
-    private FrmAllList genFrmAllList(int pos) {
-        FrmAllList frmAllList = new FrmAllList();
+    private FrmItem genFrmAllList(int pos) {
+        FrmItem frm = new FrmItem();
         Bundle bundle = new Bundle();
-        Category category = categoryList.get(pos);
-        bundle.putSerializable(Constants.MENU_CATEGORY, category);
-        frmAllList.setArguments(bundle);
-        return frmAllList;
+        Chap chap = chapList.get(pos);
+        bundle.putSerializable(Constants.MENU_CATEGORY, chap);
+        frm.setArguments(bundle);
+        return frm;
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -169,7 +168,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         public Fragment getItem(int position) {
             if (position == POS_PAGE_GIFT) {
                 return new FrmGift();
-            } else if (position == categoryList.size() - 1) {
+            } else if (position == chapList.size() - 1) {
                 return new FrmMore();
             } else {
                 return genFrmAllList(position);
@@ -178,12 +177,12 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public int getCount() {
-            return categoryList.size();
+            return chapList.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return categoryList.get(position).getDescription();
+            return chapList.get(position).getTitle();
         }
     }
 

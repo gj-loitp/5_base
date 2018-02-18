@@ -17,8 +17,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.DataManager;
-import vn.loitp.app.model.Category;
-import vn.loitp.app.model.Msg;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
@@ -30,6 +28,11 @@ import vn.loitp.views.LToast;
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
+public class FrmAllList{
+
+}
+
+/*
 public class FrmAllList extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private AdView adView;
@@ -133,4 +136,4 @@ public class FrmAllList extends BaseFragment {
         adView.destroy();
         super.onDestroy();
     }
-}
+}*/

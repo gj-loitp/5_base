@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
+        android:scrollbarSize="@dimen/w_3"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/scroll_track"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ln_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/str_b" />
+    </LinearLayout>
+</RelativeLayout>

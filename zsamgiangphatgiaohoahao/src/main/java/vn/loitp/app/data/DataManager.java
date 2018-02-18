@@ -1,6 +1,5 @@
 package vn.loitp.app.data;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -15,8 +14,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.model.Category;
-import vn.loitp.app.model.Msg;
+import vn.loitp.app.model.Chap;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -26,20 +24,15 @@ import vn.loitp.core.utilities.LLog;
 public class DataManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.zsamgiangphatgiaohoahao/databases/";
-    private final static String DB_NAME = "msg";
+    private final static String DB_NAME = "samgiang.sqlite";
     private final static int DATABASE_VERSION = 1;
 
-    public final static String TABLE_NAME_CATEGORY = "Category";
-    public final static String TABLE_NAME_MSG = "Msg";
+    public final static String TABLE_NAME = "t_truyen";
 
-    public final static String KEY_CATEGORY_ID = "categoryId";
-    public final static String KEY_DESCRIPTION = "description";
-
-    public final static String KEY_ID = "id";
-    public final static String KEY_CONTENT = "content";
-    public final static String KEY_CATEGORY = "category";
-    public final static String KEY_IS_FAV = "isFavorite";
-    public final static String KEY_BACKUP = "backup";
+    public final static String KEY_ID = "_id";
+    public final static String KEY_TITLE = "tieude";
+    public final static String KEY_CONTENT = "noidung";
+    public final static String KEY_LINK_MP3 = "diachi";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -117,21 +110,23 @@ public class DataManager extends SQLiteOpenHelper {
         }
     }
 
-    public List<Category> getAllCategory(String tableName) {
-        List<Category> categoryList = new ArrayList<Category>();
+    public List<Chap> getAllChap(String tableName) {
+        List<Chap> chapList = new ArrayList<Chap>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + tableName, null);
         cursor.moveToFirst();
         do {
-            Category category = new Category();
-            category.setCategoryId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_CATEGORY_ID))));
-            category.setDescription(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION)));
-            categoryList.add(category);
+            Chap chap = new Chap();
+            chap.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
+            chap.setTitle(cursor.getString(cursor.getColumnIndex(KEY_TITLE)));
+            chap.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
+            chap.setLinkMp3(cursor.getString(cursor.getColumnIndex(KEY_LINK_MP3)));
+            chapList.add(chap);
         } while (cursor.moveToNext());
-        return categoryList;
+        return chapList;
     }
 
-    public List<Msg> getAllMsg(int categoryId) {
+    /*public List<Msg> getAllMsg(int categoryId) {
         List<Msg> msgList = new ArrayList<Msg>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME_MSG + " where " + KEY_CATEGORY + "=" + categoryId + " order by " + KEY_IS_FAV + " desc", null);
@@ -148,7 +143,7 @@ public class DataManager extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return msgList;
-    }
+    }*/
 
     /*private Vocabulary getVocabularyInListByID(int id, List<Vocabulary> vocabularyList) {
         for (Vocabulary vocabulary : vocabularyList) {
@@ -208,7 +203,7 @@ public class DataManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }*/
-    public int updateMsg(Msg msg) {
+    /*public int updateMsg(Msg msg) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -219,5 +214,5 @@ public class DataManager extends SQLiteOpenHelper {
         values.put(KEY_CATEGORY, msg.getCategory());
 
         return db.update(TABLE_NAME_MSG, values, KEY_ID + " = ?", new String[]{String.valueOf(msg.getId())});
-    }
+    }*/
 }

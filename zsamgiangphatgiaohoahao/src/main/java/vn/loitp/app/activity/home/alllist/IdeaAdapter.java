@@ -14,16 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.app.model.Msg;
 import vn.loitp.app.util.AppUtil;
-import vn.loitp.core.utilities.LAnimationUtil;
 
+public class IdeaAdapter{
+
+}
+
+/*
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolder> {
 
     public interface Callback {
@@ -124,4 +125,4 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.MovieViewHolde
     public int getItemCount() {
         return msgList == null ? 0 : msgList.size();
     }
-}
+}*/
