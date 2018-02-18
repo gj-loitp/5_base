@@ -3,6 +3,8 @@ package vn.loitp.core.utilities;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import vn.loitp.core.common.Constants;
+
 /**
  * File created on 11/15/2016.
  *
@@ -14,12 +16,14 @@ public class LPref {
     private final static String PREFERENCES_FILE_NAME = "loitp";
     private final static String CHECK_APP_READY = "CHECK_APP_READY";
     private final static String PRE_LOAD = "PRE_LOAD";
-    public static String JSON_LIST_DATA = "JSON_LIST_DATA";
-    public static String JSON_FAV_DATA = "JSON_FAV_DATA";
-    public static String JSON_AD_DATA = "JSON_AD_DATA";
-    public static String FIRST_RUN_APP = "FIRST_RUN_APP";
+    public static final String JSON_LIST_DATA = "JSON_LIST_DATA";
+    public static final String JSON_FAV_DATA = "JSON_FAV_DATA";
+    public static final String JSON_AD_DATA = "JSON_AD_DATA";
+    public static final String FIRST_RUN_APP = "FIRST_RUN_APP";
     public static final String SAVED_NUMBER_VERSION = "saved.number.version";
     public static final String NOT_READY_USE_APPLICATION = "not.ready.use.application";
+
+    public static final String INDEX = "INDEX";
     //object
     /*public User getUser() {
         SharedPreferences pref = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
@@ -66,15 +70,16 @@ public class LPref {
         editor.putBoolean(PRE_LOAD, value);
         editor.apply();
     }
+
     /////////////////////////////////INT
-    /*public static int getViewBy(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
-        return prefs.getInt(Const.ATTR_INDEX_VIEWBY, 0);
+    public static int getIndex(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getInt(INDEX, Constants.NOT_FOUND);
     }
 
-    public static void setViewBy(Context context, int value) {
-        SharedPreferences.Editor editor = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0).edit();
-        editor.putInt(Const.ATTR_INDEX_VIEWBY, value);
+    public static void setIndex(Context context, int value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putInt(INDEX, value);
         editor.apply();
-    }*/
+    }
 }
