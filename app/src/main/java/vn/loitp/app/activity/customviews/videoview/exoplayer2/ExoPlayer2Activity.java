@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -53,6 +54,8 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
     private int mResumeWindow;
     private long mResumePosition;
 
+    private TextView tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
         }
         findViewById(R.id.bt_m3u8).setOnClickListener(this);
         findViewById(R.id.bt_mp3).setOnClickListener(this);
+        tv = (TextView) findViewById(R.id.tv);
     }
 
     @Override
@@ -102,7 +106,6 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
             }
         };
     }
-
 
     private void openFullscreenDialog() {
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
@@ -166,7 +169,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
             initFullscreenDialog();
             initFullscreenButton();
 
-            //playM3u8();
+            playM3u8();
             //playMp3();
         }
 
@@ -182,6 +185,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
     private void playM3u8() {
         String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
+        tv.setText(streamUrl);
         String userAgent = Util.getUserAgent(activity, getApplicationContext().getApplicationInfo().packageName);
         DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent, null, DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS, DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS, true);
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(activity, null, httpDataSourceFactory);
@@ -191,9 +195,12 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
     private void playMp3() {
         Handler mHandler = new Handler();
-        Uri uri = Uri.parse("http://www.hoahaomedia.org/hoahao/_media/PGHH/Audio/Sam_Giang/Hue_Duyen/001_Sam%20Giang%20Khuyen%20Nguoi%20Doi%20Tu%20Niem%20Hue%20Duyen%20-%20Tri%20Tung.mp3");
+        String url = "http://www.hoahaomedia.org/hoahao/_media/PGHH/Audio/Sam_Giang/Hue_Duyen/001_Sam%20Giang%20Khuyen%20Nguoi%20Doi%20Tu%20Niem%20Hue%20Duyen%20-%20Tri%20Tung.mp3";
+        tv.setText(url);
+        Uri uri = Uri.parse(url);
+        String userAgent = Util.getUserAgent(activity, getApplicationContext().getApplicationInfo().packageName);
         DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(
-                "exoplayer", null,
+                userAgent, null,
                 DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
                 DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
                 true);

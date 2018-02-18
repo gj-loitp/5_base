@@ -28,6 +28,13 @@
 
             </FrameLayout>
 
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/txt_18" />
+
             <Button
                 android:id="@+id/bt_m3u8"
                 android:layout_width="match_parent"
