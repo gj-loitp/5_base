@@ -54,7 +54,7 @@ public class FrmItem extends BaseFragment {
             showDialogError(getString(R.string.err_unknow));
             return view;
         }
-        tv.setText(chap.getContent());
+        tv.setText(chap.getTitle() + "\n\n\n" + chap.getContent());
         return view;
     }
 
