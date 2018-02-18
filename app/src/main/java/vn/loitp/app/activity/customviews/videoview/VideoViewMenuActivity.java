@@ -4,26 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
-import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class VideoViewMenuActivity extends BaseActivity {
+public class VideoViewMenuActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        findViewById(R.id.bt_jzvideoplayer).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, JZVideoPlayerActivity.class);
-                startActivity(intent);
-                LActivityUtil.tranIn(activity);
-            }
-        });
+        findViewById(R.id.bt_jzvideoplayer).setOnClickListener(this);
+        findViewById(R.id.bt_exoplayer2).setOnClickListener(this);
     }
 
     @Override
@@ -44,5 +39,22 @@ public class VideoViewMenuActivity extends BaseActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_video_view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.bt_jzvideoplayer:
+                intent = new Intent(activity, JZVideoPlayerActivity.class);
+                break;
+            case R.id.bt_exoplayer2:
+                intent = new Intent(activity, ExoPlayer2Activity.class);
+                break;
+        }
+        if (intent != null) {
+            startActivity(intent);
+            LActivityUtil.tranIn(activity);
+        }
     }
 }

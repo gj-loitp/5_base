@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="JZVideoPlayer" />
 
+            <Button
+                android:id="@+id/bt_exoplayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ExoPlayer2" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
