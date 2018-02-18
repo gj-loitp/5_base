@@ -491,7 +491,8 @@
             android:name="vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity" />
+            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity"
+            android:screenOrientation="sensor" />
     </application>
 
 </manifest>
