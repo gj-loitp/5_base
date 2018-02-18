@@ -17,7 +17,10 @@
         <TextView
             android:id="@+id/tv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_5"
+            android:textColor="@color/Gray"
+            android:textSize="@dimen/txt_18" />
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
