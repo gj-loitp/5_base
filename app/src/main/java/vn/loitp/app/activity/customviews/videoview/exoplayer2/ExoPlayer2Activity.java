@@ -15,16 +15,23 @@ import android.widget.TextView;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
@@ -38,6 +45,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LLog;
 
 public class ExoPlayer2Activity extends BaseActivity implements View.OnClickListener {
     private final String STATE_RESUME_WINDOW = "resumeWindow";
@@ -156,6 +164,62 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
         mExoPlayerView.getPlayer().prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
+        mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
+            @Override
+            public void onTimelineChanged(Timeline timeline, Object manifest) {
+                //do nothing
+            }
+
+            @Override
+            public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+                //do nothing
+            }
+
+            @Override
+            public void onLoadingChanged(boolean isLoading) {
+                //do nothing
+            }
+
+            @Override
+            public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+                switch (playbackState) {
+                    case Player.STATE_BUFFERING:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        break;
+                    case Player.STATE_ENDED:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        break;
+                    case Player.STATE_IDLE:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        break;
+                    case Player.STATE_READY:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onRepeatModeChanged(int repeatMode) {
+                //do nothing
+            }
+
+            @Override
+            public void onPlayerError(ExoPlaybackException error) {
+                //do nothing
+            }
+
+            @Override
+            public void onPositionDiscontinuity() {
+                //do nothing
+            }
+
+            @Override
+            public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+                //do nothing
+            }
+        });
     }
 
 
