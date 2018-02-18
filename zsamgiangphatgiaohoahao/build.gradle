@@ -113,4 +113,6 @@ dependencies {
 
     //compile 'com.google.android.gms:play-services-ads:11.0.4'
 
+    //compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
+
 }
