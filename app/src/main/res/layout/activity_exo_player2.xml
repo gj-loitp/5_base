@@ -28,13 +28,20 @@
 
             </FrameLayout>
 
-            <TextView
+            <Button
+                android:id="@+id/bt_m3u8"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/Gray"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Nothing"
-                android:textColor="@color/White"
+                android:text="M3U8"
+                android:textSize="@dimen/txt_18" />
+
+            <Button
+                android:id="@+id/bt_mp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MP3"
                 android:textSize="@dimen/txt_18" />
         </LinearLayout>
     </ScrollView>

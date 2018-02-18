@@ -38,7 +38,7 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 
-public class ExoPlayer2Activity extends BaseActivity {
+public class ExoPlayer2Activity extends BaseActivity implements View.OnClickListener {
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
@@ -61,6 +61,8 @@ public class ExoPlayer2Activity extends BaseActivity {
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
+        findViewById(R.id.bt_m3u8).setOnClickListener(this);
+        findViewById(R.id.bt_mp3).setOnClickListener(this);
     }
 
     @Override
@@ -160,29 +162,12 @@ public class ExoPlayer2Activity extends BaseActivity {
         super.onResume();
 
         if (mExoPlayerView == null) {
-
             mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
             initFullscreenDialog();
             initFullscreenButton();
 
-            //for m3u8
-            String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
-            String userAgent = Util.getUserAgent(activity, getApplicationContext().getApplicationInfo().packageName);
-            DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent, null, DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS, DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS, true);
-            DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(activity, null, httpDataSourceFactory);
-            Uri daUri = Uri.parse(streamUrl);
-            mVideoSource = new HlsMediaSource(daUri, dataSourceFactory, 1, null, null);
-
-
-            //for mp3
-            /*Handler mHandler = new Handler();
-            Uri uri = Uri.parse("http://www.hoahaomedia.org/hoahao/_media/PGHH/Audio/Sam_Giang/Hue_Duyen/001_Sam%20Giang%20Khuyen%20Nguoi%20Doi%20Tu%20Niem%20Hue%20Duyen%20-%20Tri%20Tung.mp3");
-            DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(
-                    "exoplayer", null,
-                    DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
-                    DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
-                    true);
-            mVideoSource = new ExtractorMediaSource(uri, dataSourceFactory, Mp3Extractor.FACTORY, mHandler, null);*/
+            //playM3u8();
+            //playMp3();
         }
 
         initExoPlayer();
@@ -195,6 +180,25 @@ public class ExoPlayer2Activity extends BaseActivity {
         }
     }
 
+    private void playM3u8() {
+        String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
+        String userAgent = Util.getUserAgent(activity, getApplicationContext().getApplicationInfo().packageName);
+        DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent, null, DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS, DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS, true);
+        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(activity, null, httpDataSourceFactory);
+        Uri daUri = Uri.parse(streamUrl);
+        mVideoSource = new HlsMediaSource(daUri, dataSourceFactory, 1, null, null);
+    }
+
+    private void playMp3() {
+        Handler mHandler = new Handler();
+        Uri uri = Uri.parse("http://www.hoahaomedia.org/hoahao/_media/PGHH/Audio/Sam_Giang/Hue_Duyen/001_Sam%20Giang%20Khuyen%20Nguoi%20Doi%20Tu%20Niem%20Hue%20Duyen%20-%20Tri%20Tung.mp3");
+        DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(
+                "exoplayer", null,
+                DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                true);
+        mVideoSource = new ExtractorMediaSource(uri, dataSourceFactory, Mp3Extractor.FACTORY, mHandler, null);
+    }
 
     @Override
     protected void onPause() {
@@ -208,5 +212,20 @@ public class ExoPlayer2Activity extends BaseActivity {
 
         if (mFullScreenDialog != null)
             mFullScreenDialog.dismiss();
+    }
+
+    @Override
+    public void onClick(View v) {
+        mExoPlayerView.getPlayer().release();
+        switch (v.getId()) {
+            case R.id.bt_m3u8:
+                playM3u8();
+                initExoPlayer();
+                break;
+            case R.id.bt_mp3:
+                playMp3();
+                initExoPlayer();
+                break;
+        }
     }
 }
