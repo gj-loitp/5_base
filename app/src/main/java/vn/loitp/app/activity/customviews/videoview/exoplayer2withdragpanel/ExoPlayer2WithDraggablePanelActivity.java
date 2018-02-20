@@ -44,11 +44,8 @@ import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.core.utilities.ScreenUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.draggablepanel.DraggableListener;
 import vn.loitp.views.draggablepanel.DraggableView;
