@@ -44,7 +44,11 @@ import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.core.utilities.ScreenUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.draggablepanel.DraggableListener;
 import vn.loitp.views.draggablepanel.DraggableView;
@@ -159,8 +163,7 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
 
     private void closeFullscreenDialog() {
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
-        mExoPlayerView.getLayoutParams().width = 200;
-        mExoPlayerView.getLayoutParams().height = 200;
+        setSizePlayer();
         ((FrameLayout) findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
@@ -257,13 +260,22 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         });
     }
 
+    private void setSizePlayer() {
+        if (mExoPlayerView == null) {
+            return;
+        }
+        mExoPlayerView.getLayoutParams().width = LDisplayUtils.getDialogW(activity);
+        mExoPlayerView.getLayoutParams().height = LDisplayUtils.getScreenH(activity) / 2;
+        mExoPlayerView.requestLayout();
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         if (mExoPlayerView == null) {
             mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
+            setSizePlayer();
+
             initFullscreenDialog();
             initFullscreenButton();
 
@@ -311,11 +323,15 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         mResumeWindow = mExoPlayerView.getPlayer().getCurrentWindowIndex();
         mResumePosition = Math.max(0, mExoPlayerView.getPlayer().getContentPosition());
 
-        releaseVideo();
-
         if (mFullScreenDialog != null) {
             mFullScreenDialog.dismiss();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        releaseVideo();
+        super.onDestroy();
     }
 
     private void releaseVideo() {
