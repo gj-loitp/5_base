@@ -2,6 +2,8 @@ package vn.loitp.app.activity.customviews.layout.draggablepanel;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -11,11 +13,18 @@ import vn.loitp.views.draggablepanel.DraggableView;
 
 public class DraggablePanelActivity extends BaseActivity {
     private DraggableView draggableView;
+    private Button bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         draggableView = (DraggableView) findViewById(R.id.draggable_view);
+        bt = (Button) findViewById(R.id.bt);
+
+        draggableView.setClickToMaximizeEnabled(true);
+        draggableView.setClickToMinimizeEnabled(true);
+        draggableView.setHorizontalAlphaEffectEnabled(true);
+        
         draggableView.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
@@ -35,6 +44,12 @@ public class DraggablePanelActivity extends BaseActivity {
             @Override
             public void onClosedToRight() {
                 LLog.d(TAG, "onClosedToRight");
+            }
+        });
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
