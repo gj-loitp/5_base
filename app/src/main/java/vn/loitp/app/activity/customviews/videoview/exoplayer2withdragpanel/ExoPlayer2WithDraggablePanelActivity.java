@@ -261,8 +261,9 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         if (mExoPlayerView == null) {
             return;
         }
-        mExoPlayerView.getLayoutParams().width = LDisplayUtils.getDialogW(activity);
-        mExoPlayerView.getLayoutParams().height = LDisplayUtils.getScreenH(activity) / 2;
+        int screenW = LDisplayUtils.getScreenW(activity);
+        mExoPlayerView.getLayoutParams().width = screenW;
+        mExoPlayerView.getLayoutParams().height = screenW * 9 / 16;
         mExoPlayerView.requestLayout();
     }
 
