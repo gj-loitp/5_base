@@ -45,6 +45,7 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.LToast;
 import vn.loitp.views.draggablepanel.DraggableListener;
 import vn.loitp.views.draggablepanel.DraggableView;
 
@@ -82,6 +83,7 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         draggableView.setClickToMaximizeEnabled(false);
         draggableView.setClickToMinimizeEnabled(false);
         draggableView.setHorizontalAlphaEffectEnabled(true);
+        draggableView.setTouchEnabled(false);
 
         draggableView.setDraggableListener(new DraggableListener() {
             @Override
@@ -97,11 +99,13 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
             @Override
             public void onClosedToLeft() {
                 LLog.d(TAG, "onClosedToLeft");
+                releaseVideo();
             }
 
             @Override
             public void onClosedToRight() {
                 LLog.d(TAG, "onClosedToRight");
+                releaseVideo();
             }
         });
     }
@@ -254,7 +258,6 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
 
     @Override
     protected void onResume() {
-
         super.onResume();
 
         if (mExoPlayerView == null) {
@@ -306,12 +309,18 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         mResumeWindow = mExoPlayerView.getPlayer().getCurrentWindowIndex();
         mResumePosition = Math.max(0, mExoPlayerView.getPlayer().getContentPosition());
 
+        releaseVideo();
+
+        if (mFullScreenDialog != null) {
+            mFullScreenDialog.dismiss();
+        }
+    }
+
+    private void releaseVideo() {
         if (mExoPlayerView != null && mExoPlayerView.getPlayer() != null) {
             mExoPlayerView.getPlayer().release();
+            LToast.show(activity, "releaseVideo();");
         }
-
-        if (mFullScreenDialog != null)
-            mFullScreenDialog.dismiss();
     }
 
     @Override
