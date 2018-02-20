@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_draggable_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DraggablePanel" />
+
+            <Button
                 android:id="@+id/bt_ripple_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

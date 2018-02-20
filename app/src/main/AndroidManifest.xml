@@ -493,6 +493,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity"
             android:screenOrientation="sensor" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
