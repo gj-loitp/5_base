@@ -159,6 +159,8 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
 
     private void closeFullscreenDialog() {
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
+        mExoPlayerView.getLayoutParams().width = 200;
+        mExoPlayerView.getLayoutParams().height = 200;
         ((FrameLayout) findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
