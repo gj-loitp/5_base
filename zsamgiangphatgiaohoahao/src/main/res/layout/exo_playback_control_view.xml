@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/Gray"
+    android:background="@color/colorPrimaryDark"
     android:layoutDirection="ltr"
     android:orientation="vertical">
 
@@ -58,7 +58,7 @@
             android:includeFontPadding="false"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:textColor="#FFBEBEBE"
+            android:textColor="@color/White"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -75,7 +75,7 @@
             android:includeFontPadding="false"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:textColor="#FFBEBEBE"
+            android:textColor="@color/White"
             android:textSize="14sp"
             android:textStyle="bold" />
 
