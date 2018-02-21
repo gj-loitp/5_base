@@ -382,7 +382,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         LoadControl loadControl = new DefaultLoadControl();
         SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(this), trackSelector, loadControl);
         player.setRepeatMode(Player.REPEAT_MODE_ALL);
-        player.setPlayWhenReady(false);
         mExoPlayerView.setPlayer(player);
 
         //boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
