@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.home;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,11 +14,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -38,7 +34,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -393,7 +388,8 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         //if (haveResumePosition) {
         //    mExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         //}
-
+        mExoPlayerView.setControllerHideOnTouch(false);
+        mExoPlayerView.setControllerShowTimeoutMs(-1);
         mExoPlayerView.getPlayer().prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
