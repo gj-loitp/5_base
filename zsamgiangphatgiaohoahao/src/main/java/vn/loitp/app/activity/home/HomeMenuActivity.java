@@ -392,7 +392,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         mExoPlayerView.setControllerHideOnTouch(false);
         mExoPlayerView.setControllerShowTimeoutMs(-1);
         mExoPlayerView.getPlayer().prepare(mVideoSource);
-        mExoPlayerView.getPlayer().setPlayWhenReady(true);
+        mExoPlayerView.getPlayer().setPlayWhenReady(false);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest) {
