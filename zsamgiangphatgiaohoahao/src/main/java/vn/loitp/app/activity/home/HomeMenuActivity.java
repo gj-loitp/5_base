@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -55,6 +56,7 @@ import vn.loitp.app.data.DataManager;
 import vn.loitp.app.model.Chap;
 import vn.loitp.app.util.AppUtil;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
@@ -192,8 +194,36 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
                 releaseVideo();
                 String linkMp3 = chapList.get(position).getLinkMp3();
                 if (linkMp3 == null) {
+                    if (mExoPlayerView.getVisibility() != View.INVISIBLE) {
+                        LAnimationUtil.play(mExoPlayerView, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+                            @Override
+                            public void onCancel() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onEnd() {
+                                mExoPlayerView.setVisibility(View.INVISIBLE);
+                            }
+
+                            @Override
+                            public void onRepeat() {
+                                //do nothing
+                            }
+
+                            @Override
+                            public void onStart() {
+                                //do nothing
+                            }
+                        });
+                    }
                     return;
                 }
+                if (mExoPlayerView.getVisibility() != View.VISIBLE) {
+                    mExoPlayerView.setVisibility(View.VISIBLE);
+                    LAnimationUtil.play(mExoPlayerView, Techniques.SlideInUp);
+                }
+
                 playMp3(linkMp3);
                 initExoPlayer();
             }
