@@ -16,7 +16,6 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.PlaybackParameters;
@@ -108,8 +107,9 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
     private void initFullscreenDialog() {
         mFullScreenDialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
             public void onBackPressed() {
-                if (mExoPlayerFullscreen)
+                if (mExoPlayerFullscreen) {
                     closeFullscreenDialog();
+                }
                 super.onBackPressed();
             }
         };
@@ -230,6 +230,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
         if (mExoPlayerView == null) {
             mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
+
             initFullscreenDialog();
             initFullscreenButton();
 
