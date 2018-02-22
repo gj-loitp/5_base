@@ -66,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        
+
         setContentView(setLayoutResourceId());
 
         interstitialAd = LUIUtil.createAdFull(activity);
