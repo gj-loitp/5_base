@@ -176,9 +176,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private TextView tvConnectStt;
+    //private TextView tvConnectStt;
 
-    private void showTvNoConnect() {
+    /*private void showTvNoConnect() {
         if (rootView != null) {
             if (tvConnectStt == null) {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
@@ -203,14 +203,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             //LLog.d(TAG, "rootView == null");
         }
-    }
+    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         //TAG = "onMessageEvent";
         //LLog.d(TAG, "onMessageEvent " + event.isConnected());
         //onNetworkChange(event);
-        if (!event.isConnected()) {//no network
+        /*if (!event.isConnected()) {//no network
             showTvNoConnect();
         } else {
             if (tvConnectStt != null) {
@@ -239,7 +239,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 });
                 tvConnectStt = null;
             }
-        }
+        }*/
     }
 
     /*protected void onNetworkChange(EventBusData.ConnectEvent event){
@@ -258,11 +258,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         super.onResume();
         if (!LConnectivityUtil.isConnected(activity)) {
             showTvNoConnect();
         }
-    }
+    }*/
 }
