@@ -16,17 +16,16 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
-//TODO debug false
-//TODO ic_launcher
-//TODO bkg splash
-//TODO check splash screen, url
-//TODO remove db asset danhngon
-//TODO admob id
 //TODO chua up len store
 
 //done
 //TODO change url flickr toolbar
 //TODO change color theme
+//TODO debug false
+//TODO ic_launcher
+//TODO bkg splash
+//TODO check splash screen, url
+//TODO admob id
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
