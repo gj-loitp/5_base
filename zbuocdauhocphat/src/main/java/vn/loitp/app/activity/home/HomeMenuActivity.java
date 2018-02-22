@@ -202,8 +202,10 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         int index = LPref.getIndex(activity);
         if (index != vn.loitp.core.common.Constants.NOT_FOUND && index >= 0 && index < chapList.size()) {
             viewPager.setCurrentItem(index);
+            initPlayerAtPosition(index);
+        }else{
+            initPlayerAtPosition(0);
         }
-        initPlayerAtPosition(index);
     }
 
     private void initPlayerAtPosition(int position) {
