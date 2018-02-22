@@ -190,42 +190,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onPageSelected(int position) {
                 LLog.d(TAG, "onPageSelected " + position);
-                LPref.setIndex(activity, position);
-                releaseVideo();
-                String linkMp3 = chapList.get(position).getLinkMp3();
-                if (linkMp3 == null) {
-                    if (mExoPlayerView.getVisibility() != View.INVISIBLE) {
-                        LAnimationUtil.play(mExoPlayerView, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
-                            @Override
-                            public void onCancel() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onEnd() {
-                                mExoPlayerView.setVisibility(View.INVISIBLE);
-                            }
-
-                            @Override
-                            public void onRepeat() {
-                                //do nothing
-                            }
-
-                            @Override
-                            public void onStart() {
-                                //do nothing
-                            }
-                        });
-                    }
-                    return;
-                }
-                if (mExoPlayerView.getVisibility() != View.VISIBLE) {
-                    mExoPlayerView.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(mExoPlayerView, Techniques.SlideInUp);
-                }
-
-                playMp3(linkMp3);
-                initExoPlayer();
+                initPlayerAtPosition(position);
             }
 
             @Override
@@ -237,7 +202,47 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         int index = LPref.getIndex(activity);
         if (index != vn.loitp.core.common.Constants.NOT_FOUND && index >= 0 && index < chapList.size()) {
             viewPager.setCurrentItem(index);
+        }else{
+            initPlayerAtPosition(0);
         }
+    }
+
+    private void initPlayerAtPosition(int position){
+        LPref.setIndex(activity, position);
+        releaseVideo();
+        String linkMp3 = chapList.get(position).getLinkMp3();
+        if (linkMp3 == null) {
+            if (mExoPlayerView.getVisibility() != View.INVISIBLE) {
+                LAnimationUtil.play(mExoPlayerView, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        mExoPlayerView.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                        //do nothing
+                    }
+
+                    @Override
+                    public void onStart() {
+                        //do nothing
+                    }
+                });
+            }
+            return;
+        }
+        if (mExoPlayerView.getVisibility() != View.VISIBLE) {
+            mExoPlayerView.setVisibility(View.VISIBLE);
+            LAnimationUtil.play(mExoPlayerView, Techniques.SlideInUp);
+        }
+        playMp3(linkMp3);
+        initExoPlayer();
     }
 
     @Override
