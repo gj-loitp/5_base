@@ -16,7 +16,6 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.Utils;
 
-//TODO admob id
 //TODO chua up len store
 
 //done
@@ -26,6 +25,7 @@ import vn.loitp.utils.util.Utils;
 //TODO bkg splash
 //TODO check splash screen, url
 //TODO ic_launcher
+//TODO admob id
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
