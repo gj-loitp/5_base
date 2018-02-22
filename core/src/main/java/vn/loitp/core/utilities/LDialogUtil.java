@@ -6,11 +6,13 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import loitp.core.R;
 import vn.loitp.views.dialog.iosdialog.iOSDialog;
 
 /**
@@ -50,6 +52,8 @@ public class LDialogUtil {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+        int color = ContextCompat.getColor(context, R.color.colorPrimary);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         alertDialogList.add(dialog);
     }
 
@@ -91,6 +95,9 @@ public class LDialogUtil {
         }
         AlertDialog dialog = builder.create();
         dialog.show();
+        int color = ContextCompat.getColor(context, R.color.colorPrimary);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         alertDialogList.add(dialog);
     }
 
@@ -141,6 +148,10 @@ public class LDialogUtil {
         }
         AlertDialog dialog = builder.create();
         dialog.show();
+        int color = ContextCompat.getColor(context, R.color.colorPrimary);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
+        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color);
         alertDialogList.add(dialog);
     }
 
