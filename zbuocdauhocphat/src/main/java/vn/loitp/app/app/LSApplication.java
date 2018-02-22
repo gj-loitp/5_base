@@ -43,7 +43,7 @@ public class LSApplication extends MultiDexApplication {
         //Utils.init(this);
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         //Fresco.initialize(getApplicationContext());
-        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_FADE);
 
         //config realm
         /*RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)

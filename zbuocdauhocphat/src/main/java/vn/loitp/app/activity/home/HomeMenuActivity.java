@@ -212,7 +212,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         releaseVideo();
         String linkMp3 = chapList.get(position).getLinkMp3();
         if (linkMp3 == null) {
-            if (mExoPlayerView.getVisibility() != View.GONE) {
+            if (mExoPlayerView.getVisibility() != View.INVISIBLE) {
                 LAnimationUtil.play(mExoPlayerView, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
@@ -221,7 +221,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
 
                     @Override
                     public void onEnd() {
-                        mExoPlayerView.setVisibility(View.GONE);
+                        mExoPlayerView.setVisibility(View.INVISIBLE);
                     }
 
                     @Override

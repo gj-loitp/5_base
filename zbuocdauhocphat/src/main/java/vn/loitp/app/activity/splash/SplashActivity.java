@@ -30,7 +30,7 @@ public class SplashActivity extends BaseActivity {
         TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
         LUIUtil.setTextShadow(tvAppName, Color.WHITE);
 
-        LUIUtil.setDelay(2500, new LUIUtil.DelayCallback() {
+        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
                 goToHome();
