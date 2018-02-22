@@ -24,13 +24,13 @@ import vn.loitp.core.utilities.LLog;
 public class DataManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.zbuocdauhocphat/databases/";
-    private final static String DB_NAME = "samgiang.sqlite";
+    private final static String DB_NAME = "loitp.sqlite";
     private final static int DATABASE_VERSION = 1;
 
-    public final static String TABLE_NAME = "t_truyen";
+    public final static String TABLE_NAME = "kinh";
 
     public final static String KEY_ID = "_id";
-    public final static String KEY_TITLE = "tieude";
+    public final static String KEY_TITLE = "ten";
     public final static String KEY_CONTENT = "noidung";
     public final static String KEY_LINK_MP3 = "diachi";
 
