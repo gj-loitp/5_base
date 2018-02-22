@@ -1,0 +1,8 @@
+﻿<LColorSwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:bgOffColor="@color/vip1"
+            app:bgOnColor="@color/vip2"
+            app:toggleOffColor="@color/vip3"
+            app:toggleOnColor="@color/vip4" />

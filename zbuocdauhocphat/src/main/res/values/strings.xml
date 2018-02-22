@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Bước đầu học Phật</string>
+    <string name="hello_world">\nCupcake ipsum dolor sit amet. Sugar plum biscuit sweet roll toffee bear claw. Caramels muffin jujubes apple pie cake cake. Croissant topping jelly beans donut macaroon danish dragée chupa chups. Topping tart liquorice powder halvah jelly beans. Cake cheesecake biscuit ice cream muffin. Brownie pudding donut chocolate cake chupa chups liquorice carrot cake lollipop lollipop. Pudding sweet roll jelly-o ice cream. Lollipop chupa chups jelly-o. Caramels jujubes pudding pudding muffin cookie. android love bear claw cheesecake croissant fruitcake gummi bears donut. Danish dessert pastry. Chocolate cake oat cake sugar plum marzipan lollipop gummi bears chupa chups toffee. Ice cream soufflé bear claw carrot cake cheesecake jelly-o gummies jelly-o gummi bears. Dragée cake topping jelly beans. Cake macaroon macaroon pie pie oat cake brownie marshmallow jujubes. Fruitcake cheesecake gummies bonbon. Donut sweet roll donut carrot cake tootsie roll cotton candy macaroon cake. Tiramisu ice cream cookie marzipan lollipop caramels topping dessert brownie. Dragée chocolate sweet roll chocolate cake. Dessert powder dessert cake. Pie gingerbread cake pudding apple pie. Tiramisu biscuit pie croissant carrot cake cookie macaroon. Sesame snaps halvah donut marzipan muffin caramels. Cheesecake ice cream jelly beans powder toffee danish fruitcake. Chocolate bar caramels oat cake. Macaroon sweet donut tootsie roll. Oat cake lemon drops chupa chups tootsie roll liquorice candy canes apple pie pudding. Chocolate cake liquorice sweet croissant. Chupa chups biscuit danish gummies donut. Cake chocolate cake dragée. Toffee apple pie cotton candy brownie. Candy canes caramels danish chocolate bar bear claw. Chupa chups sesame snaps oat cake sesame snaps oat cake chocolate cake caramels. Candy cupcake biscuit cupcake. Tiramisu powder icing cookie cookie gummi bears donut lemon drops. Marshmallow wafer marzipan. Jelly beans sweet sesame snaps.</string>
+    <string name="str_b">f</string>
+    <string name="str_f">f</string>
+    <string name="str_reward">f</string>
+    <string name="app_id">f</string>
+
+    <string name="open_drawer">open_drawer</string>
+    <string name="close_drawer">close_drawer</string>
+    <string name="i_love_you">I loved you:  yet the love, maybe,\n
+Has not extinguished in my heart;\n
+But hence may not it trouble thee;\n
+I do not want to make you sad.\n
+I loved you hopelessly and mutely,\n
+Now with shyness, now with jealousy being vexed;\n
+I loved you so sincerely, so fondly,\n
+Likewise may someone love you next.
+    </string>
+    <string name="copyright_loitp">Copyright © Loitp</string>
+    <string name="warning">Chú ý</string>
+    <string name="cannot_connect_to_server">Không thể kết nối đến máy chủ, xin vui lòng thử lại sau</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="rate_app">Đánh giá</string>
+    <string name="more_app">Thêm ứng dụng hay</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
+    <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
+    <string name="msg_exit_app">Bạn có thật sự muốn thoát ứng dụng?</string>
+    <string name="yes">Đúng</string>
+    <string name="no">Không</string>
+    <string name="rate">Đánh giá</string>
+    <string name="pls_why_report">Xin vui lòng cho chúng tôi biết lý do vì sao bạn report?</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="open_gift">Nhấn mở quà tặng</string>
+    <string name="gift_not_found">Hiện tại chưa có quà tặng</string>
+    <string name="choose_type">Chọn thể loại</string>
+    <string name="cannot_get_comic_list">Không thể tải danh sách truyện vào lúc này, xin vui lòng thử lại sau</string>
+    <string name="loading">Đang tải dữ liệu, xin vui lòng chờ trong giây lát.</string>
+    <string name="exit_app">Thoát ứng dụng</string>
+    <string name="delete">Xóa</string>
+    <string name="insert">Thêm</string>
+    <string name="comic_fav_list_is_empty">Danh sách yêu thích trống</string>
+    <string name="list">Danh sách</string>
+    <string name="comic_info">Thông tin truyện</string>
+    <string name="cannot_read_this_manga">Không thể xem được truyện này, xin vui lòng thử lại sau</string>
+    <string name="beta_feature">Chức năng này đang được xây dựng, sẽ xuất hiện trong phiên bản cập nhật tiếp theo.</string>
+    <string name="download_all">Tải toàn bộ truyện</string>
+    <string name="copied">Đã copy vào bộ nhớ!</string>
+    <string name="noname">Khuyết danh</string>
+
+    <string-array name="occurence">
+        <item>Once</item>
+        <item>Weekly</item>
+    </string-array>
+
+    <string-array name="pref_alarm_play_time_entries">
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+
+    <string-array name="pref_alarm_play_time_values">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>300</item>
+    </string-array>
+
+</resources>
