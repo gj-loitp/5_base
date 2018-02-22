@@ -202,12 +202,12 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         int index = LPref.getIndex(activity);
         if (index != vn.loitp.core.common.Constants.NOT_FOUND && index >= 0 && index < chapList.size()) {
             viewPager.setCurrentItem(index);
-        }else{
+        } else {
             initPlayerAtPosition(0);
         }
     }
 
-    private void initPlayerAtPosition(int position){
+    private void initPlayerAtPosition(int position) {
         LPref.setIndex(activity, position);
         releaseVideo();
         String linkMp3 = chapList.get(position).getLinkMp3();
@@ -428,6 +428,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         mExoPlayerView.setControllerShowTimeoutMs(-1);
         mExoPlayerView.getPlayer().prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(false);
+
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest) {
