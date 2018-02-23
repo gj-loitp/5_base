@@ -12,8 +12,8 @@ import retrofit2.http.Query;
 public interface SOService {
 
     @GET("/answers?order=desc&sort=activity&site=stackoverflow")
-    Call<Object> getAnswers();
+    Call<SOAnswersResponse> getAnswers();
 
     @GET("/answers?order=desc&sort=activity&site=stackoverflow")
-    Call<Object> getAnswers(@Query("tagged") String tags);
+    Call<SOAnswersResponse> getAnswers(@Query("tagged") String tags);
 }
