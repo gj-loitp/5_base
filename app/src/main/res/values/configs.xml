@@ -6,4 +6,5 @@
     <string name="yup_URL">https://api.yuptv.vn/api/</string>
     <string name="flickr_URL">https://api.flickr.com/services/</string>
     <string name="wtt_URL">http://wtt-api.uiza.io/</string>
+    <string name="uiza_URL">http://dev-api.uiza.io/</string>
 </resources>

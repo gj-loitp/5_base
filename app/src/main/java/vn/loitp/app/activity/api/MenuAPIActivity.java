@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
+import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
 public class MenuAPIActivity extends BaseActivity {
@@ -39,6 +39,14 @@ public class MenuAPIActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIMenuActivity.class);
+                startActivity(intent);
+                LActivityUtil.tranIn(activity);
+            }
+        });
+        findViewById(R.id.bt_test_retrofit2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, TestAPIRetrofit2Activity.class);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);
             }

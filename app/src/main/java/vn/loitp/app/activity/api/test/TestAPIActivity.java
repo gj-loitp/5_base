@@ -1,13 +1,9 @@
 package vn.loitp.app.activity.api.test;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
@@ -18,6 +14,7 @@ import vn.loitp.restapi.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.restapi.livestar.corev3.api.model.v3.getposter.GetPoster;
 import vn.loitp.restapi.livestar.corev3.api.service.LSService;
 import vn.loitp.restapi.restclient.RestClient;
+import vn.loitp.restapi.uiza.UizaService;
 import vn.loitp.restapi.wtt.WTTService;
 import vn.loitp.rxandroid.ApiSubscriber;
 
@@ -54,6 +51,13 @@ public class TestAPIActivity extends BaseActivity {
             public void onClick(View v) {
                 RestClient.init(getString(R.string.yup_URL), "");
                 testYupProduction();
+            }
+        });
+        findViewById(R.id.bt_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestClient.init(getString(R.string.uiza_URL), "");
+                testUizaV2();
             }
         });
     }
@@ -148,6 +152,24 @@ public class TestAPIActivity extends BaseActivity {
             public void onSuccess(GetPoster[] getPosters) {
                 LLog.d(TAG, "setPoster onSuccess " + LSApplication.getInstance().getGson().toJson(getPosters));
                 LUIUtil.printBeautyJson(getPosters, tv);
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                handleException(e);
+            }
+        });
+    }
+
+    private void testUizaV2() {
+        UizaService service = RestClient.createService(UizaService.class);
+        String accessKeyId = "BNEU77HJAPWYVIF1DEU5";
+        String secretKeyId = "8yro1j369cCj6VR7cD2kzQbzJ2vDiswt7jxhtGjp";
+        subscribe(service.auth(accessKeyId, secretKeyId), new ApiSubscriber<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                LLog.d(TAG, "setPoster onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LUIUtil.printBeautyJson(result, tv);
             }
 
             @Override

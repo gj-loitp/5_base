@@ -37,6 +37,12 @@
                 android:text="Gallery API" />
 
             <Button
+                android:id="@+id/bt_test_retrofit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test retrofit2" />
+
+            <Button
                 android:id="@+id/bt_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
