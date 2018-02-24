@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,14 +23,15 @@ public class TestAPIRetrofit2Activity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private SOService mService;
     private AnswersAdapter mAdapter;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mService = ApiUtils.getSOService();
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_answers);
+        tv = (TextView) findViewById(R.id.tv);
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0), new AnswersAdapter.PostItemListener() {
-
             @Override
             public void onPostClick(long id) {
                 Toast.makeText(activity, "Post id is" + id, Toast.LENGTH_SHORT).show();
@@ -42,7 +45,7 @@ public class TestAPIRetrofit2Activity extends BaseActivity {
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(itemDecoration);
 
-        LUIUtil.setPullLikeIOSHorizontal(mRecyclerView);
+        LUIUtil.setPullLikeIOSVertical(mRecyclerView);
 
         loadAnswers();
     }
@@ -78,11 +81,16 @@ public class TestAPIRetrofit2Activity extends BaseActivity {
                     int statusCode = response.code();
                     // handle request errors depending on status code
                 }
+                tv.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<SOAnswersResponse> call, Throwable t) {
+                if (t == null) {
+                    return;
+                }
                 LLog.d(TAG, "error loading from API");
+                tv.setText(t.getMessage());
             }
         });
     }
