@@ -502,6 +502,9 @@
         <activity
             android:name="vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.treeview.TreeViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

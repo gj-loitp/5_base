@@ -333,4 +333,10 @@
         <attr name="enable_click_to_minimize_view" format="boolean" />
         <attr name="top_view_resize" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="TreeView">
+        <attr name="level_separation" format="dimension" />
+        <attr name="line_thickness" format="dimension" />
+        <attr name="line_color" format="color" />
+    </declare-styleable>
 </resources>

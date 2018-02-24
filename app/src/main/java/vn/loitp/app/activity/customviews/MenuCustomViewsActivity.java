@@ -26,6 +26,7 @@ import vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
 import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity;
+import vn.loitp.app.activity.customviews.treeview.TreeViewActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -60,6 +61,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_popup_menu).setOnClickListener(this);
         findViewById(R.id.bt_scratchview).setOnClickListener(this);
         findViewById(R.id.bt_navigation).setOnClickListener(this);
+        findViewById(R.id.bt_treeview).setOnClickListener(this);
     }
 
     @Override
@@ -151,6 +153,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_navigation:
                 intent = new Intent(activity, NavigationMenuActivity.class);
+                break;
+            case R.id.bt_treeview:
+                intent = new Intent(activity, TreeViewActivity.class);
                 break;
         }
         if (intent != null) {

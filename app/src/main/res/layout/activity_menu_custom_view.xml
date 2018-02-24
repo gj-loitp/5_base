@@ -145,6 +145,12 @@
                 android:text="Textview" />
 
             <Button
+                android:id="@+id/bt_treeview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tree View" />
+
+            <Button
                 android:id="@+id/bt_videoview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
