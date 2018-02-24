@@ -505,6 +505,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.treeview.TreeViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

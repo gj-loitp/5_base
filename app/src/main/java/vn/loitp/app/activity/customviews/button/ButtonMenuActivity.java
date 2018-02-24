@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
+import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
@@ -24,6 +25,7 @@ public class ButtonMenuActivity extends BaseActivity implements OnClickListener 
         findViewById(R.id.bt_f_button).setOnClickListener(this);
         findViewById(R.id.bt_circular_image_click).setOnClickListener(this);
         findViewById(R.id.bt_button_loading).setOnClickListener(this);
+        findViewById(R.id.bt_goodview).setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +63,9 @@ public class ButtonMenuActivity extends BaseActivity implements OnClickListener 
                 break;
             case R.id.bt_button_loading:
                 intent = new Intent(activity, ButtonLoadingActivity.class);
+                break;
+            case R.id.bt_goodview:
+                intent = new Intent(activity, GoodViewActivity.class);
                 break;
         }
         if (intent != null) {
