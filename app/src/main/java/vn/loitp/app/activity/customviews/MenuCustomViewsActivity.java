@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
 import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
@@ -31,9 +32,7 @@ import vn.loitp.app.activity.customviews.treeview.TreeViewActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuCustomViewsActivity extends BaseActivity implements OnClickListener {
 
