@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
+import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity;
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity;
 import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity;
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
@@ -62,6 +63,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_scratchview).setOnClickListener(this);
         findViewById(R.id.bt_navigation).setOnClickListener(this);
         findViewById(R.id.bt_treeview).setOnClickListener(this);
+        findViewById(R.id.bt_draggable_flipview).setOnClickListener(this);
     }
 
     @Override
@@ -156,6 +158,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_treeview:
                 intent = new Intent(activity, TreeViewActivity.class);
+                break;
+            case R.id.bt_draggable_flipview:
+                intent = new Intent(activity, DraggableFlipViewActivity.class);
                 break;
         }
         if (intent != null) {

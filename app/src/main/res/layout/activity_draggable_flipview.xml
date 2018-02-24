@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightGrey">
+
+    <vn.loitp.views.draggableflipview.DraggableFlipView
+        android:id="@+id/draggable_flip_view"
+        android:layout_width="@dimen/w_350"
+        android:layout_height="@dimen/w_250"
+        android:layout_centerInParent="true"
+        app:backView="@layout/view_back"
+        app:frontView="@layout/view_front" />
+</RelativeLayout>
+

@@ -339,4 +339,11 @@
         <attr name="line_thickness" format="dimension" />
         <attr name="line_color" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="DraggableFlipView">
+        <attr name="dragDetectAngle" format="integer" />
+        <attr name="draggableAngle" format="integer" />
+        <attr name="frontView" format="reference" />
+        <attr name="backView" format="reference" />
+    </declare-styleable>
 </resources>

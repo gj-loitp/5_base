@@ -55,6 +55,12 @@
                 android:text="Dialog" />
 
             <Button
+                android:id="@+id/bt_draggable_flipview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Draggable FlipView" />
+
+            <Button
                 android:id="@+id/bt_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -508,6 +508,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
