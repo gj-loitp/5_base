@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
+import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.home.HomeMenuActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -29,6 +30,10 @@ public class SplashActivity extends BaseActivity {
 
         TextView tvAppName = (TextView) findViewById(R.id.tv_app_name);
         LUIUtil.setTextShadow(tvAppName, Color.WHITE);
+
+        TextView tvVs = (TextView) findViewById(R.id.tv_vs);
+        tvVs.setText(getString(R.string.version) + " " + BuildConfig.VERSION_NAME);
+        LUIUtil.setTextShadow(tvVs, Color.WHITE);
 
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override

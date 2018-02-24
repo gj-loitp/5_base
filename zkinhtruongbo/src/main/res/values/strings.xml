@@ -48,6 +48,7 @@ Likewise may someone love you next.
     <string name="download_all">Tải toàn bộ truyện</string>
     <string name="copied">Đã copy vào bộ nhớ!</string>
     <string name="noname">Khuyết danh</string>
+    <string name="version">Phiên bản</string>
 
     <string-array name="occurence">
         <item>Once</item>
