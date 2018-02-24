@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
+import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity;
 import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
@@ -63,6 +64,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_navigation).setOnClickListener(this);
         findViewById(R.id.bt_treeview).setOnClickListener(this);
         findViewById(R.id.bt_draggable_flipview).setOnClickListener(this);
+        findViewById(R.id.bt_answer_view).setOnClickListener(this);
     }
 
     @Override
@@ -160,6 +162,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_draggable_flipview:
                 intent = new Intent(activity, DraggableFlipViewActivity.class);
+                break;
+            case R.id.bt_answer_view:
+                intent = new Intent(activity, AnswerViewActivity.class);
                 break;
         }
         if (intent != null) {

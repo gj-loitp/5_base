@@ -514,6 +514,9 @@
         <activity
             android:name="vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.answerview.AnswerViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

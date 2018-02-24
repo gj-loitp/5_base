@@ -31,6 +31,12 @@
                 android:text="Action bar (Blur)" />
 
             <Button
+                android:id="@+id/bt_answer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AnswerView" />
+
+            <Button
                 android:id="@+id/bt_ariana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
