@@ -1,2 +1,2 @@
-//include ':app', ':core', ':zbestwallpapers', ':zbestcomic', ':z101ytuonglangman', ':zdanhngon', ':zmessage' , ':zsamgiangphatgiaohoahao'
-include ':app', ':core', ':zbestcomic', ':zmessage', ':zbuocdauhocphat'
+//include ':app', ':core', ':zbestwallpapers', ':zbestcomic', ':z101ytuonglangman', ':zdanhngon', ':zmessage' , ':zsamgiangphatgiaohoahao', ':zbuocdauhocphat'
+include ':app', ':core', ':zbestcomic', ':zmessage', ':zkinhtruongbo'
