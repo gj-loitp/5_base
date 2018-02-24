@@ -1,0 +1,23 @@
+﻿<vn.loitp.app.activity.customviews.actionbar._lib.LActionBar
+        android:id="@+id/l_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+=======================
+
+
+lActionBar.setOnClickBack(new LActionBar.Callback() {
+            @Override
+            public void onClickBack() {
+                onBackPressed();
+            }
+
+            @Override
+            public void onClickMenu() {
+                ToastUtils.showShort("onClickMenu");
+            }
+        });
+        lActionBar.showMenuIcon();
+        lActionBar.setImageMenuIcon(R.mipmap.ic_launcher);
+        lActionBar.setTvTitle("Demo ActionbarActivity");
