@@ -51,6 +51,14 @@
 
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/w_80"
+                android:layout_height="@dimen/w_80"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_55"
+                android:src="@mipmap/ic_launcher" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
