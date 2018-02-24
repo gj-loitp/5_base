@@ -2,22 +2,18 @@ package vn.loitp.core.base;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,9 +27,8 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
@@ -171,7 +166,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         LActivityUtil.tranOut(activity);
-        if (isShowAdWhenExist) {
+        if (isShowAdWhenExist && !Constants.IS_DEBUG) {
             LUIUtil.displayInterstitial(interstitialAd, 50);
         }
     }

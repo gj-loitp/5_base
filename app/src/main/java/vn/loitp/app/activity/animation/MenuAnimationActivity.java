@@ -10,6 +10,7 @@ import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
+import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -23,6 +24,7 @@ public class MenuAnimationActivity extends BaseActivity implements View.OnClickL
         findViewById(R.id.bt_over_scroll).setOnClickListener(this);
         findViewById(R.id.bt_fly_school).setOnClickListener(this);
         findViewById(R.id.bt_activity_transition).setOnClickListener(this);
+        findViewById(R.id.bt_shadowview_helper).setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +62,9 @@ public class MenuAnimationActivity extends BaseActivity implements View.OnClickL
                 break;
             case R.id.bt_activity_transition:
                 intent = new Intent(activity, Animation1Activity.class);
+                break;
+            case R.id.bt_shadowview_helper:
+                intent = new Intent(activity, ShadowViewHelperActivity.class);
                 break;
         }
         if (intent != null) {

@@ -47,6 +47,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Over Scroll like iOS" />
+
+            <Button
+                android:id="@+id/bt_shadowview_helper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ShadowView Helper" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

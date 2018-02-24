@@ -511,6 +511,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
