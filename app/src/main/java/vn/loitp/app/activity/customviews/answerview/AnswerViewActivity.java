@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.answerview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -13,6 +14,14 @@ public class AnswerViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //use xml
+        useXML();
+
+        //use JAVA codes
+        useJava();
+    }
+
+    private void useXML() {
         AnswerView answerView1 = (AnswerView) findViewById(R.id.av_1);
         answerView1.setNumber(1);
         answerView1.setOnAnswerChange(new AnswerView.OnAnswerChange() {
@@ -32,6 +41,21 @@ public class AnswerViewActivity extends BaseActivity {
                 LToast.show(activity, "Click: " + index);
             }
         });
+    }
+
+    private void useJava() {
+        LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
+        for (int i = 0; i < 10; i++) {
+            AnswerView answerView = new AnswerView(activity);
+            answerView.init(i + 3, 6, true, true, true, true);
+            answerView.setOnAnswerChange(new AnswerView.OnAnswerChange() {
+                @Override
+                public void onAnswerChange(AnswerView view, int index) {
+                    LToast.show(activity, "Click: " + index);
+                }
+            });
+            ll.addView(answerView);
+        }
     }
 
     @Override

@@ -13,6 +13,7 @@
         android:padding="@dimen/padding_5">
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -29,7 +30,6 @@
                 android:id="@+id/av_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 app:aw_NumberOfAnswers="6"
                 app:aw_ShowNumber="true"
                 app:aw_canCancelAnswer="true"
@@ -39,7 +39,6 @@
                 android:id="@+id/av_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 app:aw_NumberOfAnswers="6"
                 app:aw_ShowNumber="true"
                 app:aw_canCancelAnswer="true"

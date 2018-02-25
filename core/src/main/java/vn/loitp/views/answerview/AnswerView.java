@@ -50,6 +50,30 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
         change = event;
     }
 
+    //numberOfAnswer max is 6
+    public void init(int number, int numberOfAnswer, boolean isShowNumber, boolean isCanCancelAnswer, boolean isChangeOnClick, boolean isShowTextWhenActive) {
+        setOrientation(HORIZONTAL);
+
+        aw_ShowTextWhenActive = isShowTextWhenActive;
+        aw_changeOnClick = isChangeOnClick;
+        aw_canCancelAnswer = isCanCancelAnswer;
+
+        if (isShowNumber) {
+            numberTextView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.answer_number, this, false);
+            setNumber(number);
+            addView(numberTextView);
+        }
+
+        viewler = new OneAnswerView[numberOfAnswer];
+
+        for (int i = 0; i < numberOfAnswer; ++i) {
+            viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.answer_one_view, this, false);
+            viewler[i].setIndex(i);
+            viewler[i].setOnClickListener(this);
+            addView(viewler[i]);
+        }
+    }
+
     protected void init(Context context, AttributeSet attrs) {
         setOrientation(HORIZONTAL);
 
