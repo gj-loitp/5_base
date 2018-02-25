@@ -153,7 +153,6 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         });
 
         chapList = dataManager.getAllChap(DataManager.TABLE_NAME);
-        chapList.remove(chapList.size() - 1);
         //LLog.d(TAG, "chapList " + LSApplication.getInstance().getGson().toJson(chapList));
 
         //add item gift and more

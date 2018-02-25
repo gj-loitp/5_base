@@ -27,12 +27,12 @@ public class DataManager extends SQLiteOpenHelper {
     private final static String DB_NAME = "loitp.sqlite";
     private final static int DATABASE_VERSION = 1;
 
-    public final static String TABLE_NAME = "kinh";
+    public final static String TABLE_NAME = "phathocphothong";
 
     public final static String KEY_ID = "_id";
-    public final static String KEY_TITLE = "ten";
+    public final static String KEY_TITLE = "tieude";
     public final static String KEY_CONTENT = "noidung";
-    public final static String KEY_LINK_MP3 = "diachi";
+    //public final static String KEY_LINK_MP3 = "diachi";
 
     private SQLiteDatabase sqLiteDatabase;
     private final Context context;
@@ -120,7 +120,7 @@ public class DataManager extends SQLiteOpenHelper {
             chap.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID))));
             chap.setTitle(cursor.getString(cursor.getColumnIndex(KEY_TITLE)));
             chap.setContent(cursor.getString(cursor.getColumnIndex(KEY_CONTENT)));
-            chap.setLinkMp3(cursor.getString(cursor.getColumnIndex(KEY_LINK_MP3)));
+            //chap.setLinkMp3(cursor.getString(cursor.getColumnIndex(KEY_LINK_MP3)));
             chapList.add(chap);
         } while (cursor.moveToNext());
         return chapList;
