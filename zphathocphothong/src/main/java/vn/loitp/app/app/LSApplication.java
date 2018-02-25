@@ -11,13 +11,14 @@ import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 
 //TODO chua up len store
-//done
 //TODO change url flickr toolbar
 //TODO change color theme
 //TODO debug false
 //TODO bkg splash
 //TODO check splash screen, url
 //TODO ic_launcher
+
+//done
 //TODO admob id
 
 public class LSApplication extends MultiDexApplication {

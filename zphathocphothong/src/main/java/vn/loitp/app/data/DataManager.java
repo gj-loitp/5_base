@@ -23,7 +23,7 @@ import vn.loitp.core.utilities.LLog;
 
 public class DataManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
-    private final static String DB_PATH = "/data/data/loitp.zkinhtruongbo/databases/";
+    private final static String DB_PATH = "/data/data/loitp.zphathocphothong/databases/";
     private final static String DB_NAME = "loitp.sqlite";
     private final static int DATABASE_VERSION = 1;
 
