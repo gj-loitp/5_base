@@ -5,7 +5,7 @@ package vn.loitp.core.common;
  */
 public class Constants {
     //TODO
-    public final static boolean IS_DEBUG = true;
+    public final static boolean IS_DEBUG = false;
 
     public static final int NOT_FOUND = -6969;
 
