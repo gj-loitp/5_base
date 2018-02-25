@@ -203,7 +203,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         if (index != vn.loitp.core.common.Constants.NOT_FOUND && index >= 0 && index < chapList.size()) {
             viewPager.setCurrentItem(index);
             initPlayerAtPosition(index);
-        }else{
+        } else {
             initPlayerAtPosition(0);
         }
     }
@@ -214,7 +214,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         String linkMp3 = chapList.get(position).getLinkMp3();
         if (linkMp3 == null) {
             if (mExoPlayerView.getVisibility() != View.GONE) {
-                LAnimationUtil.play(mExoPlayerView, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+                LAnimationUtil.play(mExoPlayerView, Techniques.FadeOut, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                         //do nothing
@@ -240,7 +240,7 @@ public class HomeMenuActivity extends BaseActivity implements View.OnClickListen
         }
         if (mExoPlayerView.getVisibility() != View.VISIBLE) {
             mExoPlayerView.setVisibility(View.VISIBLE);
-            LAnimationUtil.play(mExoPlayerView, Techniques.SlideInUp);
+            LAnimationUtil.play(mExoPlayerView, Techniques.FadeIn);
         }
         playMp3(linkMp3);
         initExoPlayer();
