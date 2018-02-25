@@ -11,8 +11,6 @@ import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 
 //TODO chua up len store
-//TODO admob id
-
 //done
 //TODO change url flickr toolbar
 //TODO change color theme
@@ -20,6 +18,7 @@ import vn.loitp.data.AdmobData;
 //TODO bkg splash
 //TODO check splash screen, url
 //TODO ic_launcher
+//TODO admob id
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
