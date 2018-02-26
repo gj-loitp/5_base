@@ -44,8 +44,6 @@ public class Frm extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm, container, false);
-        TextView tv = (TextView) view.findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp));
         return view;
     }
 }
