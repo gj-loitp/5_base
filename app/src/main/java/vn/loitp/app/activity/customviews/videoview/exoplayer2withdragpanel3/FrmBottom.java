@@ -103,13 +103,13 @@ public class FrmBottom extends BaseFragment {
         }
         if (frmContainer != null) {
             LLog.d(TAG, "frm == null");
-            frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
+            /*frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
                 @Override
                 public void onRefresh(Movie movie, int position) {
-                    LLog.d(TAG, "onRefresh");
+                    LLog.d(TAG, TAG+" onRefresh");
                     tv.setText(position + " - " + movie.getTitle());
                 }
-            });
+            });*/
         }
         return view;
     }

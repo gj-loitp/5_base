@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 
@@ -88,6 +90,21 @@ public class FrmTop extends BaseFragment {
             mResumeWindow = savedInstanceState.getInt(STATE_RESUME_WINDOW);
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
+        }
+        FrmContainer frmContainer = null;
+        for (Fragment fragment : getFragmentManager().getFragments()) {
+            if (fragment instanceof FrmContainer) {
+                frmContainer = (FrmContainer) fragment;
+            }
+        }
+        if (frmContainer != null) {
+            LLog.d(TAG, "frm != null");
+            frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
+                @Override
+                public void onRefresh(Movie movie, int position) {
+                    LLog.d(TAG, TAG + " onRefresh");
+                }
+            });
         }
         return view;
     }
