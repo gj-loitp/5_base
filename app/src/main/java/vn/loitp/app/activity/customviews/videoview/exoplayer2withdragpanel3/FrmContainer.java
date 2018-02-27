@@ -93,6 +93,7 @@ public class FrmContainer extends BaseFragment {
         //draggablePanel.setXScaleFactor(xScaleFactor);
         //draggablePanel.setYScaleFactor(yScaleFactor);
         draggablePanel.setTopViewHeight(600);//px
+        draggablePanel.setEnableHorizontalAlphaEffect(false);
         //draggablePanel.setTopFragmentMarginRight(topViewMarginRight);
         //draggablePanel.setTopFragmentMarginBottom(topViewMargnBottom);
         draggablePanel.setClickToMaximizeEnabled(false);
