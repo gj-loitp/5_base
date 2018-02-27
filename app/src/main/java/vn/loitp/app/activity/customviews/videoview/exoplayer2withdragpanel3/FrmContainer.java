@@ -21,6 +21,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
@@ -100,20 +101,6 @@ public class FrmContainer extends BaseFragment {
         draggablePanel.initializeView();
     }
 
-    public FragmentRefreshListener getFragmentRefreshListener() {
-        return fragmentRefreshListener;
-    }
-
-    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
-        this.fragmentRefreshListener = fragmentRefreshListener;
-    }
-
-    public interface FragmentRefreshListener {
-        public void onRefresh(Movie movie, int position);
-    }
-
-    private FragmentRefreshListener fragmentRefreshListener;
-
     private void setupUI(View view) {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tvType = (TextView) view.findViewById(R.id.tv_type);
@@ -130,9 +117,7 @@ public class FrmContainer extends BaseFragment {
                 } else {
                     LLog.d(TAG, "do nothing");
                 }
-                if (getFragmentRefreshListener() != null) {
-                    getFragmentRefreshListener().onRefresh(movie, position);
-                }
+                EventBusData.getInstance().sendClickVideoEvent(movie, position);
             }
 
             @Override

@@ -46,8 +46,13 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 
@@ -91,21 +96,7 @@ public class FrmTop extends BaseFragment {
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
-        FrmContainer frmContainer = null;
-        for (Fragment fragment : getFragmentManager().getFragments()) {
-            if (fragment instanceof FrmContainer) {
-                frmContainer = (FrmContainer) fragment;
-            }
-        }
-        if (frmContainer != null) {
-            LLog.d(TAG, "frm != null");
-            frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
-                @Override
-                public void onRefresh(Movie movie, int position) {
-                    LLog.d(TAG, TAG + " onRefresh");
-                }
-            });
-        }
+
         return view;
     }
 
@@ -295,5 +286,23 @@ public class FrmTop extends BaseFragment {
         if (mFullScreenDialog != null) {
             mFullScreenDialog.dismiss();
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.ClickVideoEvent clickVideoEvent) {
+        LLog.d(TAG, TAG + " clickVideoEvent");
+        //TODO
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

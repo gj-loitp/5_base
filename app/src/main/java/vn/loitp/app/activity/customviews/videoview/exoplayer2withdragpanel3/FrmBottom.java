@@ -16,10 +16,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
+import vn.loitp.app.data.EventBusData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
@@ -95,22 +100,7 @@ public class FrmBottom extends BaseFragment {
             llHorizontal.addView(button);
         }
 
-        FrmContainer frmContainer = null;
-        for (Fragment fragment : getFragmentManager().getFragments()) {
-            if (fragment instanceof FrmContainer) {
-                frmContainer = (FrmContainer) fragment;
-            }
-        }
-        if (frmContainer != null) {
-            LLog.d(TAG, "frm == null");
-            /*frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
-                @Override
-                public void onRefresh(Movie movie, int position) {
-                    LLog.d(TAG, TAG+" onRefresh");
-                    tv.setText(position + " - " + movie.getTitle());
-                }
-            });*/
-        }
+
         return view;
     }
 
@@ -122,5 +112,25 @@ public class FrmBottom extends BaseFragment {
             }
         }
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(EventBusData.ClickVideoEvent clickVideoEvent) {
+        LLog.d(TAG, TAG + " clickVideoEvent");
+        if (clickVideoEvent != null) {
+            tv.setText(clickVideoEvent.getPosition() + " - " + clickVideoEvent.getMovie().getTitle());
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }
