@@ -48,6 +48,12 @@
                 android:layout_height="wrap_content"
                 android:text="ExoPlayer2 With DragPanel 2" />
 
+            <Button
+                android:id="@+id/bt_exoplayer2_with_dragpanel_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ExoPlayer2 With DragPanel 3" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
