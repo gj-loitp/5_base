@@ -27,7 +27,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.draggablepanel.DraggablePanel;
+import vn.loitp.views.layout.draggablepanel.DraggablePanel;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

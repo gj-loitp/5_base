@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.views.draggablepanel.transformer;
+package vn.loitp.views.layout.draggablepanel.transformer;
 
 import android.view.View;
 import com.nineoldandroids.view.ViewHelper;

@@ -5,13 +5,10 @@ import android.content.res.Resources;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.Frm;
-import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.FrmPhoto;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.draggablepanel.DraggableListener;
-import vn.loitp.views.draggablepanel.DraggablePanel;
+import vn.loitp.views.layout.draggablepanel.DraggableListener;
+import vn.loitp.views.layout.draggablepanel.DraggablePanel;
 
 public class DraggablePanelActivity extends BaseActivity {
     private DraggablePanel draggablePanel;

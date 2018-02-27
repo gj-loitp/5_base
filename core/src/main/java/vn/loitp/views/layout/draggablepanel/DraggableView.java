@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.views.draggablepanel;
+package vn.loitp.views.layout.draggablepanel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -31,8 +31,8 @@ import android.widget.RelativeLayout;
 import com.nineoldandroids.view.ViewHelper;
 
 import loitp.core.R;
-import vn.loitp.views.draggablepanel.transformer.Transformer;
-import vn.loitp.views.draggablepanel.transformer.TransformerFactory;
+import vn.loitp.views.layout.draggablepanel.transformer.Transformer;
+import vn.loitp.views.layout.draggablepanel.transformer.TransformerFactory;
 
 /**
  * Class created to extends a ViewGroup and simulate the YoutubeLayoutComponent

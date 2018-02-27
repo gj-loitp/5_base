@@ -6,8 +6,8 @@ import android.os.Bundle;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.draggablepanel.DraggableListener;
-import vn.loitp.views.draggablepanel.DraggableView;
+import vn.loitp.views.layout.draggablepanel.DraggableListener;
+import vn.loitp.views.layout.draggablepanel.DraggableView;
 
 public class DraggableViewActivity extends BaseActivity {
     private DraggableView draggableView;

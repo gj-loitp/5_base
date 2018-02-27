@@ -45,7 +45,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <vn.loitp.views.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
+    <vn.loitp.views.layout.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/draggable_view"
         android:layout_width="fill_parent"
@@ -98,5 +98,5 @@
 
         </FrameLayout>
 
-    </vn.loitp.views.draggablepanel.DraggableView>
+    </vn.loitp.views.layout.draggablepanel.DraggableView>
 </RelativeLayout>

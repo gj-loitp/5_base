@@ -13,33 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.views.draggablepanel;
+package vn.loitp.views.layout.draggablepanel.transformer;
+
+import android.view.View;
 
 /**
- * Listener created to be notified when some drag actions are performed over DraggablePanel or
- * DraggableView instances.
+ * Factory created to provide Transformer implementations like ResizeTransformer o
+ * ScaleTransformer.
  *
- * @author Pedro Vicente Gómez Sánchez.
+ * @author Pedro Vicente Gómez Sánchez
  */
-public interface DraggableListener {
+public class TransformerFactory {
 
-    /**
-     * Called when the view is maximized.
-     */
-    void onMaximized();
-
-    /**
-     * Called when the view is minimized.
-     */
-    void onMinimized();
-
-    /**
-     * Called when the view is closed to the left.
-     */
-    void onClosedToLeft();
-
-    /**
-     * Called when the view is closed to the right.
-     */
-    void onClosedToRight();
+    public Transformer getTransformer(final boolean resize, final View view, final View parent) {
+        Transformer transformer = null;
+        if (resize) {
+            transformer = new ResizeTransformer(view, parent);
+        } else {
+            transformer = new ScaleTransformer(view, parent);
+        }
+        return transformer;
+    }
 }

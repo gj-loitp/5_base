@@ -526,6 +526,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -47,8 +47,8 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
-import vn.loitp.views.draggablepanel.DraggableListener;
-import vn.loitp.views.draggablepanel.DraggableView;
+import vn.loitp.views.layout.draggablepanel.DraggableListener;
+import vn.loitp.views.layout.draggablepanel.DraggableView;
 
 /**
  * Created by LENOVO on 2/26/2018.
