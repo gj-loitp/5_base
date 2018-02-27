@@ -10,6 +10,7 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_5"
@@ -19,5 +20,6 @@
     <vn.loitp.views.draggablepanel.DraggablePanel
         android:id="@+id/draggable_panel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 </RelativeLayout>

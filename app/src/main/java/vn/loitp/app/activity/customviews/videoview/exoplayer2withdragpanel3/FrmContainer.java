@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.FrmTest;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.LToast;
 import vn.loitp.views.draggablepanel.DraggableListener;
 import vn.loitp.views.draggablepanel.DraggablePanel;
 
@@ -41,7 +43,7 @@ public class FrmContainer extends BaseFragment {
         draggablePanel = (DraggablePanel) view.findViewById(R.id.draggable_panel);
         initializeDraggablePanel();
 
-        draggablePanel.setDraggableListener(new DraggableListener() {
+        /*draggablePanel.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
                 LLog.d(TAG, "onMaximized");
@@ -60,6 +62,19 @@ public class FrmContainer extends BaseFragment {
             @Override
             public void onClosedToRight() {
                 LLog.d(TAG, "onClosedToRight");
+            }
+        });*/
+
+        view.findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (draggablePanel.isClosedAtLeft() || draggablePanel.isClosedAtRight()) {
+                    LLog.d(TAG, "isClosedAtLeft || isClosedAtRight");
+                    draggablePanel.minimize();
+                    draggablePanel.setVisibility(View.VISIBLE);
+                } else {
+                    LLog.d(TAG, "do nothing");
+                }
             }
         });
         return view;
