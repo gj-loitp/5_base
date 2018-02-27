@@ -1,9 +1,7 @@
-package vn.loitp.app.activity.customviews.layout.draggablepanel;
+package vn.loitp.app.activity.customviews.layout.draggableview;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -11,7 +9,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.draggablepanel.DraggableListener;
 import vn.loitp.views.draggablepanel.DraggableView;
 
-public class DraggablePanelActivity extends BaseActivity {
+public class DraggableViewActivity extends BaseActivity {
     private DraggableView draggableView;
 
     @Override

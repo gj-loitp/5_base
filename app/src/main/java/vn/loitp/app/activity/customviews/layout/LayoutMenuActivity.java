@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
+import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class LayoutMenuActivity extends BaseActivity implements View.OnClickListener {
 
@@ -50,7 +49,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_draggable_panel:
-                intent = new Intent(activity, DraggablePanelActivity.class);
+                intent = new Intent(activity, DraggableViewActivity.class);
                 break;
             case R.id.bt_zoom_layout:
                 intent = new Intent(activity, ZoomLayoutActivity.class);
