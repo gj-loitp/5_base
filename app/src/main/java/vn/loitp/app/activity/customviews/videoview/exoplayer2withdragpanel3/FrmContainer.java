@@ -110,8 +110,11 @@ public class FrmContainer extends BaseFragment {
             public void onClick(Movie movie, int position) {
                 if (draggablePanel.isClosedAtLeft() || draggablePanel.isClosedAtRight()) {
                     LLog.d(TAG, "isClosedAtLeft || isClosedAtRight");
+
                     draggablePanel.minimize();
-                    draggablePanel.setVisibility(View.VISIBLE);
+                    if (draggablePanel.getVisibility() != View.VISIBLE) {
+                        draggablePanel.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     LLog.d(TAG, "do nothing");
                 }
