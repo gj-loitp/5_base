@@ -43,6 +43,12 @@
                 android:text="Dragueur" />
 
             <Button
+                android:id="@+id/bt_elastic_drag_dismiss_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ElasticDragDismissLayout" />
+
+            <Button
                 android:id="@+id/bt_ripple_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -529,6 +529,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

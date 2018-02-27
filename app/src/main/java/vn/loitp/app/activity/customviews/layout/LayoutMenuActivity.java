@@ -9,6 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
+import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
@@ -26,6 +27,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         findViewById(R.id.bt_ripple_layout).setOnClickListener(this);
         findViewById(R.id.bt_swipe_refresh_layout).setOnClickListener(this);
         findViewById(R.id.bt_dragueur).setOnClickListener(this);
+        findViewById(R.id.bt_elastic_drag_dismiss_layout).setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +71,9 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_dragueur:
                 intent = new Intent(activity, DragueurActivity.class);
+                break;
+            case R.id.bt_elastic_drag_dismiss_layout:
+                intent = new Intent(activity, ElasticDragDismissLayoutActivity.class);
                 break;
         }
         if (intent != null) {
