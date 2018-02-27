@@ -85,7 +85,7 @@ public class FrmContainer extends BaseFragment {
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {
         FrmTest frmTop = new FrmTest();
-        FrmTest frmBottom = new FrmTest();
+        FrmBottom frmBottom = new FrmBottom();
 
         draggablePanel.setFragmentManager(getActivity().getSupportFragmentManager());
         draggablePanel.setTopFragment(frmTop);
