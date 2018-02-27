@@ -100,7 +100,7 @@ public class Frm extends BaseFragment implements View.OnClickListener {
         draggableView.setClickToMaximizeEnabled(false);
         draggableView.setClickToMinimizeEnabled(false);
         draggableView.setHorizontalAlphaEffectEnabled(true);
-        draggableView.setTouchEnabled(false);
+        draggableView.setTouchEnabled(true);
 
         draggableView.setDraggableListener(new DraggableListener() {
             @Override
