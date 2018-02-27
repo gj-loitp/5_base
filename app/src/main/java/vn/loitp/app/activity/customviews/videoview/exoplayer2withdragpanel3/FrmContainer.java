@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.layout.draggablepanel.FrmTest;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
@@ -84,7 +83,7 @@ public class FrmContainer extends BaseFragment {
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {
-        FrmTest frmTop = new FrmTest();
+        FrmTop frmTop = new FrmTop();
         FrmBottom frmBottom = new FrmBottom();
         draggablePanel.setFragmentManager(getActivity().getSupportFragmentManager());
         draggablePanel.setTopFragment(frmTop);
