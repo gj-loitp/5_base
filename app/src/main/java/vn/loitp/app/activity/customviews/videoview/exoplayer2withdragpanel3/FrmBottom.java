@@ -5,6 +5,7 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3;
  */
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +21,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 /**
@@ -93,6 +95,22 @@ public class FrmBottom extends BaseFragment {
             llHorizontal.addView(button);
         }
 
+        FrmContainer frmContainer = null;
+        for (Fragment fragment : getFragmentManager().getFragments()) {
+            if (fragment instanceof FrmContainer) {
+                frmContainer = (FrmContainer) fragment;
+            }
+        }
+        if (frmContainer != null) {
+            LLog.d(TAG, "frm == null");
+            frmContainer.setFragmentRefreshListener(new FrmContainer.FragmentRefreshListener() {
+                @Override
+                public void onRefresh(Movie movie, int position) {
+                    LLog.d(TAG, "onRefresh");
+                    tv.setText(position + " - " + movie.getTitle());
+                }
+            });
+        }
         return view;
     }
 

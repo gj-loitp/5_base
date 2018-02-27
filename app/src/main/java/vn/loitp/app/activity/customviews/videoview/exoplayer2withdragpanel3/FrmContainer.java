@@ -101,6 +101,20 @@ public class FrmContainer extends BaseFragment {
         draggablePanel.initializeView();
     }
 
+    public FragmentRefreshListener getFragmentRefreshListener() {
+        return fragmentRefreshListener;
+    }
+
+    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+        this.fragmentRefreshListener = fragmentRefreshListener;
+    }
+
+    public interface FragmentRefreshListener {
+        public void onRefresh(Movie movie, int position);
+    }
+
+    private FragmentRefreshListener fragmentRefreshListener;
+
     private void setupUI(View view) {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tvType = (TextView) view.findViewById(R.id.tv_type);
@@ -110,13 +124,15 @@ public class FrmContainer extends BaseFragment {
             public void onClick(Movie movie, int position) {
                 if (draggablePanel.isClosedAtLeft() || draggablePanel.isClosedAtRight()) {
                     LLog.d(TAG, "isClosedAtLeft || isClosedAtRight");
-
                     draggablePanel.minimize();
                     if (draggablePanel.getVisibility() != View.VISIBLE) {
                         draggablePanel.setVisibility(View.VISIBLE);
                     }
                 } else {
                     LLog.d(TAG, "do nothing");
+                }
+                if (getFragmentRefreshListener() != null) {
+                    getFragmentRefreshListener().onRefresh(movie, position);
                 }
             }
 
