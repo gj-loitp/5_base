@@ -2,6 +2,8 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -32,8 +34,16 @@ public class ExoPlayer2WithDraggablePanel3Activity extends BaseActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setupDrawer();
 
-        TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
+        changeFrm();
+    }
+
+    private void changeFrm() {
+        FrmContainer fragment = new FrmContainer();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fl_container, fragment, fragment.toString());
+        //fragmentTransaction.addToBackStack(fragment.toString());
+        fragmentTransaction.commit();
     }
 
     private void setupDrawer() {
