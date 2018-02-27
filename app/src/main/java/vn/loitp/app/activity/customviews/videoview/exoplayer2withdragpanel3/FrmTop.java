@@ -244,7 +244,7 @@ public class FrmTop extends BaseFragment {
     }
 
     private void playM3u8() {
-        String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
+        String streamUrl = "https://bitmovin-a.akamaihd.net/content/playhouse-vr/m3u8s/105560.m3u8";
         String userAgent = Util.getUserAgent(getActivity(), getActivity().getApplicationInfo().packageName);
         DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent, null, DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS, DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS, true);
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(getActivity(), null, httpDataSourceFactory);
@@ -275,7 +275,8 @@ public class FrmTop extends BaseFragment {
             mExoPlayerView.getPlayer().release();
         }
 
-        if (mFullScreenDialog != null)
+        if (mFullScreenDialog != null) {
             mFullScreenDialog.dismiss();
+        }
     }
 }
