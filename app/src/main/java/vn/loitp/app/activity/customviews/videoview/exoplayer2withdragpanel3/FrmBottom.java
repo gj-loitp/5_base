@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
@@ -29,6 +30,7 @@ public class FrmBottom extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
+    private TextView tv;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class FrmBottom extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_bottom, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+        tv = (TextView) view.findViewById(R.id.tv);
 
         mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override

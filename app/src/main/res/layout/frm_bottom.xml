@@ -16,6 +16,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_18"
+                android:textStyle="bold" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_5"
