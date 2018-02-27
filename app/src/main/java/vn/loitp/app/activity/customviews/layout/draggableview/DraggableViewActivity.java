@@ -61,6 +61,6 @@ public class DraggableViewActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_draggable_panel;
+        return R.layout.activity_draggable_view;
     }
 }

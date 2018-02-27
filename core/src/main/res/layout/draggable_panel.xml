@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.pedrovgs.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
+<vn.loitp.views.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draggable_view"
     android:layout_width="fill_parent"
@@ -20,4 +20,4 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical" />
 
-</com.github.pedrovgs.DraggableView>
+</vn.loitp.views.draggablepanel.DraggableView>

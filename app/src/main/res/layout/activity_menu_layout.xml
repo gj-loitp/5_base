@@ -31,6 +31,12 @@
                 android:text="DraggablePanel" />
 
             <Button
+                android:id="@+id/bt_draggable_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DraggableView" />
+
+            <Button
                 android:id="@+id/bt_ripple_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
