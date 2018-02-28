@@ -9,7 +9,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
-//done
+
 //TODO chua up len store
 //TODO admob id
 //TODO change url flickr toolbar
@@ -18,6 +18,7 @@ import vn.loitp.data.AdmobData;
 //TODO bkg splash
 //TODO check splash screen, url
 //TODO ic_launcher
+//done
 
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
