@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_circular_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CircularView" />
+
+            <Button
                 android:id="@+id/bt_draggable_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

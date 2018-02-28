@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="animated_expanded_edit_text_animation_duration_milliseconds">400</integer>
+    <integer name="cv_default_marker_radius">20</integer>
 </resources>

@@ -346,4 +346,58 @@
         <attr name="frontView" format="reference" />
         <attr name="backView" format="reference" />
     </declare-styleable>
+    <declare-styleable name="CircularView">
+        <!-- The text that will appear in the center of the view. -->
+        <attr name="text_circular" format="string" />
+
+        <!-- The size of the text that appears in the center of the view. -->
+        <attr name="textSize_circular" format="dimension" />
+
+        <!-- The color of the text that appears in the center of the view. -->
+        <attr name="textColor_circular" format="color" />
+
+        <!-- The color of the center of the background. -->
+        <attr name="centerBackgroundColor" format="color" />
+
+        <!-- The drawable of the center view -->
+        <attr name="centerDrawable" format="reference" />
+
+        <!-- Starting points for where the markers will be drawn. -->
+        <attr name="markerStartingPoint" format="float">
+            <!-- Starting point at the top of the view. -->
+            <enum name="top" value="270" />
+            <!-- Starting point at the bottom of the view. -->
+            <enum name="bottom" value="90" />
+            <!-- Starting point at the left of the view. -->
+            <enum name="left" value="180" />
+            <!-- Starting point at the right of the view. -->
+            <enum name="right" value="0" />
+        </attr>
+
+        <!-- Flag that determines if the highlighted marker will be drawn on top of others. -->
+        <attr name="drawHighlightedMarkerOnTop" format="boolean" />
+
+        <!-- The degree that is highlighted. -->
+        <attr name="highlightedDegree" format="float">
+            <!-- Starting point at the top of the view. -->
+            <enum name="top" value="270" />
+            <!-- Starting point at the bottom of the view. -->
+            <enum name="bottom" value="90" />
+            <!-- Starting point at the left of the view. -->
+            <enum name="left" value="180" />
+            <!-- Starting point at the right of the view. -->
+            <enum name="right" value="0" />
+        </attr>
+
+        <!-- Flag that determines if markers will animate when the highlight animation is not running. -->
+        <attr name="animateMarkersOnStillHighlight" format="boolean" />
+
+        <!-- Flag that determine if this object's drawable should fit inside of the center circle. -->
+        <attr name="fitToCircle" format="boolean" />
+
+        <!-- Attribute to display markers when in edit mode. -->
+        <attr name="editMode_markerCount" format="integer" />
+        <!-- Set the marker radius for edit mode only. -->
+        <attr name="editMode_markerRadius" format="integer" />
+    </declare-styleable>
 </resources>
