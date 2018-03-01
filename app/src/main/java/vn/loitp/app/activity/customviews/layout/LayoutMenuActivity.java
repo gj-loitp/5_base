@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
@@ -30,6 +31,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         findViewById(R.id.bt_dragueur).setOnClickListener(this);
         findViewById(R.id.bt_elastic_drag_dismiss_layout).setOnClickListener(this);
         findViewById(R.id.bt_circular_view).setOnClickListener(this);
+        findViewById(R.id.bt_auto_linear_layout).setOnClickListener(this);
     }
 
     @Override
@@ -79,6 +81,9 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_circular_view:
                 intent = new Intent(activity, CircularViewActivity.class);
+                break;
+            case R.id.bt_auto_linear_layout:
+                intent = new Intent(activity, AutoLinearLayoutActivity.class);
                 break;
         }
         if (intent != null) {

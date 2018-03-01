@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_auto_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AutoLinearLayout" />
+
+            <Button
                 android:id="@+id/bt_circular_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
