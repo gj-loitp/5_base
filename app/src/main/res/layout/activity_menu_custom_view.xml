@@ -148,7 +148,7 @@
                 android:id="@+id/bt_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Switch" />
+                android:text="Switch - Toggle" />
 
             <Button
                 android:id="@+id/bt_textview"

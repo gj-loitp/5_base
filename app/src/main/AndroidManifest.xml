@@ -535,6 +535,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

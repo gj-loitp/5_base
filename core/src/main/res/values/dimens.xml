@@ -78,4 +78,6 @@
     <dimen name="w_250">250dp</dimen>
 
     <dimen name="animated_expandable_edit_text_expanded_height">35dp</dimen>
+    <dimen name="default_width">72dp</dimen>
+    <dimen name="default_height">32dp</dimen>
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/padding_5">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <vn.loitp.views.switchtoggle.toggle.LabeledSwitch
+                android:id="@+id/ls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="14sp"
+                app:colorBorder="@color/DeepPink"
+                app:on="false" />
+
+            <vn.loitp.views.switchtoggle.toggle.LabeledSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="14sp"
+                app:colorBorder="@color/DarkCyan"
+                app:colorDisabled="@color/Gray"
+                app:colorOff="@color/Black"
+                app:colorOn="@color/Red"
+                app:on="true" />
+
+            <vn.loitp.views.switchtoggle.toggle.LabeledSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="14sp"
+                app:colorBorder="@color/Blue"
+                app:on="false" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
