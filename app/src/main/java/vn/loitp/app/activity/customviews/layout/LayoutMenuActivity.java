@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActiv
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -32,6 +33,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         findViewById(R.id.bt_elastic_drag_dismiss_layout).setOnClickListener(this);
         findViewById(R.id.bt_circular_view).setOnClickListener(this);
         findViewById(R.id.bt_auto_linear_layout).setOnClickListener(this);
+        findViewById(R.id.bt_swipeable_layout).setOnClickListener(this);
     }
 
     @Override
@@ -84,6 +86,9 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_auto_linear_layout:
                 intent = new Intent(activity, AutoLinearLayoutActivity.class);
+                break;
+            case R.id.bt_swipeable_layout:
+                intent = new Intent(activity, SwipeableLayoutActivity.class);
                 break;
         }
         if (intent != null) {
