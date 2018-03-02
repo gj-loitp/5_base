@@ -544,6 +544,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
