@@ -37,6 +37,12 @@
                 android:text="ExoPlayer2" />
 
             <Button
+                android:id="@+id/bt_exoplayer2_fullscreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ExoPlayer2 FullScreen" />
+
+            <Button
                 android:id="@+id/bt_exoplayer2_with_dragpanel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

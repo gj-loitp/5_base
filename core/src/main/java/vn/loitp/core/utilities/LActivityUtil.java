@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
@@ -130,5 +131,11 @@ public class LActivityUtil {
 
     public static void diagonal(Context context) {
         ((Activity) context).overridePendingTransition(R.anim.diagonal_right_enter, R.anim.diagonal_right_exit);
+    }
+
+    public static void toggleFullScreen(Activity activity) {
+        WindowManager.LayoutParams attrs = activity.getWindow().getAttributes();
+        attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        activity.getWindow().setAttributes(attrs);
     }
 }

@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel.ExoPlayer2WithDraggablePanelActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity;
@@ -25,6 +26,7 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
         findViewById(R.id.bt_exoplayer2_with_dragpanel).setOnClickListener(this);
         findViewById(R.id.bt_exoplayer2_with_dragpanel_2).setOnClickListener(this);
         findViewById(R.id.bt_exoplayer2_with_dragpanel_3).setOnClickListener(this);
+        findViewById(R.id.bt_exoplayer2_fullscreen).setOnClickListener(this);
     }
 
     @Override
@@ -65,6 +67,9 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
                 break;
             case R.id.bt_exoplayer2_with_dragpanel_3:
                 intent = new Intent(activity, ExoPlayer2WithDraggablePanel3Activity.class);
+                break;
+            case R.id.bt_exoplayer2_fullscreen:
+                intent = new Intent(activity, ExoPlayer2FullScreenActivity.class);
                 break;
         }
         if (intent != null) {

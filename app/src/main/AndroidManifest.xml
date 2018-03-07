@@ -547,6 +547,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
