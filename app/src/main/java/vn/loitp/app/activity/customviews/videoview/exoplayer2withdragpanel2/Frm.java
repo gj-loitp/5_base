@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2;
 
 import android.app.Dialog;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -97,31 +98,31 @@ public class Frm extends BaseFragment implements View.OnClickListener {
         tv = (TextView) view.findViewById(R.id.tv);
         draggableView = (DraggableView) view.findViewById(R.id.draggable_view);
 
-        draggableView.setClickToMaximizeEnabled(false);
+        draggableView.setClickToMaximizeEnabled(true);
         draggableView.setClickToMinimizeEnabled(false);
-        draggableView.setHorizontalAlphaEffectEnabled(true);
-        draggableView.setTouchEnabled(true);
+        draggableView.setHorizontalAlphaEffectEnabled(false);
+        draggableView.setTouchEnabled(false);
 
         draggableView.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
-                LLog.d(TAG, "onMaximized");
+                //LLog.d(TAG, "onMaximized");
             }
 
             @Override
             public void onMinimized() {
-                LLog.d(TAG, "onMinimized");
+                //LLog.d(TAG, "onMinimized");
             }
 
             @Override
             public void onClosedToLeft() {
-                LLog.d(TAG, "onClosedToLeft");
+                //LLog.d(TAG, "onClosedToLeft");
                 releaseVideo();
             }
 
             @Override
             public void onClosedToRight() {
-                LLog.d(TAG, "onClosedToRight");
+                //LLog.d(TAG, "onClosedToRight");
                 releaseVideo();
             }
         });
@@ -139,14 +140,16 @@ public class Frm extends BaseFragment implements View.OnClickListener {
     private void initFullscreenDialog() {
         mFullScreenDialog = new Dialog(getActivity(), android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
             public void onBackPressed() {
-                if (mExoPlayerFullscreen)
+                if (mExoPlayerFullscreen) {
                     closeFullscreenDialog();
+                }
                 super.onBackPressed();
             }
         };
     }
 
     private void openFullscreenDialog() {
+        LLog.d(TAG, "openFullscreenDialog");
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
         mFullScreenDialog.addContentView(mExoPlayerView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_skrink));
@@ -154,8 +157,8 @@ public class Frm extends BaseFragment implements View.OnClickListener {
         mFullScreenDialog.show();
     }
 
-
     private void closeFullscreenDialog() {
+        LLog.d(TAG, "closeFullscreenDialog");
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
         setSizePlayer();
         ((FrameLayout) view.findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
@@ -164,8 +167,8 @@ public class Frm extends BaseFragment implements View.OnClickListener {
         mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_expand));
     }
 
-
     private void initFullscreenButton() {
+        LLog.d(TAG, "initFullscreenButton");
         PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
         mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
         mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
@@ -216,16 +219,16 @@ public class Frm extends BaseFragment implements View.OnClickListener {
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
                         break;
                     case Player.STATE_ENDED:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
                         break;
                     case Player.STATE_IDLE:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
                         break;
                     case Player.STATE_READY:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
                         break;
                     default:
                         break;

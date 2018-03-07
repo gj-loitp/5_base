@@ -23,6 +23,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.data.EventBusData;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
@@ -92,13 +93,16 @@ public class FrmContainer extends BaseFragment {
 
         //draggablePanel.setXScaleFactor(xScaleFactor);
         //draggablePanel.setYScaleFactor(yScaleFactor);
-        draggablePanel.setTopViewHeight(600);//px
+
+        int widthScreen = LDisplayUtils.getScreenW(getActivity());
+        int heightOfVideo = widthScreen * 9 / 16;
+
+        draggablePanel.setTopViewHeight(heightOfVideo);//px
         draggablePanel.setEnableHorizontalAlphaEffect(false);
         //draggablePanel.setTopFragmentMarginRight(topViewMarginRight);
         //draggablePanel.setTopFragmentMarginBottom(topViewMargnBottom);
-        draggablePanel.setClickToMaximizeEnabled(false);
+        draggablePanel.setClickToMaximizeEnabled(true);
         draggablePanel.setClickToMinimizeEnabled(false);
-
         draggablePanel.initializeView();
     }
 
