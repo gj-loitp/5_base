@@ -2,6 +2,9 @@ package vn.loitp.core.utilities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -137,5 +140,28 @@ public class LActivityUtil {
         WindowManager.LayoutParams attrs = activity.getWindow().getAttributes();
         attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN;
         activity.getWindow().setAttributes(attrs);
+    }
+
+    public static void toggleScreenOritation(Activity activity) {
+        int s = getScreenOrientation(activity);
+        if (s == Configuration.ORIENTATION_LANDSCAPE) {
+            LLog.d("fuck", "ORIENTATION_LANDSCAPE->SCREEN_ORIENTATION_PORTRAIT");
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+        } else if (s == Configuration.ORIENTATION_PORTRAIT) {
+            LLog.d("fuck", "!ORIENTATION_LANDSCAPE->SCREEN_ORIENTATION_LANDSCAPE");
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        }
+    }
+
+    public static void changeScreenPortrait(Activity activity) {
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    public static void changeScreenLandscapeo(Activity activity) {
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    }
+
+    public static int getScreenOrientation(Activity activity) {
+        return activity.getResources().getConfiguration().orientation;
     }
 }

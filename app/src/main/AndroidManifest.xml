@@ -549,7 +549,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="sensor" />
     </application>
 
 </manifest>

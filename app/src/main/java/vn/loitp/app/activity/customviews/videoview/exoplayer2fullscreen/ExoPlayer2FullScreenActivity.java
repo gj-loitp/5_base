@@ -1,10 +1,13 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -38,6 +41,7 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
 
 public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.OnClickListener {
@@ -103,16 +107,16 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
                         break;
                     case Player.STATE_ENDED:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
                         break;
                     case Player.STATE_IDLE:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
                         break;
                     case Player.STATE_READY:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
                         break;
                     default:
                         break;
@@ -144,6 +148,7 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
 
     @Override
     protected void onResume() {
+        LLog.d(TAG, "onResume");
         super.onResume();
         if (mExoPlayerView == null) {
             mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
@@ -190,8 +195,31 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
                 initExoPlayer();
                 break;
             case R.id.bt_toggle_fullscreen:
-                LActivityUtil.toggleFullScreen(activity);
+                //LActivityUtil.toggleFullScreen(activity);
+                //LActivityUtil.toggleScreenOritation(activity);
+                //LActivityUtil.changeScreenLandscapeo(activity);
                 break;
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Checking the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //First Hide other objects (listview or recyclerview), better hide them using Gone.
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mExoPlayerView.getLayoutParams();
+            params.width = params.MATCH_PARENT;
+            params.height = params.MATCH_PARENT;
+            mExoPlayerView.setLayoutParams(params);
+            LLog.d(TAG, "ORIENTATION_LANDSCAPE");
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            //unhide your objects here.
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mExoPlayerView.getLayoutParams();
+            params.width = params.MATCH_PARENT;
+            params.height = LDisplayUtils.getDialogW(activity) * 9 / 16;
+            mExoPlayerView.setLayoutParams(params);
+            LLog.d(TAG, "ORIENTATION_PORTRAIT");
         }
     }
 }
