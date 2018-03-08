@@ -157,7 +157,7 @@ public class LActivityUtil {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    public static void changeScreenLandscapeo(Activity activity) {
+    public static void changeScreenLandscape(Activity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
