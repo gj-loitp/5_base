@@ -23,7 +23,7 @@
                 <com.google.android.exoplayer2.ui.SimpleExoPlayerView
                     android:id="@+id/exoplayer"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center" />
 
             </FrameLayout>
@@ -49,14 +49,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="MP3"
-                android:textSize="@dimen/txt_18" />
-
-            <Button
-                android:id="@+id/bt_toggle_fullscreen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Toggle Fullscreen"
                 android:textSize="@dimen/txt_18" />
         </LinearLayout>
     </ScrollView>

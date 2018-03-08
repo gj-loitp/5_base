@@ -547,10 +547,14 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
             android:screenOrientation="portrait" />
-        <activity
+        <!--<activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="sensor" />
+            android:screenOrientation="sensor" />-->
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -29,6 +30,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -48,14 +50,39 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
     private SimpleExoPlayerView mExoPlayerView;
     private MediaSource mVideoSource;
     private TextView tv;
+    private ImageView mFullScreenIcon;
+    private FrameLayout mFullScreenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_m3u8).setOnClickListener(this);
         findViewById(R.id.bt_mp3).setOnClickListener(this);
-        findViewById(R.id.bt_toggle_fullscreen).setOnClickListener(this);
         tv = (TextView) findViewById(R.id.tv);
+
+        if (mExoPlayerView == null) {
+            mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
+            playM3u8();
+            //playMp3();
+        }
+        initExoPlayer();
+
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mExoPlayerView.getLayoutParams();
+        params.width = params.MATCH_PARENT;
+        params.height = LDisplayUtils.getDialogW(activity) * 10 / 16;
+        mExoPlayerView.setLayoutParams(params);
+
+        PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
+        mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
+        mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        mFullScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LLog.d(TAG, "onClick mFullScreenButton");
+                LActivityUtil.toggleScreenOritation(activity);
+                LActivityUtil.toggleFullScreen(activity);
+            }
+        });
     }
 
     @Override
@@ -79,6 +106,7 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
     }
 
     private void initExoPlayer() {
+        LLog.d(TAG, "initExoPlayer");
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -146,18 +174,6 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
     }
 
 
-    @Override
-    protected void onResume() {
-        LLog.d(TAG, "onResume");
-        super.onResume();
-        if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
-            playM3u8();
-            //playMp3();
-        }
-        initExoPlayer();
-    }
-
     private void playM3u8() {
         String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
         tv.setText(streamUrl);
@@ -184,20 +200,16 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
 
     @Override
     public void onClick(View v) {
-        mExoPlayerView.getPlayer().release();
         switch (v.getId()) {
             case R.id.bt_m3u8:
+                mExoPlayerView.getPlayer().release();
                 playM3u8();
                 initExoPlayer();
                 break;
             case R.id.bt_mp3:
+                mExoPlayerView.getPlayer().release();
                 playMp3();
                 initExoPlayer();
-                break;
-            case R.id.bt_toggle_fullscreen:
-                //LActivityUtil.toggleFullScreen(activity);
-                //LActivityUtil.toggleScreenOritation(activity);
-                //LActivityUtil.changeScreenLandscapeo(activity);
                 break;
         }
     }
@@ -221,5 +233,11 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
             mExoPlayerView.setLayoutParams(params);
             LLog.d(TAG, "ORIENTATION_PORTRAIT");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mExoPlayerView.getPlayer().release();
+        super.onDestroy();
     }
 }
