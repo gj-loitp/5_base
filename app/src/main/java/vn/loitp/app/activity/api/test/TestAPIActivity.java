@@ -35,15 +35,15 @@ public class TestAPIActivity extends BaseActivity {
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RestClient.init(getString(R.string.webService_URL), "");//TODO truyen token
+                RestClient.init(getString(R.string.webService_URL), "");
                 testCategoryGet();
             }
         });
         findViewById(R.id.bt_4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RestClient.init(getString(R.string.wtt_URL), "BIH80NYmucZwCoqPvrdI3ZU9ATB909Gi-1512972145301");
-                test();
+                RestClient.init(getString(R.string.wtt_URL), "zHiQCup9CzTr1eP5ZQsbPK5sYNYa8kRL-1517457089350");
+                testWTT();
             }
         });
         findViewById(R.id.bt_5).setOnClickListener(new View.OnClickListener() {
@@ -58,6 +58,13 @@ public class TestAPIActivity extends BaseActivity {
             public void onClick(View v) {
                 RestClient.init(getString(R.string.uiza_URL), "");
                 testUizaV2();
+            }
+        });
+        findViewById(R.id.bt_7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestClient.init(getString(R.string.uiza_stag_URL), "zHiQCup9CzTr1eP5ZQsbPK5sYNYa8kRL-1517457089350");
+                testUizaStag();
             }
         });
     }
@@ -128,13 +135,13 @@ public class TestAPIActivity extends BaseActivity {
         });
     }
 
-    private void test() {
-        LLog.d(TAG, "testCategoryGet");
+    private void testWTT() {
+        LLog.d(TAG, "testWTT");
         WTTService service = RestClient.createService(WTTService.class);
         subscribe(service.getMetadatList(100), new ApiSubscriber<Object>() {
             @Override
             public void onSuccess(Object result) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "testWTT onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
             }
 
@@ -162,13 +169,31 @@ public class TestAPIActivity extends BaseActivity {
     }
 
     private void testUizaV2() {
+        LLog.d(TAG, "testUizaV2");
         UizaService service = RestClient.createService(UizaService.class);
         String accessKeyId = "BNEU77HJAPWYVIF1DEU5";
         String secretKeyId = "8yro1j369cCj6VR7cD2kzQbzJ2vDiswt7jxhtGjp";
         subscribe(service.auth(accessKeyId, secretKeyId), new ApiSubscriber<Object>() {
             @Override
             public void onSuccess(Object result) {
-                LLog.d(TAG, "setPoster onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "testUizaV2 onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LUIUtil.printBeautyJson(result, tv);
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                handleException(e);
+            }
+        });
+    }
+
+    private void testUizaStag() {
+        LLog.d(TAG, "testUizaStag");
+        UizaService service = RestClient.createService(UizaService.class);
+        subscribe(service.getMetadatList(), new ApiSubscriber<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                LLog.d(TAG, "testUizaStag onSuccess " + LSApplication.getInstance().getGson().toJson(result));
                 LUIUtil.printBeautyJson(result, tv);
             }
 

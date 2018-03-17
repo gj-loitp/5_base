@@ -47,6 +47,6 @@ import vn.loitp.restapi.livestar.corev3.api.model.v3.startlive.StartLive;
  */
 
 public interface WTTService {
-    @GET("/api/data/v1/metadata/list")
+    @POST("/api/data/v1/metadata/list")
     Observable<Object> getMetadatList(@Query("number") int number);
 }

@@ -55,6 +55,12 @@
                 android:layout_height="wrap_content"
                 android:text="Test Uiza V2" />
 
+            <Button
+                android:id="@+id/bt_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test Uiza Stag" />
+
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
