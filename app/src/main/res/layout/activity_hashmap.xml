@@ -4,45 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <Button
+                android:id="@+id/bt_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add" />
+
+            <Button
+                android:id="@+id/bt_get_key_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get key=0" />
+
+            <Button
+                android:id="@+id/bt_remove_key_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove key=0" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Function Menu"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
-            <Button
-                android:id="@+id/bt_gesto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Gesto" />
-
-            <Button
-                android:id="@+id/bt_hashmap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hashmap" />
-
-            <Button
-                android:id="@+id/bt_simple_finger_gesture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Simple finger gestures" />
-
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_14" />
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
 </RelativeLayout>
 
