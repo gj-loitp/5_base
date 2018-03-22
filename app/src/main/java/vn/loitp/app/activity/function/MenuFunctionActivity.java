@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
 import vn.loitp.app.activity.function.hashmap.HashMapActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
@@ -22,6 +23,7 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.bt_gesto).setOnClickListener(this);
         findViewById(R.id.bt_simple_finger_gesture).setOnClickListener(this);
         findViewById(R.id.bt_hashmap).setOnClickListener(this);
+        findViewById(R.id.bt_drag_drop_sample).setOnClickListener(this);
     }
 
     @Override
@@ -56,6 +58,9 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.bt_hashmap:
                 intent = new Intent(activity, HashMapActivity.class);
+                break;
+            case R.id.bt_drag_drop_sample:
+                intent = new Intent(activity, DragDropSampleActivity.class);
                 break;
         }
         if (intent != null) {

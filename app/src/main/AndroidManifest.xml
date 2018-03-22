@@ -564,6 +564,9 @@
         <activity
             android:name="vn.loitp.app.activity.function.hashmap.HashMapActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
