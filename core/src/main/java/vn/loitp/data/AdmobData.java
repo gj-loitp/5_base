@@ -1,5 +1,7 @@
 package vn.loitp.data;
 
+import vn.loitp.core.utilities.LLog;
+
 /**
  * Created by www.muathu@gmail.com on 12/26/2017.
  */
@@ -18,7 +20,8 @@ public class AdmobData {
 
     public String getIdAdmobFull() {
         if (idAdmobFull == null || idAdmobFull.isEmpty()) {
-            throw new NullPointerException("idAdmobFull cannot be null or empty");
+            LLog.e(getClass().getSimpleName(), "idAdmobFull == null || idAdmobFull.isEmpty()");
+            return "";
         }
         return idAdmobFull;
     }
