@@ -3,18 +3,12 @@ package vn.loitp.app.app;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
 
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
-import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.utils.util.Utils;
 
 //done
 //TODO change url flickr toolbar
