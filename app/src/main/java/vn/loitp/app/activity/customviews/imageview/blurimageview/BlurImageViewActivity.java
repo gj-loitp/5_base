@@ -15,7 +15,11 @@ public class BlurImageViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         ImageView imageView = (ImageView) findViewById(R.id.iv);
-        BlurImage.with(getApplicationContext()).load(R.drawable.iv).intensity(20).Async(true).into(imageView);
+        BlurImage.with(getApplicationContext())
+                .load(R.drawable.iv)
+                .intensity(20)
+                .Async(true)
+                .into(imageView);
 
         /*
         method (load) :- load(int resource), load(Bitmap bitmap)
