@@ -8,6 +8,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
+import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
@@ -26,6 +27,7 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.bt_video).setOnClickListener(this);
         findViewById(R.id.bt_sound).setOnClickListener(this);
         findViewById(R.id.bt_text_to_speech).setOnClickListener(this);
+        findViewById(R.id.bt_floating_widget).setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +71,9 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.bt_text_to_speech:
                 intent = new Intent(activity, TextToSpeechActivity.class);
+                break;
+            case R.id.bt_floating_widget:
+                intent = new Intent(activity, FloatingWidgetActivity.class);
                 break;
 
         }

@@ -37,6 +37,12 @@
                 android:text="Ebook With Realm" />
 
             <Button
+                android:id="@+id/bt_floating_widget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Floating Widget like Facebook Chat Head" />
+
+            <Button
                 android:id="@+id/bt_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

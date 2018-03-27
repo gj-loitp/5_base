@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name="vn.loitp.app.app.LSApplication"
@@ -567,6 +568,14 @@
         <activity
             android:name="vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
