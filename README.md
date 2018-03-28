@@ -132,3 +132,4 @@ There are some types:
  - TYPE\_ACTIVITY\_TRANSITION_WINDMILL
  - TYPE\_ACTIVITY\_TRANSITION_DIAGONAL
  - TYPE\_ACTIVITY\_TRANSITION_SPIN
+![alt text](https://lh3.googleusercontent.com/7AqiVlPQ_QXmSJpDHWrW-fgEY5isguc0OBiSUb8xyAQ7fskOdLy9re92HicbbKeNkioTwEWsD1w=w246-h437-no)
