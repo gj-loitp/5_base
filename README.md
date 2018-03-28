@@ -135,3 +135,13 @@ There are some types:
  - TYPE\_ACTIVITY\_TRANSITION_SPIN
  
 ![alt text](https://lh3.googleusercontent.com/OvDbWUeUC_vc12SxJwK2nMm6ke8ebt0PlAMcjKzuOznYkejFw7Gft2BY0YEB2xrH4DdTo_Uk76s=w248-h437-no)
+
+
+# Animation views:
+
+    LAnimationUtil.play(view, listAnim.get(position));
+
+Ex:
+
+    LAnimationUtil.play(tvAnim, Techniques.Pulse);
+!\[alt text\](https://goo.gl/e5Grdp)
