@@ -110,6 +110,6 @@ Open manifest, put this code in Application tag
         Observable<Void> deleteSchedule(@Query("scheduleId") String id);  
       
         @Multipart  
-     @POST("v1/room/banner")  
+        @POST("v1/room/banner")  
         Observable<Room> updateBanner(@Part MultipartBody.Part file);  
     }
