@@ -576,6 +576,13 @@
             android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity"
+            android:screenOrientation="portrait" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
