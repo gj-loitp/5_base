@@ -1,7 +1,7 @@
 package testlibuiza.uiza.com.dummy.app;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -11,4 +11,7 @@ import rx.Observable;
 public interface APIServices {
     @GET("/2.2/questions?order=desc&sort=votes&site=stackoverflow&tagged=android&filter=withbody")
     Observable<Object> test();
+
+    @GET("/2.2/questions/{id}/answers?order=desc&sort=votes&site=stackoverflow")
+    Observable<Object> test2(@Path("id") String questionId);
 }
