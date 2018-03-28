@@ -1,6 +1,6 @@
 # Welcome to Basemaster
 
-**Only import this lib, you can use retrofit2, all custom views, utils...
+**Only import this lib, you can use retrofit2, all custom views, utils, animations, ads...
 Download this app demo:**
 https://play.google.com/store/apps/details?id=loitp.basemaster
 
