@@ -25,7 +25,6 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
-        
         findViewById(R.id.bt_api).setOnClickListener(this);
         findViewById(R.id.bt_animation).setOnClickListener(this);
         findViewById(R.id.bt_custom_view).setOnClickListener(this);
