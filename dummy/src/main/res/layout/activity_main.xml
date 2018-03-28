@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context="testlibuiza.uiza.com.dummy.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
