@@ -7,13 +7,16 @@
              ...  
              maven { url 'https://jitpack.io' }  
           }   }
-
- 
-     
 **Step 2. Add the dependency**  
 
+    defaultConfig {  
+      ...  
+      multiDexEnabled  true  
+    }
+    ...
     dependencies {  
-       compile 'com.github.tplloi:basemaster:1.0.3'  
+      compile 'com.github.tplloi:basemaster:1.0.3'  
+      compile 'com.android.support:multidex:1.0.3'  
     }
     
 **Step 3. create class LSApplication**  
@@ -43,7 +46,15 @@
             return instance.getApplicationContext();  
         }  
     }
+**Step 4.  Edit manifest** 
+Open manifest, put this code in Application tag
 
+    <application  
+      android:name=".app.LSApplication"  
+      ...>  
+        <activity ,,,
+        </activity>  
+    </application>
 
 # Call API example:
 **Create interface**  
@@ -52,7 +63,7 @@
         @GET("/2.2/questions?order=desc&sort=votes&site=stackoverflow&tagged=android&filter=withbody")  
         Observable<Object> test(); 
     }
-**Function* 
+**Function** 
 
     private void testAPI() {  
         RestClient.init("https://api.stackexchange.com");  
@@ -60,12 +71,12 @@
         APIServices service = RestClient.createService(APIServices.class);  
         subscribe(service.test(), new ApiSubscriber<Object>() {  
             @Override  
-            public void onSuccess(Object result) {  
+      public void onSuccess(Object result) {  
                 LLog.d(TAG, "testAPI onSuccess " \+ LSApplication.getInstance().getGson().toJson(result));  
             }  
       
             @Override  
-            public void onFail(Throwable e) {  
+      public void onFail(Throwable e) {  
                 handleException(e);  
             }  
         });  
