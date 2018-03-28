@@ -118,6 +118,7 @@ Open manifest, put this code in Application tag
 # Activity transition:
 
     ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
+put above code after startActivity(); or onBackPress();
 
 There are some types:
 
