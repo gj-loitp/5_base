@@ -30,7 +30,7 @@ https://play.google.com/store/apps/details?id=loitp.basemaster
         private Gson gson;  
       
         @Override  
-      public void onCreate() {  
+        public void onCreate() {  
             super.onCreate();  
             instance = this;  
             if (gson == null) {  
@@ -75,12 +75,12 @@ Open manifest, put this code in Application tag
         APIServices service = RestClient.createService(APIServices.class);  
         subscribe(service.test(), new ApiSubscriber<Object>() {  
             @Override  
-      public void onSuccess(Object result) {  
+            public void onSuccess(Object result) {  
                 LLog.d(TAG, "testAPI onSuccess " \+ LSApplication.getInstance().getGson().toJson(result));  
             }  
       
             @Override  
-      public void onFail(Throwable e) {  
+            public void onFail(Throwable e) {  
                 handleException(e);  
             }  
         });  
