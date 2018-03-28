@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.android.library'
-
 apply plugin: 'android-apt'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
@@ -67,7 +65,6 @@ android {
 repositories {
     maven { url "https://jitpack.io" }
     mavenCentral()
-    //maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
@@ -76,5 +73,4 @@ dependencies {
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     // Realm
     compile 'io.realm:realm-android:0.82.1'
-
 }
