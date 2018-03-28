@@ -66,7 +66,7 @@ public class EventBusData {
         EventBus.getDefault().post(connectEvent);
     }*/
 
-    public  class ClickVideoEvent {
+    public class ClickVideoEvent {
         private Movie movie;
         private int position;
 
@@ -87,7 +87,7 @@ public class EventBusData {
         }
     }
 
-    public  void sendClickVideoEvent(Movie movie, int position) {
+    public void sendClickVideoEvent(Movie movie, int position) {
         ClickVideoEvent clickVideoEvent = new ClickVideoEvent();
         clickVideoEvent.setMovie(movie);
         clickVideoEvent.setPosition(position);
