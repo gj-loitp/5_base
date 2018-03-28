@@ -88,7 +88,7 @@ Open manifest, put this code in Application tag
     }
 **Expand interface**
 
-        public interface APIServices {  
+    public interface APIServices {  
         @GET("/2.2/questions?order=desc&sort=votes&site=stackoverflow&tagged=android&filter=withbody")  
         Observable<Object> test();  
       
