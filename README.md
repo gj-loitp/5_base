@@ -133,4 +133,4 @@ There are some types:
  - TYPE\_ACTIVITY\_TRANSITION_DIAGONAL
  - TYPE\_ACTIVITY\_TRANSITION_SPIN
  
-![alt text](https://lh3.googleusercontent.com/7AqiVlPQ_QXmSJpDHWrW-fgEY5isguc0OBiSUb8xyAQ7fskOdLy9re92HicbbKeNkioTwEWsD1w=w246-h437-no)
+![alt text](https://lh3.googleusercontent.com/OvDbWUeUC_vc12SxJwK2nMm6ke8ebt0PlAMcjKzuOznYkejFw7Gft2BY0YEB2xrH4DdTo_Uk76s=w248-h437-no)
