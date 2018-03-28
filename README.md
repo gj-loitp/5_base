@@ -85,3 +85,31 @@ Open manifest, put this code in Application tag
             }  
         });  
     }
+**Expand interface**
+
+        public interface APIServices {  
+        @GET("/2.2/questions?order=desc&sort=votes&site=stackoverflow&tagged=android&filter=withbody")  
+        Observable<Object> test();  
+      
+        @FormUrlEncoded  
+	    @POST("/api/public/v1/auth/credentical")  
+        Observable<Object> auth(@Field("accessKeyId") String accessKeyId, @Field("secretKeyId") String secretKeyId);  
+      
+        @POST("/api/data/v1/metadata/list")  
+        Observable<Object> getMetadatList();  
+      
+        @GET("v1/app/poster")  
+        Observable<GetPoster\[\]>  
+        getPoster(@Query("number") int number);  
+      
+        @FormUrlEncoded  
+        @PUT("v1/room/follow")  
+        Observable<FollowIdol> followIdol(@Field("roomId") String roomId);  
+      
+        @DELETE("v1/room/schedule")  
+        Observable<Void> deleteSchedule(@Query("scheduleId") String id);  
+      
+        @Multipart  
+     @POST("v1/room/banner")  
+        Observable<Room> updateBanner(@Part MultipartBody.Part file);  
+    }

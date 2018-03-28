@@ -125,7 +125,6 @@ public interface LSService {
     @POST("v1/auth/verify-reset-password")
     Observable<ResetPassOTP> verifyResetPassword(@Field("phone") String phone, @Field("code") String code);
 
-
     @GET("v1/user/follower")
     Observable<RoomResult> getFollower(@Query("page") int page, @Query("userId") String userId);
 

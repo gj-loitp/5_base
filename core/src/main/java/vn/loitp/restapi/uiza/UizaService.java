@@ -16,7 +16,6 @@ public interface UizaService {
     @POST("/api/public/v1/auth/credentical")
     Observable<Object> auth(@Field("accessKeyId") String accessKeyId, @Field("secretKeyId") String secretKeyId);
 
-
     @POST("/api/data/v1/metadata/list")
     Observable<Object> getMetadatList();
 }
