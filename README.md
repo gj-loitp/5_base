@@ -1,12 +1,12 @@
-# basemaster
-Step 1. Add the JitPack repository to your build file
+**Step 1. Add the JitPack repository to your build file**
 allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
-	}
-Step 2. Add the dependency
+}
+	
+**Step 2. Add the dependency**
 dependencies {
-	        compile 'com.github.tplloi:basemaster:1.0.3'
+	compile 'com.github.tplloi:basemaster:1.0.3'
 }
