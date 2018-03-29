@@ -62,6 +62,17 @@ Open manifest, put this code in Application tag
     </application>
 
 # Call API example:
+**You must extend your activity/fragment like this**  
+
+    public class YourActivity extends BaseActivity{
+    ...
+    }
+
+or
+
+    public class YourFragment extends BaseFragment{
+    }
+
 **Create interface**  
 
     public interface APIServices {  
