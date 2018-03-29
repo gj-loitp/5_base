@@ -25,7 +25,7 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
-        
+
         findViewById(R.id.bt_api).setOnClickListener(this);
         findViewById(R.id.bt_animation).setOnClickListener(this);
         findViewById(R.id.bt_custom_view).setOnClickListener(this);
@@ -36,6 +36,8 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.bt_more_app).setOnClickListener(this);
         findViewById(R.id.bt_database).setOnClickListener(this);
         findViewById(R.id.bt_pattern).setOnClickListener(this);
+        findViewById(R.id.bt_chat).setOnClickListener(this);
+        findViewById(R.id.bt_github).setOnClickListener(this);
     }
 
     @Override
@@ -91,6 +93,12 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.bt_pattern:
                 intent = new Intent(activity, MenuPatternActivity.class);
+                break;
+            case R.id.bt_chat:
+                LSocialUtil.chatMessenger(activity);
+                break;
+            case R.id.bt_github:
+                LSocialUtil.openUrlInBrowser(activity, "https://github.com/tplloi/basemaster");
                 break;
         }
         if (intent != null) {

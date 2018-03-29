@@ -142,4 +142,13 @@ public class LSocialUtil {
 
         }
     }*/
+
+    public static void openUrlInBrowser(Context context, String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+            LActivityUtil.tranIn(context);
+        }
+    }
 }

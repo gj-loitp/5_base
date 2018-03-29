@@ -83,6 +83,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="More App" />
+
+            <Button
+                android:id="@+id/bt_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chat with dev" />
+
+            <Button
+                android:id="@+id/bt_github"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Github" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
