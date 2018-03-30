@@ -7,8 +7,8 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.dialog.imersivedialog.ImmersiveDialogFragment;
 
 public class FullScreenActivity extends BaseActivity implements View.OnClickListener {
 
@@ -56,11 +56,6 @@ public class FullScreenActivity extends BaseActivity implements View.OnClickList
     }
 
     private void showDialog() {
-        LDialogUtil.showDialog1(activity, "Hello", "This is a message", "OK", new LDialogUtil.Callback1() {
-            @Override
-            public void onClick1() {
-                //do nothing
-            }
-        });
+        new ImmersiveDialogFragment().showImmersive(this);
     }
 }
