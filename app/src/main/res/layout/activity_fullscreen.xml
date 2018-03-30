@@ -22,6 +22,12 @@
                 android:layout_height="wrap_content"
                 android:text="Toggle fullscreen" />
 
+            <Button
+                android:id="@+id/bt_show_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show dialog without show system bar if fullscreen" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 
 public class FullScreenActivity extends BaseActivity implements View.OnClickListener {
@@ -15,6 +16,7 @@ public class FullScreenActivity extends BaseActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_toggle_fullscreen).setOnClickListener(this);
+        findViewById(R.id.bt_show_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,18 @@ public class FullScreenActivity extends BaseActivity implements View.OnClickList
                 isFullScreen = !isFullScreen;
                 LScreenUtil.toggleFullscreen(activity, isFullScreen);
                 break;
+            case R.id.bt_show_dialog:
+                showDialog();
+                break;
         }
+    }
+
+    private void showDialog() {
+        LDialogUtil.showDialog1(activity, "Hello", "This is a message", "OK", new LDialogUtil.Callback1() {
+            @Override
+            public void onClick1() {
+                //do nothing
+            }
+        });
     }
 }
