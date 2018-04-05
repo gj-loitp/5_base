@@ -118,6 +118,11 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     }
 
     @Override
+    public void onRewardedVideoCompleted() {
+        LLog.d(TAG, "onRewardedVideoCompleted");
+    }
+
+    @Override
     public void onRewardedVideoAdLoaded() {
         LLog.d(TAG, "onRewardedVideoAdLoaded");
         avLoadingIndicatorView.smoothToHide();

@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 
+import com.emoiluj.doubleviewpager.DoubleViewPager;
+import com.emoiluj.doubleviewpager.DoubleViewPagerAdapter;
+
 import java.util.ArrayList;
 
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
-import vn.loitp.views.viewpager.doubleviewpager.lib.DoubleViewPager;
-import vn.loitp.views.viewpager.doubleviewpager.lib.DoubleViewPagerAdapter;
 
 public class DoubleViewPagerActivity extends BaseActivity {
     private DoubleViewPager viewpager;

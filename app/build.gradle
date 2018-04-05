@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'me.tatarka.retrolambda'
 
 buildscript {
     repositories {
@@ -9,15 +9,15 @@ buildscript {
         //maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        //classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         //classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "loitp.basemaster"
@@ -30,6 +30,11 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
 
     signingConfigs {
@@ -49,10 +54,16 @@ android {
         }
     }
 
-    applicationVariants.all { variant ->
+    /*applicationVariants.all { variant ->
         variant.outputs.each { output ->
             output.outputFile = new File(
                     output.outputFile.parent, "BaseMaster_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk")
+        }
+    }*/
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "BaseMaster_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
         }
     }
 
@@ -69,7 +80,8 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':core')
+    //compile project(':core')
+    implementation project(':core')
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     // Realm
     compile 'io.realm:realm-android:0.82.1'

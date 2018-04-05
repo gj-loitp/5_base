@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.database.realm;
 
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 

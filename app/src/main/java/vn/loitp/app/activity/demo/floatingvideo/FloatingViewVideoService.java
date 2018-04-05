@@ -237,6 +237,11 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
             }
 
             @Override
+            public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+
+            }
+
+            @Override
             public void onPlayerError(ExoPlaybackException error) {
                 LLog.d(TAG, "Listener-onPlayerError...");
                 player.stop();
@@ -245,13 +250,18 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
             }
 
             @Override
-            public void onPositionDiscontinuity() {
-                LLog.d(TAG, "Listener-onPositionDiscontinuity...");
+            public void onPositionDiscontinuity(int reason) {
+
             }
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
                 LLog.d(TAG, "Listener-onPlaybackParametersChanged...");
+            }
+
+            @Override
+            public void onSeekProcessed() {
+
             }
         });
 

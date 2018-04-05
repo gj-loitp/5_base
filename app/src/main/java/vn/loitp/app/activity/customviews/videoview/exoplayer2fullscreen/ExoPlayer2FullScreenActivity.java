@@ -157,18 +157,28 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
             }
 
             @Override
+            public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+
+            }
+
+            @Override
             public void onPlayerError(ExoPlaybackException error) {
                 //do nothing
             }
 
             @Override
-            public void onPositionDiscontinuity() {
-                //do nothing
+            public void onPositionDiscontinuity(int reason) {
+
             }
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
                 //do nothing
+            }
+
+            @Override
+            public void onSeekProcessed() {
+
             }
         });
     }
