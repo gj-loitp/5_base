@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlaye
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel.ExoPlayer2WithDraggablePanelActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -27,6 +28,7 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
         findViewById(R.id.bt_exoplayer2_with_dragpanel_2).setOnClickListener(this);
         findViewById(R.id.bt_exoplayer2_with_dragpanel_3).setOnClickListener(this);
         findViewById(R.id.bt_exoplayer2_fullscreen).setOnClickListener(this);
+        findViewById(R.id.bt_exoplayer2_with_preview_seekbar).setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +72,9 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
                 break;
             case R.id.bt_exoplayer2_fullscreen:
                 intent = new Intent(activity, ExoPlayer2FullScreenActivity.class);
+                break;
+            case R.id.bt_exoplayer2_with_preview_seekbar:
+                intent = new Intent(activity, ExoPlayer2WithPreviewSeekbar.class);
                 break;
         }
         if (intent != null) {

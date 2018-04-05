@@ -585,8 +585,12 @@
             android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
             android:enabled="true"
             android:exported="false" />
+
         <activity
             android:name="vn.loitp.app.activity.function.fullscreen.FullScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar"
             android:screenOrientation="portrait" />
     </application>
 
