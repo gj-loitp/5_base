@@ -592,6 +592,8 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar"
             android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity" />
     </application>
 
 </manifest>

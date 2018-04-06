@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -45,6 +46,7 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.LToast;
 
 public class ExoPlayer2Activity extends BaseActivity implements View.OnClickListener {
     private final String STATE_RESUME_WINDOW = "resumeWindow";
@@ -137,6 +139,10 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
         PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
         mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
         mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        if (mFullScreenIcon == null || mFullScreenButton == null) {
+            LToast.show(activity, "initFullscreenButton mFullScreenIcon == null || mFullScreenButton == null -> change exo_playback_control_view_2.xml to exo_playback_control_view.xml will work", Toast.LENGTH_LONG);
+            return;
+        }
         mFullScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

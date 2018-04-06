@@ -49,8 +49,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
     compile 'com.google.android.gms:play-services-plus:12.0.1'
-    compile 'com.google.android.exoplayer:exoplayer:2.6.1'
-    compile 'com.google.android.exoplayer:extension-ima:2.6.1'
+    compile 'com.google.android.exoplayer:exoplayer:2.6.0'
+    compile 'com.google.android.exoplayer:extension-ima:2.6.0'
     compile 'com.google.android.gms:play-services-ads:12.0.1'
     compile 'com.nineoldandroids:library:2.4.0'//for draggable view
     //https://github.com/rubensousa/PreviewSeekBar
