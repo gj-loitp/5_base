@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -25,12 +23,14 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_button_loading"
+                android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test" />
 
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+    <!-- Adding bottom sheet after main content -->
+    <include layout="@layout/bottom_sheet_0" />
 
+</android.support.design.widget.CoordinatorLayout>
