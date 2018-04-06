@@ -57,6 +57,7 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
         previewTimeBarLayout = findViewById(R.id.previewSeekBarLayout);
 
         //gone view no necessary
+
         findViewById(R.id.exo_fullscreen_icon).setVisibility(View.GONE);
 
         if (previewTimeBarLayout == null) {
