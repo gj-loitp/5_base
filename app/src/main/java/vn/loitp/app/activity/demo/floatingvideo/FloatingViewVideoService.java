@@ -68,6 +68,8 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_video, null);
 
+        //TODO change exo_playback_control_view.xml to exo_playback_control_view.xmlill work
+
         //Add the view to the window.
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,

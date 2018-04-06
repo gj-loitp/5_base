@@ -140,7 +140,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
         mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
         mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
         if (mFullScreenIcon == null || mFullScreenButton == null) {
-            LToast.show(activity, "initFullscreenButton mFullScreenIcon == null || mFullScreenButton == null -> change exo_playback_control_view_2.xml to exo_playback_control_view.xml will work", Toast.LENGTH_LONG);
+            LToast.show(activity, "initFullscreenButton mFullScreenIcon == null || mFullScreenButton == null -> change exo_playback_control_view_2.xml to exo_playback_control_view_3_3.xml will work", Toast.LENGTH_LONG);
             return;
         }
         mFullScreenButton.setOnClickListener(new View.OnClickListener() {
