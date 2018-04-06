@@ -14,13 +14,37 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class BottomSheetMenuActivity extends BaseActivity {
-    BottomSheetBehavior sheetBehavior;
-    LinearLayout layoutBottomSheet;
-    Button bt0;
+    private BottomSheetBehavior sheetBehavior;
+    private LinearLayout layoutBottomSheet;
+    private Button bt0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        click0();
+    }
+
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected Activity setActivity() {
+        return this;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_bottomsheet_menu;
+    }
+
+    private void click0() {
         bt0 = (Button) findViewById(R.id.bt_0);
         layoutBottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(new View.OnClickListener() {
@@ -75,26 +99,5 @@ public class BottomSheetMenuActivity extends BaseActivity {
                 }
             }
         });
-
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_bottomsheet_menu;
     }
 }
