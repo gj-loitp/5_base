@@ -26,7 +26,19 @@
                 android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test" />
+                android:text="Show bottom sheet" />
+
+            <Button
+                android:id="@+id/bt_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show bottom sheet dialog" />
+
+            <Button
+                android:id="@+id/bt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show bottom sheet dialog fragment" />
 
         </LinearLayout>
     </ScrollView>
