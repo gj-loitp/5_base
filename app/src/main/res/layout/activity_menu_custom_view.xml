@@ -49,6 +49,12 @@
                 android:text="Bottom Navigation Bar" />
 
             <Button
+                android:id="@+id/bt_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BottomSheet" />
+
+            <Button
                 android:id="@+id/bt_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
