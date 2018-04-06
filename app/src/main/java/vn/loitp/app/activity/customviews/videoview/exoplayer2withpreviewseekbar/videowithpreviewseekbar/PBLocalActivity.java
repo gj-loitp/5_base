@@ -17,20 +17,40 @@
 
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 
-public class PBLocalActivity extends AppCompatActivity {
+public class PBLocalActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pb_activity_seekbar);
     }
 
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected Activity setActivity() {
+        return this;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.pb_activity_seekbar;
+    }
 
 }
 

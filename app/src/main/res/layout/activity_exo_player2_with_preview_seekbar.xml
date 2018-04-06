@@ -15,12 +15,17 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/main_media_frame"
+            <Button
+                android:id="@+id/bt_0"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="SAMPLE 1" />
 
-            </FrameLayout>
+            <Button
+                android:id="@+id/bt_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SAMPLE 2" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
