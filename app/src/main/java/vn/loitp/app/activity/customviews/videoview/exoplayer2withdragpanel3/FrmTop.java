@@ -141,9 +141,9 @@ public class FrmTop extends BaseFragment {
 
 
     private void initFullscreenButton() {
-        PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
-        mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
-        mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        //PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
+        mFullScreenIcon = mExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
+        mFullScreenButton = mExoPlayerView.findViewById(R.id.exo_fullscreen_button);
         mFullScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
