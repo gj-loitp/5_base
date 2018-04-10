@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.moviewview.MovieView;
 
 public class PiPVideoActivity extends BaseActivity {
@@ -327,8 +328,9 @@ public class PiPVideoActivity extends BaseActivity {
     private class SwitchActivityOnClick implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            //startActivity(new Intent(view.getContext(), MediaSessionPlaybackActivity.class));
-            //finish();
+            startActivity(new Intent(view.getContext(), PipMediaSessionPlaybackActivity.class));
+            LActivityUtil.tranIn(activity);
+            finish();
         }
     }
 }
