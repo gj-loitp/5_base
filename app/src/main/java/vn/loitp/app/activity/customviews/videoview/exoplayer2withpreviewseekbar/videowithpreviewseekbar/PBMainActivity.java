@@ -19,6 +19,7 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -62,7 +63,7 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
         previewTimeBar.addOnPreviewChangeListener(this);
 
         exoPlayerManagerPB = new ExoPlayerManagerPB(simpleExoPlayerView, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
-        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
+        exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_smooth)));
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_mp3)));

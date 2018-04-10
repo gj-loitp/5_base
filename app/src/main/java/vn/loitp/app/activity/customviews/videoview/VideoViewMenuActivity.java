@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.videoview;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.
 import vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.views.LToast;
 
 public class VideoViewMenuActivity extends BaseActivity implements OnClickListener {
 
@@ -79,7 +81,11 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
                 intent = new Intent(activity, ExoPlayer2WithPreviewSeekbar.class);
                 break;
             case R.id.bt_pip_video:
-                intent = new Intent(activity, PiPVideoActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    intent = new Intent(activity, PiPVideoActivity.class);
+                } else {
+                    LToast.show(activity, "Only support >= Build.VERSION_CODES.O");
+                }
                 break;
         }
         if (intent != null) {
