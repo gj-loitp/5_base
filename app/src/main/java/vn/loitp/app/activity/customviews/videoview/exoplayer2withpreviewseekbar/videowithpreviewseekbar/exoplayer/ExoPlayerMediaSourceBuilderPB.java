@@ -17,7 +17,6 @@
 
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer;
 
-
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
@@ -38,7 +37,6 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 public class ExoPlayerMediaSourceBuilderPB {
-
     private DefaultBandwidthMeter bandwidthMeter;
     private Context context;
     private Uri uri;
@@ -71,8 +69,7 @@ public class ExoPlayerMediaSourceBuilderPB {
             case C.TYPE_HLS:
                 return new HlsMediaSource(uri, getDataSourceFactory(preview), mainHandler, null);
             case C.TYPE_OTHER:
-                return new ExtractorMediaSource(uri, getDataSourceFactory(preview),
-                        new DefaultExtractorsFactory(), mainHandler, null);
+                return new ExtractorMediaSource(uri, getDataSourceFactory(preview), new DefaultExtractorsFactory(), mainHandler, null);
             default: {
                 throw new IllegalStateException("Unsupported type: " + streamType);
             }
@@ -85,7 +82,6 @@ public class ExoPlayerMediaSourceBuilderPB {
     }
 
     private DataSource.Factory getHttpDataSourceFactory(boolean preview) {
-        return new DefaultHttpDataSourceFactory(Util.getUserAgent(context,
-                "ExoPlayerDemo"), preview ? null : bandwidthMeter);
+        return new DefaultHttpDataSourceFactory(Util.getUserAgent(context, "ExoPlayerDemo"), preview ? null : bandwidthMeter);
     }
 }

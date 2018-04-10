@@ -19,7 +19,6 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -37,7 +36,6 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 
-
 public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener, PreviewView.OnPreviewChangeListener {
     private static final int PICK_FILE_REQUEST_CODE = 2;
     private ExoPlayerManagerPB exoPlayerManagerPB;
@@ -47,18 +45,14 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SimpleExoPlayerView playerView = findViewById(R.id.player_view);
+        SimpleExoPlayerView simpleExoPlayerView = findViewById(R.id.player_view);
 
-        previewTimeBar = playerView.findViewById(R.id.exo_progress);
+        previewTimeBar = simpleExoPlayerView.findViewById(R.id.exo_progress);
         if (previewTimeBar == null) {
             LLog.d(TAG, "previewTimeBar==null");
         }
         LLog.d(TAG, "getSimpleName: " + findViewById(R.id.previewSeekBarLayout).getClass().getSimpleName());
         previewTimeBarLayout = findViewById(R.id.previewSeekBarLayout);
-
-        //gone view no necessary
-
-        findViewById(R.id.exo_fullscreen_icon).setVisibility(View.GONE);
 
         if (previewTimeBarLayout == null) {
             LLog.d(TAG, "previewTimeBarLayout==null");
@@ -67,8 +61,11 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
 
-        exoPlayerManagerPB = new ExoPlayerManagerPB(playerView, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
-        exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
+        exoPlayerManagerPB = new ExoPlayerManagerPB(simpleExoPlayerView, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
+        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
+        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_smooth)));
+        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
+        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_mp3)));
         previewTimeBarLayout.setPreviewLoader(exoPlayerManagerPB);
         requestFullScreenIfLandscape();
     }
