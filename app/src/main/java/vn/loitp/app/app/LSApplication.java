@@ -9,7 +9,6 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import loitp.basemaster.R;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;

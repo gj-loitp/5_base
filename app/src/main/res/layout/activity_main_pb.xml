@@ -19,7 +19,7 @@
         android:id="@+id/player_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:controller_layout_id="@layout/exo_playback_control_view"
+        app:controller_layout_id="@layout/exo_controller_preview_seekbar"
         app:fastforward_increment="30000"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:rewind_increment="30000" />

@@ -3,9 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/Yellow"
+    android:background="@color/Blue"
     android:layoutDirection="ltr"
     android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="exo_controller_default.xml"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_18"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"

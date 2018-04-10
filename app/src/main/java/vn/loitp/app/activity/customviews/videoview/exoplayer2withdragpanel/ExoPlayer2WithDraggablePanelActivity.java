@@ -79,6 +79,8 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
         findViewById(R.id.bt_m3u8).setOnClickListener(this);
         findViewById(R.id.bt_mp3).setOnClickListener(this);
         tv = (TextView) findViewById(R.id.tv);
+
+        mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
         draggableView = (DraggableView) findViewById(R.id.draggable_view);
 
         draggableView.setClickToMaximizeEnabled(false);
@@ -109,6 +111,15 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
                 releaseVideo();
             }
         });
+
+        setSizePlayer();
+
+        initFullscreenDialog();
+        initFullscreenButton();
+
+        playM3u8();
+        //playMp3();
+        initExoPlayer();
     }
 
     @Override
@@ -169,9 +180,9 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
 
 
     private void initFullscreenButton() {
-        PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
-        mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
-        mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        //PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
+        mFullScreenIcon = mExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
+        mFullScreenButton = mExoPlayerView.findViewById(R.id.exo_fullscreen_button);
         mFullScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,19 +291,6 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
     @Override
     protected void onResume() {
         super.onResume();
-        if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
-            setSizePlayer();
-
-            initFullscreenDialog();
-            initFullscreenButton();
-
-            playM3u8();
-            //playMp3();
-        }
-
-        initExoPlayer();
-
         if (mExoPlayerFullscreen) {
             ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
             mFullScreenDialog.addContentView(mExoPlayerView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));

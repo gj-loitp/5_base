@@ -24,9 +24,9 @@
                 <com.google.android.exoplayer2.ui.SimpleExoPlayerView
                     android:id="@+id/exoplayer"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:controller_layout_id="@layout/exo_playback_control_view_2" />
+                    app:controller_layout_id="@layout/exo_controller_default" />
 
             </FrameLayout>
 

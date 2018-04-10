@@ -6,13 +6,13 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.animation.DrawableCrossFadeFactory;
-import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
@@ -29,7 +29,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
-import loitp.core.R;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
@@ -43,18 +42,26 @@ public class LImageUtil {
     }
 
     public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder) {
-        Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
-    }
-
-    public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
-        Glide.with(activity).load(url)
-                .listener(glideDrawableRequestListener)
+        //Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
+        Glide.with(activity)
+                .load(url)
+                .apply(new RequestOptions()
+                                .placeholder(resPlaceHolder)
+                        //.fitCenter()
+                )
                 .into(imageView);
     }
 
-    public static void loadNoEffect(Activity activity, String url, String oldImage, ImageView imageView) {
+    /*public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
         Glide.with(activity).load(url)
-                .thumbnail(Glide // this thumbnail request has to have the same RESULT cache key
+                .listener(glideDrawableRequestListener)
+                .into(imageView);
+    }*/
+
+    /*public static void loadNoEffect(Activity activity, String url, String oldImage, ImageView imageView) {
+        Glide.with(activity).load(url)
+                .thumbnail(
+                        Glide // this thumbnail request has to have the same RESULT cache key
                         .with(activity) // as the outer request, which usually simply means
                         .load(oldImage) // same size/transformation(e.g. centerCrop)/format(e.g. asBitmap)
                         .centerCrop() // have to be explicit here to match outer load exactly
@@ -70,7 +77,7 @@ public class LImageUtil {
                         if (isFirstResource) {
                             return false; // thumbnail was not shown, do as usual
                         }
-                        return new DrawableCrossFadeFactory<Drawable>(/*customize animation here*/)
+                        return new DrawableCrossFadeFactory<Drawable>(customize animation here)
                                 .build(false, false) // force crossFade() even if coming from memory cache
                                 .animate(resource, (GlideAnimation.ViewAdapter) target);
                     }
@@ -78,15 +85,19 @@ public class LImageUtil {
                 .dontAnimate()
                 .dontTransform()
                 .into(imageView);
-    }
+    }*/
 
     public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
         Glide.with(activity).load(url)
-                .placeholder(resPlaceHolder)
-                .error(resError)
-                .listener(new RequestListener<String, GlideDrawable>() {
+                .apply(new RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        //.override(sizeW, sizeH)
+                        .error(resError)
+                )
+                .listener(new RequestListener<Drawable>() {
                     @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         if (avLoadingIndicatorView != null) {
                             avLoadingIndicatorView.smoothToHide();
                         }
@@ -94,7 +105,7 @@ public class LImageUtil {
                     }
 
                     @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, com.bumptech.glide.load.DataSource dataSource, boolean isFirstResource) {
                         if (avLoadingIndicatorView != null) {
                             avLoadingIndicatorView.smoothToHide();
                         }
@@ -113,7 +124,12 @@ public class LImageUtil {
     }
 
     public static void load(Activity activity, String url, ImageView imageView, int sizeW, int sizeH) {
-        Glide.with(activity).load(url).override(sizeW, sizeH).into(imageView);
+        Glide.with(activity).load(url)
+                .apply(new RequestOptions()
+                        //.placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        .override(sizeW, sizeH)
+                ).into(imageView);
     }
 
     //for SimpleDraweeView

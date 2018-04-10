@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,7 +29,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -60,11 +58,11 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
         findViewById(R.id.bt_mp3).setOnClickListener(this);
         tv = (TextView) findViewById(R.id.tv);
 
-        if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
-            playM3u8();
-            //playMp3();
-        }
+
+        mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
+        playM3u8();
+        //playMp3();
+
         initExoPlayer();
 
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mExoPlayerView.getLayoutParams();
@@ -72,9 +70,8 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
         params.height = LDisplayUtils.getDialogW(activity) * 10 / 16;
         mExoPlayerView.setLayoutParams(params);
 
-        PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
-        mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
-        mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        mFullScreenIcon = mExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
+        mFullScreenButton = mExoPlayerView.findViewById(R.id.exo_fullscreen_button);
         mFullScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

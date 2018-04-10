@@ -41,7 +41,6 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
-
     private ExoPlayerMediaSourceBuilderPB mediaSourceBuilder;
     private SimpleExoPlayerView playerView;
     private SimpleExoPlayer player;
@@ -138,5 +137,6 @@ public class ExoPlayerManagerPB implements PreviewLoader {
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .transform(new GlideThumbnailTransformationPB(currentPosition))
                 .into(imageView);
+
     }
 }

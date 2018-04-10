@@ -68,14 +68,21 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
+        findViewById(R.id.bt_m3u8).setOnClickListener(this);
+        findViewById(R.id.bt_mp3).setOnClickListener(this);
+        tv = (TextView) findViewById(R.id.tv);
         if (savedInstanceState != null) {
             mResumeWindow = savedInstanceState.getInt(STATE_RESUME_WINDOW);
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
-        findViewById(R.id.bt_m3u8).setOnClickListener(this);
-        findViewById(R.id.bt_mp3).setOnClickListener(this);
-        tv = (TextView) findViewById(R.id.tv);
+
+        initFullscreenDialog();
+        initFullscreenButton();
+
+        playM3u8();
+        //playMp3();
     }
 
     @Override
@@ -136,9 +143,18 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
 
     private void initFullscreenButton() {
-        PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
-        mFullScreenIcon = controlView.findViewById(R.id.exo_fullscreen_icon);
-        mFullScreenButton = controlView.findViewById(R.id.exo_fullscreen_button);
+        /*PlaybackControlView controlView = mExoPlayerView.findViewById(R.id.exo_controller);
+        if (controlView == null) {
+            LLog.d(TAG, "controlView==null");
+        }*/
+        mFullScreenIcon = mExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
+        if (mFullScreenIcon == null) {
+            LLog.d(TAG, "mFullScreenIcon==null");
+        }
+        mFullScreenButton = mExoPlayerView.findViewById(R.id.exo_fullscreen_button);
+        if (mFullScreenButton == null) {
+            LLog.d(TAG, "mFullScreenButton==null");
+        }
         if (mFullScreenIcon == null || mFullScreenButton == null) {
             LToast.show(activity, "initFullscreenButton mFullScreenIcon == null || mFullScreenButton == null -> change exo_playback_control_view_2.xml to exo_playback_control_view_3_3.xml will work", Toast.LENGTH_LONG);
             return;
@@ -236,23 +252,24 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
             }
         });
+        /*initFullscreenDialog();
+        initFullscreenButton();
+
+        playM3u8();
+        //playMp3();*/
     }
 
 
     @Override
     protected void onResume() {
-
         super.onResume();
-
-        if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exoplayer);
-
+        /*if (mExoPlayerView == null) {
             initFullscreenDialog();
             initFullscreenButton();
 
             playM3u8();
             //playMp3();
-        }
+        }*/
 
         initExoPlayer();
 

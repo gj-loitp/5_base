@@ -69,7 +69,6 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
         //CHOOSE CONTENT: LiveStream / SdCard
 
         //LIVE STREAM SOURCE: * Livestream links may be out of date so find any m3u8 files online and replace:
-
         //Uri mp4VideoUri =Uri.parse("http://81.7.13.162/hls/ss1/index.m3u8"); //random 720p source
         Uri mp4VideoUri = Uri.parse("http://54.255.155.24:1935//Live/_definst_/amlst:sweetbcha1novD235L240P/playlist.m3u8"); //Radnom 540p indian channel
         //Uri mp4VideoUri =Uri.parse("FIND A WORKING LINK ABD PLUg INTO HERE");
