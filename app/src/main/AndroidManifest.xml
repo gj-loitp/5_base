@@ -594,10 +594,13 @@
             android:screenOrientation="portrait" />
         <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity" />
-
         <activity
             android:name="vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true" />
     </application>
 
 </manifest>

@@ -106,4 +106,9 @@
         <attr name="aw_changeOnClick" format="boolean" />
         <attr name="aw_canCancelAnswer" format="boolean" />
     </declare-styleable>
+
+    <style name="Widget.PictureInPicture.MovieView" parent="android:Widget">
+        <item name="android:src">@null</item>
+        <item name="android:adjustViewBounds">false</item>
+    </style>
 </resources>

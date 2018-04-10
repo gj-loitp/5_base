@@ -66,6 +66,12 @@
                 android:layout_height="wrap_content"
                 android:text="ExoPlayer2WithPreviewSeekbar" />
 
+            <Button
+                android:id="@+id/bt_pip_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PiPVideo" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
