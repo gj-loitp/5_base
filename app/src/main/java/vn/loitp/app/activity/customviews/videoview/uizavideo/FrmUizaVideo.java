@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
@@ -145,6 +146,7 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         switch (v.getId()) {
             case R.id.exo_fullscreen_icon:
                 LActivityUtil.toggleScreenOritation(getActivity());
+                UizaUtil.setUIFullScreenIcon(getActivity(), (ImageButton) v);
                 break;
         }
     }
