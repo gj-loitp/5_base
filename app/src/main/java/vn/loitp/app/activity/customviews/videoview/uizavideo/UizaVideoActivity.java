@@ -43,6 +43,7 @@ public class UizaVideoActivity extends BaseActivity {
                 frm.play(getString(R.string.url_dash), getString(R.string.url_thumbnails));
             }
         });
+        UizaUtil.resizeLayout(frmUizaVideo);
     }
 
     @Override
