@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3;
+package vn.loitp.app.activity;
 
 /**
  * Created by www.muathu@gmail.com on 12/24/2017.

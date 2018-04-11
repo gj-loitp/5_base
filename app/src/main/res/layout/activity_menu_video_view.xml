@@ -72,6 +72,12 @@
                 android:layout_height="wrap_content"
                 android:text="PiPVideo" />
 
+            <Button
+                android:id="@+id/bt_uiza_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uiza Video" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

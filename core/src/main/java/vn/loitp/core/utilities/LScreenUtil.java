@@ -21,7 +21,7 @@ import vn.loitp.core.base.BaseActivity;
 /**
  * File created on 8/31/2017.
  *
- * @author anhdv
+ * @author loitp
  */
 
 public class LScreenUtil {
