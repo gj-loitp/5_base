@@ -110,14 +110,6 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
     @Override
     public void onStartPreview(PreviewView previewView) {
         LLog.d(TAG, "onStartPreview");
-        /*if (getResources().getBoolean(R.bool.landscape)) {
-            getActivity().getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        }*/
     }
 
     @Override
