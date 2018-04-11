@@ -65,7 +65,7 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
         exoPlayerManagerPB = new ExoPlayerManagerPB(simpleExoPlayerView, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
         exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_smooth)));
-        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_dash)));
+        //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_hls)));
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_mp3)));
         previewTimeBarLayout.setPreviewLoader(exoPlayerManagerPB);
         requestFullScreenIfLandscape();
