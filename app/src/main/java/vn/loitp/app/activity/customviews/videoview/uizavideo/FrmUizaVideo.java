@@ -15,10 +15,14 @@ import android.widget.ImageView;
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerManagerPB;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -55,7 +59,6 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         imgThumnailSeekbar = (ImageView) simpleExoPlayerView.findViewById(R.id.imageView);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
-
         simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon).setOnClickListener(this);
         return view;
     }
@@ -156,5 +159,13 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
                 LScreenUtil.showDefaultControls(getActivity());
             }
         }
+    }
+
+    public SimpleExoPlayerView getSimpleExoPlayerView() {
+        return simpleExoPlayerView;
+    }
+
+    public SimpleExoPlayer getSimpleExoPlayer() {
+        return simpleExoPlayerView.getPlayer();
     }
 }

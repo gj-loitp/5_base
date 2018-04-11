@@ -39,6 +39,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
     private ExoPlayerMediaSourceBuilderPB mediaSourceBuilder;
@@ -121,6 +122,9 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         player.setPlayWhenReady(true);
         player.prepare(mediaSourceBuilder.getMediaSource(false));
         player.addListener(eventListener);
+
+        player.addListener(new PlayerEventListener());
+
         return player;
     }
 
