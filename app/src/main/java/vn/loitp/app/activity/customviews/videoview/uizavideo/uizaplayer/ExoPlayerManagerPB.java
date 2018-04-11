@@ -29,6 +29,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
@@ -52,6 +53,9 @@ public class ExoPlayerManagerPB implements PreviewLoader {
     private PreviewTimeBarLayout previewTimeBarLayout;
     private String thumbnailsUrl;
     private ImageView imageView;
+
+    private ImaAdsLoader imaAdsLoader;
+
     private Player.EventListener eventListener = new Player.DefaultEventListener() {
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
@@ -69,6 +73,9 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         this.previewTimeBarLayout = previewTimeBarLayout;
         this.mediaSourceBuilder = new ExoPlayerMediaSourceBuilderPB(playerView.getContext());
         this.thumbnailsUrl = thumbnailsUrl;
+
+        String urlImaAd = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
+        imaAdsLoader = new ImaAdsLoader(playerView.getContext(), Uri.parse(urlImaAd));
     }
 
     public void play(Uri uri) {
@@ -122,7 +129,7 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(new DefaultBandwidthMeter());
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
         LoadControl loadControl = new DefaultLoadControl();
-        SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(playerView.getContext()), trackSelector, loadControl);
+        player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(playerView.getContext()), trackSelector, loadControl);
         player.setPlayWhenReady(true);
         player.prepare(mediaSourceBuilder.getMediaSource(false));
         player.addListener(eventListener);
