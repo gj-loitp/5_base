@@ -145,8 +145,8 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.exo_fullscreen_icon:
-                LActivityUtil.toggleScreenOritation(getActivity());
                 UizaUtil.setUIFullScreenIcon(getActivity(), (ImageButton) v);
+                LActivityUtil.toggleScreenOritation(getActivity());
                 break;
         }
     }

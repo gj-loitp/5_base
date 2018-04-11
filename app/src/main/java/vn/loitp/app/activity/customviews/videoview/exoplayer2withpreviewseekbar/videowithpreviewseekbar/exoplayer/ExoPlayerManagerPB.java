@@ -41,6 +41,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
     private ExoPlayerMediaSourceBuilderPB mediaSourceBuilder;
@@ -126,6 +127,7 @@ public class ExoPlayerManagerPB implements PreviewLoader {
 
         player.addListener(new PlayerEventListener());
         player.addAudioDebugListener(new AudioEventListener());
+        player.addVideoDebugListener(new VideoEventListener());
 
         return player;
     }
