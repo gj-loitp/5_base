@@ -18,6 +18,7 @@
 package vn.loitp.app.activity.customviews.videoview.uizavideo;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -29,11 +30,12 @@ import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class UizaVideoActivity extends BaseActivity {
+    private FrameLayout frmUizaVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FrameLayout frmUizaVideo = (FrameLayout) findViewById(R.id.frm_uiza_video);
+        frmUizaVideo = (FrameLayout) findViewById(R.id.frm_uiza_video);
         FrmUizaVideo frm = new FrmUizaVideo();
         LScreenUtil.replaceFragment(activity, frmUizaVideo.getId(), frm, false);
         frm.setFragmentCallback(new BaseFragment.FragmentCallback() {
@@ -66,4 +68,9 @@ public class UizaVideoActivity extends BaseActivity {
         return R.layout.uiza_video_activity;
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        UizaUtil.resizeLayout(frmUizaVideo);
+    }
 }

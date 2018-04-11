@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by LENOVO on 4/11/2018.
@@ -21,9 +20,17 @@ public class UizaUtil {
     }
 
     public static void resizeLayout(ViewGroup viewGroup) {
-        int widthScreen = LScreenUtil.getScreenWidth();
-        viewGroup.getLayoutParams().width = widthScreen;
-        viewGroup.getLayoutParams().height = widthScreen * 9 / 16;
-        viewGroup.requestLayout();
+        if (LScreenUtil.isFullScreen(viewGroup.getContext())) {
+            int widthScreen = LScreenUtil.getScreenWidth();
+            int heightScreen = LScreenUtil.getScreenHeight();
+            viewGroup.getLayoutParams().width = widthScreen;
+            viewGroup.getLayoutParams().height = heightScreen;
+            viewGroup.requestLayout();
+        } else {
+            int widthScreen = LScreenUtil.getScreenWidth();
+            viewGroup.getLayoutParams().width = widthScreen;
+            viewGroup.getLayoutParams().height = widthScreen * 9 / 16;
+            viewGroup.requestLayout();
+        }
     }
 }

@@ -93,6 +93,14 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         }
     }
 
+    @Override
+    public void onDestroy() {
+        if (exoPlayerManagerPB != null) {
+            exoPlayerManagerPB.onDestroy();
+        }
+        super.onDestroy();
+    }
+
     /*@Override
     public boolean onMenuItemClick(MenuItem item) {
         if (item.getItemId() == R.id.action_toggle) {

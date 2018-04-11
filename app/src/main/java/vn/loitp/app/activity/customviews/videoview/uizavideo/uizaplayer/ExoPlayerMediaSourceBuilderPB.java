@@ -75,9 +75,8 @@ public class ExoPlayerMediaSourceBuilderPB {
         }
     }
 
-    private DataSource.Factory getDataSourceFactory(boolean preview) {
-        return new DefaultDataSourceFactory(context, preview ? null : bandwidthMeter,
-                getHttpDataSourceFactory(preview));
+    public DataSource.Factory getDataSourceFactory(boolean preview) {
+        return new DefaultDataSourceFactory(context, preview ? null : bandwidthMeter, getHttpDataSourceFactory(preview));
     }
 
     private DataSource.Factory getHttpDataSourceFactory(boolean preview) {

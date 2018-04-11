@@ -18,11 +18,14 @@
 package vn.loitp.app.activity.customviews.videoview.uizavideo.uizaplayer;
 
 import android.net.Uri;
+import android.os.Handler;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.request.target.Target;
 import com.github.rubensousa.previewseekbar.base.PreviewLoader;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
+import com.google.ads.interactivemedia.v3.api.player.VideoAdPlayer;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -30,6 +33,8 @@ import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
+import com.google.android.exoplayer2.ext.ima.ImaAdsMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
@@ -45,16 +50,16 @@ import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataO
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.core.utilities.LLog;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
+    private final String TAG = getClass().getSimpleName();
     private ExoPlayerMediaSourceBuilderPB mediaSourceBuilder;
     private SimpleExoPlayerView playerView;
     private SimpleExoPlayer player;
     private PreviewTimeBarLayout previewTimeBarLayout;
     private String thumbnailsUrl;
     private ImageView imageView;
-
-    private ImaAdsLoader imaAdsLoader;
 
     private Player.EventListener eventListener = new Player.DefaultEventListener() {
         @Override
@@ -73,9 +78,6 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         this.previewTimeBarLayout = previewTimeBarLayout;
         this.mediaSourceBuilder = new ExoPlayerMediaSourceBuilderPB(playerView.getContext());
         this.thumbnailsUrl = thumbnailsUrl;
-
-        String urlImaAd = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
-        imaAdsLoader = new ImaAdsLoader(playerView.getContext(), Uri.parse(urlImaAd));
     }
 
     public void play(Uri uri) {
@@ -101,9 +103,18 @@ public class ExoPlayerManagerPB implements PreviewLoader {
     }
 
     public void onStop() {
+        contentPosition = player.getContentPosition();
         if (Util.SDK_INT > 23) {
             releasePlayers();
         }
+    }
+
+    public void onDestroy() {
+
+        //TODO
+        /*if (imaAdsLoader != null) {
+            imaAdsLoader.release();
+        }*/
     }
 
     public void stopPreview() {
@@ -131,17 +142,43 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         LoadControl loadControl = new DefaultLoadControl();
         player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(playerView.getContext()), trackSelector, loadControl);
         player.setPlayWhenReady(true);
-        player.prepare(mediaSourceBuilder.getMediaSource(false));
-        player.addListener(eventListener);
 
+        MediaSource mediaSource = mediaSourceBuilder.getMediaSource(false);
+        player.prepare(mediaSource);
+
+        player.addListener(eventListener);
         player.addListener(new PlayerEventListener());
         player.addAudioDebugListener(new AudioEventListener());
         player.addVideoDebugListener(new VideoEventListener());
         player.addMetadataOutput(new MetadataOutputListener());
         player.addTextOutput(new TextOutputListener());
 
+
+        /*MediaSource mediaSourceWithAds = new ImaAdsMediaSource(
+                mediaSource,
+                null,
+                imaAdsLoader,
+                playerView.getOverlayFrameLayout());
+        //player.seekTo(contentPosition);
+
+        player.prepare(mediaSource);
+        player.setPlayWhenReady(true);*/
+
+        /*String urlImaAd = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=";
+        ImaAdsLoader imaAdsLoader = new ImaAdsLoader(playerView.getContext(), Uri.parse(urlImaAd));
+
+        FrameLayout adOverlayViewGroup = new FrameLayout(playerView.getContext());
+        playerView.getOverlayFrameLayout().addView(adOverlayViewGroup);
+        //ImaAdsMediaSource imaAdsMediaSource = new ImaAdsMediaSource(mediaSource, null, imaAdsLoader, adOverlayViewGroup);
+        ImaAdsMediaSource imaAdsMediaSource = new ImaAdsMediaSource(mediaSource, mediaSourceBuilder.getDataSourceFactory(false), imaAdsLoader, adOverlayViewGroup, new Handler(), null);
+
+        player.prepare(imaAdsMediaSource);
+        player.setPlayWhenReady(true);*/
+
         return player;
     }
+
+    private long contentPosition = 0;
 
     @Override
     public void loadPreview(long currentPosition, long max) {
