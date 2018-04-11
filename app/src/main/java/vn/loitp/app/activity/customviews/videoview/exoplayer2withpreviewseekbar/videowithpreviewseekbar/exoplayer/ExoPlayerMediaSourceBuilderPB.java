@@ -62,8 +62,7 @@ public class ExoPlayerMediaSourceBuilderPB {
                         mainHandler, null);
             case C.TYPE_DASH:
                 return new DashMediaSource(uri,
-                        new DefaultDataSourceFactory(context, null,
-                                getHttpDataSourceFactory(preview)),
+                        new DefaultDataSourceFactory(context, null, getHttpDataSourceFactory(preview)),
                         new DefaultDashChunkSource.Factory(getDataSourceFactory(preview)),
                         mainHandler, null);
             case C.TYPE_HLS:
