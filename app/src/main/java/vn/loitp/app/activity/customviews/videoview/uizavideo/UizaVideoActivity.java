@@ -23,7 +23,10 @@ import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class UizaVideoActivity extends BaseActivity {
 
@@ -33,6 +36,13 @@ public class UizaVideoActivity extends BaseActivity {
         FrameLayout frmUizaVideo = (FrameLayout) findViewById(R.id.frm_uiza_video);
         FrmUizaVideo frm = new FrmUizaVideo();
         LScreenUtil.replaceFragment(activity, frmUizaVideo.getId(), frm, false);
+        frm.setFragmentCallback(new BaseFragment.FragmentCallback() {
+            @Override
+            public void onViewCreated() {
+                LLog.d(TAG, "onViewCreated");
+                frm.play(getString(R.string.url_dash), getString(R.string.url_thumbnails));
+            }
+        });
     }
 
     @Override

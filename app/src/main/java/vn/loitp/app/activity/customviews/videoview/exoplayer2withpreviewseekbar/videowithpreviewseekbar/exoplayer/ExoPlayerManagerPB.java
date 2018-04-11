@@ -58,9 +58,7 @@ public class ExoPlayerManagerPB implements PreviewLoader {
         }
     };
 
-    public ExoPlayerManagerPB(SimpleExoPlayerView playerView,
-                              PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView,
-                              String thumbnailsUrl) {
+    public ExoPlayerManagerPB(SimpleExoPlayerView playerView, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String thumbnailsUrl) {
         this.playerView = playerView;
         this.imageView = imageView;
         this.previewTimeBarLayout = previewTimeBarLayout;

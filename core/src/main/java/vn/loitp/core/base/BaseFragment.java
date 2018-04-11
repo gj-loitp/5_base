@@ -1,7 +1,11 @@
 package vn.loitp.core.base;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.View;
 
 import loitp.core.R;
 import rx.Observable;
@@ -19,6 +23,14 @@ public abstract class BaseFragment extends Fragment {
     protected Context context;
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
     protected final String BASE_TAG = BaseFragment.class.getSimpleName();
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (fragmentCallback != null) {
+            fragmentCallback.onViewCreated();
+        }
+    }
 
     @Override
     public void onDestroyView() {
@@ -71,5 +83,15 @@ public abstract class BaseFragment extends Fragment {
                 //getActivity().onBackPressed();
             }
         });
+    }
+
+    public interface FragmentCallback {
+        public void onViewCreated();
+    }
+
+    protected FragmentCallback fragmentCallback;
+
+    public void setFragmentCallback(FragmentCallback fragmentCallback) {
+        this.fragmentCallback = fragmentCallback;
     }
 }
