@@ -4,6 +4,7 @@ package vn.loitp.app.activity.customviews.videoview.uizavideo;
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,13 +20,15 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerManagerPB;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener {
+public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
     private final String TAG = getClass().getSimpleName();
     private ExoPlayerManagerPB exoPlayerManagerPB;
     private PreviewTimeBarLayout previewTimeBarLayout;
@@ -52,6 +55,8 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         imgThumnailSeekbar = (ImageView) simpleExoPlayerView.findViewById(R.id.imageView);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
+
+        simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon).setOnClickListener(this);
         return view;
     }
 
@@ -138,5 +143,26 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         //exoPlayerManagerPB.play(Uri.parse(getString(R.string.url_mp3)));
         exoPlayerManagerPB.play(Uri.parse(linkPlay));
         previewTimeBarLayout.setPreviewLoader(exoPlayerManagerPB);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.exo_fullscreen_icon:
+                LActivityUtil.toggleScreenOritation(getActivity());
+                break;
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (getActivity() != null) {
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                LScreenUtil.hideDefaultControls(getActivity());
+            } else {
+                LScreenUtil.showDefaultControls(getActivity());
+            }
+        }
     }
 }

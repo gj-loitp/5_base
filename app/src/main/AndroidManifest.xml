@@ -605,7 +605,10 @@
             android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PipMediaSessionPlaybackActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:supportsPictureInPicture="true" />
-        <activity android:name="vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

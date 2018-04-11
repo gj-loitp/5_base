@@ -145,10 +145,8 @@ public class LActivityUtil {
     public static void toggleScreenOritation(Activity activity) {
         int s = getScreenOrientation(activity);
         if (s == Configuration.ORIENTATION_LANDSCAPE) {
-            LLog.d("fuck", "ORIENTATION_LANDSCAPE->SCREEN_ORIENTATION_PORTRAIT");
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
         } else if (s == Configuration.ORIENTATION_PORTRAIT) {
-            LLog.d("fuck", "!ORIENTATION_LANDSCAPE->SCREEN_ORIENTATION_LANDSCAPE");
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         }
     }

@@ -86,10 +86,10 @@
         android:orientation="horizontal"
         android:paddingTop="@dimen/padding_5">
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_prev"
             style="@style/ExoMediaButton.Previous"
-            android:contentDescription="@string/app_name" />
+            android:contentDescription="@string/app_name" />-->
 
         <ImageButton
             android:id="@id/exo_rew"
@@ -111,14 +111,18 @@
             style="@style/ExoMediaButton.FastForward"
             android:contentDescription="@string/app_name" />
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_next"
             style="@style/ExoMediaButton.Next"
-            android:contentDescription="@string/app_name" />
+            android:contentDescription="@string/app_name"/>-->
 
         <ImageButton
             android:id="@id/exo_fullscreen_icon"
             style="@style/ExoMediaButton"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_fullscreen_black_48dp"
             android:tint="@color/White" />
     </LinearLayout>
