@@ -12,9 +12,12 @@ public class VideoAdPlayerListerner implements VideoAdPlayer.VideoAdPlayerCallba
     //private final String TAG = getClass().getSimpleName();
     private final String TAG = VideoAdPlayerListerner.class.getSimpleName();
 
+    private boolean isPlayingAd;
+
     @Override
     public void onPlay() {
         LLog.d(TAG, "onPlay");
+        isPlayingAd = true;
     }
 
     @Override
@@ -25,20 +28,28 @@ public class VideoAdPlayerListerner implements VideoAdPlayer.VideoAdPlayerCallba
     @Override
     public void onPause() {
         LLog.d(TAG, "onPause");
+        isPlayingAd = false;
     }
 
     @Override
     public void onResume() {
         LLog.d(TAG, "onResume");
+        isPlayingAd = true;
     }
 
     @Override
     public void onEnded() {
         LLog.d(TAG, "onEnded");
+        isPlayingAd = false;
     }
 
     @Override
     public void onError() {
         LLog.d(TAG, "onError");
+        isPlayingAd = false;
+    }
+
+    public boolean isPlayingAd() {
+        return isPlayingAd;
     }
 }

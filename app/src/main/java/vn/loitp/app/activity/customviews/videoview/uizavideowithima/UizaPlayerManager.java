@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.request.target.Target;
 import com.github.rubensousa.previewseekbar.base.PreviewLoader;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
-import com.google.ads.interactivemedia.v3.api.player.VideoAdPlayer;
+import com.google.ads.interactivemedia.v3.api.player.VideoProgressUpdate;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -77,6 +77,8 @@ import vn.loitp.core.utilities.LLog;
 
     private String linkPlay;
 
+    private VideoAdPlayerListerner videoAdPlayerListerner = new VideoAdPlayerListerner();
+
     private PreviewTimeBarLayout previewTimeBarLayout;
     private String thumbnailsUrl;
     private ImageView imageView;
@@ -90,6 +92,9 @@ import vn.loitp.core.utilities.LLog;
             }
         }
     };
+
+    private Handler handler;
+    private Runnable runnable;
 
     public UizaPlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
         this.linkPlay = linkPlay;
@@ -107,6 +112,30 @@ import vn.loitp.core.utilities.LLog;
         this.imageView = imageView;
         this.previewTimeBarLayout = previewTimeBarLayout;
         this.thumbnailsUrl = thumbnailsUrl;
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (player != null) {
+                    boolean isPlayingAd = videoAdPlayerListerner.isPlayingAd();
+                    LLog.d(TAG, "isPlayingAd " + isPlayingAd);
+                    if (isPlayingAd) {
+                        VideoProgressUpdate videoProgressUpdate = adsLoader.getAdProgress();
+                        float mls = videoProgressUpdate.getCurrentTime();
+                        float duration = videoProgressUpdate.getDuration();
+                        int percent = (int) (mls * 100 / duration);
+                        LLog.d(TAG, "ad progress: " + mls + "/" + duration + " -> " + percent + "%");
+                    } else {
+                        float mls = player.getCurrentPosition();
+                        float duration = player.getDuration();
+                        int percent = (int) (mls * 100 / duration);
+                        LLog.d(TAG, "video progress: " + mls + "/" + duration + " -> " + percent + "%");
+                    }
+                    handler.postDelayed(runnable, 1000);
+                }
+            }
+        };
+        handler.postDelayed(runnable, 0);
     }
 
     public void init(Context context, PlayerView playerView) {
@@ -151,10 +180,18 @@ import vn.loitp.core.utilities.LLog;
         player.addTextOutput(new TextOutputListener());
 
         if (adsLoader != null) {
-            adsLoader.addCallback(new VideoAdPlayerListerner());
+            adsLoader.addCallback(videoAdPlayerListerner);
         }
         player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
+    }
+
+    public void resumeVideo() {
+        player.setPlayWhenReady(true);
+    }
+
+    public void pauseVideo() {
+        player.setPlayWhenReady(false);
     }
 
     public void reset() {
@@ -162,6 +199,9 @@ import vn.loitp.core.utilities.LLog;
             contentPosition = player.getContentPosition();
             player.release();
             player = null;
+
+            handler = null;
+            runnable = null;
         }
     }
 
@@ -169,6 +209,9 @@ import vn.loitp.core.utilities.LLog;
         if (player != null) {
             player.release();
             player = null;
+
+            handler = null;
+            runnable = null;
         }
         if (adsLoader != null) {
             adsLoader.release();

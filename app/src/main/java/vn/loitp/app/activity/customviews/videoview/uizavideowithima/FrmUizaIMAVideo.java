@@ -98,6 +98,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onStopPreview(PreviewView previewView) {
         LLog.d(TAG, "onStopPreview");
+        uizaPlayerManager.resumeVideo();
     }
 
     @Override
