@@ -59,8 +59,13 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -238,8 +243,35 @@ import vn.loitp.core.utilities.LLog;
 
         //Final MediaSource
         MediaSource mediaSource = new MergingMediaSource(videoSource, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
-        //Preparing The Player
-        player.prepare(mediaSource);
+        //player.prepare(mediaSource);
+        //player.setPlayWhenReady(true);
+
+
+        //IMA ADS
+        // Compose the content media source into a new AdsMediaSource with both ads and content.
+        MediaSource mediaSourceWithAds = new AdsMediaSource(
+                mediaSource,
+                 this,
+                adsLoader,
+        playerView.getOverlayFrameLayout(),
+           null,
+             null);
+
+        // Prepare the player with the source.
+        player.seekTo(contentPosition);
+
+        player.addListener(eventListener);
+
+        player.addListener(new PlayerEventListener());
+        player.addAudioDebugListener(new AudioEventListener());
+        player.addVideoDebugListener(new VideoEventListener());
+        player.addMetadataOutput(new MetadataOutputListener());
+        player.addTextOutput(new TextOutputListener());
+
+        if (adsLoader != null) {
+            adsLoader.addCallback(videoAdPlayerListerner);
+        }
+        player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
     }
 
