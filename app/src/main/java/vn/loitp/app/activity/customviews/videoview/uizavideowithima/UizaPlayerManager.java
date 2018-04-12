@@ -48,8 +48,6 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
-import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -61,13 +59,8 @@ import com.google.android.exoplayer2.util.Util;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -158,7 +151,7 @@ import vn.loitp.core.utilities.LLog;
     }
 
     public void init(Context context, PlayerView playerView) {
-        // Create a default track selector.
+        /*// Create a default track selector.
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -176,16 +169,16 @@ import vn.loitp.core.utilities.LLog;
         //String contentUrl = context.getString(R.string.url_dash);
         //String contentUrl = context.getString(R.string.url_hls);
         //String contentUrl = context.getString(R.string.url_smooth);
-        MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), /* handler= */ null, /* listener= */ null);
+        MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), *//* handler= *//* null, *//* listener= *//* null);
 
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         MediaSource mediaSourceWithAds = new AdsMediaSource(
                 contentMediaSource,
-            /* adMediaSourceFactory= */ this,
+            *//* adMediaSourceFactory= *//* this,
                 adsLoader,
                 playerView.getOverlayFrameLayout(),
-            /* eventHandler= */ null,
-            /* eventListener= */ null);
+            *//* eventHandler= *//* null,
+            *//* eventListener= *//* null);
 
         // Prepare the player with the source.
         player.seekTo(contentPosition);
@@ -203,15 +196,50 @@ import vn.loitp.core.utilities.LLog;
         }
         player.prepare(mediaSourceWithAds);
 
-        /*Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, Format.NO_VALUE, "en", null);
+        *//*Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, Format.NO_VALUE, "en", null);
         String urlSubtitle = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
         MediaSource textMediaSource = new SingleSampleMediaSource.Factory(
                 mediaDataSourceFactory)
                 .createMediaSource(Uri.parse(urlSubtitle), textFormat, C.TIME_UNSET);
         MediaSource mediaSourceWithText = new MergingMediaSource(contentMediaSource, textMediaSource);
         //player.prepare(mediaSourceWithText, false, false);
-        player.prepare(mediaSourceWithText);*/
+        player.prepare(mediaSourceWithText);*//*
 
+        player.setPlayWhenReady(true);*/
+
+
+        //Exo Player Initialization
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
+        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+        player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
+
+        playerView.setPlayer(player);
+
+        DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
+        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "iWatch"), bandwidthMeter2);
+
+
+        //SUBTITLE
+        //Text Format Initialization
+        Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, "ar", null, Format.OFFSET_SAMPLE_RELATIVE);
+        //Video Source
+        //MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkPlay));
+        MediaSource videoSource = buildMediaSource(Uri.parse(linkPlay),  null,  null);
+
+        String linkSub = "https://dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_vi_1522812445904.vtt";
+        //String linkSub = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
+        //Arabic Subtitles
+        SingleSampleMediaSource textMediaSourceAr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+        //English Subtitles
+        SingleSampleMediaSource textMediaSourceEn = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+        //French Subtitles
+        SingleSampleMediaSource textMediaSourceFr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+
+        //Final MediaSource
+        MediaSource mediaSource = new MergingMediaSource(videoSource, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
+        //Preparing The Player
+        player.prepare(mediaSource);
         player.setPlayWhenReady(true);
     }
 
