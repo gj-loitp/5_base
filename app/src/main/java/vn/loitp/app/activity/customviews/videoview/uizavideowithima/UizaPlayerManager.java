@@ -67,12 +67,14 @@ import vn.loitp.core.utilities.LLog;
  */
 /* package */ final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final String TAG = getClass().getSimpleName();
-    private final ImaAdsLoader adsLoader;
+    private ImaAdsLoader adsLoader = null;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
 
     private SimpleExoPlayer player;
     private long contentPosition;
+
+    private String linkPlay;
 
     private PreviewTimeBarLayout previewTimeBarLayout;
     private String thumbnailsUrl;
@@ -88,13 +90,18 @@ import vn.loitp.core.utilities.LLog;
         }
     };
 
-    public UizaPlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String thumbnailsUrl) {
-        String adTag = context.getString(R.string.ad_tag_url);
-        adsLoader = new ImaAdsLoader(context, Uri.parse(adTag));
-        manifestDataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, context.getString(R.string.app_name)));
+    public UizaPlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+        this.linkPlay = linkPlay;
+        if (urlIMAAd == null || urlIMAAd.isEmpty()) {
+            LLog.d(TAG, "UizaPlayerManager urlIMAAd == null || urlIMAAd.isEmpty()");
+        } else {
+            adsLoader = new ImaAdsLoader(context, Uri.parse(urlIMAAd));
+        }
+        String userAgent = Util.getUserAgent(context, context.getString(R.string.app_name));
+        manifestDataSourceFactory = new DefaultDataSourceFactory(context, userAgent);
         mediaDataSourceFactory = new DefaultDataSourceFactory(
                 context,
-                Util.getUserAgent(context, context.getString(R.string.app_name)),
+                userAgent,
                 new DefaultBandwidthMeter());
         this.imageView = imageView;
         this.previewTimeBarLayout = previewTimeBarLayout;
@@ -114,8 +121,10 @@ import vn.loitp.core.utilities.LLog;
         playerView.setPlayer(player);
 
         // This is the MediaSource representing the content media (i.e. not the ad).
+
+        String contentUrl = linkPlay;
         //String contentUrl = context.getString(R.string.content_url);
-        String contentUrl = context.getString(R.string.url_dash);
+        //String contentUrl = context.getString(R.string.url_dash);
         //String contentUrl = context.getString(R.string.url_hls);
         //String contentUrl = context.getString(R.string.url_smooth);
         MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), /* handler= */ null, /* listener= */ null);
@@ -140,38 +149,39 @@ import vn.loitp.core.utilities.LLog;
         player.addMetadataOutput(new MetadataOutputListener());
         player.addTextOutput(new TextOutputListener());
 
-        adsLoader.addCallback(new VideoAdPlayer.VideoAdPlayerCallback() {
-            @Override
-            public void onPlay() {
-                LLog.d(TAG, "onPlay");
-            }
+        if (adsLoader != null) {
+            adsLoader.addCallback(new VideoAdPlayer.VideoAdPlayerCallback() {
+                @Override
+                public void onPlay() {
+                    LLog.d(TAG, "onPlay");
+                }
 
-            @Override
-            public void onVolumeChanged(int i) {
-                LLog.d(TAG, "onVolumeChanged");
-            }
+                @Override
+                public void onVolumeChanged(int i) {
+                    LLog.d(TAG, "onVolumeChanged");
+                }
 
-            @Override
-            public void onPause() {
-                LLog.d(TAG, "onPause");
-            }
+                @Override
+                public void onPause() {
+                    LLog.d(TAG, "onPause");
+                }
 
-            @Override
-            public void onResume() {
-                LLog.d(TAG, "onResume");
-            }
+                @Override
+                public void onResume() {
+                    LLog.d(TAG, "onResume");
+                }
 
-            @Override
-            public void onEnded() {
-                LLog.d(TAG, "onEnded");
-            }
+                @Override
+                public void onEnded() {
+                    LLog.d(TAG, "onEnded");
+                }
 
-            @Override
-            public void onError() {
-                LLog.d(TAG, "onError");
-            }
-        });
-
+                @Override
+                public void onError() {
+                    LLog.d(TAG, "onError");
+                }
+            });
+        }
         player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
     }
@@ -189,7 +199,9 @@ import vn.loitp.core.utilities.LLog;
             player.release();
             player = null;
         }
-        adsLoader.release();
+        if (adsLoader != null) {
+            adsLoader.release();
+        }
     }
 
     // AdsMediaSource.MediaSourceFactory implementation.

@@ -20,6 +20,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 
 /**
@@ -29,10 +30,11 @@ import vn.loitp.core.utilities.LScreenUtil;
 public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
     private final String TAG = getClass().getSimpleName();
     private PlayerView playerView;
-    private UizaPlayerManager player;
+    private UizaPlayerManager uizaPlayerManager;
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
     private ImageView exoFullscreenIcon;
+    private ImageView ivThumbnail;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -52,50 +54,53 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         previewTimeBarLayout = playerView.findViewById(R.id.previewSeekBarLayout);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
-
-        ImageView ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
-
-        player = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, getString(R.string.url_thumbnails));
-        previewTimeBarLayout.setPreviewLoader(player);
-
+        ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
         playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
         exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
+
+        init(getString(R.string.ad_tag_url), getString(R.string.url_thumbnails));
 
         UizaUtil.resizeLayout(playerView);
         return view;
     }
 
+    public void init(String urlIMAAd, String urlThumnailsPreviewSeekbar) {
+        String linkPlay = context.getString(R.string.url_dash);
+        uizaPlayerManager = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+        previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        player.init(getActivity(), playerView);
+        uizaPlayerManager.init(getActivity(), playerView);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        player.reset();
+        uizaPlayerManager.reset();
     }
 
     @Override
     public void onDestroy() {
-        player.release();
+        uizaPlayerManager.release();
         super.onDestroy();
     }
 
     @Override
     public void onStartPreview(PreviewView previewView) {
-        //
+        LLog.d(TAG, "onStartPreview");
     }
 
     @Override
     public void onStopPreview(PreviewView previewView) {
-        //
+        LLog.d(TAG, "onStopPreview");
     }
 
     @Override
     public void onPreview(PreviewView previewView, int progress, boolean fromUser) {
-        //
+        LLog.d(TAG, "onPreview progress " + progress);
     }
 
     @Override
