@@ -617,6 +617,10 @@
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPlayerDemoFromGGIMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

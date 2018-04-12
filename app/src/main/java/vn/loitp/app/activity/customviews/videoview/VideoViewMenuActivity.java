@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromgg.ExoPlayer
 import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPlayerDemoFromGGIMActivity;
 import vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity;
+import vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.LToast;
@@ -39,6 +40,7 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
         findViewById(R.id.bt_uiza_video).setOnClickListener(this);
         findViewById(R.id.bt_exo_player2_from_gg).setOnClickListener(this);
         findViewById(R.id.bt_exo_player2_from_gg_ima).setOnClickListener(this);
+        findViewById(R.id.bt_uiza_video_ima).setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +96,9 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
                 break;
             case R.id.bt_exo_player2_from_gg_ima:
                 intent = new Intent(activity, ExoPlayerDemoFromGGIMActivity.class);
+                break;
+            case R.id.bt_uiza_video_ima:
+                intent = new Intent(activity, UizaVideoIMActivity.class);
                 break;
             case R.id.bt_pip_video:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

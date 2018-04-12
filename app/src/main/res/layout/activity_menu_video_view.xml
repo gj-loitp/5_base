@@ -90,6 +90,12 @@
                 android:layout_height="wrap_content"
                 android:text="Uiza Video" />
 
+            <Button
+                android:id="@+id/bt_uiza_video_ima"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uiza Video IMA" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -1,9 +1,14 @@
-package vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima;
+package vn.loitp.app.activity.customviews.videoview.uizavideowithima;
 
-import android.app.Activity;
+/**
+ * Created by www.muathu@gmail.com on 12/24/2017.
+ */
+
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
@@ -13,58 +18,57 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 
-public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
+/**
+ * Created by www.muathu@gmail.com on 7/26/2017.
+ */
+
+public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
+    private final String TAG = getClass().getSimpleName();
     private PlayerView playerView;
-    private PlayerManager player;
+    private UizaPlayerManager player;
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
     private ImageView exoFullscreenIcon;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playerView = findViewById(R.id.player_view);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
+        playerView = view.findViewById(R.id.player_view);
         previewTimeBar = playerView.findViewById(R.id.exo_progress);
-        previewTimeBarLayout = findViewById(R.id.previewSeekBarLayout);
+        previewTimeBarLayout = playerView.findViewById(R.id.previewSeekBarLayout);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
-        player = new PlayerManager(activity, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
+
+        ImageView ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
+
+        player = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, getString(R.string.url_thumbnails));
         previewTimeBarLayout.setPreviewLoader(player);
 
         playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
         exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
 
         UizaUtil.resizeLayout(playerView);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.uiza_ima_video_frm;
+        return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        player.init(this, playerView);
+        player.init(getActivity(), playerView);
     }
 
     @Override
@@ -98,8 +102,8 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.exo_fullscreen_button:
-                UizaUtil.setUIFullScreenIcon(activity, exoFullscreenIcon);
-                LActivityUtil.toggleScreenOritation(activity);
+                UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
+                LActivityUtil.toggleScreenOritation(getActivity());
                 break;
         }
     }
@@ -107,11 +111,11 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (activity != null) {
+        if (getActivity() != null) {
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                LScreenUtil.hideDefaultControls(activity);
+                LScreenUtil.hideDefaultControls(getActivity());
             } else {
-                LScreenUtil.showDefaultControls(activity);
+                LScreenUtil.showDefaultControls(getActivity());
             }
         }
         UizaUtil.resizeLayout(playerView);
