@@ -58,14 +58,16 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
         exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
 
-        init(getString(R.string.ad_tag_url), getString(R.string.url_thumbnails));
+        String linkPlay = getString(R.string.url_dash);
+        String urlIMAAd = getString(R.string.ad_tag_url);
+        String urlThumnailsPreviewSeekbar = getString(R.string.url_thumbnails);
+        init(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
 
         UizaUtil.resizeLayout(playerView);
         return view;
     }
 
-    public void init(String urlIMAAd, String urlThumnailsPreviewSeekbar) {
-        String linkPlay = context.getString(R.string.url_dash);
+    public void init(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
         uizaPlayerManager = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
     }
