@@ -59,6 +59,7 @@ import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEven
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
 import vn.loitp.core.utilities.LLog;
 
@@ -150,37 +151,7 @@ import vn.loitp.core.utilities.LLog;
         player.addTextOutput(new TextOutputListener());
 
         if (adsLoader != null) {
-            adsLoader.addCallback(new VideoAdPlayer.VideoAdPlayerCallback() {
-                @Override
-                public void onPlay() {
-                    LLog.d(TAG, "onPlay");
-                }
-
-                @Override
-                public void onVolumeChanged(int i) {
-                    LLog.d(TAG, "onVolumeChanged");
-                }
-
-                @Override
-                public void onPause() {
-                    LLog.d(TAG, "onPause");
-                }
-
-                @Override
-                public void onResume() {
-                    LLog.d(TAG, "onResume");
-                }
-
-                @Override
-                public void onEnded() {
-                    LLog.d(TAG, "onEnded");
-                }
-
-                @Override
-                public void onError() {
-                    LLog.d(TAG, "onError");
-                }
-            });
+            adsLoader.addCallback(new VideoAdPlayerListerner());
         }
         player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
