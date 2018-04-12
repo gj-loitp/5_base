@@ -18,6 +18,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -70,6 +71,18 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     public void init(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
         uizaPlayerManager = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
+
+        uizaPlayerManager.setProgressCallback(new ProgressCallback() {
+            @Override
+            public void onAdProgress(float currentMls, float duration, int percent) {
+                LLog.d(TAG, "ad progress: " + currentMls + "/" + duration + " -> " + percent + "%");
+            }
+
+            @Override
+            public void onVideoProgress(float currentMls, float duration, int percent) {
+                LLog.d(TAG, "video progress: " + currentMls + "/" + duration + " -> " + percent + "%");
+            }
+        });
     }
 
     @Override

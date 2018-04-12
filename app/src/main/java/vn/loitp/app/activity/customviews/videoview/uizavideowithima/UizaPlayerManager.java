@@ -45,6 +45,8 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.PlaybackControlView;
+import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -58,6 +60,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
@@ -96,6 +99,12 @@ import vn.loitp.core.utilities.LLog;
     private Handler handler;
     private Runnable runnable;
 
+    private ProgressCallback progressCallback;
+
+    public void setProgressCallback(ProgressCallback progressCallback) {
+        this.progressCallback = progressCallback;
+    }
+
     public UizaPlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
         this.linkPlay = linkPlay;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
@@ -118,18 +127,24 @@ import vn.loitp.core.utilities.LLog;
             public void run() {
                 if (player != null) {
                     boolean isPlayingAd = videoAdPlayerListerner.isPlayingAd();
-                    LLog.d(TAG, "isPlayingAd " + isPlayingAd);
+                    //LLog.d(TAG, "isPlayingAd " + isPlayingAd);
                     if (isPlayingAd) {
-                        VideoProgressUpdate videoProgressUpdate = adsLoader.getAdProgress();
-                        float mls = videoProgressUpdate.getCurrentTime();
-                        float duration = videoProgressUpdate.getDuration();
-                        int percent = (int) (mls * 100 / duration);
-                        LLog.d(TAG, "ad progress: " + mls + "/" + duration + " -> " + percent + "%");
+                        if (progressCallback != null) {
+                            VideoProgressUpdate videoProgressUpdate = adsLoader.getAdProgress();
+                            float mls = videoProgressUpdate.getCurrentTime();
+                            float duration = videoProgressUpdate.getDuration();
+                            int percent = (int) (mls * 100 / duration);
+                            //LLog.d(TAG, "ad progress: " + mls + "/" + duration + " -> " + percent + "%");
+                            progressCallback.onAdProgress(mls, duration, percent);
+                        }
                     } else {
-                        float mls = player.getCurrentPosition();
-                        float duration = player.getDuration();
-                        int percent = (int) (mls * 100 / duration);
-                        LLog.d(TAG, "video progress: " + mls + "/" + duration + " -> " + percent + "%");
+                        if (progressCallback != null) {
+                            float mls = player.getCurrentPosition();
+                            float duration = player.getDuration();
+                            int percent = (int) (mls * 100 / duration);
+                            //LLog.d(TAG, "video progress: " + mls + "/" + duration + " -> " + percent + "%");
+                            progressCallback.onVideoProgress(mls, duration, percent);
+                        }
                     }
                     handler.postDelayed(runnable, 1000);
                 }
