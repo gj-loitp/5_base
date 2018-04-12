@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.Surface;
@@ -59,6 +61,28 @@ public class LScreenUtil {
 
     public static int getScreenHeight() {
         return Resources.getSystem().getDisplayMetrics().heightPixels;
+    }
+
+    public static int getScreenHeightIncludeNavigationBar(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        final Display display = windowManager.getDefaultDisplay();
+        Point outPoint = new Point();
+        if (Build.VERSION.SDK_INT >= 19) {
+            // include navigation bar
+            display.getRealSize(outPoint);
+        } else {
+            // exclude navigation bar
+            display.getSize(outPoint);
+        }
+        int mRealSizeHeight;
+        if (outPoint.y > outPoint.x) {
+            mRealSizeHeight = outPoint.y;
+            //mRealSizeWidth = outPoint.x;
+        } else {
+            mRealSizeHeight = outPoint.x;
+            //mRealSizeWidth = outPoint.y;
+        }
+        return mRealSizeHeight;
     }
 
     public static void showStatusBar(Activity activity) {
