@@ -100,8 +100,8 @@ public class VideoActivity extends BaseActivity implements VideoRendererEventLis
 
         player.addListener(new ExoPlayer.EventListener() {
             @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest) {
-                LLog.d(TAG, "Listener-onTimelineChanged...");
+            public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
             }
 
             @Override

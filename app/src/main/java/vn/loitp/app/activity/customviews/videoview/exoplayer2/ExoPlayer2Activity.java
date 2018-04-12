@@ -184,12 +184,12 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
             mExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         }
 
-        mExoPlayerView.getPlayer().prepare(mVideoSource);
+        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
             @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest) {
-                //do nothing
+            public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
             }
 
             @Override

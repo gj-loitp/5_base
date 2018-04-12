@@ -110,12 +110,12 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
         LoadControl loadControl = new DefaultLoadControl();
         SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(this), trackSelector, loadControl);
         mExoPlayerView.setPlayer(player);
-        mExoPlayerView.getPlayer().prepare(mVideoSource);
+        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
             @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest) {
-                //do nothing
+            public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
             }
 
             @Override

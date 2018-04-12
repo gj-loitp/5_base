@@ -56,8 +56,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:12.0.1'
     compile 'com.nineoldandroids:library:2.4.0'//for draggable view
     //exoplayer
-    compile 'com.google.android.exoplayer:exoplayer:2.6.1'
-    compile 'com.google.android.exoplayer:extension-ima:2.6.1'
+    compile 'com.google.android.exoplayer:exoplayer:2.7.3'
+    compile 'com.google.android.exoplayer:extension-ima:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-dash:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-ui:2.7.3'
 
     //https://github.com/rubensousa/PreviewSeekBar
     compile 'com.github.rubensousa:previewseekbar:1.2'

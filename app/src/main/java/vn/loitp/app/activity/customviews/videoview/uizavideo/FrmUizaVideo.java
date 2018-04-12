@@ -173,6 +173,6 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
     }
 
     public SimpleExoPlayer getSimpleExoPlayer() {
-        return simpleExoPlayerView.getPlayer();
+        return (SimpleExoPlayer) simpleExoPlayerView.getPlayer();
     }
 }

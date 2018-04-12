@@ -210,9 +210,10 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
         player.prepare(loopingSource);
 
         player.addListener(new ExoPlayer.EventListener() {
+
             @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest) {
-                LLog.d(TAG, "Listener-onTimelineChanged...");
+            public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
             }
 
             @Override

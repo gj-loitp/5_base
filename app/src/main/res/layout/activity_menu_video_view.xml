@@ -73,6 +73,12 @@
                 android:text="ExoPlayer2 Demo From GG" />
 
             <Button
+                android:id="@+id/bt_exo_player2_from_gg_ima"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ExoPlayer2 Demo From GG IMA" />
+
+            <Button
                 android:id="@+id/bt_pip_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

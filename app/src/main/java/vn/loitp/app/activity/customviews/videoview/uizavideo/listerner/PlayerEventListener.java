@@ -17,8 +17,8 @@ public class PlayerEventListener implements Player.EventListener {
     private final String TAG = getClass().getSimpleName();
 
     @Override
-    public void onTimelineChanged(Timeline timeline, Object manifest) {
-        LLog.d(TAG, "onTimelineChanged");
+    public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
     }
 
     @Override

@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoP
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar;
 import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromgg.ExoPlayerDemoFromGGActivity;
+import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPlayerDemoFromGGIMActivity;
 import vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -37,6 +38,7 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
         findViewById(R.id.bt_pip_video).setOnClickListener(this);
         findViewById(R.id.bt_uiza_video).setOnClickListener(this);
         findViewById(R.id.bt_exo_player2_from_gg).setOnClickListener(this);
+        findViewById(R.id.bt_exo_player2_from_gg_ima).setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +91,9 @@ public class VideoViewMenuActivity extends BaseActivity implements OnClickListen
                 break;
             case R.id.bt_exo_player2_from_gg:
                 intent = new Intent(activity, ExoPlayerDemoFromGGActivity.class);
+                break;
+            case R.id.bt_exo_player2_from_gg_ima:
+                intent = new Intent(activity, ExoPlayerDemoFromGGIMActivity.class);
                 break;
             case R.id.bt_pip_video:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
