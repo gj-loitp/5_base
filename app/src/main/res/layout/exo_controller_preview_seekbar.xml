@@ -113,7 +113,7 @@
             android:id="@+id/exo_fullscreen_button"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_gravity="right">
+            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/exo_fullscreen_icon"
@@ -121,8 +121,10 @@
                 android:layout_height="18dp"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_fullscreen_expand" />
+                android:src="@drawable/ic_fullscreen_black_48dp"
+                android:tint="@color/White" />
 
         </FrameLayout>
     </LinearLayout>

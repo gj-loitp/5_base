@@ -11,6 +11,7 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
 import vn.loitp.core.base.BaseActivity;
 
 public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements PreviewView.OnPreviewChangeListener {
@@ -29,6 +30,8 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
         previewTimeBar.addOnPreviewChangeListener(this);
         player = new PlayerManager(activity, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
         previewTimeBarLayout.setPreviewLoader(player);
+
+        UizaUtil.resizeLayout(playerView);
     }
 
     @Override
@@ -71,25 +74,16 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
 
     @Override
     public void onStartPreview(PreviewView previewView) {
-        /*if (getResources().getBoolean(R.bool.landscape)) {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        }*/
+        //
     }
 
     @Override
     public void onStopPreview(PreviewView previewView) {
-        /*if (exoPlayerManagerPB != null) {
-            exoPlayerManagerPB.stopPreview();
-        }*/
+        //
     }
 
     @Override
     public void onPreview(PreviewView previewView, int progress, boolean fromUser) {
-
+        //
     }
 }
