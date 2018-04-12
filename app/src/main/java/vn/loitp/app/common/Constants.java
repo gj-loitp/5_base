@@ -5,6 +5,7 @@ package vn.loitp.app.common;
  */
 public class Constants {
     public final static boolean IS_DEBUG = false;
+    public final static String LOITP = "loitpdebug";
 
     public static final int NOT_FOUND = -6969;
 

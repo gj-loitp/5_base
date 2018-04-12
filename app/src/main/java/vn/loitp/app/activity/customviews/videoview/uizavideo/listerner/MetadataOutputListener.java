@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview.uizavideo.listerner;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -10,7 +11,8 @@ import vn.loitp.core.utilities.LLog;
  */
 
 public class MetadataOutputListener implements MetadataOutput {
-    private final String TAG = getClass().getSimpleName();
+    //private final String TAG = getClass().getSimpleName();
+    private final String TAG = Constants.LOITP;
 
     @Override
     public void onMetadata(Metadata metadata) {

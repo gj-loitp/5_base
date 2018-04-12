@@ -4,6 +4,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -11,7 +12,8 @@ import vn.loitp.core.utilities.LLog;
  */
 
 public class AudioEventListener implements AudioRendererEventListener {
-    private final String TAG = getClass().getSimpleName();
+    //private final String TAG = getClass().getSimpleName();
+    private final String TAG = Constants.LOITP;
 
     @Override
     public void onAudioEnabled(DecoderCounters counters) {
@@ -20,7 +22,7 @@ public class AudioEventListener implements AudioRendererEventListener {
 
     @Override
     public void onAudioSessionId(int audioSessionId) {
-        LLog.d(TAG, "onAudioSessionId");
+        LLog.d(TAG, "onAudioSessionId audioSessionId: "+audioSessionId);
     }
 
     @Override

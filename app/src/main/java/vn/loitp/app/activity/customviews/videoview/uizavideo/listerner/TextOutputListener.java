@@ -5,6 +5,7 @@ import com.google.android.exoplayer2.text.TextOutput;
 
 import java.util.List;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -12,7 +13,8 @@ import vn.loitp.core.utilities.LLog;
  */
 
 public class TextOutputListener implements TextOutput {
-    private final String TAG = getClass().getSimpleName();
+    //private final String TAG = getClass().getSimpleName();
+    private final String TAG = Constants.LOITP;
 
     @Override
     public void onCues(List<Cue> cues) {

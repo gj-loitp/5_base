@@ -7,6 +7,7 @@ import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -14,11 +15,12 @@ import vn.loitp.core.utilities.LLog;
  */
 
 public class PlayerEventListener implements Player.EventListener {
-    private final String TAG = getClass().getSimpleName();
+    //private final String TAG = getClass().getSimpleName();
+    private final String TAG = Constants.LOITP;
 
     @Override
     public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-
+        LLog.d(TAG, "onTimelineChanged");
     }
 
     @Override
@@ -28,27 +30,27 @@ public class PlayerEventListener implements Player.EventListener {
 
     @Override
     public void onLoadingChanged(boolean isLoading) {
-        LLog.d(TAG, "onLoadingChanged");
+        LLog.d(TAG, "onLoadingChanged isLoading " + isLoading);
     }
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        LLog.d(TAG, "onPlayerStateChanged");
+        LLog.d(TAG, "onPlayerStateChanged playWhenReady: " + playWhenReady);
     }
 
     @Override
     public void onRepeatModeChanged(int repeatMode) {
-        LLog.d(TAG, "onRepeatModeChanged");
+        LLog.d(TAG, "onRepeatModeChanged repeatMode: " + repeatMode);
     }
 
     @Override
     public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
-        LLog.d(TAG, "onShuffleModeEnabledChanged");
+        LLog.d(TAG, "onShuffleModeEnabledChanged shuffleModeEnabled: " + shuffleModeEnabled);
     }
 
     @Override
     public void onPlayerError(ExoPlaybackException error) {
-        LLog.d(TAG, "onPlayerError");
+        LLog.d(TAG, "onPlayerError " + error.toString());
     }
 
     @Override
