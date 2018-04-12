@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview.uizavideo;
 import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -19,6 +20,14 @@ public class UizaUtil {
             imageButton.setImageResource(loitp.core.R.drawable.ic_fullscreen_black_48dp);
         } else {
             imageButton.setImageResource(loitp.core.R.drawable.ic_fullscreen_exit_black_48dp);
+        }
+    }
+
+    public static void setUIFullScreenIcon(Context context, ImageView imageView) {
+        if (LScreenUtil.isFullScreen(context)) {
+            imageView.setImageResource(loitp.core.R.drawable.ic_fullscreen_black_48dp);
+        } else {
+            imageView.setImageResource(loitp.core.R.drawable.ic_fullscreen_exit_black_48dp);
         }
     }
 

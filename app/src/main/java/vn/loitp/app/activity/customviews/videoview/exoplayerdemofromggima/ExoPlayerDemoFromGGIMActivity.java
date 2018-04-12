@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
@@ -13,12 +15,15 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LScreenUtil;
 
-public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements PreviewView.OnPreviewChangeListener {
+public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
     private PlayerView playerView;
     private PlayerManager player;
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
+    private ImageView exoFullscreenIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,9 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
         previewTimeBar.addOnPreviewChangeListener(this);
         player = new PlayerManager(activity, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
         previewTimeBarLayout.setPreviewLoader(player);
+
+        playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
+        exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
 
         UizaUtil.resizeLayout(playerView);
     }
@@ -85,5 +93,28 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
     @Override
     public void onPreview(PreviewView previewView, int progress, boolean fromUser) {
         //
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.exo_fullscreen_button:
+                UizaUtil.setUIFullScreenIcon(activity, exoFullscreenIcon);
+                LActivityUtil.toggleScreenOritation(activity);
+                break;
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (activity != null) {
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                LScreenUtil.hideDefaultControls(activity);
+            } else {
+                LScreenUtil.showDefaultControls(activity);
+            }
+        }
+        UizaUtil.resizeLayout(playerView);
     }
 }

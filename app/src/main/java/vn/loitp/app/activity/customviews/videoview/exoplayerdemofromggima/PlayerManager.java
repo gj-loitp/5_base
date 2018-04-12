@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.request.target.Target;
 import com.github.rubensousa.previewseekbar.base.PreviewLoader;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
+import com.google.ads.interactivemedia.v3.api.player.VideoAdPlayer;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -55,11 +56,18 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerMediaSourceBuilderPB;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
+import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
 /* package */ final class PlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
+    private final String TAG = getClass().getSimpleName();
     private final ImaAdsLoader adsLoader;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
@@ -124,6 +132,47 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.
 
         // Prepare the player with the source.
         player.seekTo(contentPosition);
+
+        player.addListener(eventListener);
+
+        player.addListener(new PlayerEventListener());
+        player.addAudioDebugListener(new AudioEventListener());
+        player.addVideoDebugListener(new VideoEventListener());
+        player.addMetadataOutput(new MetadataOutputListener());
+        player.addTextOutput(new TextOutputListener());
+
+        adsLoader.addCallback(new VideoAdPlayer.VideoAdPlayerCallback() {
+            @Override
+            public void onPlay() {
+                LLog.d(TAG, "onPlay");
+            }
+
+            @Override
+            public void onVolumeChanged(int i) {
+                LLog.d(TAG, "onVolumeChanged");
+            }
+
+            @Override
+            public void onPause() {
+                LLog.d(TAG, "onPause");
+            }
+
+            @Override
+            public void onResume() {
+                LLog.d(TAG, "onResume");
+            }
+
+            @Override
+            public void onEnded() {
+                LLog.d(TAG, "onEnded");
+            }
+
+            @Override
+            public void onError() {
+                LLog.d(TAG, "onError");
+            }
+        });
+
         player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
     }
