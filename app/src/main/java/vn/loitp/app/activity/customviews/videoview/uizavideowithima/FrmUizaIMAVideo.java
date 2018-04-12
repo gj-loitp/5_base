@@ -15,6 +15,7 @@ import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.ui.SubtitleView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
@@ -65,6 +66,15 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         init(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
 
         UizaUtil.resizeLayout(playerView);
+
+        SubtitleView subtitleView = playerView.getSubtitleView();
+        subtitleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return view;
     }
 
