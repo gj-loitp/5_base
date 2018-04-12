@@ -29,12 +29,15 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MediaSourceEventListener;
+import com.google.android.exoplayer2.source.MergingMediaSource;
+import com.google.android.exoplayer2.source.SingleSampleMediaSource;
 import com.google.android.exoplayer2.source.ads.AdsMediaSource;
 import com.google.android.exoplayer2.source.dash.DashMediaSource;
 import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource;
@@ -52,6 +55,7 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
@@ -198,6 +202,16 @@ import vn.loitp.core.utilities.LLog;
             adsLoader.addCallback(videoAdPlayerListerner);
         }
         player.prepare(mediaSourceWithAds);
+
+        /*Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, Format.NO_VALUE, "en", null);
+        String urlSubtitle = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
+        MediaSource textMediaSource = new SingleSampleMediaSource.Factory(
+                mediaDataSourceFactory)
+                .createMediaSource(Uri.parse(urlSubtitle), textFormat, C.TIME_UNSET);
+        MediaSource mediaSourceWithText = new MergingMediaSource(contentMediaSource, textMediaSource);
+        //player.prepare(mediaSourceWithText, false, false);
+        player.prepare(mediaSourceWithText);*/
+
         player.setPlayWhenReady(true);
     }
 
@@ -248,8 +262,7 @@ import vn.loitp.core.utilities.LLog;
 
     // Internal methods.
 
-    private MediaSource buildMediaSource(
-            Uri uri, @Nullable Handler handler, @Nullable MediaSourceEventListener listener) {
+    private MediaSource buildMediaSource(Uri uri, @Nullable Handler handler, @Nullable MediaSourceEventListener listener) {
         @ContentType int type = Util.inferContentType(uri);
         switch (type) {
             case C.TYPE_DASH:
