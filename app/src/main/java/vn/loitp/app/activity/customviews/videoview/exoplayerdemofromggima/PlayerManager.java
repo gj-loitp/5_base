@@ -19,11 +19,16 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
+import com.bumptech.glide.request.target.Target;
+import com.github.rubensousa.previewseekbar.base.PreviewLoader;
+import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
@@ -47,12 +52,14 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerMediaSourceBuilderPB;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
 
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
-/* package */ final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
-
+/* package */ final class PlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final ImaAdsLoader adsLoader;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
@@ -60,7 +67,21 @@ import loitp.basemaster.R;
     private SimpleExoPlayer player;
     private long contentPosition;
 
-    public PlayerManager(Context context) {
+    private PreviewTimeBarLayout previewTimeBarLayout;
+    private String thumbnailsUrl;
+    private ImageView imageView;
+    private Player.EventListener eventListener = new Player.DefaultEventListener() {
+        @Override
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            if (playbackState == Player.STATE_READY && playWhenReady) {
+                if (previewTimeBarLayout != null) {
+                    previewTimeBarLayout.hidePreview();
+                }
+            }
+        }
+    };
+
+    public PlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String thumbnailsUrl) {
         String adTag = context.getString(R.string.ad_tag_url);
         adsLoader = new ImaAdsLoader(context, Uri.parse(adTag));
         manifestDataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, context.getString(R.string.app_name)));
@@ -68,6 +89,9 @@ import loitp.basemaster.R;
                 context,
                 Util.getUserAgent(context, context.getString(R.string.app_name)),
                 new DefaultBandwidthMeter());
+        this.imageView = imageView;
+        this.previewTimeBarLayout = previewTimeBarLayout;
+        this.thumbnailsUrl = thumbnailsUrl;
     }
 
     public void init(Context context, PlayerView playerView) {
@@ -84,17 +108,17 @@ import loitp.basemaster.R;
 
         // This is the MediaSource representing the content media (i.e. not the ad).
         //String contentUrl = context.getString(R.string.content_url);
-        //String contentUrl = context.getString(R.string.url_dash);
+        String contentUrl = context.getString(R.string.url_dash);
         //String contentUrl = context.getString(R.string.url_hls);
-        String contentUrl = context.getString(R.string.url_smooth);
+        //String contentUrl = context.getString(R.string.url_smooth);
         MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), /* handler= */ null, /* listener= */ null);
 
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         MediaSource mediaSourceWithAds = new AdsMediaSource(
-                        contentMediaSource,
+                contentMediaSource,
             /* adMediaSourceFactory= */ this,
-                        adsLoader,
-                        playerView.getOverlayFrameLayout(),
+                adsLoader,
+                playerView.getOverlayFrameLayout(),
             /* eventHandler= */ null,
             /* eventListener= */ null);
 
@@ -123,8 +147,7 @@ import loitp.basemaster.R;
     // AdsMediaSource.MediaSourceFactory implementation.
 
     @Override
-    public MediaSource createMediaSource(
-            Uri uri, @Nullable Handler handler, @Nullable MediaSourceEventListener listener) {
+    public MediaSource createMediaSource(Uri uri, @Nullable Handler handler, @Nullable MediaSourceEventListener listener) {
         return buildMediaSource(uri, handler, listener);
     }
 
@@ -160,4 +183,14 @@ import loitp.basemaster.R;
         }
     }
 
+    @Override
+    public void loadPreview(long currentPosition, long max) {
+        player.setPlayWhenReady(false);
+        GlideApp.with(imageView)
+                .load(thumbnailsUrl)
+                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .transform(new GlideThumbnailTransformationPB(currentPosition))
+                .into(imageView);
+
+    }
 }

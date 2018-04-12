@@ -49,16 +49,7 @@ public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemCl
         SimpleExoPlayerView simpleExoPlayerView = findViewById(R.id.player_view);
 
         previewTimeBar = simpleExoPlayerView.findViewById(R.id.exo_progress);
-        if (previewTimeBar == null) {
-            LLog.d(TAG, "previewTimeBar==null");
-        }
-        LLog.d(TAG, "getSimpleName: " + findViewById(R.id.previewSeekBarLayout).getClass().getSimpleName());
         previewTimeBarLayout = findViewById(R.id.previewSeekBarLayout);
-
-        if (previewTimeBarLayout == null) {
-            LLog.d(TAG, "previewTimeBarLayout==null");
-            return;
-        }
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
 
