@@ -19,12 +19,12 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.core.R;
-import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -130,7 +130,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     @Override
     public void onClick(View v) {
-        if (v == exoFullscreenIcon) {
+        int id = v.getId();
+        if (id == R.id.exo_fullscreen_button) {
             UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
             LActivityUtil.toggleScreenOritation(getActivity());
         }
