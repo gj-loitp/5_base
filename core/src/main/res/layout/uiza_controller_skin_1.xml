@@ -179,6 +179,16 @@
                 android:tint="@color/White" />
 
             <ImageButton
+                android:id="@+id/exo_volume"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_volume_up_black_48dp"
+                android:tint="@color/White" />
+
+            <ImageButton
                 android:id="@+id/exo_fullscreen_icon"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"

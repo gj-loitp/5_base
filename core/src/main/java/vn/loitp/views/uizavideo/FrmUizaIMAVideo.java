@@ -45,6 +45,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ProgressBar progressBar;
     private TextView tvTitle;
     private ImageButton exoBackScreen;
+    private ImageButton exoVolume;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -68,9 +69,11 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoFullscreenIcon = (ImageButton) playerView.findViewById(R.id.exo_fullscreen_icon);
         tvTitle = (TextView) playerView.findViewById(R.id.tv_title);
         exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
+        exoVolume = (ImageButton) playerView.findViewById(R.id.exo_volume);
         //onclick
         exoFullscreenIcon.setOnClickListener(this);
         exoBackScreen.setOnClickListener(this);
+        exoVolume.setOnClickListener(this);
     }
 
     @Override
@@ -147,6 +150,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
                     getActivity().onBackPressed();
                 }
             }
+        } else if (v == exoVolume) {
+            uizaPlayerManager.toggleVolumeMute(exoVolume);
         }
     }
 

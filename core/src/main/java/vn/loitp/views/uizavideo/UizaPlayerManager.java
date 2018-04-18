@@ -21,6 +21,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.Surface;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -75,11 +76,11 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.uizavideo.glide.GlideApp;
 import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
@@ -486,4 +487,21 @@ import vn.loitp.core.utilities.LLog;
         }
     }
 
+    private float currentVolume;
+
+    public void toggleVolumeMute(ImageButton exoVolume) {
+        if (player == null || exoVolume == null) {
+            return;
+        }
+        if (player.getVolume() == 0f) {
+            //off -> on
+            player.setVolume(currentVolume);
+            exoVolume.setImageResource(R.drawable.ic_volume_up_black_48dp);
+        } else {
+            //on -> off
+            currentVolume = player.getVolume();
+            player.setVolume(0f);
+            exoVolume.setImageResource(R.drawable.ic_volume_off_black_48dp);
+        }
+    }
 }
