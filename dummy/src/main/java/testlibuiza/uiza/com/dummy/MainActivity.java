@@ -1,6 +1,7 @@
 package testlibuiza.uiza.com.dummy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.View;
 import testlibuiza.uiza.com.dummy.app.APIServices;
 import testlibuiza.uiza.com.dummy.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
@@ -24,6 +26,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 testAPI();
+            }
+        });
+        findViewById(R.id.bt_uiza_video).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uizaVideo();
             }
         });
     }
@@ -64,5 +72,11 @@ public class MainActivity extends BaseActivity {
                 handleException(e);
             }
         });
+    }
+
+    private void uizaVideo() {
+        Intent intent = new Intent(activity, TestUizaVideoIMActivity.class);
+        startActivity(intent);
+        LActivityUtil.tranIn(activity);
     }
 }
