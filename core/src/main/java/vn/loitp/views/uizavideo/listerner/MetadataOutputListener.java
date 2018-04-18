@@ -1,9 +1,9 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideo.listerner;
+package vn.loitp.views.uizavideo.listerner;
 
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 
-import vn.loitp.app.common.Constants;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**

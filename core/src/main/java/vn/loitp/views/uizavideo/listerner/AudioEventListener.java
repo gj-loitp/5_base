@@ -1,10 +1,10 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideo.listerner;
+package vn.loitp.views.uizavideo.listerner;
 
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 
-import vn.loitp.app.common.Constants;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -22,7 +22,7 @@ public class AudioEventListener implements AudioRendererEventListener {
 
     @Override
     public void onAudioSessionId(int audioSessionId) {
-        LLog.d(TAG, "onAudioSessionId audioSessionId: "+audioSessionId);
+        LLog.d(TAG, "onAudioSessionId audioSessionId: " + audioSessionId);
     }
 
     @Override

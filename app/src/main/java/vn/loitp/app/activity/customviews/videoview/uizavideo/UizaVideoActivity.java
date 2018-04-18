@@ -27,7 +27,7 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.uizavideo.UizaUtil;
 
 public class UizaVideoActivity extends BaseActivity {
     private FrameLayout frmUizaVideo;

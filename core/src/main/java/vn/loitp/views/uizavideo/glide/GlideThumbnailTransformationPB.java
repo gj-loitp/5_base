@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide;
+package vn.loitp.views.uizavideo.glide;
 
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;

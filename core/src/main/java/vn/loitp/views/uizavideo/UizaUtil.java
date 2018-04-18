@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideo;
+package vn.loitp.views.uizavideo;
 
 import android.content.Context;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 

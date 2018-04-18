@@ -25,6 +25,7 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.uizavideo.UizaUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

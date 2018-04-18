@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.uizavideo.FrmUizaIMAVideo;
 
 public class UizaVideoIMActivity extends BaseActivity {
 

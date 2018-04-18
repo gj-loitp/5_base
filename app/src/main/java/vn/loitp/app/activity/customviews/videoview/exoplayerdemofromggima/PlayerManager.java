@@ -53,14 +53,13 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerMediaSourceBuilderPB;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.views.uizavideo.glide.GlideApp;
+import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
+import vn.loitp.views.uizavideo.listerner.AudioEventListener;
+import vn.loitp.views.uizavideo.listerner.MetadataOutputListener;
+import vn.loitp.views.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.views.uizavideo.listerner.TextOutputListener;
+import vn.loitp.views.uizavideo.listerner.VideoEventListener;
 import vn.loitp.core.utilities.LLog;
 
 /**

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideo.listerner;
+package vn.loitp.views.uizavideo.listerner;
 
 /**
  * Created by LENOVO on 4/12/2018.

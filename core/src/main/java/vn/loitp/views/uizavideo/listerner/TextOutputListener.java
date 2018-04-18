@@ -1,11 +1,11 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideo.listerner;
+package vn.loitp.views.uizavideo.listerner;
 
 import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.TextOutput;
 
 import java.util.List;
 
-import vn.loitp.app.common.Constants;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**

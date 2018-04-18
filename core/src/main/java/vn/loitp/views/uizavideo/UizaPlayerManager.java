@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.app.activity.customviews.videoview.uizavideowithima;
+package vn.loitp.views.uizavideo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -73,12 +73,12 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
 import java.util.List;
 
-import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
-import vn.loitp.app.common.Constants;
+import loitp.core.R;
+import vn.loitp.core.common.Constants;
+import vn.loitp.views.uizavideo.glide.GlideApp;
+import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
+import vn.loitp.views.uizavideo.listerner.ProgressCallback;
+import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 import vn.loitp.core.utilities.LLog;
 
 /**

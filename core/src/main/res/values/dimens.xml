@@ -82,4 +82,11 @@
     <dimen name="animated_expandable_edit_text_expanded_height">35dp</dimen>
     <dimen name="default_width">72dp</dimen>
     <dimen name="default_height">32dp</dimen>
+
+    <dimen name="video_preview_width">100dp</dimen>
+    <dimen name="video_preview_height">56dp</dimen>
+    <dimen name="video_preview_width_landscape">200dp</dimen>
+    <dimen name="video_preview_height_landscape">112dp</dimen>
+
+    <dimen name="video_frame_width">2dp</dimen>
 </resources>

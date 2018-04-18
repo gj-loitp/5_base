@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.videoview.uizavideowithima;
+package vn.loitp.views.uizavideo;
 
 /**
  * Created by www.muathu@gmail.com on 12/24/2017.
@@ -18,9 +18,8 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
-import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
+import loitp.core.R;
+import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -136,11 +135,9 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.exo_fullscreen_button:
-                UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
-                LActivityUtil.toggleScreenOritation(getActivity());
-                break;
+        if (v == exoFullscreenIcon) {
+            UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
+            LActivityUtil.toggleScreenOritation(getActivity());
         }
     }
 

@@ -29,10 +29,6 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.metadata.Metadata;
-import com.google.android.exoplayer2.metadata.MetadataOutput;
-import com.google.android.exoplayer2.text.Cue;
-import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
@@ -41,15 +37,13 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.util.Util;
 
-import java.util.List;
-
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.views.uizavideo.glide.GlideApp;
+import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
+import vn.loitp.views.uizavideo.listerner.AudioEventListener;
+import vn.loitp.views.uizavideo.listerner.MetadataOutputListener;
+import vn.loitp.views.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.views.uizavideo.listerner.TextOutputListener;
+import vn.loitp.views.uizavideo.listerner.VideoEventListener;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
     private ExoPlayerMediaSourceBuilderPB mediaSourceBuilder;

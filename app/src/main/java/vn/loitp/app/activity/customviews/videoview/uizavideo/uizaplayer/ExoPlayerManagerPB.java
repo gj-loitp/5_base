@@ -38,13 +38,13 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.util.Util;
 
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
-import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.views.uizavideo.glide.GlideApp;
+import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
+import vn.loitp.views.uizavideo.listerner.AudioEventListener;
+import vn.loitp.views.uizavideo.listerner.MetadataOutputListener;
+import vn.loitp.views.uizavideo.listerner.PlayerEventListener;
+import vn.loitp.views.uizavideo.listerner.TextOutputListener;
+import vn.loitp.views.uizavideo.listerner.VideoEventListener;
 
 public class ExoPlayerManagerPB implements PreviewLoader {
     private final String TAG = getClass().getSimpleName();

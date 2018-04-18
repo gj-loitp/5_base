@@ -142,13 +142,4 @@ Likewise may someone love you next.
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="url_dash">https://bitdash-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd</string>
-    <string name="url_thumbnails">https://bitdash-a.akamaihd.net/content/MI201109210084_1/thumbnails/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.jpg</string>
-    <string name="url_smooth">http://playready.directtaps.net/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism</string>
-    <string name="url_hls">https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8</string>
-    <string name="url_mp3">http://www.hoahaomedia.org/hoahao/_media/PGHH/Audio/Giang_Xua/KinhBaoDapCongOnChaMe.MP3</string>
-
-    <string name="content_url"><![CDATA[http://rmcdn.2mdn.net/MotifFiles/html/1248596/android_1330378998288.mp4]]></string>
-    <string name="ad_tag_url"><![CDATA[https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=]]></string>
 </resources>
