@@ -26,6 +26,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LToast;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 
 /**
@@ -46,6 +47,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private TextView tvTitle;
     private ImageButton exoBackScreen;
     private ImageButton exoVolume;
+    private ImageButton exoSetting;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -70,10 +72,12 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         tvTitle = (TextView) playerView.findViewById(R.id.tv_title);
         exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
         exoVolume = (ImageButton) playerView.findViewById(R.id.exo_volume);
+        exoSetting = (ImageButton) playerView.findViewById(R.id.exo_setting);
         //onclick
         exoFullscreenIcon.setOnClickListener(this);
         exoBackScreen.setOnClickListener(this);
         exoVolume.setOnClickListener(this);
+        exoSetting.setOnClickListener(this);
     }
 
     @Override
@@ -152,6 +156,9 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             }
         } else if (v == exoVolume) {
             uizaPlayerManager.toggleVolumeMute(exoVolume);
+        } else if (v == exoSetting) {
+            //TODO
+            LToast.show(getActivity(), "exo_setting");
         }
     }
 

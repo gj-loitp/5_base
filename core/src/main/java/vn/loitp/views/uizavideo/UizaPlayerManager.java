@@ -164,7 +164,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
                             progressCallback.onVideoProgress(mls, duration, percent);
                         }
                     }
-                    handler.postDelayed(runnable, 1000);
+                    if (handler != null && runnable != null) {
+                        handler.postDelayed(runnable, 1000);
+                    }
                 }
             }
         };
@@ -318,12 +320,18 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
     private void hideProgress() {
         if (progressBar != null && progressBar.getVisibility() != View.GONE) {
             progressBar.setVisibility(View.GONE);
+            LLog.d(TAG, "hideProgress !null");
+        } else {
+            LLog.d(TAG, "hideProgress null");
         }
     }
 
     private void showProgress() {
         if (progressBar != null && progressBar.getVisibility() != View.VISIBLE) {
             progressBar.setVisibility(View.VISIBLE);
+            LLog.d(TAG, "showProgress !null");
+        } else {
+            LLog.d(TAG, "showProgress null");
         }
     }
 

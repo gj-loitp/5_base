@@ -20,6 +20,7 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
+        Constants.setIsDebug(true);
         Utils.init(this);
         //config activity transition default
         ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
