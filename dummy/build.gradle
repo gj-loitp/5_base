@@ -26,6 +26,6 @@ android {
 }
 
 dependencies {
-    compile 'com.github.tplloi:basemaster:1.0.8'
-    //compile 'com.android.support:multidex:1.0.3'
+    implementation project(':core')
+    //compile 'com.github.tplloi:basemaster:1.0.8'
 }

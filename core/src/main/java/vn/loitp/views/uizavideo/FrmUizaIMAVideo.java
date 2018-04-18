@@ -10,8 +10,10 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
@@ -34,11 +36,15 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private final String TAG = getClass().getSimpleName();
     private PlayerView playerView;
     private UizaPlayerManager uizaPlayerManager;
+
+    //play controller
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
-    private ImageView exoFullscreenIcon;
+    private ImageButton exoFullscreenIcon;
     private ImageView ivThumbnail;
     private ProgressBar progressBar;
+    private TextView tvTitle;
+    private ImageButton exoBackScreen;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -50,9 +56,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
+    private void findViews(View view) {
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(progressBar.getContext(), R.color.White));
         playerView = view.findViewById(R.id.player_view);
@@ -61,19 +65,21 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
         ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
-        playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
-        exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
+        exoFullscreenIcon = (ImageButton) playerView.findViewById(R.id.exo_fullscreen_icon);
+        tvTitle = (TextView) playerView.findViewById(R.id.tv_title);
+        exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
+        //onclick
+        exoFullscreenIcon.setOnClickListener(this);
+        exoBackScreen.setOnClickListener(this);
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
+        findViews(view);
         UizaUtil.resizeLayout(playerView);
 
-        /*SubtitleView subtitleView = playerView.getSubtitleView();
-        subtitleView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.show(getActivity(), "Touch subtitle");
-            }
-        });*/
-
+        initUI();
         return view;
     }
 
@@ -130,12 +136,21 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.exo_fullscreen_button) {
+        if (v == exoFullscreenIcon) {
             UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
             LActivityUtil.toggleScreenOritation(getActivity());
+        } else if (v == exoBackScreen) {
+            if (isLandscape) {
+                exoFullscreenIcon.performClick();
+            } else {
+                if (getActivity() != null) {
+                    getActivity().onBackPressed();
+                }
+            }
         }
     }
+
+    private boolean isLandscape;
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -143,10 +158,23 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         if (getActivity() != null) {
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 LScreenUtil.hideDefaultControls(getActivity());
+                isLandscape = true;
             } else {
                 LScreenUtil.showDefaultControls(getActivity());
+                isLandscape = false;
             }
         }
         UizaUtil.resizeLayout(playerView);
+    }
+
+    public void initUI() {
+        String title = "Dummy Video";
+
+        updateUIPlayController(title);
+    }
+
+    private void updateUIPlayController(String title) {
+        tvTitle.setText(title);
+        LUIUtil.setTextShadow(tvTitle);
     }
 }
