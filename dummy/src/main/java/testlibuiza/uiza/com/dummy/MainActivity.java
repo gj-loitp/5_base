@@ -13,6 +13,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.restapi.uiza.UizaService;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.LToast;
 
 public class MainActivity extends BaseActivity {
 
@@ -55,6 +56,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onSuccess(Object result) {
                 LLog.d(TAG, "testAPI onSuccess " + LSApplication.getInstance().getGson().toJson(result));
+                LToast.show(activity, LSApplication.getInstance().getGson().toJson(result));
             }
 
             @Override
