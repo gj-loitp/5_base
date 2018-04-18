@@ -16,13 +16,11 @@
 
         <ImageButton
             android:id="@+id/exo_back_screen"
-            android:layout_width="@dimen/w_32"
-            android:layout_height="@dimen/w_32"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:background="@color/transparent"
+            android:layout_width="@dimen/size_player"
+            android:layout_height="@dimen/size_player"
+            android:background="?android:attr/selectableItemBackground"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_arrow_back_white_48dp"
             android:tint="@color/White" />
 
@@ -121,46 +119,75 @@
             android:paddingTop="@dimen/padding_5">
 
             <ImageButton
-                android:id="@id/exo_prev"
-                style="@style/ExoMediaButton.Previous"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_prev"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_skip_previous_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
-                android:id="@id/exo_rew"
-                style="@style/ExoMediaButton.Rewind"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_rew"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_fast_rewind_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
-                android:id="@id/exo_play"
-                style="@style/ExoMediaButton.Play"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_play"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_play_arrow_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
-                android:id="@id/exo_pause"
-                style="@style/ExoMediaButton.Pause"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_pause"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_pause_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
-                android:id="@id/exo_ffwd"
-                style="@style/ExoMediaButton.FastForward"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_ffwd"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_fast_forward_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
-                android:id="@id/exo_next"
-                style="@style/ExoMediaButton.Next"
-                android:contentDescription="@string/app_name" />
+                android:id="@+id/exo_next"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_skip_next_black_48dp"
+                android:tint="@color/White" />
 
             <ImageButton
                 android:id="@+id/exo_fullscreen_icon"
-                android:layout_width="@dimen/w_32"
-                android:layout_height="@dimen/w_32"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:background="@color/transparent"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitCenter"
+                android:scaleType="centerInside"
                 android:src="@drawable/ic_fullscreen_black_48dp"
                 android:tint="@color/White" />
+
         </LinearLayout>
     </LinearLayout>
 
