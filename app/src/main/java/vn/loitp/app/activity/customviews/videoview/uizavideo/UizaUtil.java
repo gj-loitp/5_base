@@ -2,9 +2,11 @@ package vn.loitp.app.activity.customviews.videoview.uizavideo;
 
 import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 
@@ -47,5 +49,19 @@ public class UizaUtil {
         viewGroup.getLayoutParams().width = widthScreen;
         viewGroup.getLayoutParams().height = heightScreen;
         viewGroup.requestLayout();
+
+        FrameLayout flImgThumnailPreviewSeekbar = viewGroup.findViewById(R.id.previewFrameLayout);
+        LLog.d(TAG, flImgThumnailPreviewSeekbar == null ? "resizeLayout imgThumnailPreviewSeekbar null" : "resizeLayout imgThumnailPreviewSeekbar !null");
+        if (flImgThumnailPreviewSeekbar != null) {
+            if (isFullScreen) {
+                flImgThumnailPreviewSeekbar.getLayoutParams().width = widthScreen / 4;
+                flImgThumnailPreviewSeekbar.getLayoutParams().height = widthScreen / 4 * 9 / 16;
+            } else {
+                flImgThumnailPreviewSeekbar.getLayoutParams().width = widthScreen / 5;
+                flImgThumnailPreviewSeekbar.getLayoutParams().height = widthScreen / 5 * 9 / 16;
+            }
+            LLog.d(TAG, "resizeLayout: " + flImgThumnailPreviewSeekbar.getWidth() + " x " + flImgThumnailPreviewSeekbar.getHeight());
+            flImgThumnailPreviewSeekbar.requestLayout();
+        }
     }
 }

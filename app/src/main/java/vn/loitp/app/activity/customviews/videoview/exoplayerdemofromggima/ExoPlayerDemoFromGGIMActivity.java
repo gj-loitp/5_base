@@ -23,6 +23,7 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
     private ImageView exoFullscreenIcon;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,10 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
         previewTimeBarLayout = findViewById(R.id.previewSeekBarLayout);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
-        player = new PlayerManager(activity, previewTimeBarLayout, (ImageView) findViewById(R.id.imageView), getString(R.string.url_thumbnails));
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+
+        player = new PlayerManager(activity, previewTimeBarLayout, imageView, getString(R.string.url_thumbnails));
         previewTimeBarLayout.setPreviewLoader(player);
 
         playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
