@@ -6,16 +6,17 @@ package vn.loitp.app.activity.customviews.videoview.uizavideowithima;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.ui.SubtitleView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaUtil;
@@ -24,7 +25,7 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.LToast;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -38,6 +39,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private PreviewTimeBar previewTimeBar;
     private ImageView exoFullscreenIcon;
     private ImageView ivThumbnail;
+    private ProgressBar progressBar;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -52,6 +54,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(progressBar.getContext(), R.color.White));
         playerView = view.findViewById(R.id.player_view);
         previewTimeBar = playerView.findViewById(R.id.exo_progress);
         previewTimeBarLayout = playerView.findViewById(R.id.previewSeekBarLayout);
@@ -80,7 +84,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     }
 
     public void init(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
-        uizaPlayerManager = new UizaPlayerManager(getActivity(), previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+        uizaPlayerManager = new UizaPlayerManager(getActivity(), progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
 
         uizaPlayerManager.setProgressCallback(new ProgressCallback() {

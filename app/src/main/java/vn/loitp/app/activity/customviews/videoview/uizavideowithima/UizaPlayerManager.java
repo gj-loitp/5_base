@@ -19,7 +19,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.view.Surface;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.bumptech.glide.request.target.Target;
 import com.github.rubensousa.previewseekbar.base.PreviewLoader;
@@ -27,26 +30,37 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.ads.interactivemedia.v3.api.player.VideoProgressUpdate;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
+import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.audio.AudioRendererEventListener;
+import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
+import com.google.android.exoplayer2.metadata.Metadata;
+import com.google.android.exoplayer2.metadata.MetadataOutput;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MediaSourceEventListener;
 import com.google.android.exoplayer2.source.MergingMediaSource;
 import com.google.android.exoplayer2.source.SingleSampleMediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.source.ads.AdsMediaSource;
 import com.google.android.exoplayer2.source.dash.DashMediaSource;
 import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.source.smoothstreaming.DefaultSsChunkSource;
 import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
+import com.google.android.exoplayer2.text.Cue;
+import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
@@ -55,17 +69,16 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
+import com.google.android.exoplayer2.video.VideoRendererEventListener;
+
+import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideApp;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.glide.GlideThumbnailTransformationPB;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.AudioEventListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.MetadataOutputListener;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.PlayerEventListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.ProgressCallback;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.TextOutputListener;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoAdPlayerListerner;
-import vn.loitp.app.activity.customviews.videoview.uizavideo.listerner.VideoEventListener;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 
 /**
@@ -76,7 +89,7 @@ import vn.loitp.core.utilities.LLog;
     private ImaAdsLoader adsLoader = null;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
-
+    private ProgressBar progressBar;
     private SimpleExoPlayer player;
     private long contentPosition;
 
@@ -107,13 +120,14 @@ import vn.loitp.core.utilities.LLog;
         this.progressCallback = progressCallback;
     }
 
-    public UizaPlayerManager(Context context, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+    public UizaPlayerManager(Context context, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
         this.linkPlay = linkPlay;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
             LLog.d(TAG, "UizaPlayerManager urlIMAAd == null || urlIMAAd.isEmpty()");
         } else {
             adsLoader = new ImaAdsLoader(context, Uri.parse(urlIMAAd));
         }
+        this.progressBar = progressBar;
         String userAgent = Util.getUserAgent(context, context.getString(R.string.app_name));
         manifestDataSourceFactory = new DefaultDataSourceFactory(context, userAgent);
         mediaDataSourceFactory = new DefaultDataSourceFactory(
@@ -131,6 +145,7 @@ import vn.loitp.core.utilities.LLog;
                     boolean isPlayingAd = videoAdPlayerListerner.isPlayingAd();
                     //LLog.d(TAG, "isPlayingAd " + isPlayingAd);
                     if (isPlayingAd) {
+                        hideProgress();
                         if (progressCallback != null) {
                             VideoProgressUpdate videoProgressUpdate = adsLoader.getAdProgress();
                             float mls = videoProgressUpdate.getCurrentTime();
@@ -156,51 +171,6 @@ import vn.loitp.core.utilities.LLog;
     }
 
     public void init(Context context, PlayerView playerView) {
-        /////////////OPTION 1
-        /*// Create a default track selector.
-        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
-        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
-
-        // Create a player instance.
-        player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
-
-        // Bind the player to the view.
-        playerView.setPlayer(player);
-
-        // This is the MediaSource representing the content media (i.e. not the ad).
-
-        String contentUrl = linkPlay;
-        MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), handler = null, null);
-
-        // Compose the content media source into a new AdsMediaSource with both ads and content.
-        MediaSource mediaSourceWithAds = new AdsMediaSource(
-                contentMediaSource,
-                this,
-                adsLoader,
-                playerView.getOverlayFrameLayout(),
-                null,
-                null);
-
-        // Prepare the player with the source.
-        player.seekTo(contentPosition);
-
-        player.addListener(eventListener);
-
-        player.addListener(new PlayerEventListener());
-        player.addAudioDebugListener(new AudioEventListener());
-        player.addVideoDebugListener(new VideoEventListener());
-        player.addMetadataOutput(new MetadataOutputListener());
-        player.addTextOutput(new TextOutputListener());
-
-        if (adsLoader != null) {
-            adsLoader.addCallback(videoAdPlayerListerner);
-        }
-        player.prepare(mediaSourceWithAds);
-        player.setPlayWhenReady(true);*/
-
-
-        /////////////OPTION 2
         //Exo Player Initialization
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -343,4 +313,177 @@ import vn.loitp.core.utilities.LLog;
                 .into(imageView);
 
     }
+
+    private void hideProgress() {
+        if (progressBar != null && progressBar.getVisibility() != View.GONE) {
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
+    private void showProgress() {
+        if (progressBar != null && progressBar.getVisibility() != View.VISIBLE) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public class PlayerEventListener implements Player.EventListener {
+        private final String TAG = Constants.LOITP;
+
+        @Override
+        public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+            LLog.d(TAG, "onTimelineChanged");
+        }
+
+        @Override
+        public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+            LLog.d(TAG, "onTracksChanged");
+        }
+
+        @Override
+        public void onLoadingChanged(boolean isLoading) {
+            LLog.d(TAG, "onLoadingChanged isLoading " + isLoading);
+        }
+
+        @Override
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            LLog.d(TAG, "onPlayerStateChanged playWhenReady: " + playWhenReady);
+            switch (playbackState) {
+                case Player.STATE_BUFFERING:
+                    showProgress();
+                    break;
+                case Player.STATE_ENDED:
+                    hideProgress();
+                    break;
+                case Player.STATE_IDLE:
+                    showProgress();
+                    break;
+                case Player.STATE_READY:
+                    hideProgress();
+                    break;
+
+            }
+        }
+
+        @Override
+        public void onRepeatModeChanged(int repeatMode) {
+            LLog.d(TAG, "onRepeatModeChanged repeatMode: " + repeatMode);
+        }
+
+        @Override
+        public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+            LLog.d(TAG, "onShuffleModeEnabledChanged shuffleModeEnabled: " + shuffleModeEnabled);
+        }
+
+        @Override
+        public void onPlayerError(ExoPlaybackException error) {
+            LLog.d(TAG, "onPlayerError " + error.toString());
+        }
+
+        @Override
+        public void onPositionDiscontinuity(int reason) {
+            LLog.d(TAG, "onPositionDiscontinuity");
+        }
+
+        @Override
+        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+            LLog.d(TAG, "onPlaybackParametersChanged");
+        }
+
+        @Override
+        public void onSeekProcessed() {
+            LLog.d(TAG, "onSeekProcessed");
+        }
+    }
+
+    public class AudioEventListener implements AudioRendererEventListener {
+        private final String TAG = Constants.LOITP;
+
+        @Override
+        public void onAudioEnabled(DecoderCounters counters) {
+            LLog.d(TAG, "onAudioEnabled");
+        }
+
+        @Override
+        public void onAudioSessionId(int audioSessionId) {
+            LLog.d(TAG, "onAudioSessionId audioSessionId: " + audioSessionId);
+        }
+
+        @Override
+        public void onAudioDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
+            LLog.d(TAG, "onAudioDecoderInitialized");
+        }
+
+        @Override
+        public void onAudioInputFormatChanged(Format format) {
+            LLog.d(TAG, "onAudioInputFormatChanged");
+        }
+
+        @Override
+        public void onAudioSinkUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs) {
+            LLog.d(TAG, "onAudioSinkUnderrun");
+        }
+
+        @Override
+        public void onAudioDisabled(DecoderCounters counters) {
+            LLog.d(TAG, "onAudioDisabled");
+        }
+    }
+
+    public class VideoEventListener implements VideoRendererEventListener {
+        private final String TAG = Constants.LOITP;
+
+        @Override
+        public void onVideoEnabled(DecoderCounters counters) {
+            LLog.d(TAG, "onVideoEnabled");
+        }
+
+        @Override
+        public void onVideoDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
+            LLog.d(TAG, "onVideoDecoderInitialized decoderName: " + decoderName + ", initializedTimestampMs " + initializedTimestampMs + ", initializationDurationMs " + initializationDurationMs);
+        }
+
+        @Override
+        public void onVideoInputFormatChanged(Format format) {
+            LLog.d(TAG, "onVideoInputFormatChanged");
+        }
+
+        @Override
+        public void onDroppedFrames(int count, long elapsedMs) {
+            LLog.d(TAG, "onDroppedFrames count " + count + ",elapsedMs " + elapsedMs);
+        }
+
+        @Override
+        public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
+            LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height + ", pixelWidthHeightRatio " + pixelWidthHeightRatio);
+        }
+
+        @Override
+        public void onRenderedFirstFrame(Surface surface) {
+            LLog.d(TAG, "onRenderedFirstFrame");
+        }
+
+        @Override
+        public void onVideoDisabled(DecoderCounters counters) {
+            LLog.d(TAG, "onVideoDisabled");
+        }
+    }
+
+    public class MetadataOutputListener implements MetadataOutput {
+        private final String TAG = Constants.LOITP;
+
+        @Override
+        public void onMetadata(Metadata metadata) {
+            LLog.d(TAG, "onMetadata " + metadata.length());
+        }
+    }
+
+    public class TextOutputListener implements TextOutput {
+        private final String TAG = Constants.LOITP;
+
+        @Override
+        public void onCues(List<Cue> cues) {
+            LLog.d(TAG, "onCues " + cues.size());
+        }
+    }
+
 }

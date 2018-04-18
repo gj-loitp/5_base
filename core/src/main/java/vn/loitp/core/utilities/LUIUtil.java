@@ -33,6 +33,7 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -613,5 +614,12 @@ public class LUIUtil {
                 return false;
             }
         });
+    }
+
+    public static void setColorProgressBar(ProgressBar progressBar, int color) {
+        if (progressBar == null) {
+            return;
+        }
+        progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 }
