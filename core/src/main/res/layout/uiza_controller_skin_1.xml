@@ -189,16 +189,6 @@
                 android:tint="@color/White" />
 
             <ImageButton
-                android:id="@+id/exo_setting"
-                android:layout_width="@dimen/size_player"
-                android:layout_height="@dimen/size_player"
-                android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="@string/app_name"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_settings_black_48dp"
-                android:tint="@color/White" />
-
-            <ImageButton
                 android:id="@+id/exo_cc"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -216,6 +206,26 @@
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_playlist_play_black_48dp"
+                android:tint="@color/White" />
+
+            <ImageButton
+                android:id="@+id/exo_hearing"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_hearing_black_48dp"
+                android:tint="@color/White" />
+
+            <ImageButton
+                android:id="@+id/exo_setting"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_settings_black_48dp"
                 android:tint="@color/White" />
 
             <ImageButton
