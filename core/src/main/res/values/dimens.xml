@@ -30,6 +30,8 @@
     <dimen name="w_48">48dp</dimen>
     <dimen name="w_80">80dp</dimen>
     <dimen name="w_50">50dp</dimen>
+    <dimen name="w_32">32dp</dimen>
+    <dimen name="w_18">18dp</dimen>
     <dimen name="w_64">64dp</dimen>
     <dimen name="w_300">300dp</dimen>
     <dimen name="margin_20">20dp</dimen>

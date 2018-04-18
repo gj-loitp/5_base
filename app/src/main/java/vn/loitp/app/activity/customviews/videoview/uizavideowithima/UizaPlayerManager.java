@@ -156,6 +156,7 @@ import vn.loitp.core.utilities.LLog;
     }
 
     public void init(Context context, PlayerView playerView) {
+        /////////////OPTION 1
         /*// Create a default track selector.
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -170,20 +171,16 @@ import vn.loitp.core.utilities.LLog;
         // This is the MediaSource representing the content media (i.e. not the ad).
 
         String contentUrl = linkPlay;
-        //String contentUrl = context.getString(R.string.content_url);
-        //String contentUrl = context.getString(R.string.url_dash);
-        //String contentUrl = context.getString(R.string.url_hls);
-        //String contentUrl = context.getString(R.string.url_smooth);
-        MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), *//* handler= *//* null, *//* listener= *//* null);
+        MediaSource contentMediaSource = buildMediaSource(Uri.parse(contentUrl), handler = null, null);
 
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         MediaSource mediaSourceWithAds = new AdsMediaSource(
                 contentMediaSource,
-            *//* adMediaSourceFactory= *//* this,
+                this,
                 adsLoader,
                 playerView.getOverlayFrameLayout(),
-            *//* eventHandler= *//* null,
-            *//* eventListener= *//* null);
+                null,
+                null);
 
         // Prepare the player with the source.
         player.seekTo(contentPosition);
@@ -200,19 +197,10 @@ import vn.loitp.core.utilities.LLog;
             adsLoader.addCallback(videoAdPlayerListerner);
         }
         player.prepare(mediaSourceWithAds);
-
-        *//*Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, Format.NO_VALUE, "en", null);
-        String urlSubtitle = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
-        MediaSource textMediaSource = new SingleSampleMediaSource.Factory(
-                mediaDataSourceFactory)
-                .createMediaSource(Uri.parse(urlSubtitle), textFormat, C.TIME_UNSET);
-        MediaSource mediaSourceWithText = new MergingMediaSource(contentMediaSource, textMediaSource);
-        //player.prepare(mediaSourceWithText, false, false);
-        player.prepare(mediaSourceWithText);*//*
-
         player.setPlayWhenReady(true);*/
 
 
+        /////////////OPTION 2
         //Exo Player Initialization
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -230,7 +218,7 @@ import vn.loitp.core.utilities.LLog;
         Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, "ar", null, Format.OFFSET_SAMPLE_RELATIVE);
         //Video Source
         //MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkPlay));
-        MediaSource videoSource = buildMediaSource(Uri.parse(linkPlay),  null,  null);
+        MediaSource videoSource = buildMediaSource(Uri.parse(linkPlay), null, null);
 
         String linkSub = "https://dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_vi_1522812445904.vtt";
         //String linkSub = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
@@ -251,11 +239,11 @@ import vn.loitp.core.utilities.LLog;
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         MediaSource mediaSourceWithAds = new AdsMediaSource(
                 mediaSource,
-                 this,
+                this,
                 adsLoader,
-        playerView.getOverlayFrameLayout(),
-           null,
-             null);
+                playerView.getOverlayFrameLayout(),
+                null,
+                null);
 
         // Prepare the player with the source.
         player.seekTo(contentPosition);

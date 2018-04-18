@@ -24,6 +24,7 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.LToast;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -67,13 +68,13 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         UizaUtil.resizeLayout(playerView);
 
-        SubtitleView subtitleView = playerView.getSubtitleView();
+        /*SubtitleView subtitleView = playerView.getSubtitleView();
         subtitleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                LToast.show(getActivity(), "Touch subtitle");
             }
-        });
+        });*/
 
         return view;
     }

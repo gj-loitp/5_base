@@ -14,6 +14,7 @@
         app:auto_show="false"
         app:controller_layout_id="@layout/exo_controller_preview_seekbar"
         app:fastforward_increment="3000"
-        app:rewind_increment="3000" />
+        app:rewind_increment="3000"
+        app:use_controller="true" />
 </RelativeLayout>
 
