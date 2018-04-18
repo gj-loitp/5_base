@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.uizavideo.FrmUizaIMAVideo;
 
@@ -17,6 +18,15 @@ public class UizaVideoIMActivity extends BaseActivity {
         FrameLayout fl = (FrameLayout) findViewById(R.id.fl);
         FrmUizaIMAVideo frmUizaIMAVideo = new FrmUizaIMAVideo();
         LScreenUtil.replaceFragment(activity, fl.getId(), frmUizaIMAVideo, false);
+        frmUizaIMAVideo.setFragmentCallback(new BaseFragment.FragmentCallback() {
+            @Override
+            public void onViewCreated() {
+                String linkPlay = getString(loitp.core.R.string.url_dash);
+                String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
+                String urlThumnailsPreviewSeekbar = getString(loitp.core.R.string.url_thumbnails);
+                frmUizaIMAVideo.init(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+            }
+        });
     }
 
     @Override
