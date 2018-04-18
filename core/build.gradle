@@ -64,6 +64,7 @@ dependencies {
     //https://github.com/rubensousa/PreviewSeekBar
     compile 'com.github.rubensousa:previewseekbar:1.2'
     compile 'com.github.rubensousa:previewseekbar-exoplayer:2.6.0'
+    //androidTestImplementation 'com.github.bumptech.glide:compiler:4.4.0'
 
     //https://github.com/juliome10/DoubleViewPager
     compile 'com.github.juliome10:DoubleViewPager:1.0.4@aar'
