@@ -48,6 +48,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageButton exoBackScreen;
     private ImageButton exoVolume;
     private ImageButton exoSetting;
+    private ImageButton exoCc;
+    private ImageButton exoPlaylist;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -73,11 +75,15 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
         exoVolume = (ImageButton) playerView.findViewById(R.id.exo_volume);
         exoSetting = (ImageButton) playerView.findViewById(R.id.exo_setting);
+        exoCc = (ImageButton) playerView.findViewById(R.id.exo_cc);
+        exoPlaylist = (ImageButton) playerView.findViewById(R.id.exo_playlist);
         //onclick
         exoFullscreenIcon.setOnClickListener(this);
         exoBackScreen.setOnClickListener(this);
         exoVolume.setOnClickListener(this);
         exoSetting.setOnClickListener(this);
+        exoCc.setOnClickListener(this);
+        exoPlaylist.setOnClickListener(this);
     }
 
     @Override
@@ -158,7 +164,13 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             uizaPlayerManager.toggleVolumeMute(exoVolume);
         } else if (v == exoSetting) {
             //TODO
-            LToast.show(getActivity(), "exo_setting");
+            LToast.show(getActivity(), "exoSetting");
+        } else if (v == exoCc) {
+            //TODO
+            LToast.show(getActivity(), "exoCc");
+        } else if (v == exoPlaylist) {
+            //TODO
+            LToast.show(getActivity(), "exoPlaylist");
         }
     }
 

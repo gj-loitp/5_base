@@ -199,6 +199,26 @@
                 android:tint="@color/White" />
 
             <ImageButton
+                android:id="@+id/exo_cc"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_closed_caption_black_48dp"
+                android:tint="@color/White" />
+
+            <ImageButton
+                android:id="@+id/exo_playlist"
+                android:layout_width="@dimen/size_player"
+                android:layout_height="@dimen/size_player"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_playlist_play_black_48dp"
+                android:tint="@color/White" />
+
+            <ImageButton
                 android:id="@+id/exo_fullscreen_icon"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
