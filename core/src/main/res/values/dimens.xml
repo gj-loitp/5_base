@@ -83,7 +83,7 @@
     <dimen name="default_width">72dp</dimen>
     <dimen name="default_height">32dp</dimen>
 
-    <dimen name="size_player">38dp</dimen>
+    <dimen name="size_player">32dp</dimen>
     <dimen name="video_preview_width">100dp</dimen>
     <dimen name="video_preview_height">56dp</dimen>
     <dimen name="video_preview_width_landscape">200dp</dimen>
