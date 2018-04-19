@@ -90,7 +90,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         debugRootView = view.findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
-            debugRootView.setVisibility(View.VISIBLE);
+            debugRootView.setVisibility(View.GONE);
         } else {
             debugRootView.setVisibility(View.GONE);
         }
@@ -195,7 +195,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         } else if (v == exoCc) {
             View view = UizaUtil.getBtText(debugRootView);
             if (view != null) {
-                UizaUtil.getBtVideo(debugRootView).performClick();
+                UizaUtil.getBtText(debugRootView).performClick();
             }
         } else if (v == exoPlaylist) {
             //TODO
@@ -203,7 +203,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         } else if (v == exoHearing) {
             View view = UizaUtil.getBtAudio(debugRootView);
             if (view != null) {
-                UizaUtil.getBtVideo(debugRootView).performClick();
+                UizaUtil.getBtAudio(debugRootView).performClick();
             }
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
