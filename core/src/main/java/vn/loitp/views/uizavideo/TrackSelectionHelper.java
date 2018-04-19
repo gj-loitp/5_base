@@ -70,8 +70,7 @@ import loitp.core.R;
      * @param adaptiveTrackSelectionFactory A factory for adaptive {@link TrackSelection}s, or null
      *                                      if the selection helper should not support adaptive tracks.
      */
-    public TrackSelectionHelper(MappingTrackSelector selector,
-                                TrackSelection.Factory adaptiveTrackSelectionFactory) {
+    public TrackSelectionHelper(MappingTrackSelector selector, TrackSelection.Factory adaptiveTrackSelectionFactory) {
         this.selector = selector;
         this.adaptiveTrackSelectionFactory = adaptiveTrackSelectionFactory;
     }
@@ -84,8 +83,7 @@ import loitp.core.R;
      * @param trackInfo     The current track information.
      * @param rendererIndex The index of the renderer.
      */
-    public void showSelectionDialog(Activity activity, CharSequence title, MappedTrackInfo trackInfo,
-                                    int rendererIndex) {
+    public void showSelectionDialog(Activity activity, CharSequence title, MappedTrackInfo trackInfo, int rendererIndex) {
         this.trackInfo = trackInfo;
         this.rendererIndex = rendererIndex;
 
@@ -115,14 +113,12 @@ import loitp.core.R;
         View view = inflater.inflate(R.layout.track_selection_dialog, null);
         ViewGroup root = view.findViewById(R.id.root);
 
-        TypedArray attributeArray = context.getTheme().obtainStyledAttributes(
-                new int[]{android.R.attr.selectableItemBackground});
+        TypedArray attributeArray = context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.selectableItemBackground});
         int selectableItemBackgroundResourceId = attributeArray.getResourceId(0, 0);
         attributeArray.recycle();
 
         // View for disabling the renderer.
-        disableView = (CheckedTextView) inflater.inflate(
-                android.R.layout.simple_list_item_single_choice, root, false);
+        disableView = (CheckedTextView) inflater.inflate(android.R.layout.simple_list_item_single_choice, root, false);
         disableView.setBackgroundResource(selectableItemBackgroundResourceId);
         disableView.setText(R.string.selection_disabled);
         disableView.setFocusable(true);
@@ -130,8 +126,7 @@ import loitp.core.R;
         root.addView(disableView);
 
         // View for clearing the override to allow the selector to use its default selection logic.
-        defaultView = (CheckedTextView) inflater.inflate(
-                android.R.layout.simple_list_item_single_choice, root, false);
+        defaultView = (CheckedTextView) inflater.inflate(android.R.layout.simple_list_item_single_choice, root, false);
         defaultView.setBackgroundResource(selectableItemBackgroundResourceId);
         defaultView.setText(R.string.selection_default);
         defaultView.setFocusable(true);
@@ -153,12 +148,10 @@ import loitp.core.R;
                 }
                 int trackViewLayoutId = groupIsAdaptive ? android.R.layout.simple_list_item_multiple_choice
                         : android.R.layout.simple_list_item_single_choice;
-                CheckedTextView trackView = (CheckedTextView) inflater.inflate(
-                        trackViewLayoutId, root, false);
+                CheckedTextView trackView = (CheckedTextView) inflater.inflate(trackViewLayoutId, root, false);
                 trackView.setBackgroundResource(selectableItemBackgroundResourceId);
                 trackView.setText(DemoUtil.buildTrackName(group.getFormat(trackIndex)));
-                if (trackInfo.getTrackFormatSupport(rendererIndex, groupIndex, trackIndex)
-                        == RendererCapabilities.FORMAT_HANDLED) {
+                if (trackInfo.getTrackFormatSupport(rendererIndex, groupIndex, trackIndex) == RendererCapabilities.FORMAT_HANDLED) {
                     trackView.setFocusable(true);
                     trackView.setTag(Pair.create(groupIndex, trackIndex));
                     trackView.setOnClickListener(this);
@@ -236,8 +229,7 @@ import loitp.core.R;
             Pair<Integer, Integer> tag = (Pair<Integer, Integer>) view.getTag();
             int groupIndex = tag.first;
             int trackIndex = tag.second;
-            if (!trackGroupsAdaptive[groupIndex] || override == null
-                    || override.groupIndex != groupIndex) {
+            if (!trackGroupsAdaptive[groupIndex] || override == null || override.groupIndex != groupIndex) {
                 override = new SelectionOverride(FIXED_FACTORY, groupIndex, trackIndex);
             } else {
                 // The group being modified is adaptive and we already have a non-null override.
@@ -265,8 +257,7 @@ import loitp.core.R;
     }
 
     private void setOverride(int group, int[] tracks, boolean enableRandomAdaptation) {
-        TrackSelection.Factory factory = tracks.length == 1 ? FIXED_FACTORY
-                : (enableRandomAdaptation ? RANDOM_FACTORY : adaptiveTrackSelectionFactory);
+        TrackSelection.Factory factory = tracks.length == 1 ? FIXED_FACTORY : (enableRandomAdaptation ? RANDOM_FACTORY : adaptiveTrackSelectionFactory);
         override = new SelectionOverride(factory, group, tracks);
     }
 
