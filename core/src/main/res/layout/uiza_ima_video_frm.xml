@@ -24,5 +24,13 @@
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/controls_root"
+        android:layout_width="match_parent"
+        android:background="@color/Red"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible" />
 </RelativeLayout>
 

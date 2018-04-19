@@ -10,14 +10,19 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.core.R;
@@ -52,6 +57,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageButton exoPlaylist;
     private ImageButton exoHearing;
 
+    private LinearLayout debugRootView;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -79,6 +86,9 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoCc = (ImageButton) playerView.findViewById(R.id.exo_cc);
         exoPlaylist = (ImageButton) playerView.findViewById(R.id.exo_playlist);
         exoHearing = (ImageButton) playerView.findViewById(R.id.exo_hearing);
+
+        debugRootView = view.findViewById(R.id.controls_root);
+
         //onclick
         exoFullscreenIcon.setOnClickListener(this);
         exoBackScreen.setOnClickListener(this);
@@ -102,7 +112,6 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     public void init(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
         uizaPlayerManager = new UizaPlayerManager(getActivity(), progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
-
         uizaPlayerManager.setProgressCallback(new ProgressCallback() {
             @Override
             public void onAdProgress(float currentMls, float duration, int percent) {
@@ -112,6 +121,13 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             @Override
             public void onVideoProgress(float currentMls, float duration, int percent) {
                 LLog.d(TAG, "video progress: " + currentMls + "/" + duration + " -> " + percent + "%");
+            }
+        });
+        uizaPlayerManager.setDebugCallback(new UizaPlayerManager.DebugCallback() {
+            @Override
+            public void onUpdateButtonVisibilities() {
+                LLog.d(TAG, "onUpdateButtonVisibilities");
+                updateButtonVisibilities();
             }
         });
     }
@@ -177,6 +193,11 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         } else if (v == exoHearing) {
             //TODO
             LToast.show(getActivity(), "exoHearing");
+        } else if (v.getParent() == debugRootView) {
+            MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
+            if (mappedTrackInfo != null) {
+                uizaPlayerManager.getTrackSelectionHelper().showSelectionDialog(getActivity(), ((Button) v).getText(), mappedTrackInfo, (int) v.getTag());
+            }
         }
     }
 
@@ -206,5 +227,42 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private void updateUIPlayController(String title) {
         tvTitle.setText(title);
         LUIUtil.setTextShadow(tvTitle);
+    }
+
+    public void updateButtonVisibilities() {
+        debugRootView.removeAllViews();
+        if (uizaPlayerManager.getPlayer() == null) {
+            return;
+        }
+
+        MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
+        if (mappedTrackInfo == null) {
+            return;
+        }
+
+        for (int i = 0; i < mappedTrackInfo.length; i++) {
+            TrackGroupArray trackGroups = mappedTrackInfo.getTrackGroups(i);
+            if (trackGroups.length != 0) {
+                Button button = new Button(context);
+                int label;
+                switch (uizaPlayerManager.getPlayer().getRendererType(i)) {
+                    case C.TRACK_TYPE_AUDIO:
+                        label = R.string.audio;
+                        break;
+                    case C.TRACK_TYPE_VIDEO:
+                        label = R.string.video;
+                        break;
+                    case C.TRACK_TYPE_TEXT:
+                        label = R.string.text;
+                        break;
+                    default:
+                        continue;
+                }
+                button.setText(label);
+                button.setTag(i);
+                button.setOnClickListener(this);
+                debugRootView.addView(button);
+            }
+        }
     }
 }

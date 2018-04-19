@@ -62,7 +62,6 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -87,6 +86,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
  */
 /* package */ final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final String TAG = getClass().getSimpleName();
+    private Context context;
     private ImaAdsLoader adsLoader = null;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
@@ -121,7 +121,8 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         this.progressCallback = progressCallback;
     }
 
-    public UizaPlayerManager(Context context, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+    public UizaPlayerManager(Context c, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+        this.context = c;
         this.linkPlay = linkPlay;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
             LLog.d(TAG, "UizaPlayerManager urlIMAAd == null || urlIMAAd.isEmpty()");
@@ -173,11 +174,24 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         handler.postDelayed(runnable, 0);
     }
 
+    private DefaultTrackSelector trackSelector;
+
+    public DefaultTrackSelector getTrackSelector() {
+        return trackSelector;
+    }
+
+    private TrackSelectionHelper trackSelectionHelper;
+
+    public TrackSelectionHelper getTrackSelectionHelper() {
+        return trackSelectionHelper;
+    }
+
     public void init(Context context, PlayerView playerView) {
         //Exo Player Initialization
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
-        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+        trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+        trackSelectionHelper = new TrackSelectionHelper(trackSelector, videoTrackSelectionFactory);
         player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
 
         playerView.setPlayer(player);
@@ -234,6 +248,10 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         }
         player.prepare(mediaSourceWithAds);
         player.setPlayWhenReady(true);
+
+        if (debugCallback != null) {
+            debugCallback.onUpdateButtonVisibilities();
+        }
     }
 
     public void resumeVideo() {
@@ -252,6 +270,8 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 
             handler = null;
             runnable = null;
+
+            trackSelectionHelper = null;
         }
     }
 
@@ -262,6 +282,8 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 
             handler = null;
             runnable = null;
+
+            trackSelectionHelper = null;
         }
         if (adsLoader != null) {
             adsLoader.release();
@@ -346,6 +368,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         @Override
         public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
             LLog.d(TAG, "onTracksChanged");
+            if (debugCallback != null) {
+                debugCallback.onUpdateButtonVisibilities();
+            }
         }
 
         @Override
@@ -369,7 +394,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
                 case Player.STATE_READY:
                     hideProgress();
                     break;
-
+            }
+            if (debugCallback != null) {
+                debugCallback.onUpdateButtonVisibilities();
             }
         }
 
@@ -386,6 +413,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         @Override
         public void onPlayerError(ExoPlaybackException error) {
             LLog.d(TAG, "onPlayerError " + error.toString());
+            if (debugCallback != null) {
+                debugCallback.onUpdateButtonVisibilities();
+            }
         }
 
         @Override
@@ -511,5 +541,19 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
             player.setVolume(0f);
             exoVolume.setImageResource(R.drawable.ic_volume_off_black_48dp);
         }
+    }
+
+    public SimpleExoPlayer getPlayer() {
+        return player;
+    }
+
+    public interface DebugCallback {
+        public void onUpdateButtonVisibilities();
+    }
+
+    private DebugCallback debugCallback;
+
+    public void setDebugCallback(DebugCallback debugCallback) {
+        this.debugCallback = debugCallback;
     }
 }
