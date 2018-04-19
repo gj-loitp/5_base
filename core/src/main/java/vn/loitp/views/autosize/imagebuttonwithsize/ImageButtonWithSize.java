@@ -1,10 +1,9 @@
-package vn.loitp.views.imagebuttonwithsize;
+package vn.loitp.views.autosize.imagebuttonwithsize;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.ConvertUtils;

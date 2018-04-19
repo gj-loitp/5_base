@@ -11,6 +11,7 @@
     <dimen name="padding_90">90dp</dimen>
     <dimen name="padding_100">100dp</dimen>
     <dimen name="txt_10">10dp</dimen>
+    <dimen name="txt_12">12dp</dimen>
     <dimen name="txt_8">8dp</dimen>
     <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_3">3dp</dimen>

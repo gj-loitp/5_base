@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:padding="@dimen/padding_5">
 
-        <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+        <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
             android:id="@+id/exo_back_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,14 +24,13 @@
             android:src="@drawable/ic_arrow_back_white_48dp"
             android:tint="@color/White" />
 
-        <TextView
+        <vn.loitp.views.autosize.textviewwithsize.TextViewWithSize
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_10"
             android:singleLine="true"
             android:textColor="@color/White"
-            android:textSize="@dimen/txt_18"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -85,7 +84,7 @@
 
             </com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout>
 
-            <TextView
+            <vn.loitp.views.autosize.textviewwithsize.TextViewWithSize
                 android:id="@id/exo_position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +95,7 @@
                 android:textSize="@dimen/txt_14"
                 android:textStyle="bold" />
 
-            <TextView
+            <vn.loitp.views.autosize.textviewwithsize.TextViewWithSize
                 android:id="@id/exo_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,7 +117,7 @@
             android:orientation="horizontal"
             android:paddingTop="@dimen/padding_5">
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_prev"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -128,7 +127,7 @@
                 android:src="@drawable/ic_skip_previous_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_rew"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -138,7 +137,7 @@
                 android:src="@drawable/ic_fast_rewind_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_play"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -148,7 +147,7 @@
                 android:src="@drawable/ic_play_arrow_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_pause"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -158,7 +157,7 @@
                 android:src="@drawable/ic_pause_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_ffwd"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -168,7 +167,7 @@
                 android:src="@drawable/ic_fast_forward_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_next"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -178,7 +177,7 @@
                 android:src="@drawable/ic_skip_next_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_volume"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -188,7 +187,7 @@
                 android:src="@drawable/ic_volume_up_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_cc"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -198,7 +197,7 @@
                 android:src="@drawable/ic_closed_caption_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_playlist"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -208,7 +207,7 @@
                 android:src="@drawable/ic_playlist_play_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_hearing"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -218,7 +217,7 @@
                 android:src="@drawable/ic_hearing_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_setting"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
@@ -228,7 +227,7 @@
                 android:src="@drawable/ic_settings_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.imagebuttonwithsize.ImageButtonWithSize
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/exo_fullscreen_icon"
                 android:layout_width="@dimen/size_player"
                 android:layout_height="@dimen/size_player"
