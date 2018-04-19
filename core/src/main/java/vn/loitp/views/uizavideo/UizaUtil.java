@@ -1,10 +1,13 @@
 package vn.loitp.views.uizavideo;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
@@ -63,5 +66,53 @@ public class UizaUtil {
             LLog.d(TAG, "resizeLayout: " + flImgThumnailPreviewSeekbar.getWidth() + " x " + flImgThumnailPreviewSeekbar.getHeight());
             flImgThumnailPreviewSeekbar.requestLayout();
         }
+    }
+
+    //return button video in debug layout
+    public static View getBtVideo(LinearLayout debugRootView) {
+        if (debugRootView == null) {
+            return null;
+        }
+        for (int i = 0; i < debugRootView.getChildCount(); i++) {
+            View childView = debugRootView.getChildAt(i);
+            if (childView instanceof Button) {
+                if (((Button) childView).getText().toString().equalsIgnoreCase(debugRootView.getContext().getString(R.string.video))) {
+                    return childView;
+                }
+            }
+        }
+        return null;
+    }
+
+    //return button audio in debug layout
+    public static View getBtAudio(LinearLayout debugRootView) {
+        if (debugRootView == null) {
+            return null;
+        }
+        for (int i = 0; i < debugRootView.getChildCount(); i++) {
+            View childView = debugRootView.getChildAt(i);
+            if (childView instanceof Button) {
+                if (((Button) childView).getText().toString().equalsIgnoreCase(debugRootView.getContext().getString(R.string.audio))) {
+                    return childView;
+                }
+            }
+        }
+        return null;
+    }
+
+    //return button text in debug layout
+    public static View getBtText(LinearLayout debugRootView) {
+        if (debugRootView == null) {
+            return null;
+        }
+        for (int i = 0; i < debugRootView.getChildCount(); i++) {
+            View childView = debugRootView.getChildAt(i);
+            if (childView instanceof Button) {
+                if (((Button) childView).getText().toString().equalsIgnoreCase(debugRootView.getContext().getString(R.string.text))) {
+                    return childView;
+                }
+            }
+        }
+        return null;
     }
 }

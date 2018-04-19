@@ -28,9 +28,7 @@
     <LinearLayout
         android:id="@+id/controls_root"
         android:layout_width="match_parent"
-        android:background="@color/Red"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="visible" />
+        android:orientation="horizontal" />
 </RelativeLayout>
 

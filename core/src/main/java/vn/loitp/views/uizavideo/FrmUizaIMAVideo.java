@@ -27,6 +27,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -88,6 +89,11 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoHearing = (ImageButton) playerView.findViewById(R.id.exo_hearing);
 
         debugRootView = view.findViewById(R.id.controls_root);
+        if (Constants.IS_DEBUG) {
+            debugRootView.setVisibility(View.VISIBLE);
+        } else {
+            debugRootView.setVisibility(View.GONE);
+        }
 
         //onclick
         exoFullscreenIcon.setOnClickListener(this);
@@ -182,17 +188,23 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         } else if (v == exoVolume) {
             uizaPlayerManager.toggleVolumeMute(exoVolume);
         } else if (v == exoSetting) {
-            //TODO
-            LToast.show(getActivity(), "exoSetting");
+            View view = UizaUtil.getBtVideo(debugRootView);
+            if (view != null) {
+                UizaUtil.getBtVideo(debugRootView).performClick();
+            }
         } else if (v == exoCc) {
-            //TODO
-            LToast.show(getActivity(), "exoCc");
+            View view = UizaUtil.getBtText(debugRootView);
+            if (view != null) {
+                UizaUtil.getBtVideo(debugRootView).performClick();
+            }
         } else if (v == exoPlaylist) {
             //TODO
             LToast.show(getActivity(), "exoPlaylist");
         } else if (v == exoHearing) {
-            //TODO
-            LToast.show(getActivity(), "exoHearing");
+            View view = UizaUtil.getBtAudio(debugRootView);
+            if (view != null) {
+                UizaUtil.getBtVideo(debugRootView).performClick();
+            }
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
             if (mappedTrackInfo != null) {
@@ -234,12 +246,10 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         if (uizaPlayerManager.getPlayer() == null) {
             return;
         }
-
         MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
         if (mappedTrackInfo == null) {
             return;
         }
-
         for (int i = 0; i < mappedTrackInfo.length; i++) {
             TrackGroupArray trackGroups = mappedTrackInfo.getTrackGroups(i);
             if (trackGroups.length != 0) {
