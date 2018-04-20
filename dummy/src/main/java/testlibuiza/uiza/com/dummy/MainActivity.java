@@ -2,7 +2,6 @@ package testlibuiza.uiza.com.dummy;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,9 +10,7 @@ import testlibuiza.uiza.com.dummy.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.restapi.uiza.UizaService;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.LToast;
 

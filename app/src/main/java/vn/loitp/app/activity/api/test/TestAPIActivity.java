@@ -14,7 +14,7 @@ import vn.loitp.restapi.livestar.corev3.api.model.v3.categoryget.CategoryGet;
 import vn.loitp.restapi.livestar.corev3.api.model.v3.getposter.GetPoster;
 import vn.loitp.restapi.livestar.corev3.api.service.LSService;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.restapi.uiza.UizaService;
+import vn.loitp.restapi.uiza.UizaServiceTest;
 import vn.loitp.restapi.wtt.WTTService;
 import vn.loitp.rxandroid.ApiSubscriber;
 
@@ -170,7 +170,7 @@ public class TestAPIActivity extends BaseActivity {
 
     private void testUizaV2() {
         LLog.d(TAG, "testUizaV2");
-        UizaService service = RestClient.createService(UizaService.class);
+        UizaServiceTest service = RestClient.createService(UizaServiceTest.class);
         String accessKeyId = "BNEU77HJAPWYVIF1DEU5";
         String secretKeyId = "8yro1j369cCj6VR7cD2kzQbzJ2vDiswt7jxhtGjp";
         subscribe(service.auth(accessKeyId, secretKeyId), new ApiSubscriber<Object>() {
@@ -189,7 +189,7 @@ public class TestAPIActivity extends BaseActivity {
 
     private void testUizaStag() {
         LLog.d(TAG, "testUizaStag");
-        UizaService service = RestClient.createService(UizaService.class);
+        UizaServiceTest service = RestClient.createService(UizaServiceTest.class);
         subscribe(service.getMetadatList(), new ApiSubscriber<Object>() {
             @Override
             public void onSuccess(Object result) {

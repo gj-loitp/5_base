@@ -70,12 +70,14 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
+import com.google.gson.Gson;
 
 import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.uizavideo.glide.GlideApp;
 import vn.loitp.views.uizavideo.glide.GlideThumbnailTransformationPB;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
@@ -86,6 +88,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
  */
 /* package */ final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final String TAG = getClass().getSimpleName();
+    private Gson gson = new Gson();//TODO remove later
     private Context context;
     private PlayerView playerView;
     private ImaAdsLoader adsLoader = null;
@@ -97,6 +100,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 
     private String userAgent;
     private String linkPlay;
+    private List<Subtitle> subtitleList;
 
     private VideoAdPlayerListerner videoAdPlayerListerner = new VideoAdPlayerListerner();
 
@@ -123,10 +127,11 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         this.progressCallback = progressCallback;
     }
 
-    public UizaPlayerManager(PlayerView playerView, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+    public UizaPlayerManager(PlayerView playerView, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl, List<Subtitle> subtitleList) {
         this.context = playerView.getContext();
         this.playerView = playerView;
         this.linkPlay = linkPlay;
+        this.subtitleList = subtitleList;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
             LLog.d(TAG, "UizaPlayerManager urlIMAAd == null || urlIMAAd.isEmpty()");
         } else {
@@ -237,6 +242,11 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
     }
 
     private MediaSource createMediaSourceWithSubtitle(MediaSource mediaSource) {
+        if (subtitleList == null || subtitleList.isEmpty()) {
+            return mediaSource;
+        }
+        LLog.d(TAG, "createMediaSourceWithSubtitle " + gson.toJson(subtitleList));
+
         DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, userAgent, bandwidthMeter2);
         //Text Format Initialization
@@ -260,6 +270,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
     }
 
     private MediaSource createMediaSourceWithAds(MediaSource mediaSource) {
+        if (adsLoader == null) {
+            return mediaSource;
+        }
         MediaSource mediaSourceWithAds = new AdsMediaSource(
                 mediaSource,
                 this,

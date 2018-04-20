@@ -24,6 +24,12 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
@@ -32,6 +38,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 
@@ -41,6 +48,7 @@ import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 
 public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
     private final String TAG = getClass().getSimpleName();
+    private Gson gson = new Gson();//TODO remove
     private PlayerView playerView;
     private UizaPlayerManager uizaPlayerManager;
 
@@ -115,8 +123,39 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         return view;
     }
 
+    private List<Subtitle> createDummySubtitle() {
+        String json = "[\n" +
+                "                {\n" +
+                "                    \"id\": \"18414566-c0c8-4a51-9d60-03f825bb64a9\",\n" +
+                "                    \"name\": \"\",\n" +
+                "                    \"type\": \"subtitle\",\n" +
+                "                    \"url\": \"//dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_en_1522812430080.vtt\",\n" +
+                "                    \"mine\": \"vtt\",\n" +
+                "                    \"language\": \"en\",\n" +
+                "                    \"isDefault\": \"0\"\n" +
+                "                },\n" +
+                "                {\n" +
+                "                    \"id\": \"271787a0-5d23-4a35-a10a-5c43fdcb71a8\",\n" +
+                "                    \"name\": \"\",\n" +
+                "                    \"type\": \"subtitle\",\n" +
+                "                    \"url\": \"//dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_vi_1522812445904.vtt\",\n" +
+                "                    \"mine\": \"vtt\",\n" +
+                "                    \"language\": \"vi\",\n" +
+                "                    \"isDefault\": \"0\"\n" +
+                "                }\n" +
+                "            ]";
+        Subtitle[] subtitles = gson.fromJson(json, new TypeToken<Subtitle[]>() {
+        }.getType());
+        LLog.d(TAG, "createDummySubtitle subtitles " + gson.toJson(subtitles));
+        List subtitleList = Arrays.asList(subtitles);
+        LLog.d(TAG, "createDummySubtitle subtitleList " + gson.toJson(subtitleList));
+        return subtitleList;
+    }
+
     public void initData(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
-        uizaPlayerManager = new UizaPlayerManager(getActivity(), playerView,progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+        List<Subtitle> subtitleList = createDummySubtitle();
+
+        uizaPlayerManager = new UizaPlayerManager(playerView, progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar, subtitleList);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
         uizaPlayerManager.setProgressCallback(new ProgressCallback() {
             @Override

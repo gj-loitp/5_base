@@ -41,4 +41,7 @@ public class Constants {
     public static int TYPE_ACTIVITY_TRANSITION_WINDMILL = 7;
     public static int TYPE_ACTIVITY_TRANSITION_DIAGONAL = 8;
     public static int TYPE_ACTIVITY_TRANSITION_SPIN = 9;
+
+    public final static String PREFIXS = "https://";
+    public final static String PREFIXS_SHORT = "https:";
 }
