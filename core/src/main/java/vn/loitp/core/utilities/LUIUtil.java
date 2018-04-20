@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -35,6 +37,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -621,5 +624,13 @@ public class LUIUtil {
             return;
         }
         progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
+    }
+
+    public static void setColorSeekBar(SeekBar seekBar, int color) {
+        if (seekBar == null) {
+            return;
+        }
+        seekBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        seekBar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     }
 }

@@ -1,18 +1,13 @@
 package vn.loitp.app.activity.customviews.seekbar.verticalseekbar;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.LToast;
-import vn.loitp.views.seekbar.circularseekbar.CircularSeekBar;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 
 public class VerticalSeekbarActivity extends BaseActivity {

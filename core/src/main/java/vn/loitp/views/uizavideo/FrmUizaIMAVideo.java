@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
@@ -27,7 +28,6 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,13 +40,14 @@ import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
+import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
+public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private final String TAG = getClass().getSimpleName();
     private Gson gson = new Gson();//TODO remove
     private PlayerView playerView;
@@ -65,6 +66,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageButton exoCc;
     private ImageButton exoPlaylist;
     private ImageButton exoHearing;
+    private VerticalSeekBar seekbarVolume;
+    private ImageButton exoVolumeSeekbar;
 
     private LinearLayout debugRootView;
 
@@ -96,6 +99,10 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoPlaylist = (ImageButton) playerView.findViewById(R.id.exo_playlist);
         exoHearing = (ImageButton) playerView.findViewById(R.id.exo_hearing);
 
+        seekbarVolume = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_volume);
+        LUIUtil.setColorSeekBar(seekbarVolume, ContextCompat.getColor(getActivity(), R.color.White));
+        exoVolumeSeekbar = (ImageButton) playerView.findViewById(R.id.exo_volume_seekbar);
+
         debugRootView = view.findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
             debugRootView.setVisibility(View.GONE);
@@ -111,6 +118,9 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoCc.setOnClickListener(this);
         exoPlaylist.setOnClickListener(this);
         exoHearing.setOnClickListener(this);
+
+        //seekbar change
+        seekbarVolume.setOnSeekBarChangeListener(this);
     }
 
     @Override
@@ -314,4 +324,28 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             }
         }
     }
+
+    //on seekbar change
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if (seekBar == seekbarVolume) {
+            LLog.d(TAG, "seekbarBirghtness onProgressChanged " + progress);
+            if (progress >= 50) {
+                exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_up_black_48dp);
+            } else {
+                exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_off_black_48dp);
+            }
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        LLog.d(TAG, "onStartTrackingTouch");
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        LLog.d(TAG, "onStopTrackingTouch");
+    }
+    //end on seekbar change
 }
