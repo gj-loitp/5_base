@@ -123,8 +123,8 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         this.progressCallback = progressCallback;
     }
 
-    public UizaPlayerManager(Context c, PlayerView playerView, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
-        this.context = c;
+    public UizaPlayerManager(PlayerView playerView, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+        this.context = playerView.getContext();
         this.playerView = playerView;
         this.linkPlay = linkPlay;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
@@ -236,7 +236,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         return mediaSourceVideo;
     }
 
-    private MediaSource createMediaSourceWithSubtitle(MediaSource mediaSourceVideo) {
+    private MediaSource createMediaSourceWithSubtitle(MediaSource mediaSource) {
         DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, userAgent, bandwidthMeter2);
         //Text Format Initialization
@@ -252,16 +252,16 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         SingleSampleMediaSource textMediaSourceFr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
 
         //Final MediaSource
-        MediaSource mediaSourceWithSubtitle = new MergingMediaSource(mediaSourceVideo, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
+        MediaSource mediaSourceWithSubtitle = new MergingMediaSource(mediaSource, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
         //player.prepare(mediaSource);
         //player.setPlayWhenReady(true);
 
         return mediaSourceWithSubtitle;
     }
 
-    private MediaSource createMediaSourceWithAds(MediaSource mediaSourceWithSubtitle) {
+    private MediaSource createMediaSourceWithAds(MediaSource mediaSource) {
         MediaSource mediaSourceWithAds = new AdsMediaSource(
-                mediaSourceWithSubtitle,
+                mediaSource,
                 this,
                 adsLoader,
                 playerView.getOverlayFrameLayout(),
