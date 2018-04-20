@@ -374,6 +374,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             } else {
                 ivBirghtnessSeekbar.setImageResource(R.drawable.ic_brightness_1_black_48dp);
             }
+            LScreenUtil.setBrightness(getActivity(), progress);
         }
     }
 

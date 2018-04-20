@@ -2,12 +2,16 @@ package vn.loitp.core.utilities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Display;
 import android.view.KeyCharacterMap;
@@ -18,6 +22,7 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
 
+import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
 
 /**
@@ -27,6 +32,8 @@ import vn.loitp.core.base.BaseActivity;
  */
 
 public class LScreenUtil {
+    private final static String TAG = LScreenUtil.class.getSimpleName();
+
     public int getStatusBarHeight(Context mContext) {
         int result = 0;
         int resourceId = mContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -351,5 +358,69 @@ public class LScreenUtil {
             default:
                 return true;
         }
+    }
+
+    //from 0 to 100
+    public static void setBrightness(final Context context, int value) {
+        if (context == null) {
+            return;
+        }
+
+        boolean isCanWriteSystem = checkSystemWritePermission(context);
+        LLog.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
+
+        if (!isCanWriteSystem) {
+            LDialogUtil.showDialog1(context, "Thông báo", "Uiza cần bạn cần cấp quyền điều chỉnh độ sáng màn hình", "Cấp phép", new LDialogUtil.Callback1() {
+                @Override
+                public void onClick1() {
+                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                    intent.setData(Uri.parse("package:" + context.getPackageName()));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                    LActivityUtil.tranIn(context);
+                }
+            });
+            return;
+        }
+
+        //constrain the value of brightness
+        int brightness = 0;
+        if (value < 0) {
+            brightness = 0;
+        } else if (value > 100) {
+            brightness = 100;
+        } else {
+            brightness = value * 255 / 100;
+        }
+        LLog.d(TAG, "setBrightness " + brightness);
+
+        try {
+            //sets manual mode and brightnes 255
+            Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);  //this will set the manual mode (set the automatic mode off)
+            Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightness);  //this will set the brightness to maximum (255)
+
+            //refreshes the screen
+            int br = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+            WindowManager.LayoutParams lp = ((Activity) context).getWindow().getAttributes();
+            lp.screenBrightness = (float) br / 255;
+            ((Activity) context).getWindow().setAttributes(lp);
+
+        } catch (Exception e) {
+            LLog.e(TAG, "setBrightness " + e.toString());
+        }
+    }
+
+    private static boolean checkSystemWritePermission(Context context) {
+        boolean retVal = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            retVal = Settings.System.canWrite(context);
+            //LLog.d(TAG, "Can Write Settings: " + retVal);
+            /*if (retVal) {
+                LLog.d(TAG, "Write allowed");
+            } else {
+                LLog.d(TAG, "Write not allowed");
+            }*/
+        }
+        return retVal;
     }
 }
