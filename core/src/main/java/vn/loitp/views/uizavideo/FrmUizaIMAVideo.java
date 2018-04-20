@@ -188,6 +188,10 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
                 updateButtonVisibilities();
             }
         });
+
+        //set volume max in first play
+        seekbarVolume.setProgress(100);
+        uizaPlayerManager.setVolume(100f);
     }
 
     @Override
@@ -332,7 +336,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (seekBar == seekbarVolume) {
-            LLog.d(TAG, "seekbarBirghtness onProgressChanged " + progress);
+            //LLog.d(TAG, "seekbarBirghtness onProgressChanged " + progress);
             if (progress >= 66) {
                 exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_up_black_48dp);
             } else if (progress >= 33) {
@@ -340,6 +344,9 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             } else {
                 exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_mute_black_48dp);
             }
+
+            LLog.d(TAG, "seekbarBirghtness onProgressChanged " + progress + " -> " + ((float) progress / 100));
+            uizaPlayerManager.setVolume(((float) progress / 100));
         }
     }
 

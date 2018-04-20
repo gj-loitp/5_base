@@ -181,6 +181,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
             }
         };
         handler.postDelayed(runnable, 0);
+
+        //playerView.setControllerAutoShow(false);
+        playerView.setControllerShowTimeoutMs(0);
     }
 
     private DefaultTrackSelector trackSelector;
@@ -589,18 +592,39 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         }
         if (player.getVolume() == 0f) {
             //off -> on
-            player.setVolume(currentVolume);
+            setVolume(currentVolume);
             exoVolume.setImageResource(R.drawable.ic_volume_up_black_48dp);
         } else {
             //on -> off
             currentVolume = player.getVolume();
-            player.setVolume(0f);
+            setVolume(0f);
             exoVolume.setImageResource(R.drawable.ic_volume_off_black_48dp);
         }
     }
 
     public SimpleExoPlayer getPlayer() {
         return player;
+    }
+
+    public void setVolume(float volume) {
+        if (player != null) {
+            //LLog.d(TAG, "volume " + volume);
+            player.setVolume(volume);
+            //LLog.d(TAG, "-> setVolume done: " + player.getVolume());
+        }
+    }
+
+    public float getVolume() {
+        if (player != null) {
+            return player.getVolume();
+        }
+        return 0;
+    }
+
+    public void seekTo(long positionMs) {
+        if (player != null) {
+            player.seekTo(positionMs);
+        }
     }
 
     public interface DebugCallback {
