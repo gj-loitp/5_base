@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -54,6 +55,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private UizaPlayerManager uizaPlayerManager;
 
     //play controller
+    private RelativeLayout llMid;
     private PreviewTimeBarLayout previewTimeBarLayout;
     private PreviewTimeBar previewTimeBar;
     private ImageButton exoFullscreenIcon;
@@ -67,7 +69,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageButton exoPlaylist;
     private ImageButton exoHearing;
     private VerticalSeekBar seekbarVolume;
-    private ImageButton exoVolumeSeekbar;
+    private ImageView exoVolumeSeekbar;
 
     private LinearLayout debugRootView;
 
@@ -82,6 +84,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     }
 
     private void findViews(View view) {
+        llMid = (RelativeLayout) view.findViewById(R.id.ll_mid);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(progressBar.getContext(), R.color.White));
         playerView = view.findViewById(R.id.player_view);
@@ -101,7 +104,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         seekbarVolume = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_volume);
         LUIUtil.setColorSeekBar(seekbarVolume, ContextCompat.getColor(getActivity(), R.color.White));
-        exoVolumeSeekbar = (ImageButton) playerView.findViewById(R.id.exo_volume_seekbar);
+        exoVolumeSeekbar = (ImageView) playerView.findViewById(R.id.exo_volume_seekbar);
 
         debugRootView = view.findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
@@ -127,7 +130,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
         findViews(view);
-        UizaUtil.resizeLayout(playerView);
+        UizaUtil.resizeLayout(playerView, llMid);
 
         initUI();
         return view;
@@ -276,7 +279,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
                 isLandscape = false;
             }
         }
-        UizaUtil.resizeLayout(playerView);
+        UizaUtil.resizeLayout(playerView, llMid);
     }
 
     public void initUI() {
@@ -330,10 +333,12 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (seekBar == seekbarVolume) {
             LLog.d(TAG, "seekbarBirghtness onProgressChanged " + progress);
-            if (progress >= 50) {
+            if (progress >= 66) {
                 exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_up_black_48dp);
+            } else if (progress >= 33) {
+                exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_down_black_48dp);
             } else {
-                exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_off_black_48dp);
+                exoVolumeSeekbar.setImageResource(R.drawable.ic_volume_mute_black_48dp);
             }
         }
     }

@@ -39,7 +39,7 @@
     <RelativeLayout
         android:id="@+id/ll_mid"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
         <RelativeLayout
@@ -51,18 +51,17 @@
                 android:id="@+id/seekbar_volume"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/exo_volume_seekbar"
+                android:layout_marginBottom="@dimen/margin_10"
                 android:max="100" />
 
-            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            <ImageView
                 android:id="@+id/exo_volume_seekbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/w_20"
+                android:layout_height="@dimen/w_20"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:background="@color/transparent"
                 android:contentDescription="@string/app_name"
-                android:rotation="270"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_volume_up_black_48dp"
                 android:tint="@color/White" />
@@ -78,13 +77,13 @@
                 android:id="@+id/seekbar_birghtness"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/exo_birghtness_seekbar"
+                android:layout_marginBottom="@dimen/margin_10"
                 android:max="100" />
 
-            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            <ImageView
                 android:id="@+id/exo_birghtness_seekbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/w_20"
+                android:layout_height="@dimen/w_20"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:background="@color/transparent"

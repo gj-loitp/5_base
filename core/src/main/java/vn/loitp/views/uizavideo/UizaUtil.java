@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
@@ -36,7 +37,7 @@ public class UizaUtil {
         }
     }
 
-    public static void resizeLayout(ViewGroup viewGroup) {
+    public static void resizeLayout(ViewGroup viewGroup, RelativeLayout llMid) {
         int widthScreen = 0;
         int heightScreen = 0;
         boolean isFullScreen = LScreenUtil.isFullScreen(viewGroup.getContext());
@@ -53,6 +54,18 @@ public class UizaUtil {
         viewGroup.getLayoutParams().height = heightScreen;
         viewGroup.requestLayout();
 
+        //edit size of seekbar volume and brightness
+        if (isFullScreen) {
+            //llMid.getLayoutParams().width = widthScreen;
+            llMid.getLayoutParams().height = (int) (heightScreen / 1.75);
+
+        } else {
+            //llMid.getLayoutParams().width = widthScreen;
+            llMid.getLayoutParams().height = (int) (heightScreen / 1.95);
+        }
+        llMid.requestLayout();
+
+        //edit size of imageview thumnail
         FrameLayout flImgThumnailPreviewSeekbar = viewGroup.findViewById(R.id.previewFrameLayout);
         LLog.d(TAG, flImgThumnailPreviewSeekbar == null ? "resizeLayout imgThumnailPreviewSeekbar null" : "resizeLayout imgThumnailPreviewSeekbar !null");
         if (flImgThumnailPreviewSeekbar != null) {

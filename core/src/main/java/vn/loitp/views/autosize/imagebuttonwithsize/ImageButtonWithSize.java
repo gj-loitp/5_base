@@ -54,20 +54,20 @@ public class ImageButtonWithSize extends ImageButton {
     public void onMeasure(int widthSpec, int heightSpec) {
         //super.onMeasure(widthSpec, heightSpec);
         if (isSetSize && isFullScreen == LScreenUtil.isFullScreen(this.getContext())) {
-            LLog.d(TAG, "return isSetSize: " + isSetSize + " -> " + size + "x" + size);
+            //LLog.d(TAG, "return isSetSize: " + isSetSize + " -> " + size + "x" + size);
             setMeasuredDimension(size, size);
             return;
         }
         isSetSize = false;
         isFullScreen = LScreenUtil.isFullScreen(this.getContext());
 
-        LLog.d(TAG, "isFullScreen " + isFullScreen);
+        //LLog.d(TAG, "isFullScreen " + isFullScreen);
         if (isFullScreen) {
             screenWidth = screenWLandscape;
         } else {
             screenWidth = screenWPortrait;
         }
-        LLog.d(TAG, "screenWidth " + screenWidth);
+        //LLog.d(TAG, "screenWidth " + screenWidth);
         if (isFullScreen) {
             size = screenWidth / 16;
         } else {
