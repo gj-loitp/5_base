@@ -72,6 +72,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
@@ -247,7 +248,33 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         }
         LLog.d(TAG, "createMediaSourceWithSubtitle " + gson.toJson(subtitleList));
 
-        DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
+        List<SingleSampleMediaSource> singleSampleMediaSourceList = new ArrayList<>();
+        for (int i = 0; i < subtitleList.size(); i++) {
+            Subtitle subtitle = subtitleList.get(i);
+            if (subtitle == null || subtitle.getLanguage() == null || subtitle.getUrl() == null || subtitle.getUrl().isEmpty()) {
+                continue;
+            }
+            DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
+            DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, userAgent, bandwidthMeter2);
+            //Text Format Initialization
+            Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, subtitle.getLanguage(), null, Format.OFFSET_SAMPLE_RELATIVE);
+            SingleSampleMediaSource textMediaSource = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(subtitle.getUrl()), textFormat, C.TIME_UNSET);
+            singleSampleMediaSourceList.add(textMediaSource);
+        }
+        MediaSource mediaSourceWithSubtitle = null;
+        for (int i = 0; i < singleSampleMediaSourceList.size(); i++) {
+            SingleSampleMediaSource singleSampleMediaSource = singleSampleMediaSourceList.get(i);
+            if (i == 0) {
+                mediaSourceWithSubtitle = new MergingMediaSource(mediaSource, singleSampleMediaSource);
+            } else {
+                mediaSourceWithSubtitle = new MergingMediaSource(mediaSourceWithSubtitle, singleSampleMediaSource);
+            }
+        }
+        return mediaSourceWithSubtitle;
+
+
+        //ADD SUBTITLE MANUAL -> WORK PERFECTLY
+        /*DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, userAgent, bandwidthMeter2);
         //Text Format Initialization
         Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, "ar", null, Format.OFFSET_SAMPLE_RELATIVE);
@@ -266,7 +293,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         //player.prepare(mediaSource);
         //player.setPlayWhenReady(true);
 
-        return mediaSourceWithSubtitle;
+        return mediaSourceWithSubtitle;*/
     }
 
     private MediaSource createMediaSourceWithAds(MediaSource mediaSource) {
