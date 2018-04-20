@@ -115,8 +115,8 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         return view;
     }
 
-    public void init(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
-        uizaPlayerManager = new UizaPlayerManager(getActivity(), progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+    public void initData(String linkPlay, String urlIMAAd, String urlThumnailsPreviewSeekbar) {
+        uizaPlayerManager = new UizaPlayerManager(getActivity(), playerView,progressBar, previewTimeBarLayout, ivThumbnail, linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
         previewTimeBarLayout.setPreviewLoader(uizaPlayerManager);
         uizaPlayerManager.setProgressCallback(new ProgressCallback() {
             @Override
@@ -141,7 +141,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onResume() {
         super.onResume();
-        uizaPlayerManager.init(getActivity(), playerView);
+        uizaPlayerManager.init();
     }
 
     @Override

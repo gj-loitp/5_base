@@ -49,7 +49,7 @@ import java.util.Locale;
                     buildBitrateString(format)), buildTrackIdString(format)),
                     buildSampleMimeTypeString(format));
         }
-        return trackName.length() == 0 ? "unknown" : trackName;
+        return trackName.length() == 0 ? "Unknown" : trackName;
     }
 
     public static String buildShortTrackName(Format format) {
@@ -57,7 +57,7 @@ import java.util.Locale;
         if (MimeTypes.isVideo(format.sampleMimeType)) {
             trackName = buildResolutionString(format);
         } else if (MimeTypes.isAudio(format.sampleMimeType)) {
-            trackName = buildLanguageString(format);
+            trackName = buildAudioPropertyString(format);
         } else {
             trackName = buildLanguageString(format);
         }

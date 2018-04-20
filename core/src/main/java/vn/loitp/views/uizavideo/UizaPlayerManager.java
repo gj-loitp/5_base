@@ -87,6 +87,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 /* package */ final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final String TAG = getClass().getSimpleName();
     private Context context;
+    private PlayerView playerView;
     private ImaAdsLoader adsLoader = null;
     private final DataSource.Factory manifestDataSourceFactory;
     private final DataSource.Factory mediaDataSourceFactory;
@@ -94,6 +95,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
     private SimpleExoPlayer player;
     private long contentPosition;
 
+    private String userAgent;
     private String linkPlay;
 
     private VideoAdPlayerListerner videoAdPlayerListerner = new VideoAdPlayerListerner();
@@ -121,8 +123,9 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         this.progressCallback = progressCallback;
     }
 
-    public UizaPlayerManager(Context c, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
+    public UizaPlayerManager(Context c, PlayerView playerView, ProgressBar progressBar, PreviewTimeBarLayout previewTimeBarLayout, ImageView imageView, String linkPlay, String urlIMAAd, String thumbnailsUrl) {
         this.context = c;
+        this.playerView = playerView;
         this.linkPlay = linkPlay;
         if (urlIMAAd == null || urlIMAAd.isEmpty()) {
             LLog.d(TAG, "UizaPlayerManager urlIMAAd == null || urlIMAAd.isEmpty()");
@@ -130,7 +133,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
             adsLoader = new ImaAdsLoader(context, Uri.parse(urlIMAAd));
         }
         this.progressBar = progressBar;
-        String userAgent = Util.getUserAgent(context, context.getString(R.string.app_name));
+        userAgent = Util.getUserAgent(context, context.getString(R.string.app_name));
         manifestDataSourceFactory = new DefaultDataSourceFactory(context, userAgent);
         mediaDataSourceFactory = new DefaultDataSourceFactory(
                 context,
@@ -186,57 +189,29 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         return trackSelectionHelper;
     }
 
-    public void init(Context context, PlayerView playerView) {
+    public void init() {
         //Exo Player Initialization
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
         trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
         trackSelectionHelper = new TrackSelectionHelper(trackSelector, videoTrackSelectionFactory);
         player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
-
         playerView.setPlayer(player);
 
-        DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
-        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "iWatch"), bandwidthMeter2);
+        MediaSource mediaSourceVideo = createMediaSourceVideo();
 
-
+        //merge title to media source video
         //SUBTITLE
-        //Text Format Initialization
-        Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, "ar", null, Format.OFFSET_SAMPLE_RELATIVE);
-        //Video Source
-        //MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkPlay));
-        MediaSource videoSource = buildMediaSource(Uri.parse(linkPlay), null, null);
+        MediaSource mediaSourceWithSubtitle = createMediaSourceWithSubtitle(mediaSourceVideo);
 
-        String linkSub = "https://dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_vi_1522812445904.vtt";
-        //String linkSub = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
-        //Arabic Subtitles
-        SingleSampleMediaSource textMediaSourceAr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
-        //English Subtitles
-        SingleSampleMediaSource textMediaSourceEn = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
-        //French Subtitles
-        SingleSampleMediaSource textMediaSourceFr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
-
-        //Final MediaSource
-        MediaSource mediaSource = new MergingMediaSource(videoSource, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
-        //player.prepare(mediaSource);
-        //player.setPlayWhenReady(true);
-
-
+        //merge ads to media source subtitle
         //IMA ADS
         // Compose the content media source into a new AdsMediaSource with both ads and content.
-        MediaSource mediaSourceWithAds = new AdsMediaSource(
-                mediaSource,
-                this,
-                adsLoader,
-                playerView.getOverlayFrameLayout(),
-                null,
-                null);
+        MediaSource mediaSourceWithAds = createMediaSourceWithAds(mediaSourceWithSubtitle);
 
         // Prepare the player with the source.
         player.seekTo(contentPosition);
-
         player.addListener(eventListener);
-
         player.addListener(new PlayerEventListener());
         player.addAudioDebugListener(new AudioEventListener());
         player.addVideoDebugListener(new VideoEventListener());
@@ -252,6 +227,47 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
         if (debugCallback != null) {
             debugCallback.onUpdateButtonVisibilities();
         }
+    }
+
+    private MediaSource createMediaSourceVideo() {
+        //Video Source
+        //MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkPlay));
+        MediaSource mediaSourceVideo = buildMediaSource(Uri.parse(linkPlay), null, null);
+        return mediaSourceVideo;
+    }
+
+    private MediaSource createMediaSourceWithSubtitle(MediaSource mediaSourceVideo) {
+        DefaultBandwidthMeter bandwidthMeter2 = new DefaultBandwidthMeter();
+        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(context, userAgent, bandwidthMeter2);
+        //Text Format Initialization
+        Format textFormat = Format.createTextSampleFormat(null, MimeTypes.TEXT_VTT, null, Format.NO_VALUE, Format.NO_VALUE, "ar", null, Format.OFFSET_SAMPLE_RELATIVE);
+
+        String linkSub = "https://dev-static.uiza.io/subtitle_56a4f990-17e6-473c-8434-ef6c7e40bba1_vi_1522812445904.vtt";
+        //String linkSub = "https://s3-ap-southeast-1.amazonaws.com/58aa3a0eb555420a945a27b47ce9ef2f-data/static/type_caption__entityId_81__language_en.vtt";
+        //Arabic Subtitles
+        SingleSampleMediaSource textMediaSourceAr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+        //English Subtitles
+        SingleSampleMediaSource textMediaSourceEn = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+        //French Subtitles
+        SingleSampleMediaSource textMediaSourceFr = new SingleSampleMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(linkSub), textFormat, C.TIME_UNSET);
+
+        //Final MediaSource
+        MediaSource mediaSourceWithSubtitle = new MergingMediaSource(mediaSourceVideo, textMediaSourceAr, textMediaSourceEn, textMediaSourceFr);
+        //player.prepare(mediaSource);
+        //player.setPlayWhenReady(true);
+
+        return mediaSourceWithSubtitle;
+    }
+
+    private MediaSource createMediaSourceWithAds(MediaSource mediaSourceWithSubtitle) {
+        MediaSource mediaSourceWithAds = new AdsMediaSource(
+                mediaSourceWithSubtitle,
+                this,
+                adsLoader,
+                playerView.getOverlayFrameLayout(),
+                null,
+                null);
+        return mediaSourceWithAds;
     }
 
     public void resumeVideo() {

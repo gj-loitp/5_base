@@ -23,7 +23,7 @@ public class TestUizaVideoIMActivity extends BaseActivity {
                 String linkPlay = getString(loitp.core.R.string.url_dash);
                 String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
                 String urlThumnailsPreviewSeekbar = getString(loitp.core.R.string.url_thumbnails);
-                frmUizaIMAVideo.init(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+                frmUizaIMAVideo.initData(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
             }
         });
     }
