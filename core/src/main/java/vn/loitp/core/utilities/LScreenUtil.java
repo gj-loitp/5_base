@@ -11,7 +11,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Display;
 import android.view.KeyCharacterMap;
@@ -22,7 +21,6 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
 
-import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
 
 /**
@@ -407,6 +405,18 @@ public class LScreenUtil {
 
         } catch (Exception e) {
             LLog.e(TAG, "setBrightness " + e.toString());
+        }
+    }
+
+    public static int getCurrentBrightness(Context context) {
+        if (context == null) {
+            return 0;
+        }
+        try {
+            return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+        } catch (Exception e) {
+            LLog.e(TAG, "getCurrentBrightness" + e.toString());
+            return 0;
         }
     }
 

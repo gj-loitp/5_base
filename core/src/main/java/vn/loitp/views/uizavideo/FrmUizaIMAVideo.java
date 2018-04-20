@@ -74,6 +74,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageView ivBirghtnessSeekbar;
 
     private LinearLayout debugRootView;
+    private int firstBrightness;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -201,8 +202,17 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         uizaPlayerManager.setVolume(100f);
 
         //set bightness max in first play
+        firstBrightness = LScreenUtil.getCurrentBrightness(getActivity()) * 100 / 255;
+        LLog.d(TAG, "firstBrightness " + firstBrightness);
         seekbarBirghtness.setMax(100);
         seekbarBirghtness.setProgress(100);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        //restore first brightness
+        LScreenUtil.setBrightness(getActivity(), firstBrightness);
     }
 
     @Override
