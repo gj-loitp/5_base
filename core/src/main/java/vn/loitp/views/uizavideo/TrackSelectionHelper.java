@@ -171,7 +171,8 @@ import vn.loitp.core.utilities.LScreenUtil;
                         : android.R.layout.simple_list_item_single_choice;
                 CheckedTextView trackView = (CheckedTextView) inflater.inflate(trackViewLayoutId, root, false);
                 trackView.setBackgroundResource(selectableItemBackgroundResourceId);
-                trackView.setText(DemoUtil.buildTrackName(group.getFormat(trackIndex)));
+                //trackView.setText(DemoUtil.buildTrackName(group.getFormat(trackIndex)));
+                trackView.setText(DemoUtil.buildShortTrackName(group.getFormat(trackIndex)));
                 if (trackInfo.getTrackFormatSupport(rendererIndex, groupIndex, trackIndex) == RendererCapabilities.FORMAT_HANDLED) {
                     trackView.setFocusable(true);
                     trackView.setTag(Pair.create(groupIndex, trackIndex));

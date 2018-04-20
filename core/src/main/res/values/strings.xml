@@ -40,7 +40,7 @@
     <string name="enable_random_adaptation">Enable random adaptation</string>
     <string name="video">Video</string>
     <string name="audio">Audio</string>
-    <string name="text">Text</string>
+    <string name="text">Subtitle</string>
     <string name="selection_disabled">Disabled</string>
     <string name="selection_default">Default</string>
 </resources>

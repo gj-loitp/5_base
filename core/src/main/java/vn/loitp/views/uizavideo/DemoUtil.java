@@ -52,6 +52,18 @@ import java.util.Locale;
         return trackName.length() == 0 ? "unknown" : trackName;
     }
 
+    public static String buildShortTrackName(Format format) {
+        String trackName;
+        if (MimeTypes.isVideo(format.sampleMimeType)) {
+            trackName = buildResolutionString(format);
+        } else if (MimeTypes.isAudio(format.sampleMimeType)) {
+            trackName = buildLanguageString(format);
+        } else {
+            trackName = buildLanguageString(format);
+        }
+        return trackName.length() == 0 ? "Unknown" : trackName;
+    }
+
     private static String buildResolutionString(Format format) {
         return format.width == Format.NO_VALUE || format.height == Format.NO_VALUE
                 ? "" : format.width + "x" + format.height;
