@@ -5,6 +5,7 @@ package vn.loitp.views.uizavideo;
  */
 
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -198,14 +199,22 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         //set volume max in first play
         seekbarVolume.setMax(100);
-        seekbarVolume.setProgress(100);
+        setProgressSeekbar(seekbarVolume, 100);
         uizaPlayerManager.setVolume(100f);
 
         //set bightness max in first play
-        firstBrightness = LScreenUtil.getCurrentBrightness(getActivity()) * 100 / 255;
+        firstBrightness = LScreenUtil.getCurrentBrightness(getActivity()) * 100 / 255 + 1;
         LLog.d(TAG, "firstBrightness " + firstBrightness);
         seekbarBirghtness.setMax(100);
-        seekbarBirghtness.setProgress(100);
+        setProgressSeekbar(seekbarBirghtness, firstBrightness);
+    }
+
+    private void setProgressSeekbar(SeekBar seekbar, int progressSeekbar) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            seekbar.setProgress(progressSeekbar, true);
+        } else {
+            seekbar.setProgress(progressSeekbar);
+        }
     }
 
     @Override
