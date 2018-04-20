@@ -44,52 +44,47 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                android:id="@+id/seekbar_volume"
-                android:layout_width="@dimen/w_50"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/margin_10"
-                android:max="100" />
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/exo_volume_seekbar"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
                 android:background="@color/transparent"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_volume_up_black_48dp"
                 android:tint="@color/White" />
+
+            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                android:id="@+id/seekbar_volume"
+                android:layout_width="@dimen/w_50"
+                android:layout_height="match_parent" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:orientation="vertical">
+            android:layout_alignParentRight="true">
 
             <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
                 android:id="@+id/seekbar_birghtness"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/margin_10"
-                android:max="100" />
+                android:layout_alignParentRight="true" />
 
             <ImageView
                 android:id="@+id/exo_birghtness_seekbar"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
                 android:background="@color/transparent"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_brightness_medium_black_48dp"
+                android:src="@drawable/ic_brightness_7_black_48dp"
                 android:tint="@color/White" />
         </RelativeLayout>
     </RelativeLayout>
