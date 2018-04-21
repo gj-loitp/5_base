@@ -86,11 +86,6 @@ public class SimpleFingerGesturesActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_simple_finger_gestures;
     }

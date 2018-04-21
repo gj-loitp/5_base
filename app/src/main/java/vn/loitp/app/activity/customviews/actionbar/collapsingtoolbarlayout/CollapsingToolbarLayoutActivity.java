@@ -83,11 +83,6 @@ public class CollapsingToolbarLayoutActivity extends BaseActivity implements OnC
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_collapsingtoolbar;
     }

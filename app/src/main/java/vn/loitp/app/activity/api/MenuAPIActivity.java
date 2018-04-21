@@ -64,11 +64,6 @@ public class MenuAPIActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_api;
     }

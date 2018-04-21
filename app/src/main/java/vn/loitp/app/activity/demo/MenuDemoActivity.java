@@ -43,11 +43,6 @@ public class MenuDemoActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_demo;
     }

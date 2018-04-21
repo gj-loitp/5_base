@@ -58,11 +58,6 @@ public class DoubleViewPagerSplashActivity extends BaseActivity implements View.
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_double_viewpager_splash;
     }

@@ -52,11 +52,6 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_swipe_refresh_scroll_view_layout;
     }

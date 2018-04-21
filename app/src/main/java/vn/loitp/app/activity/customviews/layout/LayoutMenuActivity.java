@@ -8,6 +8,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
+import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
@@ -36,6 +37,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         findViewById(R.id.bt_auto_linear_layout).setOnClickListener(this);
         findViewById(R.id.bt_swipeable_layout).setOnClickListener(this);
         findViewById(R.id.bt_swipable_layout).setOnClickListener(this);
+        findViewById(R.id.bt_constraint_layout).setOnClickListener(this);
     }
 
     @Override
@@ -46,11 +48,6 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected Activity setActivity() {
-        return this;
     }
 
     @Override
@@ -94,6 +91,9 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_swipable_layout:
                 intent = new Intent(activity, SwipableLayoutActivity.class);
+                break;
+            case R.id.bt_constraint_layout:
+                intent = new Intent(activity, ConstraintlayoutActivity.class);
                 break;
         }
         if (intent != null) {

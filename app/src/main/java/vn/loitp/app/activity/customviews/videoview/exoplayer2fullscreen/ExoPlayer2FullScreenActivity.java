@@ -93,11 +93,6 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_exo_player2_fullscreen;
     }

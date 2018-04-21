@@ -133,11 +133,6 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_exo_player2_with_draggable_panel;
     }

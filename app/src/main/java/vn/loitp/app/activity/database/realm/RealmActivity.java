@@ -47,11 +47,6 @@ public class RealmActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_realm;
     }

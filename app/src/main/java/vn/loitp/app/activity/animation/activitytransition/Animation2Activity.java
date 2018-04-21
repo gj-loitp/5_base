@@ -27,11 +27,6 @@ public class Animation2Activity extends BaseActivity implements OnClickListener 
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_animation_2;
     }

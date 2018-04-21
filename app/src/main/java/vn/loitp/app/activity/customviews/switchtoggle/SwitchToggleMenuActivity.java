@@ -35,11 +35,6 @@ public class SwitchToggleMenuActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_switch_toggle;
     }

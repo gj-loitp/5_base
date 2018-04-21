@@ -34,11 +34,6 @@ public class ActionbarMenuActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_action_bar;
     }

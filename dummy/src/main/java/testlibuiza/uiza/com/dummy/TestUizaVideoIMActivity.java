@@ -39,11 +39,6 @@ public class TestUizaVideoIMActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.test_uiza_ima_video_activity;
     }

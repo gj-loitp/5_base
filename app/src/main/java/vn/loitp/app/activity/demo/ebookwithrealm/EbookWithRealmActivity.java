@@ -78,11 +78,6 @@ public class EbookWithRealmActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_ebook_with_realm;
     }

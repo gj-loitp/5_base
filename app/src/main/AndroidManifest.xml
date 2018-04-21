@@ -17,7 +17,8 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <!--support 18:9-->
+
+        <!-- support 18:9 -->
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
@@ -554,10 +555,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
             android:screenOrientation="portrait" />
-        <!--<activity
+        <!--
+            <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="sensor" />-->
+            android:screenOrientation="sensor" />
+        -->
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
@@ -623,6 +626,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity"
             android:screenOrientation="portrait" />
     </application>
 

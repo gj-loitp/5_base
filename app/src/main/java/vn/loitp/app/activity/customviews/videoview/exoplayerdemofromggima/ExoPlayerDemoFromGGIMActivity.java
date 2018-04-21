@@ -42,7 +42,7 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
         playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
         exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
 
-        UizaUtil.resizeLayout(playerView);
+        UizaUtil.resizeLayout(playerView, null);
     }
 
     @Override
@@ -53,11 +53,6 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected Activity setActivity() {
-        return this;
     }
 
     @Override
@@ -118,6 +113,6 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
                 LScreenUtil.showDefaultControls(activity);
             }
         }
-        UizaUtil.resizeLayout(playerView);
+        UizaUtil.resizeLayout(playerView, null);
     }
 }

@@ -96,11 +96,6 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_exo_player2;
     }

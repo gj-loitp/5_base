@@ -1,17 +1,16 @@
-package vn.loitp.app.activity.customviews.edittext.materialtextfield;
+package vn.loitp.app.activity.customviews.layout.constraintlayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 
-//guide https://github.com/florent37/MaterialTextField
-public class MaterialTextFieldActivity extends BaseActivity {
+public class ConstraintlayoutActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_constraintlayout);
     }
 
     @Override
@@ -26,7 +25,6 @@ public class MaterialTextFieldActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_material_textfield;
+        return R.layout.activity_constraintlayout;
     }
-
 }

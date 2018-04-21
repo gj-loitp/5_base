@@ -45,7 +45,7 @@ public class UizaVideoActivity extends BaseActivity {
                 frm.play(getString(R.string.url_dash), getString(R.string.url_thumbnails));
             }
         });
-        UizaUtil.resizeLayout(frmUizaVideo);
+        UizaUtil.resizeLayout(frmUizaVideo, null);
     }
 
     @Override
@@ -59,11 +59,6 @@ public class UizaVideoActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.uiza_video_activity;
     }
@@ -71,6 +66,6 @@ public class UizaVideoActivity extends BaseActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        UizaUtil.resizeLayout(frmUizaVideo);
+        UizaUtil.resizeLayout(frmUizaVideo, null);
     }
 }

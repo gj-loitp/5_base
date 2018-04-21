@@ -43,11 +43,6 @@ public class PBLocalActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.pb_activity_seekbar;
     }

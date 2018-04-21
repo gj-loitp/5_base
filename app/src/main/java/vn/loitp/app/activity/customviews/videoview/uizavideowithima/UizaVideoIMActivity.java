@@ -40,11 +40,6 @@ public class UizaVideoIMActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.uiza_ima_video_activity;
     }

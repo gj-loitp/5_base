@@ -60,11 +60,6 @@ public class AdmobRewardedVideoActivity extends BaseActivity implements Rewarded
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_admob_rewarded_video;
     }

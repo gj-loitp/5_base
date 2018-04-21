@@ -80,11 +80,6 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_menu_custom_view;
     }

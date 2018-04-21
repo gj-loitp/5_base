@@ -49,7 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        activity = setActivity();
+        activity = this;
         TAG = setTag();
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -157,8 +157,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract boolean setFullScreen();
 
     protected abstract String setTag();
-
-    protected abstract Activity setActivity();
 
     protected abstract int setLayoutResourceId();
 

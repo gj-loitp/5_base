@@ -37,6 +37,12 @@
                 android:text="CircularView" />
 
             <Button
+                android:id="@+id/bt_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="constraint layout" />
+
+            <Button
                 android:id="@+id/bt_draggable_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

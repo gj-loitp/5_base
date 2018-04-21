@@ -90,11 +90,6 @@ public class RecyclerViewWithSpanSizeActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_recycler_view;
     }

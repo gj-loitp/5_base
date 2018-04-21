@@ -69,11 +69,6 @@ public class TTTAPIRemoveFavListActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_api_ttt_remove_fav_list;
     }

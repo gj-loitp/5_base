@@ -39,11 +39,6 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_function_menu;
     }

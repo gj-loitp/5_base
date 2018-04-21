@@ -25,11 +25,6 @@ public class DraggableFlipViewActivity extends BaseActivity {
     }
 
     @Override
-    protected Activity setActivity() {
-        return this;
-    }
-
-    @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_draggable_flipview;
     }
