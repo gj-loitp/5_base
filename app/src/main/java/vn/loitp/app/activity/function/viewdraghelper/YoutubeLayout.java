@@ -75,9 +75,11 @@ public class YoutubeLayout extends ViewGroup {
             mDragOffset = (float) top / mDragRange;
             //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
             if (mDragOffset == 0f) {
-                LLog.d(TAG, "onViewPositionChanged TOP");
+                isPositionTop();
             } else if (mDragOffset == 1f) {
-                LLog.d(TAG, "onViewPositionChanged BOTTOM");
+                isPositionBottom();
+            } else {
+                isPositionMid();
             }
 
             mHeaderView.setPivotX(mHeaderView.getWidth());
@@ -108,11 +110,9 @@ public class YoutubeLayout extends ViewGroup {
         public int clampViewPositionVertical(View child, int top, int dy) {
             final int topBound = getPaddingTop();
             final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
-
             final int newTop = Math.min(Math.max(top, topBound), bottomBound);
             return newTop;
         }
-
     }
 
     @Override
@@ -142,6 +142,7 @@ public class YoutubeLayout extends ViewGroup {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
+                LLog.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
                 mInitialMotionX = x;
                 mInitialMotionY = y;
                 interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
@@ -149,6 +150,7 @@ public class YoutubeLayout extends ViewGroup {
             }
 
             case MotionEvent.ACTION_MOVE: {
+                LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
                 final float adx = Math.abs(x - mInitialMotionX);
                 final float ady = Math.abs(y - mInitialMotionY);
                 final int slop = mDragHelper.getTouchSlop();
@@ -173,12 +175,14 @@ public class YoutubeLayout extends ViewGroup {
         boolean isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
         switch (action & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
+                LLog.d(TAG, "onTouchEvent ACTION_DOWN");
                 mInitialMotionX = x;
                 mInitialMotionY = y;
                 break;
             }
 
             case MotionEvent.ACTION_UP: {
+                LLog.d(TAG, "onTouchEvent ACTION_UP");
                 /*final float dx = x - mInitialMotionX;
                 final float dy = y - mInitialMotionY;
                 final int slop = mDragHelper.getTouchSlop();
@@ -239,5 +243,24 @@ public class YoutubeLayout extends ViewGroup {
                 mTop + mHeaderView.getMeasuredHeight(),
                 r,
                 mTop + b);
+    }
+
+    private enum STATE {TOP, BOTTOM, MID}
+
+    private STATE state;
+
+    private void isPositionTop() {
+        //LLog.d(TAG, "onViewPositionChanged TOP");
+        state = STATE.TOP;
+    }
+
+    private void isPositionBottom() {
+        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
+        state = STATE.BOTTOM;
+    }
+
+    private void isPositionMid() {
+        //LLog.d(TAG, "onViewPositionChanged MID");
+        state = STATE.MID;
     }
 }
