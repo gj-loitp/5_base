@@ -54,6 +54,12 @@
                 android:layout_height="wrap_content"
                 android:text="Simple finger gestures" />
 
+            <Button
+                android:id="@+id/bt_view_drag_helper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewDragHelper" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

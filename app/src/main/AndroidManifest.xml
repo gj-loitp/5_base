@@ -630,6 +630,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
