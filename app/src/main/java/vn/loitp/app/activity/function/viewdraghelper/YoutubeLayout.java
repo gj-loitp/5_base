@@ -70,6 +70,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+            LLog.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
             mTop = top;
 
             mDragOffset = (float) top / mDragRange;
@@ -94,6 +95,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
+            LLog.d(TAG, "onViewReleased");
             int top = getPaddingTop();
             if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
                 top += mDragRange;
@@ -108,10 +110,20 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
+            LLog.d(TAG, "clampViewPositionVertical " + top);
             final int topBound = getPaddingTop();
             final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
             final int newTop = Math.min(Math.max(top, topBound), bottomBound);
             return newTop;
+        }
+
+        @Override
+        public int clampViewPositionHorizontal(View child, int left, int dx) {
+            LLog.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
+            final int leftBound = getPaddingLeft();
+            final int rightBound = getWidth() - mHeaderView.getWidth();
+            final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
+            return newLeft;
         }
     }
 
