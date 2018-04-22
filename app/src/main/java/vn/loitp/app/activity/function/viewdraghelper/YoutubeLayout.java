@@ -54,7 +54,6 @@ public class YoutubeLayout extends ViewGroup {
     private boolean smoothSlideTo(float slideOffset) {
         final int topBound = getPaddingTop();
         int y = (int) (topBound + slideOffset * mDragRange);
-
         if (mDragHelper.smoothSlideViewTo(mHeaderView, mHeaderView.getLeft(), y)) {
             ViewCompat.postInvalidateOnAnimation(this);
             return true;
@@ -74,6 +73,12 @@ public class YoutubeLayout extends ViewGroup {
             mTop = top;
 
             mDragOffset = (float) top / mDragRange;
+            //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
+            if (mDragOffset == 0f) {
+                LLog.d(TAG, "onViewPositionChanged TOP");
+            } else if (mDragOffset == 1f) {
+                LLog.d(TAG, "onViewPositionChanged BOTTOM");
+            }
 
             mHeaderView.setPivotX(mHeaderView.getWidth());
             mHeaderView.setPivotY(mHeaderView.getHeight());
@@ -185,6 +190,7 @@ public class YoutubeLayout extends ViewGroup {
                         smoothSlideTo(0f);
                     }
                 } */
+                //LLog.d(TAG, "mDragOffset " + mDragOffset);
                 if (mDragOffset < 0.5f) {
                     smoothSlideTo(0f);
                 } else {
@@ -196,7 +202,6 @@ public class YoutubeLayout extends ViewGroup {
 
         return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y) || isViewHit(mDescView, (int) x, (int) y);
     }
-
 
     private boolean isViewHit(View view, int x, int y) {
         int[] viewLocation = new int[2];
@@ -223,7 +228,6 @@ public class YoutubeLayout extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         mDragRange = getHeight() - mHeaderView.getHeight();
-
         mHeaderView.layout(
                 0,
                 mTop,
