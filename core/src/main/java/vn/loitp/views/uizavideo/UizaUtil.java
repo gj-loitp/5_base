@@ -55,15 +55,15 @@ public class UizaUtil {
         viewGroup.requestLayout();
 
         //edit size of seekbar volume and brightness
-        if (isFullScreen) {
-            //llMid.getLayoutParams().width = widthScreen;
-            llMid.getLayoutParams().height = (int) (heightScreen / 1.75);
+        if (llMid != null) {
+            if (isFullScreen) {
+                llMid.getLayoutParams().height = (int) (heightScreen / 1.75);
 
-        } else {
-            //llMid.getLayoutParams().width = widthScreen;
-            llMid.getLayoutParams().height = (int) (heightScreen / 1.95);
+            } else {
+                llMid.getLayoutParams().height = (int) (heightScreen / 1.95);
+            }
+            llMid.requestLayout();
         }
-        llMid.requestLayout();
 
         //edit size of imageview thumnail
         FrameLayout flImgThumnailPreviewSeekbar = viewGroup.findViewById(R.id.previewFrameLayout);

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
@@ -57,7 +56,7 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements Previ
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.uiza_ima_video_frm;
+        return R.layout.uiza_ima_video_core_frm;
     }
 
     @Override

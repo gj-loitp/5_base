@@ -97,7 +97,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
         ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
-        exoFullscreenIcon = (ImageButton) playerView.findViewById(R.id.exo_fullscreen_icon);
+        exoFullscreenIcon = (ImageButton) playerView.findViewById(R.id.exo_fullscreen_toggle_icon);
         tvTitle = (TextView) playerView.findViewById(R.id.tv_title);
         exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
         exoVolume = (ImageButton) playerView.findViewById(R.id.exo_volume);
@@ -115,7 +115,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         debugRootView = view.findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
-            debugRootView.setVisibility(View.GONE);
+            debugRootView.setVisibility(View.VISIBLE);
         } else {
             debugRootView.setVisibility(View.GONE);
         }
@@ -136,7 +136,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.uiza_ima_video_frm, container, false);
+        View view = inflater.inflate(R.layout.uiza_ima_video_core_frm, container, false);
         findViews(view);
         UizaUtil.resizeLayout(playerView, llMid);
 
