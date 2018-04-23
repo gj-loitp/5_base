@@ -4,9 +4,12 @@ package vn.loitp.views.uizavideo;
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
@@ -44,6 +48,8 @@ import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -295,7 +301,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
                 UizaUtil.getBtAudio(debugRootView).performClick();
             }
         } else if (v == exoPictureInPicture) {
-            LToast.show(getActivity(), "Click exoPictureInPicture");
+            clickPiP();
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
             if (mappedTrackInfo != null) {
@@ -412,4 +418,42 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         LLog.d(TAG, "onStopTrackingTouch");
     }
     //end on seekbar change
+
+    private final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 6969;
+
+    private void clickPiP() {
+        if (getActivity() == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
+            //If the draw over permission is not available open the settings screen
+            //to grant the permission.
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getActivity().getPackageName()));
+            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
+        } else {
+            initializePiP();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
+            //Check if the permission is granted or not.
+            if (resultCode == RESULT_OK) {
+                initializePiP();
+            } else {
+                LToast.show(getActivity(), "Draw over other app permission not available");
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    private void initializePiP() {
+        if (getActivity() == null) {
+            return;
+        }
+        getActivity().startService(new Intent(getActivity(), FloatingUizaVideoService.class));
+        getActivity().onBackPressed();
+    }
 }
