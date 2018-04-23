@@ -1,4 +1,4 @@
-package vn.loitp.views.uizavideo;
+package vn.loitp.views.uizavideo.view.util;
 
 import android.content.Context;
 import android.view.View;

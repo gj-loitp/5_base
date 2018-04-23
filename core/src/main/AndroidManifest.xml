@@ -20,7 +20,7 @@
             </intent-filter>
         </receiver>
         <service
-            android:name="vn.loitp.views.uizavideo.FloatingUizaVideoService"
+            android:name="vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService"
             android:enabled="true"
             android:exported="false" />
     </application>

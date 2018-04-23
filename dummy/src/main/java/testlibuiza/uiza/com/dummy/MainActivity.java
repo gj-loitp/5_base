@@ -31,6 +31,12 @@ public class MainActivity extends BaseActivity {
                 uizaVideo();
             }
         });
+        findViewById(R.id.bt_uiza_video_rl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uizaVideoRl();
+            }
+        });
     }
 
     @Override
@@ -68,6 +74,12 @@ public class MainActivity extends BaseActivity {
 
     private void uizaVideo() {
         Intent intent = new Intent(activity, TestUizaVideoIMActivity.class);
+        startActivity(intent);
+        LActivityUtil.tranIn(activity);
+    }
+
+    private void uizaVideoRl() {
+        Intent intent = new Intent(activity, TestUizaVideoIMActivity1.class);
         startActivity(intent);
         LActivityUtil.tranIn(activity);
     }

@@ -17,7 +17,6 @@
 
 package vn.loitp.app.activity.customviews.videoview.uizavideo;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -27,7 +26,7 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.uizavideo.UizaUtil;
+import vn.loitp.views.uizavideo.view.util.UizaUtil;
 
 public class UizaVideoActivity extends BaseActivity {
     private FrameLayout frmUizaVideo;

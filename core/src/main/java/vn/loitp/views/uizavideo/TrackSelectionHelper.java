@@ -43,12 +43,12 @@ import java.util.Arrays;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.uizavideo.view.util.DemoUtil;
 
 /**
  * Helper class for displaying track selection dialogs.
  */
-/* package */ final class TrackSelectionHelper implements View.OnClickListener,
-        DialogInterface.OnClickListener {
+/* package */public final class TrackSelectionHelper implements View.OnClickListener, DialogInterface.OnClickListener {
 
     private static final TrackSelection.Factory FIXED_FACTORY = new FixedTrackSelection.Factory();
     private static final TrackSelection.Factory RANDOM_FACTORY = new RandomTrackSelection.Factory();

@@ -87,7 +87,7 @@ import vn.loitp.views.uizavideo.listerner.VideoAdPlayerListerner;
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
-/* package */ final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
+/* package */ public final class UizaPlayerManager implements AdsMediaSource.MediaSourceFactory, PreviewLoader {
     private final String TAG = getClass().getSimpleName();
     private Gson gson = new Gson();//TODO remove later
     private Context context;

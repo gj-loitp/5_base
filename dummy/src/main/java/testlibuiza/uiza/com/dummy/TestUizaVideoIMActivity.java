@@ -1,13 +1,12 @@
 package testlibuiza.uiza.com.dummy;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.uizavideo.FrmUizaIMAVideo;
+import vn.loitp.views.uizavideo.view.frm.FrmUizaIMAVideo;
 
 public class TestUizaVideoIMActivity extends BaseActivity {
 

@@ -1,4 +1,4 @@
-package vn.loitp.views.uizavideo;
+package vn.loitp.views.uizavideo.view.floatview;
 
 import android.app.Service;
 import android.content.Intent;

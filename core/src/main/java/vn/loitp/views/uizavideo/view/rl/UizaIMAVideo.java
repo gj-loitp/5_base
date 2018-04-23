@@ -1,19 +1,18 @@
-package vn.loitp.views.uizavideo;
+package vn.loitp.views.uizavideo.view.rl;
 
 /**
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
+import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -22,7 +21,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.rubensousa.previewseekbar.base.PreviewView;
 import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBar;
@@ -38,7 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -47,15 +45,16 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
+import vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService;
+import vn.loitp.views.uizavideo.UizaPlayerManager;
+import vn.loitp.views.uizavideo.view.util.UizaUtil;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPreviewChangeListener, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPreviewChangeListener, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private final String TAG = getClass().getSimpleName();
     private Gson gson = new Gson();//TODO remove
     private PlayerView playerView;
@@ -84,21 +83,39 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private LinearLayout debugRootView;
     private int firstBrightness;
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public UizaIMAVideo(Context context) {
+        super(context);
+        onCreate();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public UizaIMAVideo(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        onCreate();
     }
 
-    private void findViews(View view) {
-        llMid = (RelativeLayout) view.findViewById(R.id.ll_mid);
-        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+    public UizaIMAVideo(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        onCreate();
+    }
+
+    public UizaIMAVideo(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        onCreate();
+    }
+
+    private void onCreate() {
+        inflate(getContext(), R.layout.uiza_ima_video_core_frm, this);
+        findViews();
+        UizaUtil.resizeLayout(playerView, llMid);
+
+        initUI();
+    }
+
+    private void findViews() {
+        llMid = (RelativeLayout) findViewById(R.id.ll_mid);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(progressBar.getContext(), R.color.White));
-        playerView = view.findViewById(R.id.player_view);
+        playerView = findViewById(R.id.player_view);
         previewTimeBar = playerView.findViewById(R.id.exo_progress);
         previewTimeBarLayout = playerView.findViewById(R.id.previewSeekBarLayout);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
@@ -116,12 +133,12 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         seekbarVolume = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_volume);
         seekbarBirghtness = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_birghtness);
-        LUIUtil.setColorSeekBar(seekbarVolume, ContextCompat.getColor(getActivity(), R.color.White));
-        LUIUtil.setColorSeekBar(seekbarBirghtness, ContextCompat.getColor(getActivity(), R.color.White));
+        LUIUtil.setColorSeekBar(seekbarVolume, ContextCompat.getColor(getContext(), R.color.White));
+        LUIUtil.setColorSeekBar(seekbarBirghtness, ContextCompat.getColor(getContext(), R.color.White));
         ivVolumeSeekbar = (ImageView) playerView.findViewById(R.id.exo_volume_seekbar);
         ivBirghtnessSeekbar = (ImageView) playerView.findViewById(R.id.exo_birghtness_seekbar);
 
-        debugRootView = view.findViewById(R.id.controls_root);
+        debugRootView = findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
             debugRootView.setVisibility(View.GONE);
         } else {
@@ -141,16 +158,6 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         //seekbar change
         seekbarVolume.setOnSeekBarChangeListener(this);
         seekbarBirghtness.setOnSeekBarChangeListener(this);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.uiza_ima_video_core_frm, container, false);
-        findViews(view);
-        UizaUtil.resizeLayout(playerView, llMid);
-
-        initUI();
-        return view;
     }
 
     private List<Subtitle> createDummySubtitle() {
@@ -212,7 +219,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         uizaPlayerManager.setVolume(100f);
 
         //set bightness max in first play
-        firstBrightness = LScreenUtil.getCurrentBrightness(getActivity()) * 100 / 255 + 1;
+        firstBrightness = LScreenUtil.getCurrentBrightness(getContext()) * 100 / 255 + 1;
         LLog.d(TAG, "firstBrightness " + firstBrightness);
         seekbarBirghtness.setMax(100);
         setProgressSeekbar(seekbarBirghtness, firstBrightness);
@@ -226,7 +233,26 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         }
     }
 
-    @Override
+    public void onDestroy() {
+        LScreenUtil.setBrightness(getContext(), firstBrightness);
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.release();
+        }
+    }
+
+    public void onResume() {
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.init();
+        }
+    }
+
+    public void onPause() {
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.reset();
+        }
+    }
+
+    /*@Override
     public void onDetach() {
         super.onDetach();
         //restore first brightness
@@ -249,7 +275,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     public void onDestroy() {
         uizaPlayerManager.release();
         super.onDestroy();
-    }
+    }*/
 
     @Override
     public void onStartPreview(PreviewView previewView) {
@@ -270,14 +296,14 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onClick(View v) {
         if (v == exoFullscreenIcon) {
-            UizaUtil.setUIFullScreenIcon(getActivity(), exoFullscreenIcon);
-            LActivityUtil.toggleScreenOritation(getActivity());
+            UizaUtil.setUIFullScreenIcon(getContext(), exoFullscreenIcon);
+            LActivityUtil.toggleScreenOritation((BaseActivity) getContext());
         } else if (v == exoBackScreen) {
             if (isLandscape) {
                 exoFullscreenIcon.performClick();
             } else {
-                if (getActivity() != null) {
-                    getActivity().onBackPressed();
+                if ((BaseActivity) getContext() != null) {
+                    ((BaseActivity) getContext()).onBackPressed();
                 }
             }
         } else if (v == exoVolume) {
@@ -294,7 +320,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             }
         } else if (v == exoPlaylist) {
             //TODO
-            LToast.show(getActivity(), "Click exoPlaylist");
+            LToast.show(getContext(), "Click exoPlaylist");
         } else if (v == exoHearing) {
             View view = UizaUtil.getBtAudio(debugRootView);
             if (view != null) {
@@ -305,7 +331,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
             if (mappedTrackInfo != null) {
-                uizaPlayerManager.getTrackSelectionHelper().showSelectionDialog(getActivity(), ((Button) v).getText(), mappedTrackInfo, (int) v.getTag());
+                uizaPlayerManager.getTrackSelectionHelper().showSelectionDialog((BaseActivity) getContext(), ((Button) v).getText(), mappedTrackInfo, (int) v.getTag());
             }
         }
     }
@@ -315,12 +341,12 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (getActivity() != null) {
+        if ((BaseActivity) getContext() != null) {
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                LScreenUtil.hideDefaultControls(getActivity());
+                LScreenUtil.hideDefaultControls((BaseActivity) getContext());
                 isLandscape = true;
             } else {
-                LScreenUtil.showDefaultControls(getActivity());
+                LScreenUtil.showDefaultControls((BaseActivity) getContext());
                 isLandscape = false;
             }
         }
@@ -329,7 +355,6 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     public void initUI() {
         String title = "Dummy Video";
-
         updateUIPlayController(title);
     }
 
@@ -350,7 +375,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         for (int i = 0; i < mappedTrackInfo.length; i++) {
             TrackGroupArray trackGroups = mappedTrackInfo.getTrackGroups(i);
             if (trackGroups.length != 0) {
-                Button button = new Button(context);
+                Button button = new Button(getContext());
                 int label;
                 switch (uizaPlayerManager.getPlayer().getRendererType(i)) {
                     case C.TRACK_TYPE_AUDIO:
@@ -404,7 +429,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             } else {
                 ivBirghtnessSeekbar.setImageResource(R.drawable.ic_brightness_1_black_48dp);
             }
-            LScreenUtil.setBrightness(getActivity(), progress);
+            LScreenUtil.setBrightness(getContext(), progress);
         }
     }
 
@@ -419,41 +444,27 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     }
     //end on seekbar change
 
-    private final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 6969;
+    public static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 6969;
 
     private void clickPiP() {
-        if (getActivity() == null) {
+        if (getContext() == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getContext())) {
             //If the draw over permission is not available open the settings screen
             //to grant the permission.
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getActivity().getPackageName()));
-            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()));
+            ((BaseActivity) getContext()).startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
         } else {
             initializePiP();
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            //Check if the permission is granted or not.
-            if (resultCode == RESULT_OK) {
-                initializePiP();
-            } else {
-                LToast.show(getActivity(), "Draw over other app permission not available");
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    private void initializePiP() {
-        if (getActivity() == null) {
+    public void initializePiP() {
+        if (getContext() == null) {
             return;
         }
-        getActivity().startService(new Intent(getActivity(), FloatingUizaVideoService.class));
-        getActivity().onBackPressed();
+        getContext().startService(new Intent(getContext(), FloatingUizaVideoService.class));
+        ((BaseActivity) getContext()).onBackPressed();
     }
 }

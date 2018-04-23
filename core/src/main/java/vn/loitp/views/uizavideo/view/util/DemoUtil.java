@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.views.uizavideo;
+package vn.loitp.views.uizavideo.view.util;
 
 import android.text.TextUtils;
 
@@ -25,7 +25,7 @@ import java.util.Locale;
 /**
  * Utility methods for demo application.
  */
-/* package */ final class DemoUtil {
+/* package */ public final class DemoUtil {
 
     /**
      * Builds a track name for display.

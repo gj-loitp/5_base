@@ -21,6 +21,10 @@
             android:name=".TestUizaVideoIMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestUizaVideoIMActivity1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

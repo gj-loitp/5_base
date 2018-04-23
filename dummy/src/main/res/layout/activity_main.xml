@@ -18,4 +18,10 @@
         android:layout_height="wrap_content"
         android:text="Uiza Video" />
 
+    <Button
+        android:id="@+id/bt_uiza_video_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uiza Video relativelayout" />
+
 </LinearLayout>

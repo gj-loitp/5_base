@@ -11,7 +11,7 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.uizavideo.UizaUtil;
+import vn.loitp.views.uizavideo.view.util.UizaUtil;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LScreenUtil;
