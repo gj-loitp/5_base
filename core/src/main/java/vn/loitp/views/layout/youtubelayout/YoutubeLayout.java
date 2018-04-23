@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.function.viewdraghelper;
+package vn.loitp.views.layout.youtubelayout;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 
 /**

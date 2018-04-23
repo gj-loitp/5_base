@@ -18,7 +18,7 @@
                 android:text="@string/large_text" />
         </ScrollView>
 
-        <vn.loitp.app.activity.function.viewdraghelper.YoutubeLayout
+        <vn.loitp.views.layout.youtubelayout.YoutubeLayout
             android:id="@+id/youtubeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             android:visibility="visible">
 
             <ImageView
-                android:id="@+id/viewHeader"
+                android:id="@id/viewHeader"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
@@ -34,7 +34,7 @@
                 android:tag="text" />
 
             <ScrollView
-                android:id="@+id/viewDesc"
+                android:id="@id/viewDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/White">
@@ -55,7 +55,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="35sp" />-->
 
-        </vn.loitp.app.activity.function.viewdraghelper.YoutubeLayout>
+        </vn.loitp.views.layout.youtubelayout.YoutubeLayout>
     </FrameLayout>
 </RelativeLayout>
 
