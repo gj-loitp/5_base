@@ -115,7 +115,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
         debugRootView = view.findViewById(R.id.controls_root);
         if (Constants.IS_DEBUG) {
-            debugRootView.setVisibility(View.VISIBLE);
+            debugRootView.setVisibility(View.GONE);
         } else {
             debugRootView.setVisibility(View.GONE);
         }
