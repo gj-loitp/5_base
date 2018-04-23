@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ll_top" type="id" />
+    <item name="ll_mid" type="id" />
+    <item name="ll_bottom" type="id" />
+    <item name="exo_back_screen" type="id" />
+    <item name="tv_title" type="id" />
+    <item name="exo_picture_in_picture" type="id" />
+    <item name="exo_volume_seekbar" type="id" />
+    <item name="seekbar_volume" type="id" />
+    <item name="seekbar_birghtness" type="id" />
+    <item name="exo_birghtness_seekbar" type="id" />
+    <item name="previewSeekBarLayout" type="id" />
+    <item name="previewFrameLayout" type="id" />
+    <item name="image_view_thumnail" type="id" />
+    <item name="exo_volume" type="id" />
+    <item name="exo_cc" type="id" />
+    <item name="exo_playlist" type="id" />
+    <item name="exo_hearing" type="id" />
+    <item name="exo_setting" type="id" />
+    <item name="exo_fullscreen_toggle_icon" type="id" />
+</resources>

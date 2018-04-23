@@ -6,7 +6,7 @@
     android:layoutDirection="ltr">
 
     <LinearLayout
-        android:id="@+id/ll_top"
+        android:id="@id/ll_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,7 +16,7 @@
         android:padding="@dimen/padding_5">
 
         <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-            android:id="@+id/exo_back_screen"
+            android:id="@id/exo_back_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
@@ -26,18 +26,28 @@
             android:tint="@color/White" />
 
         <vn.loitp.views.autosize.textviewwithsize.TextViewWithSize
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+            android:id="@id/tv_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_10"
+            android:layout_weight="1"
             android:singleLine="true"
             android:textColor="@color/White"
             android:textStyle="bold" />
 
+        <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            android:id="@id/exo_picture_in_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_picture_in_picture_alt_black_48dp"
+            android:tint="@color/White" />
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/ll_mid"
+        android:id="@id/ll_mid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
@@ -47,7 +57,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/exo_volume_seekbar"
+                android:id="@id/exo_volume_seekbar"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
                 android:layout_centerVertical="true"
@@ -58,7 +68,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                android:id="@+id/seekbar_volume"
+                android:id="@id/seekbar_volume"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent" />
         </RelativeLayout>
@@ -69,13 +79,13 @@
             android:layout_alignParentRight="true">
 
             <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                android:id="@+id/seekbar_birghtness"
+                android:id="@id/seekbar_birghtness"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true" />
 
             <ImageView
-                android:id="@+id/exo_birghtness_seekbar"
+                android:id="@id/exo_birghtness_seekbar"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
                 android:layout_alignParentRight="true"
@@ -90,7 +100,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/ll_bottom"
+        android:id="@id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -103,7 +113,7 @@
             android:layout_marginTop="@dimen/margin_5">
 
             <com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout
-                android:id="@+id/previewSeekBarLayout"
+                android:id="@id/previewSeekBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_15"
@@ -111,14 +121,14 @@
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:id="@+id/previewFrameLayout"
+                    android:id="@id/previewFrameLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/video_frame"
                     android:padding="@dimen/video_frame_width">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@id/image_view_thumnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/app_name"
@@ -173,7 +183,7 @@
             android:paddingTop="@dimen/padding_5">
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_prev"
+                android:id="@id/exo_prev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -183,7 +193,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_rew"
+                android:id="@id/exo_rew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -193,7 +203,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_play"
+                android:id="@id/exo_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -203,7 +213,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_pause"
+                android:id="@id/exo_pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -213,7 +223,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_ffwd"
+                android:id="@id/exo_ffwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -223,7 +233,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_next"
+                android:id="@id/exo_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -233,7 +243,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_volume"
+                android:id="@id/exo_volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -243,7 +253,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_cc"
+                android:id="@id/exo_cc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -253,7 +263,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_playlist"
+                android:id="@id/exo_playlist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -263,7 +273,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_hearing"
+                android:id="@id/exo_hearing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -273,7 +283,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_setting"
+                android:id="@id/exo_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -283,7 +293,7 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
-                android:id="@+id/exo_fullscreen_toggle_icon"
+                android:id="@id/exo_fullscreen_toggle_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"

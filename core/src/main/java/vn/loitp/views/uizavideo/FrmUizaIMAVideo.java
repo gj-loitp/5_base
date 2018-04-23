@@ -69,6 +69,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     private ImageButton exoCc;
     private ImageButton exoPlaylist;
     private ImageButton exoHearing;
+    private ImageButton exoPictureInPicture;
     private VerticalSeekBar seekbarVolume;
     private ImageView ivVolumeSeekbar;
     private VerticalSeekBar seekbarBirghtness;
@@ -96,7 +97,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         previewTimeBarLayout = playerView.findViewById(R.id.previewSeekBarLayout);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
-        ivThumbnail = (ImageView) playerView.findViewById(R.id.imageView);
+        ivThumbnail = (ImageView) playerView.findViewById(R.id.image_view_thumnail);
         exoFullscreenIcon = (ImageButton) playerView.findViewById(R.id.exo_fullscreen_toggle_icon);
         tvTitle = (TextView) playerView.findViewById(R.id.tv_title);
         exoBackScreen = (ImageButton) playerView.findViewById(R.id.exo_back_screen);
@@ -105,6 +106,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoCc = (ImageButton) playerView.findViewById(R.id.exo_cc);
         exoPlaylist = (ImageButton) playerView.findViewById(R.id.exo_playlist);
         exoHearing = (ImageButton) playerView.findViewById(R.id.exo_hearing);
+        exoPictureInPicture = (ImageButton) playerView.findViewById(R.id.exo_picture_in_picture);
 
         seekbarVolume = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_volume);
         seekbarBirghtness = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_birghtness);
@@ -128,6 +130,7 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
         exoCc.setOnClickListener(this);
         exoPlaylist.setOnClickListener(this);
         exoHearing.setOnClickListener(this);
+        exoPictureInPicture.setOnClickListener(this);
 
         //seekbar change
         seekbarVolume.setOnSeekBarChangeListener(this);
@@ -285,12 +288,14 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
             }
         } else if (v == exoPlaylist) {
             //TODO
-            LToast.show(getActivity(), "exoPlaylist");
+            LToast.show(getActivity(), "Click exoPlaylist");
         } else if (v == exoHearing) {
             View view = UizaUtil.getBtAudio(debugRootView);
             if (view != null) {
                 UizaUtil.getBtAudio(debugRootView).performClick();
             }
+        } else if (v == exoPictureInPicture) {
+            LToast.show(getActivity(), "Click exoPictureInPicture");
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
             if (mappedTrackInfo != null) {
