@@ -252,31 +252,6 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
         }
     }
 
-    /*@Override
-    public void onDetach() {
-        super.onDetach();
-        //restore first brightness
-        LScreenUtil.setBrightness(getActivity(), firstBrightness);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        uizaPlayerManager.init();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        uizaPlayerManager.reset();
-    }
-
-    @Override
-    public void onDestroy() {
-        uizaPlayerManager.release();
-        super.onDestroy();
-    }*/
-
     @Override
     public void onStartPreview(PreviewView previewView) {
         LLog.d(TAG, "onStartPreview");
