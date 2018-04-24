@@ -245,7 +245,7 @@ public class SimpleUizaIMAVideo extends RelativeLayout implements View.OnClickLi
     }
 
     public void onDestroy() {
-        LScreenUtil.setBrightness(getContext(), firstBrightness);
+        //LScreenUtil.setBrightness(getContext(), firstBrightness);
         if (uizaPlayerManager != null) {
             uizaPlayerManager.release();
         }
