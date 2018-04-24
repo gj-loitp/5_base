@@ -13,6 +13,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.LToast;
+import vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService;
 
 public class MainActivity extends BaseActivity {
 
@@ -35,6 +36,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 uizaVideoRl();
+            }
+        });
+        findViewById(R.id.bt_uiza_float_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startService(new Intent(activity, FloatingUizaVideoService.class));
+                //onBackPressed();
             }
         });
     }
