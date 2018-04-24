@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 import vn.loitp.views.uizavideo.view.rl.UizaIMAVideo;
 
@@ -58,6 +59,7 @@ public class TestUizaVideoIMActivity1 extends BaseActivity {
         if (requestCode == UizaIMAVideo.CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
             //Check if the permission is granted or not.
             if (resultCode == RESULT_OK) {
+                LLog.d(TAG, "onActivityResult RESULT_OK");
                 uizaIMAVideo.initializePiP();
             } else {
                 LToast.show(activity, "Draw over other app permission not available");

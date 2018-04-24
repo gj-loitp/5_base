@@ -45,10 +45,10 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
-import vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService;
 import vn.loitp.views.uizavideo.UizaPlayerManager;
-import vn.loitp.views.uizavideo.view.util.UizaUtil;
 import vn.loitp.views.uizavideo.listerner.ProgressCallback;
+import vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService;
+import vn.loitp.views.uizavideo.view.util.UizaUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -107,7 +107,6 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
         inflate(getContext(), R.layout.uiza_ima_video_core_frm, this);
         findViews();
         UizaUtil.resizeLayout(playerView, llMid);
-
         initUI();
     }
 
@@ -422,15 +421,18 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
     public static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 6969;
 
     private void clickPiP() {
+        LLog.d(TAG, "clickPiP");
         if (getContext() == null) {
             return;
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getContext())) {
             //If the draw over permission is not available open the settings screen
             //to grant the permission.
+            LLog.d(TAG, "clickPiP if");
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()));
             ((BaseActivity) getContext()).startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
         } else {
+            LLog.d(TAG, "clickPiP else");
             initializePiP();
         }
     }
@@ -439,6 +441,7 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
         if (getContext() == null) {
             return;
         }
+        LToast.show(getContext(), "initializePiP");
         getContext().startService(new Intent(getContext(), FloatingUizaVideoService.class));
         ((BaseActivity) getContext()).onBackPressed();
     }

@@ -6,7 +6,7 @@
     android:background="@color/WhiteSmoke">
 
     <vn.loitp.views.uizavideo.view.rl.UizaIMAVideo
-        android:id="@+id/uiza_video"
+        android:id="@id/uiza_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

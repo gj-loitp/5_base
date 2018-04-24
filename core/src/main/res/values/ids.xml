@@ -21,4 +21,5 @@
     <item name="exo_fullscreen_toggle_icon" type="id" />
     <item name="viewHeader" type="id" />
     <item name="viewDesc" type="id" />
+    <item name="uiza_video" type="id" />
 </resources>
