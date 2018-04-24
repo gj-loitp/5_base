@@ -41,6 +41,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v2.listallentity.Subtitle;
 import vn.loitp.views.LToast;
@@ -75,6 +76,7 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
     private ImageButton exoPlaylist;
     private ImageButton exoHearing;
     private ImageButton exoPictureInPicture;
+    private ImageButton exoShare;
     private VerticalSeekBar seekbarVolume;
     private ImageView ivVolumeSeekbar;
     private VerticalSeekBar seekbarBirghtness;
@@ -129,6 +131,7 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
         exoPlaylist = (ImageButton) playerView.findViewById(R.id.exo_playlist);
         exoHearing = (ImageButton) playerView.findViewById(R.id.exo_hearing);
         exoPictureInPicture = (ImageButton) playerView.findViewById(R.id.exo_picture_in_picture);
+        exoShare = (ImageButton) playerView.findViewById(R.id.exo_share);
 
         seekbarVolume = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_volume);
         seekbarBirghtness = (VerticalSeekBar) playerView.findViewById(R.id.seekbar_birghtness);
@@ -153,6 +156,7 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
         exoPlaylist.setOnClickListener(this);
         exoHearing.setOnClickListener(this);
         exoPictureInPicture.setOnClickListener(this);
+        exoShare.setOnClickListener(this);
 
         //seekbar change
         seekbarVolume.setOnSeekBarChangeListener(this);
@@ -302,6 +306,9 @@ public class UizaIMAVideo extends RelativeLayout implements PreviewView.OnPrevie
             }
         } else if (v == exoPictureInPicture) {
             clickPiP();
+        } else if (v == exoShare) {
+            //TODO
+            LSocialUtil.share((BaseActivity) getContext(), "This is dummy share by Loitp");
         } else if (v.getParent() == debugRootView) {
             MappingTrackSelector.MappedTrackInfo mappedTrackInfo = uizaPlayerManager.getTrackSelector().getCurrentMappedTrackInfo();
             if (mappedTrackInfo != null) {

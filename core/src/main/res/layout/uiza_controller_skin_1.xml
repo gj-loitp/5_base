@@ -293,6 +293,16 @@
                 android:tint="@color/White" />
 
             <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+                android:id="@id/exo_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share_black_48dp"
+                android:tint="@color/White" />
+
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@id/exo_fullscreen_toggle_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
