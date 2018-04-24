@@ -101,7 +101,6 @@ public class FloatingUizaVideoService extends Service {
 
                         //on Click event
                         if (System.currentTimeMillis() - lastTouchDown < CLICK_ACTION_THRESHHOLD) {
-                            LLog.d(TAG, "You clicked!");
                             btExit.setVisibility(btExit.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
                         }
 
