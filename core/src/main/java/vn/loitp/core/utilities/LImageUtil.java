@@ -87,6 +87,18 @@ public class LImageUtil {
                 .into(imageView);
     }*/
 
+    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(activity).load(url)
+                .apply(new RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        //.override(sizeW, sizeH)
+                        .error(resError)
+                )
+                .listener(drawableRequestListener)
+                .into(imageView);
+    }
+
     public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
         Glide.with(activity).load(url)
                 .apply(new RequestOptions()
