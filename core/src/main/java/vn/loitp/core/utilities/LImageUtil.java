@@ -87,6 +87,18 @@ public class LImageUtil {
                 .into(imageView);
     }*/
 
+    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder, int resError, int sizeW, int sizeH, RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(activity).load(url)
+                .apply(new RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        .override(sizeW, sizeH)
+                        .error(resError)
+                )
+                .listener(drawableRequestListener)
+                .into(imageView);
+    }
+
     public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
         Glide.with(activity).load(url)
                 .apply(new RequestOptions()
@@ -151,13 +163,6 @@ public class LImageUtil {
             simpleDraweeView.setImageURI(uri);
         }
     }
-
-    /*public static void loadAvatar(SimpleDraweeView simpleDraweeView, long id) {
-        Context context = simpleDraweeView.getContext();
-        String webServiceURL = context.getString(R.string.webService_URL);
-        Uri uri = Uri.parse(context.getString(R.string.format_avatar, webServiceURL, id));
-        simpleDraweeView.setImageURI(uri);
-    }*/
 
     public static void loadImage(SimpleDraweeView simpleDraweeView, int resId) {
         Uri uri = new Uri.Builder()
