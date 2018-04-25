@@ -26,6 +26,6 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
-    //compile 'com.github.tplloi:basemaster:1.0.9'
+    //implementation project(':core')
+    compile 'com.github.tplloi:basemaster:1.0.10'
 }
