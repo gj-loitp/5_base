@@ -13,7 +13,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled  true
+        //multiDexEnabled  true
     }
 
     buildTypes {
@@ -26,6 +26,6 @@ android {
 }
 
 dependencies {
-    //implementation project(':core')
-    compile 'com.github.tplloi:basemaster:1.0.9'
+    implementation project(':core')
+    //compile 'com.github.tplloi:basemaster:1.0.9'
 }
