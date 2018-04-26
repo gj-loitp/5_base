@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.uizavideo.view.rl.SimpleUizaIMAVideo;
 
 /**
@@ -24,7 +23,7 @@ public class FloatingUizaVideoService extends Service {
     private final String TAG = getClass().getSimpleName();
     private WindowManager mWindowManager;
     private View mFloatingView;
-    private SimpleUizaIMAVideo uizaIMAVideo;
+    private SimpleUizaIMAVideo simpleUizaIMAVideo;
     private ImageButton btExit;
 
     public FloatingUizaVideoService() {
@@ -59,12 +58,13 @@ public class FloatingUizaVideoService extends Service {
         params.x = 0;
         params.y = 100;
 
-        uizaIMAVideo = (SimpleUizaIMAVideo) mFloatingView.findViewById(R.id.uiza_video);
+        simpleUizaIMAVideo = (SimpleUizaIMAVideo) mFloatingView.findViewById(R.id.uiza_video);
         String linkPlay = getString(loitp.core.R.string.url_dash);
-        String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
+        //String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
+        String urlIMAAd = null;
         String urlThumnailsPreviewSeekbar = getString(loitp.core.R.string.url_thumbnails);
-        uizaIMAVideo.initData(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
-        uizaIMAVideo.onResume();
+        simpleUizaIMAVideo.initData(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
+        simpleUizaIMAVideo.onResume();
 
         //Add the view to the window
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -131,8 +131,8 @@ public class FloatingUizaVideoService extends Service {
     public void onDestroy() {
         super.onDestroy();
         if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
-        if (uizaIMAVideo != null) {
-            uizaIMAVideo.onDestroy();
+        if (simpleUizaIMAVideo != null) {
+            simpleUizaIMAVideo.onDestroy();
         }
     }
 }
