@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="testlibuiza.uiza.com.dummy.MainActivity">
+
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test API" />
+
+    <Button
+        android:id="@+id/bt_uiza_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uiza Video Frm" />
+
+    <Button
+        android:id="@+id/bt_uiza_video_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uiza Video relativelayout" />
+
+    <Button
+        android:id="@+id/bt_uiza_float_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test uiza float view" />
+
+</LinearLayout>
