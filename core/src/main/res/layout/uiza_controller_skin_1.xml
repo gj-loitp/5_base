@@ -43,7 +43,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_picture_in_picture_alt_black_48dp"
-            android:tint="@color/White" />
+            android:tint="@color/White"
+            android:visibility="gone" />
     </LinearLayout>
 
     <RelativeLayout
@@ -82,7 +83,8 @@
                 android:id="@id/seekbar_birghtness"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true" />
 
             <ImageView
                 android:id="@id/exo_birghtness_seekbar"
