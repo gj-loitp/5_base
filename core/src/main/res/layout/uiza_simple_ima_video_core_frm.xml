@@ -16,7 +16,7 @@
         app:auto_show="false"
         app:fastforward_increment="3000"
         app:rewind_increment="3000"
-        app:use_controller="true" />
+        app:use_controller="false" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
