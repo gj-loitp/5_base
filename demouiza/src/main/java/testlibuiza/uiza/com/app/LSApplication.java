@@ -1,4 +1,4 @@
-package testlibuiza.uiza.com.dummy.app;
+package testlibuiza.uiza.com.app;
 
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;

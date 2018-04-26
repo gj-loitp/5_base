@@ -1,4 +1,4 @@
-package testlibuiza.uiza.com.dummy.app;
+package testlibuiza.uiza.com.app;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

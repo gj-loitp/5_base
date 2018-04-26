@@ -1,4 +1,4 @@
-package testlibuiza.uiza.com.dummy;
+package testlibuiza.uiza.com.demo;
 
 import android.content.Intent;
 import android.os.Bundle;

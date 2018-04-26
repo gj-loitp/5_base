@@ -1,12 +1,11 @@
-package testlibuiza.uiza.com.dummy;
+package testlibuiza.uiza.com.demo;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import testlibuiza.uiza.com.dummy.app.APIServices;
-import testlibuiza.uiza.com.dummy.app.LSApplication;
+import testlibuiza.uiza.com.app.APIServices;
+import testlibuiza.uiza.com.app.LSApplication;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;

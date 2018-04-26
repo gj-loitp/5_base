@@ -1,4 +1,4 @@
-package testlibuiza.uiza.com.dummy;
+package testlibuiza.uiza.com.demo;
 
 import android.os.Bundle;
 import android.widget.FrameLayout;
