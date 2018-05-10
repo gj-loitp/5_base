@@ -278,6 +278,7 @@ public class ExoPlayer2Activity extends BaseActivity implements View.OnClickList
 
     private void playM3u8() {
         String streamUrl = "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8";
+        //String streamUrl = "https://cdn-vn-cache-4.uiza.io:443/a204e9cdeca44948a33e0d012ef74e90/8udRNMQD/package/playlist.mpd";
         tv.setText(streamUrl);
         String userAgent = Util.getUserAgent(activity, getApplicationContext().getApplicationInfo().packageName);
         DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent, null, DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS, DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS, true);

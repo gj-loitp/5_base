@@ -21,6 +21,7 @@ public class UizaVideoIMActivity extends BaseActivity {
             @Override
             public void onViewCreated() {
                 String linkPlay = getString(loitp.core.R.string.url_dash);
+                //String linkPlay = "https://cdn-vn-cache-4.uiza.io:443/a204e9cdeca44948a33e0d012ef74e90/8udRNMQD/package/playlist.mpd";
                 String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
                 String urlThumnailsPreviewSeekbar = getString(loitp.core.R.string.url_thumbnails);
                 frmUizaIMAVideo.initData(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
