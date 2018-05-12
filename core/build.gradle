@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 15
-        versionName "1.0.15"
+        versionCode 16
+        versionName "1.0.16"
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -37,7 +37,7 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:support-v4:27.1.1'
-    compile "com.android.support:customtabs:27.1.1"
+    //compile "com.android.support:customtabs:27.1.1"
     compile 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.support:design:27.1.1'
     compile 'com.android.support:recyclerview-v7:27.1.1'
@@ -65,8 +65,8 @@ dependencies {
     compile 'com.facebook.fresco:fresco:1.1.0'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
-    compile 'com.google.android.gms:play-services-plus:15.0.1'
-    compile 'com.google.android.gms:play-services-ads:15.0.1'
+    compile 'com.google.android.gms:play-services-plus:15.0.0'
+    compile 'com.google.android.gms:play-services-ads:15.0.0'
     compile 'com.nineoldandroids:library:2.4.0'//for draggable view
     //exoplayer
     compile 'com.google.android.exoplayer:exoplayer:2.7.3'
