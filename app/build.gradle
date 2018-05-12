@@ -82,11 +82,5 @@ dependencies {
     implementation project(':core')
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     compile 'io.realm:realm-android:0.82.1'//realm
-
-    //annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
-
-    //implementation 'com.github.bumptech.glide:glide:4.4.0'
-    //annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
-    //implementation 'com.github.rubensousa:previewseekbar:1.2'
-    //implementation 'com.github.rubensousa:previewseekbar-exoplayer:2.6.0'
+    //compile 'com.github.tplloi:basemaster:1.0.17'
 }
