@@ -27,7 +27,6 @@ public class Constants {
     public final static String TEST_7 = "E3876538025DFE31EE38DC997F860C83";
 
     public final static String LOITP = "LoitpDebug";
-
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
 
     public static int TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1;
