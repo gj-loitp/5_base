@@ -82,5 +82,5 @@ dependencies {
     implementation project(':core')
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     compile 'io.realm:realm-android:0.82.1'//realm
-    //compile 'com.github.tplloi:basemaster:1.0.17'
+    //compile 'com.github.tplloi:basemaster:1.21'
 }
