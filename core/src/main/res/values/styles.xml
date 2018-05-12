@@ -11,14 +11,14 @@
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
     </style>
 
-    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--<style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
+        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;
         <item name="android:windowContentOverlay">@null</item>
-        <!--<item name="android:windowIsTranslucent">true</item>-->
+        &lt;!&ndash;<item name="android:windowIsTranslucent">true</item>&ndash;&gt;
         <item name="android:windowDisablePreview">true</item>
-    </style>
+    </style>-->
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
