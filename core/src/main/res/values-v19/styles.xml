@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowBackground">@color/White</item>
+        <item name="android:backgroundDimEnabled">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>
