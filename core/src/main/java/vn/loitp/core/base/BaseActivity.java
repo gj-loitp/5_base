@@ -32,7 +32,6 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
-import vn.loitp.views.smoothtransition.SwitchAnimationUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 
