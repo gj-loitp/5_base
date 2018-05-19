@@ -12,8 +12,8 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
-////da up len store
 
+//TODO is debug
 //TODO fb cmt
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();

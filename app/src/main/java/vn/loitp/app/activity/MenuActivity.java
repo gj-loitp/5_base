@@ -18,6 +18,7 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.smoothtransition.SwitchAnimationUtil;
 
 public class MenuActivity extends BaseActivity implements View.OnClickListener {
 
