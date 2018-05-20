@@ -19,6 +19,8 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.recyclerview.animator.adapters.AlphaInAnimationAdapter;
+import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInLeftAnimator;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -83,7 +85,20 @@ public class RecyclerViewActivity extends BaseActivity {
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(mAdapter);
+
+        //recyclerView.setAdapter(mAdapter);
+
+        //AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+        //alphaAdapter.setDuration(1000);
+        //alphaAdapter.setInterpolator(new OvershootInterpolator());
+        //alphaAdapter.setFirstOnly(true);
+        //recyclerView.setAdapter(alphaAdapter);
+
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
+        scaleAdapter.setDuration(1000);
+        scaleAdapter.setInterpolator(new OvershootInterpolator());
+        scaleAdapter.setFirstOnly(true);
+        recyclerView.setAdapter(scaleAdapter);
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);
 
