@@ -6,6 +6,8 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 import loitp.basemaster.R;
+import vn.loitp.views.recyclerview.animator.animators.holder.AnimateViewHolder;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
     // Allows to remember the last item shown on screen
@@ -49,12 +52,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             year = (TextView) view.findViewById(R.id.year);
             rootView = (LinearLayout) view.findViewById(R.id.root_view);
         }
-
-        public void clearAnimation() {
-            rootView.clearAnimation();
-        }
     }
-
 
     public MoviesAdapter(Context context, List<Movie> moviesList, Callback callback) {
         this.context = context;
