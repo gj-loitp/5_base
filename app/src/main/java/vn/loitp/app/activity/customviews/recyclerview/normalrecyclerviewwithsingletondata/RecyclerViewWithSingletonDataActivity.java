@@ -31,7 +31,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         tvType = (TextView) findViewById(R.id.tv_type);
 
-        mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(activity, DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 LToast.show(activity, "Click " + movie.getTitle());

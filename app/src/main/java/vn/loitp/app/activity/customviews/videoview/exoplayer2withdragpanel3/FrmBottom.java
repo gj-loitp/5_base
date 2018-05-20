@@ -55,7 +55,7 @@ public class FrmBottom extends BaseFragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tv = (TextView) view.findViewById(R.id.tv);
 
-        mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 LToast.show(getActivity(), "Click " + movie.getTitle());

@@ -110,7 +110,7 @@ public class FrmContainer extends BaseFragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tvType = (TextView) view.findViewById(R.id.tv_type);
 
-        mAdapter = new MoviesAdapter(DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 if (draggablePanel.isClosedAtLeft() || draggablePanel.isClosedAtRight()) {

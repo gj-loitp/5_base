@@ -32,7 +32,7 @@ public class RecyclerViewActivity extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         tvType = (TextView) findViewById(R.id.tv_type);
 
-        mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 LToast.show(activity, "Click " + movie.getTitle());
@@ -134,4 +134,5 @@ public class RecyclerViewActivity extends BaseActivity {
         }
         mAdapter.notifyDataSetChanged();
     }
+
 }

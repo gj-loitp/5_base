@@ -27,7 +27,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
