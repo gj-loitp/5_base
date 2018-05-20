@@ -1,13 +1,13 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,6 +19,10 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.recyclerview.animator.animators.SlideInLeftAnimator;
+import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
+
+//https://github.com/wasabeef/recyclerview-animators
 
 public class RecyclerViewActivity extends BaseActivity {
     private List<Movie> movieList = new ArrayList<>();
@@ -30,7 +34,32 @@ public class RecyclerViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
+
+        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        animator.setAddDuration(300);
+        recyclerView.setItemAnimator(animator);
+        //recyclerView.getItemAnimator().setAddDuration(1000);
+
         tvType = (TextView) findViewById(R.id.tv_type);
+
+        findViewById(R.id.bt_add_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Movie movie = new Movie();
+                movie.setTitle("Add TITLE 3");
+                movie.setYear("Add YEAR 3");
+                movie.setGenre("Add GENRE 3");
+                movieList.add(3, movie);
+                mAdapter.notifyItemInserted(3);
+            }
+        });
+        findViewById(R.id.bt_remove_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieList.remove(1);
+                mAdapter.notifyItemRemoved(1);
+            }
+        });
 
         mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
             @Override
@@ -54,7 +83,6 @@ public class RecyclerViewActivity extends BaseActivity {
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);

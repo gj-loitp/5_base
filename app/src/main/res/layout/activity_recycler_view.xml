@@ -8,7 +8,7 @@
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll" />
+        android:layout_below="@+id/ll_control" />
 
     <LinearLayout
         android:id="@+id/ll"
@@ -31,5 +31,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Setting" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll"
+        android:background="@color/WhiteSmoke"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_add_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to position 3" />
+
+        <Button
+            android:id="@+id/bt_remove_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove position 1" />
     </LinearLayout>
 </RelativeLayout>
