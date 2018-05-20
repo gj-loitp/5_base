@@ -63,6 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(setLayoutResourceId());
+        //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
         interstitialAd = LUIUtil.createAdFull(activity);
         View view = activity.findViewById(R.id.scroll_view);
         if (view != null) {

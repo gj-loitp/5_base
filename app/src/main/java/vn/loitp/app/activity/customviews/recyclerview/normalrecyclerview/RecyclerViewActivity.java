@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
