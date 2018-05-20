@@ -98,13 +98,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             }
         }
         // Here you apply the animation when the view is bound
-        setAnimation(holder.itemView, position);
+        //setAnimation(holder.itemView, position);
     }
 
     /**
      * Here is the key method to apply the animation
      */
-    private void setAnimation(View viewToAnimate, int position) {
+    /*private void setAnimation(View viewToAnimate, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
             //Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
@@ -112,16 +112,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             viewToAnimate.startAnimation(animation);
             lastPosition = position;
         }
-    }
-
+    }*/
     @Override
     public int getItemCount() {
         return moviesList.size();
     }
 
-    @Override
+    /*@Override
     public void onViewDetachedFromWindow(@NonNull MovieViewHolder holder) {
         //super.onViewDetachedFromWindow(holder);
         holder.clearAnimation();
-    }
+    }*/
 }
