@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_boxed_vertical_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Boxed Vertical SeekBar" />
+
+            <Button
                 android:id="@+id/bt_circularseekbar_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

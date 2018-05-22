@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity;
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -16,6 +17,7 @@ public class SeekbarMenuActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_boxed_vertical_seekbar).setOnClickListener(this);
         findViewById(R.id.bt_circularseekbar_seekbar).setOnClickListener(this);
         findViewById(R.id.bt_vertical_seekbar).setOnClickListener(this);
     }
@@ -39,6 +41,9 @@ public class SeekbarMenuActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
+            case R.id.bt_boxed_vertical_seekbar:
+                intent = new Intent(activity, BoxedVerticalSeekBarActivity.class);
+                break;
             case R.id.bt_circularseekbar_seekbar:
                 intent = new Intent(activity, CircularSeekbarActivity.class);
                 break;

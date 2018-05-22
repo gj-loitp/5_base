@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <vn.loitp.views.seekbar.boxedverticalseekbar.BoxedVertical
+                android:id="@+id/boxed_vertical"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_55"
+                android:layout_marginTop="@dimen/margin_55"
+                app:backgroundColor="@color/LightBlue"
+                app:cornerRadius_boxed="20"
+                app:defaultValue="50"
+                app:imageEnabled_boxed="false"
+                app:max="100"
+                app:progressColor="@color/Blue"
+                app:step="1"
+                app:textBottomPadding="20"
+                app:textColor_boxed="@color/White"
+                app:textEnabled_boxed="true"
+                app:textSize_boxed="8sp"
+                app:touchDisabled_boxed="false" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
+
