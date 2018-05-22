@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import loitp.core.R;
 import rx.Observable;
@@ -24,6 +26,8 @@ public abstract class BaseFragment extends Fragment {
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
     protected final String BASE_TAG = BaseFragment.class.getSimpleName();
 
+    protected View rootView;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -31,6 +35,15 @@ public abstract class BaseFragment extends Fragment {
             fragmentCallback.onViewCreated();
         }
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(setLayoutResourceId(), container, false);
+        return rootView;
+    }
+
+    protected abstract int setLayoutResourceId();
 
     @Override
     public void onDestroyView() {

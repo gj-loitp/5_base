@@ -91,7 +91,6 @@ public class FrmTop extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.frm_top, container, false);
         if (savedInstanceState != null) {
             mResumeWindow = savedInstanceState.getInt(STATE_RESUME_WINDOW);
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
@@ -99,6 +98,11 @@ public class FrmTop extends BaseFragment {
         }
 
         return view;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.frm_top;
     }
 
     @Override

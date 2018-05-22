@@ -28,10 +28,8 @@ public class FrmPhoto extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.item_photo, container, false);
-        TextView tv = (TextView) view.findViewById(R.id.tv);
-        RelativeLayout bkg = (RelativeLayout) view.findViewById(R.id.bkg);
-
+        TextView tv = (TextView) rootView.findViewById(R.id.tv);
+        RelativeLayout bkg = (RelativeLayout) rootView.findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
             VPPhoto vpPhoto = (VPPhoto) bundle.getSerializable("vpphoto");
@@ -40,9 +38,11 @@ public class FrmPhoto extends BaseFragment {
                 tv.setText(vpPhoto.getString());
             }
         }
+        return rootView;
+    }
 
-        return view;
-
-
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.item_photo;
     }
 }

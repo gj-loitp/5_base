@@ -47,9 +47,13 @@ public class FrmDummy extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_bottom, container, false);
-        TextView tv = (TextView) view.findViewById(R.id.tv);
+        TextView tv = (TextView) rootView.findViewById(R.id.tv);
         tv.setText("DUMMYYYYYYYYYYYYYYYYYYY");
-        return view;
+        return rootView;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.frm_bottom;
     }
 }

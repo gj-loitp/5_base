@@ -54,8 +54,7 @@ public class FrmContainer extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_container, container, false);
-        draggablePanel = (DraggablePanel) view.findViewById(R.id.draggable_panel);
+        draggablePanel = (DraggablePanel) rootView.findViewById(R.id.draggable_panel);
         initializeDraggablePanel();
 
         /*draggablePanel.setDraggableListener(new DraggableListener() {
@@ -80,8 +79,13 @@ public class FrmContainer extends BaseFragment {
             }
         });*/
 
-        setupUI(view);
-        return view;
+        setupUI(rootView);
+        return rootView;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.frm_container;
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {

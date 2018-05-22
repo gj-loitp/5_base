@@ -32,6 +32,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
+import vn.loitp.views.smoothtransition.SwitchAnimationUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 
@@ -63,7 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(setLayoutResourceId());
-        //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
+        new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
         interstitialAd = LUIUtil.createAdFull(activity);
         View view = activity.findViewById(R.id.scroll_view);
         if (view != null) {

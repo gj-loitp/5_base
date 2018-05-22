@@ -51,9 +51,8 @@ public class FrmBottom extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frm_bottom, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
-        tv = (TextView) view.findViewById(R.id.tv);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rv);
+        tv = (TextView) rootView.findViewById(R.id.tv);
 
         mAdapter = new MoviesAdapter(getActivity(), DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
@@ -87,7 +86,7 @@ public class FrmBottom extends BaseFragment {
 
         prepareMovieData();
 
-        LinearLayout llHorizontal = (LinearLayout) view.findViewById(R.id.ll_horizontal);
+        LinearLayout llHorizontal = (LinearLayout) rootView.findViewById(R.id.ll_horizontal);
         for (int i = 0; i < 20; i++) {
             Button button = new Button(getActivity());
             button.setText("Button " + i);
@@ -101,7 +100,12 @@ public class FrmBottom extends BaseFragment {
         }
 
 
-        return view;
+        return rootView;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.frm_bottom;
     }
 
     private void prepareMovieData() {
