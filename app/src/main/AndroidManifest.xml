@@ -629,6 +629,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

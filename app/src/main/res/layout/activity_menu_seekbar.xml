@@ -37,6 +37,12 @@
                 android:text="circularseekbar seekbar" />
 
             <Button
+                android:id="@+id/bt_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="seekbar" />
+
+            <Button
                 android:id="@+id/bt_vertical_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

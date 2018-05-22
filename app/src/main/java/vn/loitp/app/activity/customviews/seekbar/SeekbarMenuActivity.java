@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.seekbar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +7,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity;
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
+import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -20,6 +20,7 @@ public class SeekbarMenuActivity extends BaseActivity implements View.OnClickLis
         findViewById(R.id.bt_boxed_vertical_seekbar).setOnClickListener(this);
         findViewById(R.id.bt_circularseekbar_seekbar).setOnClickListener(this);
         findViewById(R.id.bt_vertical_seekbar).setOnClickListener(this);
+        findViewById(R.id.bt_seekbar).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +50,9 @@ public class SeekbarMenuActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.bt_vertical_seekbar:
                 intent = new Intent(activity, VerticalSeekbarActivity.class);
+                break;
+            case R.id.bt_seekbar:
+                intent = new Intent(activity, SeekbarActivity.class);
                 break;
         }
         if (intent != null) {
