@@ -632,6 +632,10 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

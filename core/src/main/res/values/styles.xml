@@ -20,6 +20,11 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--<style name="AppThemeTransparent" parent="Theme.AppCompat.Light.DarkActionBar">

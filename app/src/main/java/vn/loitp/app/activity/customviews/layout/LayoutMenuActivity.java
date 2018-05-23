@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.Elastic
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -38,6 +39,7 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
         findViewById(R.id.bt_swipeable_layout).setOnClickListener(this);
         findViewById(R.id.bt_swipable_layout).setOnClickListener(this);
         findViewById(R.id.bt_constraint_layout).setOnClickListener(this);
+        findViewById(R.id.bt_swipeback_layout).setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +96,9 @@ public class LayoutMenuActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.bt_constraint_layout:
                 intent = new Intent(activity, ConstraintlayoutActivity.class);
+                break;
+            case R.id.bt_swipeback_layout:
+                intent = new Intent(activity, SwipeBackLayoutActivity.class);
                 break;
         }
         if (intent != null) {

@@ -513,4 +513,15 @@
         <attr name="imageEnabled_boxed" format="boolean" />
 
     </declare-styleable>
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="swipeBackFactor" format="float"/>
+        <attr name="maskAlpha" format="integer"/>
+        <attr name="isSwipeFromEdge" format="boolean"/>
+        <attr name="directionMode">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="top" value="4" />
+            <enum name="bottom" value="8" />
+        </attr>
+    </declare-styleable>
 </resources>
