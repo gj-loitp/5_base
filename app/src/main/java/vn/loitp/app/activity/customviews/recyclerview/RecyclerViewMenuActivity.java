@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsing
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity;
+import vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -25,6 +26,7 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.bt_normal_recyclerview_with_spansize).setOnClickListener(this);
         findViewById(R.id.bt_parallax_recyclerview_yayandroid).setOnClickListener(this);
         findViewById(R.id.bt_normal_recyclerview_with_singleton_data).setOnClickListener(this);
+        findViewById(R.id.bt_recyclerview_banner).setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +62,9 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.bt_normal_recyclerview_with_singleton_data:
                 intent = new Intent(activity, RecyclerViewWithSingletonDataActivity.class);
+                break;
+            case R.id.bt_recyclerview_banner:
+                intent = new Intent(activity, RecyclerBannerActivity.class);
                 break;
         }
         if (intent != null) {

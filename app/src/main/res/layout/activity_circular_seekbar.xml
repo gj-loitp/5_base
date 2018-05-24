@@ -31,7 +31,7 @@
                 app:progressTextSize="26"
                 app:ringColor="@color/colorAccent"
                 app:ringWidth="0.5"
-                app:showIndicator="true"
+                app:showIndicator_circular_seekbar="true"
                 app:showInnerCircle="true"
                 app:showProgressText="true"
                 app:speedMultiplier="2" />

@@ -217,7 +217,7 @@
     </declare-styleable>
     <declare-styleable name="CircularSeekBar">
         <attr name="enabled" format="boolean" />
-        <attr name="showIndicator" format="boolean" />
+        <attr name="showIndicator_circular_seekbar" format="boolean" />
         <attr name="min" format="float" />
         <attr name="max" format="float" />
         <attr name="speedMultiplier" format="float" />
@@ -514,14 +514,48 @@
 
     </declare-styleable>
     <declare-styleable name="SwipeBackLayout">
-        <attr name="swipeBackFactor" format="float"/>
-        <attr name="maskAlpha" format="integer"/>
-        <attr name="isSwipeFromEdge" format="boolean"/>
+        <attr name="swipeBackFactor" format="float" />
+        <attr name="maskAlpha" format="integer" />
+        <attr name="isSwipeFromEdge" format="boolean" />
         <attr name="directionMode">
             <enum name="left" value="1" />
             <enum name="right" value="2" />
             <enum name="top" value="4" />
             <enum name="bottom" value="8" />
         </attr>
+    </declare-styleable>
+    <attr name="interval" format="integer" />
+    <attr name="showIndicator" format="boolean" />
+    <attr name="orientation" format="enum">
+        <enum name="horizontal" value="0" />
+        <enum name="vertical" value="1" />
+    </attr>
+    <attr name="autoPlaying" format="boolean" />
+    <declare-styleable name="RecyclerViewBannerBase">
+        <attr name="interval" />
+        <attr name="showIndicator_banner_base" />
+        <attr name="orientation" />
+        <attr name="autoPlaying" />
+        <attr name="indicatorSelectedSrc" format="color|reference" />
+        <attr name="indicatorUnselectedSrc" format="color|reference" />
+        <attr name="indicatorSpace" format="dimension|reference" />
+        <attr name="indicatorMarginLeft" format="dimension|reference" />
+        <attr name="indicatorMarginRight" format="dimension|reference" />
+        <attr name="indicatorMarginBottom" format="dimension|reference" />
+        <attr name="indicatorGravity" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="BannerLayout">
+        <attr name="interval" />
+        <attr name="showIndicator_banner_layout" />
+        <attr name="orientation" />
+        <attr name="autoPlaying" />
+        <attr name="itemSpace" format="integer" />
+        <attr name="centerScale" format="float" />
+        <attr name="moveSpeed" format="float" />
     </declare-styleable>
 </resources>

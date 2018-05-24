@@ -54,6 +54,12 @@
                 android:layout_height="wrap_content"
                 android:text="ParallaxRecyclerView Yayandroid" />
 
+            <Button
+                android:id="@+id/bt_recyclerview_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecyclerBanner" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
