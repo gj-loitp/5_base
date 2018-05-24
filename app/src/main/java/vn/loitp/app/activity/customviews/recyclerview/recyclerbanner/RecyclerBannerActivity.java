@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclerbanner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -24,8 +25,13 @@ public class RecyclerBannerActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        NestedScrollView sv = (NestedScrollView) findViewById(R.id.sv);
+        sv.setNestedScrollingEnabled(false);
+
         BannerLayout recyclerBanner = findViewById(R.id.recycler);
         BannerLayout recyclerBannerVertical = findViewById(R.id.recycler_vertical);
+        BannerLayout rvBanner2 = findViewById(R.id.rv_banner_2);
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -42,6 +48,7 @@ public class RecyclerBannerActivity extends BaseActivity {
 
         recyclerBanner.setAdapter(webBannerAdapter);
         recyclerBannerVertical.setAdapter(webBannerAdapter);
+        rvBanner2.setAdapter(webBannerAdapter);
     }
 
     @Override
