@@ -5,16 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.recyclerview.banner.BannerLayout
-        android:id="@+id/recycler"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:autoPlaying="true"
-        app:centerScale="1.3"
-        app:interval="2000"
-        app:itemSpace="20"
-        app:moveSpeed="1.8"
-        app:orientation="horizontal"
-        app:showIndicator_banner_layout="true" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <vn.loitp.views.recyclerview.banner.BannerLayout
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:autoPlaying="true"
+                app:centerScale="1.3"
+                app:interval="2000"
+                app:itemSpace="20"
+                app:moveSpeed="1.8"
+                app:orientation="horizontal"
+                app:showIndicator_banner_layout="true" />
+
+            <vn.loitp.views.recyclerview.banner.BannerLayout
+                android:id="@+id/recycler_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_below="@+id/recycler"
+                app:autoPlaying="false"
+                app:centerScale="1.5"
+                app:interval="4000"
+                app:itemSpace="20"
+                app:moveSpeed="1.3"
+                app:orientation="vertical"
+                app:showIndicator_banner_layout="false" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
 

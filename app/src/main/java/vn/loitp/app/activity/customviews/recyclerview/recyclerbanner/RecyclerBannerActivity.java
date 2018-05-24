@@ -25,6 +25,7 @@ public class RecyclerBannerActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BannerLayout recyclerBanner = findViewById(R.id.recycler);
+        BannerLayout recyclerBannerVertical = findViewById(R.id.recycler_vertical);
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -38,7 +39,9 @@ public class RecyclerBannerActivity extends BaseActivity {
                 LToast.show(activity, "Click " + position);
             }
         });
+
         recyclerBanner.setAdapter(webBannerAdapter);
+        recyclerBannerVertical.setAdapter(webBannerAdapter);
     }
 
     @Override
