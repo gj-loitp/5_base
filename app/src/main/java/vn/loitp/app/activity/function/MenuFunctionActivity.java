@@ -10,6 +10,7 @@ import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
 import vn.loitp.app.activity.function.hashmap.HashMapActivity;
+import vn.loitp.app.activity.function.recolor.RecolorActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
 import vn.loitp.core.base.BaseActivity;
@@ -28,6 +29,7 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.bt_drag_drop_sample).setOnClickListener(this);
         findViewById(R.id.bt_toggle_fullscreen).setOnClickListener(this);
         findViewById(R.id.bt_view_drag_helper).setOnClickListener(this);
+        findViewById(R.id.bt_recolor).setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +68,9 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.bt_view_drag_helper:
                 intent = new Intent(activity, ViewDragHelperActivity.class);
+                break;
+            case R.id.bt_recolor:
+                intent = new Intent(activity, RecolorActivity.class);
                 break;
         }
         if (intent != null) {
