@@ -8,6 +8,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
+import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity;
@@ -25,6 +26,7 @@ public class MenuAnimationActivity extends BaseActivity implements View.OnClickL
         findViewById(R.id.bt_fly_school).setOnClickListener(this);
         findViewById(R.id.bt_activity_transition).setOnClickListener(this);
         findViewById(R.id.bt_shadowview_helper).setOnClickListener(this);
+        findViewById(R.id.bt_expect_anim).setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +62,9 @@ public class MenuAnimationActivity extends BaseActivity implements View.OnClickL
                 break;
             case R.id.bt_shadowview_helper:
                 intent = new Intent(activity, ShadowViewHelperActivity.class);
+                break;
+            case R.id.bt_expect_anim:
+                intent = new Intent(activity, ExpectAnimActivity.class);
                 break;
         }
         if (intent != null) {

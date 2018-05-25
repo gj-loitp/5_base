@@ -37,6 +37,12 @@
                 android:text="Animation view" />
 
             <Button
+                android:id="@+id/bt_expect_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expect anim" />
+
+            <Button
                 android:id="@+id/bt_fly_school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
