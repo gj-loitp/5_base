@@ -54,7 +54,7 @@ public class FrmContainer extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        draggablePanel = (DraggablePanel) rootView.findViewById(R.id.draggable_panel);
+        draggablePanel = (DraggablePanel) frmRootView.findViewById(R.id.draggable_panel);
         initializeDraggablePanel();
 
         /*draggablePanel.setDraggableListener(new DraggableListener() {
@@ -79,8 +79,8 @@ public class FrmContainer extends BaseFragment {
             }
         });*/
 
-        setupUI(rootView);
-        return rootView;
+        setupUI(frmRootView);
+        return frmRootView;
     }
 
     @Override

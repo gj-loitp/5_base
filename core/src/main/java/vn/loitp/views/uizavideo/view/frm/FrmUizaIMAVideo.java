@@ -147,11 +147,11 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        findViews(rootView);
+        findViews(frmRootView);
         UizaUtil.resizeLayout(playerView, llMid);
 
         initUI();
-        return rootView;
+        return frmRootView;
     }
 
     @Override

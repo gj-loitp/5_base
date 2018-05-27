@@ -51,14 +51,14 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        simpleExoPlayerView = rootView.findViewById(R.id.player_view);
+        simpleExoPlayerView = frmRootView.findViewById(R.id.player_view);
         previewTimeBar = simpleExoPlayerView.findViewById(R.id.exo_progress);
         previewTimeBarLayout = simpleExoPlayerView.findViewById(R.id.previewSeekBarLayout);
         imgThumnailSeekbar = (ImageView) simpleExoPlayerView.findViewById(R.id.imageView);
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
         simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon).setOnClickListener(this);
-        return rootView;
+        return frmRootView;
     }
 
     @Override

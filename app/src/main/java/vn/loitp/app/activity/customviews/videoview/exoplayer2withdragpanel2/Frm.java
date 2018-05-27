@@ -91,10 +91,10 @@ public class Frm extends BaseFragment implements View.OnClickListener {
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
-        rootView.findViewById(R.id.bt_m3u8).setOnClickListener(this);
-        rootView.findViewById(R.id.bt_mp3).setOnClickListener(this);
-        tv = (TextView) rootView.findViewById(R.id.tv);
-        draggableView = (DraggableView) rootView.findViewById(R.id.draggable_view);
+        frmRootView.findViewById(R.id.bt_m3u8).setOnClickListener(this);
+        frmRootView.findViewById(R.id.bt_mp3).setOnClickListener(this);
+        tv = (TextView) frmRootView.findViewById(R.id.tv);
+        draggableView = (DraggableView) frmRootView.findViewById(R.id.draggable_view);
 
         draggableView.setClickToMaximizeEnabled(true);
         draggableView.setClickToMinimizeEnabled(false);
@@ -124,7 +124,7 @@ public class Frm extends BaseFragment implements View.OnClickListener {
                 releaseVideo();
             }
         });
-        return rootView;
+        return frmRootView;
     }
 
     @Override
@@ -164,7 +164,7 @@ public class Frm extends BaseFragment implements View.OnClickListener {
         LLog.d(TAG, "closeFullscreenDialog");
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
         setSizePlayer();
-        ((FrameLayout) rootView.findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
+        ((FrameLayout) frmRootView.findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
         mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_expand));
@@ -285,7 +285,7 @@ public class Frm extends BaseFragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.exoplayer);
+            mExoPlayerView = (SimpleExoPlayerView) frmRootView.findViewById(R.id.exoplayer);
             setSizePlayer();
 
             initFullscreenDialog();

@@ -26,7 +26,7 @@ public abstract class BaseFragment extends Fragment {
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
     protected final String BASE_TAG = BaseFragment.class.getSimpleName();
 
-    protected View rootView;
+    protected View frmRootView;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(setLayoutResourceId(), container, false);
-        return rootView;
+        frmRootView = inflater.inflate(setLayoutResourceId(), container, false);
+        return frmRootView;
     }
 
     protected abstract int setLayoutResourceId();
