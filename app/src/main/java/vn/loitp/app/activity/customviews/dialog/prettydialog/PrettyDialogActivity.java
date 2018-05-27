@@ -194,7 +194,7 @@ public class PrettyDialogActivity extends BaseActivity implements OnClickListene
                             }
                         }
                 )
-                .setTextSizeButton(TypedValue.COMPLEX_UNIT_DIP, 30)
+                .setTextSizeButton(TypedValue.COMPLEX_UNIT_DIP, 20)
                 .show();
     }
 
