@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.prettydialog;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -146,6 +147,8 @@ public class PrettyDialogActivity extends BaseActivity implements OnClickListene
                 .setAnimationEnabled(true)
                 .setIcon(R.drawable.pdlg_icon_info)
                 .setIconTint(R.color.pdlg_color_green)
+                .setTextSizeTitle(TypedValue.COMPLEX_UNIT_DIP, 22)
+                .setTextSizeMsg(TypedValue.COMPLEX_UNIT_DIP, 18)
                 .setIconCallback(new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
@@ -191,6 +194,7 @@ public class PrettyDialogActivity extends BaseActivity implements OnClickListene
                             }
                         }
                 )
+                .setTextSizeButton(TypedValue.COMPLEX_UNIT_DIP, 30)
                 .show();
     }
 

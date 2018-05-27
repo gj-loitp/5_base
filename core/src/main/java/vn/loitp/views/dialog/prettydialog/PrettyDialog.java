@@ -25,7 +25,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.core.R;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by mJafarinejad on 8/15/2017.
@@ -118,8 +122,11 @@ public class PrettyDialog extends AppCompatDialog {
         tv_message.setVisibility(View.GONE);
     }
 
+    private List<PrettyDialogButton> prettyDialogButtonList = new ArrayList<>();
+
     public PrettyDialog addButton(String text, Integer textColor, Integer backgroundColor, /*BUTTON_TYPE type,*/ PrettyDialogCallback callback) {
         PrettyDialogButton button = new PrettyDialogButton(context, text, textColor, backgroundColor, typeface, /*type,*/ callback);
+        prettyDialogButtonList.add(button);
         int margin = resources.getDimensionPixelSize(R.dimen.pdlg_space_1_0x);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.setMargins(margin, margin, margin, 0);
@@ -238,6 +245,31 @@ public class PrettyDialog extends AppCompatDialog {
             getWindow().getAttributes().windowAnimations = R.style.pdlg_default_animation;
         } else {
             getWindow().getAttributes().windowAnimations = R.style.pdlg_no_animation;
+        }
+        return this;
+    }
+
+    public PrettyDialog setTextSizeTitle(int typedValue, int size) {
+        if (tv_title == null) {
+            return this;
+        }
+        LUIUtil.setTextSize(tv_title, typedValue, size);
+        return this;
+    }
+
+    public PrettyDialog setTextSizeMsg(int typedValue, int size) {
+        if (tv_message == null) {
+            return this;
+        }
+        LUIUtil.setTextSize(tv_message, typedValue, size);
+        return this;
+    }
+
+    public PrettyDialog setTextSizeButton(int typedValue, int size) {
+        if (prettyDialogButtonList != null && !prettyDialogButtonList.isEmpty()) {
+            for (PrettyDialogButton prettyDialogButton : prettyDialogButtonList) {
+                prettyDialogButton.setTextSize(typedValue, size);
+            }
         }
         return this;
     }

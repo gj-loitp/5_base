@@ -27,6 +27,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -632,5 +633,16 @@ public class LUIUtil {
         }
         seekBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         seekBar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+    }
+
+    //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 25);//25dp
+    //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
+    //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
+    //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
+    public static void setTextSize(TextView textView, int typedValue, int size) {
+        if (textView == null || size < 0) {
+            return;
+        }
+        textView.setTextSize(typedValue, size);
     }
 }

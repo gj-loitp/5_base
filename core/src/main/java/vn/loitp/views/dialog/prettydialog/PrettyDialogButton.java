@@ -17,13 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by mJafarinejad on 8/15/2017.
  */
 
 class PrettyDialogButton extends LinearLayout {
-
     Context context;
     Resources resources;
     PrettyDialogCallback callback;
@@ -139,5 +140,11 @@ class PrettyDialogButton extends LinearLayout {
         res.addState(new int[]{android.R.attr.state_pressed}, pressed_drawable);
         res.addState(new int[]{}, default_drawable);
         return res;
+    }
+
+    public void setTextSize(int typedValued, int size) {
+        if (tv != null) {
+            LUIUtil.setTextSize(tv, typedValued, size);
+        }
     }
 }
