@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.seekbar.verticalseekbar;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -31,6 +31,12 @@ public class VerticalSeekbarActivity extends BaseActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 LToast.show(activity, "onStopTrackingTouch");
+            }
+        });
+        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verticalSeekBar.setProgress(50);
             }
         });
     }

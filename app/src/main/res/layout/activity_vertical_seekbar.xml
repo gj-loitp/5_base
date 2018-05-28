@@ -20,4 +20,10 @@
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Progress 50" />
+
 </RelativeLayout>
