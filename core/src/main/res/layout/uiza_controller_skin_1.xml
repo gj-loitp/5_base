@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="4dp"
@@ -68,10 +69,19 @@
                 android:src="@drawable/ic_volume_up_black_48dp"
                 android:tint="@color/White" />
 
-            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                android:id="@id/seekbar_volume"
+            <!-- Clock wise - 270 -->
+            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                 android:layout_width="@dimen/w_50"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:minWidth="10dp">
+
+                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                    android:id="@+id/seekbar_volume"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:splitTrack="false"
+                    app:seekBarRotation="CW270" />
+            </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
         </RelativeLayout>
 
         <RelativeLayout
@@ -79,12 +89,21 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true">
 
-            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                android:id="@id/seekbar_birghtness"
+            <!-- Clock wise - 270 -->
+            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                 android:layout_width="@dimen/w_50"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:minWidth="10dp">
+
+                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                    android:id="@+id/seekbar_birghtness"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:splitTrack="false"
+                    app:seekBarRotation="CW270" />
+            </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
             <ImageView
                 android:id="@id/exo_birghtness_seekbar"

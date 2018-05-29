@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -146,13 +148,18 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         findViews(frmRootView);
         UizaUtil.resizeLayout(playerView, llMid);
 
         initUI();
-        return frmRootView;
+        super.onViewCreated(view, savedInstanceState);
     }
+
+    /*@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return frmRootView;
+    }*/
 
     @Override
     protected int setLayoutResourceId() {
@@ -242,18 +249,24 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
     @Override
     public void onResume() {
         super.onResume();
-        uizaPlayerManager.init();
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.init();
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        uizaPlayerManager.reset();
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.reset();
+        }
     }
 
     @Override
     public void onDestroy() {
-        uizaPlayerManager.release();
+        if (uizaPlayerManager != null) {
+            uizaPlayerManager.release();
+        }
         super.onDestroy();
     }
 
@@ -335,7 +348,6 @@ public class FrmUizaIMAVideo extends BaseFragment implements PreviewView.OnPrevi
 
     public void initUI() {
         String title = "Dummy Video";
-
         updateUIPlayController(title);
     }
 

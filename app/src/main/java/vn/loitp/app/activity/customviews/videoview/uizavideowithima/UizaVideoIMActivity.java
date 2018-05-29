@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.uizavideo.view.frm.FrmUizaIMAVideo;
 
@@ -20,6 +21,7 @@ public class UizaVideoIMActivity extends BaseActivity {
         frmUizaIMAVideo.setFragmentCallback(new BaseFragment.FragmentCallback() {
             @Override
             public void onViewCreated() {
+                LLog.d(TAG, "onViewCreated");
                 String linkPlay = getString(loitp.core.R.string.url_dash);
                 //String linkPlay = "https://cdn-vn-cache-4.uiza.io:443/a204e9cdeca44948a33e0d012ef74e90/8udRNMQD/package/playlist.mpd";
                 String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
