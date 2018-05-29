@@ -3,40 +3,40 @@ package vn.loitp.app.activity.customviews.seekbar.verticalseekbar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.views.LToast;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 
+//https://github.com/h6ah4i/android-verticalseekbar
 public class VerticalSeekbarActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        VerticalSeekBar verticalSeekBar = (VerticalSeekBar) findViewById(R.id.seekbar);
-        TextView tv = (TextView) findViewById(R.id.tv);
-        verticalSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        final VerticalSeekBar seekBar1 = (VerticalSeekBar) findViewById(R.id.seekBar1);
+        seekBar1.setMax(100);
+        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tv.setText(progress + "/" + seekBar.getMax());
+                LLog.d(TAG, "onProgressChanged " + progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                LToast.show(activity, "onStartTrackingTouch");
+                LLog.d(TAG, "onStartTrackingTouch");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                LToast.show(activity, "onStopTrackingTouch");
+                LLog.d(TAG, "onStopTrackingTouch");
             }
         });
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verticalSeekBar.setProgress(50);
+                seekBar1.setProgress(30);
             }
         });
     }
