@@ -1,6 +1,5 @@
 package vn.loitp.core.utilities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -37,13 +36,13 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
 
 public class LImageUtil {
     //for flide
-    public static void load(Activity activity, String url, ImageView imageView) {
-        Glide.with(activity).load(url).into(imageView);
+    public static void load(Context context, String url, ImageView imageView) {
+        Glide.with(context).load(url).into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder) {
+    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder) {
         //Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
-        Glide.with(activity)
+        Glide.with(context)
                 .load(url)
                 .apply(new RequestOptions()
                                 .placeholder(resPlaceHolder)
@@ -87,8 +86,8 @@ public class LImageUtil {
                 .into(imageView);
     }*/
 
-    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder, int resError, int sizeW, int sizeH, RequestListener<Drawable> drawableRequestListener) {
-        Glide.with(activity).load(url)
+    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder, int resError, int sizeW, int sizeH, RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(context).load(url)
                 .apply(new RequestOptions()
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
@@ -99,8 +98,8 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
-        Glide.with(activity).load(url)
+    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(context).load(url)
                 .apply(new RequestOptions()
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
@@ -111,8 +110,8 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
-        Glide.with(activity).load(url)
+    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
+        Glide.with(context).load(url)
                 .apply(new RequestOptions()
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
@@ -139,16 +138,16 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
-        load(activity, url, imageView, avLoadingIndicatorView, resPlaceHolder, Color.TRANSPARENT);
+    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
+        load(context, url, imageView, avLoadingIndicatorView, resPlaceHolder, Color.TRANSPARENT);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
-        load(activity, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT, Color.TRANSPARENT);
+    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
+        load(context, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT, Color.TRANSPARENT);
     }
 
-    public static void load(Activity activity, String url, ImageView imageView, int sizeW, int sizeH) {
-        Glide.with(activity).load(url)
+    public static void load(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
+        Glide.with(context).load(url)
                 .apply(new RequestOptions()
                         //.placeholder(resPlaceHolder)
                         //.fitCenter()

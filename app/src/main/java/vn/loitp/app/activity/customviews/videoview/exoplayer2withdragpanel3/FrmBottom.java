@@ -24,6 +24,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
+import vn.loitp.app.common.Constants;
 import vn.loitp.app.data.EventBusData;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
@@ -111,7 +112,7 @@ public class FrmBottom extends BaseFragment {
     private void prepareMovieData() {
         if (DummyData.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 20; i++) {
-                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
+                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
                 DummyData.getInstance().getMovieList().add(movie);
             }
         }

@@ -14,14 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.animator.adapters.AlphaInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInLeftAnimator;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 //https://github.com/wasabeef/recyclerview-animators
@@ -146,7 +145,7 @@ public class RecyclerViewActivity extends BaseActivity {
             public void doAfter(int mls) {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);
+                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.URL_IMG);
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -172,7 +171,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
     private void prepareMovieData() {
         for (int i = 0; i < 100; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
+            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();

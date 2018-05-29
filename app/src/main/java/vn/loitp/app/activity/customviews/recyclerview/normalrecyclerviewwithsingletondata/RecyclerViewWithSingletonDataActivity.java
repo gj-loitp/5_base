@@ -14,6 +14,7 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
@@ -102,7 +103,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
             public void doAfter(int mls) {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i);
+                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.URL_IMG);
                     DummyData.getInstance().getMovieList().add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -129,7 +130,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
     private void prepareMovieData() {
         if (DummyData.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 10; i++) {
-                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i);
+                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
                 DummyData.getInstance().getMovieList().add(movie);
             }
         }

@@ -648,6 +648,9 @@
             android:name="vn.loitp.app.activity.customviews.compas.CompasActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
