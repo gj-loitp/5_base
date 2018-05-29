@@ -40,6 +40,12 @@ public class FrmMenu extends BaseFragment {
                 ((ExpectAnimActivity) getActivity()).addFrm(new FrmScroll(), true);
             }
         });
+        frmRootView.findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ExpectAnimActivity) getActivity()).addFrm(new FrmSample(), true);
+            }
+        });
     }
 
     @Override
