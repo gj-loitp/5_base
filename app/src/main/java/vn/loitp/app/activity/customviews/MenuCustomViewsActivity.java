@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity;
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity;
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity;
+import vn.loitp.app.activity.customviews.compas.CompasActivity;
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity;
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity;
@@ -67,6 +68,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_draggable_flipview).setOnClickListener(this);
         findViewById(R.id.bt_answer_view).setOnClickListener(this);
         findViewById(R.id.bt_bottom_sheet).setOnClickListener(this);
+        findViewById(R.id.bt_compas).setOnClickListener(this);
     }
 
     @Override
@@ -165,6 +167,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_bottom_sheet:
                 intent = new Intent(activity, BottomSheetMenuActivity.class);
+                break;
+            case R.id.bt_compas:
+                intent = new Intent(activity, CompasActivity.class);
                 break;
         }
         if (intent != null) {
