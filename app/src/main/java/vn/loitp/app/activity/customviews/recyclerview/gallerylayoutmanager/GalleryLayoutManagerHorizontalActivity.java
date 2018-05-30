@@ -16,7 +16,7 @@ import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 
 //https://github.com/BCsl/GalleryLayoutManager
-public class GalleryLayoutManagerActivity extends BaseActivity {
+public class GalleryLayoutManagerHorizontalActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private GalleryAdapter mAdapter;
     private TextView tv;

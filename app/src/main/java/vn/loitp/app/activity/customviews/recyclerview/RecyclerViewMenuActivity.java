@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerActivity;
+import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity;
+import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity;
@@ -29,6 +30,7 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.bt_recyclerview_banner).setOnClickListener(this);
         findViewById(R.id.bt_overflying_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_gallery_layout_manager).setOnClickListener(this);
+        findViewById(R.id.bt_gallery_layout_manager_vertical).setOnClickListener(this);
     }
 
     @Override
@@ -72,7 +74,10 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
                 intent = new Intent(activity, OverFlyingRecyclerViewActivity.class);
                 break;
             case R.id.bt_gallery_layout_manager:
-                intent = new Intent(activity, GalleryLayoutManagerActivity.class);
+                intent = new Intent(activity, GalleryLayoutManagerHorizontalActivity.class);
+                break;
+            case R.id.bt_gallery_layout_manager_vertical:
+                intent = new Intent(activity, GalleryLayoutManagerVerticalActivity.class);
                 break;
         }
         if (intent != null) {

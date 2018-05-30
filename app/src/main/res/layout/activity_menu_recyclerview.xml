@@ -28,7 +28,13 @@
                 android:id="@+id/bt_gallery_layout_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GalleryLayoutManager" />
+                android:text="GalleryLayoutManager Horizontal" />
+
+            <Button
+                android:id="@+id/bt_gallery_layout_manager_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GalleryLayoutManager Vertical" />
 
             <Button
                 android:id="@+id/bt_normal_recyclerview"
