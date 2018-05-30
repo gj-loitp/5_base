@@ -1,0 +1,120 @@
+package vn.loitp.app.activity.customviews.recyclerview.bookview;
+
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
+import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LToast;
+
+public class BookViewActivity extends BaseActivity {
+    private List<Movie> movieList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private BookAdapter mAdapter;
+    private final int COLUMN = 3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        recyclerView = (RecyclerView) findViewById(R.id.rv);
+
+        /*findViewById(R.id.bt_add_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Movie movie = new Movie();
+                movie.setTitle("Add TITLE 3");
+                movie.setYear("Add YEAR 3");
+                movie.setGenre("Add GENRE 3");
+                movieList.add(3, movie);
+                mAdapter.notifyItemInserted(3);
+            }
+        });
+        findViewById(R.id.bt_remove_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieList.remove(1);
+                mAdapter.notifyItemRemoved(1);
+            }
+        });*/
+
+        mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
+            @Override
+            public void onClick(Movie movie, int position) {
+                LToast.show(activity, "Click " + movie.getTitle());
+            }
+
+            @Override
+            public void onLongClick(Movie movie, int position) {
+                boolean isRemoved = movieList.remove(movie);
+                if (isRemoved) {
+                    mAdapter.notifyItemRemoved(position);
+                    mAdapter.notifyItemRangeChanged(position, movieList.size());
+                }
+            }
+
+            @Override
+            public void onLoadMore() {
+                //loadMore();
+            }
+        });
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, COLUMN));
+        recyclerView.setAdapter(mAdapter);
+
+        //LUIUtil.setPullLikeIOSVertical(recyclerView);
+
+        prepareMovieData();
+    }
+
+    @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_bookview;
+    }
+
+    private void loadMore() {
+        LLog.d(TAG, "loadMore");
+        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+            @Override
+            public void doAfter(int mls) {
+                int newSize = 5;
+                for (int i = 0; i < newSize; i++) {
+                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.URL_IMG);
+                    movieList.add(movie);
+                }
+                mAdapter.notifyDataSetChanged();
+                LToast.show(activity, "Finish loadMore");
+            }
+        });
+    }
+
+    private void prepareMovieData() {
+        String cover;
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                cover = Constants.URL_IMG_1;
+            } else {
+                cover = Constants.URL_IMG_2;
+            }
+            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, cover);
+            movieList.add(movie);
+        }
+        mAdapter.notifyDataSetChanged();
+    }
+}

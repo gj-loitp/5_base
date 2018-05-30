@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_bookview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bookview" />
+
+            <Button
                 android:id="@+id/bt_gallery_layout_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +46,7 @@
                 android:id="@+id/bt_normal_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Normal RecyclerView" />
+                android:text="Normal RecyclerView With Animation" />
 
             <Button
                 android:id="@+id/bt_normal_recyclerview_with_singleton_data"

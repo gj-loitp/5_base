@@ -30,6 +30,7 @@ import android.text.style.ImageSpan;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -37,6 +38,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -644,5 +646,13 @@ public class LUIUtil {
             return;
         }
         textView.setTextSize(typedValue, size);
+    }
+
+    public static void setMargins(View view, int leftPx, int topPx, int rightPx, int bottomPx) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            p.setMargins(leftPx, topPx, rightPx, bottomPx);
+            view.requestLayout();
+        }
     }
 }

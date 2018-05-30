@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity;
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity;
@@ -31,6 +32,7 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
         findViewById(R.id.bt_overflying_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_gallery_layout_manager).setOnClickListener(this);
         findViewById(R.id.bt_gallery_layout_manager_vertical).setOnClickListener(this);
+        findViewById(R.id.bt_bookview).setOnClickListener(this);
     }
 
     @Override
@@ -78,6 +80,9 @@ public class RecyclerViewMenuActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.bt_gallery_layout_manager_vertical:
                 intent = new Intent(activity, GalleryLayoutManagerVerticalActivity.class);
+                break;
+            case R.id.bt_bookview:
+                intent = new Intent(activity, BookViewActivity.class);
                 break;
         }
         if (intent != null) {
