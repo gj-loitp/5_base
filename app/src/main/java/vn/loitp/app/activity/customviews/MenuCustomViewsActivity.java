@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +26,7 @@ import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity;
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity;
 import vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity;
+import vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity;
 import vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity;
 import vn.loitp.app.activity.customviews.sticker.StickerActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity;
@@ -69,6 +69,7 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
         findViewById(R.id.bt_answer_view).setOnClickListener(this);
         findViewById(R.id.bt_bottom_sheet).setOnClickListener(this);
         findViewById(R.id.bt_compas).setOnClickListener(this);
+        findViewById(R.id.bt_scrollable_panel).setOnClickListener(this);
     }
 
     @Override
@@ -170,6 +171,9 @@ public class MenuCustomViewsActivity extends BaseActivity implements OnClickList
                 break;
             case R.id.bt_compas:
                 intent = new Intent(activity, CompasActivity.class);
+                break;
+            case R.id.bt_scrollable_panel:
+                intent = new Intent(activity, ScrollablePanelActivity.class);
                 break;
         }
         if (intent != null) {

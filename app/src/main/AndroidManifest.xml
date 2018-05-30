@@ -654,6 +654,9 @@
             android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />

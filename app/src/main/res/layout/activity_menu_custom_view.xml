@@ -145,6 +145,12 @@
                 android:text="ScratchView" />
 
             <Button
+                android:id="@+id/bt_scrollable_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ScrollablePanel" />
+
+            <Button
                 android:id="@+id/bt_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
