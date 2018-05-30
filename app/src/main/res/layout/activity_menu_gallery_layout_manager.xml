@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:background="@color/Red"
             android:gravity="center"
-            android:text="This is recyclerview, not viewpager"
+            android:text="This is recyclerview, not viewpager\nCan use vertical or horizontal"
             android:textColor="@color/White"
             android:textStyle="bold" />
 
