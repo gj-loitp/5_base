@@ -57,6 +57,7 @@ public class BookViewActivity extends BaseActivity {
                 if (isRemoved) {
                     mAdapter.notifyItemRemoved(position);
                     mAdapter.notifyItemRangeChanged(position, movieList.size());
+                    mAdapter.checkData();
                 }
             }
 
@@ -88,7 +89,7 @@ public class BookViewActivity extends BaseActivity {
         return R.layout.activity_bookview;
     }
 
-    private void loadMore() {
+    /*private void loadMore() {
         LLog.d(TAG, "loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
@@ -102,7 +103,7 @@ public class BookViewActivity extends BaseActivity {
                 LToast.show(activity, "Finish loadMore");
             }
         });
-    }
+    }*/
 
     private void prepareMovieData() {
         String cover;
@@ -115,6 +116,7 @@ public class BookViewActivity extends BaseActivity {
             Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, cover);
             movieList.add(movie);
         }
+        mAdapter.checkData();
         mAdapter.notifyDataSetChanged();
     }
 }

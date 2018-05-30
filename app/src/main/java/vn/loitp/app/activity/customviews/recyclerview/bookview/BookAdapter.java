@@ -18,10 +18,12 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolder> {
+    private final String TAG = getClass().getSimpleName();
     // Allows to remember the last item shown on screen
     private int lastPosition = -1;
 
@@ -31,6 +33,21 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         public void onLongClick(Movie movie, int position);
 
         public void onLoadMore();
+    }
+
+    public void checkData() {
+        int indexEachColumn = getItemCount() % column;
+        int missItemCount = column - indexEachColumn;
+        //LLog.d(TAG, "checkData missItemCount: " + missItemCount);
+        if (missItemCount != column) {
+            //LLog.d(TAG, ">>>>>>>>>>>need to add: " + missItemCount);
+            for (int i = 0; i < missItemCount; i++) {
+                Movie movie = new Movie();
+                moviesList.add(movie);
+                //LLog.d(TAG, "add " + i);
+            }
+            notifyDataSetChanged();
+        }
     }
 
     private Context context;
