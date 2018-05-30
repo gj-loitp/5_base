@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
@@ -17,11 +19,13 @@ import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 public class GalleryLayoutManagerActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private GalleryAdapter mAdapter;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
+        tv = (TextView) findViewById(R.id.tv);
 
         mAdapter = new GalleryAdapter(activity, DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
@@ -51,6 +55,14 @@ public class GalleryLayoutManagerActivity extends BaseActivity {
         //...
         //setup adapter for your RecycleView
         recyclerView.setAdapter(mAdapter);
+
+        layoutManager.setCallbackInFling(true);//should receive callback when flinging, default is false
+        layoutManager.setOnItemSelectedListener(new GalleryLayoutManager.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(RecyclerView recyclerView, View item, int position) {
+                tv.setText(position + "/" + mAdapter.getItemCount());
+            }
+        });
 
         prepareMovieData();
     }

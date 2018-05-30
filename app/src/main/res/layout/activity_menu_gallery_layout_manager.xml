@@ -8,4 +8,14 @@
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Red"
+        android:gravity="center"
+        android:textColor="@color/White"
+        android:textStyle="bold" />
 </RelativeLayout>
