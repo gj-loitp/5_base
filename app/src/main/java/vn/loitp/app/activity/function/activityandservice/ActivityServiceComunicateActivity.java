@@ -76,7 +76,7 @@ public class ActivityServiceComunicateActivity extends BaseActivity {
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ComunicateMng.post(new ComunicateMng.Msg(button0.getText().toString()));
+                ComunicateMng.postFromActivity(new ComunicateMng.MsgFromActivity(button0.getText().toString()));
             }
         });
     }
@@ -97,7 +97,7 @@ public class ActivityServiceComunicateActivity extends BaseActivity {
 
     //listen msg from service
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ComunicateMng.Msg msg) {
+    public void onEvent(ComunicateMng.MsgFromService msg) {
         tv.setText(msg.getMsg());
     }
 }

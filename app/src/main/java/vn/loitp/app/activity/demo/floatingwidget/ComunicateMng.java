@@ -7,10 +7,10 @@ import org.greenrobot.eventbus.EventBus;
  */
 
 public class ComunicateMng {
-    public static class Msg {
+    public static class MsgFromActivity {
         private String msg;
 
-        public Msg(String msg) {
+        public MsgFromActivity(String msg) {
             this.msg = msg;
         }
 
@@ -23,7 +23,27 @@ public class ComunicateMng {
         }
     }
 
-    public static void post(Msg msg) {
+    public static class MsgFromService {
+        private String msg;
+
+        public MsgFromService(String msg) {
+            this.msg = msg;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+    }
+
+    public static void postFromActivity(MsgFromActivity msg) {
+        EventBus.getDefault().post(msg);
+    }
+
+    public static void postFromService(MsgFromService msg) {
         EventBus.getDefault().post(msg);
     }
 

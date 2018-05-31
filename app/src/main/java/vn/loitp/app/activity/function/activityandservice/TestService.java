@@ -71,7 +71,7 @@ public class TestService extends Service {
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ComunicateMng.post(new ComunicateMng.Msg("User clicks close button -> stop service"));
+                ComunicateMng.postFromService(new ComunicateMng.MsgFromService("User clicks close button -> stop service"));
                 //close the service and remove the from from the window
                 stopSelf();
             }
@@ -84,7 +84,7 @@ public class TestService extends Service {
         mFloatingView.findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ComunicateMng.post(new ComunicateMng.Msg("Send msg to activity"));
+                ComunicateMng.postFromService(new ComunicateMng.MsgFromService("Send msg to activity"));
             }
         });
     }
@@ -139,7 +139,7 @@ public class TestService extends Service {
 
     //listen msg from activity
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ComunicateMng.Msg msg) {
+    public void onEvent(ComunicateMng.MsgFromActivity msg) {
         tv.setText(msg.getMsg());
     }
 }
