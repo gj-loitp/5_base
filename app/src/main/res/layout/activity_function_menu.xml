@@ -25,6 +25,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/bt_activity_service_comunicate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity Service Comunicate" />
+
+            <Button
                 android:id="@+id/bt_drag_drop_sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

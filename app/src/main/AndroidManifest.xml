@@ -572,6 +572,10 @@
             android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.function.activityandservice.TestService"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity
             android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity"
@@ -658,6 +662,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
@@ -30,6 +31,7 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.bt_toggle_fullscreen).setOnClickListener(this);
         findViewById(R.id.bt_view_drag_helper).setOnClickListener(this);
         findViewById(R.id.bt_recolor).setOnClickListener(this);
+        findViewById(R.id.bt_activity_service_comunicate).setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +73,9 @@ public class MenuFunctionActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.bt_recolor:
                 intent = new Intent(activity, RecolorActivity.class);
+                break;
+            case R.id.bt_activity_service_comunicate:
+                intent = new Intent(activity, ActivityServiceComunicateActivity.class);
                 break;
         }
         if (intent != null) {

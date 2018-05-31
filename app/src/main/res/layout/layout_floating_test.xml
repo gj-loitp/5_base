@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/root_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding_5"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_close"
+            android:tint="@color/White"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/close_btn"
+            android:textColor="@color/White"
+            android:textSize="@dimen/txt_18" />
+
+        <Button
+            android:id="@+id/bt_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:text="Send msg to activity" />
+
+    </RelativeLayout>
+</FrameLayout>
