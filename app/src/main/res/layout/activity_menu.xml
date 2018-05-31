@@ -95,6 +95,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Github" />
+
+            <Button
+                android:id="@+id/bt_ad_helper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vì sao bạn thấy quảng cáo?" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

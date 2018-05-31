@@ -53,7 +53,6 @@ public class ArianaBackgroundListener implements ViewPager.OnPageChangeListener 
                 this.position[position + 1] = 1 - positionOffset;
             }
             imageView.setBackground(Ariana.drawable(colorBoxes, ArianaBackgroundListener.this.position));
-
         }
     }
 

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +14,9 @@ import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.app.activity.function.MenuFunctionActivity;
 import vn.loitp.app.activity.pattern.MenuPatternActivity;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.loitp.adhelper.AdHelperActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.smoothtransition.SwitchAnimationUtil;
 
 public class MenuActivity extends BaseActivity implements View.OnClickListener {
 
@@ -39,6 +37,7 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.bt_pattern).setOnClickListener(this);
         findViewById(R.id.bt_chat).setOnClickListener(this);
         findViewById(R.id.bt_github).setOnClickListener(this);
+        findViewById(R.id.bt_ad_helper).setOnClickListener(this);
     }
 
     @Override
@@ -95,6 +94,9 @@ public class MenuActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.bt_github:
                 LSocialUtil.openUrlInBrowser(activity, "https://github.com/tplloi/basemaster");
+                break;
+            case R.id.bt_ad_helper:
+                intent = new Intent(activity, AdHelperActivity.class);
                 break;
         }
         if (intent != null) {
