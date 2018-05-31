@@ -131,7 +131,7 @@ import vn.loitp.views.uizavideo.view.util.DemoUtil;
     @SuppressLint("InflateParams")
     private View buildView(Context context) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.track_selection_dialog, null);
+        View view = inflater.inflate(R.layout.dialog_track_selection, null);
         ViewGroup root = view.findViewById(R.id.root);
 
         TypedArray attributeArray = context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.selectableItemBackground});

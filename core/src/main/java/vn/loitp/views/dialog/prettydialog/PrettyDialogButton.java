@@ -17,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
@@ -59,7 +58,7 @@ class PrettyDialogButton extends LinearLayout {
     private void init() {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (inflater != null) {
-            inflater.inflate(R.layout.button, this);
+            inflater.inflate(R.layout.dialog_pretty_button, this);
         }
         tv = (TextView) findViewById(R.id.tv_button);
         tv.setText(text);

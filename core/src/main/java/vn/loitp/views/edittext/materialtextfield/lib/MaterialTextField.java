@@ -266,7 +266,7 @@ public class MaterialTextField extends FrameLayout {
             return;
         }
 
-        addView(LayoutInflater.from(getContext()).inflate(R.layout.mtf_layout, this, false));
+        addView(LayoutInflater.from(getContext()).inflate(R.layout.layout_material_text_field, this, false));
 
         editTextLayout = (ViewGroup) findViewById(R.id.mtf_editTextLayout);
         removeView(editText);

@@ -53,7 +53,7 @@ public class PrettyDialog extends AppCompatDialog {
         super(context);
         this.context = context;
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.layout);
+        setContentView(R.layout.dialog_pretty_dialog);
         setCancelable(true);
         resources = context.getResources();
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
