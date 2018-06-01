@@ -3,22 +3,37 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:animateLayoutChanges="true"
+    android:background="@color/White">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/w_200"
+        android:layout_height="@dimen/w_200"
+        android:layout_above="@+id/tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_5"
         android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/black_65"
+        android:layout_centerInParent="true"
+        android:gravity="center"
         android:padding="@dimen/padding_5"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_8" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/txt_22" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_5"
+        android:textColor="@color/Gray"
+        android:textSize="@dimen/txt_14" />
 </RelativeLayout>

@@ -15,7 +15,9 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
@@ -26,7 +28,7 @@ import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Parall
  */
 
 public class AdHelperActivity extends BaseActivity {
-    private List<Integer> resList = new ArrayList<>();
+    private List<AdPage> adPageList = new ArrayList<>();
     private FloatingActionButton btPrevScreen;
     private FloatingActionButton btNextScreen;
     private TextView tvPage;
@@ -47,6 +49,32 @@ public class AdHelperActivity extends BaseActivity {
         return R.layout.activity_ad_helper;
     }
 
+    private void setupData() {
+        AdPage adPage0 = new AdPage();
+        adPage0.setUrlAd(Constants.URL_IMG);
+        adPage0.setTitle("Quảng cáo là một phần quan trọng đối với một ứng dụng miễn phí");
+        adPage0.setMsg("Để tạo ra một ứng dụng chất lượng, chúng tôi phải bỏ nhiều thời gian, công sức cho nó.\n\nTrong quá trình này, chúng tôi cần kinh phí để chi trả cho nhân sự, địa điểm và duy trì hệ thống.\n\nQuảng cáo là nguồn thu quan trọng nhất đối với chúng tôi để bù đắp vào các chi phí này.");
+        adPageList.add(adPage0);
+
+        AdPage adPage1 = new AdPage();
+        adPage1.setUrlAd(Constants.URL_IMG);
+        adPage1.setTitle("1");
+        adPage1.setMsg("1");
+        adPageList.add(adPage1);
+
+        AdPage adPage2 = new AdPage();
+        adPage2.setUrlAd(Constants.URL_IMG);
+        adPage2.setTitle("1");
+        adPage2.setMsg("1");
+        adPageList.add(adPage2);
+
+        AdPage adPage3 = new AdPage();
+        adPage3.setUrlAd(Constants.URL_IMG);
+        adPage3.setTitle("1");
+        adPage3.setMsg("1");
+        adPageList.add(adPage3);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +83,9 @@ public class AdHelperActivity extends BaseActivity {
         btNextScreen = (FloatingActionButton) findViewById(R.id.bt_next_screen);
         tvPage = (TextView) findViewById(R.id.tv_page);
         LUIUtil.setTextShadow(tvPage);
+
+        setupData();
+
         findViewById(R.id.bt_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +102,7 @@ public class AdHelperActivity extends BaseActivity {
         btNextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (viewPager.getCurrentItem() == (resList.size() - 1)) {
+                if (viewPager.getCurrentItem() == (adPageList.size() - 1)) {
                     finish();
                     LActivityUtil.tranOut(activity);
                 } else {
@@ -81,9 +112,6 @@ public class AdHelperActivity extends BaseActivity {
         });
 
         viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-        for (int i = 0; i < 4; i++) {
-            resList.add(LStoreUtil.getRandomColor());
-        }
 
         viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
@@ -98,7 +126,7 @@ public class AdHelperActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                tvPage.setText((position + 1) + "/" + resList.size());
+                tvPage.setText((position + 1) + "/" + adPageList.size());
                 if (position == 0) {
                     btPrevScreen.setVisibility(View.INVISIBLE);
                 } else {
@@ -117,15 +145,22 @@ public class AdHelperActivity extends BaseActivity {
 
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
-            Integer res = resList.get(position);
+
+            AdPage adPage = adPageList.get(position);
+
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_ad_helper, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            imageView.setImageResource(R.drawable.iv);
+            LImageUtil.load(activity, adPage.getUrlAd(), imageView);
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
-            tv.setText(position + "/" + resList.size());
+            tv.setText(adPage.getTitle());
+            //LUIUtil.setTextShadow(tv);
+
+            TextView tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
+            tvMsg.setText(adPage.getMsg());
+            //LUIUtil.setTextShadow(tvMsg);
 
             collection.addView(layout);
             return layout;
@@ -138,7 +173,7 @@ public class AdHelperActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return resList.size();
+            return adPageList.size();
         }
 
         @Override

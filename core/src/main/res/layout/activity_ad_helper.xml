@@ -15,6 +15,7 @@
         android:id="@+id/bt_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_arrow_back_white_48dp"
         android:tint="@color/colorPrimary"
