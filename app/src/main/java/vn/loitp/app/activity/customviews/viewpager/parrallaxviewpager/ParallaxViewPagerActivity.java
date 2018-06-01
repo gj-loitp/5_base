@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex;
+package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager;
 
 import android.app.Activity;
 import android.os.Bundle;

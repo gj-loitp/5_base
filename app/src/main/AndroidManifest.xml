@@ -90,7 +90,7 @@
             android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ex.ParallaxViewPagerActivity"
+            android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity"

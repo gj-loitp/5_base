@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
+    <vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/bt_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_arrow_back_white_48dp"
+        android:tint="@color/colorPrimary"
+        app:backgroundTint="@color/White"
+        app:borderWidth="@dimen/w_1"
+        app:elevation="@dimen/w_1"
+        app:fabSize="mini" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_5">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bt_prev_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_arrow_back_white_48dp"
+            android:tint="@color/colorPrimary"
+            android:visibility="invisible"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
+
+        <TextView
+            android:id="@+id/tv_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/txt_30"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bt_next_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/app_name"
+            android:rotation="180"
+            android:src="@drawable/ic_arrow_back_white_48dp"
+            android:tint="@color/colorPrimary"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
+    </RelativeLayout>
 </RelativeLayout>

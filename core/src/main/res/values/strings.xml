@@ -43,4 +43,6 @@
     <string name="text">Subtitle</string>
     <string name="selection_disabled">Disabled</string>
     <string name="selection_default">Default</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>
