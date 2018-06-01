@@ -19,6 +19,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.AppUtils;
 
 /**
  * Created by LENOVO on 5/31/2018.
@@ -55,8 +56,9 @@ public class AdHelperActivity extends BaseActivity {
 
         AdPage adPage1 = new AdPage();
         adPage1.setUrlAd(Constants.URL_IMG);
-        adPage1.setTitle("1");
-        adPage1.setMsg("1");
+        String appName = AppUtils.getAppName();
+        adPage1.setTitle("Không có quảng cáo, chúng ta sẽ không có " + appName);
+        adPage1.setMsg("Việc trả phí để sử dụng một ứng dụng chưa phổ biến tại Việt Nam. Khi không có nguồn thu, chúng tôi khó có thể duy trì và nâng cấp ứng dụng.\n\nVà khi đó, bạn sẽ không được trải nghiệm những tính năng hữu ích mà " + appName + " đem lại.");
         adPageList.add(adPage1);
 
         AdPage adPage2 = new AdPage();
