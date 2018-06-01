@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "loitp.basemaster"
         minSdkVersion 17
-        targetSdkVersion 21
+        targetSdkVersion 27
         versionCode 6
         versionName "1.0.6"
         multiDexEnabled true
@@ -79,8 +79,8 @@ repositories {
 }
 
 dependencies {
-    implementation project(':core')
-    //compile 'com.github.tplloi:basemaster:1.24'
+    //implementation project(':core')
+    compile 'com.github.tplloi:basemaster:1.26'
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     compile 'io.realm:realm-android:0.82.1'//realm
 }
