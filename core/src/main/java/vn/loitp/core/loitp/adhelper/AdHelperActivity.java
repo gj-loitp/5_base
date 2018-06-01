@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,14 +64,14 @@ public class AdHelperActivity extends BaseActivity {
 
         AdPage adPage2 = new AdPage();
         adPage2.setUrlAd(Constants.URL_IMG);
-        adPage2.setTitle("1");
-        adPage2.setMsg("1");
+        adPage2.setTitle("Quảng cáo có thể gây khó chịu.\nChúng tôi thấu hiểu điều này.");
+        adPage2.setMsg("Hiện tại, " + appName + " sử dụng các hệ thống quảng cáo của một số bên thứ ba như Google, Facebook. Đôi khi, bạn sẽ nhìn thấy quảng cáo không phù hợp với mình.\n\nHệ thống quảng cáo cũng có thể bị lỗi và hiển thị khá nhiều, chúng tôi sẽ cố gắng giảm thiểu các sự cố như vậy trong thời gian sớm nhất.");
         adPageList.add(adPage2);
 
         AdPage adPage3 = new AdPage();
         adPage3.setUrlAd(Constants.URL_IMG);
-        adPage3.setTitle("1");
-        adPage3.setMsg("1");
+        adPage3.setTitle("Đội ngũ " + appName + " rất mong nhận được sự đồng cảm và hỗ trợ của bạn");
+        adPage3.setMsg("Chúng tôi cần quảng cáo, giống như bạn cần " + appName + " cho cuộc sống thường nhật của mình.\n\nChúng tôi sẽ nỗ lực để khiến bạn ngày một hài lòng khi sử dụng " + appName + "\n\nXin chân thành cảm ơn.");
         adPageList.add(adPage3);
     }
 
@@ -126,8 +127,11 @@ public class AdHelperActivity extends BaseActivity {
                 tvPage.setText((position + 1) + "/" + adPageList.size());
                 if (position == 0) {
                     btPrevScreen.setVisibility(View.INVISIBLE);
+                } else if (position == adPageList.size() - 1) {
+                    btNextScreen.setVisibility(View.INVISIBLE);
                 } else {
                     btPrevScreen.setVisibility(View.VISIBLE);
+                    btNextScreen.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -159,6 +163,20 @@ public class AdHelperActivity extends BaseActivity {
             TextView tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
             tvMsg.setText(adPage.getMsg());
             //LUIUtil.setTextShadow(tvMsg);
+
+            Button btOkay = (Button) layout.findViewById(R.id.bt_okay);
+            if (position == adPageList.size() - 1) {
+                btOkay.setVisibility(View.VISIBLE);
+            } else {
+                btOkay.setVisibility(View.GONE);
+            }
+            btOkay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    LActivityUtil.tranOut(activity);
+                }
+            });
 
             collection.addView(layout);
             return layout;

@@ -37,4 +37,16 @@
         android:padding="@dimen/padding_5"
         android:textColor="@color/Gray"
         android:textSize="@dimen/txt_14" />
+
+    <Button
+        android:id="@+id/bt_okay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bt_color_primary"
+        android:text="Tôi đã hiểu"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_18"
+        android:visibility="visible" />
 </RelativeLayout>
