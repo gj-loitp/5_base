@@ -51,26 +51,26 @@ public class AdHelperActivity extends BaseActivity {
 
     private void setupData() {
         AdPage adPage0 = new AdPage();
-        adPage0.setUrlAd(Constants.URL_IMG);
+        adPage0.setUrlAd("https://c2.staticflickr.com/2/1748/41585991345_1e3d93a5d9_o.png");
         adPage0.setTitle("Quảng cáo là một phần quan trọng đối với một ứng dụng miễn phí");
         adPage0.setMsg("Để tạo ra một ứng dụng chất lượng, chúng tôi phải bỏ nhiều thời gian, công sức cho nó.\n\nTrong quá trình này, chúng tôi cần kinh phí để chi trả cho nhân sự, địa điểm và duy trì hệ thống.\n\nQuảng cáo là nguồn thu quan trọng nhất đối với chúng tôi để bù đắp vào các chi phí này.");
         adPageList.add(adPage0);
 
         AdPage adPage1 = new AdPage();
-        adPage1.setUrlAd(Constants.URL_IMG);
+        adPage1.setUrlAd("https://c2.staticflickr.com/2/1732/41766077754_da53b9da82_o.png");
         String appName = AppUtils.getAppName();
         adPage1.setTitle("Không có quảng cáo, chúng ta sẽ không có " + appName);
         adPage1.setMsg("Việc trả phí để sử dụng một ứng dụng chưa phổ biến tại Việt Nam. Khi không có nguồn thu, chúng tôi khó có thể duy trì và nâng cấp ứng dụng.\n\nVà khi đó, bạn sẽ không được trải nghiệm những tính năng hữu ích mà " + appName + " đem lại.");
         adPageList.add(adPage1);
 
         AdPage adPage2 = new AdPage();
-        adPage2.setUrlAd(Constants.URL_IMG);
+        adPage2.setUrlAd("https://c2.staticflickr.com/2/1734/41766077524_09572156d6_o.png");
         adPage2.setTitle("Quảng cáo có thể gây khó chịu.\nChúng tôi thấu hiểu điều này.");
         adPage2.setMsg("Hiện tại, " + appName + " sử dụng các hệ thống quảng cáo của một số bên thứ ba như Google, Facebook. Đôi khi, bạn sẽ nhìn thấy quảng cáo không phù hợp với mình.\n\nHệ thống quảng cáo cũng có thể bị lỗi và hiển thị khá nhiều, chúng tôi sẽ cố gắng giảm thiểu các sự cố như vậy trong thời gian sớm nhất.");
         adPageList.add(adPage2);
 
         AdPage adPage3 = new AdPage();
-        adPage3.setUrlAd(Constants.URL_IMG);
+        adPage3.setUrlAd("https://c2.staticflickr.com/2/1723/41766077684_54c007d2db_o.png");
         adPage3.setTitle("Đội ngũ " + appName + " rất mong nhận được sự đồng cảm và hỗ trợ của bạn");
         adPage3.setMsg("Chúng tôi cần quảng cáo, giống như bạn cần " + appName + " cho cuộc sống thường nhật của mình.\n\nChúng tôi sẽ nỗ lực để khiến bạn ngày một hài lòng khi sử dụng " + appName + "\n\nXin chân thành cảm ơn.");
         adPageList.add(adPage3);
