@@ -67,6 +67,7 @@ dependencies {
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
     compile 'com.google.android.gms:play-services-plus:15.0.1'
     compile 'com.google.android.gms:play-services-ads:15.0.1'
+    compile 'com.google.android.gms:play-services-location:15.0.1'
     compile 'com.nineoldandroids:library:2.4.0'//for draggable view
     //exoplayer
     compile 'com.google.android.exoplayer:exoplayer:2.7.3'
@@ -77,8 +78,10 @@ dependencies {
     //https://github.com/rubensousa/PreviewSeekBar
     compile 'com.github.rubensousa:previewseekbar:1.2'
     compile 'com.github.rubensousa:previewseekbar-exoplayer:2.6.0'
-    //androidTestImplementation 'com.github.bumptech.glide:compiler:4.4.0'
 
     //https://github.com/juliome10/DoubleViewPager
     compile 'com.github.juliome10:DoubleViewPager:1.0.4@aar'
+
+    //runtime permission https://github.com/Karumi/Dexter
+    compile 'com.karumi:dexter:4.2.0'
 }

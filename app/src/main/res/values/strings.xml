@@ -144,4 +144,8 @@ Likewise may someone love you next.
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="text_in_non_scroll_view">VerticalSeekBar in non-ScrollView</string>
     <string name="text_in_scroll_view">VerticalSeekBar in ScrollView</string>
+
+    <string name="start_updates">START LOCATION UPDATES</string>
+    <string name="stop_updates">STOP LOCATION UPDATES</string>
+    <string name="get_last_location">GET LAST LOCATION</string>
 </resources>
