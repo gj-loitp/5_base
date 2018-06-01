@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/White">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/ll_control"
-        android:layout_below="@+id/bt_back" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:direction="left"
+        app:duration="28000"
+        app:imageSrc="@drawable/city_2"
+        app:scaleType="centerCrop" />
 
     <ImageButton
         android:id="@+id/bt_back"
@@ -27,9 +30,9 @@
     <RelativeLayout
         android:id="@+id/ll_control"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
-        android:padding="@dimen/padding_5">
+        android:background="@color/White">
 
         <ImageButton
             android:id="@+id/bt_prev_screen"
@@ -66,4 +69,11 @@
             android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
             android:tint="@color/colorPrimary" />
     </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_control"
+        android:layout_below="@+id/bt_back" />
 </RelativeLayout>

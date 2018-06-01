@@ -1,6 +1,7 @@
 package vn.loitp.core.loitp.adhelper;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -158,11 +159,11 @@ public class AdHelperActivity extends BaseActivity {
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
             tv.setText(adPage.getTitle());
-            //LUIUtil.setTextShadow(tv);
+            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.White));
 
             TextView tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
             tvMsg.setText(adPage.getMsg());
-            //LUIUtil.setTextShadow(tvMsg);
+            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White));
 
             Button btOkay = (Button) layout.findViewById(R.id.bt_okay);
             if (position == adPageList.size() - 1) {
