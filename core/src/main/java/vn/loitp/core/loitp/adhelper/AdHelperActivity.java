@@ -1,12 +1,12 @@
 package vn.loitp.core.loitp.adhelper;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,10 +18,7 @@ import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 /**
  * Created by LENOVO on 5/31/2018.
@@ -29,10 +26,10 @@ import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Parall
 
 public class AdHelperActivity extends BaseActivity {
     private List<AdPage> adPageList = new ArrayList<>();
-    private FloatingActionButton btPrevScreen;
-    private FloatingActionButton btNextScreen;
+    private ImageButton btPrevScreen;
+    private ImageButton btNextScreen;
     private TextView tvPage;
-    private ParallaxViewPager viewPager;
+    private ViewPager viewPager;
 
     @Override
     protected boolean setFullScreen() {
@@ -79,10 +76,10 @@ public class AdHelperActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
-        btPrevScreen = (FloatingActionButton) findViewById(R.id.bt_prev_screen);
-        btNextScreen = (FloatingActionButton) findViewById(R.id.bt_next_screen);
+        btPrevScreen = (ImageButton) findViewById(R.id.bt_prev_screen);
+        btNextScreen = (ImageButton) findViewById(R.id.bt_next_screen);
         tvPage = (TextView) findViewById(R.id.tv_page);
-        LUIUtil.setTextShadow(tvPage);
+        //LUIUtil.setTextShadow(tvPage);
 
         setupData();
 
@@ -111,9 +108,7 @@ public class AdHelperActivity extends BaseActivity {
             }
         });
 
-        viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new SlidePagerAdapter());
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
@@ -139,6 +134,7 @@ public class AdHelperActivity extends BaseActivity {
                 //do nothing
             }
         });
+        tvPage.setText((viewPager.getCurrentItem() + 1) + "/" + adPageList.size());
     }
 
     private class SlidePagerAdapter extends PagerAdapter {

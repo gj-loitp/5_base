@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    android:background="@color/White">
 
-    <vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_control"
+        android:layout_below="@+id/bt_back" />
 
-    <android.support.design.widget.FloatingActionButton
+    <ImageButton
         android:id="@+id/bt_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
         android:layout_margin="@dimen/margin_5"
+        android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_arrow_back_white_48dp"
-        android:tint="@color/colorPrimary"
-        app:backgroundTint="@color/White"
-        app:borderWidth="@dimen/w_1"
-        app:elevation="@dimen/w_1"
-        app:fabSize="mini" />
+        android:scaleType="centerInside"
+        android:src="@drawable/baseline_clear_black_48"
+        android:tint="@color/colorPrimary" />
 
     <RelativeLayout
+        android:id="@+id/ll_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/padding_5">
 
-        <android.support.design.widget.FloatingActionButton
+        <ImageButton
             android:id="@+id/bt_prev_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/margin_5"
+            android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_arrow_back_white_48dp"
-            android:tint="@color/colorPrimary"
-            android:visibility="invisible"
-            app:backgroundTint="@color/White"
-            app:borderWidth="@dimen/w_1"
-            app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
+            android:tint="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/tv_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/txt_30"
-            android:textStyle="bold" />
+            android:textSize="@dimen/txt_22" />
 
-        <android.support.design.widget.FloatingActionButton
+        <ImageButton
             android:id="@+id/bt_next_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/margin_5"
+            android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
             android:rotation="180"
-            android:src="@drawable/ic_arrow_back_white_48dp"
-            android:tint="@color/colorPrimary"
-            app:backgroundTint="@color/White"
-            app:borderWidth="@dimen/w_1"
-            app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
+            android:tint="@color/colorPrimary" />
     </RelativeLayout>
 </RelativeLayout>
