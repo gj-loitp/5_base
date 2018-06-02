@@ -25,6 +25,7 @@ public class Constants {
     public final static String TEST_5 = "A1EC01C33BD69CD589C2AF605778C2E6";
     public final static String TEST_6 = "13308851AEDCA44443112D80A8D182CA";
     public final static String TEST_7 = "E3876538025DFE31EE38DC997F860C83";
+    public final static String TEST_8 = "263712DA42399656FF39E197148C935A";
 
     public final static String LOITP = "LoitpDebug";
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
