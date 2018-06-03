@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -39,6 +40,7 @@ import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
+import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 
@@ -118,11 +120,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @SuppressWarnings("unchecked")
     protected void subscribe(Observable observable, Subscriber subscriber) {
-        //TODO maybe in some cases we don't need to check internet connection
-        /*if (!NetworkUtils.hasConnection(this)) {
+        if (!LConnectivityUtil.isConnected(activity)) {
             subscriber.onError(new NoConnectionException());
             return;
-        }*/
+        }
 
         Subscription subscription = observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -184,11 +185,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
                 tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
-                //tvConnectStt.setBackgroundColor(Color.RED);
                 tvConnectStt.setPadding(20, 20, 20, 20);
                 tvConnectStt.setGravity(Gravity.CENTER);
                 //tvConnectStt.setText(R.string.check_ur_connection);
                 tvConnectStt.setText(R.string.check_ur_connection);
+                LUIUtil.setTextShadow(tvConnectStt);
+                LUIUtil.setTextSize(tvConnectStt, TypedValue.COMPLEX_UNIT_DIP, 10);
 
                 RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 rLParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);

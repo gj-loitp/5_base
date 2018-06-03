@@ -16,7 +16,9 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
 
 /**
  * Created by khanh on 7/31/16.
@@ -55,12 +57,10 @@ public abstract class BaseFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     protected void subscribe(Observable observable, Subscriber subscriber) {
-        //TODO maybe in some cases we don't need to check internet connection
-        /*if (!NetworkUtils.hasConnection(context)) {
+        if (!LConnectivityUtil.isConnected(getActivity())) {
             subscriber.onError(new NoConnectionException());
             return;
-        }*/
-
+        }
         Subscription subscription = observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
