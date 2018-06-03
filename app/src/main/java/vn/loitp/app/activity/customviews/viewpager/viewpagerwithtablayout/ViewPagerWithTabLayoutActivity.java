@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
+import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 
@@ -34,6 +41,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+        changeTabsFont(tabLayout, Constants.FONT_PATH);
     }
 
     @Override
@@ -93,6 +101,22 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return "Page Title " + position;
+        }
+    }
+
+    private void changeTabsFont(TabLayout tabLayout, String fontName) {
+
+        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            int tabChildsCount = vgTab.getChildCount();
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
+                }
+            }
         }
     }
 }

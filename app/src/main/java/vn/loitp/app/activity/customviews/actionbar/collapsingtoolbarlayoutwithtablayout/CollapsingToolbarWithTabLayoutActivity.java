@@ -19,7 +19,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 
@@ -80,6 +82,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        changeTabsFont(tabLayout, Constants.FONT_PATH);
     }
 
     @Override
@@ -166,6 +169,22 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
                     return "SECTION 3";
             }
             return null;
+        }
+    }
+
+    private void changeTabsFont(TabLayout tabLayout, String fontName) {
+
+        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            int tabChildsCount = vgTab.getChildCount();
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
+                }
+            }
         }
     }
 }

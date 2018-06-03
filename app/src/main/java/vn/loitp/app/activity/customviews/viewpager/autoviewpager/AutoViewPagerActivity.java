@@ -5,9 +5,19 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
+import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.common.Constants;
 import vn.loitp.views.viewpager.autoviewpager.lib.AutoViewPager;
 
 public class AutoViewPagerActivity extends BaseFontActivity {
@@ -22,6 +32,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+        changeTabsFont(tabLayout, Constants.FONT_PATH);
     }
 
     @Override
@@ -39,7 +50,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
         return R.layout.activity_auto_viewpager;
     }
 
-    private static class SamplePagerAdapter extends FragmentStatePagerAdapter {
+    private class SamplePagerAdapter extends FragmentStatePagerAdapter {
 
         SamplePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -58,6 +69,22 @@ public class AutoViewPagerActivity extends BaseFontActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return "Page Title " + position;
+        }
+    }
+
+    private void changeTabsFont(TabLayout tabLayout, String fontName) {
+
+        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            int tabChildsCount = vgTab.getChildCount();
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
+                }
+            }
         }
     }
 }
