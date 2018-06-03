@@ -1,19 +1,18 @@
 package vn.loitp.app.activity.customviews.edittext;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class EditTextMenuActivity extends BaseActivity implements View.OnClickListener {
+public class EditTextMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
