@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.animation.flyschool;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +7,13 @@ import android.widget.Button;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.animation.flyschool.ImgObject;
 import vn.loitp.views.animation.flyschool.PATHS;
 import vn.loitp.views.animation.flyschool.ShapeFlyer;
 
 //https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
-public class FlySchoolActivity extends BaseActivity {
+public class FlySchoolActivity extends BaseFontActivity {
     private ShapeFlyer mShapeFlyer;
     private Button btPlay1;
     private Button btPlay2;

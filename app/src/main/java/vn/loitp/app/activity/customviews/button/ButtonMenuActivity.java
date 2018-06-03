@@ -1,22 +1,20 @@
 package vn.loitp.app.activity.customviews.button;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
-import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class ButtonMenuActivity extends BaseActivity implements OnClickListener {
+public class ButtonMenuActivity extends BaseFontActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

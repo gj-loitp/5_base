@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.animation.activitytransition;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class Animation2Activity extends BaseActivity implements OnClickListener {
+public class Animation2Activity extends BaseFontActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

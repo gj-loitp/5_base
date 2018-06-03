@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,16 +11,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
-public class RecyclerViewWithSingletonDataActivity extends BaseActivity {
+public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
     private TextView tvType;

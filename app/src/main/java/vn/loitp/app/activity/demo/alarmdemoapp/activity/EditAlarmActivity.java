@@ -42,6 +42,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.core.base.BaseActivity;
@@ -49,7 +50,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class EditAlarmActivity extends BaseActivity {
+public class EditAlarmActivity extends BaseFontActivity {
     private EditText mTitle;
     private CheckBox mAlarmEnabled;
     private Spinner mOccurence;
@@ -148,7 +149,8 @@ public class EditAlarmActivity extends BaseActivity {
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
-        LActivityUtil.tranIn(activity);    }
+        LActivityUtil.tranIn(activity);
+    }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

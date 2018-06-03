@@ -1,17 +1,16 @@
 package vn.loitp.app.activity.customviews.layout.zoomlayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
 //read more
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
 
-public class ZoomLayoutActivity extends BaseActivity {
+public class ZoomLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

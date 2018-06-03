@@ -1,16 +1,15 @@
 package vn.loitp.app.activity.customviews.imageview.panoramaimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.imageview.panoramaimageview.GyroscopeObserver;
 import vn.loitp.views.imageview.panoramaimageview.PanoramaImageView;
 
 //https://github.com/gjiazhe/PanoramaImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5041
-public class PanoramaImageViewActivity extends BaseActivity {
+public class PanoramaImageViewActivity extends BaseFontActivity {
     private PanoramaImageView panoramaImageView;
     private GyroscopeObserver gyroscopeObserver;
 

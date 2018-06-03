@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.textview.verticalmarqueetextview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class VerticalMarqueeTextViewActivity extends BaseActivity {
+public class VerticalMarqueeTextViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

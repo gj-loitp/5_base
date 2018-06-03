@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.dialog.originaldialog;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,12 +7,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
-public class DialogOriginalActivity extends BaseActivity implements OnClickListener {
+public class DialogOriginalActivity extends BaseFontActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

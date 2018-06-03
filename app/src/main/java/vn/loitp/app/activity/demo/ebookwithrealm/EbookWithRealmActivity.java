@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.ebookwithrealm;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,17 +16,17 @@ import java.util.ArrayList;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.BooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
-public class EbookWithRealmActivity extends BaseActivity {
+public class EbookWithRealmActivity extends BaseFontActivity {
     private BooksAdapter booksAdapter;
     private Realm realm;
     private LayoutInflater layoutInflater;

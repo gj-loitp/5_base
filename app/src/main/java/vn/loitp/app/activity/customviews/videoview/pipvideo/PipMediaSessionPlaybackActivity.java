@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.pipvideo;
 
-import android.app.Activity;
 import android.app.PictureInPictureParams;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,11 +14,11 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.moviewview.MovieView;
 
-public class PipMediaSessionPlaybackActivity extends BaseActivity {
+public class PipMediaSessionPlaybackActivity extends BaseFontActivity {
     private static final String TAG = "MediaSessionPlaybackActivity";
 
     public static final long MEDIA_ACTIONS_PLAY_PAUSE =

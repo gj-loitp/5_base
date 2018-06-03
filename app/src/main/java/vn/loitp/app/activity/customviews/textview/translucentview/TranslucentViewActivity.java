@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.textview.translucentview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class TranslucentViewActivity extends BaseActivity {
+public class TranslucentViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.function.gesto;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.function.gesto.OnGestureListener;
 
-public class GestoActivity extends BaseActivity {
+public class GestoActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

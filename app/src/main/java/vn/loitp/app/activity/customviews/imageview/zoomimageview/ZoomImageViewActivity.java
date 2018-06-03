@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.customviews.imageview.zoomimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.imageview.zoomimageview.ColorGridDrawable;
 import vn.loitp.views.layout.zoomlayout.lib.ZoomImageView;
 
-public class ZoomImageViewActivity extends BaseActivity {
+public class ZoomImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

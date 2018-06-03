@@ -1,13 +1,12 @@
 package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
 //guide: https://github.com/sparrow007/CircularImageview?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6166
-public class CircularRoundRectImageViewActivity extends BaseActivity {
+public class CircularRoundRectImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

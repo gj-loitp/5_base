@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimagegallery;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,20 +8,14 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.Feed;
-import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.HeadingView;
-import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.Info;
-import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.InfoView;
-import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.Utils;
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.placeholderview.lib.placeholderview.ExpandablePlaceHolderView;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
-public class AndroidBeginnerImageGalleryActivity extends BaseActivity {
+public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
     private PlaceHolderView mGalleryView;
     private PlaceHolderView.OnScrollListener mOnScrollListener;
 

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.button.goodview;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -8,11 +7,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.button.goodview.GoodView;
 
 //https://github.com/venshine/GoodView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3854
-public class GoodViewActivity extends BaseActivity {
+public class GoodViewActivity extends BaseFontActivity {
     private GoodView goodView;
 
     @Override

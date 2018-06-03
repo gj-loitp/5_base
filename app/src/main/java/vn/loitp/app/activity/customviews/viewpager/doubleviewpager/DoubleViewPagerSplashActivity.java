@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.viewpager.doubleviewpager;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -16,10 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class DoubleViewPagerSplashActivity extends BaseActivity implements View.OnKeyListener {
+public class DoubleViewPagerSplashActivity extends BaseFontActivity implements View.OnKeyListener {
     private TextView title;
     private LinearLayout line;
     private ImageView logo;

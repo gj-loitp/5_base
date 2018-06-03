@@ -1,22 +1,20 @@
 package vn.loitp.app.activity.animation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class MenuAnimationActivity extends BaseActivity implements View.OnClickListener {
+public class MenuAnimationActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

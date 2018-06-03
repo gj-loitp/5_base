@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity;
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity;
@@ -15,10 +16,9 @@ import vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.Ove
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity;
 import vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class RecyclerViewMenuActivity extends BaseActivity implements View.OnClickListener {
+public class RecyclerViewMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

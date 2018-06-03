@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
 import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
@@ -13,7 +14,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class MenuAdsActivity extends BaseActivity {
+public class MenuAdsActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

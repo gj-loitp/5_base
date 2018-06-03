@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
-public class ParallaxYayandroidRecyclerViewActivity extends BaseActivity {
+public class ParallaxYayandroidRecyclerViewActivity extends BaseFontActivity {
     private TestRecyclerAdapter testRecyclerAdapter;
 
     @Override

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,17 +7,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.DrawerHeader;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.DrawerMenuItem;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
-public class ExoPlayer2WithDraggablePanel3Activity extends BaseActivity {
+public class ExoPlayer2WithDraggablePanel3Activity extends BaseFontActivity {
     private PlaceHolderView mDrawerView;
     private DrawerLayout mDrawer;
     private Toolbar mToolbar;

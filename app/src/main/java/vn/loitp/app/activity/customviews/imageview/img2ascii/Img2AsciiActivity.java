@@ -1,19 +1,15 @@
 package vn.loitp.app.activity.customviews.imageview.img2ascii;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.imageview.img2ascii.Img2Ascii;
-import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
-public class Img2AsciiActivity extends BaseActivity {
+public class Img2AsciiActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

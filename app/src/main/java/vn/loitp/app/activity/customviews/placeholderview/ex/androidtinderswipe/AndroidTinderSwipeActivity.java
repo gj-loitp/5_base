@@ -1,18 +1,17 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.placeholderview.lib.placeholderview.SwipeDecor;
 import vn.loitp.views.placeholderview.lib.placeholderview.SwipePlaceHolderView;
 
-public class AndroidTinderSwipeActivity extends BaseActivity {
+public class AndroidTinderSwipeActivity extends BaseFontActivity {
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
 

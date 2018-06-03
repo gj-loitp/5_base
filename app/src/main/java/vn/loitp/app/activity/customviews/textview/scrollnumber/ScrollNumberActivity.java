@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.customviews.textview.scrollnumber;
 
-import android.app.Activity;
 import android.os.Bundle;
-import vn.loitp.core.base.BaseActivity;
+
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.scrollnumber.lib.MultiScrollNumber;
 
-public class ScrollNumberActivity extends BaseActivity {
+public class ScrollNumberActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

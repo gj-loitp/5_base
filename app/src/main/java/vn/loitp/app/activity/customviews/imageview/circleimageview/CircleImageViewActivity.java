@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.imageview.circleimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class CircleImageViewActivity extends BaseActivity {
+public class CircleImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

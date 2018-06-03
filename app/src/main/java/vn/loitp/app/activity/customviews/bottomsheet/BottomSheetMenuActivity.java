@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.bottomsheet;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
@@ -10,11 +9,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
-public class BottomSheetMenuActivity extends BaseActivity {
+public class BottomSheetMenuActivity extends BaseFontActivity {
     private BottomSheetBehavior sheetBehavior;
     private LinearLayout layoutBottomSheet;
     private Button bt0;

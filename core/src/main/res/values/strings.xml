@@ -3,7 +3,7 @@
     <string name="save_conversation">Save</string>
     <string name="warning">Warning</string>
     <string name="confirm">Confirm</string>
-    <string name="check_ur_connection">Please check your Internet connection</string>
+    <string name="check_ur_connection">Please check your internet connection</string>
     <string name="download_failed">Download failed!</string>
     <string name="cannot_find_messenger_app">Cannot find Messenger App!</string>
     <string name="err">Error</string>

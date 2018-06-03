@@ -1,17 +1,15 @@
 package vn.loitp.app.activity.pattern.observerpattern;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
-public class ObserverPatternActivity extends BaseActivity implements View.OnClickListener, RepositoryObserver {
+public class ObserverPatternActivity extends BaseFontActivity implements View.OnClickListener, RepositoryObserver {
     private Subject mUserDataRepository;
     private TextView tv;
 

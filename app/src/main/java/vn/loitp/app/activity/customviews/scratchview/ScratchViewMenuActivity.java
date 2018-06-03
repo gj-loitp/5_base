@@ -1,18 +1,16 @@
 package vn.loitp.app.activity.customviews.scratchview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity;
-import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class ScratchViewMenuActivity extends BaseActivity implements View.OnClickListener {
+public class ScratchViewMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

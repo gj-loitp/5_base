@@ -25,4 +25,6 @@ public class Constants {
     public final static String TEST_6 = "13308851AEDCA44443112D80A8D182CA";
 
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
+    public final static String FONT_PATH = "fonts/proxima-nova-regular.otf";
+    public final static String FONT_PATH_BAISAU = "fonts/baisau.TTF";
 }

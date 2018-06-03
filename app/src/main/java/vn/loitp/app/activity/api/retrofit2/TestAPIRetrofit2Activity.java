@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.retrofit2;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,11 +14,11 @@ import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class TestAPIRetrofit2Activity extends BaseActivity {
+public class TestAPIRetrofit2Activity extends BaseFontActivity {
     private RecyclerView mRecyclerView;
     private SOService mService;
     private AnswersAdapter mAdapter;

@@ -1,19 +1,13 @@
 package vn.loitp.app.activity.customviews.layout.autolinearlayout;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.layout.autolinearlayout.AutoLinearLayout;
+import vn.loitp.app.activity.BaseFontActivity;
 
 //read more
 //https://github.com/AlbertGrobas/AutoLinearLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1852
-public class AutoLinearLayoutActivity extends BaseActivity {
+public class AutoLinearLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

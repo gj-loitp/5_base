@@ -2,18 +2,22 @@ package vn.loitp.core.base;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,10 +33,12 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
-import vn.loitp.views.smoothtransition.SwitchAnimationUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 
@@ -169,20 +175,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    //private TextView tvConnectStt;
+    private TextView tvConnectStt;
 
-    /*private void showTvNoConnect() {
+    private void showTvNoConnect() {
         if (rootView != null) {
             if (tvConnectStt == null) {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
-                //tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.LightPink));
-                tvConnectStt.setBackgroundColor(Color.RED);
+                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
+                //tvConnectStt.setBackgroundColor(Color.RED);
                 tvConnectStt.setPadding(20, 20, 20, 20);
                 tvConnectStt.setGravity(Gravity.CENTER);
                 //tvConnectStt.setText(R.string.check_ur_connection);
-                tvConnectStt.setText(R.string.check_ur_connection_vn);
+                tvConnectStt.setText(R.string.check_ur_connection);
 
                 RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 rLParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);
@@ -196,14 +202,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             //LLog.d(TAG, "rootView == null");
         }
-    }*/
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         //TAG = "onMessageEvent";
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
-        //onNetworkChange(event);
-        /*if (!event.isConnected()) {//no network
+        LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        onNetworkChange(event);
+        if (!event.isConnected()) {//no network
             showTvNoConnect();
         } else {
             if (tvConnectStt != null) {
@@ -232,12 +238,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 });
                 tvConnectStt = null;
             }
-        }*/
+        }
     }
 
-    /*protected void onNetworkChange(EventBusData.ConnectEvent event){
+    protected void onNetworkChange(EventBusData.ConnectEvent event) {
 
-    }*/
+    }
 
     @Override
     public void onStart() {
@@ -251,11 +257,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    /*@Override
+    @Override
     protected void onResume() {
-        super.onResume();
         if (!LConnectivityUtil.isConnected(activity)) {
             showTvNoConnect();
         }
-    }*/
+        super.onResume();
+    }
 }

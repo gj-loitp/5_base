@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.dialog.prettydialog;
 
-import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -8,13 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.dialog.prettydialog.PrettyDialog;
 import vn.loitp.views.dialog.prettydialog.PrettyDialogCallback;
 
 //https://github.com/mjn1369/PrettyDialog
-public class PrettyDialogActivity extends BaseActivity implements OnClickListener {
+public class PrettyDialogActivity extends BaseFontActivity implements OnClickListener {
     private PrettyDialog prettyDialog;
 
     @Override

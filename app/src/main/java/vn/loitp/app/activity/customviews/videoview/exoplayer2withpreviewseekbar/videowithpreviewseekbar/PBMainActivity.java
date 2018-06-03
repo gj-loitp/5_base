@@ -17,7 +17,6 @@
 
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,12 +31,11 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerManagerPB;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
 
-public class PBMainActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener, PreviewView.OnPreviewChangeListener {
+public class PBMainActivity extends BaseFontActivity implements Toolbar.OnMenuItemClickListener, PreviewView.OnPreviewChangeListener {
     private static final int PICK_FILE_REQUEST_CODE = 2;
     private ExoPlayerManagerPB exoPlayerManagerPB;
     private PreviewTimeBarLayout previewTimeBarLayout;

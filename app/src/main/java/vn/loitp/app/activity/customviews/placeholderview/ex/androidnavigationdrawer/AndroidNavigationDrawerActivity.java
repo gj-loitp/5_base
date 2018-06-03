@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -8,13 +7,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
-public class AndroidNavigationDrawerActivity extends BaseActivity {
+public class AndroidNavigationDrawerActivity extends BaseFontActivity {
     private PlaceHolderView mDrawerView;
     private DrawerLayout mDrawer;
     private Toolbar mToolbar;

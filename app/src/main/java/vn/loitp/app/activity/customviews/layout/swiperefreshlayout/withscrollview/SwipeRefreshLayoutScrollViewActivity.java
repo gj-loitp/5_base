@@ -6,12 +6,13 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
-public class SwipeRefreshLayoutScrollViewActivity extends BaseActivity {
+public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override

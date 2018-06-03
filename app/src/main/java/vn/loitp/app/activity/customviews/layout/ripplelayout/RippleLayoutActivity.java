@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.layout.ripplelayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class RippleLayoutActivity extends BaseActivity {
+public class RippleLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

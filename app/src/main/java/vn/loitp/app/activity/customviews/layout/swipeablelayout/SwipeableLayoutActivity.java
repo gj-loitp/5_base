@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.layout.swipeablelayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +7,7 @@ import android.widget.Button;
 import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.layout.swipeablelayout.frame.SwipeableLayout;
@@ -19,7 +18,7 @@ import vn.loitp.views.layout.swipeablelayout.listener.OnLayoutSwipedListener;
 //read more
 //https://github.com/ReginFell/SwipeableLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2729
 
-public class SwipeableLayoutActivity extends BaseActivity {
+public class SwipeableLayoutActivity extends BaseFontActivity {
     private Button bt;
 
     @Override

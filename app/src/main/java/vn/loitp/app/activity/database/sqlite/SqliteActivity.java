@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.database.sqlite;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.utils.util.ToastUtils;
 
-public class SqliteActivity extends BaseActivity implements View.OnClickListener {
+public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private List<Contact> contactList = new ArrayList<>();
     private LinearLayout ll;

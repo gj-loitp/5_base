@@ -1,16 +1,15 @@
 package vn.loitp.app.activity.customviews.actionbar.lactionbar;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.actionbar.lib.LActionBar;
 
-public class LActionbarActivity extends BaseActivity {
+public class LActionbarActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

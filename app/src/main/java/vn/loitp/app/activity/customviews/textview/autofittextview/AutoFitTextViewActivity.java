@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.textview.autofittextview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,9 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class AutoFitTextViewActivity extends BaseActivity {
+public class AutoFitTextViewActivity extends BaseFontActivity {
     private TextView mOutput, mAutofitOutput;
 
     @Override

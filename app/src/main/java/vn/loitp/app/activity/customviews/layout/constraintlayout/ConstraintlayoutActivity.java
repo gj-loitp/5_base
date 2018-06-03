@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.Button;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class ConstraintlayoutActivity extends BaseActivity {
+public class ConstraintlayoutActivity extends BaseFontActivity {
     private Button button;
     private Button bt0;
     private Button bt1;

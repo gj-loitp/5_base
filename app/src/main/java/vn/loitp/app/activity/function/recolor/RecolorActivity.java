@@ -9,13 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.recolor.OnReColorFinish;
 import vn.loitp.function.recolor.ReColor;
 
 //https://github.com/SIMMORSAL/ReColor?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6603
-public class RecolorActivity extends BaseActivity {
+public class RecolorActivity extends BaseFontActivity {
     private Activity context;
     private LinearLayout rootView, linReColorBackground;
     private LinearLayout linRecolorStatusBar, linRecolorNavigationBar, linRecolorBoth;

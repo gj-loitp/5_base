@@ -1,18 +1,16 @@
 package vn.loitp.app.activity.customviews.imageview.scrollparallaximageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
-import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalMovingStyle;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalScaleStyle;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.VerticalMovingStyle;
 
 //https://github.com/gjiazhe/ScrollParallaxImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4759
-public class ScrollParallaxImageViewActivity extends BaseActivity {
+public class ScrollParallaxImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

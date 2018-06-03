@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
-public class SwipeRefreshLayoutRecyclerViewActivity extends BaseActivity {
+public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;

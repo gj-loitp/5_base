@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.customviews.layout;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity;
@@ -19,10 +19,9 @@ import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutA
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class LayoutMenuActivity extends BaseActivity implements View.OnClickListener {
+public class LayoutMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

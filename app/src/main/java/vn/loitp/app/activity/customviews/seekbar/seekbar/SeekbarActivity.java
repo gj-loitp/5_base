@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 
-public class SeekbarActivity extends BaseActivity {
+public class SeekbarActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

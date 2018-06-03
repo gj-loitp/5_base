@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.gallery;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,7 +8,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import vn.loitp.core.base.BaseActivity;
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -17,13 +17,12 @@ import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
-import loitp.basemaster.R;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoPhotosActivity extends BaseActivity {
+public class GalleryDemoPhotosActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
     private TextView tvTitle;
@@ -118,7 +117,8 @@ public class GalleryDemoPhotosActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
                             intent.putExtra("photoID", photo.getId());
                             startActivity(intent);
-                            LActivityUtil.tranIn(activity);                        }
+                            LActivityUtil.tranIn(activity);
+                        }
                     }));
                 }
                 avi.smoothToHide();

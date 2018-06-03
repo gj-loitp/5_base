@@ -5,13 +5,13 @@ import android.hardware.SensorEvent;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.compass.Compass;
 import vn.loitp.views.compass.CompassListener;
 
 //https://github.com/arbelkilani/Compass-View?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6973
-public class CompasActivity extends BaseActivity {
+public class CompasActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

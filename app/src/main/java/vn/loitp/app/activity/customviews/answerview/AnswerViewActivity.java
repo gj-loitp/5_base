@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.answerview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.answerview.AnswerView;
 
-public class AnswerViewActivity extends BaseActivity {
+public class AnswerViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

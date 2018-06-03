@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.seekbar.circularseekbar;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -8,10 +7,11 @@ import android.support.design.widget.Snackbar;
 import java.text.DecimalFormat;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.seekbar.circularseekbar.CircularSeekBar;
+
 //https://github.com/akaita/CircularSeekBar
-public class CircularSeekbarActivity extends BaseActivity {
+public class CircularSeekbarActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

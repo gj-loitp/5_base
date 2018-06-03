@@ -1,19 +1,18 @@
 package vn.loitp.app.activity.customviews.treeview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.treeview.BaseTreeAdapter;
 import vn.loitp.views.treeview.TreeNode;
 import vn.loitp.views.treeview.TreeView;
 
 //https://github.com/Team-Blox/TreeView
-public class TreeViewActivity extends BaseActivity {
+public class TreeViewActivity extends BaseFontActivity {
     private int nodeCount = 0;
 
     @Override

@@ -1,20 +1,19 @@
 package vn.loitp.app.activity.api;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity;
 import vn.loitp.app.activity.api.test.TestAPIActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.restapi.restclient.RestClient;
 
-public class MenuAPIActivity extends BaseActivity {
+public class MenuAPIActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

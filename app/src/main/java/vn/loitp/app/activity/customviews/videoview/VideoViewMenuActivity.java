@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity;
@@ -20,11 +20,10 @@ import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPla
 import vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.LToast;
 
-public class VideoViewMenuActivity extends BaseActivity implements OnClickListener {
+public class VideoViewMenuActivity extends BaseFontActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

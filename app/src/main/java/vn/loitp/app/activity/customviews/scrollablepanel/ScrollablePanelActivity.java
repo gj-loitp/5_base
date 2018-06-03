@@ -10,11 +10,11 @@ import java.util.Locale;
 import java.util.Random;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.scrollablepanel.ScrollablePanel;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
-public class ScrollablePanelActivity extends BaseActivity {
+public class ScrollablePanelActivity extends BaseFontActivity {
     public static final SimpleDateFormat DAY_UI_MONTH_DAY_FORMAT = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat WEEK_FORMAT = new SimpleDateFormat("EEE", Locale.US);
 

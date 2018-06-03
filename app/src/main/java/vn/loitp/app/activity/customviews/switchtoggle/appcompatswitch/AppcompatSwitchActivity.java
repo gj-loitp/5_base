@@ -1,15 +1,13 @@
 package vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import vn.loitp.core.base.BaseActivity;
-
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 
-public class AppcompatSwitchActivity extends BaseActivity {
+public class AppcompatSwitchActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

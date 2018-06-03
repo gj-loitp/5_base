@@ -6,12 +6,13 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class AdmobInterstitialActivity extends BaseActivity {
+public class AdmobInterstitialActivity extends BaseFontActivity {
     private InterstitialAd interstitialAd;
 
     @Override

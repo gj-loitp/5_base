@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.button.fbutton;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
 //guide https://github.com/hoang8f/android-flat-button
-public class FButtonActivity extends BaseActivity {
+public class FButtonActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

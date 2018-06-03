@@ -11,12 +11,12 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.uizavideo.view.util.UizaUtil;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.uizavideo.view.util.UizaUtil;
 
-public class ExoPlayerDemoFromGGIMActivity extends BaseActivity implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
+public class ExoPlayerDemoFromGGIMActivity extends BaseFontActivity implements PreviewView.OnPreviewChangeListener, View.OnClickListener {
     private PlayerView playerView;
     private PlayerManager player;
     private PreviewTimeBarLayout previewTimeBarLayout;

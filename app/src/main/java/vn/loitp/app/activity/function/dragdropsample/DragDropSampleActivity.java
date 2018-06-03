@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.function.dragdropsample;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -8,10 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 
-public class DragDropSampleActivity extends BaseActivity {
+public class DragDropSampleActivity extends BaseFontActivity {
     private ImageView paper;
     private ImageView trash;
 

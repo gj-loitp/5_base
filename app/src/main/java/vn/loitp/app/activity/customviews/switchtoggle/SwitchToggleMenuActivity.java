@@ -1,20 +1,17 @@
 package vn.loitp.app.activity.customviews.switchtoggle;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity;
-import vn.loitp.core.base.BaseActivity;
-
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class SwitchToggleMenuActivity extends BaseActivity implements View.OnClickListener {
+public class SwitchToggleMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

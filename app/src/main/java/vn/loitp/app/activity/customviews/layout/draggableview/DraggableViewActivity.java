@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.layout.draggableview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.layout.draggablepanel.DraggableListener;
 import vn.loitp.views.layout.draggablepanel.DraggableView;
 
-public class DraggableViewActivity extends BaseActivity {
+public class DraggableViewActivity extends BaseFontActivity {
     private DraggableView draggableView;
 
     @Override

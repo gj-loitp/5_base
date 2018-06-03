@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.pipvideo;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.PictureInPictureParams;
 import android.app.RemoteAction;
@@ -21,11 +20,11 @@ import android.widget.ScrollView;
 import java.util.ArrayList;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.moviewview.MovieView;
 
-public class PiPVideoActivity extends BaseActivity {
+public class PiPVideoActivity extends BaseFontActivity {
     /**
      * Intent action for media controls from Picture-in-Picture mode.
      */

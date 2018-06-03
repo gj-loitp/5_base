@@ -1,23 +1,18 @@
 package vn.loitp.app.activity.database;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity;
-import vn.loitp.app.activity.api.test.TestAPIActivity;
-import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity;
 import vn.loitp.app.activity.database.realm.RealmActivity;
 import vn.loitp.app.activity.database.sqlite.SqliteActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.restapi.restclient.RestClient;
 
-public class MenuDatabaseActivity extends BaseActivity implements OnClickListener {
+public class MenuDatabaseActivity extends BaseFontActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

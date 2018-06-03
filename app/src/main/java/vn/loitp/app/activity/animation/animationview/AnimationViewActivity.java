@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.animation.animationview;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,13 +14,12 @@ import java.util.EnumSet;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class AnimationViewActivity extends BaseActivity {
+public class AnimationViewActivity extends BaseFontActivity {
     private TextView tvAnim;
     private TextView tvGuide;
     private Button btSelectAnim;

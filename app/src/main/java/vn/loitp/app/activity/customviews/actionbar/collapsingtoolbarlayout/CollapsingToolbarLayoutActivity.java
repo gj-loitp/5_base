@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,13 +11,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LAppBarLayout;
 import vn.loitp.views.LToast;
 
-public class CollapsingToolbarLayoutActivity extends BaseActivity implements OnClickListener {
+public class CollapsingToolbarLayoutActivity extends BaseFontActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

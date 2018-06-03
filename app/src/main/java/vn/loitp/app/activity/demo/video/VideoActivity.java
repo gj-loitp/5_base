@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.video;
 
-import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Surface;
@@ -32,11 +31,11 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 
-public class VideoActivity extends BaseActivity implements VideoRendererEventListener {
+public class VideoActivity extends BaseFontActivity implements VideoRendererEventListener {
     private SimpleExoPlayerView simpleExoPlayerView;
     private SimpleExoPlayer player;
     private TextView resolutionTextView;

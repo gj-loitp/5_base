@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.textview.scoretext;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,11 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 
-public class ScoreTextViewActivity extends BaseActivity {
+public class ScoreTextViewActivity extends BaseFontActivity {
     private TextView tv;
     private Button bt;
 

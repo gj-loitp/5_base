@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.floatingwidget;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -10,10 +9,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.LToast;
 
-public class FloatingWidgetActivity extends BaseActivity {
+public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
 
     @Override

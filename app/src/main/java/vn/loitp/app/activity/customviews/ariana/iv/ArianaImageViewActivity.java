@@ -1,18 +1,17 @@
 package vn.loitp.app.activity.customviews.ariana.iv;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.Ariana;
 import vn.loitp.views.ariana.GradientAngle;
 
 //https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235
-public class ArianaImageViewActivity extends BaseActivity {
+public class ArianaImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

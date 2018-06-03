@@ -1,13 +1,12 @@
 package vn.loitp.app.activity.api.test;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.livestar.corev3.api.model.v3.categoryget.CategoryGet;
@@ -18,7 +17,7 @@ import vn.loitp.restapi.uiza.UizaServiceTest;
 import vn.loitp.restapi.wtt.WTTService;
 import vn.loitp.rxandroid.ApiSubscriber;
 
-public class TestAPIActivity extends BaseActivity {
+public class TestAPIActivity extends BaseFontActivity {
     private TextView tv;
 
     @Override

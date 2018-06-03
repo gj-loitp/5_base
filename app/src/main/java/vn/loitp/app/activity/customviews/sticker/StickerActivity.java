@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.views.sticker.lib.StickerImageView;
 import vn.loitp.views.sticker.lib.StickerTextView;
 
-public class StickerActivity extends BaseActivity {
+public class StickerActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,11 +2,13 @@ package vn.loitp.app.activity.customviews.progressloadingview.circularprogressba
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.views.progressloadingview.circularprogressbar.lib.CircularProgressBar;
 
-public class CircularProgressBarActivity extends BaseActivity {
+public class CircularProgressBarActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

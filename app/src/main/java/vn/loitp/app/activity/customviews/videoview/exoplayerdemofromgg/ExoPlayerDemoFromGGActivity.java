@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayerdemofromgg;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class ExoPlayerDemoFromGGActivity extends BaseActivity {
+public class ExoPlayerDemoFromGGActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.customviews.imageview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity;
@@ -18,10 +18,9 @@ import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.Scrol
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class ImageViewMenuActivity extends BaseActivity implements OnClickListener {
+public class ImageViewMenuActivity extends BaseFontActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

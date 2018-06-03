@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.customviews.textview.justifiedtextview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.justifiedtextview.JustifiedTextView;
 
-public class JustifiedTextViewActivity extends BaseActivity {
+public class JustifiedTextViewActivity extends BaseFontActivity {
 
 
     @Override

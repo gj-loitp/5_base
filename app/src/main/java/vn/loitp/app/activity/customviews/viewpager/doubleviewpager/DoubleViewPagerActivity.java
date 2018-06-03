@@ -9,10 +9,11 @@ import com.emoiluj.doubleviewpager.DoubleViewPagerAdapter;
 
 import java.util.ArrayList;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 
-public class DoubleViewPagerActivity extends BaseActivity {
+public class DoubleViewPagerActivity extends BaseFontActivity {
     private DoubleViewPager viewpager;
     private int horizontalChilds;
     private int verticalChilds;

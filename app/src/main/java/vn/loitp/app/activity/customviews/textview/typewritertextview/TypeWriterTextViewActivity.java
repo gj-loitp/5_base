@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.textview.typewritertextview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.typewritertextview.lib.TypeWriterTextView;
 
-public class TypeWriterTextViewActivity extends BaseActivity {
+public class TypeWriterTextViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

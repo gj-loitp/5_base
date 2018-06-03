@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.customviews.googleplusbutton;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.google.android.gms.plus.PlusOneButton;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class GooglePlusButtonActivity extends BaseActivity {
+public class GooglePlusButtonActivity extends BaseFontActivity {
     private PlusOneButton pButtonStandard;
 
     @Override

@@ -6,11 +6,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 
-public class PopupMenuActivity extends BaseActivity implements View.OnClickListener {
+public class PopupMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.database.readsqliteasset;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -9,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class ReadSqliteAssetActivity extends BaseActivity {
+public class ReadSqliteAssetActivity extends BaseFontActivity {
     private VocabularyManager vocabularyManager;
     private TextView tv;
 

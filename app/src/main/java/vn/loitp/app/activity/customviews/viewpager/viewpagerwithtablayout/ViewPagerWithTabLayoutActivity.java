@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -15,13 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
-public class ViewPagerWithTabLayoutActivity extends BaseActivity {
+public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
     private List<Integer> resList = new ArrayList<>();
 

@@ -1,7 +1,5 @@
 package vn.loitp.app.activity.customviews.ariana.vp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,12 +8,12 @@ import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.ArianaBackgroundListener;
 
 //https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235
-public class ArianaViewPagerActivity extends BaseActivity {
+public class ArianaViewPagerActivity extends BaseFontActivity {
     ViewPager viewPager;
     ImageView imageView;
     private int NUM_PAGES = 7;

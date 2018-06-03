@@ -1,16 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.swipebacklayout;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RadioGroup;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.layout.swipeback.SwipeBackLayout;
 
 //https://github.com/gongwen/SwipeBackLayout
-public class SwipeBackLayoutActivity extends BaseActivity {
+public class SwipeBackLayoutActivity extends BaseFontActivity {
     private SwipeBackLayout mSwipeBackLayout;
 
     @Override

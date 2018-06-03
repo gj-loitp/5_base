@@ -19,7 +19,6 @@
 
 package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -40,15 +39,14 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
-import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class AlarmNotification extends BaseActivity {
+public class AlarmNotification extends BaseFontActivity {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
     private final long[] mVibratePattern = {0, 500, 500};

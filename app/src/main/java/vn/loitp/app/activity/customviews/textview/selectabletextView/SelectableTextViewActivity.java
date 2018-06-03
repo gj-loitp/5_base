@@ -1,18 +1,16 @@
 package vn.loitp.app.activity.customviews.textview.selectabletextView;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.views.textview.scrollnumber.lib.MultiScrollNumber;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.selectabletextview.SelectableListener;
 import vn.loitp.views.textview.selectabletextview.SelectableView;
 
-public class SelectableTextViewActivity extends BaseActivity {
+public class SelectableTextViewActivity extends BaseFontActivity {
     private TextView emptyBoxBtn;
     private SelectableView selectableView;
 

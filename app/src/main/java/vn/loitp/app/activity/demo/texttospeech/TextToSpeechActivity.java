@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LTextToSpeechUtil;
 
-public class TextToSpeechActivity extends BaseActivity implements OnClickListener {
+public class TextToSpeechActivity extends BaseFontActivity implements OnClickListener {
     private EditText etType;
     private Button btSpeak;
 

@@ -1,17 +1,15 @@
 package vn.loitp.app.activity.customviews.bottomnavigationbar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity;
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
-public class BottomNavigationMenuActivity extends BaseActivity {
+public class BottomNavigationMenuActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.keyword_hottags;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
-public class KeywordHotagsActivity extends BaseActivity {
+public class KeywordHotagsActivity extends BaseFontActivity {
     private PlaceHolderView placeHolderView;
 
     @Override

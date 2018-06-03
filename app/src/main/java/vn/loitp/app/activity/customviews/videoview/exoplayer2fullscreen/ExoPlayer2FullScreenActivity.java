@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,12 +38,12 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
 
-public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.OnClickListener {
+public class ExoPlayer2FullScreenActivity extends BaseFontActivity implements View.OnClickListener {
     private SimpleExoPlayerView mExoPlayerView;
     private MediaSource mVideoSource;
     private TextView tv;
@@ -105,7 +104,7 @@ public class ExoPlayer2FullScreenActivity extends BaseActivity implements View.O
         LoadControl loadControl = new DefaultLoadControl();
         SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(this), trackSelector, loadControl);
         mExoPlayerView.setPlayer(player);
-        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
+        ((SimpleExoPlayer) mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
             @Override

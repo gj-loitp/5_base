@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplaceholderview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.Image;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeBig;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeSmallList;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.Utils;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
-public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseActivity {
+public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private PlaceHolderView mGalleryView;
     private PlaceHolderView.OnScrollListener mOnScrollListener;

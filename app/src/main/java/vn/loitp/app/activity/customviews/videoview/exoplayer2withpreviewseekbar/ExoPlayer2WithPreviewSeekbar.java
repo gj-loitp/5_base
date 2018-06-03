@@ -1,17 +1,16 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class ExoPlayer2WithPreviewSeekbar extends BaseActivity {
+public class ExoPlayer2WithPreviewSeekbar extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

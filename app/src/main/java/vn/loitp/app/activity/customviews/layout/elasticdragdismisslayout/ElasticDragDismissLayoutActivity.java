@@ -1,16 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback;
 import vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout;
 
 //https://github.com/Commit451/ElasticDragDismissLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3098
-public class ElasticDragDismissLayoutActivity extends BaseActivity {
+public class ElasticDragDismissLayoutActivity extends BaseFontActivity {
     private TextView tv;
 
     @Override

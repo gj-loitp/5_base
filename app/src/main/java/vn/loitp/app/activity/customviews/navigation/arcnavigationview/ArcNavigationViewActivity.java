@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.navigation.arcnavigationview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -15,9 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class ArcNavigationViewActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ArcNavigationViewActivity extends BaseFontActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
 
     @Override

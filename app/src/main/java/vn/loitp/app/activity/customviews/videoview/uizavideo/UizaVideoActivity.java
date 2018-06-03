@@ -22,13 +22,13 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.uizavideo.view.util.UizaUtil;
 
-public class UizaVideoActivity extends BaseActivity {
+public class UizaVideoActivity extends BaseFontActivity {
     private FrameLayout frmUizaVideo;
 
     @Override

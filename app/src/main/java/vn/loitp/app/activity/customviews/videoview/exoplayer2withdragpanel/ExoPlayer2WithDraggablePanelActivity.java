@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,7 +31,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -43,14 +41,14 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LDisplayUtils;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.draggablepanel.DraggableListener;
 import vn.loitp.views.layout.draggablepanel.DraggableView;
 
-public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implements View.OnClickListener {
+public class ExoPlayer2WithDraggablePanelActivity extends BaseFontActivity implements View.OnClickListener {
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
@@ -203,7 +201,7 @@ public class ExoPlayer2WithDraggablePanelActivity extends BaseActivity implement
             mExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         }
 
-        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
+        ((SimpleExoPlayer) mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
 

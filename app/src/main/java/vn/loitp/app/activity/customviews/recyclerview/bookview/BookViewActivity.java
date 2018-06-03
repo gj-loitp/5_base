@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
-public class BookViewActivity extends BaseActivity {
+public class BookViewActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private BookAdapter mAdapter;

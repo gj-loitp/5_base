@@ -3,12 +3,12 @@ package vn.loitp.app.activity.animation.expectanim;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LScreenUtil;
 
 //https://github.com/florent37/ExpectAnim/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5335
-public class ExpectAnimActivity extends BaseActivity {
+public class ExpectAnimActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

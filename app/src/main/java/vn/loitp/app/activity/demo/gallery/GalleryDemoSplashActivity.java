@@ -1,17 +1,16 @@
 package vn.loitp.app.activity.demo.gallery;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoSplashActivity extends BaseActivity {
+public class GalleryDemoSplashActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
 
     @Override
@@ -23,7 +22,8 @@ public class GalleryDemoSplashActivity extends BaseActivity {
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryDemoAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);                finish();
+                LActivityUtil.tranIn(activity);
+                finish();
             }
         });
     }

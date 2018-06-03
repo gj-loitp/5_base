@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LUIUtil;
@@ -25,7 +25,7 @@ import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 //https://github.com/wasabeef/recyclerview-animators
 
-public class RecyclerViewActivity extends BaseActivity {
+public class RecyclerViewActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;

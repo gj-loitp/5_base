@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -21,11 +19,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 
-public class CollapsingToolbarWithTabLayoutActivity extends BaseActivity implements OnClickListener {
+public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity implements OnClickListener {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;

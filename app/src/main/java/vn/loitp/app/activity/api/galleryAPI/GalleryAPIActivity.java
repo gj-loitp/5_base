@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.galleryAPI;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,8 +10,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -20,12 +20,11 @@ import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
-import loitp.basemaster.R;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryAPIActivity extends BaseActivity {
+public class GalleryAPIActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
     private TextView tv;
     private Button bt1;

@@ -1,18 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.dragueur;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.layout.dragueur.Direction;
 import vn.loitp.views.layout.dragueur.DraggableView;
-import vn.loitp.views.layout.dragueur.ViewAnimator;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
-public class DragueurActivity extends BaseActivity {
+public class DragueurActivity extends BaseFontActivity {
     private DraggableView draggableView;
     private TextView tv;
 

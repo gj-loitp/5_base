@@ -6,11 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.SeekBar;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.recyclerview.banner.layoutmanager.CenterScrollListener;
 import vn.loitp.views.recyclerview.banner.layoutmanager.OverFlyingLayoutManager;
 
-public class OverFlyingRecyclerViewActivity extends BaseActivity {
+public class OverFlyingRecyclerViewActivity extends BaseFontActivity {
     private RecyclerView recyclerView;
     private OverFlyingLayoutManager mOverFlyingLayoutManager;
     private Handler mHandler;

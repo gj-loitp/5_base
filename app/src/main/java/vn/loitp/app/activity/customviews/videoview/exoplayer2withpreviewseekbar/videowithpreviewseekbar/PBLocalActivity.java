@@ -17,15 +17,13 @@
 
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class PBLocalActivity extends BaseActivity {
+public class PBLocalActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

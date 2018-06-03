@@ -1,26 +1,25 @@
 package vn.loitp.app.activity.demo.gallery;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 
 import java.util.List;
 
-import vn.loitp.core.base.BaseActivity;
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
-import loitp.basemaster.R;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryDemoAlbumActivity extends BaseActivity {
+public class GalleryDemoAlbumActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
 
@@ -73,7 +72,8 @@ public class GalleryDemoAlbumActivity extends BaseActivity {
                             Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
                             intent.putExtra("photosetID", photoset.getId());
                             startActivity(intent);
-                            LActivityUtil.tranIn(activity);                        }
+                            LActivityUtil.tranIn(activity);
+                        }
                     }));
                 }
                 avi.smoothToHide();

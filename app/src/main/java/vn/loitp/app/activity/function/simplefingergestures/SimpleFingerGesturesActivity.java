@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.function.simplefingergestures;
 
-import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
@@ -8,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.function.simplefingergestures.SimpleFingerGestures;
 
-public class SimpleFingerGesturesActivity extends BaseActivity {
+public class SimpleFingerGesturesActivity extends BaseFontActivity {
     private SimpleFingerGestures mySfg = new SimpleFingerGestures();
 
     @Override

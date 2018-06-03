@@ -1,14 +1,12 @@
 package vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.views.imageview.fidgetspinnerimageview.FidgetSpinner;
+import vn.loitp.app.activity.BaseFontActivity;
 
 //https://github.com/Cutta/ContinuousScrollableImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6094
-public class ContinuousScrollableImageViewActivity extends BaseActivity {
+public class ContinuousScrollableImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

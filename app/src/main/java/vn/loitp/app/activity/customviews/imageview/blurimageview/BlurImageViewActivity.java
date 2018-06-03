@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.views.imageview.blurimageview.lib.BlurImage;
 
-public class BlurImageViewActivity extends BaseActivity {
+public class BlurImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

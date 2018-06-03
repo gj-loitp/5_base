@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.truyentranhtuan;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -11,17 +10,17 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class TTTAPIComicListActivity extends BaseActivity {
+public class TTTAPIComicListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
     private AVLoadingIndicatorView avi;

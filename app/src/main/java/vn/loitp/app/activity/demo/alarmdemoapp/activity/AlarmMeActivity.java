@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
@@ -40,7 +41,7 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class AlarmMeActivity extends BaseActivity {
+public class AlarmMeActivity extends BaseFontActivity {
     private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
     private Alarm mCurrentAlarm;

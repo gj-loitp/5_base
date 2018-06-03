@@ -21,7 +21,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseFontActivity {
     private boolean isAnimDone = false;
     private boolean isCheckReadyDone = false;
 

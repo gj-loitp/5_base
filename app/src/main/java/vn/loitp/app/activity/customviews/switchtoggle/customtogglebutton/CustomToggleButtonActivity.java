@@ -3,12 +3,13 @@ package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton;
 import android.app.Activity;
 import android.os.Bundle;
 
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle;
 
-public class CustomToggleButtonActivity extends BaseActivity {
+public class CustomToggleButtonActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

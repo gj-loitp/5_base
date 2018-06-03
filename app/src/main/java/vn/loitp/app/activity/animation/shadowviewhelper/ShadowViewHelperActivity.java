@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.animation.shadowviewhelper;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
@@ -8,14 +7,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.shadowviewhelper.ShadowProperty;
 import vn.loitp.views.shadowviewhelper.ShadowViewDrawable;
 
 import static vn.loitp.core.utilities.LDisplayUtils.dip2px;
 
 //https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
-public class ShadowViewHelperActivity extends BaseActivity {
+public class ShadowViewHelperActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

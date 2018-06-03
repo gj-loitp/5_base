@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.customviews.textview.circletextview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.circletextview.CircleTextView;
 
-public class CircleTextViewActivity extends BaseActivity {
+public class CircleTextViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

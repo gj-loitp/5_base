@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 
-public class AVLoadingIndicatorActivity extends BaseActivity {
+public class AVLoadingIndicatorActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

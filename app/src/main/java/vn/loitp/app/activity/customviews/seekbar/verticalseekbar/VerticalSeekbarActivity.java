@@ -5,12 +5,12 @@ import android.view.View;
 import android.widget.SeekBar;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 
 //https://github.com/h6ah4i/android-verticalseekbar
-public class VerticalSeekbarActivity extends BaseActivity {
+public class VerticalSeekbarActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

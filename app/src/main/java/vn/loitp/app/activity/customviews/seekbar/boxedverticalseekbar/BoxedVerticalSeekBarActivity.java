@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.seekbar.boxedverticalseekbar.BoxedVertical;
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
-public class BoxedVerticalSeekBarActivity extends BaseActivity {
+public class BoxedVerticalSeekBarActivity extends BaseFontActivity {
     private TextView tv;
     private List<String> stringList = new ArrayList<>();
 

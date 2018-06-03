@@ -8,27 +8,16 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
-import vn.loitp.app.activity.demo.floatingwidget.FloatingViewService;
-import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
-import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
-import vn.loitp.app.activity.function.gesto.GestoActivity;
-import vn.loitp.app.activity.function.hashmap.HashMapActivity;
-import vn.loitp.app.activity.function.recolor.RecolorActivity;
-import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
-import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.LToast;
 
-public class ActivityServiceComunicateActivity extends BaseActivity {
+public class ActivityServiceComunicateActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
     private TextView tv;
 

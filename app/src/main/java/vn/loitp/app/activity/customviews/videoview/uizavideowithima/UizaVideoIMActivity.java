@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.uizavideo.view.frm.FrmUizaIMAVideo;
 
-public class UizaVideoIMActivity extends BaseActivity {
+public class UizaVideoIMActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

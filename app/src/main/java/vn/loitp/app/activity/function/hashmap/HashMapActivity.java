@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.function.hashmap;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -9,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
-public class HashMapActivity extends BaseActivity implements View.OnClickListener {
+public class HashMapActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
     private Map<String, String> map = new HashMap<String, String>();
 

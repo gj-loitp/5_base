@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.viewpager.autoviewpager;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,10 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.viewpager.autoviewpager.lib.AutoViewPager;
 
-public class AutoViewPagerActivity extends BaseActivity {
+public class AutoViewPagerActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

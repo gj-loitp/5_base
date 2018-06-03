@@ -1,15 +1,14 @@
 package vn.loitp.app.activity.customviews.textview.countdown;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.textview.countdown.LCountDownView;
 
-public class CountDownActivity extends BaseActivity {
+public class CountDownActivity extends BaseFontActivity {
 
     private Button btStart;
 

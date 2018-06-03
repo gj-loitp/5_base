@@ -8,15 +8,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 
 //https://github.com/BCsl/GalleryLayoutManager
-public class GalleryLayoutManagerVerticalActivity extends BaseActivity {
+public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
     private RecyclerView recyclerView;
     private RecyclerView recyclerView1;
     private GalleryAdapterVertical mAdapter;

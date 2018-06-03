@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.function;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
@@ -15,10 +15,9 @@ import vn.loitp.app.activity.function.location.LocationActivity;
 import vn.loitp.app.activity.function.recolor.RecolorActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
-public class MenuFunctionActivity extends BaseActivity implements View.OnClickListener {
+public class MenuFunctionActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

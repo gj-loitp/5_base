@@ -1,19 +1,18 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
 
-public class AndroidAdvanceImageGalleryActivity extends BaseActivity {
+public class AndroidAdvanceImageGalleryActivity extends BaseFontActivity {
     private InfinitePlaceHolderView mGalleryView;
 
     @Override

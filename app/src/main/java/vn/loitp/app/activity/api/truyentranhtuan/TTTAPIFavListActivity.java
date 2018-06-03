@@ -1,20 +1,19 @@
 package vn.loitp.app.activity.api.truyentranhtuan;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.List;
 
+import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.core.base.BaseActivity;
-import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class TTTAPIFavListActivity extends BaseActivity {
+public class TTTAPIFavListActivity extends BaseFontActivity {
     private TextView tv;
     private TextView tvTitle;
     private AVLoadingIndicatorView avi;

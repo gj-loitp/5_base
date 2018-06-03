@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import loitp.basemaster.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
@@ -41,6 +42,13 @@ public class LSApplication extends MultiDexApplication {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
+
+        //config font
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(vn.loitp.app.common.Constants.FONT_PATH_BAISAU)
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     public Gson getGson() {

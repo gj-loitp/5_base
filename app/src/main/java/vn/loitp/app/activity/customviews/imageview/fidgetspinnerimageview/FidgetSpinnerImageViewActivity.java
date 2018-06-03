@@ -1,19 +1,18 @@
 package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseActivity;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.views.imageview.fidgetspinnerimageview.FidgetSpinner;
 
-public class FidgetSpinnerImageViewActivity extends BaseActivity {
+public class FidgetSpinnerImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FidgetSpinner f = (FidgetSpinner)findViewById(R.id.fidgetspinner);
+        FidgetSpinner f = (FidgetSpinner) findViewById(R.id.fidgetspinner);
         f.setImageDrawable(R.drawable.spinner);
     }
 
