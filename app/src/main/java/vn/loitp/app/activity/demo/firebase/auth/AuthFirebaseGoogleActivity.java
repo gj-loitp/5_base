@@ -192,9 +192,13 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
             LUIUtil.printBeautyJson(user, mDetailTextView);
 
             LLog.d(TAG, "updateUI " + LSApplication.getInstance().getGson().toJson(user));
+            LLog.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
 
             try {
-                LImageUtil.load(activity, user.getPhotoUrl() + "", (ImageView) findViewById(R.id.google_icon));
+                String url = user.getPhotoUrl().toString();
+                //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
+                url = url.replace("/s96-c/", "/s300-c/");
+                LImageUtil.load(activity, url, (ImageView) findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

@@ -12,6 +12,7 @@ import android.support.annotation.VisibleForTesting;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -33,7 +34,10 @@ import java.security.MessageDigest;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.app.LSApplication;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
 //https://github.com/firebase/quickstart-android
@@ -170,7 +174,17 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
         hideProgressDialog();
         if (user != null) {
             mStatusTextView.setText(getString(R.string.facebook_status_fmt, user.getDisplayName()));
-            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+            //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+
+            LUIUtil.printBeautyJson(user, mDetailTextView);
+
+            LLog.d(TAG, "updateUI " + LSApplication.getInstance().getGson().toJson(user));
+            LLog.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
+            try {
+                LImageUtil.load(activity, user.getPhotoUrl() + "?height=500", (ImageView) findViewById(R.id.icon));
+            } catch (Exception e) {
+                //who cares?
+            }
 
             findViewById(R.id.button_facebook_login).setVisibility(View.GONE);
             findViewById(R.id.button_facebook_signout).setVisibility(View.VISIBLE);

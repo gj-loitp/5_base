@@ -29,8 +29,8 @@
 
                 <ImageView
                     android:id="@+id/icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/w_100"
+                    android:layout_height="@dimen/w_100"
                     android:contentDescription="@string/desc_firebase_lockup"
                     android:src="@drawable/facebook_button_blue" />
 
