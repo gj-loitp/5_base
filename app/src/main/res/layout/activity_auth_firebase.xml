@@ -20,21 +20,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Firebase"
+                android:text="Auth Firebase"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_admob"
+                android:id="@+id/bt_gg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Admob" />
+                android:text="Google" />
 
-            <Button
-                android:id="@+id/bt_auth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Auth" />
         </LinearLayout>
     </ScrollView>
 

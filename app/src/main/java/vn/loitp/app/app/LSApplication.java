@@ -3,6 +3,7 @@ package vn.loitp.app.app;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
+import com.google.firebase.FirebaseApp;
 import com.google.gson.Gson;
 
 import io.realm.Realm;

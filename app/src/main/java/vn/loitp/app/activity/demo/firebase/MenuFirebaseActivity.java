@@ -9,6 +9,7 @@ import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
+import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
 import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
@@ -17,12 +18,14 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
+//https://github.com/firebase/quickstart-android
 public class MenuFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_admob).setOnClickListener(this);
+        findViewById(R.id.bt_auth).setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +49,9 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.bt_admob:
                 intent = new Intent(activity, FirebaseAdmobActivity.class);
+                break;
+            case R.id.bt_auth:
+                intent = new Intent(activity, AuthFirebaseActivity.class);
                 break;
         }
         if (intent != null) {
