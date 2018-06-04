@@ -8,6 +8,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
+import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
 import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
@@ -29,6 +30,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_text_to_speech).setOnClickListener(this);
         findViewById(R.id.bt_floating_widget).setOnClickListener(this);
         findViewById(R.id.bt_floating_video).setOnClickListener(this);
+        findViewById(R.id.bt_firebase).setOnClickListener(this);
     }
 
     @Override
@@ -74,7 +76,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
             case R.id.bt_floating_video:
                 intent = new Intent(activity, FloatingWidgetVideoActivity.class);
                 break;
-
+            case R.id.bt_firebase:
+                intent = new Intent(activity, MenuFirebaseActivity.class);
+                break;
         }
         if (intent != null) {
             startActivity(intent);

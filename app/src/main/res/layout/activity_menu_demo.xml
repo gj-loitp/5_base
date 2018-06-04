@@ -37,6 +37,12 @@
                 android:text="Ebook With Realm" />
 
             <Button
+                android:id="@+id/bt_firebase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Firebase" />
+
+            <Button
                 android:id="@+id/bt_floating_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

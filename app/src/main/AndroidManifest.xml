@@ -673,6 +673,15 @@
         <activity
             android:name="vn.loitp.app.activity.function.location.LocationActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity2"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
