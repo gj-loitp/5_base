@@ -6,16 +6,8 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
-import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
-import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseActivity;
-import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
-import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
-import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
-import vn.loitp.app.activity.demo.sound.SoundActivity;
-import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
-import vn.loitp.app.activity.demo.video.VideoActivity;
+import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 //https://github.com/firebase/quickstart-android
@@ -51,7 +43,7 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
                 intent = new Intent(activity, FirebaseAdmobActivity.class);
                 break;
             case R.id.bt_auth:
-                intent = new Intent(activity, AuthFirebaseActivity.class);
+                intent = new Intent(activity, AuthFirebaseMenuActivity.class);
                 break;
         }
         if (intent != null) {

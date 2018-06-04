@@ -7,16 +7,15 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.views.layout.circularview.CircularView;
-import vn.loitp.views.layout.circularview.Marker;
 
 //https://github.com/firebase/quickstart-android
-public class AuthFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
+public class AuthFirebaseMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_gg).setOnClickListener(this);
+        findViewById(R.id.bt_fb).setOnClickListener(this);
     }
 
     @Override
@@ -40,6 +39,9 @@ public class AuthFirebaseActivity extends BaseFontActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.bt_gg:
                 intent = new Intent(activity, AuthFirebaseGoogleActivity.class);
+                break;
+            case R.id.bt_fb:
+                intent = new Intent(activity, AuthFirebaseFacebookActivity.class);
                 break;
         }
         if (intent != null) {

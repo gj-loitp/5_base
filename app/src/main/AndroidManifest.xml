@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="loitp.basemaster">
 
     <application
@@ -683,11 +684,19 @@
             android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity2"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseActivity"
+            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseGoogleActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseFacebookActivity"
+            android:screenOrientation="portrait" />
+        <!-- Facebook Configuration -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
     </application>
 
 </manifest>
