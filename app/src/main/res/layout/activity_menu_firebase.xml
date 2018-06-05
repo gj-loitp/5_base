@@ -49,6 +49,12 @@
                 android:text="Database" />
 
             <Button
+                android:id="@+id/bt_database_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Database simple" />
+
+            <Button
                 android:id="@+id/bt_invite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
