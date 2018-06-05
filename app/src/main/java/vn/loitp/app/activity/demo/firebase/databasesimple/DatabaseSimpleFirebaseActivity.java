@@ -20,9 +20,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -53,15 +50,20 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
                     LLog.d(TAG, "onDataChange null => return");
+                    userList.clear();
+                    if (mAdapter != null) {
+                        mAdapter.notifyDataSetChanged();
+                    }
                     return;
                 }
-
+                userList.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     User user = data.getValue(User.class);
                     //LLog.d(TAG, "onDataChange: " + LSApplication.getInstance().getGson().toJson(user));
-                    if (!userList.contains(user)) {
+                    /*if (!userList.contains(user)) {
                         userList.add(user);
-                    }
+                    }*/
+                    userList.add(user);
                 }
                 LLog.d(TAG, "userList.size: " + userList.size());
                 if (mAdapter != null) {
@@ -130,18 +132,18 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(activity, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.show(activity, "onClick " + user.getMsg());
+                LToast.show(activity, "onClick To Edit Data: " + user.getMsg());
 
-                user.setTimestamp(System.currentTimeMillis());
-                user.setMsg("Edited Msg");
+                user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
                 user.setAvt(Constants.URL_IMG_1);
-                mFirebaseDatabase.child(user.getTimestamp() + "").setValue(user);
+                mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user);
             }
 
             @Override
             public void onLongClick(User user, int position) {
                 LToast.show(activity, "onLongClick " + user.getMsg());
+                mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

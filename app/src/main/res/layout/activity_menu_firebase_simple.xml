@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Simple database"
+            android:text="Simple database\nClick to Edit; LongClick To Remove"
             android:textColor="@color/Black"
             android:textSize="@dimen/txt_20" />
 
