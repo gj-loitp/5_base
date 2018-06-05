@@ -4,34 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Simple database"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_20" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Simple database"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
-            <Button
-                android:id="@+id/bt_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Realtime Database Add Data" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/bt_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Realtime Database Add Data" />
+    </LinearLayout>
 
 </RelativeLayout>
 
