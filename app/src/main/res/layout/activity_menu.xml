@@ -91,16 +91,22 @@
                 android:text="Chat with dev" />
 
             <Button
-                android:id="@+id/bt_github"
+                android:id="@+id/bt_fb_fanpage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Github" />
+                android:text="Fb fanpage" />
 
             <Button
                 android:id="@+id/bt_ad_helper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vì sao bạn thấy quảng cáo?" />
+
+            <Button
+                android:id="@+id/bt_github"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Github" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

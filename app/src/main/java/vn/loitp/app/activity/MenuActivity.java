@@ -37,6 +37,7 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
         findViewById(R.id.bt_chat).setOnClickListener(this);
         findViewById(R.id.bt_github).setOnClickListener(this);
         findViewById(R.id.bt_ad_helper).setOnClickListener(this);
+        findViewById(R.id.bt_fb_fanpage).setOnClickListener(this);
     }
 
     @Override
@@ -96,6 +97,9 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
                 break;
             case R.id.bt_ad_helper:
                 intent = new Intent(activity, AdHelperActivity.class);
+                break;
+            case R.id.bt_fb_fanpage:
+                LSocialUtil.likeFacebookFanpage(activity);
                 break;
         }
         if (intent != null) {
