@@ -41,6 +41,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Config" />
+
+            <Button
+                android:id="@+id/bt_database"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Database" />
         </LinearLayout>
     </ScrollView>
 

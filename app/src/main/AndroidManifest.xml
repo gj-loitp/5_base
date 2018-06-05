@@ -697,8 +697,21 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"
             tools:replace="android:value" />
+
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseNewPostActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity"
             android:screenOrientation="portrait" />
     </application>
 
