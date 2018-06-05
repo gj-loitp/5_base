@@ -30,7 +30,6 @@ import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
-//http://www.zoftino.com/firebase-realtime-database-android-example
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
@@ -131,7 +130,18 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(activity, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.show(activity, "Click " + user.getMsg());
+                LToast.show(activity, "onClick " + user.getMsg());
+
+                user.setTimestamp(System.currentTimeMillis());
+                user.setMsg("Edited Msg");
+                user.setName("Edited Name");
+                user.setAvt(Constants.URL_IMG_1);
+                mFirebaseDatabase.child(user.getTimestamp() + "").setValue(user);
+            }
+
+            @Override
+            public void onLongClick(User user, int position) {
+                LToast.show(activity, "onLongClick " + user.getMsg());
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

@@ -16,12 +16,16 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.imageview.circleimageview.lib.LCircleImageView;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
+    private final String TAG = getClass().getSimpleName();
 
     public interface Callback {
         public void onClick(User user, int position);
+
+        public void onLongClick(User user, int position);
     }
 
     private Context context;
@@ -67,9 +71,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LLog.d(TAG, "onClick");
                 if (callback != null) {
                     callback.onClick(user, position);
                 }
+            }
+        });
+        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                LLog.d(TAG, "onLongClick");
+                if (callback != null) {
+                    callback.onLongClick(user, position);
+                }
+                return true;
             }
         });
     }
