@@ -10,6 +10,8 @@ import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
 import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity;
 import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseActivity;
+import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity;
+import vn.loitp.app.activity.demo.firebase.invite.InviteFirebaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 //https://github.com/firebase/quickstart-android
@@ -22,6 +24,7 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_auth).setOnClickListener(this);
         findViewById(R.id.bt_config).setOnClickListener(this);
         findViewById(R.id.bt_database).setOnClickListener(this);
+        findViewById(R.id.bt_invite).setOnClickListener(this);
     }
 
     @Override
@@ -53,7 +56,10 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
                 intent = new Intent(activity, ConfigFirebaseActivity.class);
                 break;
             case R.id.bt_database:
-                intent = new Intent(activity, DatabaseFirebaseActivity.class);
+                intent = new Intent(activity, DatabaseFirebaseSignInActivity.class);
+                break;
+            case R.id.bt_invite:
+                intent = new Intent(activity, InviteFirebaseActivity.class);
                 break;
         }
         if (intent != null) {

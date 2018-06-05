@@ -14,45 +14,41 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Firebase"
+                android:text="Invite"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <Button
-                android:id="@+id/bt_admob"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admob" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/logo" />
 
             <Button
-                android:id="@+id/bt_auth"
-                android:layout_width="match_parent"
+                android:id="@+id/invite_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Auth" />
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="80dp"
+                android:text="@string/invite_friends" />
 
-            <Button
-                android:id="@+id/bt_config"
+            <FrameLayout
+                android:id="@+id/snackbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Config" />
-
-            <Button
-                android:id="@+id/bt_database"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Database" />
-
-            <Button
-                android:id="@+id/bt_invite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Invite" />
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="16dp" />
         </LinearLayout>
     </ScrollView>
 

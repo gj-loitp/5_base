@@ -119,5 +119,8 @@ dependencies {
 
     // Needed to fix a dependency conflict with FirebaseUI'
     implementation 'android.arch.core:runtime:1.1.1'
+
+    //invites
+    implementation 'com.google.firebase:firebase-invites:16.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
