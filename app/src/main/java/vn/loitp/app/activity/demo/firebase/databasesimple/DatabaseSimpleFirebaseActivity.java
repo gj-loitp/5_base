@@ -12,8 +12,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.utilities.LLog;
 
 //http://www.zoftino.com/firebase-realtime-database-android-example
@@ -21,6 +25,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
     private DatabaseReference mFirebaseDatabase;
+    private List<User> userList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,15 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     LLog.d(TAG, "onDataChange null => return");
                     return;
                 }
-                String appTitle = dataSnapshot.getValue().toString();
-                LLog.d(TAG, "onDataChange " + appTitle);
+
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    User user = data.getValue(User.class);
+                    //LLog.d(TAG, "onDataChange: " + LSApplication.getInstance().getGson().toJson(user));
+                    if (!userList.contains(user)) {
+                        userList.add(user);
+                    }
+                }
+                LLog.d(TAG, "userList.size: " + userList.size());
             }
 
             @Override
@@ -73,7 +85,12 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     }
 
     private void addData() {
-        mFirebaseDatabase.child(ROOT_NODE).child(System.currentTimeMillis() + "").setValue("dummy msg")
+        User user = new User();
+        user.setAvt("avt");
+        user.setName("loitp");
+        user.setMsg("dummy msg");
+        user.setTimestamp(System.currentTimeMillis());
+        mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
