@@ -8,6 +8,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.BaseFontActivity;
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
+import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 //https://github.com/firebase/quickstart-android
@@ -18,6 +19,7 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_admob).setOnClickListener(this);
         findViewById(R.id.bt_auth).setOnClickListener(this);
+        findViewById(R.id.bt_config).setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +46,9 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_auth:
                 intent = new Intent(activity, AuthFirebaseMenuActivity.class);
+                break;
+            case R.id.bt_config:
+                intent = new Intent(activity, ConfigFirebaseActivity.class);
                 break;
         }
         if (intent != null) {

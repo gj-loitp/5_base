@@ -20,27 +20,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Firebase"
+                android:text="Config Firebase"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <Button
-                android:id="@+id/bt_admob"
+            <TextView
+                android:id="@+id/welcomeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Admob" />
+                android:text="Welcome..." />
 
             <Button
-                android:id="@+id/bt_auth"
+                android:id="@+id/fetchButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Auth" />
-
-            <Button
-                android:id="@+id/bt_config"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Config" />
+                android:text="fetch remote welcome" />
         </LinearLayout>
     </ScrollView>
 
