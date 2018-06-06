@@ -420,7 +420,7 @@ public class LScreenUtil {
         }
     }
 
-    private static boolean checkSystemWritePermission(Context context) {
+    public static boolean checkSystemWritePermission(Context context) {
         boolean retVal = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             retVal = Settings.System.canWrite(context);

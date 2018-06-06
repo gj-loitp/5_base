@@ -35,7 +35,7 @@ public class LDialogUtil {
         public void onClick1();
     }
 
-    public static void showDialog1(Context context, String title, String msg, String button1, final Callback1 callback1) {
+    public static AlertDialog showDialog1(Context context, String title, String msg, String button1, final Callback1 callback1) {
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null && !title.isEmpty()) {
@@ -55,6 +55,7 @@ public class LDialogUtil {
         int color = ContextCompat.getColor(context, R.color.colorPrimary);
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         alertDialogList.add(dialog);
+        return dialog;
     }
 
     public interface Callback2 {
@@ -63,7 +64,7 @@ public class LDialogUtil {
         public void onClick2();
     }
 
-    public static void showDialog2(Context context, String title, String msg, String button1, String button2, final Callback2 callback2) {
+    public static AlertDialog showDialog2(Context context, String title, String msg, String button1, String button2, final Callback2 callback2) {
         //LLog.d(TAG, "showDialog2");
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -99,6 +100,7 @@ public class LDialogUtil {
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color);
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         alertDialogList.add(dialog);
+        return dialog;
     }
 
     public interface Callback3 {
@@ -109,7 +111,7 @@ public class LDialogUtil {
         public void onClick3();
     }
 
-    public static void showDialog3(Context context, String title, String msg, String button1, String button2, String button3, final Callback3 callback3) {
+    public static AlertDialog showDialog3(Context context, String title, String msg, String button1, String button2, String button3, final Callback3 callback3) {
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null && !title.isEmpty()) {
@@ -153,6 +155,7 @@ public class LDialogUtil {
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color);
         alertDialogList.add(dialog);
+        return dialog;
     }
 
     public interface CallbackList {

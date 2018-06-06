@@ -1,7 +1,7 @@
 package vn.loitp.app.activity;
 
 import android.Manifest;
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,11 +24,11 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SplashActivity extends BaseFontActivity {
@@ -61,46 +61,67 @@ public class SplashActivity extends BaseFontActivity {
 
     private void checkPermission() {
         isShowDialogCheck = true;
-        Dexter.withActivity(this)
-                .withPermissions(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(new MultiplePermissionsListener() {
-                    @Override
-                    public void onPermissionsChecked(MultiplePermissionsReport report) {
-                        // check if all permissions are granted
-                        if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now");
-                            //TODO
-                            boolean isNeedCheckReady = false;
-                            if (isNeedCheckReady) {
-                                checkReady();
+        boolean isCanWriteSystem = LScreenUtil.checkSystemWritePermission(activity);
+        if (isCanWriteSystem) {
+            Dexter.withActivity(this)
+                    .withPermissions(
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_FINE_LOCATION)
+                    .withListener(new MultiplePermissionsListener() {
+                        @Override
+                        public void onPermissionsChecked(MultiplePermissionsReport report) {
+                            // check if all permissions are granted
+                            if (report.areAllPermissionsGranted()) {
+                                LLog.d(TAG, "onPermissionsChecked do you work now");
+                                //TODO
+                                boolean isNeedCheckReady = false;
+                                if (isNeedCheckReady) {
+                                    checkReady();
+                                } else {
+                                    isCheckReadyDone = true;
+                                    goToHome();
+                                }
                             } else {
-                                isCheckReadyDone = true;
-                                goToHome();
+                                LLog.d(TAG, "!areAllPermissionsGranted");
+                                showShouldAcceptPermission();
                             }
-                        } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted");
-                            showShouldAcceptPermission();
+
+                            // check for permanent denial of any permission
+                            if (report.isAnyPermissionPermanentlyDenied()) {
+                                LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                                showSettingsDialog();
+                            }
+                            isShowDialogCheck = true;
                         }
 
-                        // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
-                            showSettingsDialog();
+                        @Override
+                        public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                            LLog.d(TAG, "onPermissionRationaleShouldBeShown");
+                            token.continuePermissionRequest();
                         }
-                        isShowDialogCheck = true;
-                    }
+                    })
+                    .onSameThread()
+                    .check();
+        } else {
+            AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to allow modifying system settings", "Okay", "Exit", new LDialogUtil.Callback2() {
+                @Override
+                public void onClick1() {
+                    isShowDialogCheck = false;
+                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                    intent.setData(Uri.parse("package:" + activity.getPackageName()));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    activity.startActivity(intent);
+                    LActivityUtil.tranIn(activity);
+                }
 
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown");
-                        token.continuePermissionRequest();
-                    }
-                })
-                .onSameThread()
-                .check();
+                @Override
+                public void onClick2() {
+                    onBackPressed();
+                }
+            });
+            alertDialog.setCancelable(false);
+        }
     }
 
     private void goToHome() {
@@ -180,7 +201,7 @@ public class SplashActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;
@@ -195,10 +216,11 @@ public class SplashActivity extends BaseFontActivity {
                 onBackPressed();
             }
         });
+        alertDialog.setCancelable(false);
     }
 
     private void showShouldAcceptPermission() {
-        LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -209,5 +231,6 @@ public class SplashActivity extends BaseFontActivity {
                 onBackPressed();
             }
         });
+        alertDialog.setCancelable(false);
     }
 }
