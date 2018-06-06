@@ -719,6 +719,9 @@
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.databasesimple.DatabaseSimpleFirebaseActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
