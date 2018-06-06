@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "loitp.basemaster"
         minSdkVersion 17
-        targetSdkVersion 21
+        targetSdkVersion 27
         versionCode 6
         versionName "1.0.6"
         multiDexEnabled true

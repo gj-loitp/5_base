@@ -115,6 +115,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (!compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }
+        LDialogUtil.clearAll();
         super.onDestroy();
     }
 

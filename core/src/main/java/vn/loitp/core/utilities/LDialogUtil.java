@@ -23,10 +23,10 @@ public class LDialogUtil {
     private final static String TAG = LDialogUtil.class.getSimpleName();
     private static List<AlertDialog> alertDialogList = new ArrayList<>();
 
-    private static void clearAll() {
+    public static void clearAll() {
         for (int i = 0; i < alertDialogList.size(); i++) {
             if (alertDialogList.get(i) != null) {
-                alertDialogList.get(i).cancel();
+                alertDialogList.get(i).dismiss();
             }
         }
     }
