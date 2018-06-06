@@ -368,7 +368,7 @@ public class LScreenUtil {
         LLog.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
 
         if (!isCanWriteSystem) {
-            LDialogUtil.showDialog1(context, "Thông báo", "Uiza cần bạn cần cấp quyền điều chỉnh độ sáng màn hình", "Cấp phép", new LDialogUtil.Callback1() {
+            LDialogUtil.showDialog1(context, "Thông báo", "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình", "Cấp phép", new LDialogUtil.Callback1() {
                 @Override
                 public void onClick1() {
                     Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
