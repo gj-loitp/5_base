@@ -38,7 +38,9 @@ public class ExoPlayerDemoFromGGIMActivity extends BaseFontActivity implements P
         player = new PlayerManager(activity, previewTimeBarLayout, imageView, getString(R.string.url_thumbnails));
         previewTimeBarLayout.setPreviewLoader(player);
 
-        playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
+        if (playerView.findViewById(R.id.exo_fullscreen_button) != null) {
+            playerView.findViewById(R.id.exo_fullscreen_button).setOnClickListener(this);
+        }
         exoFullscreenIcon = (ImageView) playerView.findViewById(R.id.exo_fullscreen_icon);
 
         UizaUtil.resizeLayout(playerView, null);
