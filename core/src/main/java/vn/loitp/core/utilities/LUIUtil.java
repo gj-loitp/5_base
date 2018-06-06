@@ -631,6 +631,13 @@ public class LUIUtil {
         progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
+    public static void setProgressBarVisibility(ProgressBar progressBar, int visibility) {
+        if (progressBar == null) {
+            return;
+        }
+        progressBar.setVisibility(visibility);
+    }
+
     public static void setColorSeekBar(SeekBar seekBar, int color) {
         if (seekBar == null) {
             return;
