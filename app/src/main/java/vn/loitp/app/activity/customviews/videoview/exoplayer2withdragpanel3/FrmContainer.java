@@ -6,6 +6,8 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,7 +56,8 @@ public class FrmContainer extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         draggablePanel = (DraggablePanel) frmRootView.findViewById(R.id.draggable_panel);
         initializeDraggablePanel();
 
@@ -81,8 +84,12 @@ public class FrmContainer extends BaseFragment {
         });*/
 
         setupUI(frmRootView);
-        return frmRootView;
     }
+
+    /*@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return frmRootView;
+    }*/
 
     @Override
     protected int setLayoutResourceId() {

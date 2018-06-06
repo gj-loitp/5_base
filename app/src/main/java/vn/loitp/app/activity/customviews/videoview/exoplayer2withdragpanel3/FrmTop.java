@@ -8,12 +8,12 @@ import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -37,7 +37,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -77,8 +76,6 @@ public class FrmTop extends BaseFragment {
     private int mResumeWindow;
     private long mResumePosition;
 
-    private View view;
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -91,13 +88,13 @@ public class FrmTop extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         if (savedInstanceState != null) {
             mResumeWindow = savedInstanceState.getInt(STATE_RESUME_WINDOW);
             mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
-
-        return view;
+        return frmRootView;
     }
 
     @Override
@@ -137,7 +134,7 @@ public class FrmTop extends BaseFragment {
     private void closeFullscreenDialog() {
         LActivityUtil.changeScreenPortrait(getActivity());
         ((ViewGroup) mExoPlayerView.getParent()).removeView(mExoPlayerView);
-        ((FrameLayout) view.findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
+        ((FrameLayout) frmRootView.findViewById(R.id.main_media_frame)).addView(mExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
         mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_fullscreen_expand));
@@ -173,7 +170,7 @@ public class FrmTop extends BaseFragment {
             mExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         }
 
-        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
+        ((SimpleExoPlayer) mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
 
@@ -250,7 +247,11 @@ public class FrmTop extends BaseFragment {
         super.onResume();
 
         if (mExoPlayerView == null) {
-            mExoPlayerView = (SimpleExoPlayerView) view.findViewById(R.id.exoplayer);
+            if (frmRootView == null) {
+                LLog.d(TAG, "frmRootView == null");
+                return;
+            }
+            mExoPlayerView = (SimpleExoPlayerView) frmRootView.findViewById(R.id.exoplayer);
 
             initFullscreenDialog();
             initFullscreenButton();
