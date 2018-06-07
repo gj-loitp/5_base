@@ -54,7 +54,6 @@ public class LSApplication extends MultiDexApplication {
 
         //fcm
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC);
-
     }
 
     public Gson getGson() {
