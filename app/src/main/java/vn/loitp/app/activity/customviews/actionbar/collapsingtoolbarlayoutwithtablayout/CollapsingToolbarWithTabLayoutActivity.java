@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity;

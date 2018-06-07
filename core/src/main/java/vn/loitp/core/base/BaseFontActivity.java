@@ -1,4 +1,4 @@
-package vn.loitp.app.activity;
+package vn.loitp.core.base;
 
 import android.content.Context;
 

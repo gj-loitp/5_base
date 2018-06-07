@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.google.android.gms.plus.PlusOneButton;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 public class GooglePlusButtonActivity extends BaseFontActivity {
     private PlusOneButton pButtonStandard;

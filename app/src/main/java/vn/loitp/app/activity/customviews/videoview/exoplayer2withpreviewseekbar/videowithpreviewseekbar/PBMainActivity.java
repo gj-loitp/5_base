@@ -31,7 +31,7 @@ import com.github.rubensousa.previewseekbar.exoplayer.PreviewTimeBarLayout;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.exoplayer.ExoPlayerManagerPB;
 import vn.loitp.core.utilities.LActivityUtil;
 

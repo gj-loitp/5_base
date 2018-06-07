@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;

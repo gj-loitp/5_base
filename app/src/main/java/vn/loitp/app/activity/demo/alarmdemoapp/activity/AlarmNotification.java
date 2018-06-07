@@ -40,7 +40,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.core.utilities.LActivityUtil;

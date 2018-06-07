@@ -1,13 +1,11 @@
 package vn.loitp.app.activity.customviews.popupmenu;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 

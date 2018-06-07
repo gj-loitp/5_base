@@ -5,11 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
 import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity;
-import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseActivity;
 import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity;
 import vn.loitp.app.activity.demo.firebase.databasesimple.DatabaseSimpleFirebaseActivity;
 import vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity;

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX

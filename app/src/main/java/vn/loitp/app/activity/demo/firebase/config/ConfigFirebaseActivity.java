@@ -13,7 +13,7 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 //https://github.com/firebase/quickstart-android

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
 public class HashMapActivity extends BaseFontActivity implements View.OnClickListener {

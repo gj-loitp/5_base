@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.BooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;

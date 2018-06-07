@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.draggableflipview;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/ssk5460/DraggableFlipView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2509
 public class DraggableFlipViewActivity extends BaseFontActivity {

@@ -3,12 +3,12 @@ package vn.loitp.core.loitp.gallery;
 import android.os.Bundle;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryCoreSplashActivity extends BaseActivity {
+public class GalleryCoreSplashActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
 
     @Override

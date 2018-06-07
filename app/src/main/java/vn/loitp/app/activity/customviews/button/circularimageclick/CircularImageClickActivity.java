@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton;
 

@@ -1,13 +1,11 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity;
 import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;

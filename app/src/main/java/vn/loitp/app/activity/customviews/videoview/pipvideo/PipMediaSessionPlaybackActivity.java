@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.moviewview.MovieView;
 

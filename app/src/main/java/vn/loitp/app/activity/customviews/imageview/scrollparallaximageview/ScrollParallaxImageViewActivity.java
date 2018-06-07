@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalScaleStyle;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.VerticalMovingStyle;

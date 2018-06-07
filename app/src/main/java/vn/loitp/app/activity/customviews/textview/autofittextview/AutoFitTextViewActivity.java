@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 public class AutoFitTextViewActivity extends BaseFontActivity {
     private TextView mOutput, mAutofitOutput;

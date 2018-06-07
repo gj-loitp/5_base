@@ -3,7 +3,7 @@ package vn.loitp.app.activity.animation.expectanim;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LScreenUtil;
 

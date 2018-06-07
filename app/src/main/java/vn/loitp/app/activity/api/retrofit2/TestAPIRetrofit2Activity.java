@@ -14,7 +14,7 @@ import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 

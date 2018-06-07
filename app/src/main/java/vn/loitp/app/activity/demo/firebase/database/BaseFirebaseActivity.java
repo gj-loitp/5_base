@@ -4,7 +4,7 @@ import android.app.ProgressDialog;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 /**
  * Created by LENOVO on 6/5/2018.

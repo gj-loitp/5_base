@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.circularroundrectimageview;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 //guide: https://github.com/sparrow007/CircularImageview?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6166
 public class CircularRoundRectImageViewActivity extends BaseFontActivity {

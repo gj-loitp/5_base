@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 27
-        versionName "1.27"
+        versionCode 28
+        versionName "1.28"
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -84,4 +84,7 @@ dependencies {
 
     //runtime permission https://github.com/Karumi/Dexter
     compile 'com.karumi:dexter:4.2.0'
+
+    //font
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
 }

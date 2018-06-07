@@ -33,7 +33,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.security.MessageDigest;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;

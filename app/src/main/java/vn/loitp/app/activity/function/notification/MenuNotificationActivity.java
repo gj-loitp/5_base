@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.function.notification.Notti;
 import vn.loitp.function.notification.NottiFactory;
 import vn.loitp.function.notification.actions.ContentAction;

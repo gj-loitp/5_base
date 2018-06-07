@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.viewpager.doubleviewpager;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 
@@ -9,8 +8,7 @@ import com.emoiluj.doubleviewpager.DoubleViewPagerAdapter;
 
 import java.util.ArrayList;
 
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import loitp.basemaster.R;
 
 public class DoubleViewPagerActivity extends BaseFontActivity {

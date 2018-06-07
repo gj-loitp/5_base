@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.texttospeech;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,8 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LTextToSpeechUtil;
 
 public class TextToSpeechActivity extends BaseFontActivity implements OnClickListener {

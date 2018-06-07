@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.bottombar.lib.LBottomBar;

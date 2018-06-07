@@ -1,10 +1,8 @@
 package vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import loitp.basemaster.R;
 import vn.loitp.views.progressloadingview.circularprogressbar.lib.CircularProgressBar;
 

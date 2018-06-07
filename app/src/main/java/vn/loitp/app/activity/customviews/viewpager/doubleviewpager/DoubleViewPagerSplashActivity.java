@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 public class DoubleViewPagerSplashActivity extends BaseFontActivity implements View.OnKeyListener {
     private TextView title;

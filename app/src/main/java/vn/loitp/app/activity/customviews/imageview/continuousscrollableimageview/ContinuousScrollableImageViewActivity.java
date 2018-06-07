@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.continuousscrollableimagevie
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/Cutta/ContinuousScrollableImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6094
 public class ContinuousScrollableImageViewActivity extends BaseFontActivity {

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.SeekBar;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.recyclerview.banner.layoutmanager.CenterScrollListener;
 import vn.loitp.views.recyclerview.banner.layoutmanager.OverFlyingLayoutManager;
 

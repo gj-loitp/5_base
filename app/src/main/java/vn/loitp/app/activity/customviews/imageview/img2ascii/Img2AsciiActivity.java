@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.imageview.img2ascii.Img2Ascii;
 
 public class Img2AsciiActivity extends BaseFontActivity {

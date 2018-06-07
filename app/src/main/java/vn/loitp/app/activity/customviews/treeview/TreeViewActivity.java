@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.treeview.BaseTreeAdapter;
 import vn.loitp.views.treeview.TreeNode;
 import vn.loitp.views.treeview.TreeView;

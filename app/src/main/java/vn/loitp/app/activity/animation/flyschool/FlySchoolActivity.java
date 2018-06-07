@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.animation.flyschool.ImgObject;
 import vn.loitp.views.animation.flyschool.PATHS;
 import vn.loitp.views.animation.flyschool.ShapeFlyer;

@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.layout.circularview;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.circularview.CircularView;
 import vn.loitp.views.layout.circularview.Marker;

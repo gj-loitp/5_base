@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 public class ArcNavigationViewActivity extends BaseFontActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;

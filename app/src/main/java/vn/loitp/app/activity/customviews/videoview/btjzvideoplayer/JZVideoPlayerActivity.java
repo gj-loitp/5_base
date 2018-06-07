@@ -5,7 +5,7 @@ import android.os.Bundle;
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
 //TODO remove in gradle
 //guide https://android-arsenal.com/details/1/3269

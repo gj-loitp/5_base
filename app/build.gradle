@@ -84,9 +84,6 @@ dependencies {
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     compile 'io.realm:realm-android:0.82.1'//realm
 
-    //font
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
-
     // [START gradle_play_config]
     implementation 'com.google.firebase:firebase-ads:15.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.0'

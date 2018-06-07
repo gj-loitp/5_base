@@ -1,13 +1,11 @@
 package vn.loitp.app.activity.ads.admobinterstitial;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
-import vn.loitp.app.activity.BaseFontActivity;
-import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;

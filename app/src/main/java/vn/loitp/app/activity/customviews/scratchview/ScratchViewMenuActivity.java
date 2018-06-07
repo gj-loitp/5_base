@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.BaseFontActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity;
 import vn.loitp.core.utilities.LActivityUtil;
