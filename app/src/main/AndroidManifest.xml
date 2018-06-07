@@ -734,6 +734,9 @@
             </intent-filter>
         </service>
         <!--end service for FCM-->
+        <activity
+            android:name="vn.loitp.app.activity.function.notification.MenuNotificationActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -61,6 +61,12 @@
                 android:text="Location" />
 
             <Button
+                android:id="@+id/bt_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification" />
+
+            <Button
                 android:id="@+id/bt_recolor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

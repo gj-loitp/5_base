@@ -12,6 +12,7 @@ import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
 import vn.loitp.app.activity.function.hashmap.HashMapActivity;
 import vn.loitp.app.activity.function.location.LocationActivity;
+import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
 import vn.loitp.app.activity.function.recolor.RecolorActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
@@ -33,6 +34,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_recolor).setOnClickListener(this);
         findViewById(R.id.bt_activity_service_comunicate).setOnClickListener(this);
         findViewById(R.id.bt_location).setOnClickListener(this);
+        findViewById(R.id.bt_notification).setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +82,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_location:
                 intent = new Intent(activity, LocationActivity.class);
+                break;
+            case R.id.bt_notification:
+                intent = new Intent(activity, MenuNotificationActivity.class);
                 break;
         }
         if (intent != null) {
