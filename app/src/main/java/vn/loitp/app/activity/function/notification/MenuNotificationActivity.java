@@ -19,7 +19,6 @@ import vn.loitp.function.notification.actions.NotificationAction;
 import vn.loitp.function.notification.config.LightSettings;
 import vn.loitp.function.notification.config.NottiConf;
 import vn.loitp.function.notification.config.VibrationSettings;
-import vn.loitp.views.LToast;
 
 public class MenuNotificationActivity extends BaseFontActivity implements View.OnClickListener {
     private Notti notti;
@@ -86,9 +85,10 @@ public class MenuNotificationActivity extends BaseFontActivity implements View.O
                 break;
             case R.id.bigPictureNotification:
                 Bitmap icon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_launcher);
+                Bitmap iconBig = BitmapFactory.decodeResource(this.getResources(), R.drawable.iv);
                 notti.show(NottiFactory
                         .get(NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content")
-                        .setBigPicture(icon).setLargeIcon(icon));
+                        .setBigPicture(iconBig).setLargeIcon(icon));
                 break;
         }
     }
