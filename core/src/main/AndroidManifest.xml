@@ -28,8 +28,12 @@
             android:name="vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService"
             android:enabled="true"
             android:exported="false" />
+
         <activity
             android:name="vn.loitp.core.loitp.adhelper.AdHelperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity"
             android:screenOrientation="portrait" />
     </application>
 

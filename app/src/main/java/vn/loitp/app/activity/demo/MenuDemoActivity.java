@@ -15,6 +15,8 @@ import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDemoActivity extends BaseFontActivity implements View.OnClickListener {
@@ -31,6 +33,12 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_floating_widget).setOnClickListener(this);
         findViewById(R.id.bt_floating_video).setOnClickListener(this);
         findViewById(R.id.bt_firebase).setOnClickListener(this);
+        if (Constants.IS_DEBUG) {
+            findViewById(R.id.bt_gallery_core).setVisibility(View.VISIBLE);
+            findViewById(R.id.bt_gallery_core).setOnClickListener(this);
+        } else {
+            findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -78,6 +86,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_firebase:
                 intent = new Intent(activity, MenuFirebaseActivity.class);
+                break;
+            case R.id.bt_gallery_core:
+                intent = new Intent(activity, GalleryCoreSplashActivity.class);
                 break;
         }
         if (intent != null) {

@@ -61,6 +61,12 @@
                 android:text="Gallery" />
 
             <Button
+                android:id="@+id/bt_gallery_core"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery From Core" />
+
+            <Button
                 android:id="@+id/bt_sound"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
