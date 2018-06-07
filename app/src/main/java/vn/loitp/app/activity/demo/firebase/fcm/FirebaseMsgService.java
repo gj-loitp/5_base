@@ -12,7 +12,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.SplashActivity;
-import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.notification.Notti;
 import vn.loitp.function.notification.NottiFactory;
@@ -33,19 +33,21 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             }
             LLog.d(TAG, "From: " + remoteMessage.getFrom());
             LLog.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
-            
-            //THIS CODE BELOWS SEND A NOTIFICATION
-            /*String appName = AppUtils.getAppName();
-            String title = appName + " miss you!";
-            String messageBody = remoteMessage.getNotification().getBody();
 
-            Notti notti = new Notti(this,
-                    new NottiConf(R.mipmap.ic_launcher,
-                            new VibrationSettings(VibrationSettings.STD_VIBRATION),
-                            new LightSettings(Color.RED)));
-            notti.show(NottiFactory
-                    .get(NottiFactory.TYPE.STANDARD, title, messageBody)
-                    .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));*/
+            //THIS CODE BELOWS SEND A NOTIFICATION
+            if (Constants.IS_DEBUG) {
+                String appName = AppUtils.getAppName();
+                String title = appName + " miss you!";
+                String messageBody = remoteMessage.getNotification().getBody();
+
+                Notti notti = new Notti(this,
+                        new NottiConf(R.mipmap.ic_launcher,
+                                new VibrationSettings(VibrationSettings.STD_VIBRATION),
+                                new LightSettings(Color.RED)));
+                notti.show(NottiFactory
+                        .get(NottiFactory.TYPE.STANDARD, title, messageBody)
+                        .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));
+            }
         } catch (Exception e) {
             LLog.e(TAG, "onMessageReceived Exception " + e.toString());
         }

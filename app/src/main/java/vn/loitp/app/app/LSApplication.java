@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import io.realm.Realm;
@@ -50,6 +51,10 @@ public class LSApplication extends MultiDexApplication {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+
+        //fcm
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC);
+
     }
 
     public Gson getGson() {

@@ -44,4 +44,6 @@ public class Constants {
 
     public final static String PREFIXS = "https://";
     public final static String PREFIXS_SHORT = "https:";
+
+    public final static String FCM_TOPIC = "/topics/loitp";
 }

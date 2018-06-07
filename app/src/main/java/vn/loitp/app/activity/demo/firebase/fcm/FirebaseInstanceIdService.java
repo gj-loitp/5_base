@@ -5,7 +5,6 @@ package vn.loitp.app.activity.demo.firebase.fcm;
  */
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import vn.loitp.core.utilities.LLog;
 
