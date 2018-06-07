@@ -2,4 +2,6 @@
 <resources>
     <integer name="animated_expanded_edit_text_animation_duration_milliseconds">400</integer>
     <integer name="cv_default_marker_radius">20</integer>
+    <integer name="heart_anim_bezier_factor">6</integer>
+    <integer name="anim_duration">3000</integer>
 </resources>

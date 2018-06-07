@@ -747,6 +747,9 @@
         <activity
             android:name="vn.loitp.app.activity.function.notification.MenuNotificationActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

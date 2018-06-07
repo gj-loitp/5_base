@@ -67,6 +67,12 @@
                 android:text="ElasticDragDismissLayout" />
 
             <Button
+                android:id="@+id/bt_heart_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heart Layout" />
+
+            <Button
                 android:id="@+id/bt_ripple_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
