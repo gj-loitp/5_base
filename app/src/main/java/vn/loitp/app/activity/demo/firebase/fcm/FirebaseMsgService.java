@@ -33,8 +33,9 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             }
             LLog.d(TAG, "From: " + remoteMessage.getFrom());
             LLog.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
-
-            String appName = AppUtils.getAppName();
+            
+            //THIS CODE BELOWS SEND A NOTIFICATION
+            /*String appName = AppUtils.getAppName();
             String title = appName + " miss you!";
             String messageBody = remoteMessage.getNotification().getBody();
 
@@ -44,7 +45,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
                             new LightSettings(Color.RED)));
             notti.show(NottiFactory
                     .get(NottiFactory.TYPE.STANDARD, title, messageBody)
-                    .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));
+                    .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));*/
         } catch (Exception e) {
             LLog.e(TAG, "onMessageReceived Exception " + e.toString());
         }
