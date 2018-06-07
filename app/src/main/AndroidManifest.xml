@@ -722,6 +722,18 @@
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity"
             android:screenOrientation="portrait" />
+        <!--service for FCM-->
+        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseMsgService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!--end service for FCM-->
     </application>
 
 </manifest>
