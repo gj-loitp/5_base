@@ -753,6 +753,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

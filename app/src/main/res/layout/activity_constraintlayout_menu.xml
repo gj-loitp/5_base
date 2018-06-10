@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="Demo" />
 
+            <Button
+                android:id="@+id/bt_fab_n_snackbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FabAndSnackbarActivity" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

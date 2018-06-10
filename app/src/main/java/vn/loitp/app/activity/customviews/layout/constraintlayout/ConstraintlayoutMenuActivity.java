@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity;
+import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -16,6 +17,7 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_demo).setOnClickListener(this);
+        findViewById(R.id.bt_fab_n_snackbar).setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +41,9 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
         switch (v.getId()) {
             case R.id.bt_demo:
                 intent = new Intent(activity, ConstraintlayoutDemoActivity.class);
+                break;
+            case R.id.bt_fab_n_snackbar:
+                intent = new Intent(activity, FabAndSnackbarActivity.class);
                 break;
         }
         if (intent != null) {
