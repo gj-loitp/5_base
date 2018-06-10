@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
-import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity;
+import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
@@ -20,6 +19,7 @@ import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutA
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class LayoutMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -96,7 +96,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
                 intent = new Intent(activity, SwipableLayoutActivity.class);
                 break;
             case R.id.bt_constraint_layout:
-                intent = new Intent(activity, ConstraintlayoutActivity.class);
+                intent = new Intent(activity, ConstraintlayoutMenuActivity.class);
                 break;
             case R.id.bt_swipeback_layout:
                 intent = new Intent(activity, SwipeBackLayoutActivity.class);

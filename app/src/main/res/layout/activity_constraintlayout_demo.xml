@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity">
+    tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ll"

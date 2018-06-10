@@ -626,7 +626,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutActivity"
+            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity"
@@ -749,6 +749,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity"
             android:screenOrientation="portrait" />
     </application>
 
