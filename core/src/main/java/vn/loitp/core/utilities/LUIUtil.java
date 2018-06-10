@@ -53,6 +53,7 @@ import java.io.InputStream;
 import java.util.Random;
 
 import loitp.core.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.AdmobData;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
@@ -662,6 +663,21 @@ public class LUIUtil {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             p.setMargins(leftPx, topPx, rightPx, bottomPx);
             view.requestLayout();
+        }
+    }
+
+    public static void changeTabsFont(TabLayout tabLayout, String fontName) {
+        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            int tabChildsCount = vgTab.getChildCount();
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
+                }
+            }
         }
     }
 }
