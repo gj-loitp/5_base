@@ -86,7 +86,6 @@ dependencies {
 
     // [START gradle_play_config]
     implementation 'com.google.firebase:firebase-ads:15.0.1'
-    implementation 'com.google.firebase:firebase-core:16.0.0'
 
     // Firebase Authentication
     implementation 'com.google.firebase:firebase-auth:16.0.1'
