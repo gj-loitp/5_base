@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.View;
 import android.widget.TextView;
 
 import com.karumi.dexter.Dexter;
@@ -25,11 +26,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class SplashActivity extends BaseFontActivity {
@@ -48,6 +51,15 @@ public class SplashActivity extends BaseFontActivity {
         });
         TextView tv = (TextView) findViewById(R.id.tv);
         tv.setText("Version " + BuildConfig.VERSION_NAME);
+
+        TextView tvPolicy = (TextView) findViewById(R.id.tv_policy);
+        LUIUtil.setTextShadow(tvPolicy);
+        tvPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LSocialUtil.openUrlInBrowser(activity, Constants.URL_POLICY);
+            }
+        });
     }
 
     @Override

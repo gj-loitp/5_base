@@ -3,6 +3,7 @@ package vn.loitp.app.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.ads.MenuAdsActivity;
@@ -14,9 +15,11 @@ import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.app.activity.function.MenuFunctionActivity;
 import vn.loitp.app.activity.pattern.MenuPatternActivity;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.adhelper.AdHelperActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class MenuActivity extends BaseFontActivity implements View.OnClickListener {
 
@@ -24,6 +27,15 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
+
+        TextView tvPolicy = (TextView) findViewById(R.id.tv_policy);
+        LUIUtil.setTextShadow(tvPolicy);
+        tvPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LSocialUtil.openUrlInBrowser(activity, Constants.URL_POLICY);
+            }
+        });
 
         findViewById(R.id.bt_api).setOnClickListener(this);
         findViewById(R.id.bt_animation).setOnClickListener(this);

@@ -19,7 +19,7 @@
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tv"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_10"
@@ -30,9 +30,19 @@
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tv_policy"
         android:gravity="center"
         android:textSize="@dimen/txt_18"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/tv_policy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_5"
+        android:text="@string/policy"
+        android:textColor="@drawable/text_white_black"
+        android:textSize="@dimen/txt_10" />
 </RelativeLayout>

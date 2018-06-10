@@ -8,6 +8,7 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/tv_policy"
         android:fillViewport="true"
         android:padding="@dimen/padding_5">
 
@@ -109,5 +110,16 @@
                 android:text="Github" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_policy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_5"
+        android:text="@string/policy"
+        android:textColor="@drawable/text_black_white"
+        android:textSize="@dimen/txt_10" />
 </RelativeLayout>
 
