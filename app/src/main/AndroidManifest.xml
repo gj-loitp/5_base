@@ -773,6 +773,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleTheme" />
     </application>
 
 </manifest>

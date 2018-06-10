@@ -67,7 +67,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                 startActivity(new Intent(activity, FloatDragFullScreenActivity.class));
                 break;
             case R.id.bt_change_to_no_title:
-                //startActivity(new Intent(activity, NoTitleActivity.class));
+                startActivity(new Intent(activity, FloatDragNoTitleActivity.class));
                 break;
             case R.id.bt_change_to_windows:
                 //startActivity(new Intent(activity, WindowActivity.class));
