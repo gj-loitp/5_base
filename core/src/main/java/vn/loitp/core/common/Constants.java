@@ -46,4 +46,5 @@ public class Constants {
     public final static String PREFIXS_SHORT = "https:";
 
     public final static String FCM_TOPIC = "/topics/loitp";
+    public final static String URL_POLICY = "https://wordpress.com/post/loitp.wordpress.com/30";
 }
