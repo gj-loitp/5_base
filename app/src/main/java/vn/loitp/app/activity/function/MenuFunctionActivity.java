@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
@@ -35,6 +36,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_activity_service_comunicate).setOnClickListener(this);
         findViewById(R.id.bt_location).setOnClickListener(this);
         findViewById(R.id.bt_notification).setOnClickListener(this);
+        findViewById(R.id.bt_view_drag_helper_simple).setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +87,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_notification:
                 intent = new Intent(activity, MenuNotificationActivity.class);
+                break;
+            case R.id.bt_view_drag_helper_simple:
+                intent = new Intent(activity, ViewDragHelperSimpleActivity.class);
                 break;
         }
         if (intent != null) {
