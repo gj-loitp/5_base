@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity;
@@ -20,6 +21,7 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
         findViewById(R.id.bt_demo).setOnClickListener(this);
         findViewById(R.id.bt_fab_n_snackbar).setOnClickListener(this);
         findViewById(R.id.bt_fab_follow_widget).setOnClickListener(this);
+        findViewById(R.id.bt_custom_behavior).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +51,9 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
                 break;
             case R.id.bt_fab_follow_widget:
                 intent = new Intent(activity, FabFollowWidgetActivity.class);
+                break;
+            case R.id.bt_custom_behavior:
+                intent = new Intent(activity, CustomBehaviorActivity.class);
                 break;
         }
         if (intent != null) {
