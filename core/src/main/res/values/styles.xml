@@ -20,6 +20,18 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <!--<item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>-->
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:background">@color/black_35</item>
+    </style>
+
     <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

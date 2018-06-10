@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bt_change_to_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Change To Fullscreen Model"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_change_to_no_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_change_to_fullscreen"
+        android:layout_centerHorizontal="true"
+        android:text="Change To No Title Model"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_change_to_windows"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_change_to_no_title"
+        android:layout_centerHorizontal="true"
+        android:text="Change To Windows Model"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_show_floatDragPopupWindow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_change_to_windows"
+        android:layout_centerHorizontal="true"
+        android:text="Show FloatDragPopupWindow"
+        android:textAllCaps="false" />
+</RelativeLayout>

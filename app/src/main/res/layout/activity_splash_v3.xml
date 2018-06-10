@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/logo" />
 
-    <vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview._lib.avi.AVLoadingIndicatorView
+    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_10"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="@color/White"
         app:indicatorName="PacmanIndicator" />
 
     <!--<TextView

@@ -12,6 +12,7 @@ import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelAct
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity;
@@ -41,6 +42,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_constraint_layout).setOnClickListener(this);
         findViewById(R.id.bt_swipeback_layout).setOnClickListener(this);
         findViewById(R.id.bt_heart_layout).setOnClickListener(this);
+        findViewById(R.id.bt_float_drag_layout).setOnClickListener(this);
     }
 
     @Override
@@ -103,6 +105,9 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_heart_layout:
                 intent = new Intent(activity, HeartLayoutActivity.class);
+                break;
+            case R.id.bt_float_drag_layout:
+                intent = new Intent(activity, FloatDragLayoutActivity.class);
                 break;
         }
         if (intent != null) {

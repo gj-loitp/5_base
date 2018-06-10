@@ -765,6 +765,14 @@
         <activity
             android:name="vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragFullScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>
