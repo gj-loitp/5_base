@@ -777,6 +777,9 @@
             android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoTitleTheme" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

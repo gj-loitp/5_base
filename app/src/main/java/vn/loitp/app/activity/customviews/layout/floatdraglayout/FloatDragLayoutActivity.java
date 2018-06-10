@@ -70,7 +70,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                 startActivity(new Intent(activity, FloatDragNoTitleActivity.class));
                 break;
             case R.id.bt_change_to_windows:
-                //startActivity(new Intent(activity, WindowActivity.class));
+                startActivity(new Intent(activity, FloatDragWindowModeActivity.class));
                 break;
             case R.id.bt_show_floatDragPopupWindow:
                 showFloatDragPopupWindow();
@@ -83,11 +83,10 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
     FloatDragPopupWindow floatDragPopupWindow;
 
     private void showFloatDragPopupWindow() {
-
         if (floatDragPopupWindow == null) {
             ImageView contentView = new ImageView(this);
             contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            contentView.setImageResource(R.mipmap.bg_room_blue_middle);
+            contentView.setImageResource(R.mipmap.ic_launcher);
             floatDragPopupWindow = new FloatDragPopupWindow.Builder(this)
                     .setContentView(contentView)
                     .setPosition(0, 300)
