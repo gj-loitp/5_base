@@ -104,12 +104,10 @@ dependencies {
     implementation 'com.android.support:customtabs:27.1.1'
 
     //remote config
-    implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-config:16.0.0'
 
     //database
     implementation 'com.firebaseui:firebase-ui-database:4.0.0'
-    //implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
