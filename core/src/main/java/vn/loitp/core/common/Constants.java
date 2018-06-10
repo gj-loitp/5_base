@@ -46,5 +46,5 @@ public class Constants {
     public final static String PREFIXS_SHORT = "https:";
 
     public final static String FCM_TOPIC = "/topics/loitp";
-    public final static String URL_POLICY = "https://wordpress.com/post/loitp.wordpress.com/30";
+    public final static String URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/";
 }
