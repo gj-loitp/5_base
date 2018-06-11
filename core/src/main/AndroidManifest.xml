@@ -37,10 +37,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.core.loitp.gallery.album.GalleryCoreAlbumActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
             android:name="vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
     </application>
 
 </manifest>
