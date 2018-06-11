@@ -38,9 +38,11 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 
@@ -67,8 +69,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
             //LActivityUtil.hideSystemUI(getWindow().getDecorView());
+        } else {
+            //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
+            getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            );
         }
-        setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
+        //setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
+
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(setLayoutResourceId());
@@ -83,6 +92,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
+        if (rootView == null) {
+            throw new NullPointerException("Please set top root layout is relative layout, and set id root_view");
+        }
+        if (!setFullScreen()) {
+            rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
+        }
     }
 
     protected void setCustomStatusBar(int colorStatusBar, int colorNavigationBar) {

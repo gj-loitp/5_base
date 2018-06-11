@@ -2,6 +2,7 @@ package vn.loitp.core.loitp.gallery;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import vn.loitp.core.loitp.gallery.album.GalleryCoreAlbumActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.core.utilities.statusbar.StatusBarCompat;
 import vn.loitp.restapi.restclient.RestClient;
 
 public class GalleryCoreSplashActivity extends BaseFontActivity {
@@ -19,6 +21,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         RestClient.init(getString(R.string.flickr_URL));
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
@@ -33,10 +36,10 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                /*Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
                 startActivity(intent);
                 LActivityUtil.transActivityNoAniamtion(activity);
-                finish();
+                finish();*/
             }
         });
     }
