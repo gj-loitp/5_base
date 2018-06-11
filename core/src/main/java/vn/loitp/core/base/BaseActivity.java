@@ -60,6 +60,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         return rootView;
     }
 
+    protected void setTransparentStatusNavigationBar() {
+        //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
+        rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         activity = this;
@@ -70,13 +79,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
             //LActivityUtil.hideSystemUI(getWindow().getDecorView());
         } else {
-            //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
-            getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            );
+            setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
         }
-        //setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary));
 
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -94,9 +98,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
         if (rootView == null) {
             throw new NullPointerException("Please set top root layout is relative layout, and set id root_view");
-        }
-        if (!setFullScreen()) {
-            rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
         }
     }
 

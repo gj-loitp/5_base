@@ -22,6 +22,8 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setTransparentStatusNavigationBar();
+
         RestClient.init(getString(R.string.flickr_URL));
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
