@@ -2,6 +2,7 @@ package vn.loitp.core.loitp.gallery;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView;
 
 public class GalleryCoreAlbumActivity extends BaseFontActivity {
@@ -41,6 +44,11 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
         photosetsGetList();
         ParallaxRecyclerView recyclerView = (ParallaxRecyclerView) findViewById(R.id.recyclerView);
+
+        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        animator.setAddDuration(1000);
+        recyclerView.setItemAnimator(animator);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setHasFixedSize(true);
 
@@ -60,7 +68,12 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
                 albumAdapter.notifyItemRangeChanged(pos, photosetList.size());*/
             }
         });
-        recyclerView.setAdapter(albumAdapter);
+        //recyclerView.setAdapter(albumAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(albumAdapter);
+        scaleAdapter.setDuration(1000);
+        scaleAdapter.setInterpolator(new OvershootInterpolator());
+        scaleAdapter.setFirstOnly(true);
+        recyclerView.setAdapter(scaleAdapter);
 
         LUIUtil.setPullLikeIOSVertical(recyclerView);
     }
