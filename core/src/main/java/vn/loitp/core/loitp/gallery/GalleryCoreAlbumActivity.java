@@ -5,6 +5,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import loitp.core.R;
@@ -94,6 +96,12 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + gson.toJson(wrapperPhotosetGetlist));
                 photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+                Collections.sort(photosetList, new Comparator<Photoset>() {
+                    @Override
+                    public int compare(Photoset o1, Photoset o2) {
+                        return Long.valueOf(o2.getDateUpdate()).compareTo(Long.valueOf(o1.getDateUpdate()));
+                    }
+                });
                 updateAllViews();
                 avi.smoothToHide();
             }

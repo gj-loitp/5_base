@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/w_250">
+    android:layout_height="@dimen/w_250"
+    android:background="@color/black_65">
 
     <ImageView
         android:id="@+id/iv"
@@ -16,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_update"
+        android:layout_marginLeft="@dimen/margin_3"
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="@dimen/txt_32"
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/margin_3"
+        android:layout_marginLeft="@dimen/margin_3"
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="@dimen/txt_14" />
