@@ -13,6 +13,19 @@ public class Constants {
     public static final int NOT_FOUND = -6969;
 
     public final static String URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg";
+    public final static String URL_IMG_1 = "https://c2.staticflickr.com/6/5491/30597322996_f317c58a31_h.jpg";
+    public final static String URL_IMG_2 = "https://c2.staticflickr.com/6/5542/30333782080_ef19d1b037_b.jpg";
+    public final static String URL_IMG_3 = "https://c1.staticflickr.com/5/4061/35617987102_0aa7913fa7_b.jpg";
+    public final static String URL_IMG_4 = "https://c1.staticflickr.com/5/4140/35617984622_e3a1e202fb_h.jpg";
+    public final static String URL_IMG_5 = "https://c1.staticflickr.com/5/4054/35746633426_14cf7ef143_h.jpg";
+    public final static String URL_IMG_6 = "https://c1.staticflickr.com/5/4767/39983817172_f5462d0d0e_h.jpg";
+    public final static String URL_IMG_7 = "https://c1.staticflickr.com/5/4698/26142588578_a085482efb_h.jpg";
+    public final static String URL_IMG_8 = "https://c1.staticflickr.com/5/4742/39983819592_c23bfcf563_h.jpg";
+    public final static String URL_IMG_9 = "https://c1.staticflickr.com/5/4720/39983821542_0a3a4506cf_o.jpg";
+    public final static String URL_IMG_10 = "https://c1.staticflickr.com/5/4541/24904557088_3dc06c3bcf_h.jpg";
+    public final static String URL_IMG_11 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg";
+    public final static String URL_IMG_12 = "https://c1.staticflickr.com/5/4263/35746631876_0c45ec2943_h.jpg";
+
     public final static String URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg";
 
     public static final String MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen";
