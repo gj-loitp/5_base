@@ -12,13 +12,23 @@
         android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/tv_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="@dimen/padding_5"
+        android:layout_above="@+id/tv_update"
+        android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="@dimen/txt_32"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_3"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/txt_14" />
 
 </RelativeLayout>

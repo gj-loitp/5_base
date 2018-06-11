@@ -53,9 +53,9 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
             @Override
             public void onLongClick(int pos) {
-                /*FakeData.getInstance().getStringList().remove(pos);
+                /*photosetList.remove(pos);
                 albumAdapter.notifyItemRemoved(pos);
-                albumAdapter.notifyItemRangeChanged(pos, FakeData.getInstance().getStringList().size());*/
+                albumAdapter.notifyItemRangeChanged(pos, photosetList.size());*/
             }
         });
         recyclerView.setAdapter(albumAdapter);

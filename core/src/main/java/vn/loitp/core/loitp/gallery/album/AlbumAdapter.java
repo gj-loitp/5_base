@@ -3,6 +3,7 @@ package vn.loitp.core.loitp.gallery.album;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,12 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
+import vn.loitp.utils.util.TimeUtils;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.
@@ -42,8 +46,13 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Photoset photoset = photosetList.get(position);
         LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv);
 
-        viewHolder.textView.setText(photoset.getTitle().getContent());
-        LUIUtil.setTextShadow(viewHolder.textView);
+        viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
+
+        String update = LDateUtils.getDateCurrentTimeZone(photoset.getDateUpdate(), "dd-MM-yyyy HH:mm:ss");
+        viewHolder.tvUpdate.setText(update);
+
+        LUIUtil.setTextShadow(viewHolder.tvLabel);
+        LUIUtil.setTextShadow(viewHolder.tvUpdate);
 
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,13 +83,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView iv;
-        public final TextView textView;
+        public final TextView tvLabel;
+        public final TextView tvUpdate;
         public final RelativeLayout rootView;
 
         public ViewHolder(View v) {
             super(v);
             iv = (ImageView) v.findViewById(R.id.iv);
-            textView = (TextView) v.findViewById(R.id.label);
+            tvLabel = (TextView) v.findViewById(R.id.tv_label);
+            tvUpdate = (TextView) v.findViewById(R.id.tv_update);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
         }
     }

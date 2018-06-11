@@ -54,7 +54,6 @@ public final class DeviceUtils {
         return Build.VERSION.SDK_INT;
     }
 
-
     /**
      * 获取设备AndroidID
      *

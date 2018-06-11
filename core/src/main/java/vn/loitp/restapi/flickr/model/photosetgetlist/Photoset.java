@@ -50,10 +50,10 @@ public class Photoset {
     private double canComment;
     @SerializedName("date_create")
     @Expose
-    private String dateCreate;
+    private long dateCreate;
     @SerializedName("date_update")
     @Expose
-    private String dateUpdate;
+    private long dateUpdate;
     @SerializedName("primary_photo_extras")
     @Expose
     private PrimaryPhotoExtras primaryPhotoExtras;
@@ -170,19 +170,19 @@ public class Photoset {
         this.canComment = canComment;
     }
 
-    public String getDateCreate() {
+    public long getDateCreate() {
         return dateCreate;
     }
 
-    public void setDateCreate(String dateCreate) {
+    public void setDateCreate(long dateCreate) {
         this.dateCreate = dateCreate;
     }
 
-    public String getDateUpdate() {
+    public long getDateUpdate() {
         return dateUpdate;
     }
 
-    public void setDateUpdate(String dateUpdate) {
+    public void setDateUpdate(long dateUpdate) {
         this.dateUpdate = dateUpdate;
     }
 
