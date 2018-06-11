@@ -1,5 +1,6 @@
 package vn.loitp.core.loitp.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
@@ -30,17 +32,17 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                /*Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
-                finish();*/
+                LActivityUtil.transActivityNoAniamtion(activity);
+                finish();
             }
         });
     }
 
     @Override
     protected boolean setFullScreen() {
-        return true;
+        return false;
     }
 
     @Override
