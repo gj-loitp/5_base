@@ -62,5 +62,4 @@ public class Constants {
     public final static String URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/";
 
     public final static String SK_PHOTOSET_ID = "SK_PHOTOSET_ID";
-    public final static String SK_PHOTOSET_URL = "SK_PHOTOSET_URL";
 }

@@ -38,10 +38,10 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                /*Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
                 startActivity(intent);
                 LActivityUtil.transActivityNoAniamtion(activity);
-                finish();*/
+                finish();
             }
         });
     }

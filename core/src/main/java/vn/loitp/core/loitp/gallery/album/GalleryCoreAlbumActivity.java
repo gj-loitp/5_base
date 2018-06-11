@@ -14,7 +14,6 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.gallery.album.AlbumAdapter;
 import vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
@@ -39,6 +38,9 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTransparentStatusNavigationBar();
+
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
 
@@ -60,9 +62,8 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             public void onClick(int pos) {
                 Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
-                intent.putExtra(Constants.SK_PHOTOSET_URL, photosetList.get(pos).getPrimaryPhotoExtras().getUrlM());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.transActivityNoAniamtion(activity);
             }
 
             @Override

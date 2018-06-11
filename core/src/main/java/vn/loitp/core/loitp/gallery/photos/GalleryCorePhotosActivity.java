@@ -32,14 +32,15 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTransparentStatusNavigationBar();
+
         tvTitle = (TextView) findViewById(R.id.tv_title);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
 
-        final String photosetUrl = getIntent().getStringExtra(Constants.SK_PHOTOSET_URL);
-        //LLog.d(TAG, "photosetUrl " + photosetUrl);
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LImageUtil.load(activity, photosetUrl, ivBkg);
+        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         photosetsGetPhotos(photosetID);
