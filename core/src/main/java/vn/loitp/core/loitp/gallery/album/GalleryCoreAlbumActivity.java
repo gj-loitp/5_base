@@ -1,5 +1,6 @@
-package vn.loitp.core.loitp.gallery;
+package vn.loitp.core.loitp.gallery.album;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.animation.OvershootInterpolator;
@@ -14,6 +15,8 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.album.AlbumAdapter;
+import vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
@@ -55,10 +58,11 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         albumAdapter = new AlbumAdapter(activity, photosetList, new AlbumAdapter.Callback() {
             @Override
             public void onClick(int pos) {
-                /*Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
-                intent.putExtra("photosetID", photoset.getId());
+                Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
+                intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
+                intent.putExtra(Constants.SK_PHOTOSET_URL, photosetList.get(pos).getPrimaryPhotoExtras().getUrlM());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);*/
+                LActivityUtil.tranIn(activity);
             }
 
             @Override

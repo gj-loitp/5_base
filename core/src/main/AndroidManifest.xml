@@ -36,7 +36,10 @@
             android:name="vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.GalleryCoreAlbumActivity"
+            android:name="vn.loitp.core.loitp.gallery.album.GalleryCoreAlbumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity"
             android:screenOrientation="portrait" />
     </application>
 

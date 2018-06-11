@@ -13,6 +13,12 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_15"
+        app:realtimeOverlayColor="@color/black_35" />
+
     <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

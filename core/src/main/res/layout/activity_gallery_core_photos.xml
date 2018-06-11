@@ -4,33 +4,33 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:background="@color/colorPrimary">
 
-    <TextView
-        android:id="@+id/tv"
+    <ImageView
+        android:id="@+id/iv_bkg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/padding_5"
-        android:text="All these photos is loaded with small size (50x80), but you can use big size (FullHD, QuadHD) in your app"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_20" />
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
+
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_15"
+        app:realtimeOverlayColor="@color/black_35" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv"
         android:padding="@dimen/padding_5"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_20" />
 
-    <vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView
-        android:id="@+id/galleryView"
+    <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tv_title"
-        android:scrollbars="vertical" />
+        android:layout_height="match_parent" />
 
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
@@ -38,7 +38,7 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="@color/White"
         app:indicatorName="PacmanIndicator" />
 
 </RelativeLayout>
