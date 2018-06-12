@@ -24,6 +24,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setTransparentStatusNavigationBar();
+
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
@@ -64,7 +66,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
     @Override
     protected boolean setFullScreen() {
-        return true;
+        return false;
     }
 
     @Override

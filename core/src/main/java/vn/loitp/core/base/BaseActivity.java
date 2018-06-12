@@ -61,13 +61,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         return rootView;
     }
 
+    protected void setRootViewPadding() {
+        rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
+    }
+
     protected void setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-        rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
     }
 
     @Override

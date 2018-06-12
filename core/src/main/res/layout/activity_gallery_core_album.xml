@@ -9,6 +9,7 @@
     app:swipeBackFactor="0.5">
 
     <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -25,23 +26,17 @@
             app:realtimeBlurRadius="@dimen/round_15"
             app:realtimeOverlayColor="@color/black_35" />-->
 
-        <RelativeLayout
-            android:id="@+id/root_view"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="@dimen/w_50"
-                android:layout_height="@dimen/w_50"
-                android:layout_centerInParent="true" />
-        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>
