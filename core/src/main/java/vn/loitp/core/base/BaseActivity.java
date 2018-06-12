@@ -1,6 +1,7 @@
 package vn.loitp.core.base;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -161,12 +162,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void showDialogError(String errMsg) {
-        LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
+        AlertDialog alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
                 onBackPressed();
             }
         });
+        alertDialog.setCancelable(false);
     }
 
     protected void showDialogMsg(String errMsg) {

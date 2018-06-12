@@ -62,6 +62,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             public void onClick(int pos) {
                 Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
+                intent.putExtra(Constants.SK_PHOTOSET_SIZE, photosetList.get(pos).getPhotos());
                 startActivity(intent);
                 LActivityUtil.transActivityNoAniamtion(activity);
             }

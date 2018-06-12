@@ -32,6 +32,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     private int currentPage = 0;
     private int totalPage = 1;
+    private final int PER_PAGE_SIZE = 100;
 
     private boolean isLoading;
     private PhotosAdapter photosAdapter;
@@ -52,6 +53,26 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
+        LLog.d(TAG, "photosSize " + photosSize);
+
+        int totalPhotos = 0;
+        try {
+            totalPhotos = Integer.parseInt(photosSize);
+        } catch (Exception e) {
+            showDialogError(getString(R.string.err_unknow));
+            return;
+        }
+
+        if (totalPhotos == 0) {
+            showDialogError(getString(R.string.err_unknow));
+            return;
+        }
+
+        totalPage = totalPhotos / PER_PAGE_SIZE + 1;
+        currentPage = totalPage;
+        LLog.d(TAG, "total page " + totalPage);
+        LLog.d(TAG, "currentPage " + currentPage);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -108,7 +129,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override
@@ -121,30 +142,27 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             LLog.d(TAG, "isLoading true -> return");
             return;
         }
-        //LLog.d(TAG, "is calling photosetsGetPhotos");
+        LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avi.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         String apiKey = FlickrConst.API_KEY;
         String userID = FlickrConst.USER_KEY;
-        currentPage++;
-        if (currentPage > totalPage) {
-            //LLog.d(TAG, "currentPage > totalPage -> return");
-            currentPage = totalPage;
+        if (currentPage <= 0) {
+            LLog.d(TAG, "currentPage <= 0 -> return");
+            currentPage = 0;
             avi.smoothToHide();
             return;
         }
-        int perPage = 100;
         String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
         String format = FlickrConst.FORMAT;
         int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
+        subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
 
-                totalPage = wrapperPhotosetGetPhotos.getPhotoset().getPages();
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
@@ -156,6 +174,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
                 avi.smoothToHide();
                 isLoading = false;
+                currentPage--;
             }
 
             @Override
