@@ -36,6 +36,7 @@
     <dimen name="w_64">64dp</dimen>
     <dimen name="w_300">300dp</dimen>
     <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="w_40">40dp</dimen>
     <dimen name="w_1">1dp</dimen>

@@ -10,6 +10,7 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
@@ -21,32 +22,27 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
-        <RelativeLayout
-            android:id="@+id/root_view"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_25"
+            android:padding="@dimen/padding_5"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_20" />
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_20" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="@dimen/w_50"
-                android:layout_height="@dimen/w_50"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/margin_15" />
-        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/margin_15" />
 
     </RelativeLayout>
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>
