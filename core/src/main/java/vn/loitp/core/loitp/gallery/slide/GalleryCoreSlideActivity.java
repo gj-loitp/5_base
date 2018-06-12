@@ -1,7 +1,9 @@
 package vn.loitp.core.loitp.gallery.slide;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,6 @@ import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
 
@@ -23,14 +23,20 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTransparentStatusNavigationBar();
+        //setTransparentStatusNavigationBar();
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new SlidePagerAdapter());
+
+        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                page.setRotationY(position * -30);
+            }
+        });
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
@@ -42,7 +48,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        return true;
     }
 
     @Override

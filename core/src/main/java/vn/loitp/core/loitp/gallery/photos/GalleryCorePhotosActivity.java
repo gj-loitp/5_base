@@ -59,7 +59,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
-        LLog.d(TAG, "photosSize " + photosSize);
+        //LLog.d(TAG, "photosSize " + photosSize);
 
         int totalPhotos = 0;
         try {
@@ -74,10 +74,15 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             return;
         }
 
-        totalPage = totalPhotos / PER_PAGE_SIZE + 1;
+        if (totalPhotos % PER_PAGE_SIZE == 0) {
+            totalPage = totalPhotos / PER_PAGE_SIZE;
+        } else {
+            totalPage = totalPhotos / PER_PAGE_SIZE + 1;
+        }
+
         currentPage = totalPage;
-        LLog.d(TAG, "total page " + totalPage);
-        LLog.d(TAG, "currentPage " + currentPage);
+        //LLog.d(TAG, "total page " + totalPage);
+        //LLog.d(TAG, "currentPage " + currentPage);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -94,7 +99,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
                 startActivity(intent);
-                LActivityUtil.transActivityNoAniamtion(activity);
+                LActivityUtil.tranIn(activity);
             }
 
             @Override
@@ -172,7 +177,6 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
-
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosDataCore.getInstance().addPhoto(photoList);
                 updateAllViews();
@@ -184,7 +188,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.d(TAG, "onFail " + e.toString());
+                LLog.e(TAG, "onFail " + e.toString());
                 handleException(e);
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
                 isLoading = true;

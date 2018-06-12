@@ -8,6 +8,10 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_55"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginRight="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_55"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 </RelativeLayout>
