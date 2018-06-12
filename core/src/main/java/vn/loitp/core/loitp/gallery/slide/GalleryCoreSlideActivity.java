@@ -1,14 +1,21 @@
 package vn.loitp.core.loitp.gallery.slide;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -20,6 +27,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
+    private ImageView ivBkg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +35,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         setTransparentStatusNavigationBar();
 
-        final ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -47,7 +55,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
-        viewPager.setOffscreenPageLimit(4);
+        viewPager.setOffscreenPageLimit(2);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -58,7 +66,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageSelected(int position) {
                 //LLog.d(TAG, "onPageSelected " + PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, Color.TRANSPARENT, Color.TRANSPARENT, 20, 20, null);
+                loadBlurImg(position);
             }
 
             @Override
@@ -66,6 +74,10 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                 //do nothing
             }
         });
+    }
+
+    private void loadBlurImg(int position) {
+        LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, Color.TRANSPARENT, Color.TRANSPARENT, 20, 20, null);
     }
 
     @Override
@@ -92,7 +104,19 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv_core, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(activity, photo.getUrlO(), imageView);
+            LImageUtil.load(activity, photo.getUrlO(), imageView, new RequestListener<Drawable>() {
+                @Override
+                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                    LLog.d(TAG, "onLoadFailed");
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                    LLog.d(TAG, "onResourceReady");
+                    return false;
+                }
+            });
 
             collection.addView(layout);
             return layout;

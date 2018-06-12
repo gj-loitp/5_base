@@ -42,6 +42,18 @@ public class LImageUtil {
         Glide.with(context).load(url).into(imageView);
     }
 
+    public static void load(Context context, String url, ImageView imageView,  RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(context).load(url)
+                /*.apply(new RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        .override(sizeW, sizeH)
+                        .error(resError)
+                )*/
+                .listener(drawableRequestListener)
+                .into(imageView);
+    }
+
     public static void load(Context context, String url, ImageView imageView, int resPlaceHolder) {
         //Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
         Glide.with(context)
