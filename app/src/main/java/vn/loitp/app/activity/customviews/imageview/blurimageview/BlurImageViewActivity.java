@@ -3,8 +3,10 @@ package vn.loitp.app.activity.customviews.imageview.blurimageview;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.imageview.blurimageview.lib.BlurImage;
 
 public class BlurImageViewActivity extends BaseFontActivity {
@@ -14,11 +16,14 @@ public class BlurImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         ImageView imageView = (ImageView) findViewById(R.id.iv);
+        ImageView imageView2 = (ImageView) findViewById(R.id.iv_2);
         BlurImage.with(getApplicationContext())
                 .load(R.drawable.iv)
                 .intensity(20)
                 .Async(true)
                 .into(imageView);
+
+        LImageUtil.load(activity, vn.loitp.core.common.Constants.URL_IMG_5, imageView2);
 
         /*
         method (load) :- load(int resource), load(Bitmap bitmap)
