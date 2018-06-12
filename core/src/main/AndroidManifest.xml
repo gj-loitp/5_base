@@ -45,8 +45,7 @@
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
             android:name="vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

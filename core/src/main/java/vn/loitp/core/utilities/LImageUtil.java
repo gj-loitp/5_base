@@ -140,7 +140,9 @@ public class LImageUtil {
                     }
                 })
                 .into(imageView);
-    }public static void load(Context context, String url, ImageView imageView, final ProgressBar progressBar) {
+    }
+
+    public static void load(Context context, String url, ImageView imageView, final ProgressBar progressBar) {
         Glide.with(context).load(url)
                 /*.apply(new RequestOptions()
                         .placeholder(resPlaceHolder)

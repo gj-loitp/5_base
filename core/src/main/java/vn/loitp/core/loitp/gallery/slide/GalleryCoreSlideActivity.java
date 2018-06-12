@@ -14,6 +14,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
@@ -22,8 +23,6 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //setTransparentStatusNavigationBar();
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
@@ -44,6 +43,23 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         int position = PhotosDataCore.getInstance().getPosition(photoID);
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //do nothing
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                LLog.d(TAG, "onPageSelected " + PhotosDataCore.getInstance().getPhoto(position).getUrlO());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //do nothing
+            }
+        });
     }
 
     @Override
@@ -53,7 +69,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/margin_55"
-        android:layout_marginLeft="@dimen/margin_30"
-        android:layout_marginRight="@dimen/margin_30"
-        android:layout_marginTop="@dimen/margin_55"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
-</RelativeLayout>
+        android:layout_height="match_parent">
+
+        <vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name" />
+    </FrameLayout>
+</ScrollView>
