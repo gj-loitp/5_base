@@ -66,7 +66,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageSelected(int position) {
                 //LLog.d(TAG, "onPageSelected " + PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                loadBlurImg(position);
+                //loadBlurImg(position);
             }
 
             @Override
