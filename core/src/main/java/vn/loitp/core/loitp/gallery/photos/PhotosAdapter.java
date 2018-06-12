@@ -46,7 +46,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         viewHolder.rootView.getLayoutParams().height = sizeH;
         viewHolder.rootView.requestLayout();
 
-        Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
+        final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
         LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
@@ -55,7 +55,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onClick(position);
+                    callback.onClick(photo, position);
                 }
             }
         });
@@ -63,7 +63,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
             @Override
             public boolean onLongClick(View v) {
                 if (callback != null) {
-                    callback.onLongClick(position);
+                    callback.onLongClick(photo, position);
                 }
                 return true;
             }
@@ -95,9 +95,9 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     }
 
     public interface Callback {
-        public void onClick(int pos);
+        public void onClick(Photo photo, int pos);
 
-        public void onLongClick(int pos);
+        public void onLongClick(Photo photo, int pos);
     }
 
     private Callback callback;

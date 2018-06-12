@@ -63,4 +63,5 @@ public class Constants {
 
     public final static String SK_PHOTOSET_ID = "SK_PHOTOSET_ID";
     public final static String SK_PHOTOSET_SIZE = "SK_PHOTOSET_SIZE";
+    public final static String SK_PHOTO_ID = "SK_PHOTO_ID";
 }

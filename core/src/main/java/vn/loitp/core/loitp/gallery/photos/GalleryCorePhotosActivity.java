@@ -1,5 +1,6 @@
 package vn.loitp.core.loitp.gallery.photos;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,8 +16,11 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -85,17 +89,17 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         recyclerView.setHasFixedSize(true);
         photosAdapter = new PhotosAdapter(activity, new PhotosAdapter.Callback() {
             @Override
-            public void onClick(int pos) {
+            public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                /*Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
-                intent.putExtra("photoID", photo.getId());
+                Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
+                intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);*/
+                LActivityUtil.transActivityNoAniamtion(activity);
             }
 
             @Override
-            public void onLongClick(int pos) {
-
+            public void onLongClick(Photo photo, int pos) {
+                LSocialUtil.share(activity, photo.getUrlO());
             }
         });
         //recyclerView.setAdapter(albumAdapter);
