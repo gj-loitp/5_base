@@ -42,7 +42,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Photoset photoset = photosetList.get(position);
-        viewHolder.avLoadingIndicatorView.smoothToShow();
+        //viewHolder.avLoadingIndicatorView.smoothToShow();
+        viewHolder.avLoadingIndicatorView.show();
         LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.avLoadingIndicatorView);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");

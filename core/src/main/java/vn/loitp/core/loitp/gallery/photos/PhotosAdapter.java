@@ -37,6 +37,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
+        viewHolder.avLoadingIndicatorView.show();
         LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.avLoadingIndicatorView);
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);

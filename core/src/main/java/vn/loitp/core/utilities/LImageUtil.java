@@ -122,7 +122,8 @@ public class LImageUtil {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         if (avLoadingIndicatorView != null) {
-                            avLoadingIndicatorView.smoothToHide();
+                            //avLoadingIndicatorView.smoothToHide();
+                            avLoadingIndicatorView.hide();
                         }
                         return false;
                     }
@@ -130,7 +131,8 @@ public class LImageUtil {
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, com.bumptech.glide.load.DataSource dataSource, boolean isFirstResource) {
                         if (avLoadingIndicatorView != null) {
-                            avLoadingIndicatorView.smoothToHide();
+                            //avLoadingIndicatorView.smoothToHide();
+                            avLoadingIndicatorView.hide();
                         }
                         return false;
                     }
