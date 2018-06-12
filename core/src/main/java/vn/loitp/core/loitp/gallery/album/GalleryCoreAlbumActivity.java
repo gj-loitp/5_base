@@ -3,6 +3,7 @@ package vn.loitp.core.loitp.gallery.album;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 
@@ -47,8 +48,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        photosetsGetList();
-        ParallaxRecyclerView recyclerView = (ParallaxRecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
@@ -81,6 +81,8 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         recyclerView.setAdapter(scaleAdapter);
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
+
+        photosetsGetList();
     }
 
     @Override

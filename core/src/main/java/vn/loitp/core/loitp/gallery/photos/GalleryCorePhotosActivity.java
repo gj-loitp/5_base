@@ -1,6 +1,10 @@
 package vn.loitp.core.loitp.gallery.photos;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +23,8 @@ import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
@@ -28,14 +34,17 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     private int totalPage = 1;
 
     private boolean isLoading;
+    private PhotosAdapter photosAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setTransparentStatusNavigationBar();
+        PhotosDataCore.getInstance().clearData();
 
         tvTitle = (TextView) findViewById(R.id.tv_title);
+        LUIUtil.setTextShadow(tvTitle);
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
         avi.smoothToHide();
 
@@ -43,9 +52,42 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        animator.setAddDuration(1000);
+        recyclerView.setItemAnimator(animator);
+
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+        recyclerView.setHasFixedSize(true);
+        photosAdapter = new PhotosAdapter(activity, new PhotosAdapter.Callback() {
+            @Override
+            public void onClick(int pos) {
+                //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
+                /*Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
+                intent.putExtra("photoID", photo.getId());
+                startActivity(intent);
+                LActivityUtil.tranIn(activity);*/
+            }
+
+            @Override
+            public void onLongClick(int pos) {
+
+            }
+        });
+        //recyclerView.setAdapter(albumAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosAdapter);
+        scaleAdapter.setDuration(1000);
+        scaleAdapter.setInterpolator(new OvershootInterpolator());
+        scaleAdapter.setFirstOnly(true);
+        recyclerView.setAdapter(scaleAdapter);
+
+        //LUIUtil.setPullLikeIOSVertical(recyclerView);
+
         photosetsGetPhotos(photosetID);
 
-        /*mGalleryView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -56,7 +98,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                     }
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -107,22 +149,11 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
-                LUIUtil.setTextShadow(tvTitle);
 
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosDataCore.getInstance().addPhoto(photoList);
-                /*for (int i = 0; i < photoList.size(); i++) {
-                    mGalleryView.addView(new PhotosItem(activity, photoList.get(i), i, new PhotosItem.Callback() {
-                        @Override
-                        public void onClick(Photo photo, int position) {
-                            //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                            Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
-                            intent.putExtra("photoID", photo.getId());
-                            startActivity(intent);
-                            LActivityUtil.tranIn(activity);
-                        }
-                    }));
-                }*/
+                updateAllViews();
+
                 avi.smoothToHide();
                 isLoading = false;
             }
@@ -139,7 +170,13 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        PhotosDataCore.getInstance().clearData();
+        //PhotosDataCore.getInstance().clearData();
         super.onBackPressed();
+    }
+
+    private void updateAllViews() {
+        if (photosAdapter != null) {
+            photosAdapter.notifyDataSetChanged();
+        }
     }
 }

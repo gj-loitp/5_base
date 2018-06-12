@@ -26,6 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
@@ -33,11 +38,6 @@
                 android:padding="@dimen/padding_5"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt_20" />
-
-            <vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
             <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
                 android:id="@+id/avi"
