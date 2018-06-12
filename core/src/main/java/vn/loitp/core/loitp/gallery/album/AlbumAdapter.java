@@ -17,6 +17,7 @@ import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.
@@ -41,7 +42,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Photoset photoset = photosetList.get(position);
-        LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv);
+        viewHolder.avLoadingIndicatorView.smoothToShow();
+        LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.avLoadingIndicatorView);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 
@@ -86,6 +88,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public final TextView tvLabel;
         public final TextView tvUpdate;
         public final TextView tvNumber;
+        public final AVLoadingIndicatorView avLoadingIndicatorView;
         public final RelativeLayout rootView;
 
         public ViewHolder(View v) {
@@ -94,6 +97,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             tvLabel = (TextView) v.findViewById(R.id.tv_label);
             tvUpdate = (TextView) v.findViewById(R.id.tv_update);
             tvNumber = (TextView) v.findViewById(R.id.tv_number);
+            avLoadingIndicatorView = (AVLoadingIndicatorView) v.findViewById(R.id.avi);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
         }
     }

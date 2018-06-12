@@ -44,8 +44,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="@dimen/margin_15"
-                    app:indicatorColor="@color/white"
-                    app:indicatorName="PacmanIndicator" />
+                    app:indicatorColor="@color/White"
+                    app:indicatorName="LineScalePulseOutRapidIndicator" />
 
                 <TextView
                     android:id="@+id/tv_name"

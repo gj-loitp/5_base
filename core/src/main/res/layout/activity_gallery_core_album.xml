@@ -42,7 +42,7 @@
                 android:layout_height="@dimen/w_50"
                 android:layout_centerInParent="true"
                 app:indicatorColor="@color/White"
-                app:indicatorName="PacmanIndicator" />
+                app:indicatorName="LineScalePulseOutRapidIndicator" />
         </RelativeLayout>
     </RelativeLayout>
 
