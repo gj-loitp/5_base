@@ -17,4 +17,11 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/sliding_tabs" />
 
+    <Button
+        android:id="@+id/bt_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="ANIMATION" />
+
 </RelativeLayout>

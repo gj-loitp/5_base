@@ -52,7 +52,7 @@
                 android:id="@+id/bt_view_pager_tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ViewPager With Tablayout" />
+                android:text="ViewPager With Tablayout + transformers" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
