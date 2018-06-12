@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
@@ -21,13 +22,18 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
  * Created by yahyabayramoglu on 14/04/15.
  */
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
+    public static int COLUMN = 2;
     private Context context;
     private LayoutInflater inflater;
+    private int sizeW;
+    private int sizeH;
 
     public PhotosAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
+        sizeW = LScreenUtil.getScreenWidth();
+        sizeH = sizeW / COLUMN * 16 / 9;
     }
 
     @Override
@@ -37,6 +43,9 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        viewHolder.rootView.getLayoutParams().height = sizeH;
+        viewHolder.rootView.requestLayout();
+
         Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
         LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);

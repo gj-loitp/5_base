@@ -17,6 +17,7 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 
@@ -27,12 +28,16 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     private Context context;
     private LayoutInflater inflater;
     private List<Photoset> photosetList;
+    private int sizeW;
+    private int sizeH;
 
     public AlbumAdapter(Context context, List<Photoset> photosetList, Callback callback) {
         this.context = context;
         this.photosetList = photosetList;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
+        sizeW = LScreenUtil.getScreenWidth();
+        sizeH = sizeW;
     }
 
     @Override
@@ -42,6 +47,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        viewHolder.rootView.getLayoutParams().height = sizeH;
+        viewHolder.rootView.requestLayout();
+
         Photoset photoset = photosetList.get(position);
         //viewHolder.avLoadingIndicatorView.smoothToShow();
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);

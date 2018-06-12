@@ -81,7 +81,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, PhotosAdapter.COLUMN));
         recyclerView.setHasFixedSize(true);
         photosAdapter = new PhotosAdapter(activity, new PhotosAdapter.Callback() {
             @Override
