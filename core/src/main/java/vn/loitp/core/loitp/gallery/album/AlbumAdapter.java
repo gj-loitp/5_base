@@ -2,11 +2,13 @@ package vn.loitp.core.loitp.gallery.album;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,7 +19,6 @@ import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.
@@ -43,8 +44,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Photoset photoset = photosetList.get(position);
         //viewHolder.avLoadingIndicatorView.smoothToShow();
-        viewHolder.avLoadingIndicatorView.show();
-        LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.avLoadingIndicatorView);
+        LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
+        LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 
@@ -89,7 +90,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public final TextView tvLabel;
         public final TextView tvUpdate;
         public final TextView tvNumber;
-        public final AVLoadingIndicatorView avLoadingIndicatorView;
+        public final ProgressBar progressBar;
         public final RelativeLayout rootView;
 
         public ViewHolder(View v) {
@@ -98,8 +99,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             tvLabel = (TextView) v.findViewById(R.id.tv_label);
             tvUpdate = (TextView) v.findViewById(R.id.tv_update);
             tvNumber = (TextView) v.findViewById(R.id.tv_number);
-            avLoadingIndicatorView = (AVLoadingIndicatorView) v.findViewById(R.id.avi);
+            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
+
+            LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
     }
 

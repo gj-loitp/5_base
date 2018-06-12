@@ -1,11 +1,13 @@
 package vn.loitp.core.loitp.gallery.album;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,6 +27,7 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
@@ -32,7 +35,7 @@ import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxRecycl
 
 public class GalleryCoreAlbumActivity extends BaseFontActivity {
     //private Gson gson = new Gson();
-    private AVLoadingIndicatorView avi;
+    private ProgressBar progressBar;
     private AlbumAdapter albumAdapter;
     private List<Photoset> photosetList = new ArrayList<>();
 
@@ -42,8 +45,8 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
         setTransparentStatusNavigationBar();
 
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
-        avi.smoothToHide();
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
@@ -102,7 +105,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     }
 
     private void photosetsGetList() {
-        avi.smoothToShow();
+        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
         String apiKey = FlickrConst.API_KEY;
@@ -124,13 +127,13 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
                     }
                 });
                 updateAllViews();
-                avi.smoothToHide();
+                LUIUtil.setProgressBarVisibility(progressBar, android.view.View.GONE);
             }
 
             @Override
             public void onFail(Throwable e) {
                 handleException(e);
-                avi.smoothToHide();
+                LUIUtil.setProgressBarVisibility(progressBar, android.view.View.GONE);
             }
         });
     }

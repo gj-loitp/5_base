@@ -2,11 +2,13 @@ package vn.loitp.core.loitp.gallery.photos;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,7 +16,6 @@ import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.
@@ -37,8 +38,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
-        viewHolder.avLoadingIndicatorView.show();
-        LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.avLoadingIndicatorView);
+        LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
+        LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
@@ -71,15 +72,16 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView iv;
         public final TextView tvSize;
-        public final AVLoadingIndicatorView avLoadingIndicatorView;
+        public final ProgressBar progressBar;
         public final RelativeLayout rootView;
 
         public ViewHolder(View v) {
             super(v);
             iv = (ImageView) v.findViewById(R.id.iv);
             tvSize = (TextView) v.findViewById(R.id.tv_size);
-            avLoadingIndicatorView = (AVLoadingIndicatorView) v.findViewById(R.id.avi);
+            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
             rootView = (RelativeLayout) v.findViewById(R.id.root_view);
+            LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
     }
 

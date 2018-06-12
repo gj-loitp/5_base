@@ -23,12 +23,10 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/txt_14" />
 
-    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
-        style="@style/AVLoadingIndicatorView.Large"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
-        android:layout_centerInParent="true"
-        app:indicatorColor="@color/White"
-        app:indicatorName="LineScalePulseOutRapidIndicator" />
+        android:layout_centerInParent="true" />
 </RelativeLayout>

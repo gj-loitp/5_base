@@ -1,9 +1,11 @@
 package vn.loitp.core.loitp.gallery;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import loitp.core.R;
@@ -31,6 +33,9 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
 
         TextView tvCopyright = (TextView) findViewById(R.id.tv_copyright);
         LUIUtil.setTextShadow(tvCopyright);
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
         TextView tvName = (TextView) findViewById(R.id.tv_name);
         LUIUtil.setTextShadow(tvName);
