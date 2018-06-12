@@ -1,5 +1,6 @@
 package vn.loitp.core.loitp.gallery.slide;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -26,7 +27,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         setTransparentStatusNavigationBar();
 
-        ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        final ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -35,7 +36,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
-                page.setRotationY(position * -30);
+                page.setRotationY(position * -50);
             }
         });
 
@@ -46,6 +47,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
+        viewPager.setOffscreenPageLimit(4);
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -54,7 +57,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                LLog.d(TAG, "onPageSelected " + PhotosDataCore.getInstance().getPhoto(position).getUrlO());
+                //LLog.d(TAG, "onPageSelected " + PhotosDataCore.getInstance().getPhoto(position).getUrlO());
+                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, Color.TRANSPARENT, Color.TRANSPARENT, 20, 20, null);
             }
 
             @Override

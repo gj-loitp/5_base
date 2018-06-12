@@ -45,7 +45,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.transActivityNoAniamtion(activity);
+                LActivityUtil.tranIn(activity);
                 finish();
             }
         });

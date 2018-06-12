@@ -3,9 +3,8 @@ package vn.loitp.app.activity.customviews.imageview.blurimageview;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.imageview.blurimageview.lib.BlurImage;
 
