@@ -45,6 +45,7 @@
     <dimen name="w_10">10dp</dimen>
     <dimen name="w_5">5dp</dimen>
     <dimen name="w_20">20dp</dimen>
+    <dimen name="w_25">25dp</dimen>
     <dimen name="w_30">30dp</dimen>
     <dimen name="w_70">70dp</dimen>
     <dimen name="w_350">350dp</dimen>

@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -83,6 +83,17 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                 return true;
             }
         });
+
+        if (position == 0) {
+            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        } else if (position == getItemCount() - 1) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -99,7 +110,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public final TextView tvUpdate;
         public final TextView tvNumber;
         public final ProgressBar progressBar;
-        public final RelativeLayout rootView;
+        public final LinearLayout rootView;
+        public final View viewSpaceTop;
+        public final View viewSpaceBottom;
 
         public ViewHolder(View v) {
             super(v);
@@ -108,7 +121,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             tvUpdate = (TextView) v.findViewById(R.id.tv_update);
             tvNumber = (TextView) v.findViewById(R.id.tv_number);
             progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
-            rootView = (RelativeLayout) v.findViewById(R.id.root_view);
+            rootView = (LinearLayout) v.findViewById(R.id.root_view);
+            viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
+            viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
 
             LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
