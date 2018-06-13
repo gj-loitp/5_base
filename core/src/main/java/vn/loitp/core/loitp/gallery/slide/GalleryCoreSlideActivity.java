@@ -2,6 +2,7 @@ package vn.loitp.core.loitp.gallery.slide;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -44,13 +45,13 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
 
-        viewPager.setPageTransformer(true, new CubeOutTransformer());
-        /*viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+        //viewPager.setPageTransformer(true, new CubeOutTransformer());
+        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
                 page.setRotationY(position * -30);
             }
-        });*/
+        });
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
