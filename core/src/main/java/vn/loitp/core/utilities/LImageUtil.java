@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
@@ -41,15 +42,20 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 
 public class LImageUtil {
     //for flide
+    public static void clear(Context context, View target) {
+        Glide.with(context).clear(target);
+    }
+
     public static void load(Context context, String url, ImageView imageView) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                                //.placeholder(resPlaceHolder)
-                                //.fitCenter()
-                                //.override(sizeW, sizeH)
-                                .override(Target.SIZE_ORIGINAL)
+                        //.placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
                         //.error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .into(imageView);
     }
@@ -58,11 +64,12 @@ public class LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                                //.placeholder(resPlaceHolder)
-                                //.fitCenter()
-                                //.override(sizeW, sizeH)
-                                .override(Target.SIZE_ORIGINAL)
+                        //.placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
                         //.error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(drawableRequestListener)
                 .into(imageView);
@@ -77,6 +84,7 @@ public class LImageUtil {
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
                         .override(Target.SIZE_ORIGINAL)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .into(imageView);
     }
@@ -125,6 +133,7 @@ public class LImageUtil {
                         //.override(sizeW, sizeH)
                         .override(Target.SIZE_ORIGINAL)
                         .error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(drawableRequestListener)
                 .into(imageView);
@@ -139,6 +148,7 @@ public class LImageUtil {
                         //.override(sizeW, sizeH)
                         .override(Target.SIZE_ORIGINAL)
                         .error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -166,10 +176,11 @@ public class LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                                //.placeholder(resPlaceHolder)
-                                //.fitCenter()
-                                .override(sizeW, sizeH)
+                        //.placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        .override(sizeW, sizeH)
                         //.error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -191,10 +202,11 @@ public class LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                                //.placeholder(resPlaceHolder)
-                                //.fitCenter()
-                                .override(Target.SIZE_ORIGINAL)
+                        //.placeholder(resPlaceHolder)
+                        //.fitCenter()
+                        .override(Target.SIZE_ORIGINAL)
                         //.error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -230,6 +242,7 @@ public class LImageUtil {
                         .placeholder(R.drawable.trans)
                         //.fitCenter()
                         .override(sizeW, sizeH)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                 ).into(imageView);
     }
 
