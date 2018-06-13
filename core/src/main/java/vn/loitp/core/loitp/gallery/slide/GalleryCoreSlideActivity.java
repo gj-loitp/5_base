@@ -71,13 +71,14 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             public void onPageSelected(int position) {
                 Photo photo = PhotosDataCore.getInstance().getPhoto(position);
                 LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
+                LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
                 if (position % 2 == 0) {
                     ivBkg1.setVisibility(View.INVISIBLE);
-                    LImageUtil.loadNoAmin(activity, photo.getUrlS(), ivBkg1, new RequestListener<Drawable>() {
+                    LImageUtil.loadNoAmin(activity, photo.getFlickrLink100(), ivBkg1, new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                             ivBkg1.setVisibility(View.VISIBLE);
-                            LAnimationUtil.play(ivBkg1, Techniques.Pulse);
+                            //LAnimationUtil.play(ivBkg1, Techniques.Pulse);
                             ivBkg2.setVisibility(View.INVISIBLE);
                             return false;
                         }
@@ -85,14 +86,14 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                         @Override
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                             ivBkg1.setVisibility(View.VISIBLE);
-                            LAnimationUtil.play(ivBkg1, Techniques.Pulse);
+                            //LAnimationUtil.play(ivBkg1, Techniques.Pulse);
                             ivBkg2.setVisibility(View.INVISIBLE);
                             return false;
                         }
                     });
                 } else {
                     ivBkg2.setVisibility(View.INVISIBLE);
-                    LImageUtil.loadNoAmin(activity, photo.getUrlS(), ivBkg2, new RequestListener<Drawable>() {
+                    LImageUtil.loadNoAmin(activity, photo.getFlickrLink100(), ivBkg2, new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                             ivBkg1.setVisibility(View.INVISIBLE);
@@ -111,20 +112,18 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                     });
                 }
 
-                /*
                 //get current page
-                FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
+                /*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
                 if (currentFrmIvSlideCore != null) {
                     LLog.d(TAG, "onPageSelected updateBkg currentFrmIvSlideCore");
                     currentFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                }
+                }*/
                 //get next page
-                FrmIvSlideCore nextFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position + 1);
+                /*FrmIvSlideCore nextFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position + 1);
                 if (nextFrmIvSlideCore != null) {
                     LLog.d(TAG, "onPageSelected updateBkg nextFrmIvSlideCore");
                     nextFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                }
-                */
+                }*/
             }
 
             @Override

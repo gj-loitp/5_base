@@ -207,6 +207,15 @@ public class Photo {
         this.widthM = widthM;
     }
 
+    public String getFlickrLink100() {
+        if (urlO.contains(".gif")) {
+            //gif extension have no link large
+            return urlO;
+        } else {
+            return LImageUtil.getFlickrLink100(urlM);
+        }
+    }
+
     public String getFlickrLink640() {
         if (urlO.contains(".gif")) {
             //gif extension have no link large
