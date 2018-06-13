@@ -4,6 +4,9 @@ package vn.loitp.restapi.flickr.model.photosetgetphotos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
+
 public class Photo {
 
     @SerializedName("id")
@@ -203,5 +206,14 @@ public class Photo {
 
     public void setWidthM(int widthM) {
         this.widthM = widthM;
+    }
+
+    public String getLinkLarge() {
+        if (urlO.contains(".gif")) {
+            //gif extension have no link large
+            return urlO;
+        } else {
+            return LImageUtil.convertLinkMediumToLinkLarge(urlM);
+        }
     }
 }

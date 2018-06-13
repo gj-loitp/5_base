@@ -55,12 +55,6 @@ public class FrmIvSlideCore extends Fragment {
         LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
         int sizeW = LScreenUtil.getScreenWidth();
         int sizeH = sizeW * photo.getHeightO() / photo.getWidthO();
-        /*if (photo.getWidthO() > sizeW) {
-            //LLog.d(TAG, "onViewCreated " + screenW + " - " + screenH);
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, sizeW, sizeH);
-        } else {
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
-        }*/
 
         int sizeS = photo.getWidthS();
         int sizeM = photo.getWidthM();
@@ -79,6 +73,7 @@ public class FrmIvSlideCore extends Fragment {
             //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
             LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
         }
+        //LImageUtil.load(getActivity(), photo.getUrlM(), imageView, progressBar, sizeW, sizeH);
     }
 
     public void updateBkg(String bkg) {

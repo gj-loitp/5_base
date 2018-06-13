@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import loitp.core.R;
-import vn.loitp.core.loitp.gallery.album.AlbumAdapter;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -59,7 +58,14 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        int sizeS = photo.getWidthS();
+        LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
+        //LLog.d(TAG, ">>>getUrlS " + photo.getUrlS());
+        //LLog.d(TAG, ">>>getUrlM " + photo.getUrlM());
+        LLog.d(TAG, ">>>getLinkLarge " + photo.getLinkLarge());
+
+        LImageUtil.load(context, photo.getLinkLarge(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+
+        /*int sizeS = photo.getWidthS();
         int sizeM = photo.getWidthM();
         int sizeO = photo.getWidthO();
         LLog.d(TAG, sizeW + " - " + sizeS + "/" + sizeM + "/" + sizeO);
@@ -75,7 +81,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         } else {
             //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
             LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
-        }
+        }*/
 
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);

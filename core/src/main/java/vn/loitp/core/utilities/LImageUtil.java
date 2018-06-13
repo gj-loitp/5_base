@@ -315,4 +315,20 @@ public class LImageUtil {
     public interface OnLoadCompletedListener {
         void onLoadCompleted(Bitmap bitmap);
     }
+
+    //for flick api url_m -> url_b
+    public static String convertLinkMediumToLinkLarge(String linkOriginal) {
+        if (linkOriginal == null || linkOriginal.isEmpty()) {
+            return null;
+        }
+        linkOriginal = linkOriginal.toLowerCase();
+        if (linkOriginal.contains(".jpg")) {
+            linkOriginal = linkOriginal.replace(".jpg", "_b.jpg");
+        } else if (linkOriginal.contains(".png")) {
+            linkOriginal = linkOriginal.replace(".png", "_b.png");
+        } else if (linkOriginal.contains(".gif")) {
+            linkOriginal = linkOriginal.replace(".gif", "_b.gif");
+        }
+        return linkOriginal;
+    }
 }

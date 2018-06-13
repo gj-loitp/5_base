@@ -77,6 +77,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
             LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
         }
+        //LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 
