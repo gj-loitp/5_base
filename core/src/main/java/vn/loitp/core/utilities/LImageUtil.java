@@ -246,7 +246,7 @@ public class LImageUtil {
                 ).into(imageView);
     }
 
-    public static void loadNoAmin(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
+    public static void loadNoAmin(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
         if (context == null) {
             return;
         }
@@ -255,11 +255,14 @@ public class LImageUtil {
                 .apply(new RequestOptions()
                         .placeholder(R.drawable.trans)
                         //.fitCenter()
-                        .override(sizeW, sizeH)
+                        //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .dontTransform()
-                ).into(imageView);
+                )
+                .listener(drawableRequestListener)
+                .into(imageView);
     }
 
     //for SimpleDraweeView
