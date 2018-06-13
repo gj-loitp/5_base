@@ -1,6 +1,7 @@
 package vn.loitp.core.loitp.gallery.slide;
 
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,7 +36,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTransparentStatusNavigationBar();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setTransparentStatusNavigationBar();
+        } else {
+            //do nothing
+        }
 
         final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
@@ -145,7 +150,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
