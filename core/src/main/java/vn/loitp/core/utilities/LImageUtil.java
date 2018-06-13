@@ -246,6 +246,22 @@ public class LImageUtil {
                 ).into(imageView);
     }
 
+    public static void loadNoAmin(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
+        if (context == null) {
+            return;
+        }
+        Glide.with(context).load(url)
+                //.transition(withCrossFade())
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.trans)
+                        //.fitCenter()
+                        .override(sizeW, sizeH)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .dontAnimate()
+                        .dontTransform()
+                ).into(imageView);
+    }
+
     //for SimpleDraweeView
     public static void loadImage(SimpleDraweeView simpleDraweeView, String url) {
         if (!android.text.TextUtils.isEmpty(url)) {

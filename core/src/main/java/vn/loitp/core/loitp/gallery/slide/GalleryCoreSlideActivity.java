@@ -1,10 +1,12 @@
 package vn.loitp.core.loitp.gallery.slide;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -36,7 +38,13 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
 
-        viewPager.setPageTransformer(true, new AccordionTransformer());
+        /*viewPager.setPageTransformer(true, new AccordionTransformer());*/
+        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                page.setRotationY(position * -30);
+            }
+        });
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
@@ -56,7 +64,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosDataCore.getInstance().getPhoto(position);
-                LImageUtil.load(activity, photo.getUrlS(), ivBkg, 16, 9);
+                LImageUtil.loadNoAmin(activity, photo.getUrlS(), ivBkg, 16, 9);
 
                 /*
                 //get current page
