@@ -30,6 +30,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import loitp.core.R;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -220,10 +221,13 @@ public class LImageUtil {
     }
 
     public static void load(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
+        if (context == null) {
+            return;
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                        //.placeholder(resPlaceHolder)
+                        .placeholder(R.drawable.trans)
                         //.fitCenter()
                         .override(sizeW, sizeH)
                 ).into(imageView);

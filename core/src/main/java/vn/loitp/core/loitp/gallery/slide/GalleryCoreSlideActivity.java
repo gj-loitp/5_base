@@ -5,15 +5,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
+import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.AccordionTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
+    private SlidePagerAdapter slidePagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +28,12 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         setTransparentStatusNavigationBar();
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SlidePagerAdapter(getSupportFragmentManager()));
+        final ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(slidePagerAdapter);
 
         viewPager.setPageTransformer(true, new AccordionTransformer());
 
@@ -34,6 +45,36 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         viewPager.setCurrentItem(position);
 
         viewPager.setOffscreenPageLimit(2);
+
+        /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //do nothing
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, 8, 6);
+
+                //get current page
+                *//*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
+                if (currentFrmIvSlideCore != null) {
+                    LLog.d(TAG, "onPageSelected updateBkg currentFrmIvSlideCore");
+                    currentFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
+                }
+                //get next page
+                FrmIvSlideCore nextFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position + 1);
+                if (nextFrmIvSlideCore != null) {
+                    LLog.d(TAG, "onPageSelected updateBkg nextFrmIvSlideCore");
+                    nextFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
+                }*//*
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                //do nothing
+            }
+        });*/
     }
 
     @Override

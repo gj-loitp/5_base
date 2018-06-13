@@ -12,7 +12,7 @@ public class FlickrConst {
     public static String METHOD_PHOTOSETS_GETPHOTOS = "flickr.photosets.getPhotos";
 
     public static String PRIMARY_PHOTO_EXTRAS_0 = "url_o,url_m";
-    public static String PRIMARY_PHOTO_EXTRAS_1 = "url_o,url_m%2Cviews";
+    public static String PRIMARY_PHOTO_EXTRAS_1 = "url_o,url_m, url_s,%2Cviews";
     public static String FORMAT = "json";
     public static int NO_JSON_CALLBACK = 1;
 }

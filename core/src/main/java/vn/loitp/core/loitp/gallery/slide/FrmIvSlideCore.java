@@ -26,6 +26,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();
+    private ImageView ivBkg;
 
     @Nullable
     @Override
@@ -43,10 +44,10 @@ public class FrmIvSlideCore extends Fragment {
         }
         int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
-        LLog.d(TAG, position + " -> " + photo.getUrlO());
+        LLog.d(TAG, position + " -> getUrlS " + photo.getUrlS());
 
-        ImageView ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
-        LImageUtil.load(getActivity(), PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, 8, 5);
+        ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
+        updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlS());
 
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
@@ -55,10 +56,14 @@ public class FrmIvSlideCore extends Fragment {
         int screenW = LScreenUtil.getScreenWidth();
         if (photo.getWidthO() > screenW) {
             int screenH = screenW * photo.getHeightO() / photo.getWidthO();
-            LLog.d(TAG, "onViewCreated " + screenW + " - " + screenH);
+            //LLog.d(TAG, "onViewCreated " + screenW + " - " + screenH);
             LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, screenW, screenH);
         } else {
             LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
         }
+    }
+
+    public void updateBkg(String bkg) {
+        LImageUtil.load(getActivity(), bkg, ivBkg, 8, 6);
     }
 }
