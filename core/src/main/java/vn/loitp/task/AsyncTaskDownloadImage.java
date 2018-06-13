@@ -17,6 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.LToast;
@@ -118,6 +119,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected void onPostExecute(Bitmap result) {
+        LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
             LToast.show(mContext, "Download successful " + sdCard + fileName);
         } else {

@@ -26,7 +26,7 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.viewpager.viewpagertransformers.CubeOutTransformer;
+import vn.loitp.task.AsyncTaskDownloadImage;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
@@ -130,6 +130,15 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
                 //do nothing
+            }
+        });
+
+        findViewById(R.id.bt_download).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+                new AsyncTaskDownloadImage(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
             }
         });
     }
