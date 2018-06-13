@@ -46,7 +46,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         viewPager.setOffscreenPageLimit(2);
 
-        /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 //do nothing
@@ -54,10 +54,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, 8, 6);
+                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlS(), ivBkg, 16, 9);
 
+                /*
                 //get current page
-                *//*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
+                FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
                 if (currentFrmIvSlideCore != null) {
                     LLog.d(TAG, "onPageSelected updateBkg currentFrmIvSlideCore");
                     currentFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
@@ -67,14 +68,15 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                 if (nextFrmIvSlideCore != null) {
                     LLog.d(TAG, "onPageSelected updateBkg nextFrmIvSlideCore");
                     nextFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                }*//*
+                }
+                */
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
                 //do nothing
             }
-        });*/
+        });
     }
 
     @Override

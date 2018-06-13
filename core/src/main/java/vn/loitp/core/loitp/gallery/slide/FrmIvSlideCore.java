@@ -26,7 +26,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();
-    private ImageView ivBkg;
+    //private ImageView ivBkg;
 
     @Nullable
     @Override
@@ -46,8 +46,8 @@ public class FrmIvSlideCore extends Fragment {
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
         //LLog.d(TAG, position + " -> getUrlS " + photo.getUrlS());
 
-        ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
-        updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlS());
+        //ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
+        //updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlS());
 
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
@@ -63,7 +63,7 @@ public class FrmIvSlideCore extends Fragment {
         LImageUtil.load(getContext(), photo.getFlickrLink1024(), imageView, progressBar, sizeW, sizeH);
     }
 
-    public void updateBkg(String bkg) {
-        LImageUtil.load(getActivity(), bkg, ivBkg, 8, 6);
-    }
+    /*public void updateBkg(String bkg) {
+        LImageUtil.load(getActivity(), bkg, ivBkg);
+    }*/
 }
