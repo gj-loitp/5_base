@@ -158,9 +158,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void handleException(Throwable throwable) {
-        //LLog.e("handleException", throwable.toString());
+        LLog.e("handleException", throwable.toString());
         if (throwable != null) {
-            showDialogError(throwable.getMessage());
+            showDialogError("Error: " + throwable.toString());
         }
     }
 
@@ -206,7 +206,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
-                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
+                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.Red));
                 tvConnectStt.setPadding(20, 20, 20, 20);
                 tvConnectStt.setGravity(Gravity.CENTER);
                 //tvConnectStt.setText(R.string.check_ur_connection);

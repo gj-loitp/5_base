@@ -51,9 +51,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         viewHolder.rootView.requestLayout();
 
         Photoset photoset = photosetList.get(position);
-        //viewHolder.avLoadingIndicatorView.smoothToShow();
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
-        LImageUtil.load((Activity) context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
+        LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 

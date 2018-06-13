@@ -32,8 +32,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
-        sizeW = LScreenUtil.getScreenWidth();
-        sizeH = sizeW / COLUMN * 16 / 9;
+        sizeW = LScreenUtil.getScreenWidth() / COLUMN;
+        sizeH = sizeW * 16 / 9;
     }
 
     @Override
@@ -49,6 +49,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
         LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
+        //LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
