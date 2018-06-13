@@ -4,7 +4,7 @@ package vn.loitp.core.loitp.gallery.slide;
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,17 +13,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import android.widget.ProgressBar;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 public class FrmIvSlideCore extends Fragment {
@@ -40,25 +38,27 @@ public class FrmIvSlideCore extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle bundle = getArguments();
         if (bundle == null) {
+            LLog.d(TAG, "onViewCreated bundle == null -> return");
             return;
         }
         int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
         LLog.d(TAG, position + " -> " + photo.getUrlO());
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        LImageUtil.load(getActivity(), photo.getUrlO(), imageView, new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                LLog.d(TAG, "onLoadFailed");
-                return false;
-            }
+        ImageView ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
+        LImageUtil.load(getActivity(), PhotosDataCore.getInstance().getPhoto(position).getUrlO(), ivBkg, 8, 5);
 
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                LLog.d(TAG, "onResourceReady");
-                return false;
-            }
-        });
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+        LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
+        int screenW = LScreenUtil.getScreenWidth();
+        if (photo.getWidthO() > screenW) {
+            int screenH = screenW * photo.getHeightO() / photo.getWidthO();
+            LLog.d(TAG, "onViewCreated " + screenW + " - " + screenH);
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, screenW, screenH);
+        } else {
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
+        }
     }
 }

@@ -41,17 +41,26 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 public class LImageUtil {
     //for flide
     public static void load(Context context, String url, ImageView imageView) {
-        Glide.with(context).load(url).into(imageView);
-    }
-
-    public static void load(Context context, String url, ImageView imageView,  RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                        //.placeholder(resPlaceHolder)
-                        //.fitCenter()
-                        //.override(sizeW, sizeH)
-                        .override(Target.SIZE_ORIGINAL)
+                                //.placeholder(resPlaceHolder)
+                                //.fitCenter()
+                                //.override(sizeW, sizeH)
+                                .override(Target.SIZE_ORIGINAL)
+                        //.error(resError)
+                )
+                .into(imageView);
+    }
+
+    public static void load(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
+        Glide.with(context).load(url)
+                .transition(withCrossFade())
+                .apply(new RequestOptions()
+                                //.placeholder(resPlaceHolder)
+                                //.fitCenter()
+                                //.override(sizeW, sizeH)
+                                .override(Target.SIZE_ORIGINAL)
                         //.error(resError)
                 )
                 .listener(drawableRequestListener)
@@ -64,7 +73,7 @@ public class LImageUtil {
                 .load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                                .placeholder(resPlaceHolder)
+                        .placeholder(resPlaceHolder)
                         //.fitCenter()
                         .override(Target.SIZE_ORIGINAL)
                 )
@@ -181,9 +190,9 @@ public class LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
-                        //.placeholder(resPlaceHolder)
-                        //.fitCenter()
-                        .override(Target.SIZE_ORIGINAL)
+                                //.placeholder(resPlaceHolder)
+                                //.fitCenter()
+                                .override(Target.SIZE_ORIGINAL)
                         //.error(resError)
                 )
                 .listener(new RequestListener<Drawable>() {
