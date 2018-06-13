@@ -17,6 +17,7 @@ import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.viewpager.viewpagertransformers.AccordionTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
@@ -54,7 +55,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                LImageUtil.load(activity, PhotosDataCore.getInstance().getPhoto(position).getUrlS(), ivBkg, 16, 9);
+                Photo photo = PhotosDataCore.getInstance().getPhoto(position);
+                LImageUtil.load(activity, photo.getUrlS(), ivBkg, 16, 9);
 
                 /*
                 //get current page
