@@ -44,7 +44,7 @@ public class FrmIvSlideCore extends Fragment {
         }
         int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
-        LLog.d(TAG, position + " -> getUrlS " + photo.getUrlS());
+        //LLog.d(TAG, position + " -> getUrlS " + photo.getUrlS());
 
         ivBkg = (ImageView) view.findViewById(R.id.iv_bkg);
         updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlS());
@@ -53,12 +53,30 @@ public class FrmIvSlideCore extends Fragment {
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
-        int screenW = LScreenUtil.getScreenWidth();
-        if (photo.getWidthO() > screenW) {
-            int screenH = screenW * photo.getHeightO() / photo.getWidthO();
+        int sizeW = LScreenUtil.getScreenWidth();
+        int sizeH = sizeW * photo.getHeightO() / photo.getWidthO();
+        /*if (photo.getWidthO() > sizeW) {
             //LLog.d(TAG, "onViewCreated " + screenW + " - " + screenH);
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, screenW, screenH);
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, sizeW, sizeH);
         } else {
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
+        }*/
+
+        int sizeS = photo.getWidthS();
+        int sizeM = photo.getWidthM();
+        int sizeO = photo.getWidthO();
+        LLog.d(TAG, sizeW + " - " + sizeS + "/" + sizeM + "/" + sizeO);
+        if (sizeW < sizeS) {
+            //LLog.d(TAG, "sizeW < sizeS " + sizeW + " < " + sizeS);
+            LImageUtil.load(getActivity(), photo.getUrlS(), imageView, progressBar, sizeW, sizeH);
+        } else if (sizeW < sizeM) {
+            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
+            LImageUtil.load(getActivity(), photo.getUrlM(), imageView, progressBar, sizeW, sizeH);
+        } else if (sizeW < sizeO) {
+            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, sizeW, sizeH);
+        } else {
+            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
             LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
         }
     }

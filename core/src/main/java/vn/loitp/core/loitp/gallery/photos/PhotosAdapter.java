@@ -1,6 +1,5 @@
 package vn.loitp.core.loitp.gallery.photos;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -22,6 +22,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
  * Created by yahyabayramoglu on 14/04/15.
  */
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
+    private final String TAG = getClass().getSimpleName();
     public static int COLUMN = 2;
     private Context context;
     private LayoutInflater inflater;
@@ -49,12 +50,24 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        if (photo.getWidthO() > sizeW) {
-            LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        int sizeS = photo.getWidthS();
+        int sizeM = photo.getWidthM();
+        int sizeO = photo.getWidthO();
+        LLog.d(TAG, sizeW + " - " + sizeS + "/" + sizeM + "/" + sizeO);
+        if (sizeW < sizeS) {
+            //LLog.d(TAG, "sizeW < sizeS " + sizeW + " < " + sizeS);
+            LImageUtil.load(context, photo.getUrlS(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        } else if (sizeW < sizeM) {
+            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
+            LImageUtil.load(context, photo.getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        } else if (sizeW < sizeO) {
+            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
+            LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         } else {
-            LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
+            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
+            LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
         }
-        //LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {

@@ -51,6 +51,15 @@ public class Photo {
     @SerializedName("width_s")
     @Expose
     private int widthS;
+    @SerializedName("url_m")
+    @Expose
+    private String urlM;
+    @SerializedName("height_m")
+    @Expose
+    private int heightM;
+    @SerializedName("width_m")
+    @Expose
+    private int widthM;
 
     public String getId() {
         return id;
@@ -170,5 +179,29 @@ public class Photo {
 
     public void setWidthS(int widthS) {
         this.widthS = widthS;
+    }
+
+    public String getUrlM() {
+        return urlM;
+    }
+
+    public void setUrlM(String urlM) {
+        this.urlM = urlM;
+    }
+
+    public int getHeightM() {
+        return heightM;
+    }
+
+    public void setHeightM(int heightM) {
+        this.heightM = heightM;
+    }
+
+    public int getWidthM() {
+        return widthM;
+    }
+
+    public void setWidthM(int widthM) {
+        this.widthM = widthM;
     }
 }

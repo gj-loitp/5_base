@@ -1,6 +1,5 @@
 package vn.loitp.core.loitp.gallery.album;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +16,7 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -25,6 +25,7 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
  * Created by yahyabayramoglu on 14/04/15.
  */
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
+    private final String TAG = getClass().getSimpleName();
     private Context context;
     private LayoutInflater inflater;
     private List<Photoset> photosetList;
@@ -53,9 +54,17 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Photoset photoset = photosetList.get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        if (photoset.getPrimaryPhotoExtras().getWidthO() > sizeW) {
+        int sizeM = photoset.getPrimaryPhotoExtras().getWidthM();
+        int sizeO = photoset.getPrimaryPhotoExtras().getWidthO();
+        LLog.d(TAG, sizeW + " - " + "/" + sizeM + "/" + sizeO);
+        if (sizeW < sizeM) {
+            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
+            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        } else if (sizeW < sizeO) {
+            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
             LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         } else {
+            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
             LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
         }
 
