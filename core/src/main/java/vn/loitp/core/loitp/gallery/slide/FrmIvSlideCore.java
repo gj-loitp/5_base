@@ -56,24 +56,11 @@ public class FrmIvSlideCore extends Fragment {
         int sizeW = LScreenUtil.getScreenWidth();
         int sizeH = sizeW * photo.getHeightO() / photo.getWidthO();
 
-        int sizeS = photo.getWidthS();
-        int sizeM = photo.getWidthM();
-        int sizeO = photo.getWidthO();
-        LLog.d(TAG, sizeW + " - " + sizeS + "/" + sizeM + "/" + sizeO);
-        if (sizeW < sizeS) {
-            //LLog.d(TAG, "sizeW < sizeS " + sizeW + " < " + sizeS);
-            LImageUtil.load(getActivity(), photo.getUrlS(), imageView, progressBar, sizeW, sizeH);
-        } else if (sizeW < sizeM) {
-            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
-            LImageUtil.load(getActivity(), photo.getUrlM(), imageView, progressBar, sizeW, sizeH);
-        } else if (sizeW < sizeO) {
-            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar, sizeW, sizeH);
-        } else {
-            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, progressBar);
-        }
-        //LImageUtil.load(getActivity(), photo.getUrlM(), imageView, progressBar, sizeW, sizeH);
+        //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
+        //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
+        //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
+
+        LImageUtil.load(getContext(), photo.getFlickrLink1024(), imageView, progressBar, sizeW, sizeH);
     }
 
     public void updateBkg(String bkg) {
