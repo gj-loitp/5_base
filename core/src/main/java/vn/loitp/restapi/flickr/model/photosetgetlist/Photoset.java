@@ -4,6 +4,8 @@ package vn.loitp.restapi.flickr.model.photosetgetlist;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import vn.loitp.core.utilities.LImageUtil;
+
 public class Photoset {
 
     @SerializedName("id")
@@ -194,4 +196,21 @@ public class Photoset {
         this.primaryPhotoExtras = primaryPhotoExtras;
     }
 
+    public String getFlickrLink640() {
+        if (getPrimaryPhotoExtras().getUrlO().contains(".gif")) {
+            //gif extension have no link large
+            return getPrimaryPhotoExtras().getUrlO();
+        } else {
+            return LImageUtil.getFlickrLink640(getPrimaryPhotoExtras().getUrlM());
+        }
+    }
+
+    public String getFlickrLink1024() {
+        if (getPrimaryPhotoExtras().getUrlO().contains(".gif")) {
+            //gif extension have no link large
+            return getPrimaryPhotoExtras().getUrlO();
+        } else {
+            return LImageUtil.getFlickrLink1024(getPrimaryPhotoExtras().getUrlM());
+        }
+    }
 }

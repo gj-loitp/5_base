@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 import loitp.core.R;
@@ -64,20 +62,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Photoset photoset = photosetList.get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        int sizeM = photoset.getPrimaryPhotoExtras().getWidthM();
-        int sizeO = photoset.getPrimaryPhotoExtras().getWidthO();
-        LLog.d(TAG, sizeW + " - " + "/" + sizeM + "/" + sizeO);
-        if (sizeW < sizeM) {
-            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
-            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        } else if (sizeW < sizeO) {
-            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
-            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        } else {
-            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
-            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
-        }
-        //LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
+        LLog.d(TAG, ">>>getFlickrLink640 " + photoset.getFlickrLink640());
+        LLog.d(TAG, ">>>getFlickrLink1024 " + photoset.getFlickrLink1024());
+
+        LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 
