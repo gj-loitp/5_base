@@ -98,7 +98,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                             ivBkg1.setVisibility(View.INVISIBLE);
                             ivBkg2.setVisibility(View.VISIBLE);
-                            LAnimationUtil.play(ivBkg2, Techniques.Pulse);
+                            //LAnimationUtil.play(ivBkg2, Techniques.Pulse);
                             return false;
                         }
 
@@ -106,7 +106,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                             ivBkg1.setVisibility(View.INVISIBLE);
                             ivBkg2.setVisibility(View.VISIBLE);
-                            LAnimationUtil.play(ivBkg2, Techniques.Pulse);
+                            //LAnimationUtil.play(ivBkg2, Techniques.Pulse);
                             return false;
                         }
                     });
