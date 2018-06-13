@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -58,30 +57,11 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
-        //LLog.d(TAG, ">>>getUrlS " + photo.getUrlS());
-        //LLog.d(TAG, ">>>getUrlM " + photo.getUrlM());
-        LLog.d(TAG, ">>>getLinkLarge " + photo.getLinkLarge());
+        //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
+        //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
+        //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
-        LImageUtil.load(context, photo.getLinkLarge(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-
-        /*int sizeS = photo.getWidthS();
-        int sizeM = photo.getWidthM();
-        int sizeO = photo.getWidthO();
-        LLog.d(TAG, sizeW + " - " + sizeS + "/" + sizeM + "/" + sizeO);
-        if (sizeW < sizeS) {
-            //LLog.d(TAG, "sizeW < sizeS " + sizeW + " < " + sizeS);
-            LImageUtil.load(context, photo.getUrlS(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        } else if (sizeW < sizeM) {
-            //LLog.d(TAG, "sizeW < sizeM " + sizeW + " < " + sizeM);
-            LImageUtil.load(context, photo.getUrlM(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        } else if (sizeW < sizeO) {
-            //LLog.d(TAG, "sizeW < sizeO " + sizeW + " < " + sizeO);
-            LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        } else {
-            //LLog.d(TAG, "sizeW > " + sizeW + " > " + sizeO);
-            LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
-        }*/
+        LImageUtil.load(context, photo.getFlickrLink640(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
 
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);

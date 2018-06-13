@@ -5,7 +5,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 
 public class Photo {
 
@@ -208,12 +207,21 @@ public class Photo {
         this.widthM = widthM;
     }
 
-    public String getLinkLarge() {
+    public String getFlickrLink640() {
         if (urlO.contains(".gif")) {
             //gif extension have no link large
             return urlO;
         } else {
-            return LImageUtil.convertLinkMediumToLinkLarge(urlM);
+            return LImageUtil.getFlickrLink640(urlM);
+        }
+    }
+
+    public String getFlickrLink1024() {
+        if (urlO.contains(".gif")) {
+            //gif extension have no link large
+            return urlO;
+        } else {
+            return LImageUtil.getFlickrLink1024(urlM);
         }
     }
 }

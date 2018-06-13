@@ -317,18 +317,66 @@ public class LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    public static String convertLinkMediumToLinkLarge(String linkOriginal) {
-        if (linkOriginal == null || linkOriginal.isEmpty()) {
+    public static String getFlickrLink640(String linkUrlM) {
+        /*
+        s	small square 75x75
+        q	large square 150x150
+        t	thumbnail, 100 on longest side
+        m	small, 240 on longest side
+        n	small, 320 on longest side
+                -	medium, 500 on longest side
+        z	medium 640, 640 on longest side
+        c	medium 800, 800 on longest side†
+        b	large, 1024 on longest side*
+                h	large 1600, 1600 on longest side†
+        k	large 2048, 2048 on longest side†
+        o	original image, either a jpg, gif or png, depending on source format
+        */
+
+
+        if (linkUrlM == null || linkUrlM.isEmpty()) {
             return null;
         }
-        linkOriginal = linkOriginal.toLowerCase();
-        if (linkOriginal.contains(".jpg")) {
-            linkOriginal = linkOriginal.replace(".jpg", "_b.jpg");
-        } else if (linkOriginal.contains(".png")) {
-            linkOriginal = linkOriginal.replace(".png", "_b.png");
-        } else if (linkOriginal.contains(".gif")) {
-            linkOriginal = linkOriginal.replace(".gif", "_b.gif");
+        linkUrlM = linkUrlM.toLowerCase();
+        if (linkUrlM.contains(".jpg")) {
+            linkUrlM = linkUrlM.replace(".jpg", "_z.jpg");
+        } else if (linkUrlM.contains(".png")) {
+            linkUrlM = linkUrlM.replace(".png", "_z.png");
+        } else if (linkUrlM.contains(".gif")) {
+            linkUrlM = linkUrlM.replace(".gif", "_z.gif");
         }
-        return linkOriginal;
+        return linkUrlM;
+    }
+
+    //for flick api url_m -> url_b
+    public static String getFlickrLink1024(String linkUrlM) {
+        /*
+        s	small square 75x75
+        q	large square 150x150
+        t	thumbnail, 100 on longest side
+        m	small, 240 on longest side
+        n	small, 320 on longest side
+                -	medium, 500 on longest side
+        z	medium 640, 640 on longest side
+        c	medium 800, 800 on longest side†
+        b	large, 1024 on longest side*
+                h	large 1600, 1600 on longest side†
+        k	large 2048, 2048 on longest side†
+        o	original image, either a jpg, gif or png, depending on source format
+        */
+
+
+        if (linkUrlM == null || linkUrlM.isEmpty()) {
+            return null;
+        }
+        linkUrlM = linkUrlM.toLowerCase();
+        if (linkUrlM.contains(".jpg")) {
+            linkUrlM = linkUrlM.replace(".jpg", "_b.jpg");
+        } else if (linkUrlM.contains(".png")) {
+            linkUrlM = linkUrlM.replace(".png", "_b.png");
+        } else if (linkUrlM.contains(".gif")) {
+            linkUrlM = linkUrlM.replace(".gif", "_b.gif");
+        }
+        return linkUrlM;
     }
 }
