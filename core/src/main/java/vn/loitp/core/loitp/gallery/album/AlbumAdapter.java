@@ -52,7 +52,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
         Photoset photoset = photosetList.get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
-        LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+
+        if (photoset.getPrimaryPhotoExtras().getWidthO() > sizeW) {
+            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        } else {
+            LImageUtil.load(context, photoset.getPrimaryPhotoExtras().getUrlO(), viewHolder.iv, viewHolder.progressBar);
+        }
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 

@@ -48,7 +48,12 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
-        LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
+
+        if (photo.getWidthO() > sizeW) {
+            LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        } else {
+            LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
+        }
         //LImageUtil.load((Activity) context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);

@@ -38,10 +38,10 @@ public class Photo {
     private String urlO;
     @SerializedName("height_o")
     @Expose
-    private String heightO;
+    private int heightO;
     @SerializedName("width_o")
     @Expose
-    private String widthO;
+    private int widthO;
 
     public String getId() {
         return id;
@@ -123,19 +123,19 @@ public class Photo {
         this.urlO = urlO;
     }
 
-    public String getHeightO() {
+    public int getHeightO() {
         return heightO;
     }
 
-    public void setHeightO(String heightO) {
+    public void setHeightO(int heightO) {
         this.heightO = heightO;
     }
 
-    public String getWidthO() {
+    public int getWidthO() {
         return widthO;
     }
 
-    public void setWidthO(String widthO) {
+    public void setWidthO(int widthO) {
         this.widthO = widthO;
     }
 

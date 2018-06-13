@@ -11,19 +11,19 @@ public class PrimaryPhotoExtras {
     private String urlO;
     @SerializedName("height_o")
     @Expose
-    private String heightO;
+    private int heightO;
     @SerializedName("width_o")
     @Expose
-    private String widthO;
+    private int widthO;
     @SerializedName("url_m")
     @Expose
     private String urlM;
     @SerializedName("height_m")
     @Expose
-    private String heightM;
+    private int heightM;
     @SerializedName("width_m")
     @Expose
-    private String widthM;
+    private int widthM;
 
     public String getUrlO() {
         return urlO;
@@ -33,19 +33,19 @@ public class PrimaryPhotoExtras {
         this.urlO = urlO;
     }
 
-    public String getHeightO() {
+    public int getHeightO() {
         return heightO;
     }
 
-    public void setHeightO(String heightO) {
+    public void setHeightO(int heightO) {
         this.heightO = heightO;
     }
 
-    public String getWidthO() {
+    public int getWidthO() {
         return widthO;
     }
 
-    public void setWidthO(String widthO) {
+    public void setWidthO(int widthO) {
         this.widthO = widthO;
     }
 
@@ -57,19 +57,19 @@ public class PrimaryPhotoExtras {
         this.urlM = urlM;
     }
 
-    public String getHeightM() {
+    public int getHeightM() {
         return heightM;
     }
 
-    public void setHeightM(String heightM) {
+    public void setHeightM(int heightM) {
         this.heightM = heightM;
     }
 
-    public String getWidthM() {
+    public int getWidthM() {
         return widthM;
     }
 
-    public void setWidthM(String widthM) {
+    public void setWidthM(int widthM) {
         this.widthM = widthM;
     }
 
