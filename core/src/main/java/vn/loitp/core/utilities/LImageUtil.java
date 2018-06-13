@@ -32,6 +32,8 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 /**
  * Created by www.muathu@gmail.com on 10/7/2017.
  */
@@ -44,12 +46,14 @@ public class LImageUtil {
 
     public static void load(Context context, String url, ImageView imageView,  RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
-                /*.apply(new RequestOptions()
-                        .placeholder(resPlaceHolder)
+                .transition(withCrossFade())
+                .apply(new RequestOptions()
+                        //.placeholder(resPlaceHolder)
                         //.fitCenter()
-                        .override(sizeW, sizeH)
-                        .error(resError)
-                )*/
+                        //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
+                        //.error(resError)
+                )
                 .listener(drawableRequestListener)
                 .into(imageView);
     }
@@ -58,9 +62,11 @@ public class LImageUtil {
         //Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
         Glide.with(context)
                 .load(url)
+                .transition(withCrossFade())
                 .apply(new RequestOptions()
                                 .placeholder(resPlaceHolder)
                         //.fitCenter()
+                        .override(Target.SIZE_ORIGINAL)
                 )
                 .into(imageView);
     }
@@ -100,24 +106,14 @@ public class LImageUtil {
                 .into(imageView);
     }*/
 
-    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder, int resError, int sizeW, int sizeH, RequestListener<Drawable> drawableRequestListener) {
-        Glide.with(context).load(url)
-                .apply(new RequestOptions()
-                        .placeholder(resPlaceHolder)
-                        //.fitCenter()
-                        .override(sizeW, sizeH)
-                        .error(resError)
-                )
-                .listener(drawableRequestListener)
-                .into(imageView);
-    }
-
     public static void load(Context context, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
+                .transition(withCrossFade())
                 .apply(new RequestOptions()
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
                         //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
                         .error(resError)
                 )
                 .listener(drawableRequestListener)
@@ -126,10 +122,12 @@ public class LImageUtil {
 
     public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
         Glide.with(context).load(url)
+                .transition(withCrossFade())
                 .apply(new RequestOptions()
                         .placeholder(resPlaceHolder)
                         //.fitCenter()
                         //.override(sizeW, sizeH)
+                        .override(Target.SIZE_ORIGINAL)
                         .error(resError)
                 )
                 .listener(new RequestListener<Drawable>() {
@@ -156,12 +154,14 @@ public class LImageUtil {
 
     public static void load(Context context, String url, ImageView imageView, final ProgressBar progressBar) {
         Glide.with(context).load(url)
-                /*.apply(new RequestOptions()
-                        .placeholder(resPlaceHolder)
+                .transition(withCrossFade())
+                .apply(new RequestOptions()
+                        //.placeholder(resPlaceHolder)
                         //.fitCenter()
                         //.override(sizeW, sizeH)
-                        .error(resError)
-                )*/
+                        .override(Target.SIZE_ORIGINAL)
+                        //.error(resError)
+                )
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -188,6 +188,7 @@ public class LImageUtil {
 
     public static void load(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
         Glide.with(context).load(url)
+                .transition(withCrossFade())
                 .apply(new RequestOptions()
                         //.placeholder(resPlaceHolder)
                         //.fitCenter()
