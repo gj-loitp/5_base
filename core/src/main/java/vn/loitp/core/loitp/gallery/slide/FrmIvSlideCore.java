@@ -51,6 +51,8 @@ public class FrmIvSlideCore extends Fragment {
         //updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlS());
 
         imageView = (ImageView) view.findViewById(R.id.imageView);
+        //imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
