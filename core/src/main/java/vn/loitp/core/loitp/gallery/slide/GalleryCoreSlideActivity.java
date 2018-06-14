@@ -78,8 +78,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosDataCore.getInstance().getPhoto(position);
-                LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
-                LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
+                //LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
+                //LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
                 if (position % 2 == 0) {
                     ivBkg1.setVisibility(View.INVISIBLE);
                     LImageUtil.loadNoAmin(activity, photo.getFlickrLink100(), ivBkg1, new RequestListener<Drawable>() {
@@ -144,8 +144,8 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 LAnimationUtil.play(v, Techniques.Pulse);
-                LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
-                new AsyncTaskDownloadImage(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
+                //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+                new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
             }
         });
     }

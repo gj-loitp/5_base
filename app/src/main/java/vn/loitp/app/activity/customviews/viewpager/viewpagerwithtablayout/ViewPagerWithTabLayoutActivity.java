@@ -15,7 +15,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
@@ -31,7 +30,6 @@ import vn.loitp.views.viewpager.viewpagertransformers.DrawFromBackTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.FlipHorizontalTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.FlipVerticalTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.ForegroundToBackgroundTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.ParallaxPageTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.RotateDownTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.RotateUpTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.StackTransformer;
@@ -58,7 +56,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        changeTabsFont(tabLayout, Constants.FONT_PATH);
+        changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
 
         findViewById(R.id.bt_anim).setOnClickListener(new View.OnClickListener() {
             @Override

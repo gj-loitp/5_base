@@ -41,7 +41,6 @@ public class Constants {
     public final static String TEST_8 = "263712DA42399656FF39E197148C935A";
 
     public final static String LOITP = "LoitpDebug";
-    public static String ASSET_FILE_GIFT = "img/ic_gift.png";
 
     public static int TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1;
     public static int TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0;
@@ -65,4 +64,7 @@ public class Constants {
     public final static String SK_PHOTOSET_SIZE = "SK_PHOTOSET_SIZE";
     public final static String SK_PHOTO_ID = "SK_PHOTO_ID";
     public final static String SK_PHOTO_PISITION = "SK_PHOTO_PISITION";
+
+    public static String ASSET_FILE_GIFT = "img/ic_gift.png";
+    public final static String FONT_PATH = "fonts/baisau.TTF";
 }

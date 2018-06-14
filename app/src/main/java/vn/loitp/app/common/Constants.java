@@ -23,7 +23,4 @@ public class Constants {
     public final static String TEST_4 = "7DA8A5B216E868636B382A7B9756A4E6";
     public final static String TEST_5 = "A1EC01C33BD69CD589C2AF605778C2E6";
     public final static String TEST_6 = "13308851AEDCA44443112D80A8D182CA";
-
-    public static String ASSET_FILE_GIFT = "img/ic_gift.png";
-    public final static String FONT_PATH = "fonts/baisau.TTF";
 }

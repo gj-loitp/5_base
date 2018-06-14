@@ -27,7 +27,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        changeTabsFont(tabLayout, Constants.FONT_PATH);
+        changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
     }
 
     @Override

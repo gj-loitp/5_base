@@ -47,7 +47,7 @@ public class LSApplication extends MultiDexApplication {
 
         //config font
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath(vn.loitp.app.common.Constants.FONT_PATH)
+                .setDefaultFontPath(vn.loitp.core.common.Constants.FONT_PATH)
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );

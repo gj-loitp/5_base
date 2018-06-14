@@ -82,7 +82,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        changeTabsFont(tabLayout, Constants.FONT_PATH);
+        changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
     }
 
     @Override

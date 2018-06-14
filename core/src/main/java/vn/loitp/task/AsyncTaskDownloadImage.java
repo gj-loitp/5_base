@@ -7,6 +7,7 @@ package vn.loitp.task;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +18,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import loitp.core.R;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LSoundUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.LToast;
@@ -119,11 +122,12 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected void onPostExecute(Bitmap result) {
-        LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
+        //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
-            LToast.show(mContext, "Download successful " + sdCard + fileName);
+            LToast.show(mContext, "Download successful " + sdCard + fileName, Toast.LENGTH_LONG);
+            LSoundUtil.startMusicFromAsset(mContext, "ting.ogg");
         } else {
-            LToast.show(mContext, R.string.download_failed);
+            LToast.show(mContext, R.string.download_failed, Toast.LENGTH_LONG);
         }
         super.onPostExecute(result);
     }
