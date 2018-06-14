@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.github.piasy.biv.view.BigImageView;
+
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
@@ -54,9 +56,10 @@ public class FrmIvSlideCore extends Fragment {
             imageView = null;
             bigImageView.setColorProgressBar(Color.WHITE);
             bigImageView.setOptimizeDisplay(true);
+            bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
 
-            //bigImageView.load(photo.getUrlO());
-            bigImageView.load(photo.getFlickrLink100(), photo.getUrlO());
+            bigImageView.load(photo.getUrlO());
+            //bigImageView.load(photo.getFlickrLink100(), photo.getUrlO());
         }
     }
 }

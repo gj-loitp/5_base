@@ -79,7 +79,6 @@ public class LBigImageView extends RelativeLayout {
                 //LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
                 tvProgress.setVisibility(GONE);
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
-                bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
             }
 
             @Override
@@ -99,7 +98,6 @@ public class LBigImageView extends RelativeLayout {
 
     public void load(String thumnail, String url) {
         // Or show a thumbnail before the big image is loaded
-        bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_CROP);
         bigImageView.showImage(Uri.parse(thumnail), Uri.parse(url));
     }
 
