@@ -15,12 +15,12 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/iv_bkg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop" />-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -39,8 +39,8 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/w_30"
             android:layout_centerInParent="true"
             android:layout_marginBottom="@dimen/margin_15" />
 

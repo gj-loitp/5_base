@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -45,8 +43,8 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
-        ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+        //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 

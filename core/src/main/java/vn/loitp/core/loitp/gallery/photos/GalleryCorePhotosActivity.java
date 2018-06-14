@@ -55,8 +55,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
-        ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+        //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);

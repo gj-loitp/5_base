@@ -84,10 +84,10 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
             }
         });
 
-        if (position == 0 || position == 1) {
+        if (position == 0 || position == 1 || position == 2) {
             viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
             viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (position == getItemCount() - 1 || position == getItemCount() - 2) {
+        } else if (position == getItemCount() - 1 || position == getItemCount() - 2 || position == getItemCount() - 3) {
             viewHolder.viewSpaceTop.setVisibility(View.GONE);
             viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
         } else {
