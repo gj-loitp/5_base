@@ -4,9 +4,9 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimaryDark">
 
-    <!--<ImageView
+    <ImageView
         android:id="@+id/iv_bkg_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,8 +23,8 @@
     <vn.loitp.views.realtimeblurview.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_15"
-        app:realtimeOverlayColor="@color/black_35" />-->
+        app:realtimeBlurRadius="@dimen/round_50"
+        app:realtimeOverlayColor="@color/black_35" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
