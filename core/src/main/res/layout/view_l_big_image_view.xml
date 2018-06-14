@@ -6,7 +6,7 @@
     android:animateLayoutChanges="true">
 
     <com.github.piasy.biv.view.BigImageView
-        android:id="@+id/biv"
+        android:id="@+id/b_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:failureImage="@drawable/logo"

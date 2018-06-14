@@ -55,7 +55,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
 
-        viewPager.setPageTransformer(true, new CubeOutTransformer());
+        //viewPager.setPageTransformer(true, new CubeOutTransformer());
         /*viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {

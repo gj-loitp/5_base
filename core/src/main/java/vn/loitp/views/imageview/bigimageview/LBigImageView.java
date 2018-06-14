@@ -39,7 +39,7 @@ public class LBigImageView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_l_big_image_view, this);
-        bigImageView = (BigImageView) findViewById(R.id.biv);
+        bigImageView = (BigImageView) findViewById(R.id.b_iv);
         tvProgress = (TextView) findViewById(R.id.tv_progress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setTextShadow(tvProgress);
@@ -79,6 +79,7 @@ public class LBigImageView extends RelativeLayout {
                 //LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
                 tvProgress.setVisibility(GONE);
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
             }
 
             @Override
@@ -98,6 +99,7 @@ public class LBigImageView extends RelativeLayout {
 
     public void load(String thumnail, String url) {
         // Or show a thumbnail before the big image is loaded
+        bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_CROP);
         bigImageView.showImage(Uri.parse(thumnail), Uri.parse(url));
     }
 

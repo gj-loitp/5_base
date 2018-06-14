@@ -4,62 +4,9 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <!--<ImageView
-        android:id="@+id/iv_bkg"
+    <vn.loitp.views.imageview.bigimageview.LBigImageView
+        android:id="@+id/biv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />-->
-
-    <!--<vn.loitp.views.realtimeblurview.RealtimeBlurView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_15"
-        app:realtimeOverlayColor="@color/black_35" />-->
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name" />
-
-            <!--<ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name" />-->
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="@dimen/w_30"
-                android:layout_height="@dimen/w_30"
-                android:layout_gravity="center" />
-        </FrameLayout>
-    </android.support.v4.widget.NestedScrollView>
-
-    <!--<ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:src="@color/transparent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="@dimen/w_30"
-        android:layout_height="@dimen/w_30"
-        android:layout_centerInParent="true" />-->
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
