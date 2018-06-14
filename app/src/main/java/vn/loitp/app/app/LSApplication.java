@@ -3,6 +3,8 @@ package vn.loitp.app.app;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
+import com.github.piasy.biv.BigImageViewer;
+import com.github.piasy.biv.loader.glide.GlideImageLoader;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
@@ -54,6 +56,9 @@ public class LSApplication extends MultiDexApplication {
 
         //fcm
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC);
+
+        //big imageview
+        BigImageViewer.initialize(GlideImageLoader.with(getApplicationContext()));
     }
 
     public Gson getGson() {
