@@ -4,9 +4,9 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/Black">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_bkg_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_50"
-        app:realtimeOverlayColor="@color/black_35" />
+        app:realtimeOverlayColor="@color/black_35" />-->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

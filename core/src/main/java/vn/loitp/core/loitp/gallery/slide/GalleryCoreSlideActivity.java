@@ -47,9 +47,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         }
 
         tvSize = (TextView) findViewById(R.id.tv_size);
-        final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
-        final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
-        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg1);
+
+        //final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
+        //final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
@@ -84,7 +84,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                 tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
                 //LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
                 //LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
-                if (position % 2 == 0) {
+                /*if (position % 2 == 0) {
                     ivBkg1.setVisibility(View.INVISIBLE);
                     LImageUtil.loadNoAmin(activity, photo.getFlickrLink100(), ivBkg1, new RequestListener<Drawable>() {
                         @Override
@@ -122,7 +122,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                             return false;
                         }
                     });
-                }
+                }*/
 
                 //get current page
                 /*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
