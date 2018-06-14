@@ -32,10 +32,10 @@
         android:layout_height="match_parent" />
 
     <RelativeLayout
+        android:id="@+id/rl_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="@dimen/padding_5">
+        android:layout_alignParentBottom="true">
 
         <ImageView
             android:id="@+id/bt_download"

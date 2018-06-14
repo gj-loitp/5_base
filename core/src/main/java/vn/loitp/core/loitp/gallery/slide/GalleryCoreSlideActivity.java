@@ -28,6 +28,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
@@ -38,8 +39,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransparentStatusNavigationBar();
+            LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getNavigationBarHeight(activity));
         } else {
-            //do nothing
+            LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
         final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
