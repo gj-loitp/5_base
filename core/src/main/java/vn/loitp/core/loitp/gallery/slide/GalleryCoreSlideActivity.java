@@ -44,9 +44,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
-        final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
-        final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
-        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg1);
+        //final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
+        //final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
+        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg1);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
@@ -77,9 +77,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Photo photo = PhotosDataCore.getInstance().getPhoto(position);
-                //LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
-                //LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
+                /*Photo photo = PhotosDataCore.getInstance().getPhoto(position);
+                LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
+                LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
                 if (position % 2 == 0) {
                     ivBkg1.setVisibility(View.INVISIBLE);
                     LImageUtil.loadNoAmin(activity, photo.getFlickrLink100(), ivBkg1, new RequestListener<Drawable>() {
@@ -118,7 +118,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                             return false;
                         }
                     });
-                }
+                }*/
 
                 //get current page
                 /*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
