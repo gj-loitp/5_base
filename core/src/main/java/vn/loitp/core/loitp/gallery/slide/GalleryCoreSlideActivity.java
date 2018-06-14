@@ -3,7 +3,6 @@ package vn.loitp.core.loitp.gallery.slide;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +10,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -29,9 +29,11 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
+import vn.loitp.views.viewpager.viewpagertransformers.CubeOutTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
+    private TextView tvSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
+        tvSize = (TextView) findViewById(R.id.tv_size);
         final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg1);
@@ -52,13 +55,13 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
 
-        //viewPager.setPageTransformer(true, new CubeOutTransformer());
-        viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+        viewPager.setPageTransformer(true, new CubeOutTransformer());
+        /*viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
                 page.setRotationY(position * -40);
             }
-        });
+        });*/
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
@@ -78,6 +81,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageSelected(int position) {
                 Photo photo = PhotosDataCore.getInstance().getPhoto(position);
+                tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
                 //LLog.d(TAG, "photo.getUrlS() " + photo.getUrlS());
                 //LLog.d(TAG, "photo.getFlickrLink100() " + photo.getFlickrLink100());
                 if (position % 2 == 0) {

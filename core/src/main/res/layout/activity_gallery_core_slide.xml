@@ -31,6 +31,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/tv_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_15"
+        android:padding="@dimen/padding_5"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/txt_22"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/rl_control"
         android:layout_width="match_parent"

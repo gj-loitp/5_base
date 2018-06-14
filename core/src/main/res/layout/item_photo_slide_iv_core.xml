@@ -17,10 +17,11 @@
         app:realtimeBlurRadius="@dimen/round_15"
         app:realtimeOverlayColor="@color/black_35" />-->
 
-    <!--<ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -31,11 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name" />
-            &lt;!&ndash;<ImageView
+
+            <!--<ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/app_name" />&ndash;&gt;
+                android:contentDescription="@string/app_name" />-->
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -44,9 +46,9 @@
                 android:layout_height="@dimen/w_30"
                 android:layout_gravity="center" />
         </FrameLayout>
-    </ScrollView>-->
+    </android.support.v4.widget.NestedScrollView>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,6 +60,6 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true" />-->
 
 </RelativeLayout>
