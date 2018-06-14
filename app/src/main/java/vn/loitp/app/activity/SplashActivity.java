@@ -87,7 +87,6 @@ public class SplashActivity extends BaseFontActivity {
                             // check if all permissions are granted
                             if (report.areAllPermissionsGranted()) {
                                 LLog.d(TAG, "onPermissionsChecked do you work now");
-                                //TODO
                                 boolean isNeedCheckReady = false;
                                 if (isNeedCheckReady) {
                                     checkReady();
