@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.imageview.bigimageview;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import loitp.basemaster.R;
@@ -15,9 +16,10 @@ public class BigImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
-        //bigImageView.load(Constants.URL_IMG_LARGE);
+        bigImageView.setColorProgressBar(Color.WHITE);
+        bigImageView.load(Constants.URL_IMG_LARGE);
 
-        bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE);
+        //bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE);
     }
 
     @Override

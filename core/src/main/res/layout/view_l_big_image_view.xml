@@ -18,6 +18,13 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="@color/White"
-        android:textSize="@dimen/txt_14" />
+        android:textSize="@dimen/txt_10" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="@dimen/w_60"
+        android:layout_height="@dimen/w_60"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
