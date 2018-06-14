@@ -6,19 +6,26 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 
 //https://github.com/Piasy/BigImageViewer
 public class LBigImageView extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
     private BigImageView bigImageView;
+    private TextView tvProgress;
 
     public LBigImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,6 +40,8 @@ public class LBigImageView extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.view_l_big_image_view, this);
         bigImageView = (BigImageView) findViewById(R.id.biv);
+        tvProgress = (TextView) findViewById(R.id.tv_progress);
+        LUIUtil.setTextShadow(tvProgress);
         bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
             @Override
             public void onCacheHit(File image) {
@@ -52,21 +61,27 @@ public class LBigImageView extends RelativeLayout {
             @Override
             public void onProgress(int progress) {
                 LLog.d(TAG, "Image download progress has changed " + progress);
+                tvProgress.setText(progress + "%");
             }
 
             @Override
             public void onFinish() {
-                LLog.d(TAG, "Image download has finished");
+                //LLog.d(TAG, "Image download has finished");
+                tvProgress.setVisibility(GONE);
             }
 
             @Override
             public void onSuccess(File image) {
-                LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
+                //LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
+                tvProgress.setVisibility(GONE);
             }
 
             @Override
             public void onFail(Exception error) {
-                LLog.d(TAG, "Image download failed " + error);
+                //LLog.d(TAG, "Image download failed " + error);
+                tvProgress.setVisibility(VISIBLE);
+                LAnimationUtil.play(tvProgress, Techniques.Pulse);
+                tvProgress.setText("Error");
             }
         });
     }
@@ -99,5 +114,9 @@ public class LBigImageView extends RelativeLayout {
 
     public void setOptimizeDisplay(boolean optimizeDisplay) {
         bigImageView.setOptimizeDisplay(optimizeDisplay);
+    }
+
+    public TextView getTvProgress() {
+        return tvProgress;
     }
 }

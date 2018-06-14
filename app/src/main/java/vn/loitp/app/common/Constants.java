@@ -14,6 +14,7 @@ public class Constants {
     public final static String URL_IMG_2 = "https://c1.staticflickr.com/1/799/40665855145_d5908c4740_b.jpg";
     public final static String URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg";
     public final static String URL_IMG_LONG_1 = "http://ww1.sinaimg.cn/mw690/005Fj2RDgw1f9mvl4pivvj30c82ougw3.jpg";
+    public final static String URL_IMG_LARGE = "https://upload.wikimedia.org/wikipedia/commons/3/3d/LARGE_elevation.jpg";
 
     public static final String MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen";
 
