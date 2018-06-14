@@ -31,6 +31,7 @@
             <vn.loitp.views.imageview.circularroundrectimageview.lib.RoundedImage
                 android:layout_width="320dp"
                 android:layout_height="220dp"
+                android:layout_marginTop="@dimen/margin_30"
                 android:src="@drawable/iv"
                 app:add_shadow="true"
                 app:rounded_radius="50" />

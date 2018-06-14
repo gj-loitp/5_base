@@ -233,4 +233,13 @@ public class Photo {
             return LImageUtil.getFlickrLink1024(urlM);
         }
     }
+
+    public String getFlickrLink320() {
+        if (urlO.contains(".gif")) {
+            //gif extension have no link large
+            return urlO;
+        } else {
+            return LImageUtil.getFlickrLink320(urlM);
+        }
+    }
 }

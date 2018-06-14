@@ -1,4 +1,6 @@
 <resources>
+    <dimen name="padding_1">1dp</dimen>
+    <dimen name="padding_2">2dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="padding_20">20dp</dimen>

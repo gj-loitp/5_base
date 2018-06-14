@@ -50,7 +50,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
         super.onViewRecycled(holder);
-        LLog.d(TAG, "onViewRecycled");
+        //LLog.d(TAG, "onViewRecycled");
         LImageUtil.clear(context, holder.iv);
     }
 
@@ -62,9 +62,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Photoset photoset = photosetList.get(position);
         LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
-        LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
-        LLog.d(TAG, ">>>getFlickrLink640 " + photoset.getFlickrLink640());
-        LLog.d(TAG, ">>>getFlickrLink1024 " + photoset.getFlickrLink1024());
+        //LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
+        //LLog.d(TAG, ">>>getFlickrLink640 " + photoset.getFlickrLink640());
+        //LLog.d(TAG, ">>>getFlickrLink1024 " + photoset.getFlickrLink1024());
 
         LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
 

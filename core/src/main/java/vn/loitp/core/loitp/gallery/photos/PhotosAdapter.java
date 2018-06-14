@@ -23,11 +23,12 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
  */
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
     private final String TAG = getClass().getSimpleName();
-    public static int COLUMN = 2;
     private Context context;
     private LayoutInflater inflater;
     private int sizeW;
     private int sizeH;
+
+    public final static int COLUMN = 3;
 
     public PhotosAdapter(Context context, Callback callback) {
         this.context = context;
