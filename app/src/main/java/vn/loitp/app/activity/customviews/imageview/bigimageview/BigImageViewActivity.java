@@ -12,6 +12,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 //https://github.com/Piasy/BigImageViewer
 public class BigImageViewActivity extends BaseFontActivity {
@@ -20,48 +21,8 @@ public class BigImageViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BigImageView bigImageView = (BigImageView) findViewById(R.id.mBigImage);
-        //bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_START);
-        bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG_1));
-
-        // Or show a thumbnail before the big image is loaded
-        //bigImageView.showImage(Uri.parse("https://image.flaticon.com/icons/svg/265/265674.svg"), Uri.parse(Constants.URL_IMG_LONG_1));
-        bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
-            @Override
-            public void onCacheHit(File image) {
-                LLog.d(TAG, "Image was found in the cache");
-            }
-
-            @Override
-            public void onCacheMiss(File image) {
-                LLog.d(TAG, "Image was downloaded from the network");
-            }
-
-            @Override
-            public void onStart() {
-                LLog.d(TAG, "Image download has started");
-            }
-
-            @Override
-            public void onProgress(int progress) {
-                LLog.d(TAG, "Image download progress has changed " + progress);
-            }
-
-            @Override
-            public void onFinish() {
-                LLog.d(TAG, "Image download has finished");
-            }
-
-            @Override
-            public void onSuccess(File image) {
-                LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
-            }
-
-            @Override
-            public void onFail(Exception error) {
-                LLog.d(TAG, "Image download failed " + error);
-            }
-        });
+        LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
+        bigImageView.load(Constants.URL_IMG_LONG_1);
     }
 
     @Override
