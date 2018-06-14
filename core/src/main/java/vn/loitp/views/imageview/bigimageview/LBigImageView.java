@@ -47,12 +47,13 @@ public class LBigImageView extends RelativeLayout {
             @Override
             public void onCacheHit(File image) {
                 //LLog.d(TAG, "Image was found in the cache");
+                LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onCacheMiss(File image) {
-                LLog.d(TAG, "Image was downloaded from the network");
-                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                //LLog.d(TAG, "Image was downloaded from the network");
+                LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
@@ -63,7 +64,7 @@ public class LBigImageView extends RelativeLayout {
             @Override
             public void onProgress(int progress) {
                 //LLog.d(TAG, "Image download progress has changed " + progress);
-                tvProgress.setText(progress + "%");
+                tvProgress.setText(progress + "");
             }
 
             @Override
