@@ -31,18 +31,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/bt_report"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_marginRight="@dimen/margin_55"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ladybird" />
 
         <ImageView
             android:id="@+id/bt_download"
             android:layout_width="@dimen/w_80"
             android:layout_height="@dimen/w_80"
-            android:layout_centerInParent="true"
             android:contentDescription="@string/app_name"
             android:src="@drawable/download" />
-    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/bt_share"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_marginLeft="@dimen/margin_55"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/slideshare" />
+    </LinearLayout>
 </RelativeLayout>

@@ -24,7 +24,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
@@ -146,6 +146,20 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                 LAnimationUtil.play(v, Techniques.Pulse);
                 //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
                 new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
+            }
+        });
+        findViewById(R.id.bt_share).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                LSocialUtil.share(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+            }
+        });
+        findViewById(R.id.bt_report).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                LSocialUtil.sendEmail(activity);
             }
         });
     }

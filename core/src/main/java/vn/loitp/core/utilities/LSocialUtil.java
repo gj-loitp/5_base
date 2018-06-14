@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import loitp.core.R;
-import vn.loitp.utils.util.ToastUtils;
 
 
 /**
@@ -130,18 +129,11 @@ public class LSocialUtil {
     /*
    * send email support
    */
-    /*public void sendEmail() {
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{context.getResources().getString(R.string.myEmailDev)});
-        i.putExtra(Intent.EXTRA_SUBJECT, context.getResources().getString(R.string.mail_subject_support));
-        i.putExtra(Intent.EXTRA_TEXT, context.getResources().getString(R.string.mail_text_support));
-        try {
-            context.startActivity(Intent.createChooser(i, context.getString(R.string.send_mail_via)));
-        } catch (android.content.ActivityNotFoundException ex) {
-
-        }
-    }*/
+    public static void sendEmail(Context context) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto: www.muathu@gmail.com"));
+        context.startActivity(Intent.createChooser(emailIntent, "Send feedback"));
+    }
 
     public static void openUrlInBrowser(Context context, String url) {
         Uri webpage = Uri.parse(url);
