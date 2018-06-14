@@ -385,6 +385,7 @@
             android:theme="@style/NoTitleTheme" />
         <activity android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity" />
     </application>
 
 </manifest>

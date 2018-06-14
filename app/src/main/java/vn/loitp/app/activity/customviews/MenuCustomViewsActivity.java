@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity;
@@ -70,6 +71,7 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         findViewById(R.id.bt_bottom_sheet).setOnClickListener(this);
         findViewById(R.id.bt_compas).setOnClickListener(this);
         findViewById(R.id.bt_scrollable_panel).setOnClickListener(this);
+        findViewById(R.id.bt_fb_cmt).setOnClickListener(this);
     }
 
     @Override
@@ -174,6 +176,9 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
                 break;
             case R.id.bt_scrollable_panel:
                 intent = new Intent(activity, ScrollablePanelActivity.class);
+                break;
+            case R.id.bt_fb_cmt:
+                intent = new Intent(activity, FacebookCommentActivity.class);
                 break;
         }
         if (intent != null) {

@@ -224,4 +224,15 @@ public class LDateUtils {
         }
         return "";
     }
+
+    public static String convertDate(String dateInMilliseconds, String dateFormat) {
+        long timeStamp = Long.parseLong(dateInMilliseconds);
+        SimpleDateFormat objFormatter = new SimpleDateFormat(dateFormat);
+        objFormatter.setTimeZone(TimeZone.getDefault());
+        Calendar objCalendar = Calendar.getInstance(TimeZone.getDefault());
+        objCalendar.setTimeInMillis(timeStamp * 1000);
+        String result = objFormatter.format(objCalendar.getTime());
+        objCalendar.clear();
+        return result;
+    }
 }

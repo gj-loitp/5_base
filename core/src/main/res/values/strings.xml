@@ -47,4 +47,7 @@
     <string name="next">Next</string>
     <string name="policy">Điều khoản sử dụng ứng dụng, chính sách bảo mật và quyền riêng tư</string>
     <string name="copyright">© Loitp</string>
+    <string name="title_activity_comments">Comments</string>
+    <string name="action_comment">Comment</string>
+    <string name="action_refresh">Reload</string>
 </resources>

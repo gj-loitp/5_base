@@ -67,4 +67,5 @@ public class Constants {
 
     public static String ASSET_FILE_GIFT = "img/ic_gift.png";
     public final static String FONT_PATH = "fonts/baisau.TTF";
+    public final static String FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL";
 }

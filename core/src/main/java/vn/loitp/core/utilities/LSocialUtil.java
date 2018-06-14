@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import loitp.core.R;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.facebookcomment.FacebookCommentActivity;
 
 
 /**
@@ -142,5 +144,12 @@ public class LSocialUtil {
             context.startActivity(intent);
             LActivityUtil.tranIn(context);
         }
+    }
+
+    public static void openFacebookComment(Context context, String url) {
+        Intent intent = new Intent(context, FacebookCommentActivity.class);
+        intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url);
+        context.startActivity(intent);
+        LActivityUtil.tranIn(context);
     }
 }

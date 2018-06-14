@@ -85,6 +85,12 @@
                 android:text="EditText" />
 
             <Button
+                android:id="@+id/bt_fb_cmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facebook Comment" />
+
+            <Button
                 android:id="@+id/bt_gg_plus_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
