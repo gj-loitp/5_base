@@ -142,4 +142,6 @@ public class Constants {
     public final static String FLICKR_ID_VN_DOCDAOTHUVI = "72157672326565186";
     public final static String FLICKR_ID_VN_ANHCHESACHGIAOKHOA = "72157670443622896";
     public final static String FLICKR_ID_VN_ANHTHEOTEN = "72157670868460705";
+
+    public final static String KEY_REMOVE_ALBUM_FLICKR_LIST = "KEY_REMOVE_ALBUM_FLICKR_LIST";
 }

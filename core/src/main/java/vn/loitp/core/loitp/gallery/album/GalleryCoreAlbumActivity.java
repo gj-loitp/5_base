@@ -18,10 +18,12 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
+import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
@@ -33,12 +35,15 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     private ProgressBar progressBar;
     private AlbumAdapter albumAdapter;
     private List<Photoset> photosetList = new ArrayList<>();
+    private ArrayList<String> removeAlbumList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setTransparentStatusNavigationBar();
+
+        removeAlbumList = getIntent().getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
@@ -91,7 +96,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override
@@ -115,6 +120,17 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
                 //LLog.d(TAG, "onSuccess " + gson.toJson(wrapperPhotosetGetlist));
                 photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+
+                LLog.d(TAG, "orginal size: " + photosetList.size());
+                LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
+                for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
+                    for (int j = photosetList.size() - 1; j >= 0; j--) {
+                        if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
+                            photosetList.remove(j);
+                        }
+                    }
+                }
+                LLog.d(TAG, "after size: " + photosetList.size());
                 Collections.sort(photosetList, new Comparator<Photoset>() {
                     @Override
                     public int compare(Photoset o1, Photoset o2) {

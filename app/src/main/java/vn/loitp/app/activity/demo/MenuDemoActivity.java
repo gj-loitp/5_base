@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
@@ -89,6 +91,13 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_gallery_core:
                 intent = new Intent(activity, GalleryCoreSplashActivity.class);
+                //neu muon remove albumn nao thi cu pass id cua albumn do
+                ArrayList<String> removeAlbumFlickrList = new ArrayList<>();
+                removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER);
+                //removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
+                //removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
+                //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
+                intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumFlickrList);
                 break;
         }
         if (intent != null) {

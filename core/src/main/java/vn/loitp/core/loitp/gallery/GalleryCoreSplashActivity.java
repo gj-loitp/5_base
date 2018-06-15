@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -40,10 +43,13 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         TextView tvName = (TextView) findViewById(R.id.tv_name);
         LUIUtil.setTextShadow(tvName);
 
+        final ArrayList<String> removeAlbumList = getIntent().getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST);
+
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);
                 finish();
