@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.watchwhilelayout.fragments;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,14 +15,14 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicGridSpacingItemDecoration;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicUiUtil;
+import vn.loitp.core.base.BaseFragment;
 
 /**
  * Created by thangn on 2/26/17.
  */
 
-public class WWLHomeFragment extends Fragment {
+public class WWLHomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
@@ -33,29 +33,27 @@ public class WWLHomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.wwl_music_home_fragment, container, false);
-
-        this.mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mRecyclerView.addItemDecoration(new WWLMusicGridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
-        this.mRecyclerView.scrollToPosition(0);
-
+        //this.mRecyclerView.addItemDecoration(new WWLMusicGridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
 
         updateLayoutIfNeed();
+    }
 
-        return rootView;
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_music_home_fragment;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         this.mFragmentHost = (FragmentHost) activity;
     }
 
@@ -89,7 +87,7 @@ public class WWLHomeFragment extends Fragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_row_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_music_card_row_item, parent, false);
             return new ViewHolder(v);
         }
 

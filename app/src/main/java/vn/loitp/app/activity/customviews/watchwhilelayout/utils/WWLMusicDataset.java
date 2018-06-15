@@ -24,7 +24,7 @@ public class WWLMusicDataset {
         public String url;
 
         public DatasetItem(int _id) {
-            String _url = "android.resource://com.ttinc.android.apps.watchwhilelayout/" + R.raw.vid_bigbuckbunny;
+            String _url = "android.resource://vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusic/" + R.raw.vid_bigbuckbunny;
 
             this.id = _id;
             this.title = String.format("This is element #%d", _id);
