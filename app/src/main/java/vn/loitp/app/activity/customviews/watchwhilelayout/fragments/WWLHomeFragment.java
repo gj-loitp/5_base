@@ -39,7 +39,6 @@ public class WWLHomeFragment extends BaseFragment {
         this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        //this.mRecyclerView.addItemDecoration(new WWLMusicGridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
 

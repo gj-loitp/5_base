@@ -11,15 +11,15 @@ import loitp.basemaster.R;
  * Created by thangn on 2/26/17.
  */
 
-public class FixedAspectRatioRelativeLayout extends RelativeLayout {
+public class WWLMusicFixedAspectRatioRelativeLayout extends RelativeLayout {
     public float mAspectRatio;
 
-    public FixedAspectRatioRelativeLayout(Context context) {
+    public WWLMusicFixedAspectRatioRelativeLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public FixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
+    public WWLMusicFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio);
         this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f);

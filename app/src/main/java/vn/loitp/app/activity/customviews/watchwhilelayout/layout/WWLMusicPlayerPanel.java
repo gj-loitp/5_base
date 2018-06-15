@@ -15,14 +15,14 @@ import loitp.basemaster.R;
  * Created by thangn on 3/1/17.
  */
 
-public class PlayerPanel extends FrameLayout {
+public class WWLMusicPlayerPanel extends FrameLayout {
     public ColorDrawable mBgColorDrawable;
     public View mMiniControlsContainer;
     public FrameLayout mMusicPlayerView;
     public ImageView mPlayButton;
     public ImageView mPauseButton;
 
-    public PlayerPanel(Context context, AttributeSet attrs) {
+    public WWLMusicPlayerPanel(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mBgColorDrawable = new ColorDrawable();
     }

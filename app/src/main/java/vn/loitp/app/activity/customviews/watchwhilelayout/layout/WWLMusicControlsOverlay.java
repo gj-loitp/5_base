@@ -14,7 +14,7 @@ import loitp.basemaster.R;
  * Created by thangn on 2/26/17.
  */
 
-public class ControlsOverlay extends FrameLayout implements View.OnClickListener {
+public class WWLMusicControlsOverlay extends FrameLayout implements View.OnClickListener {
     private final RelativeLayout controlsLayout;
     private final ImageView collapseBtn;
     private final ViewGroup bottomEndContainer;
@@ -22,7 +22,7 @@ public class ControlsOverlay extends FrameLayout implements View.OnClickListener
     private Listener listener;
     private boolean isHided;
 
-    public ControlsOverlay(Context context) {
+    public WWLMusicControlsOverlay(Context context) {
         super(context);
 
         setClipToPadding(false);

@@ -11,15 +11,15 @@ import loitp.basemaster.R;
  * Created by thangn on 3/1/17.
  */
 
-public class FixedAspectRatioFrameLayout extends FrameLayout {
+public class WWLMusicFixedAspectRatioFrameLayout extends FrameLayout {
     public float mAspectRatio;
 
-    public FixedAspectRatioFrameLayout(Context context) {
+    public WWLMusicFixedAspectRatioFrameLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public FixedAspectRatioFrameLayout(Context context, AttributeSet attrs) {
+    public WWLMusicFixedAspectRatioFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio);
         this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f);

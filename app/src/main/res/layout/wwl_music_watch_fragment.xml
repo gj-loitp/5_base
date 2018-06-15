@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vn.loitp.app.activity.customviews.watchwhilelayout.layout.PlayerPanel xmlns:android="http://schemas.android.com/apk/res/android"
+<vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusicPlayerPanel xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/player_panel_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff000000">
+    android:background="@color/Red">
 
     <FrameLayout
         android:id="@+id/wwl_music_player_view"
@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:contentDescription="@string/large_text"
             android:padding="@dimen/item_small_spacing"
             android:src="@drawable/ic_play_arrow_white_36"
             android:visibility="invisible" />
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
             android:padding="@dimen/item_small_spacing"
             android:src="@drawable/ic_pause_white_36"
             android:visibility="visible" />
@@ -58,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Title"
-                android:textColor="#ffffffff"
+                android:textColor="@color/Blue"
                 android:textSize="@dimen/medium_font_size"
                 android:textStyle="bold" />
 
@@ -68,9 +70,9 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Subtitle"
-                android:textColor="#ffbbbbbb"
+                android:textColor="@color/Blue"
                 android:textSize="@dimen/small_font_size" />
         </LinearLayout>
     </RelativeLayout>
 
-</vn.loitp.app.activity.customviews.watchwhilelayout.layout.PlayerPanel>
+</vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusicPlayerPanel>

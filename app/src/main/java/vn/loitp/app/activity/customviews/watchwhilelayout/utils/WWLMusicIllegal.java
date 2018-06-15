@@ -17,16 +17,16 @@ public class WWLMusicIllegal {
     }
 
     public static Object check(Object object) {
-        if (object != null)
+        if (object != null) {
             return object;
-
+        }
         throw new IllegalArgumentException();
     }
 
     public static Object check(Object object, Object objectMsg) {
-        if (object != null)
+        if (object != null) {
             return object;
-
+        }
         throw new IllegalArgumentException(String.valueOf(objectMsg));
     }
 }
