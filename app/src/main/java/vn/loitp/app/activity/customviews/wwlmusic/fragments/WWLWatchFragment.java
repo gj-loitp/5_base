@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.fragments;
+package vn.loitp.app.activity.customviews.wwlmusic.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -18,9 +16,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusicControlsOverlay;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
+import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
+import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
+import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 

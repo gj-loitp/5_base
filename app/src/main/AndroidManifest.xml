@@ -386,7 +386,7 @@
         <activity android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.watchwhilelayout.WWLActivityMusic" />
+        <activity android:name="vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic" />
     </application>
 
 </manifest>

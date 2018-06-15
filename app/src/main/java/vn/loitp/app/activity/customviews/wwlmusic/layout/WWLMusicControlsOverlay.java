@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.layout;
+package vn.loitp.app.activity.customviews.wwlmusic.layout;
 
 import android.content.Context;
 import android.view.LayoutInflater;

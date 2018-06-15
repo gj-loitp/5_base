@@ -1,25 +1,25 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.layout;
+package vn.loitp.app.activity.customviews.wwlmusic.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
 
 /**
- * Created by thangn on 2/26/17.
+ * Created by thangn on 3/1/17.
  */
 
-public class WWLMusicFixedAspectRatioRelativeLayout extends RelativeLayout {
+public class WWLMusicFixedAspectRatioFrameLayout extends FrameLayout {
     public float mAspectRatio;
 
-    public WWLMusicFixedAspectRatioRelativeLayout(Context context) {
+    public WWLMusicFixedAspectRatioFrameLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public WWLMusicFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
+    public WWLMusicFixedAspectRatioFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio);
         this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f);

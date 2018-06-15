@@ -35,7 +35,7 @@ import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity;
 import vn.loitp.app.activity.customviews.treeview.TreeViewActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
-import vn.loitp.app.activity.customviews.watchwhilelayout.WWLActivityMusic;
+import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.layout;
+package vn.loitp.app.activity.customviews.wwlmusic.layout;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -22,7 +22,7 @@ import android.widget.Scroller;
 import java.util.LinkedList;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicIllegal;
+import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicIllegal;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusic
+        <vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusic
             android:id="@+id/watch_while_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,18 +23,18 @@
 
             <fragment
                 android:id="@+id/watch_fragment"
-                android:name="vn.loitp.app.activity.customviews.watchwhilelayout.fragments.WWLWatchFragment"
+                android:name="vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <fragment
                 android:id="@+id/playlist_fragment"
-                android:name="vn.loitp.app.activity.customviews.watchwhilelayout.fragments.WWLPlaylistFragment"
+                android:name="vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <include layout="@layout/content_panel" />
-        </vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusic>
+        </vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusic>
 
     </FrameLayout>
 

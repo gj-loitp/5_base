@@ -1,10 +1,11 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.fragments;
+package vn.loitp.app.activity.customviews.wwlmusic.fragments;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,46 +13,62 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
+import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
+import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
+import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicUiUtil;
 import vn.loitp.core.base.BaseFragment;
 
 /**
- * Created by thangn on 3/1/17.
+ * Created by thangn on 2/26/17.
  */
 
-public class WWLPlaylistFragment extends BaseFragment {
+public class WWLHomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
-    private TextView mTitleView;
-    private TextView mSubTitleView;
     private FragmentHost mFragmentHost;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
         this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
-        this.mLayoutManager = new LinearLayoutManager(getActivity());
+        this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mRecyclerView.scrollToPosition(0);
-
         this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
+
+        updateLayoutIfNeed();
     }
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.wwl_music_playlist_fragment;
+        return R.layout.wwl_music_home_fragment;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         this.mFragmentHost = (FragmentHost) activity;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateLayoutIfNeed();
+    }
+
+    private void updateLayoutIfNeed() {
+        if (this.mLayoutManager != null) {
+            this.mLayoutManager.setSpanCount(WWLMusicUiUtil.getGridColumnCount(getResources()));
+        }
+        if (this.mAdapter != null) {
+            this.mAdapter.notifyDataSetChanged();
+        }
     }
 
     private void onItemClicked(WWLMusicDataset.DatasetItem item) {
@@ -60,28 +77,23 @@ public class WWLPlaylistFragment extends BaseFragment {
         }
     }
 
-    public void updateItem(WWLMusicDataset.DatasetItem item) {
-        this.mTitleView.setText(item.title);
-        this.mSubTitleView.setText(item.subtitle);
-    }
+    private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+        private WWLMusicDataset.DatasetItem[] mDataSet;
 
-    private class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private final WWLMusicDataset.DatasetItem[] mDataSet;
-
-        public CustomAdapter(WWLMusicDataset.DatasetItem[] datasetItems) {
-            this.mDataSet = datasetItems;
+        public CustomAdapter(WWLMusicDataset.DatasetItem[] dataset) {
+            this.mDataSet = dataset;
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_music_playlist_item, parent, false);
-            return new CustomAdapter.ViewHolder(v);
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_music_card_row_item, parent, false);
+            return new ViewHolder(v);
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((ViewHolder) holder).getTitleView().setText(this.mDataSet[position].title);
-            ((ViewHolder) holder).getSubTitleView().setText(this.mDataSet[position].subtitle);
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            holder.getTitleView().setText(this.mDataSet[position].title);
+            holder.getSubTitleView().setText(this.mDataSet[position].subtitle);
         }
 
         @Override
@@ -98,7 +110,7 @@ public class WWLPlaylistFragment extends BaseFragment {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        WWLPlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
+                        WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
                     }
                 });
                 titleView = (TextView) v.findViewById(R.id.li_title);

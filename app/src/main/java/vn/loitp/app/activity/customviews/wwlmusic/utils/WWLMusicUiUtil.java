@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout.utils;
+package vn.loitp.app.activity.customviews.wwlmusic.utils;
 
 import android.app.Activity;
 import android.content.res.Resources;
