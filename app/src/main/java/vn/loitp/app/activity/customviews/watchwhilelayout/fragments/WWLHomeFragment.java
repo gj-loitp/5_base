@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout;
+package vn.loitp.app.activity.customviews.watchwhilelayout.fragments;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicGridSpacingItemDecoration;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicUiUtil;
@@ -21,7 +22,7 @@ import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicUiUtil;
  * Created by thangn on 2/26/17.
  */
 
-public class HomeFragment extends Fragment {
+public class WWLHomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
@@ -112,7 +113,7 @@ public class HomeFragment extends Fragment {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        HomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
+                        WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
                     }
                 });
                 titleView = (TextView) v.findViewById(R.id.li_title);

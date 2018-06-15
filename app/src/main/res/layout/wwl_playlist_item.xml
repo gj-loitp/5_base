@@ -32,7 +32,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/thumb_1" />
+            android:src="@drawable/iv" />
     </vn.loitp.app.activity.customviews.watchwhilelayout.layout.FixedAspectRatioFrameLayout>
 
     <FrameLayout

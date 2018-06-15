@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.watchwhilelayout;
+package vn.loitp.app.activity.customviews.watchwhilelayout.interfaces;
 
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 

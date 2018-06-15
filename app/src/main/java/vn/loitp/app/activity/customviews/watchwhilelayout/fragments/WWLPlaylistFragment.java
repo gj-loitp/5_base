@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.FragmentHost;
+import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 
 /**

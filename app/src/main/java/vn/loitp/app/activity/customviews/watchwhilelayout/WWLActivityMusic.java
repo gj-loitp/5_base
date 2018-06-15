@@ -1,19 +1,14 @@
 package vn.loitp.app.activity.customviews.watchwhilelayout;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.fragments.WWLPlaylistFragment;
 import vn.loitp.app.activity.customviews.watchwhilelayout.fragments.WWLWatchFragment;
+import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusic;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicUiUtil;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicViewHelper;
 import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
