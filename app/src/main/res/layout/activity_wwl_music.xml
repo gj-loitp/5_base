@@ -19,7 +19,8 @@
             app:metadataViewId="@+id/playlist_fragment"
             app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
             app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
-            app:playerViewId="@+id/watch_fragment">
+            app:playerViewId="@+id/watch_fragment"
+            app:tabletLayout="true">
 
             <fragment
                 android:id="@+id/watch_fragment"
