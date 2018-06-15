@@ -107,4 +107,14 @@
 
     <dimen name="heart_size_height">27.3dp</dimen>
     <dimen name="heart_size_width">32.5dp</dimen>
+
+    <dimen name="watch_while_mini_player_padding">8.0dip</dimen>
+    <dimen name="watch_while_mini_player_width">113.0dip</dimen>
+    <dimen name="watch_while_mini_player_dismiss_drag_distance">90.0dip</dimen>
+    <dimen name="watch_while_mini_player_dismiss_animation_distance">1000.0dip</dimen>
+    <dimen name="column_min_size">180.0dip</dimen>
+    <dimen name="card_spacing">16.0dip</dimen>
+    <dimen name="item_small_spacing">8.0dip</dimen>
+    <dimen name="medium_font_size">16.0sp</dimen>
+    <dimen name="small_font_size">14.0sp</dimen>
 </resources>

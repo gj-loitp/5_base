@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity;
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity;
 import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
@@ -18,6 +16,7 @@ import vn.loitp.app.activity.customviews.compas.CompasActivity;
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity;
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity;
+import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity;
 import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity;
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
@@ -36,6 +35,8 @@ import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity;
 import vn.loitp.app.activity.customviews.treeview.TreeViewActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
+import vn.loitp.app.activity.customviews.watchwhilelayout.WWLActivityMusic;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuCustomViewsActivity extends BaseFontActivity implements OnClickListener {
@@ -72,6 +73,7 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         findViewById(R.id.bt_compas).setOnClickListener(this);
         findViewById(R.id.bt_scrollable_panel).setOnClickListener(this);
         findViewById(R.id.bt_fb_cmt).setOnClickListener(this);
+        findViewById(R.id.bt_wwl_music).setOnClickListener(this);
     }
 
     @Override
@@ -179,6 +181,9 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
                 break;
             case R.id.bt_fb_cmt:
                 intent = new Intent(activity, FacebookCommentActivity.class);
+                break;
+            case R.id.bt_wwl_music:
+                intent = new Intent(activity, WWLActivityMusic.class);
                 break;
         }
         if (intent != null) {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/accessibility_layer_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true">
+
+        <vn.loitp.app.activity.customviews.watchwhilelayout.layout.WatchWhileLayout
+            android:id="@+id/watch_while_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg_color_1"
+            android:fitsSystemWindows="true"
+            app:metadataViewId="@+id/playlist_fragment"
+            app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
+            app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
+            app:playerViewId="@+id/watch_fragment">
+
+            <fragment
+                android:id="@+id/watch_fragment"
+                android:name="vn.loitp.app.activity.customviews.watchwhilelayout.fragments.WatchFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <fragment
+                android:id="@+id/playlist_fragment"
+                android:name="vn.loitp.app.activity.customviews.watchwhilelayout.fragments.PlaylistFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <include layout="@layout/content_panel" />
+        </vn.loitp.app.activity.customviews.watchwhilelayout.layout.WatchWhileLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

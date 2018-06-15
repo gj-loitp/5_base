@@ -589,4 +589,17 @@
         <attr name="bezierFactor" format="integer" />
         <attr name="anim_duration" format="integer" />
     </declare-styleable>
+    <declare-styleable name="WatchWhileLayout">
+        <attr name="playerViewId" format="reference" />
+        <attr name="playerTopLeftViewId" format="reference" />
+        <attr name="metadataViewId" format="reference" />
+        <attr name="metadataPanelViewId" format="reference" />
+        <attr name="overlayViewId" format="reference" />
+        <attr name="tabletLayout" format="boolean" />
+        <attr name="miniPlayerWidth" format="dimension" />
+        <attr name="miniPlayerPadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="FixedAspectRatio">
+        <attr name="aspectRatio" format="fraction" />
+    </declare-styleable>
 </resources>

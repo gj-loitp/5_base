@@ -198,6 +198,12 @@
                 android:layout_height="wrap_content"
                 android:text="View Pager" />
 
+            <Button
+                android:id="@+id/bt_wwl_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WWL Music" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
