@@ -3,7 +3,7 @@
     android:id="@+id/player_panel_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Red">
+    android:background="@color/colorPrimaryDark">
 
     <FrameLayout
         android:id="@+id/wwl_music_player_view"
