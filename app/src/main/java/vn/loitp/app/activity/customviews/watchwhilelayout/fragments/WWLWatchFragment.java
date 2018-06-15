@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,13 +21,14 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
+import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by thangn on 3/1/17.
  */
 
-public class WWLWatchFragment extends Fragment implements TextureView.SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
+public class WWLWatchFragment extends BaseFragment implements TextureView.SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
     private final String TAG = getClass().getSimpleName();
     private TextureView mPlayerView;
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
@@ -43,19 +45,22 @@ public class WWLWatchFragment extends Fragment implements TextureView.SurfaceTex
     private TextView mTitleView;
     private TextView mSubTitleView;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.wwl_music_watch_fragment, container, false);
-        this.mPlayerView = (TextureView) rootView.findViewById(R.id.player_view);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mPlayerView = (TextureView) frmRootView.findViewById(R.id.player_view);
         this.mPlayerView.requestFocus();
         this.mPlayerView.setSurfaceTextureListener(this);
         this.mPlayerWWLMusicControlsOverlay = new WWLMusicControlsOverlay(getContext());
         this.mPlayerWWLMusicControlsOverlay.setListener(this);
-        ((ViewGroup) rootView).addView(this.mPlayerWWLMusicControlsOverlay);
-        this.mTitleView = (TextView) rootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) rootView.findViewById(R.id.li_subtitle);
-        return rootView;
+        ((ViewGroup) frmRootView).addView(this.mPlayerWWLMusicControlsOverlay);
+        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
+        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_music_watch_fragment;
     }
 
     @Override
