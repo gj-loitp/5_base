@@ -15,7 +15,7 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicUiUtil;
+import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 import vn.loitp.core.base.BaseFragment;
 
 /**

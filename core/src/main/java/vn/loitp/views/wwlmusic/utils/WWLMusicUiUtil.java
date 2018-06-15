@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.wwlmusic.utils;
+package vn.loitp.views.wwlmusic.utils;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by thangn on 2/27/17.

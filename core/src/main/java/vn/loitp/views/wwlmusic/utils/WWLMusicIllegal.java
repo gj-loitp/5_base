@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.wwlmusic.utils;
+package vn.loitp.views.wwlmusic.utils;
 
 /**
  * Created by thangn on 2/26/17.

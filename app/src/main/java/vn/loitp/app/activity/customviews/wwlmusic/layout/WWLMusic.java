@@ -22,7 +22,7 @@ import android.widget.Scroller;
 import java.util.LinkedList;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicIllegal;
+import vn.loitp.views.wwlmusic.utils.WWLMusicIllegal;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;

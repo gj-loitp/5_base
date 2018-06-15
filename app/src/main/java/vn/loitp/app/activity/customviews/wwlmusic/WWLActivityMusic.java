@@ -8,7 +8,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusic;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicUiUtil;
+import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
