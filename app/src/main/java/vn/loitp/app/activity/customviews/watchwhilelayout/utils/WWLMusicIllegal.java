@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.watchwhilelayout.utils;
 /**
  * Created by thangn on 2/26/17.
  */
-public class Illegal {
+public class WWLMusicIllegal {
     public static void check(boolean ok) {
         if (!ok) {
             throw new IllegalArgumentException();

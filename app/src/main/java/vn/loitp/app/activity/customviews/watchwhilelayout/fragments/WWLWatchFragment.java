@@ -19,13 +19,13 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.layout.ControlsOverlay;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.Dataset;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 
 /**
  * Created by thangn on 3/1/17.
  */
 
-public class WatchFragment extends Fragment implements TextureView.SurfaceTextureListener, ControlsOverlay.Listener {
+public class WWLWatchFragment extends Fragment implements TextureView.SurfaceTextureListener, ControlsOverlay.Listener {
     private TextureView mPlayerView;
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
         @Override
@@ -63,7 +63,7 @@ public class WatchFragment extends Fragment implements TextureView.SurfaceTextur
         this.mFragmentHost = (FragmentHost) activity;
     }
 
-    public void startPlay(Dataset.DatasetItem item) {
+    public void startPlay(WWLMusicDataset.DatasetItem item) {
         this.mUrl = item.url;
         openVideo();
         this.mTitleView.setText(item.title);

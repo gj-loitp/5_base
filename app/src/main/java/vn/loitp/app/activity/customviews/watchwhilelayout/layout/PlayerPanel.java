@@ -45,7 +45,7 @@ public class PlayerPanel extends FrameLayout {
     }
 
     public void layout() {
-        this.mBgColorDrawable.setColor(getResources().getColor(R.color.bg_color_1));
+        this.mBgColorDrawable.setColor(getResources().getColor(R.color.colorPrimaryDark));
         LayoutParams layoutParams = (LayoutParams) this.mMusicPlayerView.getLayoutParams();
         layoutParams.gravity = Gravity.LEFT;
         this.mMusicPlayerView.setLayoutParams(layoutParams);

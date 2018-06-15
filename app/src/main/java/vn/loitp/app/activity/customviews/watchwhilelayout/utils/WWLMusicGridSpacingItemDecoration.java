@@ -9,12 +9,12 @@ import android.view.View;
  * Created by thangn on 2/27/17.
  */
 
-public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+public class WWLMusicGridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     private int spanCount;
     private int spacing;
     private boolean includeEdge;
 
-    public GridSpacingItemDecoration(int spacing, boolean includeEdge) {
+    public WWLMusicGridSpacingItemDecoration(int spacing, boolean includeEdge) {
         this.spacing = spacing;
         this.includeEdge = includeEdge;
     }

@@ -3,7 +3,7 @@
     android:id="@+id/playlist_fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color_1"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <LinearLayout
@@ -60,9 +60,9 @@
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:text="Title"
-                            android:textStyle="bold"
                             android:textColor="@color/white_text_primary"
-                            android:textSize="@dimen/medium_font_size" />
+                            android:textSize="@dimen/medium_font_size"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/li_subtitle"
@@ -89,8 +89,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:background="#20ffffff"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:background="#20ffffff" />
 
 </LinearLayout>

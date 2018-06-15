@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.Dataset;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.GridSpacingItemDecoration;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.UiUtil;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicGridSpacingItemDecoration;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicUiUtil;
 
 /**
  * Created by thangn on 2/26/17.
@@ -38,12 +38,12 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.wwl_music_home_fragment, container, false);
 
         this.mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        this.mLayoutManager = new GridLayoutManager(getActivity(), UiUtil.getGridColumnCount(getResources()));
+        this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
+        this.mRecyclerView.addItemDecoration(new WWLMusicGridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         this.mRecyclerView.scrollToPosition(0);
 
-        this.mAdapter = new CustomAdapter(Dataset.datasetItems);
+        this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
 
         updateLayoutIfNeed();
@@ -66,23 +66,23 @@ public class HomeFragment extends Fragment {
 
     private void updateLayoutIfNeed() {
         if (this.mLayoutManager != null) {
-            this.mLayoutManager.setSpanCount(UiUtil.getGridColumnCount(getResources()));
+            this.mLayoutManager.setSpanCount(WWLMusicUiUtil.getGridColumnCount(getResources()));
         }
         if (this.mAdapter != null) {
             this.mAdapter.notifyDataSetChanged();
         }
     }
 
-    private void onItemClicked(Dataset.DatasetItem item) {
+    private void onItemClicked(WWLMusicDataset.DatasetItem item) {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        private Dataset.DatasetItem[] mDataSet;
+        private WWLMusicDataset.DatasetItem[] mDataSet;
 
-        public CustomAdapter(Dataset.DatasetItem[] dataset) {
+        public CustomAdapter(WWLMusicDataset.DatasetItem[] dataset) {
             this.mDataSet = dataset;
         }
 

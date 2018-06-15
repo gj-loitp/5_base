@@ -6,7 +6,7 @@ import loitp.basemaster.R;
  * Created by thangn on 2/27/17.
  */
 
-public class Dataset {
+public class WWLMusicDataset {
     public static DatasetItem[] datasetItems;
 
     static {

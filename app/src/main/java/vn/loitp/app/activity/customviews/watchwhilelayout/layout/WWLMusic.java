@@ -22,7 +22,7 @@ import android.widget.Scroller;
 import java.util.LinkedList;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.Illegal;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicIllegal;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -34,7 +34,7 @@ import static android.view.MotionEvent.ACTION_UP;
  * Created by thangn on 2/26/17.
  */
 
-public class WatchWhileLayout extends ViewGroup {
+public class WWLMusic extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
     public static final int STATE_MINIMIZED = 2;
@@ -71,7 +71,7 @@ public class WatchWhileLayout extends ViewGroup {
     private int mOffsetH;
     private int mStart = 0;
 
-    public WatchWhileLayout(Context context, AttributeSet attributeSet) {
+    public WWLMusic(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Resources resources = context.getResources();
         this.mMiniPlayerRect = new Rect();
@@ -93,8 +93,8 @@ public class WatchWhileLayout extends ViewGroup {
         this.mMetadataViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_metadataViewId, 0);
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
         typedArray.recycle();
-        Illegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
-        Illegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
+        WWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
+        WWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
     }
 
     private static void updateRect(Rect rect, int left, int top, int right, int bottom) {
@@ -119,7 +119,7 @@ public class WatchWhileLayout extends ViewGroup {
         super.onFinishInflate();
         int childCount = getChildCount();
         int requireViewCount = 3;
-        Illegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
+        WWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
@@ -132,9 +132,9 @@ public class WatchWhileLayout extends ViewGroup {
                 this.mViews.add(view);
             }
         }
-        Illegal.check(this.mPlayerView);
-        Illegal.check(this.mMetadataView);
-        Illegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
+        WWLMusicIllegal.check(this.mPlayerView);
+        WWLMusicIllegal.check(this.mMetadataView);
+        WWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
         this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
@@ -920,7 +920,7 @@ public class WatchWhileLayout extends ViewGroup {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
-        public WatchWhileLayout layout;
+        public WWLMusic layout;
         public float eX;
         public float eY;
         public int pointerId;
@@ -933,7 +933,7 @@ public class WatchWhileLayout extends ViewGroup {
             this(context, 200);
         }
 
-        public Tracker(WatchWhileLayout layout, Context context) {
+        public Tracker(WWLMusic layout, Context context) {
             this(context, 400);
             this.layout = layout;
             this.fraction = 0.0f;
@@ -941,7 +941,7 @@ public class WatchWhileLayout extends ViewGroup {
 
         public Tracker(Context context, int snapVelocity) {
             this.pointerId = -1;
-            Illegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
+            WWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.scaledPagingTouchSlop = viewConfiguration.getScaledPagingTouchSlop();
             this.a = viewConfiguration.getScaledMaximumFlingVelocity();
@@ -1040,9 +1040,9 @@ public class WatchWhileLayout extends ViewGroup {
     }
 
     final class PlayerViewClickListener implements View.OnClickListener {
-        private WatchWhileLayout mLayout;
+        private WWLMusic mLayout;
 
-        public PlayerViewClickListener(WatchWhileLayout layout) {
+        public PlayerViewClickListener(WWLMusic layout) {
             this.mLayout = layout;
         }
 

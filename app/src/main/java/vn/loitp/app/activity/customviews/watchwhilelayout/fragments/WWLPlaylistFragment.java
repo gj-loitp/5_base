@@ -13,13 +13,13 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.FragmentHost;
-import vn.loitp.app.activity.customviews.watchwhilelayout.utils.Dataset;
+import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
 
 /**
  * Created by thangn on 3/1/17.
  */
 
-public class PlaylistFragment extends Fragment {
+public class WWLPlaylistFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
@@ -38,7 +38,7 @@ public class PlaylistFragment extends Fragment {
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         this.mRecyclerView.scrollToPosition(0);
 
-        this.mAdapter = new CustomAdapter(Dataset.datasetItems);
+        this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
         return rootView;
     }
@@ -50,21 +50,21 @@ public class PlaylistFragment extends Fragment {
         this.mFragmentHost = (FragmentHost) activity;
     }
 
-    private void onItemClicked(Dataset.DatasetItem item) {
+    private void onItemClicked(WWLMusicDataset.DatasetItem item) {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
     }
 
-    public void updateItem(Dataset.DatasetItem item) {
+    public void updateItem(WWLMusicDataset.DatasetItem item) {
         this.mTitleView.setText(item.title);
         this.mSubTitleView.setText(item.subtitle);
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private final Dataset.DatasetItem[] mDataSet;
+        private final WWLMusicDataset.DatasetItem[] mDataSet;
 
-        public CustomAdapter(Dataset.DatasetItem[] datasetItems) {
+        public CustomAdapter(WWLMusicDataset.DatasetItem[] datasetItems) {
             this.mDataSet = datasetItems;
         }
 
@@ -94,7 +94,7 @@ public class PlaylistFragment extends Fragment {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        PlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
+                        WWLPlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
                     }
                 });
                 titleView = (TextView) v.findViewById(R.id.li_title);
