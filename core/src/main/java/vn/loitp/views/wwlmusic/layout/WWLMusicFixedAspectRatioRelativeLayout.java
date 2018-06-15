@@ -1,11 +1,11 @@
-package vn.loitp.app.activity.customviews.wwlmusic.layout;
+package vn.loitp.views.wwlmusic.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by thangn on 2/26/17.
