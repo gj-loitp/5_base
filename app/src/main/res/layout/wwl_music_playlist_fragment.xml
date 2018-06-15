@@ -9,13 +9,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary_600"
         android:orientation="vertical">
 
         <View
             android:id="@+id/separator"
             android:layout_width="fill_parent"
             android:layout_height="1.0dip"
-            android:background="#32ffffff" />
+            android:background="@color/colorPrimaryDark" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -79,6 +80,7 @@
                         android:id="@+id/mix_tuner"
                         style="@style/MusicImageView"
                         android:alpha="0.6"
+                        android:contentDescription="@string/app_name"
                         android:padding="12.0dip"
                         android:src="@drawable/ic_tune_white_24"
                         android:visibility="visible" />
@@ -91,6 +93,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#20ffffff" />
+        android:background="@color/colorPrimaryDark" />
 
 </LinearLayout>

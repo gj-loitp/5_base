@@ -27,7 +27,7 @@ public class WWLMusicControlsOverlay extends FrameLayout implements View.OnClick
 
         setClipToPadding(false);
 
-        LayoutInflater.from(context).inflate(R.layout.wwl_default_controls_overlay, this);
+        LayoutInflater.from(context).inflate(R.layout.wwl_music_default_controls_overlay, this);
         this.controlsLayout = (RelativeLayout) findViewById(R.id.controls_layout);
         this.collapseBtn = (ImageView) findViewById(R.id.player_collapse_button);
         this.collapseBtn.setOnClickListener(this);

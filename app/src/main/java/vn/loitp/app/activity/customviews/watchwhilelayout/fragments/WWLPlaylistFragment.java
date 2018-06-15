@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.watchwhilelayout.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,12 +14,13 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.watchwhilelayout.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.watchwhilelayout.utils.WWLMusicDataset;
+import vn.loitp.core.base.BaseFragment;
 
 /**
  * Created by thangn on 3/1/17.
  */
 
-public class WWLPlaylistFragment extends Fragment {
+public class WWLPlaylistFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
@@ -27,20 +28,23 @@ public class WWLPlaylistFragment extends Fragment {
     private TextView mSubTitleView;
     private FragmentHost mFragmentHost;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.playlist_fragment, container, false);
-        this.mTitleView = (TextView) rootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) rootView.findViewById(R.id.li_subtitle);
-        this.mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
+        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
+        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
         this.mLayoutManager = new LinearLayoutManager(getActivity());
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         this.mRecyclerView.scrollToPosition(0);
 
         this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
-        return rootView;
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_music_playlist_fragment;
     }
 
     @Override

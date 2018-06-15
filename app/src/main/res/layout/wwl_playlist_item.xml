@@ -29,8 +29,9 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
     </vn.loitp.app.activity.customviews.watchwhilelayout.layout.WWLMusicFixedAspectRatioFrameLayout>
@@ -46,6 +47,7 @@
             android:id="@+id/contextual_menu_anchor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
             android:padding="4.0dip"
             android:src="@drawable/ic_more_vert_white_shadow"
             android:visibility="visible" />

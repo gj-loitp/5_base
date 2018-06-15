@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/controls_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <View
             android:id="@+id/bottom_bar_background"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="50.0dip"
             android:layout_alignParentBottom="true"
             android:background="@drawable/player_bottom_bar" />
 
         <View
             android:id="@+id/top_bar_background"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="56.0dip"
             android:layout_alignParentTop="true"
             android:background="@drawable/player_top_bar" />
@@ -36,10 +36,10 @@
                 style="@style/PlayerButton"
                 android:layout_width="48.0dip"
                 android:layout_height="48.0dip"
+                android:contentDescription="@string/app_name"
                 android:scaleType="center"
                 android:src="@drawable/player_fullscreen" />
         </LinearLayout>
-
 
         <ImageView
             android:id="@+id/player_collapse_button"
@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:contentDescription="@string/app_name"
             android:scaleType="center"
             android:src="@drawable/player_collapse" />
     </RelativeLayout>
