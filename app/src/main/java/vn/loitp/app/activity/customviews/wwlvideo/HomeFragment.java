@@ -15,8 +15,8 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.UiUtil;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 
 /**
  * Created by thangn on 2/26/17.
@@ -37,7 +37,7 @@ public class HomeFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
-        this.mLayoutManager = new GridLayoutManager(getActivity(), UiUtil.getGridColumnCount(getResources()));
+        this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         //this.mRecyclerView.scrollToPosition(0);
@@ -67,7 +67,7 @@ public class HomeFragment extends BaseFragment {
 
     private void updateLayoutIfNeed() {
         if (this.mLayoutManager != null) {
-            this.mLayoutManager.setSpanCount(UiUtil.getGridColumnCount(getResources()));
+            this.mLayoutManager.setSpanCount(WWLMusicUiUtil.getGridColumnCount(getResources()));
         }
         if (this.mAdapter != null) {
             this.mAdapter.notifyDataSetChanged();

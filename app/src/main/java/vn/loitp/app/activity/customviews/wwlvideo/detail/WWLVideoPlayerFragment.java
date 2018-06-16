@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlvideo.layout.ControlsOverlay;
+import vn.loitp.app.activity.customviews.wwlvideo.layout.WWLVideoControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.core.base.BaseFragment;
 
@@ -24,7 +24,7 @@ import vn.loitp.core.base.BaseFragment;
  * Created by thangn on 2/26/17.
  */
 
-public class WWLVideoPlayerFragment extends BaseFragment implements TextureView.SurfaceTextureListener, ControlsOverlay.Listener {
+public class WWLVideoPlayerFragment extends BaseFragment implements TextureView.SurfaceTextureListener, WWLVideoControlsOverlay.Listener {
     private TextureView mPlayerView;
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
         @Override
@@ -35,7 +35,7 @@ public class WWLVideoPlayerFragment extends BaseFragment implements TextureView.
     private MediaPlayer mMediaPlayer;
     private Surface mSurfaceView;
     private String mUrl;
-    private ControlsOverlay mPlayerControlsOverlay;
+    private WWLVideoControlsOverlay mPlayerWWLVideoControlsOverlay;
     private FragmentHost mFragmentHost;
 
     @Nullable
@@ -46,9 +46,9 @@ public class WWLVideoPlayerFragment extends BaseFragment implements TextureView.
         this.mPlayerView = (TextureView) frmRootView.findViewById(R.id.player_view);
         this.mPlayerView.requestFocus();
         this.mPlayerView.setSurfaceTextureListener(this);
-        this.mPlayerControlsOverlay = new ControlsOverlay(getContext());
-        this.mPlayerControlsOverlay.setListener(this);
-        ((ViewGroup) frmRootView).addView(this.mPlayerControlsOverlay);
+        this.mPlayerWWLVideoControlsOverlay = new WWLVideoControlsOverlay(getContext());
+        this.mPlayerWWLVideoControlsOverlay.setListener(this);
+        ((ViewGroup) frmRootView).addView(this.mPlayerWWLVideoControlsOverlay);
     }
 
     @Override
@@ -114,20 +114,20 @@ public class WWLVideoPlayerFragment extends BaseFragment implements TextureView.
     }
 
     public void switchFullscreen(boolean selected) {
-        if (this.mPlayerControlsOverlay != null) {
-            this.mPlayerControlsOverlay.switchFullscreen(selected);
+        if (this.mPlayerWWLVideoControlsOverlay != null) {
+            this.mPlayerWWLVideoControlsOverlay.switchFullscreen(selected);
         }
     }
 
     public void hideControls() {
-        if (this.mPlayerControlsOverlay != null) {
-            this.mPlayerControlsOverlay.hideControls();
+        if (this.mPlayerWWLVideoControlsOverlay != null) {
+            this.mPlayerWWLVideoControlsOverlay.hideControls();
         }
     }
 
     public void toggleControls() {
-        if (this.mPlayerControlsOverlay != null) {
-            this.mPlayerControlsOverlay.toggleControls();
+        if (this.mPlayerWWLVideoControlsOverlay != null) {
+            this.mPlayerWWLVideoControlsOverlay.toggleControls();
         }
     }
 

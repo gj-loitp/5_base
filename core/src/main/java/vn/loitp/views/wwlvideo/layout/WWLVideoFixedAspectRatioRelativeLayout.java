@@ -1,25 +1,25 @@
-package vn.loitp.app.activity.customviews.wwlvideo.layout;
+package vn.loitp.views.wwlvideo.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by thangn on 2/26/17.
  */
 
-public class FixedAspectRatioRelativeLayout extends RelativeLayout {
+public class WWLVideoFixedAspectRatioRelativeLayout extends RelativeLayout {
     public float mAspectRatio;
 
-    public FixedAspectRatioRelativeLayout(Context context) {
+    public WWLVideoFixedAspectRatioRelativeLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public FixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
+    public WWLVideoFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout);
         this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout, 1, 1, 1.0f);

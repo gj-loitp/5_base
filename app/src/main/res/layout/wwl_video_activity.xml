@@ -12,7 +12,7 @@
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true">
 
-        <vn.loitp.app.activity.customviews.wwlvideo.layout.WWLVideo
+        <vn.loitp.views.wwlvideo.layout.WWLVideo
             android:id="@+id/watch_while_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -45,7 +45,7 @@
                 android:layout_height="fill_parent" />
 
             <include layout="@layout/wwl_video_content_panel" />
-        </vn.loitp.app.activity.customviews.wwlvideo.layout.WWLVideo>
+        </vn.loitp.views.wwlvideo.layout.WWLVideo>
 
     </FrameLayout>
 

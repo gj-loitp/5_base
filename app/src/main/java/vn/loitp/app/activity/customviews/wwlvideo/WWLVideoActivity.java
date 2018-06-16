@@ -10,7 +10,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragmen
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlvideo.layout.WWLVideo;
+import vn.loitp.views.wwlvideo.layout.WWLVideo;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
