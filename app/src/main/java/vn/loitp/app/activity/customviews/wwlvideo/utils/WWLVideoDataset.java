@@ -7,7 +7,7 @@ import vn.loitp.utils.util.AppUtils;
  * Created by thangn on 2/27/17.
  */
 
-public class Dataset {
+public class WWLVideoDataset {
     public static DatasetItem[] datasetItems;
 
     static {
@@ -25,11 +25,11 @@ public class Dataset {
         public String url;
 
         public DatasetItem(int _id) {
-            String _url = "android.resource://" + AppUtils.getAppPackageName() + R.raw.vid_bigbuckbunny;
+            String _url = "android.resource://" + AppUtils.getAppPackageName() + "/" + R.raw.vid_bigbuckbunny;
 
             this.id = _id;
             this.title = String.format("This is element #%d", _id);
-            this.subtitle = "LOLTube";
+            this.subtitle = "Loitp";
             this.url = _url;
         }
     }

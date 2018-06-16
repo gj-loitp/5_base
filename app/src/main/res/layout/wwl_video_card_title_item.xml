@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_5">
 
     <TextView
         android:id="@+id/li_title"
@@ -15,6 +17,6 @@
         android:paddingLeft="0.0dip"
         android:paddingTop="0.0dip"
         android:text="Up next"
-        android:textColor="@android:color/black"
+        android:textColor="@color/WhiteSmoke"
         android:textSize="16.0sp" />
 </LinearLayout>

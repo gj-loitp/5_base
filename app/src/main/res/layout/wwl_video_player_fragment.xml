@@ -2,14 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/black">
+    android:background="@color/colorPrimaryDark">
 
     <TextureView
         android:id="@+id/player_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <SeekBar
+    <!--<SeekBar
         android:id="@+id/seekBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="match_parent"
@@ -21,6 +21,6 @@
     <SeekBar
         android:id="@+id/seekBar2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
 </FrameLayout>

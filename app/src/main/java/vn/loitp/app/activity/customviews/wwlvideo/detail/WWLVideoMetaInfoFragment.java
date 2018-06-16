@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
 /**
  * Created by thangn on 2/26/17.
@@ -27,7 +27,7 @@ public class WWLVideoMetaInfoFragment extends Fragment {
         return rootView;
     }
 
-    public void updateItem(Dataset.DatasetItem item) {
+    public void updateItem(WWLVideoDataset.DatasetItem item) {
         if (this.mTitleView != null) {
             this.mTitleView.setText(item.title);
             this.mSubTitleView.setText(item.subtitle);

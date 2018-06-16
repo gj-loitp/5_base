@@ -17,8 +17,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:src="@drawable/thumb_1" />
+            android:src="@drawable/iv" />
 
         <TextView
             android:id="@+id/li_duration"
@@ -28,7 +29,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignWithParentIfMissing="true"
             android:layout_margin="8.0dip"
-            android:background="@drawable/duration_badge_background"
             android:ellipsize="end"
             android:importantForAccessibility="no"
             android:includeFontPadding="false"
@@ -39,7 +39,7 @@
             android:text="5:27"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="12.0sp" />
+            android:textSize="@dimen/txt_22" />
 
     </vn.loitp.app.activity.customviews.wwlvideo.layout.FixedAspectRatioRelativeLayout>
 
@@ -54,8 +54,9 @@
         <ImageView
             android:layout_width="40.0dip"
             android:layout_height="40.0dip"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:src="@drawable/circle" />
+            android:src="@drawable/logo" />
     </FrameLayout>
 
     <RelativeLayout
@@ -80,7 +81,7 @@
             android:maxLines="2"
             android:paddingBottom="2.0dip"
             android:text="Title"
-            android:textColor="@android:color/black"
+            android:textColor="@color/White"
             android:textSize="16.0sp" />
 
         <TextView
@@ -93,8 +94,8 @@
             android:importantForAccessibility="no"
             android:includeFontPadding="false"
             android:paddingTop="2.0dip"
-            android:text="LOLTube"
-            android:textColor="@android:color/black"
+            android:text="Loitp"
+            android:textColor="@color/White"
             android:textSize="14.0sp" />
     </RelativeLayout>
 
@@ -102,10 +103,10 @@
         android:id="@+id/li_overflow"
         android:layout_width="48.0dip"
         android:layout_height="48.0dip"
-        android:layout_marginTop="-16.0dp"
-        android:layout_marginRight="-16.0dip"
         android:layout_alignParentRight="true"
         android:layout_below="@id/thumbnail_container"
+        android:layout_marginRight="-16.0dip"
+        android:layout_marginTop="-16.0dp"
         android:scaleType="center"
         android:src="@drawable/ic_more_vert_grey" />
 </RelativeLayout>

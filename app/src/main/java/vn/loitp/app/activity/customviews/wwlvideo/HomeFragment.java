@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.wwlvideo;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,15 +13,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.GridSpacingItemDecoration;
+import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.UiUtil;
+import vn.loitp.core.base.BaseFragment;
 
 /**
  * Created by thangn on 2/26/17.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
@@ -32,29 +33,29 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.wwl_video_home_fragment, container, false);
-
-        this.mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), UiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
-        this.mRecyclerView.scrollToPosition(0);
+        //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
+        //this.mRecyclerView.scrollToPosition(0);
 
-        this.mAdapter = new CustomAdapter(Dataset.datasetItems);
+        this.mAdapter = new CustomAdapter(WWLVideoDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
 
         updateLayoutIfNeed();
+    }
 
-        return rootView;
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_video_home_fragment;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         this.mFragmentHost = (FragmentHost) activity;
     }
 
@@ -73,16 +74,16 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void onItemClicked(Dataset.DatasetItem item) {
+    private void onItemClicked(WWLVideoDataset.DatasetItem item) {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        private Dataset.DatasetItem[] mDataSet;
+        private WWLVideoDataset.DatasetItem[] mDataSet;
 
-        public CustomAdapter(Dataset.DatasetItem[] dataset) {
+        public CustomAdapter(WWLVideoDataset.DatasetItem[] dataset) {
             this.mDataSet = dataset;
         }
 

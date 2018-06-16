@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@color/colorPrimary_600"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_5">
 
     <TextView
         android:id="@+id/li_title"
@@ -16,7 +18,7 @@
         android:paddingLeft="0.0dip"
         android:paddingTop="0.0dip"
         android:text="Title"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="22.0sp" />
 
     <TextView
@@ -30,7 +32,7 @@
         android:paddingBottom="16.0dip"
         android:paddingLeft="0.0dip"
         android:text="LOLTube"
-        android:textColor="#99000000"
+        android:textColor="@color/WhiteSmoke"
         android:textSize="14.0sp" />
 
     <View

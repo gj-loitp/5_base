@@ -3,19 +3,18 @@ package vn.loitp.app.activity.customviews.wwlvideo;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
+import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.layout.WWLVideo;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
+import vn.loitp.views.wwlmusic.utils.WWLMusicViewHelper;
 
 public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener, FragmentHost {
     private WWLVideo wwlVideo;
@@ -25,7 +24,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     private WWLVideoUpNextFragment wwlVideoUpNextFragment;
     private WWLVideoMetaInfoFragment wwlVideoMetaInfoFragment;
 
-    private static int evaluateColorAlpha(float f, int color1, int color2) {
+    /*private static int evaluateColorAlpha(float f, int color1, int color2) {
         int c14 = color1 >>> 24;
         int c13 = (color1 >> 16) & 255;
         int c12 = (color1 >> 8) & 255;
@@ -35,13 +34,11 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
         int c22 = (color2 >> 8) & 255;
         int c21 = color2 & 255;
         return (c11 + ((int) (((float) (c21 - c11)) * f))) | ((((c14 + ((int) (((float) (c24 - c14)) * f))) << 24) | ((c13 + ((int) (((float) (c23 - c13)) * f))) << 16)) | ((((int) (((float) (c22 - c12)) * f)) + c12) << 8));
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);
-        setSupportActionBar(toolbar);
 
         this.wwlVideo = (WWLVideo) findViewById(R.id.watch_while_layout);
         this.wwlVideo.setListener(this);
@@ -113,7 +110,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     }
 
     @Override
-    public void goToDetail(Dataset.DatasetItem item) {
+    public void goToDetail(WWLVideoDataset.DatasetItem item) {
         if (this.wwlVideo.mState == WWLVideo.STATE_HIDED) {
             this.wwlVideo.mState = WWLVideo.STATE_MAXIMIZED;
             this.wwlVideo.mIsFullscreen = false;
@@ -135,7 +132,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void onVideoCollapse() {
-        showSystemUI();
+        WWLMusicUiUtil.showSystemUI(activity);
         this.wwlVideo.exitFullscreenToMinimize();
         this.wwlVideoPlayerFragment.switchFullscreen(false);
         this.wwlVideo.minimize(false);
@@ -144,10 +141,10 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            hideSystemUI();
+            WWLMusicUiUtil.hideSystemUI(activity);
             this.wwlVideo.enterFullscreen();
         } else {
-            showSystemUI();
+            WWLMusicUiUtil.showSystemUI(activity);
             this.wwlVideo.exitFullscreen();
         }
         this.wwlVideoPlayerFragment.switchFullscreen(selected);
@@ -157,7 +154,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
         if (Build.VERSION.SDK_INT >= 21) {
             int color = getResources().getColor(R.color.colorPrimaryDark);
             int color2 = Color.BLACK;
-            int color3 = evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
+            int color3 = WWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
             getWindow().setStatusBarColor(color3);
         }
     }
@@ -166,7 +163,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
         this.mPlayerFragmentContainer.setAlpha(alpha);
     }
 
-    private void hideSystemUI() {
+    /*private void hideSystemUI() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (!ViewConfiguration.get(this).hasPermanentMenuKey()) {
             int newUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
@@ -183,5 +180,5 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
             int newUiOptions = View.VISIBLE;
             getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
         }
-    }
+    }*/
 }

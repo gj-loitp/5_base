@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.wwlvideo.detail;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,15 +14,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.wwlvideo.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.GridSpacingItemDecoration;
+import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.UiUtil;
+import vn.loitp.core.base.BaseFragment;
 
 /**
  * Created by thangn on 2/26/17.
  */
-public class WWLVideoUpNextFragment extends Fragment {
+public class WWLVideoUpNextFragment extends BaseFragment {
     private FragmentHost mFragmentHost;
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
@@ -33,18 +34,16 @@ public class WWLVideoUpNextFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.wwl_video_up_next_fragment, container, false);
-
-        this.mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), UiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
-        this.mRecyclerView.scrollToPosition(0);
+        //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
+        //this.mRecyclerView.scrollToPosition(0);
 
-        this.mAdapter = new CustomAdapter(Dataset.datasetItems);
+        this.mAdapter = new CustomAdapter(WWLVideoDataset.datasetItems);
         mRecyclerView.setAdapter(mAdapter);
 
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -55,8 +54,11 @@ public class WWLVideoUpNextFragment extends Fragment {
         });
 
         updateLayoutIfNeed();
+    }
 
-        return rootView;
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_video_up_next_fragment;
     }
 
     private int getSpanSize(int position) {
@@ -87,7 +89,7 @@ public class WWLVideoUpNextFragment extends Fragment {
         updateLayoutIfNeed();
     }
 
-    public void updateItem(Dataset.DatasetItem item) {
+    public void updateItem(WWLVideoDataset.DatasetItem item) {
         if (this.mAdapter != null) {
             this.mAdapter.updateHeader(item);
             this.mAdapter.notifyDataSetChanged();
@@ -114,7 +116,7 @@ public class WWLVideoUpNextFragment extends Fragment {
         }
     }
 
-    private void onItemClicked(Dataset.DatasetItem item) {
+    private void onItemClicked(WWLVideoDataset.DatasetItem item) {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
@@ -126,10 +128,10 @@ public class WWLVideoUpNextFragment extends Fragment {
         private static final int OTHER = 2;
         public boolean mHasHeader;
         private String mTitle;
-        private Dataset.DatasetItem[] mDataSet;
-        private Dataset.DatasetItem mHeaderItem;
+        private WWLVideoDataset.DatasetItem[] mDataSet;
+        private WWLVideoDataset.DatasetItem mHeaderItem;
 
-        public CustomAdapter(Dataset.DatasetItem[] dataset) {
+        public CustomAdapter(WWLVideoDataset.DatasetItem[] dataset) {
             this.mDataSet = dataset;
             this.mHasHeader = true;
             this.mTitle = "Up next";
@@ -187,11 +189,11 @@ public class WWLVideoUpNextFragment extends Fragment {
             this.mHasHeader = enable;
         }
 
-        public void updateHeader(Dataset.DatasetItem item) {
+        public void updateHeader(WWLVideoDataset.DatasetItem item) {
             this.mHeaderItem = item;
         }
 
-        private Dataset.DatasetItem getItem(int position) {
+        private WWLVideoDataset.DatasetItem getItem(int position) {
             return this.mDataSet[position - 1 - (this.mHasHeader ? 1 : 0)];
         }
 
