@@ -10,12 +10,13 @@ import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragmen
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
-import vn.loitp.views.wwlvideo.layout.WWLVideo;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 import vn.loitp.views.wwlmusic.utils.WWLMusicViewHelper;
+import vn.loitp.views.wwlvideo.layout.WWLVideo;
 
+//https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener, FragmentHost {
     private WWLVideo wwlVideo;
     private float mLastAlpha;
@@ -23,18 +24,6 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     private WWLVideoPlayerFragment wwlVideoPlayerFragment;
     private WWLVideoUpNextFragment wwlVideoUpNextFragment;
     private WWLVideoMetaInfoFragment wwlVideoMetaInfoFragment;
-
-    /*private static int evaluateColorAlpha(float f, int color1, int color2) {
-        int c14 = color1 >>> 24;
-        int c13 = (color1 >> 16) & 255;
-        int c12 = (color1 >> 8) & 255;
-        int c11 = color1 & 255;
-        int c24 = color2 >>> 24;
-        int c23 = (color2 >> 16) & 255;
-        int c22 = (color2 >> 8) & 255;
-        int c21 = color2 & 255;
-        return (c11 + ((int) (((float) (c21 - c11)) * f))) | ((((c14 + ((int) (((float) (c24 - c14)) * f))) << 24) | ((c13 + ((int) (((float) (c23 - c13)) * f))) << 16)) | ((((int) (((float) (c22 - c12)) * f)) + c12) << 8));
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,23 +151,4 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     private void updatePlayerAlpha(float alpha) {
         this.mPlayerFragmentContainer.setAlpha(alpha);
     }
-
-    /*private void hideSystemUI() {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        if (!ViewConfiguration.get(this).hasPermanentMenuKey()) {
-            int newUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-            if (Build.VERSION.SDK_INT >= 19) {
-                newUiOptions |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-            }
-            getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
-        }
-    }
-
-    private void showSystemUI() {
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        if (!ViewConfiguration.get(this).hasPermanentMenuKey()) {
-            int newUiOptions = View.VISIBLE;
-            getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
-        }
-    }*/
 }
