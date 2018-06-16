@@ -24,7 +24,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
  * Created by thangn on 2/26/17.
  */
 
-public class PlayerFragment extends Fragment implements TextureView.SurfaceTextureListener, ControlsOverlay.Listener {
+public class WWLVideoPlayerFragment extends Fragment implements TextureView.SurfaceTextureListener, ControlsOverlay.Listener {
     private TextureView mPlayerView;
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
         @Override

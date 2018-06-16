@@ -35,7 +35,7 @@ import static android.view.MotionEvent.ACTION_UP;
  * Created by thangn on 2/26/17.
  */
 
-public class WatchWhileLayout extends ViewGroup {
+public class WWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
     public static final int STATE_MINIMIZED = 2;
@@ -81,7 +81,7 @@ public class WatchWhileLayout extends ViewGroup {
     private int mOffsetH;
     private int mStart = 0;
 
-    public WatchWhileLayout(Context context, AttributeSet attributeSet) {
+    public WWLVideo(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Resources resources = context.getResources();
         this.mMiniPlayerRect = new Rect();
@@ -1057,7 +1057,7 @@ public class WatchWhileLayout extends ViewGroup {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
-        public WatchWhileLayout layout;
+        public WWLVideo layout;
         public float eX;
         public float eY;
         public int pointerId;
@@ -1070,7 +1070,7 @@ public class WatchWhileLayout extends ViewGroup {
             this(context, 200);
         }
 
-        public Tracker(WatchWhileLayout layout, Context context) {
+        public Tracker(WWLVideo layout, Context context) {
             this(context, 400);
             this.layout = layout;
             this.fraction = 0.0f;
@@ -1177,9 +1177,9 @@ public class WatchWhileLayout extends ViewGroup {
     }
 
     final class PlayerViewClickListener implements View.OnClickListener {
-        private WatchWhileLayout mLayout;
+        private WWLVideo mLayout;
 
-        public PlayerViewClickListener(WatchWhileLayout layout) {
+        public PlayerViewClickListener(WWLVideo layout) {
             this.mLayout = layout;
         }
 

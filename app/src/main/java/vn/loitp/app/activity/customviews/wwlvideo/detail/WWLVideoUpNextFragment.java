@@ -21,7 +21,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.UiUtil;
 /**
  * Created by thangn on 2/26/17.
  */
-public class UpNextFragment extends Fragment {
+public class WWLVideoUpNextFragment extends Fragment {
     private FragmentHost mFragmentHost;
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
@@ -50,7 +50,7 @@ public class UpNextFragment extends Fragment {
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                return UpNextFragment.this.getSpanSize(position);
+                return WWLVideoUpNextFragment.this.getSpanSize(position);
             }
         });
 
@@ -236,7 +236,7 @@ public class UpNextFragment extends Fragment {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        UpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition()));
+                        WWLVideoUpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition()));
                     }
                 });
                 titleView = (TextView) v.findViewById(R.id.li_title);

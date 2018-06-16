@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.Dataset;
 /**
  * Created by thangn on 2/26/17.
  */
-public class MetaInfoFragment extends Fragment {
+public class WWLVideoMetaInfoFragment extends Fragment {
     private TextView mTitleView;
     private TextView mSubTitleView;
 
