@@ -204,6 +204,12 @@
                 android:layout_height="wrap_content"
                 android:text="WWL Music" />
 
+            <Button
+                android:id="@+id/bt_wwl_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WWL Video" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

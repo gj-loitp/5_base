@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/li_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="0.0dip"
+        android:paddingTop="0.0dip"
+        android:text="Title"
+        android:textColor="@android:color/black"
+        android:textSize="22.0sp" />
+
+    <TextView
+        android:id="@+id/li_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:paddingBottom="16.0dip"
+        android:paddingLeft="0.0dip"
+        android:text="LOLTube"
+        android:textColor="#99000000"
+        android:textSize="14.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0dip"
+        android:background="#22000000" />
+</LinearLayout>

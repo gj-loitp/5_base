@@ -117,4 +117,5 @@
     <dimen name="item_small_spacing">8.0dip</dimen>
     <dimen name="medium_font_size">16.0sp</dimen>
     <dimen name="small_font_size">14.0sp</dimen>
+    <dimen name="watch_while_mini_player_shadow_size">4.0dip</dimen>
 </resources>

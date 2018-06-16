@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:id="@+id/root_view"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/accessibility_layer_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true">
+
+        <vn.loitp.app.activity.customviews.wwlvideo.layout.WatchWhileLayout
+            android:id="@+id/watch_while_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ff222222"
+            android:fitsSystemWindows="true"
+            app:metadataViewId="@+id/up_next_fragment"
+            app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
+            app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
+            app:overlayViewId="@+id/overlay_view"
+            app:playerViewId="@+id/player_fragment_container"
+            app:tabletLayout="false">
+
+            <FrameLayout
+                android:id="@+id/player_fragment_container"
+                android:layout_width="0.0dip"
+                android:layout_height="0.0dip"
+                android:background="@android:color/black">
+
+                <fragment
+                    android:id="@+id/player_fragment"
+                    android:name="vn.loitp.app.activity.customviews.wwlvideo.detail.PlayerFragment"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+            </FrameLayout>
+
+            <fragment
+                android:id="@+id/up_next_fragment"
+                android:name="vn.loitp.app.activity.customviews.wwlvideo.detail.UpNextFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <include layout="@layout/content_panel" />
+        </vn.loitp.app.activity.customviews.wwlvideo.layout.WatchWhileLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

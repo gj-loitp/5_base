@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:constantSize="true">
+    <item android:drawable="@drawable/ic_vidcontrol_fullscreen_off_pressed" android:state_enabled="true" android:state_pressed="true" android:state_selected="false" />
+    <item android:drawable="@drawable/ic_vidcontrol_fullscreen_off" android:state_enabled="true" android:state_pressed="false" android:state_selected="false" />
+    <item android:drawable="@drawable/ic_vidcontrol_fullscreen_on_pressed" android:state_enabled="true" android:state_pressed="true" android:state_selected="true" />
+    <item android:drawable="@drawable/ic_vidcontrol_fullscreen_on" android:state_enabled="true" android:state_pressed="false" android:state_selected="true" />
+</selector>

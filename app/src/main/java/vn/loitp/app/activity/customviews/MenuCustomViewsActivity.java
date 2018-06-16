@@ -36,6 +36,7 @@ import vn.loitp.app.activity.customviews.treeview.TreeViewActivity;
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity;
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity;
 import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic;
+import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -74,6 +75,7 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         findViewById(R.id.bt_scrollable_panel).setOnClickListener(this);
         findViewById(R.id.bt_fb_cmt).setOnClickListener(this);
         findViewById(R.id.bt_wwl_music).setOnClickListener(this);
+        findViewById(R.id.bt_wwl_video).setOnClickListener(this);
     }
 
     @Override
@@ -184,6 +186,9 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
                 break;
             case R.id.bt_wwl_music:
                 intent = new Intent(activity, WWLActivityMusic.class);
+                break;
+            case R.id.bt_wwl_video:
+                intent = new Intent(activity, WWLVideoActivity.class);
                 break;
         }
         if (intent != null) {

@@ -386,7 +386,12 @@
         <activity android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic"
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity"
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
     </application>
 
 </manifest>

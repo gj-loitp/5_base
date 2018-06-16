@@ -602,4 +602,7 @@
     <declare-styleable name="FixedAspectRatio">
         <attr name="aspectRatio" format="fraction" />
     </declare-styleable>
+    <declare-styleable name="FixedAspectRatioRelativeLayout">
+        <attr name="aspectRatioRelativeLayout" format="fraction" />
+    </declare-styleable>
 </resources>
