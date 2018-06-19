@@ -9,7 +9,8 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -66,7 +67,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radio_group">
 
             <TextView
                 android:layout_width="match_parent"
@@ -75,6 +77,6 @@
                 android:text="@string/large_text" />
         </ScrollView>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>
