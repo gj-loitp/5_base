@@ -218,6 +218,13 @@ public abstract class BaseActivity extends AppCompatActivity {
                 rLParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);
                 rootView.addView(tvConnectStt, rLParams);
                 //rootView.requestLayout();
+
+                tvConnectStt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        hideTvNoConnect();
+                    }
+                });
             } else {
                 //LLog.d(TAG, "tvConnectStt != null");
                 tvConnectStt.setText(R.string.check_ur_connection);
@@ -228,40 +235,45 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    private void hideTvNoConnect() {
+        if (tvConnectStt != null) {
+            LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                @Override
+                public void onCancel() {
+                    //do nothing
+                }
+
+                @Override
+                public void onEnd() {
+                    if (tvConnectStt != null) {
+                        tvConnectStt.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onRepeat() {
+                    //do nothing
+                }
+
+                @Override
+                public void onStart() {
+                    //do nothing
+                }
+            });
+            tvConnectStt = null;
+        }
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         //TAG = "onMessageEvent";
-        LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
         onNetworkChange(event);
-        if (!event.isConnected()) {//no network
+        if (!event.isConnected()) {
+            //no network
             showTvNoConnect();
         } else {
-            if (tvConnectStt != null) {
-                LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
-                    @Override
-                    public void onCancel() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onEnd() {
-                        if (tvConnectStt != null) {
-                            tvConnectStt.setVisibility(View.GONE);
-                        }
-                    }
-
-                    @Override
-                    public void onRepeat() {
-                        //do nothing
-                    }
-
-                    @Override
-                    public void onStart() {
-                        //do nothing
-                    }
-                });
-                tvConnectStt = null;
-            }
+            hideTvNoConnect();
         }
     }
 
