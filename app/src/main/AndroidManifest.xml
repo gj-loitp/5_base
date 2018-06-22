@@ -258,7 +258,8 @@
         -->
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/AppThemeAndroidO" />
         <activity android:name="vn.loitp.app.activity.function.hashmap.HashMapActivity" />
         <activity android:name="vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity" />
         <activity android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity" />
