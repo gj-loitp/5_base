@@ -5,22 +5,33 @@
     android:layout_height="fill_parent"
     android:animateLayoutChanges="true">
 
-    <LinearLayout
-        android:id="@+id/ll"
+    <RelativeLayout
+        android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/White"
+            android:textSize="@dimen/txt_30" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll">
+        android:layout_below="@+id/rl">
 
         <ScrollView
             android:layout_width="match_parent"
