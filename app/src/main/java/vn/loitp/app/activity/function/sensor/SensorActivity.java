@@ -65,19 +65,19 @@ public class SensorActivity extends BaseFontActivity {
             if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
                 rotation = ROTATION_O;
                 LLog.d(TAG, "ROTATION_O");
-                ll.setRotation(0);
+                ll.animate().rotation(0).start();
             } else if (orientation > 145 && orientation < 215 && rotation != ROTATION_180) { // REVERSE PORTRAIT
                 rotation = ROTATION_180;
                 LLog.d(TAG, "ROTATION_180");
-                ll.setRotation(180);
+                ll.animate().rotation(180).start();
             } else if (orientation > 55 && orientation < 125 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
                 rotation = ROTATION_270;
                 LLog.d(TAG, "ROTATION_270");
-                ll.setRotation(270);
+                ll.animate().rotation(270).start();
             } else if (orientation > 235 && orientation < 305 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90;
                 LLog.d(TAG, "ROTATION_90");
-                ll.setRotation(90);
+                ll.animate().rotation(90).start();
             }
         }
     }
