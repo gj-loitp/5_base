@@ -50,23 +50,13 @@ public class SensorActivity extends BaseFontActivity {
             //landscape -> portrait
             //rl.animate().rotation(0).start();
 
-            // get screen size from DisplayMetrics if you need to rotate before the screen is shown
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
             int height = displayMetrics.heightPixels;
             int width = displayMetrics.widthPixels;
-
-            // if you are rotating after the view was shown
-            // acquire width and height from the layout's parent's LayoutParams
-
-            // calculate offset to move the view into correct position
             int offset = (width - height) / 2;
-
-            // rotate the layout
-            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(height, width);
+            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(width, height);
             getRootView().setLayoutParams(lp);
-            // 90° clockwise
             getRootView().setRotation(0);
             getRootView().setTranslationX(offset);
             getRootView().setTranslationY(-offset);
@@ -75,23 +65,13 @@ public class SensorActivity extends BaseFontActivity {
             //portrait -> landscape
             //rl.animate().rotation(90).start();
 
-            // get screen size from DisplayMetrics if you need to rotate before the screen is shown
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
             int height = displayMetrics.heightPixels;
             int width = displayMetrics.widthPixels;
-
-            // if you are rotating after the view was shown
-            // acquire width and height from the layout's parent's LayoutParams
-
-            // calculate offset to move the view into correct position
             int offset = (width - height) / 2;
-
-            // rotate the layout
             FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(height, width);
             getRootView().setLayoutParams(lp);
-            // 90° clockwise
             getRootView().setRotation(90.0f);
             getRootView().setTranslationX(offset);
             getRootView().setTranslationY(-offset);

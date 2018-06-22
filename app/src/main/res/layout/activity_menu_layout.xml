@@ -85,6 +85,12 @@
                 android:text="Ripple Layout" />
 
             <Button
+                android:id="@+id/bt_rotate_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rotate Layout" />
+
+            <Button
                 android:id="@+id/bt_swipable_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
