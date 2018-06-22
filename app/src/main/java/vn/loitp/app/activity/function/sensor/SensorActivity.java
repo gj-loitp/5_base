@@ -60,6 +60,7 @@ public class SensorActivity extends BaseFontActivity {
             setSizeRelativeLayout(rotateLayout, w, h);
         }
         isFullScreen = !isFullScreen;
+        LScreenUtil.toggleFullscreen(activity, isFullScreen);
     }
 
     @Override
