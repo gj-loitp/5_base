@@ -1,14 +1,12 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2;
 
 import android.app.Dialog;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -35,7 +33,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -207,7 +204,7 @@ public class Frm extends BaseFragment implements View.OnClickListener {
             mExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         }
 
-        ((SimpleExoPlayer)mExoPlayerView.getPlayer()).prepare(mVideoSource);
+        ((SimpleExoPlayer) mExoPlayerView.getPlayer()).prepare(mVideoSource);
         mExoPlayerView.getPlayer().setPlayWhenReady(true);
         mExoPlayerView.getPlayer().addListener(new Player.EventListener() {
 
