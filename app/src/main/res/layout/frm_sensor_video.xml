@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/Black">
-
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/player_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:animateLayoutChanges="true"
-        android:keepScreenOn="true"
-        app:auto_show="false"
-        app:controller_layout_id="@layout/uiza_controller_skin_1"
-        app:fastforward_increment="3000"
-        app:rewind_increment="3000"
-        app:use_controller="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,18 +14,5 @@
         android:textColor="@color/White"
         android:textSize="@dimen/txt_30"
         android:textStyle="bold" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="@dimen/w_40"
-        android:layout_height="@dimen/w_40"
-        android:layout_centerInParent="true" />
-
-    <LinearLayout
-        android:id="@+id/controls_root"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" />
 </RelativeLayout>
 
