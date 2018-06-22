@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:animateLayoutChanges="true">
 
-    <RelativeLayout
-        android:id="@+id/rl"
+    <vn.loitp.views.layout.rotatelayout.RotateLayout
+        android:id="@+id/rotate_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
+        android:layout_height="300dp"
+        app:angle="0">
 
-        <ImageView
-            android:id="@+id/iv"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/iv" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/White"
-            android:textSize="@dimen/txt_30" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/White"
+                android:textSize="@dimen/txt_30" />
+        </RelativeLayout>
+    </vn.loitp.views.layout.rotatelayout.RotateLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl">
+        android:layout_below="@+id/rotate_layout">
 
         <ScrollView
             android:layout_width="match_parent"

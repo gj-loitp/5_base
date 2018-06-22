@@ -15,9 +15,10 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class SensorActivity extends BaseFontActivity {
-    private RelativeLayout rl;
+    private RotateLayout rotateLayout;
     private TextView tv;
     private ImageView iv;
 
@@ -25,13 +26,12 @@ public class SensorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.d(TAG, "onCreate");
-        rl = (RelativeLayout) findViewById(R.id.rl);
+        rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
-
         LImageUtil.load(activity, Constants.URL_IMG, iv);
 
-        rl.setOnClickListener(new View.OnClickListener() {
+        iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleFullScreen();
@@ -40,7 +40,7 @@ public class SensorActivity extends BaseFontActivity {
 
         int w = LScreenUtil.getScreenWidth();
         int h = w * 9 / 16;
-        setSizeRelativeLayout(w, h);
+        setSizeRelativeLayout(rotateLayout, w, h);
     }
 
     private boolean isFullScreen;
@@ -48,33 +48,16 @@ public class SensorActivity extends BaseFontActivity {
     private void toggleFullScreen() {
         if (isFullScreen) {
             //landscape -> portrait
-            //rl.animate().rotation(0).start();
-
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            int height = displayMetrics.heightPixels;
-            int width = displayMetrics.widthPixels;
-            int offset = (width - height) / 2;
-            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(width, height);
-            getRootView().setLayoutParams(lp);
-            getRootView().setRotation(0);
-            getRootView().setTranslationX(offset);
-            getRootView().setTranslationY(-offset);
-
+            rotateLayout.setAngle(0);
+            int w = LScreenUtil.getScreenWidth();
+            int h = w * 9 / 16;
+            setSizeRelativeLayout(rotateLayout, w, h);
         } else {
             //portrait -> landscape
-            //rl.animate().rotation(90).start();
-
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            int height = displayMetrics.heightPixels;
-            int width = displayMetrics.widthPixels;
-            int offset = (width - height) / 2;
-            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(height, width);
-            getRootView().setLayoutParams(lp);
-            getRootView().setRotation(90.0f);
-            getRootView().setTranslationX(offset);
-            getRootView().setTranslationY(-offset);
+            rotateLayout.setAngle(-90);
+            int w = LScreenUtil.getScreenWidth();
+            int h = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);
+            setSizeRelativeLayout(rotateLayout, w, h);
         }
         isFullScreen = !isFullScreen;
     }
@@ -94,11 +77,11 @@ public class SensorActivity extends BaseFontActivity {
         return R.layout.activity_sensor;
     }
 
-    private void setSizeRelativeLayout(int w, int h) {
+    private void setSizeRelativeLayout(View view, int w, int h) {
         LLog.d(TAG, "setSizeRelativeLayout " + w + "x" + h);
-        ViewGroup.LayoutParams params = rl.getLayoutParams();
+        ViewGroup.LayoutParams params = view.getLayoutParams();
         params.width = w;
         params.height = h;
-        rl.setLayoutParams(params);
+        view.setLayoutParams(params);
     }
 }
