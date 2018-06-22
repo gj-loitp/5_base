@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 
@@ -24,13 +25,13 @@ public class SensorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.d(TAG, "onCreate");
+
         sizeW = LScreenUtil.getScreenWidth();
         sizeH = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);
         orientationListener = new OrientationListener(this);
         rl = (RelativeLayout) findViewById(R.id.rl);
         tv = (TextView) findViewById(R.id.tv);
-
-
+        
         int w = sizeW;
         int h = sizeW * 9 / 16;
         setSizeRelativeLayout(w, h);
@@ -86,7 +87,7 @@ public class SensorActivity extends BaseFontActivity {
                 int h = sizeW * 9 / 16;
                 setSizeRelativeLayout(w, h);
 
-                rl.animate().rotation(0).start();
+                //rl.animate().rotation(0).start();
             } else if (orientation > 145 && orientation < 215 && rotation != ROTATION_180) { // REVERSE PORTRAIT
                 rotation = ROTATION_180;
                 LLog.d(TAG, "ROTATION_180");
@@ -100,7 +101,7 @@ public class SensorActivity extends BaseFontActivity {
                 int h = sizeW;
                 setSizeRelativeLayout(w, h);
 
-                rl.animate().rotation(-90).start();
+                //rl.animate().rotation(-90).start();
             } else if (orientation > 235 && orientation < 305 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90;
                 LLog.d(TAG, "ROTATION_90");
@@ -110,7 +111,7 @@ public class SensorActivity extends BaseFontActivity {
                 int h = sizeW;
                 setSizeRelativeLayout(w, h);
 
-                rl.animate().rotation(90).start();
+                //rl.animate().rotation(90).start();
             }
         }
     }
