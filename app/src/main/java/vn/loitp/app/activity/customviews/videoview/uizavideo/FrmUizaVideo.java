@@ -7,6 +7,8 @@ package vn.loitp.app.activity.customviews.videoview.uizavideo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,17 +42,7 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
     private SimpleExoPlayerView simpleExoPlayerView;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         simpleExoPlayerView = frmRootView.findViewById(R.id.player_view);
         previewTimeBar = simpleExoPlayerView.findViewById(R.id.exo_progress);
         previewTimeBarLayout = simpleExoPlayerView.findViewById(R.id.previewSeekBarLayout);
@@ -58,7 +50,7 @@ public class FrmUizaVideo extends BaseFragment implements PreviewView.OnPreviewC
         previewTimeBarLayout.setTintColorResource(R.color.colorPrimary);
         previewTimeBar.addOnPreviewChangeListener(this);
         simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon).setOnClickListener(this);
-        return frmRootView;
+        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
