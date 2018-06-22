@@ -47,7 +47,7 @@ public class SensorActivity extends BaseFontActivity {
 
     private boolean isFullScreen;
 
-    private void toggleFullScreen() {
+    /*private void toggleFullScreen() {
         if (isFullScreen) {
             //landscape -> portrait
             rotateLayout.setAngle(0);
@@ -63,7 +63,7 @@ public class SensorActivity extends BaseFontActivity {
         }
         isFullScreen = !isFullScreen;
         LScreenUtil.toggleFullscreen(activity, isFullScreen);
-    }
+    }*/
 
     @Override
     protected boolean setFullScreen() {
