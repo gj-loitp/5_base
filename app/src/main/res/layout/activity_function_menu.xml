@@ -73,6 +73,12 @@
                 android:text="Recolor" />
 
             <Button
+                android:id="@+id/bt_sensor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sensor" />
+
+            <Button
                 android:id="@+id/bt_simple_finger_gesture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

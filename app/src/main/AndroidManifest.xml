@@ -393,6 +393,10 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
+        <activity
+            android:name="vn.loitp.app.activity.function.sensor.SensorActivity"
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
+        <!--<activity android:name="vn.loitp.app.activity.function.sensor.SensorActivity" />-->
     </application>
 
 </manifest>
