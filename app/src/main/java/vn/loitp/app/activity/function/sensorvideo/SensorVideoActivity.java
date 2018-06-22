@@ -6,22 +6,18 @@ import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.layout.rotatelayout.RotateLayout;
-import vn.loitp.views.uizavideo.view.frm.FrmUizaIMAVideo;
 
 public class SensorVideoActivity extends BaseFontActivity {
     private RotateLayout rotateLayout;
     private OrientationListener orientationListener;
+    private FrmVideo frmVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +33,17 @@ public class SensorVideoActivity extends BaseFontActivity {
         });*/
 
         FrameLayout fl = (FrameLayout) findViewById(R.id.fl);
-        FrmVideo frmVideo = new FrmVideo();
+        frmVideo = new FrmVideo();
         LScreenUtil.replaceFragment(activity, fl.getId(), frmVideo, false);
         frmVideo.setFragmentCallback(new BaseFragment.FragmentCallback() {
             @Override
             public void onViewCreated() {
                 LLog.d(TAG, "onViewCreated");
+                String linkPlay = getString(loitp.core.R.string.url_dash);
+                //String linkPlay = "https://cdn-vn-cache-4.uiza.io:443/a204e9cdeca44948a33e0d012ef74e90/8udRNMQD/package/playlist.mpd";
+                String urlIMAAd = getString(loitp.core.R.string.ad_tag_url);
+                String urlThumnailsPreviewSeekbar = getString(loitp.core.R.string.url_thumbnails);
+                frmVideo.initData(linkPlay, urlIMAAd, urlThumnailsPreviewSeekbar);
             }
         });
 
