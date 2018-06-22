@@ -45,9 +45,9 @@ public class SensorActivity extends BaseFontActivity {
         orientationListener = new OrientationListener(this);
     }
 
-    private boolean isFullScreen;
+    /*private boolean isFullScreen;
 
-    /*private void toggleFullScreen() {
+    private void toggleFullScreen() {
         if (isFullScreen) {
             //landscape -> portrait
             rotateLayout.setAngle(0);
