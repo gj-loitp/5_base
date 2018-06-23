@@ -79,8 +79,8 @@ repositories {
 }
 
 dependencies {
-    implementation project(':core')
-    //compile 'com.github.tplloi:basemaster:1.33'
+    //implementation project(':core')
+    compile 'com.github.tplloi:basemaster:1.34'
 
     compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
     compile 'io.realm:realm-android:0.82.1'//realm
