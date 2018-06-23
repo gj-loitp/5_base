@@ -28,6 +28,7 @@ import okhttp3.Response;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
@@ -149,12 +150,19 @@ public class SplashActivity extends BaseFontActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                LDialogUtil.showDialog1(activity, "Warning", "This app is not available now", "Ok", new LDialogUtil.Callback1() {
+                String title = "";
+                if (LConnectivityUtil.isConnected(activity)) {
+                    title = "This app is not available now";
+                } else {
+                    title = getString(R.string.check_ur_connection);
+                }
+                AlertDialog alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok", new LDialogUtil.Callback1() {
                     @Override
                     public void onClick1() {
                         onBackPressed();
                     }
                 });
+                alertDial.setCancelable(false);
             }
         });
     }
