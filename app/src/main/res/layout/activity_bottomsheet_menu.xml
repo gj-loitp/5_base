@@ -4,43 +4,50 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:padding="@dimen/padding_5">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/root_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Menu BottomSheet"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/bt_0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Show bottom sheet" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Menu BottomSheet"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/txt_20" />
 
-            <Button
-                android:id="@+id/bt_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Show bottom sheet dialog" />
+                <Button
+                    android:id="@+id/bt_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show bottom sheet" />
 
-            <Button
-                android:id="@+id/bt_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Show bottom sheet dialog fragment" />
+                <Button
+                    android:id="@+id/bt_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show bottom sheet dialog" />
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/bt_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show bottom sheet dialog fragment" />
+            </LinearLayout>
+
+        </RelativeLayout>
     </ScrollView>
     <!-- Adding bottom sheet after main content -->
     <include layout="@layout/bottom_sheet_0" />
