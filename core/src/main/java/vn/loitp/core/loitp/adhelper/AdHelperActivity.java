@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -27,7 +26,7 @@ import vn.loitp.utils.util.AppUtils;
  * Created by LENOVO on 5/31/2018.
  */
 
-public class AdHelperActivity extends BaseActivity {
+public class AdHelperActivity extends BaseFontActivity {
     private List<AdPage> adPageList = new ArrayList<>();
     private ImageButton btPrevScreen;
     private ImageButton btNextScreen;
