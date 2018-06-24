@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White">
@@ -19,4 +20,4 @@
         android:gravity="center"
         android:text="Try to zoom"
         android:textSize="@dimen/txt_20" />
-</FrameLayout>
+</RelativeLayout>

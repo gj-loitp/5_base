@@ -39,26 +39,31 @@
         </LinearLayout>
     </ScrollView>-->
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/padding_5">
 
         <Button
+            android:id="@+id/bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/app_name" />
 
         <TextView
+            android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/bt"
             android:text="@string/i_love_you" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/tv"
             android:src="@drawable/logo" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </vn.loitp.views.layout.swipablelayout.SwipeableLayout>
