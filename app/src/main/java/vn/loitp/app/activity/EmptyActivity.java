@@ -5,8 +5,9 @@ import android.os.Bundle;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.base.BaseFontActivity;
 
-public class EmptyActivity extends BaseActivity {
+public class EmptyActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

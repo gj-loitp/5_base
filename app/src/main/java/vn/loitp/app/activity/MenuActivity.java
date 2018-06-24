@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.database.MenuDatabaseActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
 import vn.loitp.app.activity.function.MenuFunctionActivity;
+import vn.loitp.app.activity.more.MoreActivity;
 import vn.loitp.app.activity.pattern.MenuPatternActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -51,6 +52,7 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
         findViewById(R.id.bt_github).setOnClickListener(this);
         findViewById(R.id.bt_ad_helper).setOnClickListener(this);
         findViewById(R.id.bt_fb_fanpage).setOnClickListener(this);
+        findViewById(R.id.bt_frm_more).setOnClickListener(this);
     }
 
     @Override
@@ -113,6 +115,9 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
                 break;
             case R.id.bt_fb_fanpage:
                 LSocialUtil.likeFacebookFanpage(activity);
+                break;
+            case R.id.bt_frm_more:
+                intent = new Intent(activity, MoreActivity.class);
                 break;
         }
         if (intent != null) {

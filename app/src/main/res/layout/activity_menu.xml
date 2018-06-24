@@ -104,6 +104,12 @@
                 android:text="Vì sao bạn thấy quảng cáo?" />
 
             <Button
+                android:id="@+id/bt_frm_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thêm" />
+
+            <Button
                 android:id="@+id/bt_github"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

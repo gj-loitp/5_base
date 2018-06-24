@@ -399,6 +399,7 @@
         <!--<activity android:name="vn.loitp.app.activity.function.sensor.SensorActivity" />-->
         <activity android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity" />
         <activity android:name="vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity" />
+        <activity android:name="vn.loitp.app.activity.more.MoreActivity" />
     </application>
 
 </manifest>

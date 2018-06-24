@@ -50,4 +50,10 @@
     <string name="title_activity_comments">Comments</string>
     <string name="action_comment">Comment</string>
     <string name="action_refresh">Reload</string>
+    <string name="rate_app">Đánh giá</string>
+    <string name="more_app">Thêm ứng dụng hay</string>
+    <string name="why_u_see_ad">Tại sao bạn nhìn thấy quảng cáo?</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
+    <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
 </resources>
