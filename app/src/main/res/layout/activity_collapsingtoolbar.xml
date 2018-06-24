@@ -93,14 +93,20 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/tv_msg"
+        <RelativeLayout
+            android:id="@+id/root_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/large_text"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/Gray" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/large_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/Gray" />
+        </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
