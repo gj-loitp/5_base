@@ -88,6 +88,12 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     }
 
     @Override
+    protected void onDestroy() {
+        this.wwlVideoPlayerFragment.stopPlay();
+        super.onDestroy();
+    }
+
+    @Override
     public void WWL_minimized() {
         this.mLastAlpha = 0.0f;
         this.wwlVideoPlayerFragment.hideControls();
