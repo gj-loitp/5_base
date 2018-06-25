@@ -79,6 +79,12 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
     }
 
     @Override
+    protected void onDestroy() {
+        this.watchFragment.stopPlay();
+        super.onDestroy();
+    }
+
+    @Override
     public void WWL_minimized() {
         this.mLastAlpha = 0.0f;
         this.watchFragment.hideControls();
