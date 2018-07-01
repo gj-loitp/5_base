@@ -19,7 +19,6 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
 //TODO is debug
-//TODO fb cmt
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;
@@ -32,7 +31,7 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
-        Constants.setIsDebug(true);
+        Constants.setIsDebug(false);
         Utils.init(this);
         //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
