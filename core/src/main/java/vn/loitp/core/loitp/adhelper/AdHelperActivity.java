@@ -17,6 +17,7 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -32,6 +33,7 @@ public class AdHelperActivity extends BaseFontActivity {
     private ImageButton btNextScreen;
     private TextView tvPage;
     private ViewPager viewPager;
+    private boolean isEnglishLanguage;
 
     @Override
     protected boolean setFullScreen() {
@@ -51,27 +53,47 @@ public class AdHelperActivity extends BaseFontActivity {
     private void setupData() {
         AdPage adPage0 = new AdPage();
         adPage0.setUrlAd("https://c2.staticflickr.com/2/1748/41585991345_1e3d93a5d9_o.png");
-        adPage0.setTitle("Quảng cáo là một phần quan trọng đối với một ứng dụng miễn phí");
-        adPage0.setMsg("Để tạo ra một ứng dụng chất lượng, chúng tôi phải bỏ nhiều thời gian, công sức cho nó.\n\nTrong quá trình này, chúng tôi cần kinh phí để chi trả cho nhân sự, địa điểm và duy trì hệ thống.\n\nQuảng cáo là nguồn thu quan trọng nhất đối với chúng tôi để bù đắp vào các chi phí này.");
+        if (isEnglishLanguage) {
+            adPage0.setTitle("Advertising is an important part of a free app");
+            adPage0.setMsg("To create a quality application, we have to spend a lot of time, effort on it.\n\nIn this process, we need funds to pay for the personnel, location and maintenance of the system.\n\nAdvertising is the most important revenue source for us to make up for these costs.");
+        } else {
+            adPage0.setTitle("Quảng cáo là một phần quan trọng đối với một ứng dụng miễn phí");
+            adPage0.setMsg("Để tạo ra một ứng dụng chất lượng, chúng tôi phải bỏ nhiều thời gian, công sức cho nó.\n\nTrong quá trình này, chúng tôi cần kinh phí để chi trả cho nhân sự, địa điểm và duy trì hệ thống.\n\nQuảng cáo là nguồn thu quan trọng nhất đối với chúng tôi để bù đắp vào các chi phí này.");
+        }
         adPageList.add(adPage0);
 
         AdPage adPage1 = new AdPage();
         adPage1.setUrlAd("https://c2.staticflickr.com/2/1732/41766077754_da53b9da82_o.png");
         String appName = AppUtils.getAppName();
-        adPage1.setTitle("Không có quảng cáo, chúng ta sẽ không có " + appName);
-        adPage1.setMsg("Việc trả phí để sử dụng một ứng dụng chưa phổ biến tại Việt Nam. Khi không có nguồn thu, chúng tôi khó có thể duy trì và nâng cấp ứng dụng.\n\nVà khi đó, bạn sẽ không được trải nghiệm những tính năng hữu ích mà " + appName + " đem lại.");
+        if (isEnglishLanguage) {
+            adPage1.setTitle("Without ads, we will not have " + appName);
+            adPage1.setMsg("Paying to use an application is not yet common in Vietnam. Without revenue, it is difficult to maintain and upgrade applications.\n\nAnd then, you will not experience the useful features that " + appName + " brings.");
+        } else {
+            adPage1.setTitle("Không có quảng cáo, chúng ta sẽ không có " + appName);
+            adPage1.setMsg("Việc trả phí để sử dụng một ứng dụng chưa phổ biến tại Việt Nam. Khi không có nguồn thu, chúng tôi khó có thể duy trì và nâng cấp ứng dụng.\n\nVà khi đó, bạn sẽ không được trải nghiệm những tính năng hữu ích mà " + appName + " đem lại.");
+        }
         adPageList.add(adPage1);
 
         AdPage adPage2 = new AdPage();
         adPage2.setUrlAd("https://c2.staticflickr.com/2/1734/41766077524_09572156d6_o.png");
-        adPage2.setTitle("Quảng cáo có thể gây khó chịu.\nChúng tôi thấu hiểu điều này.");
-        adPage2.setMsg("Hiện tại, " + appName + " sử dụng các hệ thống quảng cáo của một số bên thứ ba như Google, Facebook. Đôi khi, bạn sẽ nhìn thấy quảng cáo không phù hợp với mình.\n\nHệ thống quảng cáo cũng có thể bị lỗi và hiển thị khá nhiều, chúng tôi sẽ cố gắng giảm thiểu các sự cố như vậy trong thời gian sớm nhất.");
+        if (isEnglishLanguage) {
+            adPage2.setTitle("Ads can be annoying.\nWe understand this.");
+            adPage2.setMsg("Currently," + appName + " uses the advertising systems of some third parties such as Google, Facebook. Occasionally, you'll see ads that are not right for you.\n\nAd systems can also be buggy and display a lot, we will try to minimize such incidents as soon as possible.");
+        } else {
+            adPage2.setTitle("Quảng cáo có thể gây khó chịu.\nChúng tôi thấu hiểu điều này.");
+            adPage2.setMsg("Hiện tại, " + appName + " sử dụng các hệ thống quảng cáo của một số bên thứ ba như Google, Facebook. Đôi khi, bạn sẽ nhìn thấy quảng cáo không phù hợp với mình.\n\nHệ thống quảng cáo cũng có thể bị lỗi và hiển thị khá nhiều, chúng tôi sẽ cố gắng giảm thiểu các sự cố như vậy trong thời gian sớm nhất.");
+        }
         adPageList.add(adPage2);
 
         AdPage adPage3 = new AdPage();
         adPage3.setUrlAd("https://c2.staticflickr.com/2/1723/41766077684_54c007d2db_o.png");
-        adPage3.setTitle("Đội ngũ " + appName + " rất mong nhận được sự đồng cảm và hỗ trợ của bạn");
-        adPage3.setMsg("Chúng tôi cần quảng cáo, giống như bạn cần " + appName + " cho cuộc sống thường nhật của mình.\n\nChúng tôi sẽ nỗ lực để khiến bạn ngày một hài lòng khi sử dụng " + appName + "\n\nXin chân thành cảm ơn.");
+        if (isEnglishLanguage) {
+            adPage3.setTitle("The team " + appName + " is looking forward to receiving your sympathy and support");
+            adPage3.setMsg("We need ads, just like you need " + appName + " for your daily life.\n\nWe will work to make you happy when using " + appName + "\n\nSincerely thank.");
+        } else {
+            adPage3.setTitle("Đội ngũ " + appName + " rất mong nhận được sự đồng cảm và hỗ trợ của bạn");
+            adPage3.setMsg("Chúng tôi cần quảng cáo, giống như bạn cần " + appName + " cho cuộc sống thường nhật của mình.\n\nChúng tôi sẽ nỗ lực để khiến bạn ngày một hài lòng khi sử dụng " + appName + "\n\nXin chân thành cảm ơn.");
+        }
         adPageList.add(adPage3);
     }
 
@@ -79,6 +101,9 @@ public class AdHelperActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
+
+        isEnglishLanguage = getIntent().getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
+
         btPrevScreen = (ImageButton) findViewById(R.id.bt_prev_screen);
         btNextScreen = (ImageButton) findViewById(R.id.bt_next_screen);
         tvPage = (TextView) findViewById(R.id.tv_page);
@@ -165,6 +190,11 @@ public class AdHelperActivity extends BaseFontActivity {
             LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White));
 
             Button btOkay = (Button) layout.findViewById(R.id.bt_okay);
+            if (isEnglishLanguage) {
+                btOkay.setText("I understand");
+            } else {
+                btOkay.setText("Tôi đã hiểu");
+            }
             if (position == adPageList.size() - 1) {
                 btOkay.setVisibility(View.VISIBLE);
             } else {

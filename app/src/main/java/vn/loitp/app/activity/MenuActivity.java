@@ -112,6 +112,7 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
                 break;
             case R.id.bt_ad_helper:
                 intent = new Intent(activity, AdHelperActivity.class);
+                intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true);
                 break;
             case R.id.bt_fb_fanpage:
                 LSocialUtil.likeFacebookFanpage(activity);

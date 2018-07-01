@@ -144,4 +144,5 @@ public class Constants {
     public final static String FLICKR_ID_VN_ANHTHEOTEN = "72157670868460705";
 
     public final static String KEY_REMOVE_ALBUM_FLICKR_LIST = "KEY_REMOVE_ALBUM_FLICKR_LIST";
+    public final static String AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE";
 }
