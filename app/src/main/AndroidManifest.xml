@@ -405,6 +405,7 @@
         <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromPointActivity" />
         <activity android:name="vn.loitp.app.activity.animation.confetti.ExplosionActivity" />
         <activity android:name="vn.loitp.app.activity.animation.confetti.ShimmeringActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingWithTouchActivity" />
     </application>
 
 </manifest>

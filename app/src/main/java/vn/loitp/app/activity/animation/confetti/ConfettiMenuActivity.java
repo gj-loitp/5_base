@@ -55,7 +55,7 @@ public class ConfettiMenuActivity extends BaseFontActivity implements View.OnCli
                 intent = new Intent(activity, ShimmeringActivity.class);
                 break;
             case R.id.bt_4:
-                intent = new Intent(activity, AnimationViewActivity.class);
+                intent = new Intent(activity, FallingWithTouchActivity.class);
                 break;
             case R.id.bt_5:
                 intent = new Intent(activity, AnimationViewActivity.class);
