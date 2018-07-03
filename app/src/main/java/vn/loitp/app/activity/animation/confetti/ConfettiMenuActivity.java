@@ -5,12 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
-import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
-import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
-import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
-import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -57,7 +52,7 @@ public class ConfettiMenuActivity extends BaseFontActivity implements View.OnCli
                 intent = new Intent(activity, ExplosionActivity.class);
                 break;
             case R.id.bt_3:
-                intent = new Intent(activity, AnimationViewActivity.class);
+                intent = new Intent(activity, ShimmeringActivity.class);
                 break;
             case R.id.bt_4:
                 intent = new Intent(activity, AnimationViewActivity.class);
