@@ -20,51 +20,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Animation"
+                android:text="Menu Confetti"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_activity_transition"
+                android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Activity Transition" />
+                android:text="Falling confetti from top" />
 
             <Button
-                android:id="@+id/bt_animation_view"
+                android:id="@+id/bt_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Animation view" />
+                android:text="Falling confetti from point" />
 
             <Button
-                android:id="@+id/bt_animation_confetti"
+                android:id="@+id/bt_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Animation Confetti" />
+                android:text="Explosion" />
 
             <Button
-                android:id="@+id/bt_expect_anim"
+                android:id="@+id/bt_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Expect anim" />
+                android:text="Shimmering confetti" />
 
             <Button
-                android:id="@+id/bt_fly_school"
+                android:id="@+id/bt_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fly school" />
+                android:text="Falling ice flakes with touch" />
 
             <Button
-                android:id="@+id/bt_over_scroll"
+                android:id="@+id/bt_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Over Scroll like iOS" />
+                android:text="Falling ice flakes with listener" />
 
-            <Button
-                android:id="@+id/bt_shadowview_helper"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ShadowView Helper" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

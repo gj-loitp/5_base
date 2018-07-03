@@ -400,6 +400,8 @@
         <activity android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity" />
         <activity android:name="vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity" />
         <activity android:name="vn.loitp.app.activity.more.MoreActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromTopActivity" />
     </application>
 
 </manifest>
