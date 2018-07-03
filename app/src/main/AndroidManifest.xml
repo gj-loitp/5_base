@@ -402,6 +402,7 @@
         <activity android:name="vn.loitp.app.activity.more.MoreActivity" />
         <activity android:name="vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity" />
         <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromTopActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromPointActivity" />
     </application>
 
 </manifest>
