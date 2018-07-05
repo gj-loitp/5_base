@@ -828,6 +828,14 @@
             android:name="vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
