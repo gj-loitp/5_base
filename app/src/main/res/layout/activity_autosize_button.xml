@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="The size of button will be changed when device screen is rotated"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_18" />
+
+            <Button
+                android:id="@+id/bt_rotate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rotate screen" />
+
+            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+                android:id="@+id/bt_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/l_heart" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

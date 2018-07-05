@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
@@ -26,6 +27,7 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
         findViewById(R.id.bt_button_loading).setOnClickListener(this);
         findViewById(R.id.bt_goodview).setOnClickListener(this);
         findViewById(R.id.bt_l_button).setOnClickListener(this);
+        findViewById(R.id.bt_auto_size_button).setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +66,9 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
                 break;
             case R.id.bt_l_button:
                 intent = new Intent(activity, LButtonActivity.class);
+                break;
+            case R.id.bt_auto_size_button:
+                intent = new Intent(activity, AutoSizeButtonActivity.class);
                 break;
         }
         if (intent != null) {
