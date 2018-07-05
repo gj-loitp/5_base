@@ -6,12 +6,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
+import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class ButtonMenuActivity extends BaseFontActivity implements OnClickListener {
@@ -24,6 +25,7 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
         findViewById(R.id.bt_circular_image_click).setOnClickListener(this);
         findViewById(R.id.bt_button_loading).setOnClickListener(this);
         findViewById(R.id.bt_goodview).setOnClickListener(this);
+        findViewById(R.id.bt_l_button).setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +61,9 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
                 break;
             case R.id.bt_goodview:
                 intent = new Intent(activity, GoodViewActivity.class);
+                break;
+            case R.id.bt_l_button:
+                intent = new Intent(activity, LButtonActivity.class);
                 break;
         }
         if (intent != null) {

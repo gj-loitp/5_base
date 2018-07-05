@@ -70,7 +70,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <vn.loitp.views.button.circularimageclick.lib.CircularClickImageButton
+                    <vn.loitp.views.button.circularimageclick.CircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"

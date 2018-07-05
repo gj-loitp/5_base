@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="LButton change drawable of pressed state programmatically with one line code
+                lButton.setPressedDrawable(...);"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_18" />
+
+            <vn.loitp.views.button.lbutton.LButton
+                android:id="@+id/bt_0"
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/l_heart"
+                android:text="LButton" />
+
+            <vn.loitp.views.button.lbutton.LButton
+                android:id="@+id/bt_1"
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_hearing_black_48dp"
+                android:text="LButton" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
