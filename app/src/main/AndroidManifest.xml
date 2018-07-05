@@ -822,6 +822,9 @@
             android:name="vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="vn.loitp.app.activity.function.scrog.ScrogActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
             android:screenOrientation="portrait" />

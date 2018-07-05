@@ -29,16 +29,28 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name="vn.loitp.core.loitp.adhelper.AdHelperActivity" />
-        <activity android:name="vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity" />
+        <activity
+            android:name="vn.loitp.core.loitp.adhelper.AdHelperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.core.loitp.gallery.album.GalleryCoreAlbumActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
             android:name="vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
-        <activity android:name="vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity" />
-        <activity android:name="vn.loitp.core.loitp.facebookcomment.FacebookCommentActivity" />
+        <activity
+            android:name="vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.core.loitp.facebookcomment.FacebookCommentActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="vn.loitp.views.scrog.ScrogService" />
     </application>
 
 </manifest>
