@@ -32,8 +32,7 @@
                 android:layout_height="@dimen/w_100"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/l_heart"
-                android:text="LButton" />
+                android:src="@drawable/l_heart" />
 
             <vn.loitp.views.button.lbutton.LButton
                 android:id="@+id/bt_1"
@@ -41,8 +40,15 @@
                 android:layout_height="@dimen/w_100"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_hearing_black_48dp"
-                android:text="LButton" />
+                android:src="@drawable/ic_hearing_black_48dp" />
+
+            <vn.loitp.views.button.lbutton.LButton
+                android:id="@+id/bt_2"
+                android:layout_width="@dimen/w_80"
+                android:layout_height="@dimen/w_80"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/heart" />
 
         </LinearLayout>
     </ScrollView>

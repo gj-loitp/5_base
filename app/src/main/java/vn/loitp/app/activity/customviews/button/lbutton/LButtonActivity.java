@@ -16,9 +16,14 @@ public class LButtonActivity extends BaseFontActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         LButton bt0 = (LButton) findViewById(R.id.bt_0);
         bt0.setOnClickListener(this);
+
         LButton bt1 = (LButton) findViewById(R.id.bt_1);
         bt1.setPressedDrawable(R.drawable.circle_color_primary);
         bt1.setOnClickListener(this);
+
+        LButton bt2 = (LButton) findViewById(R.id.bt_2);
+        bt2.setPressedDrawable(R.drawable.bt_color_primary);
+        bt2.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +46,7 @@ public class LButtonActivity extends BaseFontActivity implements OnClickListener
         switch (v.getId()) {
             case R.id.bt_0:
             case R.id.bt_1:
+            case R.id.bt_2:
                 LToast.show(activity, "Click");
                 break;
         }
