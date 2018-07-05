@@ -823,6 +823,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity"
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
             android:screenOrientation="portrait" />
     </application>
 
