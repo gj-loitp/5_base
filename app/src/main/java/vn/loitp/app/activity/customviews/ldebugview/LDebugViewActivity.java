@@ -1,20 +1,13 @@
 package vn.loitp.app.activity.customviews.ldebugview;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.utils.util.ServiceUtils;
-import vn.loitp.views.LToast;
-
-import static vn.loitp.views.uizavideo.view.rl.UizaIMAVideo.CODE_DRAW_OVER_OTHER_APP_PERMISSION;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
@@ -30,19 +23,6 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
         btStart.setOnClickListener(this);
         btStop.setOnClickListener(this);
         btSend.setOnClickListener(this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            if (resultCode == RESULT_OK) {
-                startService(new Intent(activity, LDebugViewService.class));
-            } else {
-                LToast.show(activity, "Draw over other app permission not available. Closing the application");
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override
@@ -64,17 +44,12 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_start:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                    startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
-                } else {
-                    ServiceUtils.startService(LDebugViewService.class);
-                    btStop.setEnabled(true);
-                    btSend.setEnabled(true);
-                }
+                LDebugViewUtils.init(activity);
+                btStop.setEnabled(true);
+                btSend.setEnabled(true);
                 break;
             case R.id.bt_stop:
-                ServiceUtils.stopService(LDebugViewService.class.getName());
+                LDebugViewUtils.stop();
                 btStop.setEnabled(false);
                 btSend.setEnabled(false);
                 break;
