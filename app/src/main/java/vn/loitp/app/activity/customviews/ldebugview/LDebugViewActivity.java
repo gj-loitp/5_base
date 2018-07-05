@@ -26,6 +26,12 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        LDebug.checkPermission(activity, requestCode, resultCode);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     protected boolean setFullScreen() {
         return false;
     }
@@ -44,12 +50,12 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_start:
-                LDebugViewUtils.init(activity);
+                LDebug.init(activity);
                 btStop.setEnabled(true);
                 btSend.setEnabled(true);
                 break;
             case R.id.bt_stop:
-                LDebugViewUtils.stop();
+                LDebug.stop();
                 btStop.setEnabled(false);
                 btSend.setEnabled(false);
                 break;
