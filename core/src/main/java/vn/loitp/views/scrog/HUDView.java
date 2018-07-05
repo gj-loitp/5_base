@@ -25,15 +25,18 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import loitp.core.R;
+import vn.loitp.views.LToast;
+
+import static android.content.Context.WINDOW_SERVICE;
 
 /**
  * @author Anton Smyshliaiev (anton.emale@gmail.com)
@@ -66,16 +69,14 @@ class HUDView extends ViewGroup {
     HUDView(Context context) {
         super(context);
         this.mContext = context;
-        mWm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        mWm = (WindowManager) context.getSystemService(WINDOW_SERVICE);
         init();
     }
-
 
     private void init() {
         TapDetector tapDetector = new TapDetector(mPaint, this, colMan);
         mDetector = new GestureDetector(mContext, tapDetector);
-        Toast toast = Toast.makeText(mContext, "You may double tap, move or resize info window", Toast.LENGTH_LONG);
-        toast.show();
+        LToast.show(mContext, "You may double tap, move or resize info window");
     }
 
     public void initView() {
@@ -90,7 +91,6 @@ class HUDView extends ViewGroup {
         mMinWidth = size.x / 4;
         mMinHeight = size.y / 4;
 
-
         mPaint.setColor(colMan.getColor().fg);
         setBackgroundColor(colMan.getColor().bg);
         getBackground().setAlpha(ColorManager.ALPHA);
@@ -100,23 +100,28 @@ class HUDView extends ViewGroup {
         mPaint.setTextAlign(Paint.Align.LEFT);
         mPaint.setTypeface(Typeface.MONOSPACE);
 
+        int LAYOUT_FLAG;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        } else {
+            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
+        }
         mParams = new WindowManager.LayoutParams(
                 mWidth,
                 mHeight,
-                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                        | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                LAYOUT_FLAG,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                         | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                 PixelFormat.TRANSLUCENT);
 
         addView(mWm, mParams);
+
         applyWH(size.x / 2, size.y / 3);
         setTextObjectMaxes();
         postInvalidate();
-
     }
 
-    private void addView(WindowManager wm, LayoutParams params) {
+    private void addView(WindowManager wm, WindowManager.LayoutParams params) {
         wm.addView(this, params);
     }
 
@@ -130,7 +135,7 @@ class HUDView extends ViewGroup {
     }
 
     private void setTextObjectMaxes() {
-        int scaledFontSizePx = getResources().getDimensionPixelSize(R.dimen.txt_10);
+        int scaledFontSizePx = getResources().getDimensionPixelSize(R.dimen.txt_8);
         mPaint.setTextSize(scaledFontSizePx);
         float width = mPaint.measureText("A");
         mTextObjectManager.setMaxLines(mParams.height / scaledFontSizePx);
@@ -158,7 +163,6 @@ class HUDView extends ViewGroup {
             clearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
             canvas.drawRect(0, 0, mParams.width, mParams.height, clearPaint);
         }
-
     }
 
     public void destroyView() {
@@ -257,7 +261,6 @@ class HUDView extends ViewGroup {
                 break;
 
         }
-
     }
 
     private synchronized void setLastTouchCoordinates(MotionEvent event) {
@@ -287,6 +290,4 @@ class HUDView extends ViewGroup {
     protected void onLayout(boolean arg0, int arg1, int arg2, int arg3, int arg4) {
 
     }
-
-
 }
