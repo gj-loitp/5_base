@@ -30,8 +30,8 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ScrollView;
 
 import loitp.core.R;
 import vn.loitp.views.LToast;
@@ -42,7 +42,7 @@ import static android.content.Context.WINDOW_SERVICE;
  * @author Anton Smyshliaiev (anton.emale@gmail.com)
  */
 @SuppressLint("DrawAllocation")
-class HUDView extends ViewGroup {
+class HUDView extends ScrollView {
     private Paint mPaint = new Paint();
     private WindowManager mWm;
     private WindowManager.LayoutParams mParams;
@@ -64,7 +64,6 @@ class HUDView extends ViewGroup {
     private enum TapMode {
         MOVE, RESIZE, CLEAR, IGNORE;
     }
-
 
     HUDView(Context context) {
         super(context);
