@@ -6,11 +6,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 
-import vn.loitp.core.utilities.LLog;
+import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
 import vn.loitp.utils.util.ServiceUtils;
-import vn.loitp.views.LToast;
-
-import static vn.loitp.views.uizavideo.view.rl.UizaIMAVideo.CODE_DRAW_OVER_OTHER_APP_PERMISSION;
 
 /**
  * Created by LENOVO on 7/5/2018.
@@ -39,6 +36,6 @@ public class LDebug {
     }
 
     public static void log(String log) {
-
+        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(log));
     }
 }

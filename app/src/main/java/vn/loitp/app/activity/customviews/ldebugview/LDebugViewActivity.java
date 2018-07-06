@@ -60,6 +60,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 btSend.setEnabled(false);
                 break;
             case R.id.bt_send:
+                LDebug.log("fuck " + System.currentTimeMillis());
                 break;
         }
     }

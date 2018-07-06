@@ -17,8 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LDateUtils;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
@@ -27,6 +32,7 @@ import vn.loitp.core.utilities.LUIUtil;
 
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
+    private final String TAG = getClass().getSimpleName();
     private WindowManager mWindowManager;
     private View mFloatingView;
     private WindowManager.LayoutParams params;
@@ -46,6 +52,9 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        EventBus.getDefault().register(this);
+
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_debug_view_service, null);
 
@@ -110,12 +119,6 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         return mFloatingView == null || mFloatingView.findViewById(R.id.collapse_view).getVisibility() == View.VISIBLE;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
-    }
-
     private int initialX;
     private int initialY;
     private float initialTouchX;
@@ -178,5 +181,21 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
                 scrollView.fullScroll(View.FOCUS_DOWN);
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        if (mFloatingView != null) {
+            mWindowManager.removeView(mFloatingView);
+        }
+        super.onDestroy();
+    }
+
+    //listen msg from activity
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(ComunicateDebug.MsgFromActivity msg) {
+        //LLog.d(TAG, "onEvent " + msg.getMsg());
+        print(msg.getMsg());
     }
 }
