@@ -831,11 +831,6 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity"
             android:screenOrientation="portrait" />
-
-        <service
-            android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewService"
-            android:enabled="true"
-            android:exported="false" />
     </application>
 
 </manifest>

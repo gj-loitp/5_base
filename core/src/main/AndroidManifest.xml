@@ -51,6 +51,10 @@
             android:screenOrientation="portrait" />
 
         <service android:name="vn.loitp.views.scrog.ScrogService" />
+        <service
+            android:name="vn.loitp.views.ldebugview.LDebugViewService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

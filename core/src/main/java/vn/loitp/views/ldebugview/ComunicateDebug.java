@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.ldebugview;
+package vn.loitp.views.ldebugview;
 
 import org.greenrobot.eventbus.EventBus;
 

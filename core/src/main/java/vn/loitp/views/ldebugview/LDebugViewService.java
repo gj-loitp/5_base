@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.ldebugview;
+package vn.loitp.views.ldebugview;
 
 import android.app.Service;
 import android.content.Intent;
@@ -21,15 +21,13 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by LENOVO on 3/27/2018.
  */
-
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
     private final String TAG = getClass().getSimpleName();
@@ -126,45 +124,44 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        switch (v.getId()) {
-            case R.id.root_container:
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
+        if (v.getId() == R.id.root_container) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
 
-                        //remember the initial position.
-                        initialX = params.x;
-                        initialY = params.y;
+                    //remember the initial position.
+                    initialX = params.x;
+                    initialY = params.y;
 
-                        //get the touch location
-                        initialTouchX = event.getRawX();
-                        initialTouchY = event.getRawY();
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        int Xdiff = (int) (event.getRawX() - initialTouchX);
-                        int Ydiff = (int) (event.getRawY() - initialTouchY);
+                    //get the touch location
+                    initialTouchX = event.getRawX();
+                    initialTouchY = event.getRawY();
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    int Xdiff = (int) (event.getRawX() - initialTouchX);
+                    int Ydiff = (int) (event.getRawY() - initialTouchY);
 
-                        //The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
-                        //So that is click event.
-                        if (Xdiff < 10 && Ydiff < 10) {
-                            if (isViewCollapsed()) {
-                                //When user clicks on the image view of the collapsed layout,
-                                //visibility of the collapsed layout will be changed to "View.GONE"
-                                //and expanded view will become visible.
-                                collapsedView.setVisibility(View.GONE);
-                                expandedView.setVisibility(View.VISIBLE);
-                            }
+                    //The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
+                    //So that is click event.
+                    if (Xdiff < 10 && Ydiff < 10) {
+                        if (isViewCollapsed()) {
+                            //When user clicks on the image view of the collapsed layout,
+                            //visibility of the collapsed layout will be changed to "View.GONE"
+                            //and expanded view will become visible.
+                            collapsedView.setVisibility(View.GONE);
+                            expandedView.setVisibility(View.VISIBLE);
                         }
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        //Calculate the X and Y coordinates of the view.
-                        params.x = initialX + (int) (event.getRawX() - initialTouchX);
-                        params.y = initialY + (int) (event.getRawY() - initialTouchY);
+                    }
+                    return true;
+                case MotionEvent.ACTION_MOVE:
+                    //Calculate the X and Y coordinates of the view.
+                    params.x = initialX + (int) (event.getRawX() - initialTouchX);
+                    params.y = initialY + (int) (event.getRawY() - initialTouchY);
 
-                        //Update the layout with new X & Y coordinate
-                        mWindowManager.updateViewLayout(mFloatingView, params);
-                        return true;
-                }
-                return false;
+                    //Update the layout with new X & Y coordinate
+                    mWindowManager.updateViewLayout(mFloatingView, params);
+                    return true;
+            }
+            return false;
         }
         return false;
     }

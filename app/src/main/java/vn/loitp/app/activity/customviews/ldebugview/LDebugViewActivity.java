@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.views.ldebugview.ComunicateDebug;
+import vn.loitp.views.ldebugview.LDebug;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
