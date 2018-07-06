@@ -2,17 +2,24 @@ package vn.loitp.app.activity.customviews.ldebugview;
 
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LDateUtils;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by LENOVO on 3/27/2018.
@@ -25,6 +32,8 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
     private WindowManager.LayoutParams params;
     private View collapsedView;
     private View expandedView;
+    private LinearLayout llRootTv;
+    private ScrollView scrollView;
 
     public LDebugViewService() {
     }
@@ -63,10 +72,10 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-        //The root element of the collapsed view layout
         collapsedView = mFloatingView.findViewById(R.id.collapse_view);
-        //The root element of the expanded view layout
         expandedView = mFloatingView.findViewById(R.id.expanded_container);
+        llRootTv = (LinearLayout) mFloatingView.findViewById(R.id.ll_root_tv);
+        scrollView = (ScrollView) mFloatingView.findViewById(R.id.scroll_view);
 
         //Set the close button
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
@@ -155,5 +164,19 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
                 return false;
         }
         return false;
+    }
+
+    private void print(String s) {
+        String currentTime = LDateUtils.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss");
+        TextView textView = new TextView(this);
+        textView.setText(currentTime + " : " + s);
+        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 8);
+        textView.setTextColor(Color.WHITE);
+        llRootTv.addView(textView);
+        scrollView.post(new Runnable() {
+            public void run() {
+                scrollView.fullScroll(View.FOCUS_DOWN);
+            }
+        });
     }
 }

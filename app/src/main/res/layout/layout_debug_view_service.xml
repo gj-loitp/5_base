@@ -44,7 +44,7 @@
             android:layout_height="@dimen/w_400"
             android:background="@color/black_85"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,21 +79,19 @@
                 android:background="@color/grey" />
 
             <ScrollView
+                android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:fillViewport="true">
 
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/ll_root_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:padding="@dimen/padding_3">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/large_text"
-                        android:textColor="@color/White"
-                        android:textSize="@dimen/txt_8" />
-                </RelativeLayout>
+                </LinearLayout>
             </ScrollView>
         </LinearLayout>
     </RelativeLayout>

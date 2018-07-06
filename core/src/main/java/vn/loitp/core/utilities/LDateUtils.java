@@ -214,8 +214,29 @@ public class LDateUtils {
     public static String getDateCurrentTimeZone(long timestamp, String format) {
         try {
             Calendar calendar = Calendar.getInstance();
-            TimeZone tz = TimeZone.getDefault();
+            //TimeZone tz = TimeZone.getDefault();
+            TimeZone tz = TimeZone.getTimeZone("UTC");
             calendar.setTimeInMillis(timestamp * 1000);
+            calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.getTimeInMillis()));
+            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            Date currenTimeZone = (Date) calendar.getTime();
+            return sdf.format(currenTimeZone);
+        } catch (Exception e) {
+        }
+        return "";
+    }
+
+    /*
+    * getDateCurrentTimeZone(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
+    * -> 2018-04-20 02:36:09
+    */
+    public static String getDateCurrentTimeZoneMls(long timestampMls, String format) {
+        //LLog.d(TAG, "getDateCurrentTimeZoneMls " + timestampMls);
+        try {
+            Calendar calendar = Calendar.getInstance();
+            //TimeZone tz = TimeZone.getDefault();
+            TimeZone tz = TimeZone.getTimeZone("UTC");
+            calendar.setTimeInMillis(timestampMls);
             calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.getTimeInMillis()));
             SimpleDateFormat sdf = new SimpleDateFormat(format);
             Date currenTimeZone = (Date) calendar.getTime();
