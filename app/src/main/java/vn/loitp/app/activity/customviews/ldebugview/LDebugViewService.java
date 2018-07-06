@@ -11,19 +11,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 
 /**
  * Created by LENOVO on 3/27/2018.
  */
 
 
-public class LDebugViewService extends Service {
+public class LDebugViewService extends Service implements View.OnTouchListener {
     private WindowManager mWindowManager;
     private View mFloatingView;
+    private WindowManager.LayoutParams params;
+    private View collapsedView;
+    private View expandedView;
 
     public LDebugViewService() {
     }
@@ -37,7 +38,7 @@ public class LDebugViewService extends Service {
     public void onCreate() {
         super.onCreate();
         //Inflate the floating view layout we created
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_widget, null);
+        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_debug_view_service, null);
 
         //Add the view to the window.
         int LAYOUT_FLAG;
@@ -46,7 +47,7 @@ public class LDebugViewService extends Service {
         } else {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
         }
-        final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+        params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 LAYOUT_FLAG,
@@ -63,9 +64,9 @@ public class LDebugViewService extends Service {
         mWindowManager.addView(mFloatingView, params);
 
         //The root element of the collapsed view layout
-        final View collapsedView = mFloatingView.findViewById(R.id.collapse_view);
+        collapsedView = mFloatingView.findViewById(R.id.collapse_view);
         //The root element of the expanded view layout
-        final View expandedView = mFloatingView.findViewById(R.id.expanded_container);
+        expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
         //Set the close button
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
@@ -77,37 +78,6 @@ public class LDebugViewService extends Service {
             }
         });
 
-        //Set the view while floating view is expanded.
-        //Set the play button.
-        ImageView playButton = (ImageView) mFloatingView.findViewById(R.id.play_btn);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LDebugViewService.this, "Playing the song.", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        //Set the next button.
-        ImageView nextButton = (ImageView) mFloatingView.findViewById(R.id.next_btn);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LDebugViewService.this, "Playing next song.", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        //Set the pause button.
-        ImageView prevButton = (ImageView) mFloatingView.findViewById(R.id.prev_btn);
-        prevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LDebugViewService.this, "Playing previous song.", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
         //Set the close button
         ImageView closeButton = (ImageView) mFloatingView.findViewById(R.id.close_button);
         closeButton.setOnClickListener(new View.OnClickListener() {
@@ -118,32 +88,34 @@ public class LDebugViewService extends Service {
             }
         });
 
-
-        //Open the application on thi button click
-        ImageView openButton = (ImageView) mFloatingView.findViewById(R.id.open_button);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Open the application  click.
-                Intent intent = new Intent(LDebugViewService.this, FloatingWidgetActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-
-                //close the service and remove view from the view hierarchy
-                stopSelf();
-            }
-        });
-
         //Drag and move floating view using user's touch action.
-        mFloatingView.findViewById(R.id.root_container).setOnTouchListener(new View.OnTouchListener() {
-            private int initialX;
-            private int initialY;
-            private float initialTouchX;
-            private float initialTouchY;
+        mFloatingView.findViewById(R.id.root_container).setOnTouchListener(this);
+    }
 
+    /**
+     * Detect if the floating view is collapsed or expanded.
+     *
+     * @return true if the floating view is collapsed.
+     */
+    private boolean isViewCollapsed() {
+        return mFloatingView == null || mFloatingView.findViewById(R.id.collapse_view).getVisibility() == View.VISIBLE;
+    }
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
+    }
+
+    private int initialX;
+    private int initialY;
+    private float initialTouchX;
+    private float initialTouchY;
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()) {
+            case R.id.root_container:
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
 
@@ -158,7 +130,6 @@ public class LDebugViewService extends Service {
                     case MotionEvent.ACTION_UP:
                         int Xdiff = (int) (event.getRawX() - initialTouchX);
                         int Ydiff = (int) (event.getRawY() - initialTouchY);
-
 
                         //The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
                         //So that is click event.
@@ -177,30 +148,12 @@ public class LDebugViewService extends Service {
                         params.x = initialX + (int) (event.getRawX() - initialTouchX);
                         params.y = initialY + (int) (event.getRawY() - initialTouchY);
 
-
                         //Update the layout with new X & Y coordinate
                         mWindowManager.updateViewLayout(mFloatingView, params);
                         return true;
                 }
                 return false;
-            }
-        });
-    }
-
-
-    /**
-     * Detect if the floating view is collapsed or expanded.
-     *
-     * @return true if the floating view is collapsed.
-     */
-    private boolean isViewCollapsed() {
-        return mFloatingView == null || mFloatingView.findViewById(R.id.collapse_view).getVisibility() == View.VISIBLE;
-    }
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
+        }
+        return false;
     }
 }
