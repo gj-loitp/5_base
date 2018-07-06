@@ -402,6 +402,12 @@ public class LUIUtil {
         textView.setText(json);
     }
 
+    public static void printBeautyJson(Object o, TextView textView, String tag) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(o);
+        textView.setText(tag + " :\n" + json);
+    }
+
     public static void setPullLikeIOSVertical(RecyclerView recyclerView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
 

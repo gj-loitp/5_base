@@ -23,10 +23,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
- * Created by LENOVO on 3/27/2018.
+ * Created by loitp on 3/27/2018.
  */
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
@@ -172,7 +173,15 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         }
         String currentTime = LDateUtils.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss");
         TextView textView = new TextView(this);
-        textView.setText(currentTime + " : " + msgFromActivity.getMsg());
+
+        if (msgFromActivity.getObject() == null) {
+            LLog.d(TAG, "msgFromActivity.getObject() == null");
+            textView.setText(currentTime + " : " + msgFromActivity.getMsg());
+        } else {
+            LLog.d(TAG, "msgFromActivity.getObject() != null");
+            LUIUtil.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
+        }
+
         LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 8);
         if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);

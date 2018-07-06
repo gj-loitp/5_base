@@ -6,8 +6,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.google.firebase.auth.UserInfo;
+
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.restapi.livestar.corev3.api.model.v3.roomgetbycategory.User;
 import vn.loitp.views.ldebugview.ComunicateDebug;
 import vn.loitp.views.ldebugview.LDebug;
 
@@ -17,6 +21,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     private Button btSendD;
     private Button btSendI;
     private Button btSendE;
+    private Button btSendObjectD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +31,13 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
         btSendD = (Button) findViewById(R.id.bt_send_d);
         btSendI = (Button) findViewById(R.id.bt_send_i);
         btSendE = (Button) findViewById(R.id.bt_send_e);
+        btSendObjectD = (Button) findViewById(R.id.bt_send_object_d);
         btStart.setOnClickListener(this);
         btStop.setOnClickListener(this);
         btSendD.setOnClickListener(this);
         btSendI.setOnClickListener(this);
         btSendE.setOnClickListener(this);
+        btSendObjectD.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +70,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 btSendD.setEnabled(true);
                 btSendI.setEnabled(true);
                 btSendE.setEnabled(true);
+                btSendObjectD.setEnabled(true);
                 break;
             case R.id.bt_stop:
                 LDebug.stop();
@@ -70,6 +78,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 btSendD.setEnabled(false);
                 btSendI.setEnabled(false);
                 btSendE.setEnabled(false);
+                btSendObjectD.setEnabled(false);
                 break;
             case R.id.bt_send_d:
                 LDebug.log("Sample d: " + System.currentTimeMillis());
@@ -79,6 +88,14 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 break;
             case R.id.bt_send_e:
                 LDebug.log(ComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
+                break;
+            case R.id.bt_send_object_d:
+                User user = new User();
+                user.setAvatar(Constants.URL_IMG);
+                user.setAddress("Address");
+                user.setCover(Constants.URL_IMG_2);
+                user.setEmail("www.muathu@gmail.com");
+                LDebug.log(user);
                 break;
         }
     }

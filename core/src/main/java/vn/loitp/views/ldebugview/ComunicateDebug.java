@@ -13,10 +13,20 @@ public class ComunicateDebug {
         public static int TYPE_I = 1;
         private int type;
         private String msg;
+        private Object object;
 
-        public MsgFromActivity(int type, String msg) {
+        public MsgFromActivity(int type, String msg, Object object) {
             this.type = type;
             this.msg = msg;
+            this.object = object;
+        }
+
+        public Object getObject() {
+            return object;
+        }
+
+        public void setObject(Object object) {
+            this.object = object;
         }
 
         public int getType() {

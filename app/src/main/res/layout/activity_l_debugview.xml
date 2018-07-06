@@ -57,6 +57,13 @@
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:text="Send log e" />
+
+            <Button
+                android:id="@+id/bt_send_object_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Send log d - object" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
