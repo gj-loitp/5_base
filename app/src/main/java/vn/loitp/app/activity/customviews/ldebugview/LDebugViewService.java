@@ -23,7 +23,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LDateUtils;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
@@ -169,12 +168,21 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         return false;
     }
 
-    private void print(String s) {
+    private void print(ComunicateDebug.MsgFromActivity msgFromActivity) {
+        if (msgFromActivity == null) {
+            return;
+        }
         String currentTime = LDateUtils.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss");
         TextView textView = new TextView(this);
-        textView.setText(currentTime + " : " + s);
+        textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 8);
-        textView.setTextColor(Color.WHITE);
+        if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
+            textView.setTextColor(Color.WHITE);
+        } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_E) {
+            textView.setTextColor(Color.RED);
+        } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_I) {
+            textView.setTextColor(Color.GREEN);
+        }
         llRootTv.addView(textView);
         scrollView.post(new Runnable() {
             public void run() {
@@ -196,6 +204,6 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ComunicateDebug.MsgFromActivity msg) {
         //LLog.d(TAG, "onEvent " + msg.getMsg());
-        print(msg.getMsg());
+        print(msg);
     }
 }

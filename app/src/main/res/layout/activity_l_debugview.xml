@@ -38,11 +38,25 @@
                 android:text="Stop" />
 
             <Button
-                android:id="@+id/bt_send"
+                android:id="@+id/bt_send_d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="Send" />
+                android:text="Send log d" />
+
+            <Button
+                android:id="@+id/bt_send_i"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Send log i" />
+
+            <Button
+                android:id="@+id/bt_send_e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Send log e" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

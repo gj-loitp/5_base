@@ -36,6 +36,10 @@ public class LDebug {
     }
 
     public static void log(String log) {
-        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(log));
+        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(ComunicateDebug.MsgFromActivity.TYPE_D, log));
+    }
+
+    public static void log(int type, String log) {
+        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(type, log));
     }
 }
