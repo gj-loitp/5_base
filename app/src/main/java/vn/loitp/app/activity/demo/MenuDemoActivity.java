@@ -19,6 +19,7 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
+import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDemoActivity extends BaseFontActivity implements View.OnClickListener {
@@ -38,8 +39,12 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         if (Constants.IS_DEBUG) {
             findViewById(R.id.bt_gallery_core).setVisibility(View.VISIBLE);
             findViewById(R.id.bt_gallery_core).setOnClickListener(this);
+
+            findViewById(R.id.bt_gallery_core_album).setVisibility(View.VISIBLE);
+            findViewById(R.id.bt_gallery_core_album).setOnClickListener(this);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
+            findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
         }
     }
 
@@ -98,6 +103,12 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumFlickrList);
+                break;
+            case R.id.bt_gallery_core_album:
+                intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
+                //TODO
+                intent.putExtra(Constants.SK_PHOTOSET_ID, "72157669352081793");
+                intent.putExtra(Constants.SK_PHOTOSET_SIZE, "676");
                 break;
         }
         if (intent != null) {

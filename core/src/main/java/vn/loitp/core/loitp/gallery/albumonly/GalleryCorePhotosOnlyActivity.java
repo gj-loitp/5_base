@@ -1,4 +1,4 @@
-package vn.loitp.core.loitp.gallery.photos;
+package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -17,9 +16,10 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.gallery.photos.PhotosAdapter;
+import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -32,7 +32,7 @@ import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
-public class GalleryCorePhotosActivity extends BaseFontActivity {
+public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     private ProgressBar progressBar;
     private TextView tvTitle;
 
@@ -41,12 +41,12 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     private final int PER_PAGE_SIZE = 100;
 
     private boolean isLoading;
-    private PhotosAdapter photosAdapter;
+    private PhotosOnlyAdapter photosOnlyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        RestClient.init(getString(R.string.flickr_URL));
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
 
@@ -92,9 +92,9 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, PhotosAdapter.COLUMN));
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setHasFixedSize(true);
-        photosAdapter = new PhotosAdapter(activity, new PhotosAdapter.Callback() {
+        photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
@@ -110,7 +110,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             }
         });
         //recyclerView.setAdapter(albumAdapter);
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -146,7 +146,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_core_photos;
+        return R.layout.activity_gallery_core_photos_only;
     }
 
     private void photosetsGetPhotos(String photosetID) {
@@ -205,8 +205,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     }
 
     private void updateAllViews() {
-        if (photosAdapter != null) {
-            photosAdapter.notifyDataSetChanged();
+        if (photosOnlyAdapter != null) {
+            photosOnlyAdapter.notifyDataSetChanged();
         }
     }
 }
