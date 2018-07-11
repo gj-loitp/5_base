@@ -773,6 +773,9 @@
             android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity"
             android:screenOrientation="portrait" />
         <activity

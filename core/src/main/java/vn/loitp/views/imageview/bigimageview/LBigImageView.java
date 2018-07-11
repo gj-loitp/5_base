@@ -90,6 +90,8 @@ public class LBigImageView extends RelativeLayout {
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
         });
+
+        bigImageView.getSSIV().setZoomEnabled(false);
     }
 
     public void load(String url) {

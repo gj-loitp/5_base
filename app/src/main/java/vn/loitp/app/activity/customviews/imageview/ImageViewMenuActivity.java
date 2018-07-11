@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity;
+import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity;
 import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity;
@@ -38,6 +39,7 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
         findViewById(R.id.bt_scroll_parallax_imageview).setOnClickListener(this);
         findViewById(R.id.bt_panorama_imageview).setOnClickListener(this);
         findViewById(R.id.bt_big_imageview).setOnClickListener(this);
+        findViewById(R.id.bt_big_imageview_with_scroll_view).setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +96,9 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
                 break;
             case R.id.bt_big_imageview:
                 intent = new Intent(activity, BigImageViewActivity.class);
+                break;
+            case R.id.bt_big_imageview_with_scroll_view:
+                intent = new Intent(activity, BigImageViewWithScrollViewActivity.class);
                 break;
         }
         if (intent != null) {

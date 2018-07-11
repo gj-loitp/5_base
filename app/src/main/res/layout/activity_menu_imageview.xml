@@ -31,6 +31,12 @@
                 android:text="Big ImageView" />
 
             <Button
+                android:id="@+id/bt_big_imageview_with_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Big ImageView With ScrollView" />
+
+            <Button
                 android:id="@+id/bt_blur_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
