@@ -24,6 +24,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 
 /**
@@ -82,6 +83,11 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
 
         collapsedView = mFloatingView.findViewById(R.id.collapse_view);
         expandedView = mFloatingView.findViewById(R.id.expanded_container);
+
+        expandedView.getLayoutParams().width = LScreenUtil.getScreenWidth() / 2;
+        expandedView.getLayoutParams().height = LScreenUtil.getScreenHeight() * 2 / 3;
+        expandedView.requestLayout();
+
         llRootTv = (LinearLayout) mFloatingView.findViewById(R.id.ll_root_tv);
         scrollView = (ScrollView) mFloatingView.findViewById(R.id.scroll_view);
 
@@ -182,7 +188,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
             LUIUtil.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 
-        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 8);
+        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
         if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);
         } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_E) {

@@ -40,8 +40,8 @@
         <!--View while view is expanded-->
         <LinearLayout
             android:id="@+id/expanded_container"
-            android:layout_width="@dimen/w_350"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/black_85"
             android:orientation="vertical"
             android:visibility="gone">
