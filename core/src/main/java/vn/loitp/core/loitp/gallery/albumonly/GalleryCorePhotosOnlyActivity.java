@@ -85,9 +85,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
-        recyclerView.setItemAnimator(animator);
+        recyclerView.setItemAnimator(animator);*/
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setHasFixedSize(true);
@@ -125,12 +125,12 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 LSocialUtil.sendEmail(activity);
             }
         });
-        //recyclerView.setAdapter(albumAdapter);
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
+        recyclerView.setAdapter(photosOnlyAdapter);
+        /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
-        recyclerView.setAdapter(scaleAdapter);
+        recyclerView.setAdapter(scaleAdapter);*/
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
 

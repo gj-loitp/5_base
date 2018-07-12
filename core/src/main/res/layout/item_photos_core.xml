@@ -71,5 +71,5 @@
         android:layout_height="@dimen/w_1"
         android:layout_marginLeft="@dimen/margin_55"
         android:layout_marginRight="@dimen/margin_55"
-        android:background="@color/Gray" />
+        android:background="@color/LightGrey" />
 </LinearLayout>
