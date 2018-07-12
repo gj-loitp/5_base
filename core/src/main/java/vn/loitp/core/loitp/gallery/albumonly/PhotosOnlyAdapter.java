@@ -1,8 +1,8 @@
 package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +54,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //viewHolder.rootView.getLayoutParams().height = sizeH;
         //viewHolder.rootView.requestLayout();
 
+        viewHolder.llControl.setVisibility(View.GONE);
+
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
@@ -61,7 +63,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        viewHolder.lBigImageView.setColorProgressBar(Color.WHITE);
+        viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.colorPrimary));
+        viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.colorPrimary));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());
@@ -71,6 +74,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
+                viewHolder.llControl.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -78,6 +82,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
+                viewHolder.llControl.setVisibility(View.VISIBLE);
             }
         });
 
@@ -99,7 +104,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickDownload(photo, position);
                 }
@@ -108,7 +113,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.btShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickShare(photo, position);
                 }
@@ -117,7 +122,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.btReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickReport(photo, position);
                 }
@@ -126,7 +131,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
@@ -144,12 +149,13 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView tvTitle;
-        public final LinearLayout rootView;
+        private TextView tvTitle;
+        private LinearLayout rootView;
         private LBigImageView lBigImageView;
         private ImageView btDownload;
         private ImageView btShare;
         private ImageView btReport;
+        private LinearLayout llControl;
 
         public ViewHolder(View v) {
             super(v);
@@ -159,6 +165,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             btDownload = (ImageView) v.findViewById(R.id.bt_download);
             btShare = (ImageView) v.findViewById(R.id.bt_share);
             btReport = (ImageView) v.findViewById(R.id.bt_report);
+            llControl = (LinearLayout) v.findViewById(R.id.ll_control);
         }
     }
 

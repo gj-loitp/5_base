@@ -2,6 +2,7 @@ package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -47,9 +48,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         PhotosDataCore.getInstance().clearData();
 
         tvTitle = (TextView) findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle);
+        LUIUtil.setTextShadow(tvTitle, Color.WHITE);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
 
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);

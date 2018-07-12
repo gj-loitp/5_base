@@ -13,7 +13,7 @@
         android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/WhiteSmoke">
 
         <!--<ImageView
             android:id="@+id/iv_bkg"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_25"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/txt_20" />
 
         <ProgressBar

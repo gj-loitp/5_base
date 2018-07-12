@@ -156,4 +156,8 @@ public class LBigImageView extends RelativeLayout {
     public void setColorProgressBar(int color) {
         LUIUtil.setColorProgressBar(progressBar, color);
     }
+
+    public void setColorProgressTextView(int color) {
+        tvProgress.setTextColor(color);
+    }
 }
