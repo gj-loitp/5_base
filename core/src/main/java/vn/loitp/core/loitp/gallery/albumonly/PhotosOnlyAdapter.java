@@ -7,17 +7,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.github.piasy.biv.view.BigImageView;
 
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.
@@ -42,7 +41,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        LImageUtil.clear(context, holder.iv);
+        //LImageUtil.clear(context, holder.iv);
     }
 
     @Override
@@ -51,17 +50,24 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //viewHolder.rootView.requestLayout();
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
-        LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar);
+        viewHolder.lBigImageView.setColorProgressBar(Color.WHITE);
+        viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
+        viewHolder.lBigImageView.setZoomEnable(false);
+        viewHolder.lBigImageView.load(photo.getUrlO());
 
-        viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
-        LUIUtil.setTextShadow(viewHolder.tvSize);
+        if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
+            viewHolder.tvTitle.setVisibility(View.INVISIBLE);
+        } else {
+            viewHolder.tvTitle.setVisibility(View.VISIBLE);
+            viewHolder.tvTitle.setText(photo.getTitle());
+            LUIUtil.setTextShadow(viewHolder.tvTitle);
+        }
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,17 +85,6 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 return true;
             }
         });
-
-        if (position == 0) {
-            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (position == getItemCount() - 1) {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-        } else {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        }
     }
 
     @Override
@@ -101,22 +96,15 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final ImageView iv;
-        public final TextView tvSize;
-        public final ProgressBar progressBar;
+        public final TextView tvTitle;
         public final LinearLayout rootView;
-        public final View viewSpaceTop;
-        public final View viewSpaceBottom;
+        private LBigImageView lBigImageView;
 
         public ViewHolder(View v) {
             super(v);
-            iv = (ImageView) v.findViewById(R.id.iv);
-            tvSize = (TextView) v.findViewById(R.id.tv_size);
-            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+            tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
-            viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
-            viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
-            LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+            lBigImageView = (LBigImageView) v.findViewById(R.id.l_big_image_view);
         }
     }
 

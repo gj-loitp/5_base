@@ -5,47 +5,20 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/view_space_top"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_25" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/padding_1"
-        android:paddingLeft="@dimen/padding_2"
-        android:paddingRight="@dimen/padding_2"
-        android:paddingTop="@dimen/padding_1">
+        android:paddingBottom="@dimen/padding_5"
+        android:paddingLeft="@dimen/padding_5"
+        android:paddingRight="@dimen/padding_5"
+        android:paddingTop="@dimen/padding_50"
+        android:singleLine="true"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_14" />
 
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/tv_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/margin_3"
-            android:layout_marginLeft="@dimen/margin_3"
-            android:singleLine="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_8" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="@dimen/w_30"
-            android:layout_height="@dimen/w_30"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
-
-    <View
-        android:id="@+id/view_space_bottom"
+    <vn.loitp.views.imageview.bigimageview.LBigImageView
+        android:id="@+id/l_big_image_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_50" />
+        android:layout_height="wrap_content" />
 </LinearLayout>
