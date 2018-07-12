@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 
@@ -90,8 +91,14 @@ public class LBigImageView extends RelativeLayout {
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
         });
+    }
 
-        bigImageView.getSSIV().setZoomEnabled(false);
+    public void setZoomEnable(boolean isEnable) {
+        bigImageView.getSSIV().setZoomEnabled(isEnable);
+    }
+
+    public SubsamplingScaleImageView getSSIV() {
+        return bigImageView.getSSIV();
     }
 
     public void load(String url) {
