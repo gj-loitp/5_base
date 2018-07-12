@@ -1,9 +1,7 @@
 package vn.loitp.core.loitp.gallery.albumonly;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,12 +14,8 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.gallery.photos.PhotosAdapter;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -97,16 +91,19 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
+                //do nothing
+
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
+                /*Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(activity);*/
             }
 
             @Override
             public void onLongClick(Photo photo, int pos) {
-                LSocialUtil.share(activity, photo.getUrlO());
+                ////do nothing
+                //LSocialUtil.share(activity, photo.getUrlO());
             }
         });
         //recyclerView.setAdapter(albumAdapter);
