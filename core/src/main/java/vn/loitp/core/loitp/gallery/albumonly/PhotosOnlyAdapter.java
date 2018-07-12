@@ -7,15 +7,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.github.piasy.biv.view.BigImageView;
 
 import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -93,9 +96,37 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 }
             }
         });
+        viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onClickDownload(photo, position);
+                }
+            }
+        });
+        viewHolder.btShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onClickShare(photo, position);
+                }
+            }
+        });
+        viewHolder.btReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onClickReport(photo, position);
+                }
+            }
+        });
         viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
@@ -116,12 +147,18 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         public final TextView tvTitle;
         public final LinearLayout rootView;
         private LBigImageView lBigImageView;
+        private ImageView btDownload;
+        private ImageView btShare;
+        private ImageView btReport;
 
         public ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
             lBigImageView = (LBigImageView) v.findViewById(R.id.l_big_image_view);
+            btDownload = (ImageView) v.findViewById(R.id.bt_download);
+            btShare = (ImageView) v.findViewById(R.id.bt_share);
+            btReport = (ImageView) v.findViewById(R.id.bt_report);
         }
     }
 
@@ -129,6 +166,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         public void onClick(Photo photo, int pos);
 
         public void onLongClick(Photo photo, int pos);
+
+        public void onClickDownload(Photo photo, int pos);
+
+        public void onClickShare(Photo photo, int pos);
+
+        public void onClickReport(Photo photo, int pos);
     }
 
     private Callback callback;

@@ -16,6 +16,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -23,6 +24,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -104,6 +106,22 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             public void onLongClick(Photo photo, int pos) {
                 ////do nothing
                 //LSocialUtil.share(activity, photo.getUrlO());
+            }
+
+            @Override
+            public void onClickDownload(Photo photo, int pos) {
+                //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+                new AsyncTaskDownloadImage(getApplicationContext(), photo.getUrlO()).execute();
+            }
+
+            @Override
+            public void onClickShare(Photo photo, int pos) {
+                LSocialUtil.share(activity, photo.getUrlO());
+            }
+
+            @Override
+            public void onClickReport(Photo photo, int pos) {
+                LSocialUtil.sendEmail(activity);
             }
         });
         //recyclerView.setAdapter(albumAdapter);

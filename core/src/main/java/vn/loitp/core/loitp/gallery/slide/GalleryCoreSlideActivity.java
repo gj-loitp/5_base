@@ -16,20 +16,17 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.viewpager.viewpagertransformers.CubeOutTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
@@ -147,22 +144,21 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         findViewById(R.id.bt_download).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
-                //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
             }
         });
         findViewById(R.id.bt_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 LSocialUtil.share(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
             }
         });
         findViewById(R.id.bt_report).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 LSocialUtil.sendEmail(activity);
             }
         });
