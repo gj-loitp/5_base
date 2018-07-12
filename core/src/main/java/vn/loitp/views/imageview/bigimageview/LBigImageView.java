@@ -80,6 +80,9 @@ public class LBigImageView extends RelativeLayout {
                 //LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
                 tvProgress.setVisibility(GONE);
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                if (callback != null) {
+                    callback.onSuccess(image);
+                }
             }
 
             @Override
@@ -89,8 +92,23 @@ public class LBigImageView extends RelativeLayout {
                 LAnimationUtil.play(tvProgress, Techniques.Pulse);
                 tvProgress.setText("Error");
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                if (callback != null) {
+                    callback.onFail(error);
+                }
             }
         });
+    }
+
+    public interface Callback {
+        public void onSuccess(File image);
+
+        public void onFail(Exception error);
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
     }
 
     public void setZoomEnable(boolean isEnable) {

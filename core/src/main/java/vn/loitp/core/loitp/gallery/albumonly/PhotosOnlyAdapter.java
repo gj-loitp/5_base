@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.github.piasy.biv.view.BigImageView;
 
+import java.io.File;
+
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LUIUtil;
@@ -45,7 +47,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         //viewHolder.rootView.getLayoutParams().height = sizeH;
         //viewHolder.rootView.requestLayout();
 
@@ -60,6 +62,21 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());
+        viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
+            @Override
+            public void onSuccess(File image) {
+                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                viewHolder.lBigImageView.requestLayout();
+            }
+
+            @Override
+            public void onFail(Exception error) {
+                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                viewHolder.lBigImageView.requestLayout();
+            }
+        });
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);
