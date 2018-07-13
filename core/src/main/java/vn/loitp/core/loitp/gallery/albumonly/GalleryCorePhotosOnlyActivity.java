@@ -50,6 +50,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
 
+        final int resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
+        getRootView().setBackgroundResource(resBkgRootView);
+
         String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);

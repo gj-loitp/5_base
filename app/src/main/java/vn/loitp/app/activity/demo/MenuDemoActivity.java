@@ -107,6 +107,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
             case R.id.bt_gallery_core_album:
                 intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
                 //TODO
                 intent.putExtra(Constants.SK_PHOTOSET_ID, "72157669352081793");
                 intent.putExtra(Constants.SK_PHOTOSET_SIZE, "676");

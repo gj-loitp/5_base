@@ -148,4 +148,5 @@ public class Constants {
     public final static String AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE";
 
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
+    public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
 }

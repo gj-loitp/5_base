@@ -38,7 +38,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
     // the default number of comments should be visible
     // on page load.
-    private static final int NUMBER_OF_COMMENTS = 20;
+    private static final int NUMBER_OF_COMMENTS = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
