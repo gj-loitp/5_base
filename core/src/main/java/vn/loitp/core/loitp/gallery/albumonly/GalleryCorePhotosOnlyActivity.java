@@ -65,7 +65,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 2);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
         }
 
         tvTitle = (TextView) findViewById(R.id.tv_title);
