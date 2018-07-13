@@ -6,9 +6,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
@@ -16,9 +19,12 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.core.utilities.statusbar.StatusBarCompat;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
@@ -26,8 +32,7 @@ import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.task.AsyncTaskDownloadImage;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     private ProgressBar progressBar;
@@ -39,6 +44,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
     private boolean isLoading;
     private PhotosOnlyAdapter photosOnlyAdapter;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,21 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         RestClient.init(getString(R.string.flickr_URL));
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
+
+        String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        if (adUnitId == null || adUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.BANNER);
+            adView.setAdUnitId(adUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 2);
+        }
 
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle, Color.WHITE);
@@ -147,7 +168,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        //LLog.d(TAG, "last item");
+                        LLog.d(TAG, "last item");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -229,5 +250,29 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         if (photosOnlyAdapter != null) {
             photosOnlyAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }
