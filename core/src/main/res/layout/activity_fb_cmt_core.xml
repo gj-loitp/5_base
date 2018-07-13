@@ -1,33 +1,43 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+<vn.loitp.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    app:directionMode="top"
+    app:isSwipeFromEdge="false"
+    app:maskAlpha="125"
+    app:swipeBackFactor="0.5">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fitsSystemWindows="true">
 
-        <RelativeLayout
-            android:id="@+id/webview_frame"
+        <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <WebView
-                android:id="@+id/commentsView"
+            <RelativeLayout
+                android:id="@+id/webview_frame"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal" />
+                android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="@dimen/w_50"
-                android:layout_height="@dimen/w_50"
-                android:layout_centerInParent="true" />
+                <WebView
+                    android:id="@+id/commentsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal" />
 
-        </RelativeLayout>
-    </ScrollView>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="@dimen/w_50"
+                    android:layout_height="@dimen/w_50"
+                    android:layout_centerInParent="true" />
 
-</RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</vn.loitp.views.layout.swipeback.SwipeBackLayout>
