@@ -77,7 +77,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
-
+                        viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
                 });
             }
