@@ -18,10 +18,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-
-import com.github.piasy.biv.view.BigImageView;
+import android.widget.RelativeLayout;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -29,11 +27,10 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;
-    private LinearLayout mContainer;
+    private RelativeLayout mContainer;
     private ProgressBar progressBar;
     boolean isLoading;
     private WebView mWebviewPop;
@@ -48,27 +45,15 @@ public class FacebookCommentActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         mWebViewComments = (WebView) findViewById(R.id.commentsView);
-        mContainer = (LinearLayout) findViewById(R.id.webview_frame);
+        mContainer = (RelativeLayout) findViewById(R.id.webview_frame);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
 
-        String urlImg = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL_IMG);
-        LBigImageView lBigImageView = (LBigImageView) findViewById(R.id.l_big_image_view);
-        if (urlImg == null || urlImg.isEmpty()) {
-            lBigImageView.setVisibility(View.GONE);
+        if (Constants.IS_DEBUG) {
+            postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";
         } else {
-            lBigImageView.setVisibility(View.VISIBLE);
-            lBigImageView.setColorProgressBar(ContextCompat.getColor(activity, R.color.colorPrimary));
-            lBigImageView.setColorProgressTextView(ContextCompat.getColor(activity, R.color.colorPrimary));
-            lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
-            lBigImageView.setZoomEnable(false);
-            lBigImageView.load(urlImg);
+            postUrl = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL);
         }
-
-
-        postUrl = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL);
-        //postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
@@ -126,9 +111,14 @@ public class FacebookCommentActivity extends BaseFontActivity {
     private void setLoading(boolean isLoading) {
         this.isLoading = isLoading;
         if (isLoading) {
-            progressBar.setVisibility(View.VISIBLE);
+            LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
         } else {
-            progressBar.setVisibility(View.GONE);
+            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+                @Override
+                public void doAfter(int mls) {
+                    LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+                }
+            });
         }
         invalidateOptionsMenu();
     }
@@ -178,8 +168,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
             mWebviewPop.getSettings().setSupportZoom(false);
             mWebviewPop.getSettings().setBuiltInZoomControls(false);
             mWebviewPop.getSettings().setSupportMultipleWindows(true);
-            mWebviewPop.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
+            mWebviewPop.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             mContainer.addView(mWebviewPop);
             WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
             transport.setWebView(mWebviewPop);

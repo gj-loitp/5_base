@@ -13,42 +13,23 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <ScrollView
-            android:id="@+id/scroll_view"
+        <RelativeLayout
+            android:id="@+id/webview_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbarSize="@dimen/w_3"
-            android:scrollbarThumbVertical="@drawable/scroll_thumb"
-            android:scrollbarTrackHorizontal="@drawable/scroll_track"
-            android:scrollbars="vertical">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/webview_frame"
+            <WebView
+                android:id="@+id/commentsView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent" />
 
-                <vn.loitp.views.imageview.bigimageview.LBigImageView
-                    android:id="@+id/l_big_image_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/w_350" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="@dimen/w_50"
-                    android:layout_height="@dimen/w_50"
-                    android:layout_gravity="center_horizontal" />
-
-                <WebView
-                    android:id="@+id/commentsView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_55" />
-
-            </LinearLayout>
-        </ScrollView>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/w_50"
+                android:layout_height="@dimen/w_50"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
 
     </RelativeLayout>
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>

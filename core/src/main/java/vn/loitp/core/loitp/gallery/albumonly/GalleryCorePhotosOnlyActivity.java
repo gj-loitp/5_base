@@ -145,7 +145,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), photo.getUrlO());
+                LSocialUtil.openFacebookComment(activity, photo.getUrlO());
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);
