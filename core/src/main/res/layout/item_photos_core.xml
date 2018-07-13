@@ -25,7 +25,7 @@
         <vn.loitp.views.imageview.bigimageview.LBigImageView
             android:id="@+id/l_big_image_view"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/w_350" />
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:id="@+id/ll_control"
