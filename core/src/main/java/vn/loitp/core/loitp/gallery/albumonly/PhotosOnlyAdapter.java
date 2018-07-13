@@ -128,6 +128,15 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 }
             }
         });
+        viewHolder.btCmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Flash);
+                if (callback != null) {
+                    callback.onClickCmt(photo, position);
+                }
+            }
+        });
         viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -155,6 +164,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         private ImageView btDownload;
         private ImageView btShare;
         private ImageView btReport;
+        private ImageView btCmt;
         private LinearLayout llControl;
 
         public ViewHolder(View v) {
@@ -165,6 +175,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             btDownload = (ImageView) v.findViewById(R.id.bt_download);
             btShare = (ImageView) v.findViewById(R.id.bt_share);
             btReport = (ImageView) v.findViewById(R.id.bt_report);
+            btCmt = (ImageView) v.findViewById(R.id.bt_cmt);
             llControl = (LinearLayout) v.findViewById(R.id.ll_control);
         }
     }
@@ -179,6 +190,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         public void onClickShare(Photo photo, int pos);
 
         public void onClickReport(Photo photo, int pos);
+
+        public void onClickCmt(Photo photo, int pos);
     }
 
     private Callback callback;

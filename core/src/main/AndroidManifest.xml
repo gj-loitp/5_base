@@ -58,7 +58,8 @@
 
         <activity
             android:name="vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
     </application>
 
 </manifest>

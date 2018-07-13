@@ -40,7 +40,6 @@
                 android:id="@+id/bt_report"
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
-                android:layout_marginRight="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ladybird" />
 
@@ -48,8 +47,17 @@
                 android:id="@+id/bt_download"
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
+                android:layout_marginLeft="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/bt_cmt"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
+                android:layout_marginLeft="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/l_chat_2" />
 
             <ImageView
                 android:id="@+id/bt_share"

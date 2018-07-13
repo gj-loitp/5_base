@@ -124,6 +124,11 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             public void onClickReport(Photo photo, int pos) {
                 LSocialUtil.sendEmail(activity);
             }
+
+            @Override
+            public void onClickCmt(Photo photo, int pos) {
+                LSocialUtil.openFacebookComment(activity, photo.getUrlO());
+            }
         });
         recyclerView.setAdapter(photosOnlyAdapter);
         /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
