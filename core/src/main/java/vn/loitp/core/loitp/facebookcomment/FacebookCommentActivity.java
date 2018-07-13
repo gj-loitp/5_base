@@ -18,8 +18,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+
+import com.github.piasy.biv.view.BigImageView;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -27,10 +29,11 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;
-    private RelativeLayout mContainer;
+    private LinearLayout mContainer;
     private ProgressBar progressBar;
     boolean isLoading;
     private WebView mWebviewPop;
@@ -45,10 +48,24 @@ public class FacebookCommentActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         mWebViewComments = (WebView) findViewById(R.id.commentsView);
-        mContainer = (RelativeLayout) findViewById(R.id.webview_frame);
+        mContainer = (LinearLayout) findViewById(R.id.webview_frame);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
+
+        String urlImg = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL_IMG);
+        LBigImageView lBigImageView = (LBigImageView) findViewById(R.id.l_big_image_view);
+        if (urlImg == null || urlImg.isEmpty()) {
+            lBigImageView.setVisibility(View.GONE);
+        } else {
+            lBigImageView.setVisibility(View.VISIBLE);
+            lBigImageView.setColorProgressBar(ContextCompat.getColor(activity, R.color.colorPrimary));
+            lBigImageView.setColorProgressTextView(ContextCompat.getColor(activity, R.color.colorPrimary));
+            lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
+            lBigImageView.setZoomEnable(false);
+            lBigImageView.load(urlImg);
+        }
+
 
         postUrl = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL);
         //postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";

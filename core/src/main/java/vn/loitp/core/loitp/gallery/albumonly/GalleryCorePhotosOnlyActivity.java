@@ -73,9 +73,6 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.White));
 
-        //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
-
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
         LLog.d(TAG, "photosetID " + photosetID);
@@ -148,7 +145,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO());
+                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), photo.getUrlO());
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);

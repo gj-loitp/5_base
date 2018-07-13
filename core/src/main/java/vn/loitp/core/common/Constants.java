@@ -69,6 +69,7 @@ public class Constants {
     public final static String ASSET_FILE_GIFT = "img/ic_gift.png";
     public final static String FONT_PATH = "fonts/baisau.TTF";
     public final static String FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL";
+    public final static String FACEBOOK_COMMENT_URL_IMG = "FACEBOOK_COMMENT_URL_IMG";
 
     public final static String FLICKR_ID_AVATAR = "72157673422184280";
     public final static String FLICKR_ID_BABY = "72157679720928116";
