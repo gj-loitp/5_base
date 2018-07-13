@@ -12,7 +12,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/White"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textColor="@color/Black"
+            android:textColor="@color/White"
             android:textSize="@dimen/txt_14" />
 
         <vn.loitp.views.imageview.bigimageview.LBigImageView
@@ -41,6 +40,7 @@
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
                 android:src="@drawable/ladybird" />
 
             <ImageView
@@ -49,6 +49,7 @@
                 android:layout_height="@dimen/w_40"
                 android:layout_marginLeft="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
                 android:src="@drawable/download" />
 
             <ImageView
@@ -57,6 +58,7 @@
                 android:layout_height="@dimen/w_40"
                 android:layout_marginLeft="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
                 android:src="@drawable/l_chat_2" />
 
             <ImageView
@@ -65,6 +67,7 @@
                 android:layout_height="@dimen/w_40"
                 android:layout_marginLeft="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
                 android:src="@drawable/slideshare" />
 
         </LinearLayout>
@@ -79,5 +82,5 @@
         android:layout_height="@dimen/w_1"
         android:layout_marginLeft="@dimen/margin_55"
         android:layout_marginRight="@dimen/margin_55"
-        android:background="@color/LightGrey" />
+        android:background="@color/WhiteSmoke" />
 </LinearLayout>

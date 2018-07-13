@@ -63,8 +63,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.colorPrimary));
-        viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.colorPrimary));
+        viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
+        viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());

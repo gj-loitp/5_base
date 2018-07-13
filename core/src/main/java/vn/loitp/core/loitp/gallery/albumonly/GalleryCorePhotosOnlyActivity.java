@@ -19,12 +19,9 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.core.utilities.statusbar.StatusBarCompat;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
@@ -71,7 +68,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle, Color.WHITE);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.White));
 
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);

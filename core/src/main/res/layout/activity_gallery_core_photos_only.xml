@@ -13,14 +13,7 @@
         android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/WhiteSmoke">
-
-        <!--<ImageView
-            android:id="@+id/iv_bkg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />-->
+        android:background="@drawable/bkg_gradient_man_of_steel">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -34,15 +27,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/transparent"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <!--<com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/str_b" />-->
-        </LinearLayout>
+            android:orientation="vertical" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -50,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_25"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/White"
             android:textSize="@dimen/txt_20" />
 
         <ProgressBar
