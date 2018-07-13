@@ -24,7 +24,10 @@
                 android:id="@+id/commentsView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/ln_adview" />
+                android:layout_above="@+id/ln_adview"
+                android:scrollbarSize="@dimen/w_3"
+                android:scrollbarThumbVertical="@drawable/scroll_thumb"
+                android:scrollbarTrackHorizontal="@drawable/scroll_track" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
