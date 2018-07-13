@@ -152,4 +152,12 @@ public class LSocialUtil {
         context.startActivity(intent);
         LActivityUtil.tranIn(context);
     }
+
+    public static void openFacebookComment(Context context, String url, String adUnitId) {
+        Intent intent = new Intent(context, FacebookCommentActivity.class);
+        intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url);
+        intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId);
+        context.startActivity(intent);
+        LActivityUtil.tranIn(context);
+    }
 }

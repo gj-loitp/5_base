@@ -53,7 +53,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         final int resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
         getRootView().setBackgroundResource(resBkgRootView);
 
-        String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
@@ -145,7 +145,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO());
+                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), adUnitId);
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);

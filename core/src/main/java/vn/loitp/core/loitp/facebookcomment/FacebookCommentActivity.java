@@ -18,8 +18,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -27,6 +31,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;
@@ -35,7 +40,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
     boolean isLoading;
     private WebView mWebviewPop;
     private String postUrl;
-
+    private AdView adView;
     // the default number of comments should be visible
     // on page load.
     private static final int NUMBER_OF_COMMENTS = 50;
@@ -43,6 +48,21 @@ public class FacebookCommentActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        if (adUnitId == null || adUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.BANNER);
+            adView.setAdUnitId(adUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
+        }
 
         mWebViewComments = (WebView) findViewById(R.id.commentsView);
         mContainer = (RelativeLayout) findViewById(R.id.webview_frame);
@@ -185,5 +205,29 @@ public class FacebookCommentActivity extends BaseFontActivity {
         @Override
         public void onCloseWindow(WebView window) {
         }
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }
