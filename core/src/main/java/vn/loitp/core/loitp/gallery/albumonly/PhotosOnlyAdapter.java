@@ -74,7 +74,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                viewHolder.llControl.setVisibility(View.VISIBLE);
+                LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
+                    @Override
+                    public void doAfter(int mls) {
+
+                    }
+                });
             }
 
             @Override
@@ -82,7 +87,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                viewHolder.llControl.setVisibility(View.VISIBLE);
+                LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
+                    @Override
+                    public void doAfter(int mls) {
+                        viewHolder.llControl.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         });
 
