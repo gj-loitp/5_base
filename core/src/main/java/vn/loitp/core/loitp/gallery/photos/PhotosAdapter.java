@@ -19,7 +19,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 /**
- * Created by yahyabayramoglu on 14/04/15.
+ * Created by loitp on 14/04/15.
  */
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
     private final String TAG = getClass().getSimpleName();
