@@ -6,81 +6,47 @@
     android:orientation="vertical">
 
     <View
+        android:id="@+id/view_space_top"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_80" />
+        android:layout_height="@dimen/w_25" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="@dimen/padding_1"
+        android:paddingLeft="@dimen/padding_2"
+        android:paddingRight="@dimen/padding_2"
+        android:paddingTop="@dimen/padding_1">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin_3"
+            android:layout_marginLeft="@dimen/margin_3"
             android:singleLine="true"
-            android:textColor="@color/White"
-            android:textSize="@dimen/txt_14" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt_8" />
 
-        <vn.loitp.views.imageview.bigimageview.LBigImageView
-            android:id="@+id/l_big_image_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:id="@+id/ll_control"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/padding_3"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/bt_report"
-                android:layout_width="@dimen/w_40"
-                android:layout_height="@dimen/w_40"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_3"
-                android:src="@drawable/ladybird" />
-
-            <ImageView
-                android:id="@+id/bt_download"
-                android:layout_width="@dimen/w_40"
-                android:layout_height="@dimen/w_40"
-                android:layout_marginLeft="@dimen/margin_55"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_3"
-                android:src="@drawable/download" />
-
-            <ImageView
-                android:id="@+id/bt_cmt"
-                android:layout_width="@dimen/w_40"
-                android:layout_height="@dimen/w_40"
-                android:layout_marginLeft="@dimen/margin_55"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_3"
-                android:src="@drawable/l_chat_2" />
-
-            <ImageView
-                android:id="@+id/bt_share"
-                android:layout_width="@dimen/w_40"
-                android:layout_height="@dimen/w_40"
-                android:layout_marginLeft="@dimen/margin_55"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_3"
-                android:src="@drawable/slideshare" />
-
-        </LinearLayout>
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/w_30"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
     <View
+        android:id="@+id/view_space_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_80" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_1"
-        android:layout_marginLeft="@dimen/margin_55"
-        android:layout_marginRight="@dimen/margin_55"
-        android:background="@color/WhiteSmoke" />
+        android:layout_height="@dimen/w_50" />
 </LinearLayout>

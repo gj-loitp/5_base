@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_80" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textSize="@dimen/txt_14" />
+
+        <vn.loitp.views.imageview.bigimageview.LBigImageView
+            android:id="@+id/l_big_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/ll_control"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_3"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/bt_report"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
+                android:src="@drawable/ladybird" />
+
+            <ImageView
+                android:id="@+id/bt_download"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
+                android:layout_marginLeft="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
+                android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/bt_cmt"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
+                android:layout_marginLeft="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
+                android:src="@drawable/l_chat_2" />
+
+            <ImageView
+                android:id="@+id/bt_share"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
+                android:layout_marginLeft="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_3"
+                android:src="@drawable/slideshare" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_80" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:layout_marginLeft="@dimen/margin_55"
+        android:layout_marginRight="@dimen/margin_55"
+        android:background="@color/WhiteSmoke" />
+</LinearLayout>
