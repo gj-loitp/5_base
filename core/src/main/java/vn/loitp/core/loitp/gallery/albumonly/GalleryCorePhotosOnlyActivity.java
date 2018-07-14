@@ -85,7 +85,14 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             return;
         }
         LLog.d(TAG, "photosetID " + photosetID);
-        photosetsGetList();
+
+        photosSize = getIntent().getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
+        LLog.d(TAG, "photosSize " + photosSize);
+        if (photosSize == Constants.NOT_FOUND) {
+            photosetsGetList();
+        } else {
+            init();
+        }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -172,6 +179,22 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         return R.layout.activity_gallery_core_photos_only;
     }
 
+    private void init() {
+        LLog.d(TAG, "init photosSize " + photosSize);
+
+        if (photosSize % PER_PAGE_SIZE == 0) {
+            totalPage = photosSize / PER_PAGE_SIZE;
+        } else {
+            totalPage = photosSize / PER_PAGE_SIZE + 1;
+        }
+
+        currentPage = totalPage;
+        //LLog.d(TAG, "total page " + totalPage);
+        //LLog.d(TAG, "currentPage " + currentPage);
+
+        photosetsGetPhotos(photosetID);
+    }
+
     private void photosetsGetList() {
         LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
         FlickrService service = RestClient.createService(FlickrService.class);
@@ -191,20 +214,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 for (Photoset photoset : wrapperPhotosetGetlist.getPhotosets().getPhotoset()) {
                     if (photoset.getId().equals(photosetID)) {
                         photosSize = Integer.parseInt(photoset.getPhotos());
-                        //photosSize = 676;
-                        LLog.d(TAG, "photosSize " + photosSize);
-
-                        if (photosSize % PER_PAGE_SIZE == 0) {
-                            totalPage = photosSize / PER_PAGE_SIZE;
-                        } else {
-                            totalPage = photosSize / PER_PAGE_SIZE + 1;
-                        }
-
-                        currentPage = totalPage;
-                        //LLog.d(TAG, "total page " + totalPage);
-                        //LLog.d(TAG, "currentPage " + currentPage);
-
-                        photosetsGetPhotos(photosetID);
+                        init();
                         return;
                     }
                 }
@@ -212,6 +222,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
+                LLog.e(TAG, "photosetsGetList onFail " + e.toString());
                 handleException(e);
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
             }
@@ -242,7 +253,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
-                LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
+                LLog.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";

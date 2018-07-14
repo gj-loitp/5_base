@@ -110,6 +110,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
                 //TODO
                 intent.putExtra(Constants.SK_PHOTOSET_ID, "72157669352081793");
+                //intent.putExtra(Constants.SK_PHOTOSET_SIZE, 676);
                 break;
         }
         if (intent != null) {
