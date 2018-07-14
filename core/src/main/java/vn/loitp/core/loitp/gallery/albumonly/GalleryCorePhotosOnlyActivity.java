@@ -24,6 +24,8 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
+import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
+import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
@@ -43,6 +45,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     private boolean isLoading;
     private PhotosOnlyAdapter photosOnlyAdapter;
     private AdView adView;
+
+    private String photosetID;
+    private int photosSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,20 +79,13 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.White));
 
-        final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
-        final int photosSize = 676;
-        LLog.d(TAG, "photosetID " + photosetID);
-        LLog.d(TAG, "photosSize " + photosSize);
-
-        if (photosSize % PER_PAGE_SIZE == 0) {
-            totalPage = photosSize / PER_PAGE_SIZE;
-        } else {
-            totalPage = photosSize / PER_PAGE_SIZE + 1;
+        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        if (photosetID == null || photosetID.isEmpty()) {
+            handleException(new Exception(getString(R.string.err_unknow)));
+            return;
         }
-
-        currentPage = totalPage;
-        //LLog.d(TAG, "total page " + totalPage);
-        //LLog.d(TAG, "currentPage " + currentPage);
+        LLog.d(TAG, "photosetID " + photosetID);
+        photosetsGetList();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -145,8 +143,6 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);
 
-        photosetsGetPhotos(photosetID);
-
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -176,9 +172,55 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         return R.layout.activity_gallery_core_photos_only;
     }
 
+    private void photosetsGetList() {
+        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        FlickrService service = RestClient.createService(FlickrService.class);
+        String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
+        String apiKey = FlickrConst.API_KEY;
+        String userID = FlickrConst.USER_KEY;
+        int page = 1;
+        int perPage = 500;
+        //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
+        String primaryPhotoExtras = "";
+        String format = FlickrConst.FORMAT;
+        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
+        subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
+            @Override
+            public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
+                LLog.d(TAG, "photosetsGetList onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
+                for (Photoset photoset : wrapperPhotosetGetlist.getPhotosets().getPhotoset()) {
+                    if (photoset.getId().equals(photosetID)) {
+                        photosSize = Integer.parseInt(photoset.getPhotos());
+                        //photosSize = 676;
+                        LLog.d(TAG, "photosSize " + photosSize);
+
+                        if (photosSize % PER_PAGE_SIZE == 0) {
+                            totalPage = photosSize / PER_PAGE_SIZE;
+                        } else {
+                            totalPage = photosSize / PER_PAGE_SIZE + 1;
+                        }
+
+                        currentPage = totalPage;
+                        //LLog.d(TAG, "total page " + totalPage);
+                        //LLog.d(TAG, "currentPage " + currentPage);
+
+                        photosetsGetPhotos(photosetID);
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                handleException(e);
+                LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+            }
+        });
+    }
+
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            LLog.d(TAG, "photosetsGetList isLoading true -> return");
             return;
         }
         LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);

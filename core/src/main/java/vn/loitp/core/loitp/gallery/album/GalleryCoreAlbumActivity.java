@@ -23,7 +23,6 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
