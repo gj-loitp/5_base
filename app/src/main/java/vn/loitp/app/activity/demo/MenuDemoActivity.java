@@ -7,7 +7,6 @@ import android.view.View;
 import java.util.ArrayList;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
@@ -17,6 +16,7 @@ import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
 import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity;
@@ -110,7 +110,6 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
                 //TODO
                 intent.putExtra(Constants.SK_PHOTOSET_ID, "72157669352081793");
-                intent.putExtra(Constants.SK_PHOTOSET_SIZE, "676");
                 break;
         }
         if (intent != null) {

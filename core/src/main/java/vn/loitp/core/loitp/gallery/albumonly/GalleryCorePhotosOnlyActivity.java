@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -74,27 +75,14 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.White));
 
         final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
-        final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
+        final int photosSize = 676;
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
 
-        int totalPhotos = 0;
-        try {
-            totalPhotos = Integer.parseInt(photosSize);
-        } catch (Exception e) {
-            showDialogError(getString(R.string.err_unknow));
-            return;
-        }
-
-        if (totalPhotos == 0) {
-            showDialogError(getString(R.string.err_unknow));
-            return;
-        }
-
-        if (totalPhotos % PER_PAGE_SIZE == 0) {
-            totalPage = totalPhotos / PER_PAGE_SIZE;
+        if (photosSize % PER_PAGE_SIZE == 0) {
+            totalPage = photosSize / PER_PAGE_SIZE;
         } else {
-            totalPage = totalPhotos / PER_PAGE_SIZE + 1;
+            totalPage = photosSize / PER_PAGE_SIZE + 1;
         }
 
         currentPage = totalPage;
@@ -212,8 +200,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
-
+                LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
@@ -229,7 +216,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "onFail " + e.toString());
+                LLog.e(TAG, "photosetsGetPhotos onFail " + e.toString());
                 handleException(e);
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
                 isLoading = true;
