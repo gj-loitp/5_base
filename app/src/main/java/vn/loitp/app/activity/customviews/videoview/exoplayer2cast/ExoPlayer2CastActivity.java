@@ -4,13 +4,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.graphics.ColorUtils;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.MediaRouteButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -25,9 +25,12 @@ import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.gms.cast.framework.CastButtonFactory;
 import com.google.android.gms.cast.framework.CastContext;
+import com.google.android.gms.cast.framework.CastState;
+import com.google.android.gms.cast.framework.CastStateListener;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 
 public class ExoPlayer2CastActivity extends BaseFontActivity implements OnClickListener, PlayerManager.QueuePositionListener {
 
@@ -37,11 +40,33 @@ public class ExoPlayer2CastActivity extends BaseFontActivity implements OnClickL
     private RecyclerView mediaQueueList;
     private MediaQueueListAdapter mediaQueueListAdapter;
     private CastContext castContext;
+    private MediaRouteButton mMediaRouteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);// Getting the cast context later than onStart can cause device discovery not to take place.
+
+        mMediaRouteButton = (MediaRouteButton) findViewById(R.id.media_route_button);
+        CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), mMediaRouteButton);
+
         castContext = CastContext.getSharedInstance(this);
+
+        if (castContext.getCastState() != CastState.NO_DEVICES_AVAILABLE)
+            mMediaRouteButton.setVisibility(View.VISIBLE);
+
+        castContext.addCastStateListener(new CastStateListener() {
+            @Override
+            public void onCastStateChanged(int state) {
+                LLog.d(TAG, "onCastStateChanged " + state);
+                if (state == CastState.NO_DEVICES_AVAILABLE)
+                    mMediaRouteButton.setVisibility(View.GONE);
+                else {
+                    if (mMediaRouteButton.getVisibility() == View.GONE)
+                        mMediaRouteButton.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
 
         localPlayerView = findViewById(R.id.local_player_view);
         localPlayerView.requestFocus();
@@ -73,13 +98,13 @@ public class ExoPlayer2CastActivity extends BaseFontActivity implements OnClickL
         return R.layout.activity_exoplayer2_cast;
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_exo_player2_cast, menu);
         CastButtonFactory.setUpMediaRouteButton(this, menu, R.id.media_route_menu_item);
         return true;
-    }
+    }*/
 
     @Override
     public void onResume() {

@@ -1,11 +1,12 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer2cast;
 
 /**
- * Created by LENOVO on 7/18/2018.
+ * Created by loitp on 7/18/2018.
  */
 
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.gms.cast.MediaInfo;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -44,8 +45,8 @@ import java.util.List;
         public final String mimeType;
 
         /**
-         * @param uri See {@link #uri}.
-         * @param name See {@link #name}.
+         * @param uri      See {@link #uri}.
+         * @param name     See {@link #name}.
          * @param mimeType See {@link #mimeType}.
          */
         public Sample(String uri, String name, String mimeType) {
@@ -70,12 +71,16 @@ import java.util.List;
                 + "hls/TearsOfSteel.m3u8", "Tears of Steel (HLS)", MIME_TYPE_HLS));
         samples.add(new Sample("https://html5demos.com/assets/dizzy.mp4", "Dizzy (MP4)",
                 MIME_TYPE_VIDEO_MP4));
-
-
+        /*samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
+                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
+        samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
+                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
+        samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
+                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));*/
         SAMPLES = Collections.unmodifiableList(samples);
-
     }
 
-    private DemoUtil() {}
+    private DemoUtil() {
+    }
 
 }
