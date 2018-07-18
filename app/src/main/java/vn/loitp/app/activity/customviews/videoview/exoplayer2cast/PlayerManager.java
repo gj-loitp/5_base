@@ -8,6 +8,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.KeyEvent;
 import android.view.View;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -37,6 +38,7 @@ import com.google.android.gms.cast.MediaInfo;
 import com.google.android.gms.cast.MediaMetadata;
 import com.google.android.gms.cast.MediaQueueItem;
 import com.google.android.gms.cast.framework.CastContext;
+
 import java.util.ArrayList;
 
 /**
@@ -59,8 +61,7 @@ import java.util.ArrayList;
 
     private static final String USER_AGENT = "ExoCastDemoPlayer";
     private static final DefaultBandwidthMeter BANDWIDTH_METER = new DefaultBandwidthMeter();
-    private static final DefaultHttpDataSourceFactory DATA_SOURCE_FACTORY =
-            new DefaultHttpDataSourceFactory(USER_AGENT, BANDWIDTH_METER);
+    private static final DefaultHttpDataSourceFactory DATA_SOURCE_FACTORY = new DefaultHttpDataSourceFactory(USER_AGENT, BANDWIDTH_METER);
 
     private final PlayerView localPlayerView;
     private final PlayerControlView castControlView;
@@ -76,10 +77,10 @@ import java.util.ArrayList;
 
     /**
      * @param queuePositionListener A {@link QueuePositionListener} for queue position changes.
-     * @param localPlayerView The {@link PlayerView} for local playback.
-     * @param castControlView The {@link PlayerControlView} to control remote playback.
-     * @param context A {@link Context}.
-     * @param castContext The {@link CastContext}.
+     * @param localPlayerView       The {@link PlayerView} for local playback.
+     * @param castControlView       The {@link PlayerControlView} to control remote playback.
+     * @param context               A {@link Context}.
+     * @param castContext           The {@link CastContext}.
      */
     public static PlayerManager createPlayerManager(
             QueuePositionListener queuePositionListener,
@@ -87,9 +88,7 @@ import java.util.ArrayList;
             PlayerControlView castControlView,
             Context context,
             CastContext castContext) {
-        PlayerManager playerManager =
-                new PlayerManager(
-                        queuePositionListener, localPlayerView, castControlView, context, castContext);
+        PlayerManager playerManager = new PlayerManager(queuePositionListener, localPlayerView, castControlView, context, castContext);
         playerManager.init();
         return playerManager;
     }
@@ -138,7 +137,6 @@ import java.util.ArrayList;
 
     /**
      * Appends {@code sample} to the media queue.
-     *
      */
     public void addItem(DemoUtil.Sample sample) {
         mediaQueue.add(sample);
@@ -197,7 +195,7 @@ import java.util.ArrayList;
      * Moves an item within the queue.
      *
      * @param fromIndex The index of the item to move.
-     * @param toIndex The target index of the item in the queue.
+     * @param toIndex   The target index of the item in the queue.
      * @return Whether the item move was successful.
      */
     public boolean moveItem(int fromIndex, int toIndex) {
@@ -357,8 +355,8 @@ import java.util.ArrayList;
     /**
      * Starts playback of the item at the given position.
      *
-     * @param itemIndex The index of the item to play.
-     * @param positionMs The position at which playback should start.
+     * @param itemIndex     The index of the item to play.
+     * @param positionMs    The position at which playback should start.
      * @param playWhenReady Whether the player should proceed when ready to do so.
      */
     private void setCurrentItem(int itemIndex, long positionMs, boolean playWhenReady) {

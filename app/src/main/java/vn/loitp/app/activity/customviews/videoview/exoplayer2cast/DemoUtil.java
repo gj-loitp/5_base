@@ -65,18 +65,20 @@ import java.util.List;
     static {
         // App samples.
         ArrayList<Sample> samples = new ArrayList<>();
-        samples.add(new Sample("https://storage.googleapis.com/wvmedia/clear/h264/tears/tears.mpd",
+        /*samples.add(new Sample("https://storage.googleapis.com/wvmedia/clear/h264/tears/tears.mpd",
                 "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
         samples.add(new Sample("https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/"
                 + "hls/TearsOfSteel.m3u8", "Tears of Steel (HLS)", MIME_TYPE_HLS));
         samples.add(new Sample("https://html5demos.com/assets/dizzy.mp4", "Dizzy (MP4)",
-                MIME_TYPE_VIDEO_MP4));
-        /*samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
-                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
+                MIME_TYPE_VIDEO_MP4));*/
+
         samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
                 "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
         samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
-                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));*/
+                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
+        samples.add(new Sample("https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd",
+                "DASH (clear,MP4,H264)", MIME_TYPE_DASH));
+
         SAMPLES = Collections.unmodifiableList(samples);
     }
 
