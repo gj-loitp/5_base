@@ -67,7 +67,6 @@ public class ExoPlayer2CastActivity extends BaseFontActivity implements OnClickL
             }
         });
 
-
         localPlayerView = findViewById(R.id.local_player_view);
         localPlayerView.requestFocus();
 
