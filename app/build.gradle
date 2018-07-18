@@ -120,17 +120,29 @@ dependencies {
 
     //database
     implementation 'com.firebaseui:firebase-ui-database:4.0.0'
-    implementation 'com.google.firebase:firebase-auth:16.0.1'
+    //implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
     // Needed to fix a dependency conflict with FirebaseUI'
     implementation 'android.arch.core:runtime:1.1.1'
 
     //invites
-    implementation 'com.google.firebase:firebase-invites:16.0.0'
+    implementation 'com.google.firebase:firebase-invites:16.0.1'
 
     /*fcm*/
     //compile 'com.google.android.gms:play-services:12.0.1'
-    compile 'com.google.firebase:firebase-messaging:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
+/*
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+
+    }
+}*/

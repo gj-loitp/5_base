@@ -205,4 +205,6 @@ Likewise may someone love you next.
     <string name="ice_flakes_with_touch">Falling ice flakes with touch</string>
     <string name="ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="num_confetti_desc">Active confetti count: %1$d</string>
+    <string name="media_route_menu_title">Cast</string>
+    <string name="sample_list_dialog_title">Add samples</string>
 </resources>

@@ -75,15 +75,29 @@ dependencies {
     compile 'com.facebook.fresco:fresco:1.1.0'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
+
+    //google service https://developers.google.com/android/guides/setup
     compile 'com.google.android.gms:play-services-plus:15.0.1'
+    //compile 'com.google.android.gms:play-services-cast:15.0.1'
+    compile 'com.google.android.gms:play-services-cast-framework:15.0.1'
     compile 'com.google.android.gms:play-services-ads:15.0.1'
     compile 'com.google.android.gms:play-services-location:15.0.1'
+
     compile 'com.nineoldandroids:library:2.4.0'//for draggable view
+
     //exoplayer
+    /*compile 'com.google.android.exoplayer:exoplayer:2.7.3'
+    compile 'com.google.android.exoplayer:extension-ima:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-dash:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-ui:2.7.3'*/
+
     compile 'com.google.android.exoplayer:exoplayer:2.7.3'
     compile 'com.google.android.exoplayer:extension-ima:2.7.3'
     compile 'com.google.android.exoplayer:exoplayer-dash:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-hls:2.7.3'
+    compile 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.7.3'
     compile 'com.google.android.exoplayer:exoplayer-ui:2.7.3'
+    compile 'com.google.android.exoplayer:extension-cast:2.7.3'
 
     //https://github.com/rubensousa/PreviewSeekBar
     compile 'com.github.rubensousa:previewseekbar:1.2'

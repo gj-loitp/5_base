@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity;
+import vn.loitp.app.activity.customviews.videoview.exoplayer2cast.ExoPlayer2CastActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel.ExoPlayer2WithDraggablePanelActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity;
@@ -20,6 +20,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPla
 import vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity;
 import vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.views.LToast;
 
@@ -40,6 +41,7 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         findViewById(R.id.bt_exo_player2_from_gg).setOnClickListener(this);
         findViewById(R.id.bt_exo_player2_from_gg_ima).setOnClickListener(this);
         findViewById(R.id.bt_uiza_video_ima).setOnClickListener(this);
+        findViewById(R.id.bt_exoplayer2_cast).setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +68,9 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
                 break;
             case R.id.bt_exoplayer2:
                 intent = new Intent(activity, ExoPlayer2Activity.class);
+                break;
+            case R.id.bt_exoplayer2_cast:
+                intent = new Intent(activity, ExoPlayer2CastActivity.class);
                 break;
             case R.id.bt_exoplayer2_with_dragpanel:
                 intent = new Intent(activity, ExoPlayer2WithDraggablePanelActivity.class);
