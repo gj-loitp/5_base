@@ -113,7 +113,6 @@ dependencies {
     // Facebook Android SDK (only required for Facebook Login)
     // Used in FacebookLoginActivity.
     implementation 'com.facebook.android:facebook-login:4.32.0'
-    implementation 'com.android.support:customtabs:27.1.1'
 
     //remote config
     implementation 'com.google.firebase:firebase-config:16.0.0'
@@ -134,15 +133,3 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
-/*
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion '27.1.1'
-            }
-        }
-
-    }
-}*/
