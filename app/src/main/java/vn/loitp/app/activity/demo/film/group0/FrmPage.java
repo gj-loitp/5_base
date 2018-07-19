@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.film;
+package vn.loitp.app.activity.demo.film.group0;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,36 +8,33 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.VPPhoto;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmPhoto extends BaseFragment {
+public class FrmPage extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
+    public static final String BUNDLE_PAGE = "BUNDLE_PAGE";
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        LLog.d(TAG, "onViewCreated");
         super.onViewCreated(view, savedInstanceState);
         TextView tv = (TextView) frmRootView.findViewById(R.id.tv);
         RelativeLayout bkg = (RelativeLayout) frmRootView.findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
-            VPPhoto vpPhoto = (VPPhoto) bundle.getSerializable("vpphoto");
-            LLog.d(TAG, "getColor:" + vpPhoto.getColor());
-            if (vpPhoto != null) {
-                bkg.setBackgroundColor(vpPhoto.getColor());
-                tv.setText(vpPhoto.getString());
+            Page page = (Page) bundle.getSerializable(BUNDLE_PAGE);
+            if (page != null) {
+                bkg.setBackgroundColor(page.getColor());
+                tv.setText(page.getName());
             }
         }
     }
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.item_photo;
+        return R.layout.item_page;
     }
 }
