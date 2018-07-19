@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
+import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
 import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
@@ -36,6 +37,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_floating_widget).setOnClickListener(this);
         findViewById(R.id.bt_floating_video).setOnClickListener(this);
         findViewById(R.id.bt_firebase).setOnClickListener(this);
+        findViewById(R.id.bt_film).setOnClickListener(this);
         if (Constants.IS_DEBUG) {
             findViewById(R.id.bt_gallery_core).setVisibility(View.VISIBLE);
             findViewById(R.id.bt_gallery_core).setOnClickListener(this);
@@ -93,6 +95,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_firebase:
                 intent = new Intent(activity, MenuFirebaseActivity.class);
+                break;
+            case R.id.bt_film:
+                intent = new Intent(activity, FilmDemoActivity.class);
                 break;
             case R.id.bt_gallery_core:
                 intent = new Intent(activity, GalleryCoreSplashActivity.class);

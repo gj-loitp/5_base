@@ -843,6 +843,9 @@
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
         <!--STOP EXO PLAYER 2 CAST-->
+        <activity
+            android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
