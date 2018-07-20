@@ -6,7 +6,9 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_control"
+        android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/ll_base_view"
@@ -15,6 +17,20 @@
             android:orientation="vertical">
 
         </LinearLayout>
+
     </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/bt_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+    </LinearLayout>
 </RelativeLayout>
 
