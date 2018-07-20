@@ -112,8 +112,13 @@ public class VGViewPager extends RelativeLayout {
         adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        //adapter.notifyDataSetChanged();
-        //invalidate();
+        /*postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adapter.notifyDataSetChanged();
+                invalidate();
+            }
+        }, 500);*/
         LLog.d(TAG, "init done pageArrayList.size: " + pageArrayList.size());
     }
 
@@ -125,7 +130,8 @@ public class VGViewPager extends RelativeLayout {
 
         @Override
         public Fragment getItem(int position) {
-            LLog.d(TAG, "getItem position: " + position);
+            //LLog.d(TAG, "getItem position: " + position);
+            LLog.d(TAG, "getItem: " + pageArrayList.get(position).getColor());
             Bundle bundle = new Bundle();
             bundle.putSerializable(FrmPage.BUNDLE_PAGE, pageArrayList.get(position));
             FrmPage fragment = new FrmPage();
