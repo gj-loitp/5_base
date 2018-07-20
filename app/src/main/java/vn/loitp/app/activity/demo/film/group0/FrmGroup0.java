@@ -16,6 +16,9 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.LToast;
+import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -23,7 +26,7 @@ import vn.loitp.core.utilities.LStoreUtil;
 
 public class FrmGroup0 extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
-    private ViewPager viewPager;
+    private SwipeOutViewPager viewPager;
     private ViewPagerAdapter adapter;
 
     private List<Page> pageArrayList = new ArrayList<>();
@@ -31,7 +34,19 @@ public class FrmGroup0 extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager = (ViewPager) frmRootView.findViewById(R.id.viewpager);
+        viewPager = (SwipeOutViewPager) frmRootView.findViewById(R.id.vp);
+        viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
+            @Override
+            public void onSwipeOutAtStart() {
+                LToast.show(getActivity(), "onSwipeOutAtStart");
+            }
+
+            @Override
+            public void onSwipeOutAtEnd() {
+                LToast.show(getActivity(), "onSwipeOutAtEnd");
+            }
+        });
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         //5<=max<=10
         int max = LDeviceUtil.getRandomNumber(5) + 5;
