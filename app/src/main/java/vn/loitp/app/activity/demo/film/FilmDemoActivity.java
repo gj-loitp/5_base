@@ -12,6 +12,7 @@ import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal.VGReVHorizontal;
+import vn.loitp.app.activity.demo.film.grouprecyclerviewvertical.VGReVVertical;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
@@ -44,6 +45,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_add_vgviewpager).setOnClickListener(this);
         findViewById(R.id.bt_add_dummy_textview).setOnClickListener(this);
         findViewById(R.id.bt_add_vgrev_horizontal).setOnClickListener(this);
+        findViewById(R.id.bt_add_vgrev_vertical).setOnClickListener(this);
 
         nsv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -95,6 +97,9 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_add_vgrev_horizontal:
                 addVGReVHorizontal();
+                break;
+            case R.id.bt_add_vgrev_vertical:
+                addVGReVvertical();
                 break;
         }
     }
@@ -148,6 +153,18 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         });
         addView(vgReVHorizontal);
     }
+
+    private void addVGReVvertical() {
+        VGReVVertical vgReVVertical = new VGReVVertical(activity);
+        vgReVVertical.setCallback(new VGReVVertical.Callback() {
+            @Override
+            public void onClickRemove() {
+                removeView(vgReVVertical);
+            }
+        });
+        addView(vgReVVertical);
+    }
+
 
     //for utils
     private void clearAllViews() {

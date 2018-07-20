@@ -64,6 +64,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add VGReVHorizontal " />
+
+                    <Button
+                        android:id="@+id/bt_add_vgrev_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add VGReVVertical" />
                 </LinearLayout>
             </HorizontalScrollView>
         </RelativeLayout>
