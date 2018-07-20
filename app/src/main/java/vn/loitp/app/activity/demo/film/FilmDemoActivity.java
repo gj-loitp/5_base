@@ -61,6 +61,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                 add();
                 break;
             case R.id.bt_remove_group_0:
+                //remove with TAG0
                 removeFragmentByTag("TAG0");
                 break;
         }
@@ -82,7 +83,15 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void add() {
-        LScreenUtil.addFragment(activity, llBaseView.getId(), new FrmGroup0(), genTagFrm(), false);
+        FrmGroup0 frmGroup0 = new FrmGroup0();
+        frmGroup0.setFragmentTag(genTagFrm());
+        frmGroup0.setCallback(new FrmGroup0.Callback() {
+            @Override
+            public void onClickRemove(String fragmentTag) {
+                removeFragmentByTag(fragmentTag);
+            }
+        });
+        LScreenUtil.addFragment(activity, llBaseView.getId(), frmGroup0, frmGroup0.getFragmentTag(), false);
     }
 
     private void removeFragmentByTag(String tag) {

@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
@@ -26,14 +25,36 @@ import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 public class FrmGroup0 extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
+    private TextView tv;
     private SwipeOutViewPager viewPager;
     private ViewPagerAdapter adapter;
 
     private List<Page> pageArrayList = new ArrayList<>();
+    private String FRAGMENT_TAG;
+
+    public void setFragmentTag(String frragmentTag) {
+        FRAGMENT_TAG = frragmentTag;
+    }
+
+    public String getFragmentTag() {
+        return FRAGMENT_TAG;
+    }
+
+    public interface Callback {
+        public void onClickRemove(String fragmentTag);
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        tv = (TextView) frmRootView.findViewById(R.id.tv);
+        tv.setText(FRAGMENT_TAG);
         viewPager = (SwipeOutViewPager) frmRootView.findViewById(R.id.vp);
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
@@ -64,6 +85,15 @@ public class FrmGroup0 extends BaseFragment {
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
+
+        frmRootView.findViewById(R.id.bt_remove).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClickRemove(FRAGMENT_TAG);
+                }
+            }
+        });
     }
 
     @Override

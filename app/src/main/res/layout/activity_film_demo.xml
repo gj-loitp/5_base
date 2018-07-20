@@ -56,7 +56,7 @@
                         android:id="@+id/bt_remove_group_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Remove group0" />
+                        android:text="Remove group0 with TAG0" />
                 </LinearLayout>
             </HorizontalScrollView>
         </RelativeLayout>
