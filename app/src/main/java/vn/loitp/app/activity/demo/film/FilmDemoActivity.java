@@ -1,19 +1,16 @@
 package vn.loitp.app.activity.demo.film;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.group0.FrmGroup0;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.FragmentUtils;
 import vn.loitp.views.LToast;
 
 public class FilmDemoActivity extends BaseFontActivity implements View.OnClickListener {
@@ -46,7 +43,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override
@@ -64,7 +61,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                 add();
                 break;
             case R.id.bt_remove_group_0:
-                remove(0);
+                removeFragmentByTag("TAG0");
                 break;
         }
     }
@@ -81,26 +78,21 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void clearAllFrm() {
-        FragmentUtils.removeAllFragments(getSupportFragmentManager());
+        LScreenUtil.removeAllFragments(activity);
     }
 
     private void add() {
-        FragmentUtils.addFragment(getSupportFragmentManager(), new FrmGroup0(), llBaseView.getId(), false, false);
+        LScreenUtil.addFragment(activity, llBaseView.getId(), new FrmGroup0(), genTagFrm(), false);
     }
 
-    private void remove(int position) {
-        Fragment fragment = getFrmAtPosition(position);
-        if (fragment != null) {
-            FragmentUtils.removeFragment(fragment);
-        }
+    private void removeFragmentByTag(String tag) {
+        LScreenUtil.removeFragmentByTag(activity, tag);
     }
 
-    private Fragment getFrmAtPosition(int position) {
-        List<Fragment> fragmentList = FragmentUtils.getFragments(getSupportFragmentManager());
-        if (fragmentList == null || fragmentList.isEmpty() || position < 0 || position > (fragmentList.size() - 1)) {
-            return null;
-        }
-        LLog.d(TAG, "fragmentList size: " + fragmentList.size());
-        return fragmentList.get(position);
+    private String genTagFrm() {
+        int childCount = llBaseView.getChildCount();
+        String tag = "TAG" + childCount;
+        LLog.d(TAG, "genTagFrm " + tag);
+        return tag;
     }
 }

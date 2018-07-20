@@ -22,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.utils.util.FragmentUtils;
 
 /**
  * File created on 8/31/2017.
@@ -342,6 +343,30 @@ public class LScreenUtil {
             transaction.addToBackStack(null);
         }
         transaction.commit();
+    }
+
+    public static void addFragment(Activity activity, int containerFrameLayoutIdRes, Fragment fragment, String tag, boolean isAddToBackStack) {
+        FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+        transaction.add(containerFrameLayoutIdRes, fragment, tag);
+        if (isAddToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.commit();
+    }
+
+    public static Fragment findFragmentByTag(Activity activity, String tag) {
+        return ((BaseActivity) activity).getSupportFragmentManager().findFragmentByTag(tag);
+    }
+
+    public static void removeFragmentByTag(Activity activity, String tag) {
+        Fragment fragment = findFragmentByTag(activity, tag);
+        if (fragment != null) {
+            ((BaseActivity) activity).getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+        }
+    }
+
+    public static void removeAllFragments(Activity activity) {
+        FragmentUtils.removeAllFragments(((BaseActivity) activity).getSupportFragmentManager());
     }
 
     public static boolean isFullScreen(Context context) {
