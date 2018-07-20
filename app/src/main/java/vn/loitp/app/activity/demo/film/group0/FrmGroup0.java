@@ -46,7 +46,7 @@ public class FrmGroup0 extends BaseFragment {
                 LToast.show(getActivity(), "onSwipeOutAtEnd");
             }
         });
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        //LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         //5<=max<=10
         int max = LDeviceUtil.getRandomNumber(5) + 5;
