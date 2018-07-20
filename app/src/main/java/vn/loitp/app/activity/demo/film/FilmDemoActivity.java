@@ -51,19 +51,20 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         nsv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY) {
+                /*if (scrollY > oldScrollY) {
                     LLog.d(TAG, "onScrollChange Scroll DOWN");
                 }
                 if (scrollY < oldScrollY) {
                     LLog.d(TAG, "onScrollChange Scroll UP");
-                }
-
+                }*/
                 if (scrollY == 0) {
                     LLog.d(TAG, "onScrollChange TOP SCROLL");
+                    LToast.show(activity, "TOP SCROLL");
                 }
 
                 if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
                     LLog.d(TAG, "onScrollChange BOTTOM SCROLL");
+                    LToast.show(activity, "BOTTOM SCROLL -> LOAD MORE");
                 }
             }
         });
