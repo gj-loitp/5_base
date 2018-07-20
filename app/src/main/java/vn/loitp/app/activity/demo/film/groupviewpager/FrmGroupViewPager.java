@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.film.group0;
+package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,7 +23,7 @@ import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
-public class FrmGroup0 extends BaseFragment {
+public class FrmGroupViewPager extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private TextView tv;
     private SwipeOutViewPager viewPager;
@@ -98,7 +98,7 @@ public class FrmGroup0 extends BaseFragment {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.frm_group_0;
+        return R.layout.frm_group_view_pager;
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {

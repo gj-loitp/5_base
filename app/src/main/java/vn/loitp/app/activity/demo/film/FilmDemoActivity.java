@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.film.group0.FrmGroup0;
+import vn.loitp.app.activity.demo.film.groupviewpager.FrmGroupViewPager;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -83,15 +83,15 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void add() {
-        FrmGroup0 frmGroup0 = new FrmGroup0();
-        frmGroup0.setFragmentTag(genTagFrm());
-        frmGroup0.setCallback(new FrmGroup0.Callback() {
+        FrmGroupViewPager frmGroupViewPager = new FrmGroupViewPager();
+        frmGroupViewPager.setFragmentTag(genTagFrm());
+        frmGroupViewPager.setCallback(new FrmGroupViewPager.Callback() {
             @Override
             public void onClickRemove(String fragmentTag) {
                 removeFragmentByTag(fragmentTag);
             }
         });
-        LScreenUtil.addFragment(activity, llBaseView.getId(), frmGroup0, frmGroup0.getFragmentTag(), false);
+        LScreenUtil.addFragment(activity, llBaseView.getId(), frmGroupViewPager, frmGroupViewPager.getFragmentTag(), false);
     }
 
     private void removeFragmentByTag(String tag) {

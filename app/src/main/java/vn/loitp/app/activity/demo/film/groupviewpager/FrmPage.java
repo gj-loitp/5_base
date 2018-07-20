@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.film.group0;
+package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

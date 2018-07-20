@@ -329,6 +329,7 @@ public class LScreenUtil {
 
     public static void replaceFragment(Activity activity, int containerFrameLayoutIdRes, Fragment fragment, boolean isAddToBackStack) {
         FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+        //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
         transaction.replace(containerFrameLayoutIdRes, fragment);
         if (isAddToBackStack) {
             transaction.addToBackStack(null);
@@ -338,6 +339,7 @@ public class LScreenUtil {
 
     public static void addFragment(Activity activity, int containerFrameLayoutIdRes, Fragment fragment, boolean isAddToBackStack) {
         FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+        //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
         transaction.add(containerFrameLayoutIdRes, fragment);
         if (isAddToBackStack) {
             transaction.addToBackStack(null);
@@ -347,6 +349,7 @@ public class LScreenUtil {
 
     public static void addFragment(Activity activity, int containerFrameLayoutIdRes, Fragment fragment, String tag, boolean isAddToBackStack) {
         FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+        //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
         transaction.add(containerFrameLayoutIdRes, fragment, tag);
         if (isAddToBackStack) {
             transaction.addToBackStack(null);
@@ -359,9 +362,11 @@ public class LScreenUtil {
     }
 
     public static void removeFragmentByTag(Activity activity, String tag) {
-        Fragment fragment = findFragmentByTag(activity, tag);
+        final Fragment fragment = findFragmentByTag(activity, tag);
         if (fragment != null) {
-            ((BaseActivity) activity).getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            final FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+            //transaction.setCustomAnimations(0, android.R.anim.fade_out);
+            transaction.remove(fragment).commit();
         }
     }
 

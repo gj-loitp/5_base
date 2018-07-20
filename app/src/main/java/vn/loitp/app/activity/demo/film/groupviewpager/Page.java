@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.film.group0;
+package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import java.io.Serializable;
 
