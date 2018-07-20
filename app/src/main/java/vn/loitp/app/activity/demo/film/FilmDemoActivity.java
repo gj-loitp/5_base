@@ -140,6 +140,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
     private void addVGReVHorizontal() {
         VGReVHorizontal vgReVHorizontal = new VGReVHorizontal(activity);
+        vgReVHorizontal.setCallback(new VGReVHorizontal.Callback() {
+            @Override
+            public void onClickRemove() {
+                removeView(vgReVHorizontal);
+            }
+        });
         addView(vgReVHorizontal);
     }
 
@@ -170,6 +176,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     private void addView(View view) {
         llBaseView.addView(view);
         LAnimationUtil.play(view, Techniques.FadeIn);
+        nsv.post(new Runnable() {
+            @Override
+            public void run() {
+                nsv.fullScroll(View.FOCUS_DOWN);
+            }
+        });
     }
 
     private void removeView(View view) {

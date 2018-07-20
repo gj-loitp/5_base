@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -18,6 +19,16 @@ import vn.loitp.views.recyclerview.banner.BannerLayout;
 
 public class VGReVHorizontal extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
+
+    public interface Callback {
+        public void onClickRemove();
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
 
     public VGReVHorizontal(Context context) {
         super(context);
@@ -56,5 +67,14 @@ public class VGReVHorizontal extends RelativeLayout {
         });
 
         recyclerBanner.setAdapter(vgReVAdapter);
+
+        findViewById(R.id.bt_remove).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null) {
+                    callback.onClickRemove();
+                }
+            }
+        });
     }
 }
