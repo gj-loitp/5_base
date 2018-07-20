@@ -12,6 +12,7 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 /**
@@ -26,20 +27,22 @@ public class FrmPage extends BaseFragment implements OnClickListener {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) frmRootView.findViewById(R.id.tv);
-        ImageView iv = (ImageView) frmRootView.findViewById(R.id.iv);
-        bkg = (RelativeLayout) frmRootView.findViewById(R.id.bkg);
+        //super.onViewCreated(view, savedInstanceState);
+        TextView tv = (TextView) view.findViewById(R.id.tv);
+        ImageView iv = (ImageView) view.findViewById(R.id.iv);
+        bkg = (RelativeLayout) view.findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
             page = (Page) bundle.getSerializable(BUNDLE_PAGE);
             if (page != null) {
+                LLog.d(TAG, "bundle !null: " + page.getName());
                 bkg.setBackgroundColor(page.getColor());
                 tv.setText(page.getName());
                 LImageUtil.load(getActivity(), page.getUrlImg(), iv);
             }
+        } else {
+            LLog.d(TAG, "bundle null -> do nothing");
         }
-
         //event click
         bkg.setOnClickListener(this);
     }

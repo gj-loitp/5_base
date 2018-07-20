@@ -15,7 +15,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
@@ -66,8 +65,27 @@ public class VGViewPager extends RelativeLayout {
         viewPager = (SwipeOutViewPager) findViewById(R.id.vp);
     }
 
+    private List<Page> genData() {
+        //5<=max<=10
+        List<Page> pages = new ArrayList<>();
+        int max = LDeviceUtil.getRandomNumber(5) + 5;
+        LLog.d(TAG, "genData max " + max);
+        for (int i = 0; i < max; i++) {
+            Page page = new Page();
+            page.setColor(LStoreUtil.getRandomColor());
+            page.setName("Loitp " + i + "/" + (max));
+            if (i % 2 == 0) {
+                page.setUrlImg(Constants.URL_IMG_1);
+            } else {
+                page.setUrlImg(Constants.URL_IMG_2);
+            }
+            pages.add(page);
+        }
+        return pages;
+    }
+
     public void init() {
-        tv.setText("AAAAAAAAAAa");
+        tv.setText("Hello, its me!");
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
@@ -81,21 +99,6 @@ public class VGViewPager extends RelativeLayout {
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
-        //5<=max<=10
-        int max = LDeviceUtil.getRandomNumber(5) + 5;
-        LLog.d(TAG, "max " + max);
-        for (int i = 0; i < max; i++) {
-            Page page = new Page();
-            page.setColor(LStoreUtil.getRandomColor());
-            page.setName("Loitp " + i + "/" + (max));
-            if (i % 2 == 0) {
-                page.setUrlImg(Constants.URL_IMG_1);
-            } else {
-                page.setUrlImg(Constants.URL_IMG_2);
-            }
-            pageArrayList.add(page);
-        }
-
         adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
@@ -107,7 +110,11 @@ public class VGViewPager extends RelativeLayout {
                 }
             }
         });
-        //LLog.d(TAG, "init done");
+
+        pageArrayList.addAll(genData());
+        adapter.notifyDataSetChanged();
+        //invalidate();
+        LLog.d(TAG, "init done pageArrayList.size: " + pageArrayList.size());
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -118,9 +125,10 @@ public class VGViewPager extends RelativeLayout {
 
         @Override
         public Fragment getItem(int position) {
+            LLog.d(TAG, "getItem position: " + position);
             Bundle bundle = new Bundle();
             bundle.putSerializable(FrmPage.BUNDLE_PAGE, pageArrayList.get(position));
-            BaseFragment fragment = new FrmPage();
+            FrmPage fragment = new FrmPage();
             fragment.setArguments(bundle);
             return fragment;
         }
@@ -129,5 +137,9 @@ public class VGViewPager extends RelativeLayout {
         public int getCount() {
             return pageArrayList.size();
         }
+
+        /*public int getItemPosition(Object object) {
+            return POSITION_NONE;
+        }*/
     }
 }

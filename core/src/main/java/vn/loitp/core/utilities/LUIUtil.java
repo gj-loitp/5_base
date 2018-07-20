@@ -53,6 +53,7 @@ import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.AdmobData;
+import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.views.overscroll.lib.overscroll.OverScrollDecoratorHelper;
@@ -667,6 +668,14 @@ public class LUIUtil {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             p.setMargins(leftPx, topPx, rightPx, bottomPx);
+            view.requestLayout();
+        }
+    }
+
+    public static void setMarginsDp(View view, int leftDp, int topDp, int rightDp, int bottomDp) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            p.setMargins(ConvertUtils.dp2px(leftDp), ConvertUtils.dp2px(topDp), ConvertUtils.dp2px(rightDp), ConvertUtils.dp2px(bottomDp));
             view.requestLayout();
         }
     }

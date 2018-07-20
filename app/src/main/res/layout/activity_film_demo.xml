@@ -47,16 +47,16 @@
                         android:text="Clear all views" />
 
                     <Button
-                        android:id="@+id/bt_add_group_0"
+                        android:id="@+id/bt_add_vgviewpager"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Add group0" />
+                        android:text="Add VGViewPager" />
 
                     <Button
-                        android:id="@+id/bt_remove_group_0"
+                        android:id="@+id/bt_add_dummy_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Remove group0 with TAG0" />
+                        android:text="Add textview " />
                 </LinearLayout>
             </HorizontalScrollView>
         </RelativeLayout>

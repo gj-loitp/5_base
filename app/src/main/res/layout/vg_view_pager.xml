@@ -31,5 +31,6 @@
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_200"
-        android:layout_below="@+id/rl_control" />
+        android:layout_below="@+id/rl_control"
+        android:background="@color/Gray" />
 </RelativeLayout>
