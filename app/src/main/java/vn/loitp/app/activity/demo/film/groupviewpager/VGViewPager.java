@@ -1,47 +1,42 @@
 package vn.loitp.app.activity.demo.film.groupviewpager;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 /**
- * Created by www.muathu@gmail.com on 7/26/2017.
+ * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
-public class FrmGroupViewPager extends BaseFragment {
+public class VGViewPager extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
     private TextView tv;
     private SwipeOutViewPager viewPager;
     private ViewPagerAdapter adapter;
 
     private List<Page> pageArrayList = new ArrayList<>();
-    private String FRAGMENT_TAG;
-
-    public void setFragmentTag(String frragmentTag) {
-        FRAGMENT_TAG = frragmentTag;
-    }
-
-    public String getFragmentTag() {
-        return FRAGMENT_TAG;
-    }
 
     public interface Callback {
-        public void onClickRemove(String fragmentTag);
+        public void onClickRemove();
     }
 
     private Callback callback;
@@ -50,55 +45,69 @@ public class FrmGroupViewPager extends BaseFragment {
         this.callback = callback;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        tv = (TextView) frmRootView.findViewById(R.id.tv);
-        tv.setText(FRAGMENT_TAG);
-        viewPager = (SwipeOutViewPager) frmRootView.findViewById(R.id.vp);
+    public VGViewPager(Context context) {
+        super(context);
+        findViews();
+    }
+
+    public VGViewPager(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        findViews();
+    }
+
+    public VGViewPager(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        findViews();
+    }
+
+    private void findViews() {
+        inflate(getContext(), R.layout.vg_view_pager, this);
+        tv = (TextView) findViewById(R.id.tv);
+        viewPager = (SwipeOutViewPager) findViewById(R.id.vp);
+    }
+
+    public void init() {
+        tv.setText("AAAAAAAAAAa");
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.show(getActivity(), "onSwipeOutAtStart");
+                LToast.show(getContext(), "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.show(getActivity(), "onSwipeOutAtEnd");
+                LToast.show(getContext(), "onSwipeOutAtEnd");
             }
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         //5<=max<=10
         int max = LDeviceUtil.getRandomNumber(5) + 5;
+        LLog.d(TAG, "max " + max);
         for (int i = 0; i < max; i++) {
             Page page = new Page();
             page.setColor(LStoreUtil.getRandomColor());
-            page.setName("Loitp " + i + "/" + (max - 1));
+            page.setName("Loitp " + i + "/" + (max));
             if (i % 2 == 0) {
-                page.setUrlImg(vn.loitp.core.common.Constants.URL_IMG_1);
+                page.setUrlImg(Constants.URL_IMG_1);
             } else {
-                page.setUrlImg(vn.loitp.core.common.Constants.URL_IMG_2);
+                page.setUrlImg(Constants.URL_IMG_2);
             }
             pageArrayList.add(page);
         }
 
-        adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        frmRootView.findViewById(R.id.bt_remove).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_remove).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onClickRemove(FRAGMENT_TAG);
+                    callback.onClickRemove();
                 }
             }
         });
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.frm_group_view_pager;
+        //LLog.d(TAG, "init done");
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {

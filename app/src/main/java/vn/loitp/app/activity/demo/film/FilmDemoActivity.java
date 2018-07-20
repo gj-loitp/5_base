@@ -5,11 +5,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.film.groupviewpager.FrmGroupViewPager;
+import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
@@ -55,14 +56,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_clear_all:
-                clearAllFrm();
+                clearAllViews();
                 break;
             case R.id.bt_add_group_0:
-                add();
+                addVGViewPager();
                 break;
             case R.id.bt_remove_group_0:
-                //remove with TAG0
-                removeFragmentByTag("TAG0");
                 break;
         }
     }
@@ -73,35 +72,73 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
             public void doAfter(int mls) {
                 swipeRefreshLayout.setRefreshing(false);
                 LToast.show(activity, "Finish refresh -> clear all views");
-                clearAllFrm();
+                clearAllViews();
             }
         });
     }
 
-    private void clearAllFrm() {
-        LScreenUtil.removeAllFragments(activity);
-    }
-
-    private void add() {
-        FrmGroupViewPager frmGroupViewPager = new FrmGroupViewPager();
-        frmGroupViewPager.setFragmentTag(genTagFrm());
-        frmGroupViewPager.setCallback(new FrmGroupViewPager.Callback() {
+    private void addVGViewPager() {
+        VGViewPager vgViewPager = new VGViewPager(activity);
+        vgViewPager.init();
+        vgViewPager.setCallback(new VGViewPager.Callback() {
             @Override
-            public void onClickRemove(String fragmentTag) {
-                removeFragmentByTag(fragmentTag);
+            public void onClickRemove() {
+                removeView(vgViewPager);
             }
         });
-        LScreenUtil.addFragment(activity, llBaseView.getId(), frmGroupViewPager, frmGroupViewPager.getFragmentTag(), false);
+        addView(vgViewPager);
     }
 
-    private void removeFragmentByTag(String tag) {
-        LScreenUtil.removeFragmentByTag(activity, tag);
+
+    //for utils
+    private void clearAllViews() {
+        LAnimationUtil.play(llBaseView, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                    }
+
+                    @Override
+                    public void onEnd() {
+                        llBaseView.removeAllViews();
+                        LAnimationUtil.play(llBaseView, Techniques.FadeIn);
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                    }
+
+                    @Override
+                    public void onStart() {
+                    }
+                }
+        );
     }
 
-    private String genTagFrm() {
-        int childCount = llBaseView.getChildCount();
-        String tag = "TAG" + childCount;
-        LLog.d(TAG, "genTagFrm " + tag);
-        return tag;
+    private void addView(View view) {
+        llBaseView.addView(view);
+        llBaseView.requestLayout();
+        llBaseView.invalidate();
+        LAnimationUtil.play(view, Techniques.FadeIn);
+    }
+
+    private void removeView(View view) {
+        LAnimationUtil.play(view, Techniques.FadeOut, new LAnimationUtil.Callback() {
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onEnd() {
+                llBaseView.removeView(view);
+            }
+
+            @Override
+            public void onRepeat() {
+            }
+
+            @Override
+            public void onStart() {
+            }
+        });
     }
 }
