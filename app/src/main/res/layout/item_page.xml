@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_10"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
@@ -14,5 +22,5 @@
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_32" />
+        android:textSize="@dimen/txt_14" />
 </RelativeLayout>

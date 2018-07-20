@@ -15,10 +15,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.LToast;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -36,7 +33,8 @@ public class FrmGroup0 extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         viewPager = (ViewPager) frmRootView.findViewById(R.id.viewpager);
 
-        int max = LDeviceUtil.getRandomNumber(10);
+        //5<=max<=10
+        int max = LDeviceUtil.getRandomNumber(5) + 5;
         for (int i = 0; i < max; i++) {
             Page page = new Page();
             page.setColor(LStoreUtil.getRandomColor());
@@ -48,30 +46,6 @@ public class FrmGroup0 extends BaseFragment {
             }
             pageArrayList.add(page);
         }
-
-        LUIUtil.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
-            @Override
-            public void onUpOrLeft(float offset) {
-                LLog.d(TAG, "onUpOrLeft " + offset);
-                LToast.show(getActivity(), "Detect Left");
-            }
-
-            @Override
-            public void onUpOrLeftRefresh(float offset) {
-                LLog.d(TAG, "onUpOrLeftRefresh " + offset);
-            }
-
-            @Override
-            public void onDownOrRight(float offset) {
-                LLog.d(TAG, "onDownOrRight " + offset);
-                LToast.show(getActivity(), "Detect Right");
-            }
-
-            @Override
-            public void onDownOrRightRefresh(float offset) {
-                LLog.d(TAG, "onDownOrRightRefresh " + offset);
-            }
-        });
 
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
@@ -99,7 +73,7 @@ public class FrmGroup0 extends BaseFragment {
 
         @Override
         public int getCount() {
-            return 3;
+            return pageArrayList.size();
         }
     }
 }

@@ -8,7 +8,21 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/avi"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_80"
+        app:realtimeOverlayColor="@color/black_35" />
+
+    <ImageView
+        android:layout_width="@dimen/w_250"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
         android:scaleType="fitCenter"
         android:src="@drawable/logo" />
@@ -22,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_10"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="@color/White"
         app:indicatorName="PacmanIndicator" />
 
     <TextView

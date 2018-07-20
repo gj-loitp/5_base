@@ -16,9 +16,6 @@ public class FilmDemoActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         llBaseView = (LinearLayout) findViewById(R.id.ll_base_view);
         FragmentUtils.addFragment(getSupportFragmentManager(), new FrmGroup0(), llBaseView.getId(), false);
-        FragmentUtils.addFragment(getSupportFragmentManager(), new FrmGroup0(), llBaseView.getId(), false);
-        FragmentUtils.addFragment(getSupportFragmentManager(), new FrmGroup0(), llBaseView.getId(), false);
-        FragmentUtils.addFragment(getSupportFragmentManager(), new FrmGroup0(), llBaseView.getId(), false);
     }
 
     @Override
