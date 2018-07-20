@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
@@ -109,34 +109,37 @@ public class VGViewPager extends RelativeLayout {
         });
 
         pageArrayList.addAll(genData());
-        adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
+        adapter = new ViewPagerAdapter();
         viewPager.setAdapter(adapter);
-
-        /*postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                adapter.notifyDataSetChanged();
-                invalidate();
-            }
-        }, 500);*/
-        LLog.d(TAG, "init done pageArrayList.size: " + pageArrayList.size());
     }
 
-    private class ViewPagerAdapter extends FragmentStatePagerAdapter {
+    private class ViewPagerAdapter extends PagerAdapter {
 
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
+        @Override
+        public Object instantiateItem(ViewGroup collection, int position) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.item_film_page, collection, false);
+            TextView tv = (TextView) viewGroup.findViewById(R.id.tv_film);
+            ImageView iv = (ImageView) viewGroup.findViewById(R.id.iv_film);
+
+            Page page = pageArrayList.get(position);
+            viewGroup.setBackgroundColor(page.getColor());
+            tv.setText(page.getName());
+            LImageUtil.load(getContext(), page.getUrlImg(), iv);
+            //event click
+            viewGroup.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LToast.show(getContext(), "Click " + page.getName());
+                }
+            });
+            collection.addView(viewGroup);
+            return viewGroup;
         }
 
         @Override
-        public Fragment getItem(int position) {
-            //LLog.d(TAG, "getItem position: " + position);
-            LLog.d(TAG, "getItem: " + pageArrayList.get(position).getColor());
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(FrmPage.BUNDLE_PAGE, pageArrayList.get(position));
-            FrmPage fragment = new FrmPage();
-            fragment.setArguments(bundle);
-            return fragment;
+        public void destroyItem(ViewGroup collection, int position, Object view) {
+            collection.removeView((View) view);
         }
 
         @Override
@@ -144,8 +147,9 @@ public class VGViewPager extends RelativeLayout {
             return pageArrayList.size();
         }
 
-        /*public int getItemPosition(Object object) {
-            return POSITION_NONE;
-        }*/
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
     }
 }
