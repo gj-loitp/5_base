@@ -31,6 +31,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         llBaseView = (LinearLayout) findViewById(R.id.ll_base_view);
         nsv = (NestedScrollView) findViewById(R.id.nsv);
+        //nsv.setNestedScrollingEnabled(false);
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
