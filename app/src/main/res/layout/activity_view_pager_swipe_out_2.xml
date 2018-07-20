@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
 
-    <vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.SwipeOutViewPager
+    <vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,28 +1,17 @@
 package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import loitp.basemaster.R;
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
-import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
-import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity;
-import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity;
-import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
     private SwipeOutViewPager viewPager;
@@ -44,6 +33,8 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
                 LToast.show(activity, "onSwipeOutAtEnd");
             }
         });
+
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);

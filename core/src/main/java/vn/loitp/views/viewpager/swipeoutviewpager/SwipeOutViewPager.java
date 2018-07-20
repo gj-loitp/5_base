@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2;
+package vn.loitp.views.viewpager.swipeoutviewpager;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
