@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.film;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
 import android.view.View;
@@ -13,6 +14,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
@@ -20,11 +22,13 @@ import vn.loitp.views.LToast;
 public class FilmDemoActivity extends BaseFontActivity implements View.OnClickListener {
     private SwipeRefreshLayout swipeRefreshLayout;
     private LinearLayout llBaseView;
+    private NestedScrollView nsv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         llBaseView = (LinearLayout) findViewById(R.id.ll_base_view);
+        nsv = (NestedScrollView) findViewById(R.id.nsv);
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -38,6 +42,26 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_clear_all).setOnClickListener(this);
         findViewById(R.id.bt_add_vgviewpager).setOnClickListener(this);
         findViewById(R.id.bt_add_dummy_textview).setOnClickListener(this);
+
+        nsv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > oldScrollY) {
+                    LLog.d(TAG, "onScrollChange Scroll DOWN");
+                }
+                if (scrollY < oldScrollY) {
+                    LLog.d(TAG, "onScrollChange Scroll UP");
+                }
+
+                if (scrollY == 0) {
+                    LLog.d(TAG, "onScrollChange TOP SCROLL");
+                }
+
+                if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
+                    LLog.d(TAG, "onScrollChange BOTTOM SCROLL");
+                }
+            }
+        });
     }
 
     @Override
