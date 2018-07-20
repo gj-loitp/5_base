@@ -99,9 +99,6 @@ public class VGViewPager extends RelativeLayout {
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
-        adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-
         findViewById(R.id.bt_remove).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +109,10 @@ public class VGViewPager extends RelativeLayout {
         });
 
         pageArrayList.addAll(genData());
-        adapter.notifyDataSetChanged();
+        adapter = new ViewPagerAdapter(((BaseActivity) getContext()).getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        //adapter.notifyDataSetChanged();
         //invalidate();
         LLog.d(TAG, "init done pageArrayList.size: " + pageArrayList.size());
     }
