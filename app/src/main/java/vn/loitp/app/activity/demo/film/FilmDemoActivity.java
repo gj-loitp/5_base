@@ -16,7 +16,8 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         llBaseView = (LinearLayout) findViewById(R.id.ll_base_view);
-        findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.bt_add_group_0).setOnClickListener(this);
+        findViewById(R.id.bt_remove_group_0).setOnClickListener(this);
     }
 
     @Override
@@ -37,8 +38,10 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_add:
+            case R.id.bt_add_group_0:
                 add();
+                break;
+            case R.id.bt_remove_group_0:
                 break;
         }
     }
