@@ -846,6 +846,9 @@
         <activity
             android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

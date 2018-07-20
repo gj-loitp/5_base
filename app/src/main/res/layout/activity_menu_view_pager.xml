@@ -49,6 +49,12 @@
                 android:text="Detect ViewPager SwipeOut" />
 
             <Button
+                android:id="@+id/bt_detect_viewpager_swipe_out_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detect ViewPager SwipeOut 2" />
+
+            <Button
                 android:id="@+id/bt_view_pager_tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

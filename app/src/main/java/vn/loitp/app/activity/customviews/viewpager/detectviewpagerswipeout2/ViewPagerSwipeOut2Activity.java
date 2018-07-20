@@ -1,5 +1,6 @@
-package vn.loitp.app.activity.customviews.viewpager.autoviewpager;
+package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,20 +12,38 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
+import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
+import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
+import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
+import vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity;
+import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity;
+import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.app.common.Constants;
+import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.viewpager.autoviewpager.lib.AutoViewPager;
+import vn.loitp.views.LToast;
 
-public class AutoViewPagerActivity extends BaseFontActivity {
+public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
+    private SwipeOutViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AutoViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager = (SwipeOutViewPager) findViewById(R.id.vp);
+
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
-        //viewPager.setIndeterminate(true);
-        viewPager.setAutoScrollEnabled(true);
+        viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
+            @Override
+            public void onSwipeOutAtStart() {
+                LToast.show(activity, "onSwipeOutAtStart");
+            }
+
+            @Override
+            public void onSwipeOutAtEnd() {
+                LToast.show(activity, "onSwipeOutAtEnd");
+            }
+        });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -43,7 +62,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_auto_viewpager;
+        return R.layout.activity_view_pager_swipe_out_2;
     }
 
     private class SamplePagerAdapter extends FragmentStatePagerAdapter {
