@@ -5,7 +5,7 @@
     <string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
     <string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
     <string name="str_reward">ca-app-pub-3165963943681013/4049354711</string>
-    <string name="app_id">ca-app-pub-3165963943681013~3973333090</string>
+    <string name="str_app_id">ca-app-pub-3165963943681013~3973333090</string>
 
     <string name="open_drawer">open_drawer</string>
     <string name="close_drawer">close_drawer</string>
@@ -154,7 +154,6 @@ Likewise may someone love you next.
     <string name="signed_out">Signed Out</string>
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
-    <string name="loading">Loading…</string>
     <string name="google_status_fmt">Google User: %s</string>
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
@@ -205,6 +204,88 @@ Likewise may someone love you next.
     <string name="ice_flakes_with_touch">Falling ice flakes with touch</string>
     <string name="ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="num_confetti_desc">Active confetti count: %1$d</string>
-    <string name="media_route_menu_title">Cast</string>
     <string name="sample_list_dialog_title">Add samples</string>
+
+    <string name="app_id">4F8B3483</string>
+    <string name="cast_app_name">GoogleCastPlayer</string>
+    <string name="media_route_menu_title">Play on&#8230;</string>
+    <string name="list_of_videos">Select a Video Clip</string>
+    <string name="ok">OK</string>
+    <string name="no_device">(No Device Selected)</string>
+    <string name="error">Error</string>
+    <string name="stop">Stop</string>
+    <string name="mute">Mute</string>
+    <string name="unmute">Unmute</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="no_video_found">No video was found</string>
+    <string name="about_app">About Cast Videos</string>
+    <string name="version">CastVideos: %1$s</string>
+    <string name="session_reconnection_attempt">Attempting to recover previous
+        session&#8230;</string>
+    <string name="introducing_cast">Introducting Cast</string>
+
+    <!-- Error messages -->
+    <!-- onApplicationConnectionFailed() errors -->
+    <string name="failed_to_set_volume">Failed to set the volume</string>
+    <string name="failed_to_launch_app">Failed to launch application</string>
+    <string name="failed_to_set_mute">Failed to adjust the volume mute</string>
+    <string name="failed_to_find_app">The application you are trying to launch is not available on
+        your Chromecast device
+    </string>
+    <string name="failed_app_launch_timeout">The request to launch the application has timed out!
+    </string>
+    <string name="failed_to_play">Failed to start the playback of media</string>
+    <string name="failed_to_pause">Failed to pause the playback of media</string>
+    <string name="failed_to_connect">Could not connect to the device</string>
+    <string name="failed_to_seek">Failed to seek to the specified position on the remote device
+    </string>
+    <string name="video_error_media_load_timeout">Media loading timed out</string>
+    <string name="video_error_server_unaccessible">Media server was not reachable</string>
+    <string name="video_error_unknown_error">Failed to load video</string>
+    <string name="connection_temp_lost">Connection to the cast device is temporarily lost</string>
+    <string name="connection_recovered">Connection to the cast device is recovered</string>
+    <string name="connection_lost_retry">Connection to the cast device has been temporarily lost.
+        Application is trying to recover connection, please try again later
+    </string>
+    <string name="connection_lost">No connection to the cast device exist</string>
+    <string name="failed_to_perform_action">Sorry, ran into issues performing the task you wanted
+    </string>
+    <string name="oops">Oops</string>
+
+    <!-- Preferences -->
+    <string name="prefs_header_application">Application Behavior</string>
+    <string name="prefs_header_application_summary">Control how the application behaves on the TV
+    </string>
+    <string name="prefs_termination_policy_default">0</string>
+    <string name="prefs_termination_policy_dialog_title">When Disconnecting</string>
+    <string name="prefs_volume_title">Volume Assignment</string>
+    <string name="prefs_volume_title_summary">Controls %1$s</string>
+    <string name="prefs_volume_dialog_title">Volume Assignment</string>
+    <string name="prefs_volume_default">device</string>
+    <string name="title_activity_test">TestActivity</string>
+
+    <!-- Tabs -->
+    <string name="tab_videos_title">Videos</string>
+    <string name="tab_music_title">Songs</string>
+    <string name="tab_photos_title">Photos</string>
+
+    <!-- ShowCaseView -->
+    <string name="touch_to_cast">Touch to cast videos to your TV</string>
+
+    <!-- Captions -->
+    <string name="captions_settings">Captions Settings</string>
+    <string name="captions">Captions</string>
+
+    <!-- Queue -->
+    <string name="show_queue">Show Queue</string>
+    <string name="queue_list">Queue</string>
+    <string name="transition_image">transition-image</string>
+    <string name="queue_empty">Queue is empty!</string>
+    <string name="queue_tag_item">queue-tag-item</string>
+    <string name="play_now">Play Now</string>
+    <string name="play_next">Play Next</string>
+    <string name="add_to_queue">Add to Queue</string>
+    <string name="action_clear_queue">Clear Queue</string>
+    <string name="queue_item_added_to_play_next">An item was added to play next</string>
+    <string name="queue_item_added_to_queue">An item was added to the queue</string>
 </resources>

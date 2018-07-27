@@ -99,6 +99,7 @@ dependencies {
     compile 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.7.3'
     compile 'com.google.android.exoplayer:exoplayer-ui:2.7.3'
     compile 'com.google.android.exoplayer:extension-cast:2.7.3'
+    compile 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
 
     //https://github.com/rubensousa/PreviewSeekBar
     compile 'com.github.rubensousa:previewseekbar:1.2'

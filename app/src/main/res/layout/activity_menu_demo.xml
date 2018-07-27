@@ -31,6 +31,12 @@
                 android:text="Alarm" />
 
             <Button
+                android:id="@+id/bt_chrome_cast_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chromecast (Google)" />
+
+            <Button
                 android:id="@+id/bt_ebook_with_realm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

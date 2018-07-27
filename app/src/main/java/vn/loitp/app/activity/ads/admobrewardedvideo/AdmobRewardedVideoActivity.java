@@ -35,7 +35,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         llAd.setVisibility(View.GONE);
 
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
-        MobileAds.initialize(this, getString(R.string.app_id));
+        MobileAds.initialize(this, getString(R.string.str_app_id));
         mAd = MobileAds.getRewardedVideoAdInstance(this);
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();

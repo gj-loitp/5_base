@@ -839,9 +839,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2cast.ExoPlayer2CastActivity"
             android:screenOrientation="portrait" />
-        <meta-data
+        <!--<meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
+            android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />-->
         <!--STOP EXO PLAYER 2 CAST-->
         <activity
             android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
@@ -849,6 +849,60 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity"
             android:screenOrientation="portrait" />
+
+        <!--START DEMO CHROMECAST-->
+        <activity
+            android:name="vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vn.loitp.app.activity.demo.chromecast.mediaplayer.LocalPlayerActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vn.loitp.app.activity.demo.chromecast.settings.CastPreference"
+            android:label="@string/action_settings"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity"
+            android:label="@string/queue_list"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CastVideosDark">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="vn.loitp.app.activity.demo.chromecast.CastOptionsProvider" />
+        <!--STOP DEMO CHROMECAST-->
     </application>
 
 </manifest>

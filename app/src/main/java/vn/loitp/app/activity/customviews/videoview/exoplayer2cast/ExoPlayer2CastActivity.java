@@ -32,6 +32,17 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 
+/*NOTE:
+Gỡ rào ở manifest
+        <meta-data
+        android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+        android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
+
+        do bị duplicate OPTIONS_PROVIDER_CLASS_NAME ở manifest
+        chromecast của exoplayer2 và deomo chromecast
+
+thì mới chạy được*/
+
 public class ExoPlayer2CastActivity extends BaseFontActivity implements OnClickListener, PlayerManager.QueuePositionListener {
 
     private PlayerView localPlayerView;
