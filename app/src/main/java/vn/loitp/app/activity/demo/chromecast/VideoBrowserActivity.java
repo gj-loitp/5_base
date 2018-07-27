@@ -22,6 +22,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 
 public class VideoBrowserActivity extends BaseFontActivity {
     private CastContext mCastContext;
@@ -141,6 +142,7 @@ public class VideoBrowserActivity extends BaseFontActivity {
             intent = new Intent(activity, QueueListViewActivity.class);
             startActivity(intent);
         }
+        LActivityUtil.tranIn(activity);
         return true;
     }
 

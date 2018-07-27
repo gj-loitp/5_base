@@ -24,20 +24,19 @@ import android.preference.PreferenceActivity;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
+import vn.loitp.core.utilities.LActivityUtil;
 
 /**
  * An Preference Activity.
  */
-public class CastPreference extends PreferenceActivity
-        implements OnSharedPreferenceChangeListener {
+public class CastPreference extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.application_preference);
-        getPreferenceScreen().getSharedPreferences().
-                registerOnSharedPreferenceChangeListener(this);
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
         EditTextPreference versionPref = (EditTextPreference) findPreference("app_version");
         versionPref.setTitle(getString(R.string.version, ChromeCastUtils.getAppVersionName(this)));
@@ -46,5 +45,11 @@ public class CastPreference extends PreferenceActivity
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         // Handle volume and caption preferences.
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        LActivityUtil.tranOut(this);
     }
 }

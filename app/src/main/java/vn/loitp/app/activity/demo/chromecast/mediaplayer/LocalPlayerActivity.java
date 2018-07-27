@@ -53,6 +53,7 @@ import vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
 import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 
 public class LocalPlayerActivity extends BaseFontActivity {
@@ -702,9 +703,11 @@ public class LocalPlayerActivity extends BaseFontActivity {
         if (item.getItemId() == R.id.action_settings) {
             intent = new Intent(activity, CastPreference.class);
             startActivity(intent);
+            LActivityUtil.tranIn(activity);
         } else if (item.getItemId() == R.id.action_show_queue) {
             intent = new Intent(activity, QueueListViewActivity.class);
             startActivity(intent);
+            LActivityUtil.tranIn(activity);
         } else if (item.getItemId() == android.R.id.home) {
             //ActivityCompat.finishAfterTransition(this);
             onBackPressed();

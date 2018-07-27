@@ -40,6 +40,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.queue.QueueDataProvider;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
+import vn.loitp.core.utilities.LActivityUtil;
 
 /**
  * An activity to show the queue list
@@ -201,6 +202,7 @@ public class QueueListViewActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(QueueListViewActivity.this, CastPreference.class));
+                LActivityUtil.tranIn(this);
                 break;
             case R.id.action_clear_queue:
                 QueueDataProvider.getInstance(getApplicationContext()).removeAll();
