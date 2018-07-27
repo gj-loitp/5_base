@@ -27,7 +27,6 @@ import java.util.Map;
  * Provider of the list of videos.
  */
 public class VideoProvider {
-
     private static final String TAG = "VideoProvider";
     private static final String TAG_VIDEOS = "videos";
     private static final String TAG_HLS = "hls";

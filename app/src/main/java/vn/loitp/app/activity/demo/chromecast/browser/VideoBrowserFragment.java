@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,8 +36,6 @@ import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-
-import static vn.loitp.app.activity.demo.chromecast.browser.VideoProvider.KEY_DESCRIPTION;
 
 public class VideoBrowserFragment extends BaseFragment implements VideoListAdapter.ItemClickListener {
     private final String TAG = VideoBrowserFragment.class.getSimpleName();
@@ -106,7 +101,7 @@ public class VideoBrowserFragment extends BaseFragment implements VideoListAdapt
             JSONObject jsonObj = null;
             try {
                 jsonObj = new JSONObject();
-                jsonObj.put(KEY_DESCRIPTION, video.getSubtitle());
+                jsonObj.put(VideoProvider.KEY_DESCRIPTION, video.getSubtitle());
             } catch (JSONException e) {
                 Log.e(TAG, "Failed to add description to the json object", e);
             }
