@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -110,6 +111,7 @@ public class VideoBrowserActivity extends BaseFontActivity {
 
     private void setupActionBar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         setSupportActionBar(mToolbar);
     }
 
