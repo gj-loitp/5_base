@@ -1,27 +1,10 @@
-/*
- * Copyright (C) 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.demo.chromecast.queue.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,26 +23,21 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.queue.QueueDataProvider;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 /**
  * An activity to show the queue list
  */
-public class QueueListViewActivity extends AppCompatActivity {
-
+public class QueueListViewActivity extends BaseFontActivity {
     private static final String FRAGMENT_LIST_VIEW = "list view";
-    private static final String TAG = "QueueListViewActivity";
-
-    private final RemoteMediaClient.Listener mRemoteMediaClientListener =
-            new MyRemoteMediaClientListener();
-    private final SessionManagerListener<CastSession> mSessionManagerListener =
-            new MySessionManagerListener();
+    private final RemoteMediaClient.Listener mRemoteMediaClientListener = new MyRemoteMediaClientListener();
+    private final SessionManagerListener<CastSession> mSessionManagerListener = new MySessionManagerListener();
     private CastContext mCastContext;
     private RemoteMediaClient mRemoteMediaClient;
     private View mEmptyView;
 
     private class MySessionManagerListener implements SessionManagerListener<CastSession> {
-
         @Override
         public void onSessionEnded(CastSession session, int error) {
             if (mRemoteMediaClient != null) {
@@ -144,8 +122,7 @@ public class QueueListViewActivity extends AppCompatActivity {
 
         private void updateMediaQueue() {
             MediaStatus mediaStatus = mRemoteMediaClient.getMediaStatus();
-            List<MediaQueueItem> queueItems =
-                    (mediaStatus == null) ? null : mediaStatus.getQueueItems();
+            List<MediaQueueItem> queueItems = (mediaStatus == null) ? null : mediaStatus.getQueueItems();
             if (queueItems == null || queueItems.isEmpty()) {
                 mEmptyView.setVisibility(View.VISIBLE);
             } else {
@@ -155,11 +132,23 @@ public class QueueListViewActivity extends AppCompatActivity {
     }
 
     @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return "TAG" + getClass().getSimpleName();
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.queue_activity;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.queue_activity);
-        Log.d(TAG, "onCreate() was called");
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new QueueListViewFragment(), FRAGMENT_LIST_VIEW)
@@ -170,12 +159,12 @@ public class QueueListViewActivity extends AppCompatActivity {
         mCastContext = CastContext.getSharedInstance(this);
     }
 
-
     private void setupActionBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.queue_list);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
     }
 
     @Override
@@ -183,8 +172,7 @@ public class QueueListViewActivity extends AppCompatActivity {
         if (mRemoteMediaClient != null) {
             mRemoteMediaClient.removeListener(mRemoteMediaClientListener);
         }
-        mCastContext.getSessionManager().removeSessionManagerListener(
-                mSessionManagerListener, CastSession.class);
+        mCastContext.getSessionManager().removeSessionManagerListener(mSessionManagerListener, CastSession.class);
         super.onPause();
     }
 
@@ -192,8 +180,7 @@ public class QueueListViewActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.queue_menu, menu);
-        CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu,
-                R.id.media_route_menu_item);
+        CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu, R.id.media_route_menu_item);
         return true;
     }
 
@@ -201,8 +188,8 @@ public class QueueListViewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                startActivity(new Intent(QueueListViewActivity.this, CastPreference.class));
-                LActivityUtil.tranIn(this);
+                startActivity(new Intent(activity, CastPreference.class));
+                LActivityUtil.tranIn(activity);
                 break;
             case R.id.action_clear_queue:
                 QueueDataProvider.getInstance(getApplicationContext()).removeAll();
@@ -216,22 +203,19 @@ public class QueueListViewActivity extends AppCompatActivity {
 
     @Override
     public boolean dispatchKeyEvent(@NonNull KeyEvent event) {
-        return mCastContext.onDispatchVolumeKeyEventBeforeJellyBean(event)
-                || super.dispatchKeyEvent(event);
+        return mCastContext.onDispatchVolumeKeyEventBeforeJellyBean(event) || super.dispatchKeyEvent(event);
     }
 
     @Override
     protected void onResume() {
-        mCastContext.getSessionManager().addSessionManagerListener(
-                mSessionManagerListener, CastSession.class);
+        mCastContext.getSessionManager().addSessionManagerListener(mSessionManagerListener, CastSession.class);
         if (mRemoteMediaClient == null) {
             mRemoteMediaClient = getRemoteMediaClient();
         }
         if (mRemoteMediaClient != null) {
             mRemoteMediaClient.addListener(mRemoteMediaClientListener);
             MediaStatus mediaStatus = mRemoteMediaClient.getMediaStatus();
-            List<MediaQueueItem> queueItems =
-                    (mediaStatus == null) ? null : mediaStatus.getQueueItems();
+            List<MediaQueueItem> queueItems = (mediaStatus == null) ? null : mediaStatus.getQueueItems();
             if (queueItems != null && !queueItems.isEmpty()) {
                 mEmptyView.setVisibility(View.GONE);
             }
@@ -241,7 +225,6 @@ public class QueueListViewActivity extends AppCompatActivity {
 
     private RemoteMediaClient getRemoteMediaClient() {
         CastSession castSession = mCastContext.getSessionManager().getCurrentCastSession();
-        return (castSession != null && castSession.isConnected())
-                ? castSession.getRemoteMediaClient() : null;
+        return (castSession != null && castSession.isConnected()) ? castSession.getRemoteMediaClient() : null;
     }
 }

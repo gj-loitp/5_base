@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.demo.chromecast.queue.ui;
 
 import android.content.Context;
@@ -21,7 +5,6 @@ import android.support.annotation.IntDef;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,14 +27,13 @@ import java.lang.annotation.RetentionPolicy;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.queue.QueueDataProvider;
+import vn.loitp.core.utilities.LLog;
 
 /**
  * An adapter to show the list of queue items.
  */
-public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.QueueItemViewHolder>
-        implements QueueItemTouchHelperCallback.ItemTouchHelperAdapter {
-
-    private static final String TAG = "QueueListAdapter";
+public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.QueueItemViewHolder> implements QueueItemTouchHelperCallback.ItemTouchHelperAdapter {
+    private static final String TAG = QueueListAdapter.class.getSimpleName();
     private static final int IMAGE_THUMBNAIL_WIDTH = 64;
     private final QueueDataProvider mProvider;
     private static final int PLAY_RESOURCE = R.drawable.ic_play_arrow_64dp;
@@ -79,7 +61,7 @@ public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.Queu
             public void onClick(View view) {
                 if (view.getTag(R.string.queue_tag_item) != null) {
                     MediaQueueItem item = (MediaQueueItem) view.getTag(R.string.queue_tag_item);
-                    Log.d(TAG, String.valueOf(item.getItemId()));
+                    LLog.d(TAG, String.valueOf(item.getItemId()));
                 }
                 onItemViewClick(view);
             }
@@ -116,13 +98,13 @@ public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.Queu
     @Override
     public QueueItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final View view = inflater.inflate(R.layout.queue_row, parent, false);
+        final View view = inflater.inflate(R.layout.gg_chromecast_item_queue, parent, false);
         return new QueueItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final QueueItemViewHolder holder, int position) {
-        Log.d(TAG, "[upcoming] onBindViewHolder() for position: " + position);
+        LLog.d(TAG, "[upcoming] onBindViewHolder() for position: " + position);
         final MediaQueueItem item = mProvider.getItem(position);
         holder.mContainer.setTag(R.string.queue_tag_item, item);
         holder.mPlayPause.setTag(R.string.queue_tag_item, item);
@@ -169,10 +151,8 @@ public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.Queu
     }
 
     private void updatePlayPauseButtonImageResource(ImageButton button) {
-        CastSession castSession = CastContext.getSharedInstance(mAppContext)
-                .getSessionManager().getCurrentCastSession();
-        RemoteMediaClient remoteMediaClient =
-                (castSession == null) ? null : castSession.getRemoteMediaClient();
+        CastSession castSession = CastContext.getSharedInstance(mAppContext).getSessionManager().getCurrentCastSession();
+        RemoteMediaClient remoteMediaClient = (castSession == null) ? null : castSession.getRemoteMediaClient();
         if (remoteMediaClient == null) {
             button.setVisibility(View.GONE);
             return;
@@ -264,12 +244,9 @@ public class QueueListAdapter extends RecyclerView.Adapter<QueueListAdapter.Queu
                     mUpcomingControls.setVisibility(View.VISIBLE);
                     mDragHandle.setImageResource(DRAG_HANDLER_LIGHT_RESOURCE);
                     bgResId = R.drawable.bg_item_upcoming_state;
-                    mTitleView.setTextAppearance(mContext,
-                            R.style.TextAppearance_AppCompat_Small_Inverse);
-                    mTitleView.setTextAppearance(mTitleView.getContext(),
-                            R.style.Base_TextAppearance_AppCompat_Subhead_Inverse);
-                    mDescriptionView.setTextAppearance(mContext,
-                            R.style.Base_TextAppearance_AppCompat_Caption);
+                    mTitleView.setTextAppearance(mContext, R.style.TextAppearance_AppCompat_Small_Inverse);
+                    mTitleView.setTextAppearance(mTitleView.getContext(), R.style.Base_TextAppearance_AppCompat_Subhead_Inverse);
+                    mDescriptionView.setTextAppearance(mContext, R.style.Base_TextAppearance_AppCompat_Caption);
                     break;
                 default:
                     mControls.setVisibility(View.GONE);

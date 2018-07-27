@@ -17,7 +17,6 @@
 package vn.loitp.app.activity.demo.chromecast.queue;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.cast.MediaQueueItem;
@@ -30,6 +29,8 @@ import com.google.android.gms.cast.framework.media.RemoteMediaClient;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import vn.loitp.core.utilities.LLog;
+
 /**
  * A singleton to manage the queue. Upon instantiation, it syncs up its own copy of the queue with
  * the one that the VideoCastManager holds. After that point, it maintains an up-to-date version of
@@ -40,18 +41,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * when the media session ends.
  */
 public class QueueDataProvider {
-
-    private static final String TAG = "QueueDataProvider";
+    private static final String TAG = QueueDataProvider.class.getSimpleName();
     public static final int INVALID = -1;
     private final Context mAppContext;
     private final List<MediaQueueItem> mQueue = new CopyOnWriteArrayList<>();
     private static QueueDataProvider mInstance;
     // Locks modification to the remove queue.
     private final Object mLock = new Object();
-    private final SessionManagerListener<CastSession> mSessionManagerListener =
-            new MySessionManagerListener();
-    private final RemoteMediaClient.Listener mRemoteMediaClientListener =
-            new MyRemoteMediaClientListener();
+    private final SessionManagerListener<CastSession> mSessionManagerListener = new MySessionManagerListener();
+    private final RemoteMediaClient.Listener mRemoteMediaClientListener = new MyRemoteMediaClientListener();
     private int mRepeatMode;
     private boolean mShuffle;
     private MediaQueueItem mCurrentIem;
@@ -64,8 +62,7 @@ public class QueueDataProvider {
         mRepeatMode = MediaStatus.REPEAT_MODE_REPEAT_OFF;
         mShuffle = false;
         mCurrentIem = null;
-        CastContext.getSharedInstance(mAppContext).getSessionManager().addSessionManagerListener(
-                mSessionManagerListener, CastSession.class);
+        CastContext.getSharedInstance(mAppContext).getSessionManager().addSessionManagerListener(mSessionManagerListener, CastSession.class);
         syncWithRemoteQueue();
     }
 
@@ -190,7 +187,7 @@ public class QueueDataProvider {
     }
 
     public MediaQueueItem getUpcomingItem() {
-        Log.d(TAG, "[upcoming] getUpcomingItem() returning " + mUpcomingItem);
+        LLog.d(TAG, "[upcoming] getUpcomingItem() returning " + mUpcomingItem);
         return mUpcomingItem;
     }
 
@@ -287,7 +284,7 @@ public class QueueDataProvider {
                 return;
             }
             mUpcomingItem = mediaStatus.getQueueItemById(mediaStatus.getPreloadedItemId());
-            Log.d(TAG, "onRemoteMediaPreloadStatusUpdated() with item=" + mUpcomingItem);
+            LLog.d(TAG, "onRemoteMediaPreloadStatusUpdated() with item=" + mUpcomingItem);
             if (mListener != null) {
                 mListener.onQueueDataChanged();
             }
@@ -299,7 +296,7 @@ public class QueueDataProvider {
             if (mListener != null) {
                 mListener.onQueueDataChanged();
             }
-            Log.d(TAG, "Queue was updated");
+            LLog.d(TAG, "Queue was updated");
         }
 
         @Override
@@ -336,9 +333,9 @@ public class QueueDataProvider {
             }
             mQueue.clear();
             if (queueItems == null) {
-                Log.d(TAG, "Queue is cleared");
+                LLog.d(TAG, "Queue is cleared");
             } else {
-                Log.d(TAG, "Queue is updated with a list of size: " + queueItems.size());
+                LLog.d(TAG, "Queue is updated with a list of size: " + queueItems.size());
                 if (queueItems.size() > 0) {
                     mQueue.addAll(queueItems);
                     mDetachedQueue = false;
@@ -350,10 +347,9 @@ public class QueueDataProvider {
     }
 
     private RemoteMediaClient getRemoteMediaClient() {
-        CastSession castSession = CastContext.getSharedInstance(mAppContext).getSessionManager()
-                .getCurrentCastSession();
+        CastSession castSession = CastContext.getSharedInstance(mAppContext).getSessionManager().getCurrentCastSession();
         if (castSession == null || !castSession.isConnected()) {
-            Log.w(TAG, "Trying to get a RemoteMediaClient when no CastSession is started.");
+            LLog.d(TAG, "Trying to get a RemoteMediaClient when no CastSession is started.");
             return null;
         }
         return castSession.getRemoteMediaClient();
