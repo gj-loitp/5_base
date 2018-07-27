@@ -91,7 +91,7 @@ public class VideoBrowserActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gg_chrome_cast_video_browser;
+        return R.layout.gg_chrome_activity_cast_video_browser;
     }
 
     @Override

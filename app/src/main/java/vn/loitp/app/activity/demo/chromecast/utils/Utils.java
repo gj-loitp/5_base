@@ -161,8 +161,7 @@ public class Utils {
      * end of queue or be added to the queue right after the current item.
      */
     public static void showQueuePopup(final Context context, View view, final MediaInfo mediaInfo) {
-        CastSession castSession =
-                CastContext.getSharedInstance(context).getSessionManager().getCurrentCastSession();
+        CastSession castSession = CastContext.getSharedInstance(context).getSessionManager().getCurrentCastSession();
         if (castSession == null || !castSession.isConnected()) {
             Log.w(TAG, "showQueuePopup(): not connected to a cast device");
             return;

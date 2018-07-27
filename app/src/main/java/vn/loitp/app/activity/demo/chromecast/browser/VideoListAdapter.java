@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.demo.chromecast.browser;
 
 import android.content.Context;
@@ -39,7 +23,6 @@ import loitp.basemaster.R;
  * An {@link ArrayAdapter} to populate the list of videos.
  */
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.ViewHolder> {
-
     private static final float ASPECT_RATIO = 9f / 16f;
     private final ItemClickListener mClickListener;
     private final Context mAppContext;
@@ -53,41 +36,39 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         Context context = viewGroup.getContext();
-        View parent = LayoutInflater.from(context).inflate(R.layout.browse_row, viewGroup, false);
+        View parent = LayoutInflater.from(context).inflate(R.layout.gg_chromecast_item, viewGroup, false);
         return ViewHolder.newInstance(parent);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        final MediaInfo item = videos.get(position);
-        MediaMetadata mm = item.getMetadata();
-        viewHolder.setTitle(mm.getString(MediaMetadata.KEY_TITLE));
-        viewHolder.setDescription(mm.getString(MediaMetadata.KEY_SUBTITLE));
-        viewHolder.setImage(mm.getImages().get(0).getUrl().toString());
+        final MediaInfo mediaInfo = videos.get(position);
+        MediaMetadata mediaInfoMetadata = mediaInfo.getMetadata();
+        viewHolder.setTitle(mediaInfoMetadata.getString(MediaMetadata.KEY_TITLE));
+        viewHolder.setDescription(mediaInfoMetadata.getString(MediaMetadata.KEY_SUBTITLE));
+        viewHolder.setImage(mediaInfoMetadata.getImages().get(0).getUrl().toString());
 
         viewHolder.mMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mClickListener.itemClicked(view, item, position);
+                mClickListener.itemClicked(view, mediaInfo, position);
             }
         });
         viewHolder.mImgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mClickListener.itemClicked(view, item, position);
+                mClickListener.itemClicked(view, mediaInfo, position);
             }
         });
 
         viewHolder.mTextContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mClickListener.itemClicked(view, item, position);
+                mClickListener.itemClicked(view, mediaInfo, position);
             }
         });
-        CastSession castSession = CastContext.getSharedInstance(mAppContext).getSessionManager()
-                .getCurrentCastSession();
-        viewHolder.mMenu.setVisibility(
-                (castSession != null && castSession.isConnected()) ? View.VISIBLE : View.GONE);
+        CastSession castSession = CastContext.getSharedInstance(mAppContext).getSessionManager().getCurrentCastSession();
+        viewHolder.mMenu.setVisibility((castSession != null && castSession.isConnected()) ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -95,12 +76,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
         return videos == null ? 0 : videos.size();
     }
 
-    /**
-     * A {@link android.support.v7.widget.RecyclerView.ViewHolder} that displays a single video in
-     * the video list.
-     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         private final View mParent;
         private final View mMenu;
         private final View mTextContainer;
@@ -116,12 +92,10 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
             View menu = parent.findViewById(R.id.menu);
             View textContainer = parent.findViewById(R.id.text_container);
             AQuery aQuery = new AQuery(parent);
-            return new ViewHolder(parent, imgView, textContainer, titleView, descriptionView, menu,
-                    aQuery);
+            return new ViewHolder(parent, imgView, textContainer, titleView, descriptionView, menu, aQuery);
         }
 
-        private ViewHolder(View parent, ImageView imgView, View textContainer, TextView titleView,
-                           TextView descriptionView, View menu, AQuery aQuery) {
+        private ViewHolder(View parent, ImageView imgView, View textContainer, TextView titleView, TextView descriptionView, View menu, AQuery aQuery) {
             super(parent);
             mParent = parent;
             mImgView = imgView;
@@ -141,8 +115,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
         }
 
         public void setImage(String imgUrl) {
-            mAquery.id(mImgView).width(114).image(imgUrl,
-                    true, true, 0, R.drawable.default_video, null, 0, ASPECT_RATIO);
+            mAquery.id(mImgView).width(114).image(imgUrl, true, true, 0, R.drawable.default_video, null, 0, ASPECT_RATIO);
         }
 
         public void setOnClickListener(View.OnClickListener listener) {
@@ -163,7 +136,6 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
      * A listener called when an item is clicked in the video list.
      */
     public interface ItemClickListener {
-
         void itemClicked(View view, MediaInfo item, int position);
     }
 
