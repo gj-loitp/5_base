@@ -30,7 +30,7 @@ import vn.loitp.app.activity.demo.chromecast.browser.model.DataCastVideo;
 import vn.loitp.app.activity.demo.chromecast.browser.model.Track;
 import vn.loitp.app.activity.demo.chromecast.browser.model.Video;
 import vn.loitp.app.activity.demo.chromecast.mediaplayer.LocalPlayerActivity;
-import vn.loitp.app.activity.demo.chromecast.utils.Utils;
+import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
@@ -155,7 +155,7 @@ public class VideoBrowserFragment extends BaseFragment implements VideoListAdapt
     @Override
     public void itemClicked(View view, MediaInfo item, int position) {
         if (view instanceof ImageButton) {
-            Utils.showQueuePopup(getActivity(), view, item);
+            ChromeCastUtils.showQueuePopup(getActivity(), view, item);
         } else {
             /*String transitionName = getString(R.string.transition_image);
             VideoListAdapter.ViewHolder viewHolder = (VideoListAdapter.ViewHolder) mRecyclerView.findViewHolderForPosition(position);

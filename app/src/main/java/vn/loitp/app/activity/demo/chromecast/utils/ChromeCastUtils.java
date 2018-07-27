@@ -25,12 +25,10 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.google.android.gms.cast.MediaInfo;
 import com.google.android.gms.cast.MediaQueueItem;
@@ -45,20 +43,21 @@ import java.util.Locale;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity;
 import vn.loitp.app.activity.demo.chromecast.queue.QueueDataProvider;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.LToast;
 
 /**
  * A collection of utility methods, all static.
  */
-public class Utils {
-
-    private static final String TAG = "Utils";
+public class ChromeCastUtils {
+    private static final String TAG = ChromeCastUtils.class.getSimpleName();
 
     private static final int PRELOAD_TIME_S = 20;
 
     /**
      * Making sure public utility methods remain static
      */
-    private Utils() {
+    private ChromeCastUtils() {
     }
 
     @SuppressWarnings("deprecation")
@@ -131,13 +130,6 @@ public class Utils {
     }
 
     /**
-     * Shows a (long) toast.
-     */
-    public static void showToast(Context context, int resourceId) {
-        Toast.makeText(context, context.getString(resourceId), Toast.LENGTH_LONG).show();
-    }
-
-    /**
      * Formats time from milliseconds to hh:mm:ss string format.
      */
     public static String formatMillis(int millisec) {
@@ -163,12 +155,12 @@ public class Utils {
     public static void showQueuePopup(final Context context, View view, final MediaInfo mediaInfo) {
         CastSession castSession = CastContext.getSharedInstance(context).getSessionManager().getCurrentCastSession();
         if (castSession == null || !castSession.isConnected()) {
-            Log.w(TAG, "showQueuePopup(): not connected to a cast device");
+            LLog.d(TAG, "showQueuePopup(): not connected to a cast device");
             return;
         }
         final RemoteMediaClient remoteMediaClient = castSession.getRemoteMediaClient();
         if (remoteMediaClient == null) {
-            Log.w(TAG, "showQueuePopup(): null RemoteMediaClient");
+            LLog.d(TAG, "showQueuePopup(): null RemoteMediaClient");
             return;
         }
         final QueueDataProvider provider = QueueDataProvider.getInstance(context);
@@ -188,7 +180,7 @@ public class Utils {
                 if (provider.isQueueDetached() && provider.getCount() > 0) {
                     if ((menuItem.getItemId() == R.id.action_play_now)
                             || (menuItem.getItemId() == R.id.action_add_to_queue)) {
-                        MediaQueueItem[] items = Utils
+                        MediaQueueItem[] items = ChromeCastUtils
                                 .rebuildQueueAndAppend(provider.getItems(), queueItem);
                         remoteMediaClient.queueLoad(items, provider.getCount(),
                                 MediaStatus.REPEAT_MODE_REPEAT_OFF, null);
@@ -227,7 +219,7 @@ public class Utils {
                     context.startActivity(intent);
                 }
                 if (!TextUtils.isEmpty(toastMessage)) {
-                    Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
+                    LToast.show(context, toastMessage);
                 }
                 return true;
             }
@@ -244,12 +236,10 @@ public class Utils {
         for (int i = 0; i < items.size(); i++) {
             rebuiltQueue[i] = rebuildQueueItem(items.get(i));
         }
-
         return rebuiltQueue;
     }
 
-    public static MediaQueueItem[] rebuildQueueAndAppend(List<MediaQueueItem> items,
-                                                         MediaQueueItem currentItem) {
+    public static MediaQueueItem[] rebuildQueueAndAppend(List<MediaQueueItem> items, MediaQueueItem currentItem) {
         if (items == null || items.isEmpty()) {
             return new MediaQueueItem[]{currentItem};
         }

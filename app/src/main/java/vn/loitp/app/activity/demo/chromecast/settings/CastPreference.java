@@ -23,7 +23,7 @@ import android.preference.EditTextPreference;
 import android.preference.PreferenceActivity;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.chromecast.utils.Utils;
+import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
 
 /**
  * An Preference Activity.
@@ -40,7 +40,7 @@ public class CastPreference extends PreferenceActivity
                 registerOnSharedPreferenceChangeListener(this);
 
         EditTextPreference versionPref = (EditTextPreference) findPreference("app_version");
-        versionPref.setTitle(getString(R.string.version, Utils.getAppVersionName(this)));
+        versionPref.setTitle(getString(R.string.version, ChromeCastUtils.getAppVersionName(this)));
     }
 
     @Override

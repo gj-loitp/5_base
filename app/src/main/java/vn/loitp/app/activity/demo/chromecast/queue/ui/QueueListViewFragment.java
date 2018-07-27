@@ -36,7 +36,7 @@ import com.google.android.gms.cast.framework.media.RemoteMediaClient;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity;
 import vn.loitp.app.activity.demo.chromecast.queue.QueueDataProvider;
-import vn.loitp.app.activity.demo.chromecast.utils.Utils;
+import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
 
 /**
  * A fragment to show the list of queue items.
@@ -122,7 +122,7 @@ public class QueueListViewFragment extends Fragment
             Log.d(TAG, "Is detached: itemId = " + item.getItemId());
 
             int currentPosition = mProvider.getPositionByItemId(item.getItemId());
-            MediaQueueItem[] items = Utils.rebuildQueue(mProvider.getItems());
+            MediaQueueItem[] items = ChromeCastUtils.rebuildQueue(mProvider.getItems());
             remoteMediaClient.queueLoad(items, currentPosition,
                     MediaStatus.REPEAT_MODE_REPEAT_OFF, null);
         } else {

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.demo.chromecast.mediaplayer;
 
 import android.annotation.SuppressLint;
@@ -70,13 +54,9 @@ import vn.loitp.app.activity.demo.chromecast.browser.VideoProvider;
 import vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity;
 import vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
-import vn.loitp.app.activity.demo.chromecast.utils.Utils;
+import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
 
-/**
- * Activity for the local media player.
- */
 public class LocalPlayerActivity extends AppCompatActivity {
-
     private static final String TAG = "LocalPlayerActivity";
     private VideoView mVideoView;
     private TextView mTitleView;
@@ -314,7 +294,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
                         break;
                     case REMOTE:
                         if (mCastSession != null && mCastSession.isConnected()) {
-                            Utils.showQueuePopup(this, mPlayCircle, mSelectedMedia);
+                            ChromeCastUtils.showQueuePopup(this, mPlayCircle, mSelectedMedia);
                         }
                         break;
                     default:
@@ -414,7 +394,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             getSupportActionBar().show();
             mControllers.setVisibility(View.VISIBLE);
         } else {
-            if (!Utils.isOrientationPortrait(this)) {
+            if (!ChromeCastUtils.isOrientationPortrait(this)) {
                 getSupportActionBar().hide();
             }
             mControllers.setVisibility(View.INVISIBLE);
@@ -534,7 +514,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
                 } else {
                     msg = getString(R.string.video_error_unknown_error);
                 }
-                Utils.showErrorDialog(LocalPlayerActivity.this, msg);
+                ChromeCastUtils.showErrorDialog(LocalPlayerActivity.this, msg);
                 mVideoView.stopPlayback();
                 mPlaybackState = PlaybackState.IDLE;
                 updatePlayButton(mPlaybackState);
@@ -548,7 +528,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             public void onPrepared(MediaPlayer mp) {
                 Log.d(TAG, "onPrepared is reached");
                 mDuration = mp.getDuration();
-                mEndText.setText(Utils.formatMillis(mDuration));
+                mEndText.setText(ChromeCastUtils.formatMillis(mDuration));
                 mSeekbar.setMax(mDuration);
                 restartTrickplayTimer();
             }
@@ -599,7 +579,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
-                mStartText.setText(Utils.formatMillis(progress));
+                mStartText.setText(ChromeCastUtils.formatMillis(progress));
             }
         });
 
@@ -617,8 +597,8 @@ public class LocalPlayerActivity extends AppCompatActivity {
     private void updateSeekbar(int position, int duration) {
         mSeekbar.setProgress(position);
         mSeekbar.setMax(duration);
-        mStartText.setText(Utils.formatMillis(position));
-        mEndText.setText(Utils.formatMillis(duration));
+        mStartText.setText(ChromeCastUtils.formatMillis(position));
+        mEndText.setText(ChromeCastUtils.formatMillis(duration));
     }
 
     private void updatePlayButton(PlaybackState state) {
@@ -691,7 +671,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             mDescriptionView.setVisibility(View.GONE);
             mTitleView.setVisibility(View.GONE);
             mAuthorView.setVisibility(View.GONE);
-            displaySize = Utils.getDisplaySize(this);
+            displaySize = ChromeCastUtils.getDisplaySize(this);
             RelativeLayout.LayoutParams lp = new
                     RelativeLayout.LayoutParams(displaySize.x,
                     displaySize.y + getSupportActionBar().getHeight());
@@ -707,7 +687,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             mDescriptionView.setVisibility(View.VISIBLE);
             mTitleView.setVisibility(View.VISIBLE);
             mAuthorView.setVisibility(View.VISIBLE);
-            displaySize = Utils.getDisplaySize(this);
+            displaySize = ChromeCastUtils.getDisplaySize(this);
             RelativeLayout.LayoutParams lp = new
                     RelativeLayout.LayoutParams(displaySize.x,
                     (int) (displaySize.x * mAspectRatio));
@@ -763,7 +743,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
         mDescriptionView.setMovementMethod(new ScrollingMovementMethod());
         mAuthorView = (TextView) findViewById(R.id.authorTextView);
         mStartText = (TextView) findViewById(R.id.startText);
-        mStartText.setText(Utils.formatMillis(0));
+        mStartText.setText(ChromeCastUtils.formatMillis(0));
         mEndText = (TextView) findViewById(R.id.endText);
         mSeekbar = (SeekBar) findViewById(R.id.seekBar1);
         mPlayPause = (ImageView) findViewById(R.id.playPauseImageView);
