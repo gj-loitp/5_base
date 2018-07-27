@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,7 +17,7 @@
     <VideoView
         android:id="@+id/videoView1"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/w_200"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/toolbar"
@@ -35,7 +35,7 @@
             android:id="@+id/coverArtView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:visibility="gone" />
 
         <ImageButton
@@ -44,7 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_play_arrow_64dp" />
+            android:src="@drawable/exo_controls_play"
+            android:tint="@color/White" />
 
     </RelativeLayout>
 
@@ -56,7 +57,6 @@
         android:layout_alignLeft="@+id/videoView1"
         android:layout_alignRight="@+id/videoView1"
         android:layout_alignTop="@+id/videoView1"
-        android:background="@drawable/bkg_black_colorprimary"
         android:visibility="visible">
 
         <ProgressBar
@@ -65,8 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:progressTint="@color/primary"
-            android:thumbTint="@color/primary"
+            android:progressTint="@color/White"
+            android:thumbTint="@color/White"
             android:visibility="gone" />
 
         <RelativeLayout
@@ -122,11 +122,8 @@
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/videoView1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="10dp"
+        android:padding="@dimen/padding_5"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -134,11 +131,10 @@
         android:id="@+id/authorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/titleTextView"
-        android:layout_alignRight="@+id/titleTextView"
         android:layout_below="@+id/titleTextView"
         android:layout_marginTop="2dp"
         android:lines="1"
+        android:padding="@dimen/padding_5"
         android:textSize="15sp" />
 
     <TextView
@@ -146,13 +142,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/cast_mini_controller"
-        android:layout_alignLeft="@+id/titleTextView"
-        android:layout_alignRight="@+id/titleTextView"
         android:layout_below="@+id/authorTextView"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-light"
         android:lines="50"
+        android:padding="@dimen/padding_5"
         android:scrollbars="vertical"
         android:textSize="15sp" />
 

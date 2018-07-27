@@ -107,12 +107,17 @@ public class VideoBrowserFragment extends BaseFragment implements VideoListAdapt
             }
 
             //String link = "https://toanvkstag-vod.uizacdn.net/68e7ef2b8a14438c921d9a06c710d011-stream/fec81ce4-a945-422e-8e01-a627e09f4db8/package/manifest.mpd";
-            String link = "https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd";
+            String link;
+            if (i % 2 == 0) {
+                link = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+            } else {
+                link = "https://android-vod.uizacdn.net/16f8e65d8e2643ffa3ff5ee9f4f9ba03-stream/fe2865b7-09ec-4f71-afb6-12d7815555ca/package/manifest.mpd";
+            }
 
             MediaInfo mediaInfo = new MediaInfo.Builder(
                     link)
                     .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
-                    .setContentType("application/dash+xml")
+                    .setContentType(i % 2 == 0 ? "videos/mp4" : "application/dash+xml")
                     .setMetadata(movieMetadata)
                     .setMediaTracks(mediaTrackList)
                     .setStreamDuration(video.getDuration() * 1000)

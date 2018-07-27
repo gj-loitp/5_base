@@ -13,12 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,9 +52,10 @@ import vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsAc
 import vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity;
 import vn.loitp.app.activity.demo.chromecast.settings.CastPreference;
 import vn.loitp.app.activity.demo.chromecast.utils.ChromeCastUtils;
+import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 
-public class LocalPlayerActivity extends AppCompatActivity {
-    private static final String TAG = "LocalPlayerActivity";
+public class LocalPlayerActivity extends BaseFontActivity {
     private VideoView mVideoView;
     private TextView mTitleView;
     private TextView mDescriptionView;
@@ -67,7 +65,6 @@ public class LocalPlayerActivity extends AppCompatActivity {
     private ImageView mPlayPause;
     private ProgressBar mLoading;
     private View mControllers;
-    private View mContainer;
     private ImageView mCoverArt;
     private Timer mSeekbarTimer;
     private Timer mControllersTimer;
@@ -102,9 +99,23 @@ public class LocalPlayerActivity extends AppCompatActivity {
     }
 
     @Override
+    protected boolean setFullScreen() {
+        return false;
+    }
+
+    @Override
+    protected String setTag() {
+        return "TAG" + getClass().getSimpleName();
+    }
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.gg_chromecast_local_player_activity;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.player_activity);
         mAquery = new AQuery(this);
         loadViews();
         setupControlsCallbacks();
@@ -119,7 +130,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             boolean shouldStartPlayback = bundle.getBoolean("shouldStart");
             int startPosition = bundle.getInt("startPosition", 0);
             mVideoView.setVideoURI(Uri.parse(mSelectedMedia.getContentId()));
-            Log.d(TAG, "Setting url of the VideoView to: " + mSelectedMedia.getContentId());
+            LLog.d(TAG, "Setting url of the VideoView to: " + mSelectedMedia.getContentId());
             if (shouldStartPlayback) {
                 // this will be the case only if we are coming from the
                 // CastControllerActivity by disconnecting from a device
@@ -150,7 +161,6 @@ public class LocalPlayerActivity extends AppCompatActivity {
 
     private void setupCastListener() {
         mSessionManagerListener = new SessionManagerListener<CastSession>() {
-
             @Override
             public void onSessionEnded(CastSession session, int error) {
                 onApplicationDisconnected();
@@ -222,8 +232,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
     private void updatePlaybackLocation(PlaybackLocation location) {
         mLocation = location;
         if (location == PlaybackLocation.LOCAL) {
-            if (mPlaybackState == PlaybackState.PLAYING
-                    || mPlaybackState == PlaybackState.BUFFERING) {
+            if (mPlaybackState == PlaybackState.PLAYING || mPlaybackState == PlaybackState.BUFFERING) {
                 setCoverArtStatus(null);
                 startControllersTimer();
             } else {
@@ -262,7 +271,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
                 switch (mLocation) {
                     case LOCAL:
                         mVideoView.start();
-                        Log.d(TAG, "Playing locally...");
+                        LLog.d(TAG, "Playing locally...");
                         mPlaybackState = PlaybackState.PLAYING;
                         startControllersTimer();
                         restartTrickplayTimer();
@@ -318,7 +327,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
         remoteMediaClient.addListener(new RemoteMediaClient.Listener() {
             @Override
             public void onStatusUpdated() {
-                Intent intent = new Intent(LocalPlayerActivity.this, ExpandedControlsActivity.class);
+                Intent intent = new Intent(activity, ExpandedControlsActivity.class);
                 startActivity(intent);
                 remoteMediaClient.removeListener(this);
             }
@@ -358,7 +367,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
     }
 
     private void stopTrickplayTimer() {
-        Log.d(TAG, "Stopped TrickPlay Timer");
+        LLog.d(TAG, "Stopped TrickPlay Timer");
         if (mSeekbarTimer != null) {
             mSeekbarTimer.cancel();
         }
@@ -368,7 +377,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
         stopTrickplayTimer();
         mSeekbarTimer = new Timer();
         mSeekbarTimer.scheduleAtFixedRate(new UpdateSeekbarTask(), 100, 1000);
-        Log.d(TAG, "Restarted TrickPlay Timer");
+        LLog.d(TAG, "Restarted TrickPlay Timer");
     }
 
     private void stopControllersTimer() {
@@ -404,9 +413,8 @@ public class LocalPlayerActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause() was called");
+        LLog.d(TAG, "onPause() was called");
         if (mLocation == PlaybackLocation.LOCAL) {
-
             if (mSeekbarTimer != null) {
                 mSeekbarTimer.cancel();
                 mSeekbarTimer = null;
@@ -420,33 +428,32 @@ public class LocalPlayerActivity extends AppCompatActivity {
             mPlaybackState = PlaybackState.PAUSED;
             updatePlayButton(PlaybackState.PAUSED);
         }
-        mCastContext.getSessionManager().removeSessionManagerListener(
-                mSessionManagerListener, CastSession.class);
+        mCastContext.getSessionManager().removeSessionManagerListener(mSessionManagerListener, CastSession.class);
     }
 
     @Override
-    protected void onStop() {
-        Log.d(TAG, "onStop() was called");
+    public void onStop() {
+        LLog.d(TAG, "onStop() was called");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.d(TAG, "onDestroy() is called");
+        LLog.d(TAG, "onDestroy() was called");
         stopControllersTimer();
         stopTrickplayTimer();
         super.onDestroy();
     }
 
     @Override
-    protected void onStart() {
-        Log.d(TAG, "onStart was called");
+    public void onStart() {
+        LLog.d(TAG, "onStart was called");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.d(TAG, "onResume() was called");
+        LLog.d(TAG, "onResume() was called");
         mCastContext.getSessionManager().addSessionManagerListener(
                 mSessionManagerListener, CastSession.class);
         if (mCastSession != null && mCastSession.isConnected()) {
@@ -455,20 +462,17 @@ public class LocalPlayerActivity extends AppCompatActivity {
             updatePlaybackLocation(PlaybackLocation.LOCAL);
         }
         if (mQueueMenuItem != null) {
-            mQueueMenuItem.setVisible(
-                    (mCastSession != null) && mCastSession.isConnected());
+            mQueueMenuItem.setVisible((mCastSession != null) && mCastSession.isConnected());
         }
         super.onResume();
     }
 
     @Override
     public boolean dispatchKeyEvent(@NonNull KeyEvent event) {
-        return mCastContext.onDispatchVolumeKeyEventBeforeJellyBean(event)
-                || super.dispatchKeyEvent(event);
+        return mCastContext.onDispatchVolumeKeyEventBeforeJellyBean(event) || super.dispatchKeyEvent(event);
     }
 
     private class HideControllersTask extends TimerTask {
-
         @Override
         public void run() {
             mHandler.post(new Runnable() {
@@ -478,16 +482,13 @@ public class LocalPlayerActivity extends AppCompatActivity {
                     mControllersVisible = false;
                 }
             });
-
         }
     }
 
     private class UpdateSeekbarTask extends TimerTask {
-
         @Override
         public void run() {
             mHandler.post(new Runnable() {
-
                 @Override
                 public void run() {
                     if (mLocation == PlaybackLocation.LOCAL) {
@@ -501,11 +502,9 @@ public class LocalPlayerActivity extends AppCompatActivity {
 
     private void setupControlsCallbacks() {
         mVideoView.setOnErrorListener(new OnErrorListener() {
-
             @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
-                Log.e(TAG, "OnErrorListener.onError(): VideoView encountered an "
-                        + "error, what: " + what + ", extra: " + extra);
+                LLog.e(TAG, "OnErrorListener.onError(): VideoView encountered an " + "error, what: " + what + ", extra: " + extra);
                 String msg;
                 if (extra == MediaPlayer.MEDIA_ERROR_TIMED_OUT) {
                     msg = getString(R.string.video_error_media_load_timeout);
@@ -514,7 +513,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
                 } else {
                     msg = getString(R.string.video_error_unknown_error);
                 }
-                ChromeCastUtils.showErrorDialog(LocalPlayerActivity.this, msg);
+                ChromeCastUtils.showErrorDialog(activity, msg);
                 mVideoView.stopPlayback();
                 mPlaybackState = PlaybackState.IDLE;
                 updatePlayButton(mPlaybackState);
@@ -523,10 +522,9 @@ public class LocalPlayerActivity extends AppCompatActivity {
         });
 
         mVideoView.setOnPreparedListener(new OnPreparedListener() {
-
             @Override
             public void onPrepared(MediaPlayer mp) {
-                Log.d(TAG, "onPrepared is reached");
+                LLog.d(TAG, "onPrepared is reached");
                 mDuration = mp.getDuration();
                 mEndText.setText(ChromeCastUtils.formatMillis(mDuration));
                 mSeekbar.setMax(mDuration);
@@ -535,18 +533,16 @@ public class LocalPlayerActivity extends AppCompatActivity {
         });
 
         mVideoView.setOnCompletionListener(new OnCompletionListener() {
-
             @Override
             public void onCompletion(MediaPlayer mp) {
                 stopTrickplayTimer();
-                Log.d(TAG, "setOnCompletionListener()");
+                LLog.d(TAG, "setOnCompletionListener()");
                 mPlaybackState = PlaybackState.IDLE;
                 updatePlayButton(mPlaybackState);
             }
         });
 
         mVideoView.setOnTouchListener(new OnTouchListener() {
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (!mControllersVisible) {
@@ -558,7 +554,6 @@ public class LocalPlayerActivity extends AppCompatActivity {
         });
 
         mSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 if (mPlaybackState == PlaybackState.PLAYING) {
@@ -602,17 +597,15 @@ public class LocalPlayerActivity extends AppCompatActivity {
     }
 
     private void updatePlayButton(PlaybackState state) {
-        Log.d(TAG, "Controls: PlayBackState: " + state);
-        boolean isConnected = (mCastSession != null)
-                && (mCastSession.isConnected() || mCastSession.isConnecting());
+        LLog.d(TAG, "Controls: PlayBackState: " + state);
+        boolean isConnected = (mCastSession != null) && (mCastSession.isConnected() || mCastSession.isConnecting());
         mControllers.setVisibility(isConnected ? View.GONE : View.VISIBLE);
         mPlayCircle.setVisibility(isConnected ? View.GONE : View.VISIBLE);
         switch (state) {
             case PLAYING:
                 mLoading.setVisibility(View.INVISIBLE);
                 mPlayPause.setVisibility(View.VISIBLE);
-                mPlayPause.setImageDrawable(
-                        getResources().getDrawable(R.drawable.ic_pause_black_48dp));
+                mPlayPause.setImageDrawable(getResources().getDrawable(R.drawable.ic_pause_black_48dp));
                 mPlayCircle.setVisibility(isConnected ? View.VISIBLE : View.GONE);
                 break;
             case IDLE:
@@ -624,8 +617,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
             case PAUSED:
                 mLoading.setVisibility(View.INVISIBLE);
                 mPlayPause.setVisibility(View.VISIBLE);
-                mPlayPause.setImageDrawable(
-                        getResources().getDrawable(R.drawable.ic_play_arrow_black_48dp));
+                mPlayPause.setImageDrawable(getResources().getDrawable(R.drawable.ic_play_arrow_black_48dp));
                 mPlayCircle.setVisibility(isConnected ? View.VISIBLE : View.GONE);
                 break;
             case BUFFERING:
@@ -644,24 +636,21 @@ public class LocalPlayerActivity extends AppCompatActivity {
         getSupportActionBar().show();
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
             }
             updateMetadata(false);
-            mContainer.setBackgroundColor(getResources().getColor(R.color.black));
+            getRootView().setBackgroundColor(getResources().getColor(R.color.black));
 
         } else {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-            getWindow().clearFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
             updateMetadata(true);
-            mContainer.setBackgroundColor(getResources().getColor(R.color.white));
+            getRootView().setBackgroundColor(getResources().getColor(R.color.white));
         }
     }
 
@@ -672,25 +661,20 @@ public class LocalPlayerActivity extends AppCompatActivity {
             mTitleView.setVisibility(View.GONE);
             mAuthorView.setVisibility(View.GONE);
             displaySize = ChromeCastUtils.getDisplaySize(this);
-            RelativeLayout.LayoutParams lp = new
-                    RelativeLayout.LayoutParams(displaySize.x,
-                    displaySize.y + getSupportActionBar().getHeight());
+            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(displaySize.x, displaySize.y + getSupportActionBar().getHeight());
             lp.addRule(RelativeLayout.CENTER_IN_PARENT);
             mVideoView.setLayoutParams(lp);
             mVideoView.invalidate();
         } else {
             MediaMetadata mm = mSelectedMedia.getMetadata();
-            mDescriptionView.setText(mSelectedMedia.getCustomData().optString(
-                    VideoProvider.KEY_DESCRIPTION));
+            mDescriptionView.setText(mSelectedMedia.getCustomData().optString(VideoProvider.KEY_DESCRIPTION));
             mTitleView.setText(mm.getString(MediaMetadata.KEY_TITLE));
             mAuthorView.setText(mm.getString(MediaMetadata.KEY_SUBTITLE));
             mDescriptionView.setVisibility(View.VISIBLE);
             mTitleView.setVisibility(View.VISIBLE);
             mAuthorView.setVisibility(View.VISIBLE);
             displaySize = ChromeCastUtils.getDisplaySize(this);
-            RelativeLayout.LayoutParams lp = new
-                    RelativeLayout.LayoutParams(displaySize.x,
-                    (int) (displaySize.x * mAspectRatio));
+            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(displaySize.x, (int) (displaySize.x * mAspectRatio));
             lp.addRule(RelativeLayout.BELOW, R.id.toolbar);
             mVideoView.setLayoutParams(lp);
             mVideoView.invalidate();
@@ -700,17 +684,15 @@ public class LocalPlayerActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.player, menu);
-        CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu,
-                R.id.media_route_menu_item);
+        getMenuInflater().inflate(R.menu.gg_chromecast_local_player, menu);
+        CastButtonFactory.setUpMediaRouteButton(getApplicationContext(), menu, R.id.media_route_menu_item);
         mQueueMenuItem = menu.findItem(R.id.action_show_queue);
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_show_queue).setVisible(
-                (mCastSession != null) && mCastSession.isConnected());
+        menu.findItem(R.id.action_show_queue).setVisible((mCastSession != null) && mCastSession.isConnected());
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -718,13 +700,14 @@ public class LocalPlayerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         if (item.getItemId() == R.id.action_settings) {
-            intent = new Intent(LocalPlayerActivity.this, CastPreference.class);
+            intent = new Intent(activity, CastPreference.class);
             startActivity(intent);
         } else if (item.getItemId() == R.id.action_show_queue) {
-            intent = new Intent(LocalPlayerActivity.this, QueueListViewActivity.class);
+            intent = new Intent(activity, QueueListViewActivity.class);
             startActivity(intent);
         } else if (item.getItemId() == android.R.id.home) {
-            ActivityCompat.finishAfterTransition(this);
+            //ActivityCompat.finishAfterTransition(this);
+            onBackPressed();
         }
         return true;
     }
@@ -734,6 +717,7 @@ public class LocalPlayerActivity extends AppCompatActivity {
         toolbar.setTitle(mSelectedMedia.getMetadata().getString(MediaMetadata.KEY_TITLE));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
     }
 
     private void loadViews() {
@@ -749,9 +733,8 @@ public class LocalPlayerActivity extends AppCompatActivity {
         mPlayPause = (ImageView) findViewById(R.id.playPauseImageView);
         mLoading = (ProgressBar) findViewById(R.id.progressBar1);
         mControllers = findViewById(R.id.controllers);
-        mContainer = findViewById(R.id.container);
         mCoverArt = (ImageView) findViewById(R.id.coverArtView);
-        ViewCompat.setTransitionName(mCoverArt, getString(R.string.transition_image));
+        //ViewCompat.setTransitionName(mCoverArt, getString(R.string.transition_image));
         mPlayCircle = (ImageButton) findViewById(R.id.play_circle);
         mPlayCircle.setOnClickListener(new OnClickListener() {
             @Override
