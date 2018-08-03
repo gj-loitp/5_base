@@ -195,9 +195,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isShowAdWhenExist && !Constants.IS_DEBUG) {
             LUIUtil.displayInterstitial(interstitialAd, 60);
         } else {
-            if (Constants.IS_DEBUG) {
-                LToast.show(activity, "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
-            }
+            LLog.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
         }
     }
 
