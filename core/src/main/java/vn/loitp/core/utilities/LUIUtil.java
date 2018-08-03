@@ -53,10 +53,7 @@ import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.AdmobData;
-import vn.loitp.utils.util.AppUtils;
 import vn.loitp.utils.util.ConvertUtils;
-import vn.loitp.utils.util.Utils;
-import vn.loitp.views.LToast;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.views.overscroll.lib.overscroll.OverScrollDecoratorHelper;
@@ -119,9 +116,7 @@ public class LUIUtil {
             return;
         }*/
         if (interstitial == null) {
-            if (Constants.IS_DEBUG) {
-                LToast.show(Utils.getContext(), "displayInterstitial err: interstitial == null");
-            }
+            LLog.i(TAG, "displayInterstitial err: interstitial == null");
             return;
         }
         if (interstitial.isLoaded()) {
@@ -130,14 +125,10 @@ public class LUIUtil {
             if (x < maxNumber) {
                 interstitial.show();
             } else {
-                if (Constants.IS_DEBUG) {
-                    LToast.show(Utils.getContext(), "displayInterstitial: interstitial isLoaded() but " + x + " > " + maxNumber);
-                }
+                LLog.i(TAG, "displayInterstitial: interstitial isLoaded() but " + x + " > " + maxNumber);
             }
         } else {
-            if (Constants.IS_DEBUG) {
-                LToast.show(Utils.getContext(), "displayInterstitial: interstitial !isLoaded()");
-            }
+            LLog.i(TAG, "displayInterstitial: interstitial !isLoaded()");
         }
     }
 
