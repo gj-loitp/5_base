@@ -3,7 +3,6 @@ package vn.loitp.core.base;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,14 +39,13 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
+import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
-
 public abstract class BaseActivity extends AppCompatActivity {
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
     protected Activity activity;
@@ -195,7 +193,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onBackPressed();
         LActivityUtil.tranOut(activity);
         if (isShowAdWhenExist && !Constants.IS_DEBUG) {
-            LUIUtil.displayInterstitial(interstitialAd, 50);
+            LUIUtil.displayInterstitial(interstitialAd, 60);
+        } else {
+            if (Constants.IS_DEBUG) {
+                LToast.show(activity, "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
+            }
         }
     }
 
