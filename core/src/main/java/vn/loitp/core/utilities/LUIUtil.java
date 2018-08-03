@@ -26,6 +26,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,7 +117,8 @@ public class LUIUtil {
             return;
         }*/
         if (interstitial == null) {
-            LLog.i(TAG, "displayInterstitial err: interstitial == null");
+            //dont use LLog here
+            Log.d("interstitial", "displayInterstitial err: interstitial == null");
             return;
         }
         if (interstitial.isLoaded()) {
@@ -125,10 +127,12 @@ public class LUIUtil {
             if (x < maxNumber) {
                 interstitial.show();
             } else {
-                LLog.i(TAG, "displayInterstitial: interstitial isLoaded() but " + x + " > " + maxNumber);
+                //dont use LLog here
+                Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but " + x + " > " + maxNumber);
             }
         } else {
-            LLog.i(TAG, "displayInterstitial: interstitial !isLoaded()");
+            //dont use LLog here
+            Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()");
         }
     }
 

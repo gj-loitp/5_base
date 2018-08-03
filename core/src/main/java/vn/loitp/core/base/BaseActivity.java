@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -195,7 +196,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isShowAdWhenExist && !Constants.IS_DEBUG) {
             LUIUtil.displayInterstitial(interstitialAd, 60);
         } else {
-            LLog.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
+            //dont use LLog here
+            Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
         }
     }
 
