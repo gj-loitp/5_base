@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
+import vn.loitp.views.realtimeblurview.RealtimeBlurView;
 
 /**
  * User: special
@@ -42,6 +43,7 @@ public class ResideMenu extends FrameLayout {
     private static final int PRESSED_DONE = 4;
     private static final int PRESSED_MOVE_VERTICAL = 5;
 
+    private RealtimeBlurView realtimeBlurView;
     private ImageView imageViewShadow;
     private ImageView imageViewBackground;
     private LinearLayout layoutLeftMenu;
@@ -121,6 +123,7 @@ public class ResideMenu extends FrameLayout {
             layoutRightMenu = (LinearLayout) scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 
+        realtimeBlurView = (RealtimeBlurView) findViewById(R.id.real_time_blur_view);
         imageViewShadow = (ImageView) findViewById(R.id.iv_shadow);
         imageViewBackground = (ImageView) findViewById(R.id.iv_background);
 
@@ -714,5 +717,17 @@ public class ResideMenu extends FrameLayout {
         if (scrollViewMenu != null && scrollViewMenu.getParent() != null) {
             removeView(scrollViewMenu);
         }
+    }
+
+    public RealtimeBlurView getRealtimeBlurView() {
+        return realtimeBlurView;
+    }
+
+    public void showBlurView() {
+        realtimeBlurView.setVisibility(VISIBLE);
+    }
+
+    public void hideBlurView() {
+        realtimeBlurView.setVisibility(GONE);
     }
 }
