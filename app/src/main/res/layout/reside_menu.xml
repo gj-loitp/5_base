@@ -27,7 +27,7 @@
                 android:layout_height="28dp"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/bt_color_primary" />
+                android:background="@drawable/ic_more_vert_grey" />
 
             <TextView
                 android:layout_width="wrap_content"
