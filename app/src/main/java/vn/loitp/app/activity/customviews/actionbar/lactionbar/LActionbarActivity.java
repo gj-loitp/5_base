@@ -6,7 +6,7 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.LToast;
 import vn.loitp.views.actionbar.lib.LActionBar;
 
 public class LActionbarActivity extends BaseFontActivity {
@@ -45,7 +45,7 @@ public class LActionbarActivity extends BaseFontActivity {
 
             @Override
             public void onClickMenu() {
-                ToastUtils.showShort("onClickMenu");
+                LToast.show(activity, "onClickMenu");
             }
         });
         lActionBar.showMenuIcon();

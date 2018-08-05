@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity;
+import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -15,6 +15,7 @@ public class MenuMenuActivity extends BaseFontActivity implements OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_reside_menu).setOnClickListener(this);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class MenuMenuActivity extends BaseFontActivity implements OnClickListene
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_reside_menu:
-                intent = new Intent(activity, ArianaMenuActivity.class);
+                intent = new Intent(activity, ResideMenuActivity.class);
                 break;
         }
         if (intent != null) {

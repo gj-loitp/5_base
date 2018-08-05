@@ -96,4 +96,9 @@
 
     <style name="CustomCastExpandedController" parent="CastExpandedController" />
     <!--stop DEMO CHROMECAST-->
+
+    <style name="fragment_text">
+        <item name="android:textColor">#ffacacac</item>
+        <item name="android:textSize">25sp</item>
+    </style>
 </resources>

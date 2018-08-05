@@ -14,10 +14,16 @@
         android:background="@color/White"
         android:fitsSystemWindows="true">
 
+        <vn.loitp.views.actionbar.lib.LActionBar
+            android:id="@+id/l_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <RelativeLayout
             android:id="@+id/webview_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/l_action_bar"
             android:orientation="vertical">
 
             <WebView
