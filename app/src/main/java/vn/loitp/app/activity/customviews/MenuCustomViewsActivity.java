@@ -22,6 +22,7 @@ import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
 import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity;
+import vn.loitp.app.activity.customviews.menu.MenuMenuActivity;
 import vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity;
 import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity;
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity;
@@ -78,6 +79,7 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         findViewById(R.id.bt_wwl_music).setOnClickListener(this);
         findViewById(R.id.bt_wwl_video).setOnClickListener(this);
         findViewById(R.id.bt_ldebugview).setOnClickListener(this);
+        findViewById(R.id.bt_menu).setOnClickListener(this);
     }
 
     @Override
@@ -194,6 +196,9 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
                 break;
             case R.id.bt_ldebugview:
                 intent = new Intent(activity, LDebugViewActivity.class);
+                break;
+            case R.id.bt_menu:
+                intent = new Intent(activity, MenuMenuActivity.class);
                 break;
         }
         if (intent != null) {
