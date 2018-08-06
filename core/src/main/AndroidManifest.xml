@@ -21,6 +21,7 @@
             android:value="2.1" />
         <receiver android:name="vn.loitp.core.utilities.LConectifyBroadcast">
             <intent-filter>
+                <action android:name="android.net.wifi.STATE_CHANGE" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
