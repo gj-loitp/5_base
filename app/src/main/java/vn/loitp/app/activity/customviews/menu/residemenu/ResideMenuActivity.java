@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.customviews.menu.residemenu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -42,6 +44,13 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
             changeFragment(new HomeFragment());
     }
 
+    private void setupUIResideMenuItem(ResideMenuItem resideMenuItem) {
+        resideMenuItem.setTextColor(Color.BLACK);
+        resideMenuItem.setTextShadow(Color.WHITE);
+        resideMenuItem.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+        resideMenuItem.setIvIconSizeDp(20);
+    }
+
     private void setUpMenu() {
         // attach to current activity;
         resideMenu = new ResideMenu(this);
@@ -57,6 +66,11 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         itemProfile = new ResideMenuItem(this, R.mipmap.ic_launcher, "Profile");
         itemCalendar = new ResideMenuItem(this, R.mipmap.ic_launcher, "Calendar");
         itemSettings = new ResideMenuItem(this, R.mipmap.ic_launcher, "Settings");
+
+        setupUIResideMenuItem(itemHome);
+        setupUIResideMenuItem(itemProfile);
+        setupUIResideMenuItem(itemCalendar);
+        setupUIResideMenuItem(itemSettings);
 
         itemHome.setOnClickListener(this);
         itemProfile.setOnClickListener(this);

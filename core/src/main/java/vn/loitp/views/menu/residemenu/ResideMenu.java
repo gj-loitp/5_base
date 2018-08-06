@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.realtimeblurview.RealtimeBlurView;
 
 /**
@@ -101,31 +103,33 @@ public class ResideMenu extends FrameLayout {
         initViews(context, customLeftMenuId, customRightMenuId);
     }
 
-    private void initViews(Context context, int customLeftMenuId,
-                           int customRightMenuId) {
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private void initViews(Context context, int customLeftMenuId, int customRightMenuId) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.residemenu_custom, this);
 
         if (customLeftMenuId >= 0) {
             scrollViewLeftMenu = inflater.inflate(customLeftMenuId, this, false);
         } else {
-            scrollViewLeftMenu = inflater.inflate(
-                    R.layout.residemenu_custom_left_scrollview, this, false);
+            scrollViewLeftMenu = inflater.inflate(R.layout.residemenu_custom_left_scrollview, this, false);
             layoutLeftMenu = (LinearLayout) scrollViewLeftMenu.findViewById(R.id.layout_left_menu);
         }
 
         if (customRightMenuId >= 0) {
             scrollViewRightMenu = inflater.inflate(customRightMenuId, this, false);
         } else {
-            scrollViewRightMenu = inflater.inflate(
-                    R.layout.residemenu_custom_right_scrollview, this, false);
+            scrollViewRightMenu = inflater.inflate(R.layout.residemenu_custom_right_scrollview, this, false);
             layoutRightMenu = (LinearLayout) scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 
         realtimeBlurView = (RealtimeBlurView) findViewById(R.id.real_time_blur_view);
         imageViewShadow = (ImageView) findViewById(R.id.iv_shadow);
         imageViewBackground = (ImageView) findViewById(R.id.iv_background);
+
+        ScrollView svLeft = scrollViewLeftMenu.findViewById(R.id.sv_left_menu);
+        ScrollView svRight = scrollViewRightMenu.findViewById(R.id.sv_right_menu);
+
+        LUIUtil.setPullLikeIOSVertical(svLeft);
+        LUIUtil.setPullLikeIOSVertical(svRight);
 
         RelativeLayout menuHolder = (RelativeLayout) findViewById(R.id.sv_menu_holder);
         menuHolder.addView(scrollViewLeftMenu);

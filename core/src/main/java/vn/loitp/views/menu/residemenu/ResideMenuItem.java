@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import loitp.core.R;
+import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.utils.util.ConvertUtils;
 
 /**
  * User: special
@@ -19,11 +21,11 @@ public class ResideMenuItem extends LinearLayout {
     /**
      * menu item  icon
      */
-    private ImageView iv_icon;
+    private ImageView ivIcon;
     /**
      * menu item  title
      */
-    private TextView tv_title;
+    private TextView tvTitle;
 
     public ResideMenuItem(Context context) {
         super(context);
@@ -33,22 +35,22 @@ public class ResideMenuItem extends LinearLayout {
     public ResideMenuItem(Context context, int icon, int title) {
         super(context);
         initViews(context);
-        iv_icon.setImageResource(icon);
-        tv_title.setText(title);
+        ivIcon.setImageResource(icon);
+        tvTitle.setText(title);
     }
 
     public ResideMenuItem(Context context, int icon, String title) {
         super(context);
         initViews(context);
-        iv_icon.setImageResource(icon);
-        tv_title.setText(title);
+        ivIcon.setImageResource(icon);
+        tvTitle.setText(title);
     }
 
     private void initViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.residemenu_item, this);
-        iv_icon = (ImageView) findViewById(R.id.iv_icon);
-        tv_title = (TextView) findViewById(R.id.tv_title);
+        ivIcon = (ImageView) findViewById(R.id.iv_icon);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
     }
 
     /**
@@ -57,7 +59,7 @@ public class ResideMenuItem extends LinearLayout {
      * @param icon
      */
     public void setIcon(int icon) {
-        iv_icon.setImageResource(icon);
+        ivIcon.setImageResource(icon);
     }
 
     /**
@@ -67,7 +69,7 @@ public class ResideMenuItem extends LinearLayout {
      * @param title
      */
     public void setTitle(int title) {
-        tv_title.setText(title);
+        tvTitle.setText(title);
     }
 
     /**
@@ -76,6 +78,38 @@ public class ResideMenuItem extends LinearLayout {
      * @param title
      */
     public void setTitle(String title) {
-        tv_title.setText(title);
+        tvTitle.setText(title);
+    }
+
+    public ImageView getIvIcon() {
+        return ivIcon;
+    }
+
+    public TextView getTvTitle() {
+        return tvTitle;
+    }
+
+    public void setTextColor(int color) {
+        tvTitle.setTextColor(color);
+    }
+
+    public void setTextSize(int typedValue, int size) {
+        LUIUtil.setTextSize(tvTitle, typedValue, size);
+    }
+
+    public void setTextShadow(int color) {
+        LUIUtil.setTextShadow(tvTitle, color);
+    }
+
+    public void setIvIconSizePx(int sizeInPx) {
+        ivIcon.getLayoutParams().width = sizeInPx;
+        ivIcon.getLayoutParams().height = sizeInPx;
+        ivIcon.requestLayout();
+    }
+
+    public void setIvIconSizeDp(int sizeInDp) {
+        ivIcon.getLayoutParams().width = ConvertUtils.dp2px(sizeInDp);
+        ivIcon.getLayoutParams().height = ConvertUtils.dp2px(sizeInDp);
+        ivIcon.requestLayout();
     }
 }
