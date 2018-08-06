@@ -4,11 +4,14 @@ package vn.loitp.core.utilities.connection;
  * Created by www.muathu@gmail.com on 10/21/2017.
  */
 
+import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -52,6 +55,7 @@ public class LConectifyService extends BroadcastReceiver {
 }*/
 
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class LConectifyService extends JobService implements ConnectivityReceiver.ConnectivityReceiverListener {
 
     private final String TAG = LConectifyService.class.getSimpleName();

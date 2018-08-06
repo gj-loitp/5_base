@@ -1,5 +1,6 @@
 package vn.loitp.core.base;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.job.JobInfo;
@@ -295,14 +296,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         EventBus.getDefault().register(this);
-        Intent startServiceIntent = new Intent(this, LConectifyService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Intent startServiceIntent = new Intent(this, LConectifyService.class);
+            startService(startServiceIntent);
+        }
         super.onStart();
     }
 
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
-        stopService(new Intent(this, LConectifyService.class));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            stopService(new Intent(this, LConectifyService.class));
+        }
         super.onStop();
     }
 
@@ -314,17 +320,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void scheduleJob() {
-        JobInfo myJob = new JobInfo.Builder(0, new ComponentName(this, LConectifyService.class))
-                .setRequiresCharging(true)
-                .setMinimumLatency(1000)
-                .setOverrideDeadline(2000)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                .setPersisted(true)
-                .build();
 
-        JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
-        jobScheduler.schedule(myJob);
+    private void scheduleJob() {
+        JobInfo myJob = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            myJob = new JobInfo.Builder(0, new ComponentName(this, LConectifyService.class))
+                    .setRequiresCharging(true)
+                    .setMinimumLatency(1000)
+                    .setOverrideDeadline(2000)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                    .setPersisted(true)
+                    .build();
+            JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+            jobScheduler.schedule(myJob);
+        }
     }
 }
