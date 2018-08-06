@@ -2,11 +2,16 @@ package vn.loitp.core.base;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -41,9 +46,9 @@ import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.core.utilities.connection.LConectifyService;
 import vn.loitp.data.EventBusData;
 import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
-import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
@@ -87,6 +92,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         super.onCreate(savedInstanceState);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(setLayoutResourceId());
         //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
@@ -103,6 +109,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (rootView == null) {
             throw new NullPointerException("Please set top root layout is relative layout, and set id root_view");
         }
+
+        scheduleJob();
     }
 
     protected void setCustomStatusBar(int colorStatusBar, int colorNavigationBar) {
@@ -287,12 +295,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         EventBus.getDefault().register(this);
+        Intent startServiceIntent = new Intent(this, LConectifyService.class);
         super.onStart();
     }
 
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
+        stopService(new Intent(this, LConectifyService.class));
         super.onStop();
     }
 
@@ -302,5 +312,19 @@ public abstract class BaseActivity extends AppCompatActivity {
             showTvNoConnect();
         }
         super.onResume();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void scheduleJob() {
+        JobInfo myJob = new JobInfo.Builder(0, new ComponentName(this, LConectifyService.class))
+                .setRequiresCharging(true)
+                .setMinimumLatency(1000)
+                .setOverrideDeadline(2000)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setPersisted(true)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        jobScheduler.schedule(myJob);
     }
 }
