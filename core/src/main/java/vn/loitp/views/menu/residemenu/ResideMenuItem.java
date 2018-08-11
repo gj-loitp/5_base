@@ -11,10 +11,10 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ConvertUtils;
 
 /**
- * User: special
+ * User: loitp
  * Date: 13-12-10
  * Time: 下午11:05
- * Mail: specialcyci@gmail.com
+ * Mail: www.muathu@gmail.com
  */
 public class ResideMenuItem extends LinearLayout {
 
