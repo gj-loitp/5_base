@@ -1,7 +1,12 @@
 package vn.loitp.core.loitp.gallery.albumonly;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +18,11 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
@@ -20,6 +30,7 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -85,15 +96,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             return;
         }
         LLog.d(TAG, "photosetID " + photosetID);
-
         photosSize = getIntent().getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
         LLog.d(TAG, "photosSize " + photosSize);
-        if (photosSize == Constants.NOT_FOUND) {
-            photosetsGetList();
-        } else {
-            init();
-        }
-
+        
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
@@ -162,6 +167,14 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 }
             }
         });
+    }
+
+    private void goToHome() {
+        if (photosSize == Constants.NOT_FOUND) {
+            photosetsGetList();
+        } else {
+            init();
+        }
     }
 
     @Override
@@ -303,6 +316,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             adView.resume();
         }
         super.onResume();
+        if (!isShowDialogCheck) {
+            checkPermission();
+        }
     }
 
     @Override
@@ -311,5 +327,78 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             adView.destroy();
         }
         super.onDestroy();
+    }
+
+    private boolean isShowDialogCheck;
+
+    private void checkPermission() {
+        isShowDialogCheck = true;
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_FINE_LOCATION)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        // check if all permissions are granted
+                        if (report.areAllPermissionsGranted()) {
+                            LLog.d(TAG, "onPermissionsChecked do you work now");
+                            goToHome();
+                        } else {
+                            LLog.d(TAG, "!areAllPermissionsGranted");
+                            showShouldAcceptPermission();
+                        }
+
+                        // check for permanent denial of any permission
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            showSettingsDialog();
+                        }
+                        isShowDialogCheck = true;
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        LLog.d(TAG, "onPermissionRationaleShouldBeShown");
+                        token.continuePermissionRequest();
+                    }
+                })
+                .onSameThread()
+                .check();
+    }
+
+    private void showShouldAcceptPermission() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+            @Override
+            public void onClick1() {
+                checkPermission();
+            }
+
+            @Override
+            public void onClick2() {
+                onBackPressed();
+            }
+        });
+        alertDialog.setCancelable(false);
+    }
+
+    private void showSettingsDialog() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+            @Override
+            public void onClick1() {
+                isShowDialogCheck = false;
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivityForResult(intent, 101);
+            }
+
+            @Override
+            public void onClick2() {
+                onBackPressed();
+            }
+        });
+        alertDialog.setCancelable(false);
     }
 }
