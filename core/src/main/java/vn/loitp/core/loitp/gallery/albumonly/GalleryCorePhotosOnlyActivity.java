@@ -98,7 +98,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         LLog.d(TAG, "photosetID " + photosetID);
         photosSize = getIntent().getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
         LLog.d(TAG, "photosSize " + photosSize);
-        
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
