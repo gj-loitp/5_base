@@ -30,7 +30,7 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
-        Constants.setIsDebug(false);
+        Constants.setIsDebug(true);
         Utils.init(this);
         //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));

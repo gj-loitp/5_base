@@ -22,6 +22,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
 import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity;
+import vn.loitp.core.loitp.gallery.member.GalleryMemberActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDemoActivity extends BaseFontActivity implements View.OnClickListener {
@@ -46,9 +47,13 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
 
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.VISIBLE);
             findViewById(R.id.bt_gallery_core_album).setOnClickListener(this);
+
+            findViewById(R.id.bt_gallery_member).setVisibility(View.VISIBLE);
+            findViewById(R.id.bt_gallery_member).setOnClickListener(this);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
+            findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
         }
     }
 
@@ -115,12 +120,15 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
-                //TODO
-                intent.putExtra(Constants.SK_PHOTOSET_ID, "72157669352081793");
-                //intent.putExtra(Constants.SK_PHOTOSET_SIZE, 676);
+                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_BABY);
                 break;
             case R.id.bt_chrome_cast_google:
                 intent = new Intent(activity, VideoBrowserActivity.class);
+                break;
+            case R.id.bt_gallery_member:
+                intent = new Intent(activity, GalleryMemberActivity.class);
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
                 break;
         }
         if (intent != null) {

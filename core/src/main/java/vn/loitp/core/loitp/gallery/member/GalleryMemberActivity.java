@@ -1,4 +1,4 @@
-package vn.loitp.core.loitp.gallery.albumonly;
+package vn.loitp.core.loitp.gallery.member;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -45,16 +45,16 @@ import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
-public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
+public class GalleryMemberActivity extends BaseFontActivity {
     private ProgressBar progressBar;
     private TextView tvTitle;
 
     private int currentPage = 0;
     private int totalPage = 1;
-    private final int PER_PAGE_SIZE = 100;
+    private final int PER_PAGE_SIZE = 30;
 
     private boolean isLoading;
-    private PhotosOnlyAdapter photosOnlyAdapter;
+    private MemberAdapter memberAdapter;
     private AdView adView;
 
     private String photosetID;
@@ -90,7 +90,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.White));
 
-        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        photosetID = Constants.FLICKR_ID_MEMBERS;
         if (photosetID == null || photosetID.isEmpty()) {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
@@ -107,7 +107,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setHasFixedSize(true);
-        photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
+        memberAdapter = new MemberAdapter(activity, new MemberAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
                 //do nothing
@@ -146,8 +146,8 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 LSocialUtil.openFacebookComment(activity, photo.getUrlO(), adUnitId);
             }
         });
-        recyclerView.setAdapter(photosOnlyAdapter);
-        /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
+        recyclerView.setAdapter(memberAdapter);
+        /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(memberAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -209,7 +209,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void photosetsGetList() {
-        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
         String apiKey = FlickrConst.API_KEY;
@@ -297,8 +297,8 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void updateAllViews() {
-        if (photosOnlyAdapter != null) {
-            photosOnlyAdapter.notifyDataSetChanged();
+        if (memberAdapter != null) {
+            memberAdapter.notifyDataSetChanged();
         }
     }
 

@@ -26,7 +26,7 @@
         <vn.loitp.views.imageview.bigimageview.LBigImageView
             android:id="@+id/l_big_image_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="1dp" />
 
         <LinearLayout
             android:id="@+id/ll_control"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/padding_3"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
                 android:id="@+id/bt_report"
@@ -82,7 +82,6 @@
                 app:civ_border_color="@color/LightGrey"
                 app:civ_border_width="@dimen/w_1"
                 app:civ_fill_color="@color/White" />
-
         </LinearLayout>
     </LinearLayout>
 

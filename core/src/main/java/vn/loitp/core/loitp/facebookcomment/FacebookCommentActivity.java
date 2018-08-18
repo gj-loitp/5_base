@@ -59,7 +59,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(activity);
-            adView.setAdSize(AdSize.BANNER);
+            adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
