@@ -5,7 +5,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.github.piasy.biv.BigImageViewer;
 import com.github.piasy.biv.loader.glide.GlideImageLoader;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
@@ -36,7 +35,7 @@ public class LSApplication extends MultiDexApplication {
         //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         //config activity transition default
-        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
 
         //config realm
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)

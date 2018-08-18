@@ -8,9 +8,9 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_5"
-        card_view:cardBackgroundColor="@color/White"
-        card_view:cardCornerRadius="@dimen/padding_5"
+        android:layout_margin="@dimen/margin_20"
+        card_view:cardBackgroundColor="@color/colorPrimaryDark"
+        card_view:cardCornerRadius="@dimen/padding_10"
         card_view:cardElevation="@dimen/w_3">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/Gray"
+            android:textColor="@color/White"
             android:textSize="@dimen/txt_18" />
     </android.support.v7.widget.CardView>
 
