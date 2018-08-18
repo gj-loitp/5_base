@@ -2,7 +2,6 @@ package vn.loitp.core.loitp.gallery.member;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
-import com.github.piasy.biv.view.BigImageView;
-
-import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
@@ -22,7 +18,6 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 /**
  * Created by loitp on 14/04/15.
@@ -55,6 +50,17 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         //viewHolder.rootView.getLayoutParams().height = sizeH;
         //viewHolder.rootView.requestLayout();
 
+        if (position == 0 || position == 1) {
+            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        } else if (position == getItemCount() - 1) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        }
+
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
@@ -73,6 +79,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LAnimationUtil.play(v, Techniques.Pulse);
                 if (callback != null) {
                     callback.onClick(photo, position);
                 }
@@ -81,7 +88,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
+                LAnimationUtil.play(v, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
@@ -102,12 +109,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         private TextView tvTitle;
         private LinearLayout rootView;
         private ImageView imageView;
+        private View viewSpaceTop;
+        private View viewSpaceBottom;
 
         public ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
             imageView = (ImageView) v.findViewById(R.id.image_view);
+            viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
+            viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
         }
     }
 
