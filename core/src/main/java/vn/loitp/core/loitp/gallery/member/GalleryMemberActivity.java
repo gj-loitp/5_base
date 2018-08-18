@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -32,7 +32,6 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -42,7 +41,6 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class GalleryMemberActivity extends BaseFontActivity {
@@ -105,7 +103,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
         recyclerView.setHasFixedSize(true);
         memberAdapter = new MemberAdapter(activity, new MemberAdapter.Callback() {
             @Override
@@ -123,27 +121,6 @@ public class GalleryMemberActivity extends BaseFontActivity {
             public void onLongClick(Photo photo, int pos) {
                 ////do nothing
                 //LSocialUtil.share(activity, photo.getUrlO());
-            }
-
-            @Override
-            public void onClickDownload(Photo photo, int pos) {
-                //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
-                new AsyncTaskDownloadImage(getApplicationContext(), photo.getUrlO()).execute();
-            }
-
-            @Override
-            public void onClickShare(Photo photo, int pos) {
-                LSocialUtil.share(activity, photo.getUrlO());
-            }
-
-            @Override
-            public void onClickReport(Photo photo, int pos) {
-                LSocialUtil.sendEmail(activity);
-            }
-
-            @Override
-            public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), adUnitId);
             }
         });
         recyclerView.setAdapter(memberAdapter);

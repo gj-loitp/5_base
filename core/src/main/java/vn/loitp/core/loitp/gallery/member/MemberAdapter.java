@@ -19,6 +19,7 @@ import java.io.File;
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -54,47 +55,13 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         //viewHolder.rootView.getLayoutParams().height = sizeH;
         //viewHolder.rootView.requestLayout();
 
-        viewHolder.llControl.setVisibility(View.GONE);
-
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
-        //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
-        viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
-        viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        viewHolder.lBigImageView.setZoomEnable(false);
-        viewHolder.lBigImageView.load(photo.getUrlO());
-        viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
-            @Override
-            public void onSuccess(File image) {
-                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                viewHolder.lBigImageView.requestLayout();
-                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
-                    @Override
-                    public void doAfter(int mls) {
-                        viewHolder.llControl.setVisibility(View.VISIBLE);
-                    }
-                });
-            }
-
-            @Override
-            public void onFail(Exception error) {
-                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                viewHolder.lBigImageView.requestLayout();
-                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
-                    @Override
-                    public void doAfter(int mls) {
-                        viewHolder.llControl.setVisibility(View.VISIBLE);
-                    }
-                });
-            }
-        });
+        LImageUtil.load(context, photo.getUrlM(), viewHolder.imageView);
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);
@@ -108,42 +75,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             public void onClick(View v) {
                 if (callback != null) {
                     callback.onClick(photo, position);
-                }
-            }
-        });
-        viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickDownload(photo, position);
-                }
-            }
-        });
-        viewHolder.btShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickShare(photo, position);
-                }
-            }
-        });
-        viewHolder.btReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickReport(photo, position);
-                }
-            }
-        });
-        viewHolder.btCmt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickCmt(photo, position);
                 }
             }
         });
@@ -170,23 +101,13 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
         private LinearLayout rootView;
-        private LBigImageView lBigImageView;
-        private ImageView btDownload;
-        private ImageView btShare;
-        private ImageView btReport;
-        private ImageView btCmt;
-        private LinearLayout llControl;
+        private ImageView imageView;
 
         public ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
-            lBigImageView = (LBigImageView) v.findViewById(R.id.l_big_image_view);
-            btDownload = (ImageView) v.findViewById(R.id.bt_download);
-            btShare = (ImageView) v.findViewById(R.id.bt_share);
-            btReport = (ImageView) v.findViewById(R.id.bt_report);
-            btCmt = (ImageView) v.findViewById(R.id.bt_cmt);
-            llControl = (LinearLayout) v.findViewById(R.id.ll_control);
+            imageView = (ImageView) v.findViewById(R.id.image_view);
         }
     }
 
@@ -194,14 +115,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         public void onClick(Photo photo, int pos);
 
         public void onLongClick(Photo photo, int pos);
-
-        public void onClickDownload(Photo photo, int pos);
-
-        public void onClickShare(Photo photo, int pos);
-
-        public void onClickReport(Photo photo, int pos);
-
-        public void onClickCmt(Photo photo, int pos);
     }
 
     private Callback callback;
