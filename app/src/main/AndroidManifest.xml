@@ -909,6 +909,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.lcardview.LCardViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

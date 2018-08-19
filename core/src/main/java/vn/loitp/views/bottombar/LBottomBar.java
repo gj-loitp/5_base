@@ -1,4 +1,4 @@
-package vn.loitp.views.bottombar.lib;
+package vn.loitp.views.bottombar;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
