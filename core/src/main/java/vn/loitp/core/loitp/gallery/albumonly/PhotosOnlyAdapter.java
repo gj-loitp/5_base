@@ -19,6 +19,9 @@ import java.io.File;
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -30,11 +33,13 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     private final String TAG = getClass().getSimpleName();
     private Context context;
     private LayoutInflater inflater;
+    private int screenW;
 
     public PhotosOnlyAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
+        screenW = LScreenUtil.getScreenWidth();
     }
 
     @Override
@@ -54,47 +59,53 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //viewHolder.rootView.getLayoutParams().height = sizeH;
         //viewHolder.rootView.requestLayout();
 
-        viewHolder.llControl.setVisibility(View.GONE);
+        //viewHolder.llControl.setVisibility(View.GONE);
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
-        //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
+        int height = photo.getHeightO() * screenW / photo.getWidthO();
+        LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
+        viewHolder.lBigImageView.getLBigImageView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+        viewHolder.lBigImageView.getLBigImageView().getLayoutParams().height = height;
+        viewHolder.lBigImageView.getLBigImageView().requestLayout();
+
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
         viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());
-        viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
+        /*viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
             @Override
             public void onSuccess(File image) {
-                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                viewHolder.lBigImageView.requestLayout();
-                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                //viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                //viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                //viewHolder.lBigImageView.requestLayout();
+                *//*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });
+                });*//*
             }
 
             @Override
             public void onFail(Exception error) {
-                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                viewHolder.lBigImageView.requestLayout();
-                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                //viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                //viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                //viewHolder.lBigImageView.requestLayout();
+                *//*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });
+                });*//*
             }
-        });
+        });*/
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);
