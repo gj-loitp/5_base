@@ -19,9 +19,9 @@ import java.io.File;
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -51,7 +51,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        //LImageUtil.clear(context, holder.iv);
+        LImageUtil.clear(context, holder.lBigImageView);
     }
 
     @Override
@@ -64,13 +64,16 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
         int height = photo.getHeightO() * screenW / photo.getWidthO();
-        LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
+        //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
+
+        //viewHolder.tvTitle.setText(photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
+
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
-        viewHolder.lBigImageView.getLBigImageView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-        viewHolder.lBigImageView.getLBigImageView().getLayoutParams().height = height;
-        viewHolder.lBigImageView.getLBigImageView().requestLayout();
+        viewHolder.lBigImageView.getLayoutParams().width = screenW;
+        viewHolder.lBigImageView.getLayoutParams().height = height;
+        viewHolder.lBigImageView.requestLayout();
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
@@ -79,33 +82,33 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());
-        /*viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
+        viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
             @Override
             public void onSuccess(File image) {
-                //viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                //viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                //viewHolder.lBigImageView.requestLayout();
-                *//*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                viewHolder.lBigImageView.requestLayout();
+                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });*//*
+                });*/
             }
 
             @Override
             public void onFail(Exception error) {
-                //viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-                //viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                //viewHolder.lBigImageView.requestLayout();
-                *//*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                viewHolder.lBigImageView.requestLayout();
+                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });*//*
+                });*/
             }
-        });*/
+        });
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);
@@ -114,12 +117,26 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             viewHolder.tvTitle.setText(photo.getTitle());
             LUIUtil.setTextShadow(viewHolder.tvTitle);
         }
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+
+        viewHolder.lBigImageView.getSSIV().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //LLog.d(TAG, "setOnClickListener");
+                LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onClick(photo, position);
                 }
+            }
+        });
+        viewHolder.lBigImageView.getSSIV().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //LLog.d(TAG, "onLongClick");
+                LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onLongClick(photo, position);
+                }
+                return true;
             }
         });
         viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
@@ -156,16 +173,6 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 if (callback != null) {
                     callback.onClickCmt(photo, position);
                 }
-            }
-        });
-        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onLongClick(photo, position);
-                }
-                return true;
             }
         });
     }
