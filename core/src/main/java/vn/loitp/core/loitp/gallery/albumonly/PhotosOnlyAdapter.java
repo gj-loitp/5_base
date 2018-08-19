@@ -24,7 +24,7 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 /**
- * Created by yahyabayramoglu on 14/04/15.
+ * Created by loitp on 14/04/15.
  */
 public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.ViewHolder> {
     private final String TAG = getClass().getSimpleName();

@@ -19,6 +19,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
@@ -92,9 +93,11 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, PhotosAdapter.COLUMN));
+        int column = LDeviceUtil.isTablet(activity) ? 3 : 2;
+
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
         recyclerView.setHasFixedSize(true);
-        photosAdapter = new PhotosAdapter(activity, new PhotosAdapter.Callback() {
+        photosAdapter = new PhotosAdapter(activity, column, new PhotosAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());

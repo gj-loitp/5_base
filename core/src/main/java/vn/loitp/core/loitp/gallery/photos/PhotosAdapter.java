@@ -28,13 +28,11 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     private int sizeW;
     private int sizeH;
 
-    public final static int COLUMN = 3;
-
-    public PhotosAdapter(Context context, Callback callback) {
+    public PhotosAdapter(Context context, int column, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
-        sizeW = LScreenUtil.getScreenWidth() / COLUMN;
+        sizeW = LScreenUtil.getScreenWidth() / column;
         sizeH = sizeW * 16 / 9;
     }
 

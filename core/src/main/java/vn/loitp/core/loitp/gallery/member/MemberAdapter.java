@@ -1,7 +1,7 @@
 package vn.loitp.core.loitp.gallery.member;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +16,8 @@ import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
@@ -26,11 +28,14 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     private final String TAG = getClass().getSimpleName();
     private Context context;
     private LayoutInflater inflater;
+    private int size;
 
-    public MemberAdapter(Context context, Callback callback) {
+    public MemberAdapter(Context context, int numCount, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
+        size = (int) (LScreenUtil.getScreenWidth() / numCount / 1.1);
+        //LLog.d(TAG, "size: " + size);
     }
 
     @Override
@@ -39,16 +44,11 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     }
 
     @Override
-    public void onViewRecycled(@NonNull MemberAdapter.ViewHolder holder) {
-        super.onViewRecycled(holder);
-        //LLog.d(TAG, "onViewRecycled");
-        //LImageUtil.clear(context, holder.iv);
-    }
-
-    @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        //viewHolder.rootView.getLayoutParams().height = sizeH;
-        //viewHolder.rootView.requestLayout();
+        viewHolder.cardView.getLayoutParams().width = size;
+        viewHolder.cardView.getLayoutParams().height = size;
+        viewHolder.cardView.setRadius(size / 2);
+        viewHolder.cardView.requestLayout();
 
         if (position == 0 || position == 1) {
             viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
@@ -111,6 +111,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         private ImageView imageView;
         private View viewSpaceTop;
         private View viewSpaceBottom;
+        private CardView cardView;
 
         public ViewHolder(View v) {
             super(v);
@@ -119,6 +120,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             imageView = (ImageView) v.findViewById(R.id.image_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
             viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
+            cardView = (CardView) v.findViewById(R.id.card_view);
         }
     }
 
