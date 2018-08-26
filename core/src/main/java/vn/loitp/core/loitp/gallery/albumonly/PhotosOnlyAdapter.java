@@ -54,7 +54,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        viewHolder.llControl.setVisibility(View.INVISIBLE);
+        //viewHolder.llControl.setVisibility(View.INVISIBLE);
         viewHolder.lBigImageView.clear();
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
@@ -86,12 +86,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });
+                });*/
             }
 
             @Override
