@@ -20,6 +20,7 @@ import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -49,15 +50,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        holder.lBigImageView.clear();
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        //viewHolder.rootView.getLayoutParams().height = sizeH;
-        //viewHolder.rootView.requestLayout();
-
-        //viewHolder.llControl.setVisibility(View.GONE);
+        viewHolder.llControl.setVisibility(View.INVISIBLE);
+        viewHolder.lBigImageView.clear();
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
@@ -74,7 +72,9 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.lBigImageView.requestLayout();
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
+        viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
+
+        viewHolder.lBigImageView.setOptimizeDisplay(false);
         viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
@@ -86,12 +86,12 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
+                LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
                     @Override
                     public void doAfter(int mls) {
                         viewHolder.llControl.setVisibility(View.VISIBLE);
                     }
-                });*/
+                });
             }
 
             @Override
