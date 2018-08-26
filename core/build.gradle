@@ -115,7 +115,6 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
 
     //bigimageview https://github.com/Piasy/BigImageViewer
-    compile 'com.github.piasy:BigImageViewer:1.5.1'
-    compile 'com.github.piasy:GlideImageLoader:1.5.1'
-    compile 'com.github.piasy:GlideImageViewFactory:1.5.1'
+    compile 'com.github.piasy:BigImageViewer:1.4.6'
+    compile 'com.github.piasy:GlideImageLoader:1.4.6'
 }

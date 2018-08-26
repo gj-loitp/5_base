@@ -19,8 +19,6 @@ import java.io.File;
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -51,7 +49,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        LImageUtil.clear(context, holder.lBigImageView);
+        holder.lBigImageView.clear();
     }
 
     @Override

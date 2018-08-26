@@ -13,7 +13,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
-import com.github.piasy.biv.view.GlideImageViewFactory;
 
 import java.io.File;
 
@@ -44,16 +43,16 @@ public class LBigImageView extends RelativeLayout {
         tvProgress = (TextView) findViewById(R.id.tv_progress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setTextShadow(tvProgress);
-        bigImageView.setImageViewFactory(new GlideImageViewFactory());
+        //bigImageView.setImageViewFactory(new GlideImageViewFactory());
         bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
             @Override
-            public void onCacheHit(int imageType, File image) {
+            public void onCacheHit(File image) {
                 //LLog.d(TAG, "Image was found in the cache");
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
-            public void onCacheMiss(int imageType, File image) {
+            public void onCacheMiss(File image) {
                 //LLog.d(TAG, "Image was downloaded from the network");
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
@@ -120,6 +119,10 @@ public class LBigImageView extends RelativeLayout {
 
     public SubsamplingScaleImageView getSSIV() {
         return bigImageView.getSSIV();
+    }
+
+    public void clear() {
+        getSSIV().recycle();
     }
 
     public void load(String url) {
