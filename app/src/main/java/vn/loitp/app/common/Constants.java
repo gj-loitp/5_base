@@ -9,6 +9,7 @@ public class Constants {
 
     public static final int NOT_FOUND = -6969;
 
+    public final static String URL_IMG_GIFT = "https://colinbendell.cloudinary.com/image/upload/c_crop,f_auto,g_auto,h_350,w_400/v1512090971/Wizard-Clap-by-Markus-Magnusson.gif";
     public final static String URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg";
     public final static String URL_IMG_1 = "https://c1.staticflickr.com/1/845/40847237574_ae65bef0c9_b.jpg";
     public final static String URL_IMG_2 = "https://c1.staticflickr.com/1/799/40665855145_d5908c4740_b.jpg";

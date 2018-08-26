@@ -26,7 +26,7 @@ public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
         bigImageView2.setColorProgressBar(Color.RED);
         bigImageView2.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         bigImageView2.setZoomEnable(false);
-        bigImageView2.load(Constants.URL_IMG, Constants.URL_IMG_LONG);
+        bigImageView2.load(Constants.URL_IMG_LONG);
 
         LBigImageView bigImageView3 = (LBigImageView) findViewById(R.id.mBigImage3);
         bigImageView3.setColorProgressBar(Color.RED);
