@@ -19,6 +19,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -42,6 +43,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     private boolean isLoading;
     private PhotosAdapter photosAdapter;
     private FloatingActionButton btPage;
+    private String photosetID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        final String photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
@@ -128,8 +130,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        //LLog.d(TAG, "last item");
                         currentPage--;
+                        LLog.d(TAG, "last item ->>> ");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -139,8 +141,26 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         btPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
-                
+                //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
+                showListPage();
+            }
+        });
+    }
+
+    private void showListPage() {
+        int size = totalPage;
+        String arr[] = new String[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = "Page " + (i + 1);
+        }
+        LDialogUtil.showDialogList(activity, "Select page", arr, new LDialogUtil.CallbackList() {
+            @Override
+            public void onClick(int position) {
+                currentPage = position + 1;
+                LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+                PhotosDataCore.getInstance().clearData();
+                updateAllViews();
+                photosetsGetPhotos(photosetID);
             }
         });
     }
@@ -176,6 +196,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             LLog.d(TAG, "currentPage <= 0 -> return");
             currentPage = 0;
             LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+            isLoading = false;
             return;
         }
         String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
@@ -185,15 +206,12 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
-
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
-
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosDataCore.getInstance().addPhoto(photoList);
                 updateAllViews();
-
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
                 btPage.setVisibility(View.VISIBLE);
                 isLoading = false;

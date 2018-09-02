@@ -30,6 +30,7 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
+import vn.loitp.utils.util.AppUtils;
 
 public class GalleryCoreSplashActivity extends BaseFontActivity {
 
@@ -55,6 +56,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
         TextView tvName = (TextView) findViewById(R.id.tv_name);
+        tvName.setText(AppUtils.getAppName() + "");
         LUIUtil.setTextShadow(tvName);
     }
 

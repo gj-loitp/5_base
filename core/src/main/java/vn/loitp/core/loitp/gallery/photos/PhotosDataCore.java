@@ -36,6 +36,9 @@ public class PhotosDataCore {
             setPhotoList(photoList);
             return;
         }
+        if (photoList.size() > 300) {
+            this.photoList.clear();
+        }
         this.photoList.addAll(photoList);
         //LLog.d(TAG, "size: " + this.photoList.size());
     }
