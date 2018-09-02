@@ -7,6 +7,7 @@
     android:animateLayoutChanges="false"
     android:clickable="true"
     android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
     <View
