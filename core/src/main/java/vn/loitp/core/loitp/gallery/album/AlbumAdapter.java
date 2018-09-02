@@ -23,7 +23,7 @@ import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 
 /**
- * Created by yahyabayramoglu on 14/04/15.
+ * Created by loitp on 14/04/15.
  */
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
     private final String TAG = getClass().getSimpleName();

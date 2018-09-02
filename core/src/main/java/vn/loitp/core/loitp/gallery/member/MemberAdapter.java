@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -16,7 +15,6 @@ import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
@@ -76,7 +74,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             viewHolder.tvTitle.setText(photo.getTitle());
             LUIUtil.setTextShadow(viewHolder.tvTitle);
         }
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LAnimationUtil.play(v, Techniques.Pulse);
@@ -85,7 +83,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                 }
             }
         });
-        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+        viewHolder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 LAnimationUtil.play(v, Techniques.Pulse);
@@ -107,7 +105,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
-        private LinearLayout rootView;
         private ImageView imageView;
         private View viewSpaceTop;
         private View viewSpaceBottom;
@@ -116,7 +113,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         public ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
-            rootView = (LinearLayout) v.findViewById(R.id.root_view);
             imageView = (ImageView) v.findViewById(R.id.image_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
             viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
