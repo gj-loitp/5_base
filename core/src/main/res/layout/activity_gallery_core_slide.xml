@@ -55,6 +55,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_marginRight="@dimen/margin_55"
             android:contentDescription="@string/app_name"
+            android:foreground="?android:attr/selectableItemBackground"
             android:src="@drawable/ladybird" />
 
         <ImageView
@@ -62,6 +63,7 @@
             android:layout_width="@dimen/w_80"
             android:layout_height="@dimen/w_80"
             android:contentDescription="@string/app_name"
+            android:foreground="?android:attr/selectableItemBackground"
             android:src="@drawable/download" />
 
         <ImageView
@@ -70,6 +72,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_marginLeft="@dimen/margin_55"
             android:contentDescription="@string/app_name"
+            android:foreground="?android:attr/selectableItemBackground"
             android:src="@drawable/slideshare" />
     </LinearLayout>
 </RelativeLayout>
