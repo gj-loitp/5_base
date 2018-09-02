@@ -150,4 +150,5 @@ public class Constants {
 
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
     public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
+    public final static String BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN";
 }

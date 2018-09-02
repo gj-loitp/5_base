@@ -42,7 +42,11 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         RestClient.init(getString(R.string.flickr_URL));
 
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+        String urlCoverSplashScreen = getIntent().getStringExtra(Constants.BKG_SPLASH_SCREEN);
+        if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
+            urlCoverSplashScreen = Constants.URL_IMG_2;
+        }
+        LImageUtil.load(activity, urlCoverSplashScreen, ivBkg);
 
         TextView tvCopyright = (TextView) findViewById(R.id.tv_copyright);
         LUIUtil.setTextShadow(tvCopyright);
