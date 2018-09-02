@@ -99,6 +99,7 @@ public class LCardView extends RelativeLayout {
 
     public void setRadius(float px) {
         cardView.setRadius(px);
+        //cardView.requestLayout();
     }
 
     public void setCardBackground(int color) {
