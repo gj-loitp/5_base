@@ -3,12 +3,11 @@ package vn.loitp.core.loitp.gallery.photos;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,7 +19,6 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -43,6 +41,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     private boolean isLoading;
     private PhotosAdapter photosAdapter;
+    private FloatingActionButton btPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
-
+        btPage = (FloatingActionButton) findViewById(R.id.bt_page);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -130,9 +129,18 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         //LLog.d(TAG, "last item");
+                        currentPage--;
                         photosetsGetPhotos(photosetID);
                     }
                 }
+            }
+        });
+
+        btPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
+                
             }
         });
     }
@@ -187,8 +195,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 updateAllViews();
 
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+                btPage.setVisibility(View.VISIBLE);
                 isLoading = false;
-                currentPage--;
             }
 
             @Override

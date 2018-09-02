@@ -36,14 +36,12 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     private List<Photoset> photosetList = new ArrayList<>();
     private ArrayList<String> removeAlbumList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setTransparentStatusNavigationBar();
-
         removeAlbumList = getIntent().getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST);
-
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
