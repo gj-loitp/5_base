@@ -151,12 +151,12 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         int size = totalPage;
         String arr[] = new String[size];
         for (int i = 0; i < size; i++) {
-            arr[i] = "Page " + (i + 1);
+            arr[i] = "Page " + (totalPage - i);
         }
         LDialogUtil.showDialogList(activity, "Select page", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
-                currentPage = position + 1;
+                currentPage = totalPage - position;
                 LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
                 PhotosDataCore.getInstance().clearData();
                 updateAllViews();
