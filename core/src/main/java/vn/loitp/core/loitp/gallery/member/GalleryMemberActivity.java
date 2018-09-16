@@ -50,7 +50,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
 
     private int currentPage = 0;
     private int totalPage = 1;
-    private final int PER_PAGE_SIZE = 30;
+    private final int PER_PAGE_SIZE = 50;
 
     private boolean isLoading;
     private MemberAdapter memberAdapter;
@@ -246,8 +246,8 @@ public class GalleryMemberActivity extends BaseFontActivity {
         subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
-                LLog.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
-                //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                //LLog.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
+                LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
