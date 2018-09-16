@@ -1,5 +1,6 @@
 package vn.loitp.core.loitp.gallery.member;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -27,6 +29,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     private Context context;
     private LayoutInflater inflater;
     private int size;
+    private boolean isTablet;
 
     public MemberAdapter(Context context, int numCount, Callback callback) {
         this.context = context;
@@ -34,6 +37,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         this.callback = callback;
         size = (int) (LScreenUtil.getScreenWidth() / numCount / 1.1);
         //LLog.d(TAG, "size: " + size);
+        this.isTablet = LDeviceUtil.isTablet((Activity) context);
     }
 
     @Override
@@ -48,15 +52,28 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         viewHolder.cardView.setRadius(size / 2);
         viewHolder.cardView.requestLayout();
 
-        if (position == 0 || position == 1) {
-            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (position == getItemCount() - 1) {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        if (isTablet) {
+            if (position == 0 || position == 1 || position == 2) {
+                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            } else if (position == getItemCount() - 1 || position == getItemCount() - 2) {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            }
         } else {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            if (position == 0 || position == 1) {
+                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            } else if (position == getItemCount() - 1) {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            }
         }
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
