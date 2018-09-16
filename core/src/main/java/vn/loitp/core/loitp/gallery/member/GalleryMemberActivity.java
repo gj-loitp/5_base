@@ -62,6 +62,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isShowAdWhenExist = false;
         RestClient.init(getString(R.string.flickr_URL));
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();

@@ -72,7 +72,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.lBigImageView.requestLayout();
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
+        //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
 
         viewHolder.lBigImageView.setOptimizeDisplay(false);
         viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
