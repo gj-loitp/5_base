@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -22,10 +22,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Type something"
-                android:textColor="@color/White"
-                android:textColorHint="@color/White"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/Black"
                 app:biu_duration="800"
-                app:biu_text_color="@color/White"
+                app:biu_text_color="@color/Black"
                 app:biu_text_scale="1"
                 app:biu_text_start_size="12sp"
                 app:biu_type="flyup" />
