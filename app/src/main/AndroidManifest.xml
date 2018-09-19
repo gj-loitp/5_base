@@ -19,7 +19,7 @@
         <activity
             android:name="vn.loitp.app.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
+
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,274 +29,113 @@
         </activity>
         <activity
             android:name="vn.loitp.app.activity.MenuActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.api.test.TestAPIActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.AndroidNavigationDrawerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenewsfeed.AndroidExpandableNewsFreedActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe.AndroidTinderSwipeActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.ex.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.MenuAPIActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.MenuCustomViewsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.MenuDemoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoAlbumActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoPhotosActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSlideActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.ButtonMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.MenuAnimationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.animationview.AnimationViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.overscroll.OverScrollActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.TextViewMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.sticker.StickerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.video.VideoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.LayoutMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="vn.loitp.app.activity.api.MenuAPIActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.MenuCustomViewsActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.MenuDemoActivity" />
+        <activity android:name="vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoAlbumActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoPhotosActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.gallery.GalleryDemoSlideActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.ButtonMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.MenuAnimationActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.animationview.AnimationViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.overscroll.OverScrollActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.TextViewMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.sticker.StickerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.video.VideoActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.LayoutMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIComicListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIChapListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIPageListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIFavListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIAddFavListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIRemoveFavListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.ads.MenuAdsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.sound.SoundActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIComicListActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIChapListActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIPageListActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIFavListActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIAddFavListActivity" />
+        <activity android:name="vn.loitp.app.activity.api.truyentranhtuan.TTTAPIRemoveFavListActivity" />
+        <activity android:name="vn.loitp.app.activity.ads.MenuAdsActivity" />
+        <activity android:name="vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity" />
+        <activity android:name="vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity" />
+        <activity android:name="vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.sound.SoundActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity" />
         <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name">
 
             <!--
             <intent-filter>
@@ -307,67 +146,30 @@
         </activity>
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.EditAlarmActivity"
-            android:label="Edit alarm"
-            android:screenOrientation="portrait" />
+            android:label="Edit alarm" />
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification"
-            android:label="Alarm notification"
-            android:screenOrientation="portrait" />
+            android:label="Alarm notification" />
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences"
-            android:label="Preferences"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutScrollViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplaceholderview.SwipeRefreshLayoutPlaceHolderViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.img2ascii.Img2AsciiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.flyschool.FlySchoolActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.dialog.DialogMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.activitytransition.Animation1Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.activitytransition.Animation2Activity"
-            android:screenOrientation="portrait" />
+            android:label="Preferences" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutScrollViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplaceholderview.SwipeRefreshLayoutPlaceHolderViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.img2ascii.Img2AsciiActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.flyschool.FlySchoolActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.dialog.DialogMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.activitytransition.Animation1Activity" />
+        <activity android:name="vn.loitp.app.activity.animation.activitytransition.Animation2Activity" />
 
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
@@ -380,179 +182,71 @@
             </intent-filter>
         </receiver>
         <!-- FOR ALARM DEMO APP -->
-        <activity
-            android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.ariana.iv.ArianaImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.ariana.tv.ArianaTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.ariana.vp.ArianaViewPagerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.MenuFunctionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.gesto.GestoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.database.MenuDatabaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.database.realm.RealmActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.database.sqlite.SqliteActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.navigation.arcnavigationview.ArcNavigationViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.pattern.MenuPatternActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.ariana.iv.ArianaImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.ariana.tv.ArianaTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.ariana.vp.ArianaViewPagerActivity" />
+        <activity android:name="vn.loitp.app.activity.function.MenuFunctionActivity" />
+        <activity android:name="vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity" />
+        <activity android:name="vn.loitp.app.activity.function.gesto.GestoActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity" />
+        <activity android:name="vn.loitp.app.activity.database.MenuDatabaseActivity" />
+        <activity android:name="vn.loitp.app.activity.database.realm.RealmActivity" />
+        <activity android:name="vn.loitp.app.activity.database.sqlite.SqliteActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.navigation.arcnavigationview.ArcNavigationViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.pattern.MenuPatternActivity" />
+        <activity android:name="vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity"
             android:screenOrientation="sensor" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel.ExoPlayer2WithDraggablePanelActivity"
             android:screenOrientation="sensor" />
-        <activity
-            android:name="vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.treeview.TreeViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.answerview.AnswerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity" />
+        <activity android:name="vn.loitp.app.activity.customviews.treeview.TreeViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.answerview.AnswerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.hashmap.HashMapActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity android:name="vn.loitp.app.activity.function.hashmap.HashMapActivity" />
+        <activity android:name="vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity" />
 
         <service
             android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
@@ -563,153 +257,79 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity" />
 
         <service
             android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
             android:enabled="true"
             android:exported="false" />
 
-        <activity
-            android:name="vn.loitp.app.activity.function.fullscreen.FullScreenActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.function.fullscreen.FullScreenActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:screenOrientation="portrait"
+
             android:supportsPictureInPicture="true" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PipMediaSessionPlaybackActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:screenOrientation="portrait"
+
             android:supportsPictureInPicture="true" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayerdemofromgg.ExoPlayerDemoFromGGActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPlayerDemoFromGGIMActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.OverFlyingRecyclerViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.recolor.RecolorActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.compas.CompasActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity" />
+        <activity android:name="vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.OverFlyingRecyclerViewActivity" />
+        <activity android:name="vn.loitp.app.activity.function.recolor.RecolorActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.compas.CompasActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity" />
+        <activity android:name="vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
-        <activity
-            android:name="vn.loitp.app.activity.function.location.LocationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseGoogleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseFacebookActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.function.location.LocationActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity2" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseGoogleActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseFacebookActivity" />
         <!-- Facebook Configuration -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"
             tools:replace="android:value" />
 
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseNewPostActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.invite.InviteFirebaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.firebase.databasesimple.DatabaseSimpleFirebaseActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseNewPostActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.invite.InviteFirebaseActivity" />
+        <activity android:name="vn.loitp.app.activity.demo.firebase.databasesimple.DatabaseSimpleFirebaseActivity" />
         <activity android:name="vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity" />
         <!--service for FCM-->
         <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseMsgService">
@@ -733,30 +353,14 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
         <!--end service for FCM-->
-        <activity
-            android:name="vn.loitp.app.activity.function.notification.MenuNotificationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.function.notification.MenuNotificationActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity" />
+        <activity android:name="vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragFullScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -764,91 +368,47 @@
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/NoTitleTheme" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic"
-            android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity"
-            android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name="vn.loitp.app.activity.function.sensor.SensorActivity"
-            android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <!--<activity android:name="vn.loitp.app.activity.function.sensor.SensorActivity" />-->
-        <activity
-            android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.more.MoreActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromTopActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromPointActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.ExplosionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.ShimmeringActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.FallingWithTouchActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiWithListenerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.function.scrog.ScrogActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity" />
+        <activity android:name="vn.loitp.app.activity.more.MoreActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromTopActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiFromPointActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.ExplosionActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.ShimmeringActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingWithTouchActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.confetti.FallingConfettiWithListenerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity" />
+        <activity android:name="vn.loitp.app.activity.function.scrog.ScrogActivity" />
         <activity
             android:name="vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity"
-            android:configChanges="keyboardHidden|orientation|uiMode|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
+        <activity android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity" />
 
         <!--START EXO PLAYER 2 CAST-->
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2cast.ExoPlayer2CastActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2cast.ExoPlayer2CastActivity" />
         <!--<meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />-->
         <!--STOP EXO PLAYER 2 CAST-->
-        <activity
-            android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity" />
 
         <!--START DEMO CHROMECAST-->
         <activity
@@ -879,8 +439,7 @@
         </activity>
         <activity
             android:name="vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity"
-            android:label="@string/queue_list"
-            android:screenOrientation="portrait">
+            android:label="@string/queue_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -889,7 +448,7 @@
             android:name="vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
+
             android:theme="@style/Theme.CastVideosDark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -903,15 +462,10 @@
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="vn.loitp.app.activity.demo.chromecast.CastOptionsProvider" />
         <!--STOP DEMO CHROMECAST-->
-        <activity
-            android:name="vn.loitp.app.activity.customviews.menu.MenuMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.lcardview.LCardViewActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.customviews.menu.MenuMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.lcardview.LCardViewActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutActivity" />
     </application>
 
 </manifest>

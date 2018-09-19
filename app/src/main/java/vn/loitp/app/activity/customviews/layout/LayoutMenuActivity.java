@@ -8,6 +8,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity;
+import vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
@@ -45,6 +46,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_heart_layout).setOnClickListener(this);
         findViewById(R.id.bt_float_drag_layout).setOnClickListener(this);
         findViewById(R.id.bt_rotate_layout).setOnClickListener(this);
+        findViewById(R.id.bt_coordinator_layout).setOnClickListener(this);
     }
 
     @Override
@@ -113,6 +115,9 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_rotate_layout:
                 intent = new Intent(activity, RotateLayoutActivity.class);
+                break;
+            case R.id.bt_coordinator_layout:
+                intent = new Intent(activity, CoordinatorLayoutActivity.class);
                 break;
         }
         if (intent != null) {

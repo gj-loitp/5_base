@@ -43,6 +43,12 @@
                 android:text="constraint layout" />
 
             <Button
+                android:id="@+id/bt_coordinator_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CoordinatorLayout" />
+
+            <Button
                 android:id="@+id/bt_draggable_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
