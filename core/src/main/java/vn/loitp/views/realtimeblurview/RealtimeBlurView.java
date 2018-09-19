@@ -33,7 +33,6 @@ import loitp.core.R;
  * </ul>
  */
 public class RealtimeBlurView extends View {
-
     private float mDownsampleFactor; // default 4
     private int mOverlayColor; // default #aaffffff
     private float mBlurRadius; // default 10dp (0 < r <= 25)

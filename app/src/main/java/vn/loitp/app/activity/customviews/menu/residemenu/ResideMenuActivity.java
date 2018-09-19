@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -54,6 +55,8 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private void setUpMenu() {
         // attach to current activity;
         resideMenu = new ResideMenu(this);
+        resideMenu.getRealtimeBlurView().setBlurRadius(50);
+        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(activity, R.color.black_65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);

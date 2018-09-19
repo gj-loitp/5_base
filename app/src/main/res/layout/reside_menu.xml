@@ -2,20 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/layout_top"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#2ea3fe" />
+            android:layout_height="5dp"
+            android:background="@color/White" />
 
         <FrameLayout
             android:layout_width="fill_parent"
@@ -27,7 +26,8 @@
                 android:layout_height="28dp"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_more_vert_grey" />
+                android:background="@drawable/ic_more_vert_grey"
+                android:backgroundTint="@color/White" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:padding="7dp"
                 android:text="RESideMenu DEMO"
-                android:textColor="#999999"
+                android:textColor="@color/White"
                 android:textSize="24sp" />
 
             <Button
@@ -44,13 +44,14 @@
                 android:layout_height="28dp"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_more_vert_grey" />
+                android:background="@drawable/ic_more_vert_grey"
+                android:backgroundTint="@color/White" />
         </FrameLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#ebebeb" />
+            android:background="@color/White" />
 
     </LinearLayout>
 
