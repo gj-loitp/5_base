@@ -37,7 +37,13 @@
                 android:text="Animation view" />
 
             <Button
-                android:id="@+id/bt_basic_transition"
+                android:id="@+id/bt_basic_transition_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Basic transition activity" />
+
+            <Button
+                android:id="@+id/bt_basic_transition_frm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Basic transition" />

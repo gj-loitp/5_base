@@ -467,6 +467,8 @@
         <activity android:name="vn.loitp.app.activity.customviews.lcardview.LCardViewActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutActivity" />
         <activity android:name="vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicDetailActivity" />
     </application>
 
 </manifest>

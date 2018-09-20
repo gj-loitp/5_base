@@ -233,7 +233,7 @@ public class LImageUtil {
     }
 
     public static void load(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
-        if (context == null) {
+        if (context == null || imageView == null) {
             return;
         }
         Glide.with(context).load(url)
@@ -246,8 +246,12 @@ public class LImageUtil {
                 ).into(imageView);
     }
 
+    public static void loadNoAmin(Context context, String url, ImageView imageView) {
+        loadNoAmin(context, url, imageView, null);
+    }
+
     public static void loadNoAmin(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
-        if (context == null) {
+        if (context == null || imageView == null) {
             return;
         }
         Glide.with(context).load(url)
@@ -394,6 +398,7 @@ public class LImageUtil {
         }
         return linkUrlM;
     }
+
     //for flick api url_m -> url_n
     public static String getFlickrLink320(String linkUrlM) {
         /*

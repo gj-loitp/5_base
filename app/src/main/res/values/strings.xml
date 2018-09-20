@@ -294,4 +294,5 @@ Likewise may someone love you next.
     <string name="scene_4">4</string>
     <string name="hello">Hello!</string>
     <string name="additional_message">This text fades in and out.</string>
+    <string name="image_header">%1$s by %2$s</string>
 </resources>
