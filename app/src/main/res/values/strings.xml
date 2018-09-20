@@ -287,4 +287,11 @@ Likewise may someone love you next.
     <string name="action_clear_queue">Clear Queue</string>
     <string name="queue_item_added_to_play_next">An item was added to play next</string>
     <string name="queue_item_added_to_queue">An item was added to the queue</string>
+    <string name="scene">Scene</string>
+    <string name="scene_1">1</string>
+    <string name="scene_2">2</string>
+    <string name="scene_3">3</string>
+    <string name="scene_4">4</string>
+    <string name="hello">Hello!</string>
+    <string name="additional_message">This text fades in and out.</string>
 </resources>

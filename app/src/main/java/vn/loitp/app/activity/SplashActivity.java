@@ -142,7 +142,12 @@ public class SplashActivity extends BaseFontActivity {
             Intent intent = new Intent(activity, MenuActivity.class);
             startActivity(intent);
             LActivityUtil.tranIn(activity);
-            finish();
+            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+                @Override
+                public void doAfter(int mls) {
+                    finish();
+                }
+            });
         }
     }
 

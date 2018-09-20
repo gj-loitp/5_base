@@ -7,6 +7,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
+import vn.loitp.app.activity.animation.basictransition.BasicTransitionActivity;
 import vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity;
 import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
@@ -27,6 +28,7 @@ public class MenuAnimationActivity extends BaseFontActivity implements View.OnCl
         findViewById(R.id.bt_shadowview_helper).setOnClickListener(this);
         findViewById(R.id.bt_expect_anim).setOnClickListener(this);
         findViewById(R.id.bt_animation_confetti).setOnClickListener(this);
+        findViewById(R.id.bt_basic_transition).setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +70,9 @@ public class MenuAnimationActivity extends BaseFontActivity implements View.OnCl
                 break;
             case R.id.bt_animation_confetti:
                 intent = new Intent(activity, ConfettiMenuActivity.class);
+                break;
+            case R.id.bt_basic_transition:
+                intent = new Intent(activity, BasicTransitionActivity.class);
                 break;
         }
         if (intent != null) {

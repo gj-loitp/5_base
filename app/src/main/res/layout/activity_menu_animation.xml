@@ -37,6 +37,12 @@
                 android:text="Animation view" />
 
             <Button
+                android:id="@+id/bt_basic_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Basic transition" />
+
+            <Button
                 android:id="@+id/bt_animation_confetti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
