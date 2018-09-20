@@ -47,11 +47,6 @@ android {
     }
 
     buildTypes {
-        /*release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }*/
         release {
             minifyEnabled false
             useProguard false
@@ -64,13 +59,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    /*applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            output.outputFile = new File(
-                    output.outputFile.parent, "BaseMaster_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk")
-        }
-    }*/
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
