@@ -17,6 +17,7 @@ import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutA
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity;
@@ -47,6 +48,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_float_drag_layout).setOnClickListener(this);
         findViewById(R.id.bt_rotate_layout).setOnClickListener(this);
         findViewById(R.id.bt_coordinator_layout).setOnClickListener(this);
+        findViewById(R.id.bt_square_layout).setOnClickListener(this);
     }
 
     @Override
@@ -118,6 +120,9 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_coordinator_layout:
                 intent = new Intent(activity, CoordinatorLayoutActivity.class);
+                break;
+            case R.id.bt_square_layout:
+                intent = new Intent(activity, SquareLayoutActivity.class);
                 break;
         }
         if (intent != null) {

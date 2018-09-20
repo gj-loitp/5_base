@@ -97,6 +97,12 @@
                 android:text="Rotate Layout" />
 
             <Button
+                android:id="@+id/bt_square_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Square Layout" />
+
+            <Button
                 android:id="@+id/bt_swipable_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
