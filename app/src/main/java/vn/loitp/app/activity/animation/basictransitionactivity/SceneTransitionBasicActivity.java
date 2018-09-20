@@ -105,7 +105,7 @@ public class SceneTransitionBasicActivity extends BaseFontActivity implements Ad
 
             // Load the thumbnail image
             ImageView image = (ImageView) view.findViewById(R.id.imageview_item);
-            LImageUtil.load(activity, item.getThumbnailUrl(), image);
+            LImageUtil.load(activity, item.getPhotoUrl(), image);
 
             // Set the TextView's contents
             TextView name = (TextView) view.findViewById(R.id.textview_name);

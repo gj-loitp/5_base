@@ -84,7 +84,7 @@ public class SceneTransitionBasicDetailActivity extends BaseFontActivity {
      * Load the item's thumbnail image into our {@link ImageView}.
      */
     private void loadThumbnail() {
-        LImageUtil.loadNoAmin(activity, mItem.getThumbnailUrl(), mHeaderImageView);
+        LImageUtil.loadNoAmin(activity, mItem.getPhotoUrl(), mHeaderImageView);
     }
 
     /**
