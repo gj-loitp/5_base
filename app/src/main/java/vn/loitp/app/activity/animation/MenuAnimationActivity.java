@@ -7,7 +7,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity;
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
-import vn.loitp.app.activity.animation.basictransition.BasicTransitionActivity;
+import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity;
 import vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity;
 import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;

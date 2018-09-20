@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.basictransition;
+package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Build;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.basictransition;
+package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
