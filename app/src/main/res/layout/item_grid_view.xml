@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <vn.loitp.app.activity.animation.basictransitionactivity.SquareFrameLayout
+    <vn.loitp.views.layout.squarelayout.SquareFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />
 
-    </vn.loitp.app.activity.animation.basictransitionactivity.SquareFrameLayout>
+    </vn.loitp.views.layout.squarelayout.SquareFrameLayout>
 
     <TextView
         android:id="@+id/textview_name"

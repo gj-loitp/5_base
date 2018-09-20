@@ -39,7 +39,7 @@ public class SceneTransitionBasicDetailActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.details;
+        return R.layout.activity_scene_transition_basic_details;
     }
 
     @Override

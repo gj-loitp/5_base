@@ -98,7 +98,7 @@ public class SceneTransitionBasicActivity extends BaseFontActivity implements Ad
         @Override
         public View getView(int position, View view, ViewGroup viewGroup) {
             if (view == null) {
-                view = getLayoutInflater().inflate(R.layout.grid_item, viewGroup, false);
+                view = getLayoutInflater().inflate(R.layout.item_grid_view, viewGroup, false);
             }
 
             final Item item = getItem(position);

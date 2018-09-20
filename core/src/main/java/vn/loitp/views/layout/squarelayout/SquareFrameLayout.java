@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.animation.basictransitionactivity;
+package vn.loitp.views.layout.squarelayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
