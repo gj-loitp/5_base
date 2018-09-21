@@ -17,6 +17,7 @@ public class SwipeAwayDialogActivity extends BaseFontActivity implements View.On
         findViewById(R.id.bt_show_3).setOnClickListener(this);
         findViewById(R.id.bt_show_list).setOnClickListener(this);
         findViewById(R.id.bt_progress_dialog).setOnClickListener(this);
+        findViewById(R.id.bt_custom_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +52,9 @@ public class SwipeAwayDialogActivity extends BaseFontActivity implements View.On
                 break;
             case R.id.bt_progress_dialog:
                 show(SADilog.KEY_5);
+                break;
+            case R.id.bt_custom_dialog:
+                show(SADilog.KEY_6);
                 break;
         }
     }
