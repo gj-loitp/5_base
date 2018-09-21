@@ -472,6 +472,7 @@
         <activity android:name="vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity" />
         <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity" />
         <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition1Activity" />
+        <activity android:name="vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity" />
     </application>
 
 </manifest>

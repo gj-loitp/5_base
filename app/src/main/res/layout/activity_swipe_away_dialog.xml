@@ -20,33 +20,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Dialog"
+                android:text="Swipe away Dialog"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_ios_dialog"
+                android:id="@+id/bt_show_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="iOS dialog" />
+                android:text="Dialog 1" />
 
             <Button
-                android:id="@+id/bt_original_dialog"
+                android:id="@+id/bt_show_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Original dialog" />
+                android:text="Dialog 2" />
 
             <Button
-                android:id="@+id/bt_pretty_dialog"
+                android:id="@+id/bt_show_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pretty dialog" />
+                android:text="Dialog 3" />
 
             <Button
-                android:id="@+id/bt_swipe_away_dialog"
+                android:id="@+id/bt_show_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Swipe Away Dialog" />
+                android:text="Dialog List" />
+
+            <Button
+                android:id="@+id/bt_progress_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Progress Dialog" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity;
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity;
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity;
+import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class DialogMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -19,6 +20,7 @@ public class DialogMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_ios_dialog).setOnClickListener(this);
         findViewById(R.id.bt_original_dialog).setOnClickListener(this);
         findViewById(R.id.bt_pretty_dialog).setOnClickListener(this);
+        findViewById(R.id.bt_swipe_away_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +50,9 @@ public class DialogMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_pretty_dialog:
                 intent = new Intent(activity, PrettyDialogActivity.class);
+                break;
+            case R.id.bt_swipe_away_dialog:
+                intent = new Intent(activity, SwipeAwayDialogActivity.class);
                 break;
         }
         if (intent != null) {
