@@ -15,6 +15,7 @@ import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity;
+import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity;
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity;
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity;
@@ -49,6 +50,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_rotate_layout).setOnClickListener(this);
         findViewById(R.id.bt_coordinator_layout).setOnClickListener(this);
         findViewById(R.id.bt_square_layout).setOnClickListener(this);
+        findViewById(R.id.bt_relative_popup_window).setOnClickListener(this);
     }
 
     @Override
@@ -123,6 +125,9 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_square_layout:
                 intent = new Intent(activity, SquareLayoutActivity.class);
+                break;
+            case R.id.bt_relative_popup_window:
+                intent = new Intent(activity, RelativePopupWindowActivity.class);
                 break;
         }
         if (intent != null) {

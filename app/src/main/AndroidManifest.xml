@@ -473,6 +473,7 @@
         <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity" />
         <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition1Activity" />
         <activity android:name="vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity" />
     </application>
 
 </manifest>
