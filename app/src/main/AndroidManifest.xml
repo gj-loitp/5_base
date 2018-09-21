@@ -470,6 +470,8 @@
         <activity android:name="vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity" />
         <activity android:name="vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicDetailActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity" />
+        <activity android:name="vn.loitp.app.activity.animation.basictransition.BasicTransition1Activity" />
     </application>
 
 </manifest>
