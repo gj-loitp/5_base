@@ -26,7 +26,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -58,7 +57,7 @@ public class SplashActivity extends BaseFontActivity {
         tvPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LSocialUtil.openUrlInBrowser(activity, Constants.URL_POLICY);
+                LSocialUtil.openBrowserPolicy(activity);
             }
         });
     }

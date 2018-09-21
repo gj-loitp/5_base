@@ -162,7 +162,7 @@ public class LDialogUtil {
         public void onClick(int position);
     }
 
-    public static void showDialogList(Context context, String title, String[] arr, final CallbackList callbackList) {
+    public static AlertDialog showDialogList(Context context, String title, String[] arr, final CallbackList callbackList) {
         clearAll();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null && !title.isEmpty()) {
@@ -180,6 +180,7 @@ public class LDialogUtil {
         AlertDialog dialog = builder.create();
         dialog.show();
         alertDialogList.add(dialog);
+        return dialog;
     }
 
     //style ex ProgressDialog.STYLE_HORIZONTAL

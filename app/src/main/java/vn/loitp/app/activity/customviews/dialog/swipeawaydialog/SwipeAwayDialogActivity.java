@@ -13,6 +13,10 @@ public class SwipeAwayDialogActivity extends BaseFontActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_show_1).setOnClickListener(this);
+        findViewById(R.id.bt_show_2).setOnClickListener(this);
+        findViewById(R.id.bt_show_3).setOnClickListener(this);
+        findViewById(R.id.bt_show_list).setOnClickListener(this);
+        findViewById(R.id.bt_progress_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -34,15 +38,27 @@ public class SwipeAwayDialogActivity extends BaseFontActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_show_1:
-                show1();
+                show(SADilog.KEY_1);
+                break;
+            case R.id.bt_show_2:
+                show(SADilog.KEY_2);
+                break;
+            case R.id.bt_show_3:
+                show(SADilog.KEY_3);
+                break;
+            case R.id.bt_show_list:
+                show(SADilog.KEY_4);
+                break;
+            case R.id.bt_progress_dialog:
+                show(SADilog.KEY_5);
                 break;
         }
     }
 
-    private void show1() {
+    private void show(int key) {
         SADilog saDilog = new SADilog();
         Bundle bundle = new Bundle();
-        bundle.putInt(SADilog.KEY, 1);
+        bundle.putInt(SADilog.KEY, key);
         saDilog.setArguments(bundle);
         saDilog.show(getSupportFragmentManager(), SADilog.class.getSimpleName());
     }

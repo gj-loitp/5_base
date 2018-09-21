@@ -129,12 +129,16 @@ public class LSocialUtil {
     }
 
     /*
-   * send email support
-   */
+     * send email support
+     */
     public static void sendEmail(Context context) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto: www.muathu@gmail.com"));
         context.startActivity(Intent.createChooser(emailIntent, "Send feedback"));
+    }
+
+    public static void openBrowserPolicy(Context context) {
+        openUrlInBrowser(context, Constants.URL_POLICY);
     }
 
     public static void openUrlInBrowser(Context context, String url) {
