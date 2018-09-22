@@ -151,8 +151,8 @@ public class LStoreUtil {
     }
 
     /*
-       * read text file from folder
-       */
+     * read text file from folder
+     */
     public static String readTxtFromFolder(Activity activity, String folderName, String fileName) {
         String path = LStoreUtil.getFolderPath(activity) + (folderName == null ? "/" : (folderName + "/")) + fileName;
         LLog.d(TAG, "path: " + path);
@@ -196,8 +196,8 @@ public class LStoreUtil {
     }
 
     /*
-   * read text file from folder in background
-   */
+     * read text file from folder in background
+     */
     public static void readTxtFromFolder(final Activity activity, final String folderName, final String fileName, final EventReadFromFolder eventReadFromFolder) {
         new AsyncTask<Void, Void, Void>() {
             private StringBuilder text = null;
@@ -243,8 +243,8 @@ public class LStoreUtil {
     }
 
     /*
-    * read text file in raw folder
-    */
+     * read text file in raw folder
+     */
     public static String readTxtFromRawFolder(Context context, int nameOfRawFile) {
         InputStream inputStream = context.getResources().openRawResource(nameOfRawFile);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -285,9 +285,9 @@ public class LStoreUtil {
     }
 
     /*@param link: the url of the website
-      * return true if save success
-      * return false if save failed
-      * */
+     * return true if save success
+     * return false if save failed
+     * */
     /*public static boolean saveHTMLCodeFromURLToSDCard(Context context, String link, String
     folderName, String fileName) {
         return saveHTMLCodeFromURLToSDCard((Activity) context, link, folderName, fileName);
@@ -346,8 +346,8 @@ public class LStoreUtil {
     }*/
 
     /*
-       * get random quote
-       */
+     * get random quote
+     */
     /*public String getRandomeQuote() {
         InputStream in;
         // quote
@@ -385,26 +385,21 @@ public class LStoreUtil {
 
     /*
      * get random quote
-	 */
-    /*public static String getRandomeQuote(Context context) {
+     */
+    public static String readTxtFromAsset(Context context, String assetFile) {
         InputStream in;
-        String[] arr_Str = null;
         String str = "";
         try {
-            in = context.getAssets().open("raw/quote.txt");
+            in = context.getAssets().open(assetFile);
             byte[] buffer = new byte[in.available()];
             in.read(buffer);
             in.close();
-            String chuoi = new String(buffer);
-            arr_Str = chuoi.split("###");
-            int ran = getRandomNumber(arr_Str.length);
-            str = arr_Str[ran];
 
         } catch (Exception e) {
-            LLog.d(TAG, "getRandomeQuote: " + e.toString());
+            LLog.e(TAG, "readTxtFromAsset: " + e.toString());
         }
         return str;
-    }*/
+    }
 
     /*
      * get random number
