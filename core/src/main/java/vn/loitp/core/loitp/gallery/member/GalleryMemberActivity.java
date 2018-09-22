@@ -7,10 +7,14 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -58,6 +62,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
 
     private String photosetID;
     private int photosSize;
+    private int resBkgRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
 
-        final int resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
+        resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
         getRootView().setBackgroundResource(resBkgRootView);
 
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
@@ -111,14 +116,14 @@ public class GalleryMemberActivity extends BaseFontActivity {
         recyclerView.setHasFixedSize(true);
         memberAdapter = new MemberAdapter(activity, numCount, new MemberAdapter.Callback() {
             @Override
-            public void onClick(Photo photo, int pos) {
-                //do nothing
-
-                //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                /*Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
-                intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
-                startActivity(intent);
-                LActivityUtil.tranIn(activity);*/
+            public void onClick(Photo photo, int pos, ImageView imageView, TextView textView) {
+                Intent intent = new Intent(activity, GalleryMemberDetailActivity.class);
+                intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo);
+                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        activity,
+                        new Pair<View, String>(imageView, GalleryMemberDetailActivity.IV),
+                        new Pair<View, String>(textView, GalleryMemberDetailActivity.TV));
+                ActivityCompat.startActivity(activity, intent, activityOptions.toBundle());
             }
 
             @Override

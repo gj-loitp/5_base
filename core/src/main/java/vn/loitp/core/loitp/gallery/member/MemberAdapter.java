@@ -2,7 +2,6 @@ package vn.loitp.core.loitp.gallery.member;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
@@ -28,14 +23,12 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     private final String TAG = getClass().getSimpleName();
     private Context context;
     private LayoutInflater inflater;
-    private int size;
     private boolean isTablet;
 
     public MemberAdapter(Context context, int numCount, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
-        size = (int) (LScreenUtil.getScreenWidth() / numCount / 1.1);
         //LLog.d(TAG, "size: " + size);
         this.isTablet = LDeviceUtil.isTablet((Activity) context);
     }
@@ -47,11 +40,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        viewHolder.cardView.getLayoutParams().width = size;
-        viewHolder.cardView.getLayoutParams().height = size;
-        viewHolder.cardView.setRadius(size / 2);
-        viewHolder.cardView.requestLayout();
-
         if (isTablet) {
             if (position == 0 || position == 1 || position == 2) {
                 viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
@@ -75,6 +63,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                 viewHolder.viewSpaceBottom.setVisibility(View.GONE);
             }
         }
+        /*if (position == 0) {
+            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        } else if (position == getItemCount() - 1) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        }*/
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
@@ -91,19 +89,17 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             viewHolder.tvTitle.setText(photo.getTitle());
             LUIUtil.setTextShadow(viewHolder.tvTitle);
         }
-        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
                 if (callback != null) {
-                    callback.onClick(photo, position);
+                    callback.onClick(photo, position, viewHolder.imageView, viewHolder.tvTitle);
                 }
             }
         });
-        viewHolder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+        viewHolder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
@@ -125,7 +121,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         private ImageView imageView;
         private View viewSpaceTop;
         private View viewSpaceBottom;
-        private CardView cardView;
 
         public ViewHolder(View v) {
             super(v);
@@ -133,12 +128,11 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             imageView = (ImageView) v.findViewById(R.id.image_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
             viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
-            cardView = (CardView) v.findViewById(R.id.card_view);
         }
     }
 
     public interface Callback {
-        public void onClick(Photo photo, int pos);
+        public void onClick(Photo photo, int pos, ImageView imageView, TextView textView);
 
         public void onLongClick(Photo photo, int pos);
     }

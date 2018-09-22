@@ -4,9 +4,11 @@ package vn.loitp.restapi.flickr.model.photosetgetphotos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 import vn.loitp.core.utilities.LImageUtil;
 
-public class Photo {
+public class Photo implements Serializable {
 
     @SerializedName("id")
     @Expose

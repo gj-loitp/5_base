@@ -65,6 +65,9 @@
         <activity
             android:name="vn.loitp.core.loitp.gallery.member.GalleryMemberActivity"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
+        <activity
+            android:name="vn.loitp.core.loitp.gallery.member.GalleryMemberDetailActivity"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
     </application>
 
 </manifest>
