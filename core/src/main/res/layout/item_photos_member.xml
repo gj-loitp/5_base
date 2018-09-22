@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_80" />
 
-    <vn.loitp.views.layout.squarelayout.SquareFrameLayout
+    <FrameLayout
+        android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -32,7 +33,7 @@
             android:singleLine="true"
             android:textColor="@color/White"
             android:textSize="@dimen/txt_14" />
-    </vn.loitp.views.layout.squarelayout.SquareFrameLayout>
+    </FrameLayout>
 
     <View
         android:id="@+id/view_space_bottom"

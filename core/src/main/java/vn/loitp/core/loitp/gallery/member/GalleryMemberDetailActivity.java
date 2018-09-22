@@ -2,6 +2,7 @@ package vn.loitp.core.loitp.gallery.member;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
+import android.transition.Transition;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,8 +28,9 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
         LUIUtil.setTextShadow(tvTitle);
         Photo photo = (Photo) getIntent().getSerializableExtra(PHOTO);
         if (photo != null) {
-            LImageUtil.loadNoAmin(activity, photo.getUrlM(), imageView);
-            tvTitle.setText(photo.getTitle());
+            //LImageUtil.loadNoAmin(activity, photo.getUrlO(), imageView);
+            //tvTitle.setText(photo.getTitle());
+            loadItem(photo);
         }
         ViewCompat.setTransitionName(imageView, IV);
         ViewCompat.setTransitionName(tvTitle, TV);
@@ -47,5 +49,88 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_member_detail;
+    }
+
+    private void loadItem(Photo photo) {
+        tvTitle.setText(photo.getTitle());
+
+        LImageUtil.loadNoAmin(activity, photo.getUrlM(), imageView);
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && addTransitionListener(photo)) {
+            // If we're running on Lollipop and we have added a listener to the shared element
+            // transition, load the thumbnail. The listener will load the full-size image when
+            // the transition is complete.
+            loadThumbnail(photo);
+        } else {
+            // If all other cases we should just load the full-size image now
+            loadFullSizeImage(photo);
+        }*/
+    }
+
+    /**
+     * Load the item's thumbnail image into our {@link ImageView}.
+     */
+    private void loadThumbnail(Photo photo) {
+        LImageUtil.loadNoAmin(activity, photo.getUrlM(), imageView);
+    }
+
+    /**
+     * Load the item's full-size image into our {@link ImageView}.
+     */
+    private void loadFullSizeImage(Photo photo) {
+        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlM(), imageView, null);
+    }
+
+    /**
+     * Try and add a {@link Transition.TransitionListener} to the entering shared element
+     * {@link Transition}. We do this so that we can load the full-size image after the transition
+     * has completed.
+     *
+     * @return true if we were successful in adding a listener to the enter transition
+     */
+    private boolean addTransitionListener(final Photo photo) {
+        final Transition transition;
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
+            return false;
+        }
+        transition = getWindow().getSharedElementEnterTransition();
+        if (transition != null) {
+            // There is an entering shared element transition so add a listener to it
+            transition.addListener(new Transition.TransitionListener() {
+                @Override
+                public void onTransitionEnd(Transition transition) {
+                    // As the transition has ended, we can now load the full-size image
+                    loadFullSizeImage(photo);
+
+                    // Make sure we remove ourselves as a listener
+                    transition.removeListener(this);
+                }
+
+                @Override
+                public void onTransitionStart(Transition transition) {
+                    // No-op
+                }
+
+                @Override
+                public void onTransitionCancel(Transition transition) {
+                    // Make sure we remove ourselves as a listener
+                    transition.removeListener(this);
+                }
+
+                @Override
+                public void onTransitionPause(Transition transition) {
+                    // No-op
+                }
+
+                @Override
+                public void onTransitionResume(Transition transition) {
+                    // No-op
+                }
+            });
+            return true;
+        }
+
+        // If we reach here then we have not added a listener
+        return false;
     }
 }

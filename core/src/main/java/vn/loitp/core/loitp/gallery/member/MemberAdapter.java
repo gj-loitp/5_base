@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
@@ -24,12 +26,15 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     private Context context;
     private LayoutInflater inflater;
     private boolean isTablet;
+    private int sizeW;
+    private int sizeH;
 
     public MemberAdapter(Context context, int numCount, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
-        //LLog.d(TAG, "size: " + size);
+        this.sizeW = LScreenUtil.getScreenWidth() / numCount;
+        this.sizeH = LScreenUtil.getScreenHeight() / numCount;
         this.isTablet = LDeviceUtil.isTablet((Activity) context);
     }
 
@@ -40,40 +45,9 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        if (isTablet) {
-            if (position == 0 || position == 1 || position == 2) {
-                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            } else if (position == getItemCount() - 1 || position == getItemCount() - 2) {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            }
-        } else {
-            if (position == 0 || position == 1) {
-                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            } else if (position == getItemCount() - 1) {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            }
-        }
-        /*if (position == 0) {
-            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (position == getItemCount() - 1) {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-        } else {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        }*/
-
+        viewHolder.fl.getLayoutParams().width = sizeW;
+        viewHolder.fl.getLayoutParams().height = sizeH;
+        viewHolder.fl.requestLayout();
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
@@ -106,6 +80,43 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                 return true;
             }
         });
+
+        /*if (isTablet) {
+            if (position == 0 || position == 1 || position == 2) {
+                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            } else if (position == getItemCount() - 1 || position == getItemCount() - 2) {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            }
+        } else {
+            if (position == 0 || position == 1) {
+                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            } else if (position == getItemCount() - 1) {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.viewSpaceTop.setVisibility(View.GONE);
+                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+            }
+        }*/
+        if (position == 0 || position == 1) {
+            viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        } else if (getItemCount() % 2 == 0 && (position == (getItemCount() - 1) || position == (getItemCount() - 2))) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else if (getItemCount() % 2 != 0 && position == (getItemCount() - 1)) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -117,6 +128,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private FrameLayout fl;
         private TextView tvTitle;
         private ImageView imageView;
         private View viewSpaceTop;
@@ -124,6 +136,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
+            fl = (FrameLayout) v.findViewById(R.id.fl);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             imageView = (ImageView) v.findViewById(R.id.image_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);

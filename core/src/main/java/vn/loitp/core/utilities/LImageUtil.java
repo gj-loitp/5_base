@@ -251,11 +251,21 @@ public class LImageUtil {
     }
 
     public static void loadNoAmin(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
+        loadNoAmin(context, url, "", imageView, drawableRequestListener);
+    }
+
+    public static void loadNoAmin(Context context, String url, String urlThumbnal, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
         if (context == null || imageView == null) {
             return;
         }
         Glide.with(context).load(url)
                 //.transition(withCrossFade())
+                .thumbnail(Glide.with(context)
+                        .load(urlThumbnal)
+                        //.asBitmap()
+                        //.crossFade()
+                        .thumbnail(1f)
+                )
                 .apply(new RequestOptions()
                         .placeholder(R.drawable.trans)
                         //.fitCenter()
