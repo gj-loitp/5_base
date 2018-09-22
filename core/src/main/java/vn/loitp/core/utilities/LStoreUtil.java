@@ -394,6 +394,7 @@ public class LStoreUtil {
             byte[] buffer = new byte[in.available()];
             in.read(buffer);
             in.close();
+            str = new String(buffer);
 
         } catch (Exception e) {
             LLog.e(TAG, "readTxtFromAsset: " + e.toString());

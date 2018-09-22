@@ -137,6 +137,8 @@ public class SplashActivity extends BaseFontActivity {
     }
 
     private void goToHome() {
+        //String s = LStoreUtil.readTxtFromAsset(activity, "news.json");
+        //LLog.d(TAG, "goToHome " + s);
         if (isAnimDone && isCheckReadyDone) {
             Intent intent = new Intent(activity, MenuActivity.class);
             startActivity(intent);
