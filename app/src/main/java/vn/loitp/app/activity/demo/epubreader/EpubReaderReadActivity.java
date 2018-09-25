@@ -39,6 +39,7 @@ import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     public static final String FILE_PATH = "FILE_PATH";
+    public static final String TITLE_BOOK = "TITLE_BOOK";
     public static final String IS_WEBVIEW = "IS_WEBVIEW";
     public static final String IS_USE_FONT = "IS_USE_FONT";
     private Reader reader;
@@ -55,17 +56,22 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private String filePath;
     private boolean isUseFont = true;
     private TextView tvPage;
-    private TextView tvLoading;
+    private TextView tvTitle;
     private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        String titleBook = getIntent().getStringExtra(TITLE_BOOK);
+        if (titleBook == null) {
+            titleBook = getString(R.string.loading);
+        }
+        tvTitle.setText(titleBook);
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         tvPage = (TextView) findViewById(R.id.tv_page);
-        tvLoading = (TextView) findViewById(R.id.tv_loading);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -165,7 +171,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
             mViewPager.setAdapter(mSectionsPagerAdapter);
-            tvLoading.setVisibility(View.GONE);
+            tvTitle.setVisibility(View.GONE);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
             }

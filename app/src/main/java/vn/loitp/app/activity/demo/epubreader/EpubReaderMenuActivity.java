@@ -32,8 +32,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
         ((GridView) findViewById(R.id.grid_book_info)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String clickedItemFilePath = ((BookInfo) adapterView.getAdapter().getItem(i)).getFilePath();
-                askForWidgetToUse(clickedItemFilePath);
+                askForWidgetToUse((BookInfo) adapterView.getAdapter().getItem(i));
             }
         });
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -129,9 +128,10 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
         return bookInfoList;
     }
 
-    private void askForWidgetToUse(final String filePath) {
+    private void askForWidgetToUse(BookInfo bookInfo) {
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
-        intent.putExtra(EpubReaderReadActivity.FILE_PATH, filePath);
+        intent.putExtra(EpubReaderReadActivity.TITLE_BOOK, bookInfo.getTitle());
+        intent.putExtra(EpubReaderReadActivity.FILE_PATH, bookInfo.getFilePath());
         intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, true);
         LDialogUtil.showDialog2(activity, "Pick your widget", "Textview or WebView?", "TextView", "WebView", new LDialogUtil.Callback2() {
             @Override
