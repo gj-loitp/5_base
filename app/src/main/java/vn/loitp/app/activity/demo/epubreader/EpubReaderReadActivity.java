@@ -2,6 +2,8 @@ package vn.loitp.app.activity.demo.epubreader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.util.Base64;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
 import vn.loitp.function.epub.CssStatus;
 import vn.loitp.function.epub.Reader;
@@ -29,8 +33,9 @@ import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.views.LToast;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
-    public static final String FILE_PATH = "filePath";
-    public static final String IS_WEBVIEW = "isWebView";
+    public static final String FILE_PATH = "FILE_PATH";
+    public static final String IS_WEBVIEW = "IS_WEBVIEW";
+    public static final String IS_USE_FONT = "IS_USE_FONT";
     private Reader reader;
 
     private ViewPager mViewPager;
@@ -41,6 +46,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
+    private boolean isUseFont = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         if (getIntent() != null && getIntent().getExtras() != null) {
             String filePath = getIntent().getExtras().getString(FILE_PATH);
             isPickedWebView = getIntent().getExtras().getBoolean(IS_WEBVIEW);
+            isUseFont = getIntent().getBooleanExtra(IS_USE_FONT, true);
             try {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
@@ -107,6 +114,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         }
         isSkippedToPage = false;
         if (bookSection != null) {
+            //LLog.d(TAG, "onFragmentReady: " + bookSection.getSectionContent());
             return setFragmentView(isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
         }
         return null;
@@ -192,11 +200,26 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         return super.onOptionsItemSelected(item);
     }*/
 
+    private String getStyledFont(String html) {
+        if (!isUseFont) {
+            return html;
+        }
+        boolean addBodyStart = !html.toLowerCase().contains("<body>");
+        boolean addBodyEnd = !html.toLowerCase().contains("</body");
+        return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
+                "src: url(\"file:///android_asset/fonts/baisau.TTF\")}" +
+                "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
+                (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
+    }
+
     private View setFragmentView(boolean isContentStyled, String data, String mimeType, String encoding) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         if (isContentStyled) {
             WebView webView = new WebView(activity);
-            webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
+            //webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
+            webView.loadDataWithBaseURL("file:///android_asset/",
+                    getStyledFont(data),
+                    mimeType, encoding, "about:blank");
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 //                webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 //            }
@@ -206,6 +229,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             ScrollView scrollView = new ScrollView(activity);
             scrollView.setLayoutParams(layoutParams);
             TextView textView = new TextView(activity);
+            textView.setTextColor(Color.BLACK);
+            LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
             textView.setLayoutParams(layoutParams);
             textView.setText(Html.fromHtml(data, new Html.ImageGetter() {
                 @Override
@@ -222,8 +247,12 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                     return imageAsDrawable;
                 }
             }, null));
-            int pxPadding = dpToPx(12);
+            int pxPadding = dpToPx(10);
             textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
+            if (isUseFont) {
+                Typeface face = Typeface.createFromAsset(getAssets(), "fonts/baisau.TTF");
+                textView.setTypeface(face);
+            }
             scrollView.addView(textView);
             return scrollView;
         }
