@@ -32,13 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo" />
+            android:scaleType="centerCrop" />
 
         <vn.loitp.views.realtimeblurview.RealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_80"
+            app:realtimeBlurRadius="@dimen/round_15"
             app:realtimeOverlayColor="@color/black_65" />
 
         <TextView

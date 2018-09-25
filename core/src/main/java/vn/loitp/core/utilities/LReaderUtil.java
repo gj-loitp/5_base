@@ -3,6 +3,8 @@ package vn.loitp.core.utilities;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import loitp.core.R;
+
 public class LReaderUtil {
     public static Bitmap decodeBitmapFromByteArray(byte[] coverImage, int reqWidth, int reqHeight) {
         // First decode with inJustDecodeBounds=true to check dimensions
@@ -37,4 +39,19 @@ public class LReaderUtil {
         }
         return inSampleSize;
     }
+
+    public static int getDefaultCover() {
+        return R.drawable.l_book_5;
+    }
+
+    /*public static void readEpub(Activity activity, BookInfo bookInfo) {
+        if (activity == null || bookInfo == null) {
+            return;
+        }
+        final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
+        intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
+        intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, true);
+        intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, false);
+        startActivity(intent);
+    }*/
 }

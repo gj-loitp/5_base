@@ -130,8 +130,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
     private void askForWidgetToUse(BookInfo bookInfo) {
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
-        intent.putExtra(EpubReaderReadActivity.TITLE_BOOK, bookInfo.getTitle());
-        intent.putExtra(EpubReaderReadActivity.FILE_PATH, bookInfo.getFilePath());
+        intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
         intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, true);
         LDialogUtil.showDialog2(activity, "Pick your widget", "Textview or WebView?", "TextView", "WebView", new LDialogUtil.Callback2() {
             @Override

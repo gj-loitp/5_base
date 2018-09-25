@@ -84,12 +84,12 @@ public class BookInfoGridAdapter extends BaseAdapter {
                 } else {
                     // Searched and not found.
                     bookInfoList.get(position).setCoverImageNotExists(true);
-                    viewHolder.coverImage.setImageResource(android.R.drawable.alert_light_frame);
+                    viewHolder.coverImage.setImageResource(LReaderUtil.getDefaultCover());
                 }
             }
         } else {
             // Searched before and not found.
-            viewHolder.coverImage.setImageResource(android.R.drawable.alert_light_frame);
+            viewHolder.coverImage.setImageResource(LReaderUtil.getDefaultCover());
         }
         return convertView;
     }

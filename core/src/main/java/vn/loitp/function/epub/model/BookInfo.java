@@ -2,16 +2,18 @@ package vn.loitp.function.epub.model;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by loitp on 08.09.2016.
  */
-public class BookInfo {
+public class BookInfo implements Serializable {
     private String title;
     private byte[] coverImage;
     private String filePath;
 
     private boolean isCoverImageNotExists;
-    private Bitmap coverImageBitmap;
+    private static transient Bitmap coverImageBitmap;
 
     public String getTitle() {
         return title;

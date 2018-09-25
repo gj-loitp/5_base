@@ -25,26 +25,24 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
 import vn.loitp.function.epub.CssStatus;
 import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
+import vn.loitp.function.epub.model.BookInfo;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
-    public static final String FILE_PATH = "FILE_PATH";
-    public static final String TITLE_BOOK = "TITLE_BOOK";
+    public static final String BOOK_INFO = "BOOK_INFO";
     public static final String IS_WEBVIEW = "IS_WEBVIEW";
     public static final String IS_USE_FONT = "IS_USE_FONT";
     private Reader reader;
@@ -58,7 +56,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
 
-    private String filePath;
+    private BookInfo bookInfo;
     private boolean isUseFont = true;
     private TextView tvPage;
     private TextView tvTitle;
@@ -66,15 +64,48 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private RelativeLayout rlSplash;
     private AdView adView;
 
+    private void setCoverBitmap() {
+        boolean isCoverImageNotExists = bookInfo.isCoverImageNotExists();
+        if (!isCoverImageNotExists) {
+            // Not searched for coverImage for this position yet. It may exist.
+            Bitmap savedBitmap = bookInfo.getCoverImageBitmap();
+            if (savedBitmap != null) {
+                ivCover.setImageBitmap(savedBitmap);
+            } else {
+                byte[] coverImageAsBytes = bookInfo.getCoverImage();
+                if (coverImageAsBytes != null) {
+                    Bitmap bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
+                    bookInfo.setCoverImageBitmap(bitmap);
+                    bookInfo.setCoverImage(null);
+                    ivCover.setImageBitmap(bitmap);
+                } else {
+                    // Searched and not found.
+                    bookInfo.setCoverImageNotExists(true);
+                    ivCover.setImageResource(LReaderUtil.getDefaultCover());
+                }
+            }
+        } else {
+            // Searched before and not found.
+            ivCover.setImageResource(LReaderUtil.getDefaultCover());
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
-        ivCover.setImageResource(LImageUtil.getRandomMiniDrawable());
         LUIUtil.setTextShadow(tvTitle);
-        String titleBook = getIntent().getStringExtra(TITLE_BOOK);
+        bookInfo = (BookInfo) getIntent().getSerializableExtra(BOOK_INFO);
+        if (bookInfo == null) {
+            LToast.show(activity, getString(R.string.err_unknow));
+            onBackPressed();
+        }
+        isPickedWebView = getIntent().getBooleanExtra(IS_WEBVIEW, true);
+        isUseFont = getIntent().getBooleanExtra(IS_USE_FONT, true);
+        setCoverBitmap();
+        String titleBook = bookInfo.getTitle();
         if (titleBook == null) {
             titleBook = getString(R.string.loading);
         }
@@ -99,7 +130,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             public void onPageScrollStateChanged(int state) {
             }
         });
-        //mViewPager.setAdapter(mSectionsPagerAdapter);
         /*final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(loitp.core.R.id.ln_adview);
@@ -114,32 +144,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
         }*/
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            filePath = getIntent().getExtras().getString(FILE_PATH);
-            isPickedWebView = getIntent().getExtras().getBoolean(IS_WEBVIEW);
-            isUseFont = getIntent().getBooleanExtra(IS_USE_FONT, true);
-            /*try {
-                reader = new Reader();
-                // Setting optionals once per file is enough.
-                reader.setMaxContentPerSection(1250);
-                reader.setCssStatus(isPickedWebView ? CssStatus.INCLUDE : CssStatus.OMIT);
-                reader.setIsIncludingTextContent(true);
-                reader.setIsOmittingTitleTag(true);
-                // This method must be called before readSection.
-                reader.setFullContent(filePath);
-                // int lastSavedPage = reader.setFullContentWithProgress(filePath);
-                if (reader.isSavedProgressFound()) {
-                    int lastSavedPage = reader.loadProgress();
-                    mViewPager.setCurrentItem(lastSavedPage);
-                }
-
-            } catch (ReadingException e) {
-                LToast.show(activity, "Error: " + e.getMessage());
-            }*/
-
-            loadData = new LoadData();
-            loadData.execute();
-        }
+        loadData = new LoadData();
+        loadData.execute();
     }
 
     private LoadData loadData;
@@ -164,7 +170,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 reader.setIsIncludingTextContent(true);
                 reader.setIsOmittingTitleTag(true);
                 // This method must be called before readSection.
-                reader.setFullContent(filePath);
+                reader.setFullContent(bookInfo.getFilePath());
                 // int lastSavedPage = reader.setFullContentWithProgress(filePath);
                 if (reader.isSavedProgressFound()) {
                     lastSavedPage = reader.loadProgress();
@@ -181,25 +187,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
-            LAnimationUtil.play(rlSplash, Techniques.SlideOutUp, new LAnimationUtil.Callback() {
-                @Override
-                public void onCancel() {
-                }
-
-                @Override
-                public void onEnd() {
-                    rlSplash.setVisibility(View.GONE);
-                    rlSplash = null;
-                }
-
-                @Override
-                public void onRepeat() {
-                }
-
-                @Override
-                public void onStart() {
-                }
-            });
+            rlSplash.setVisibility(View.GONE);
+            rlSplash = null;
             mViewPager.setAdapter(mSectionsPagerAdapter);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
