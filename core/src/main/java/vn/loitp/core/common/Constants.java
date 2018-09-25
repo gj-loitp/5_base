@@ -1,5 +1,7 @@
 package vn.loitp.core.common;
 
+import loitp.core.R;
+
 /**
  * Created by loitp
  */
@@ -151,4 +153,11 @@ public class Constants {
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
     public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
     public final static String BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN";
+
+    public static final int[] ARR_RANDOM_BKG = {R.drawable.bkg_gradient_man_of_steel,
+            R.drawable.bkg_shadow_black_white,
+            R.drawable.bkg_shadow_black_white_dark,
+            R.drawable.bkg_shadow_white_black,
+            R.drawable.bkg_shadow_white_black_dark};
+
 }

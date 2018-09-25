@@ -719,4 +719,13 @@ public class LUIUtil {
     public static String getFontForAll() {
         return mFontForAll;
     }
+
+    public static void setRandomBackground(View view) {
+        if (view == null) {
+            return;
+        }
+        int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.length);
+        int bkg = Constants.ARR_RANDOM_BKG[r];
+        view.setBackgroundResource(bkg);
+    }
 }
