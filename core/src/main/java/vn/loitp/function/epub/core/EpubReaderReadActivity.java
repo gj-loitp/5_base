@@ -170,7 +170,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             try {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
-                reader.setMaxContentPerSection(1250);
+                reader.setMaxContentPerSection(1250 * 10);
                 reader.setCssStatus(isPickedWebView ? CssStatus.INCLUDE : CssStatus.OMIT);
                 reader.setIsIncludingTextContent(true);
                 reader.setIsOmittingTitleTag(true);
