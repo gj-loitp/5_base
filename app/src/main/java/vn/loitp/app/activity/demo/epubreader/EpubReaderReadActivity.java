@@ -31,6 +31,7 @@ import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.views.LToast;
+import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     public static final String FILE_PATH = "FILE_PATH";
@@ -55,6 +56,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(0);
+        mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         if (getIntent() != null && getIntent().getExtras() != null) {
             String filePath = getIntent().getExtras().getString(FILE_PATH);
