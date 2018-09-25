@@ -1,9 +1,13 @@
 package vn.loitp.core.utilities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import loitp.core.R;
+import vn.loitp.function.epub.core.EpubReaderReadActivity;
+import vn.loitp.function.epub.model.BookInfo;
 
 public class LReaderUtil {
     public static Bitmap decodeBitmapFromByteArray(byte[] coverImage, int reqWidth, int reqHeight) {
@@ -44,14 +48,14 @@ public class LReaderUtil {
         return R.drawable.l_book_5;
     }
 
-    /*public static void readEpub(Activity activity, BookInfo bookInfo) {
+    public static void readEpub(Activity activity, BookInfo bookInfo, boolean isUseFont, boolean isWebview) {
         if (activity == null || bookInfo == null) {
             return;
         }
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
         intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
-        intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, true);
-        intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, false);
-        startActivity(intent);
-    }*/
+        intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, isUseFont);
+        intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, isWebview);
+        activity.startActivity(intent);
+    }
 }

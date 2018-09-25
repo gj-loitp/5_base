@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.epubreader;
+package vn.loitp.function.epub.core;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 
 /**
  * Created by Mert on 08.09.2016.

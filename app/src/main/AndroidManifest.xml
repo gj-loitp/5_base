@@ -475,7 +475,6 @@
         <activity android:name="vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity" />
         <activity android:name="vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity" />
-        <activity android:name="vn.loitp.app.activity.demo.epubreader.EpubReaderReadActivity" />
     </application>
 
 </manifest>

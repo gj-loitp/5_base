@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.epubreader;
+package vn.loitp.function.epub.core;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LReaderUtil;
@@ -107,7 +107,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         setCoverBitmap();
         String titleBook = bookInfo.getTitle();
         if (titleBook == null) {
-            titleBook = getString(R.string.loading);
+            titleBook = "Loading...";
         }
         tvTitle.setText(titleBook);
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.epubreader;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +15,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.ReadingException;
@@ -129,20 +129,15 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
     }
 
     private void askForWidgetToUse(BookInfo bookInfo) {
-        final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
-        intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
-        intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, true);
         LDialogUtil.showDialog2(activity, "Pick your widget", "Textview or WebView?", "TextView", "WebView", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
-                intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, false);
-                startActivity(intent);
+                LReaderUtil.readEpub(activity, bookInfo, true, false);
             }
 
             @Override
             public void onClick2() {
-                intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, true);
-                startActivity(intent);
+                LReaderUtil.readEpub(activity, bookInfo, true, true);
             }
         });
     }
