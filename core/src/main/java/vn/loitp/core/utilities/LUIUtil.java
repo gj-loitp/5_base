@@ -51,6 +51,7 @@ import java.io.InputStream;
 import java.util.Random;
 
 import loitp.core.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
 import vn.loitp.data.AdmobData;
@@ -702,5 +703,20 @@ public class LUIUtil {
                 }
             }
         }
+    }
+
+    private static String mFontForAll;
+
+    public static void setFontForAll(String fontForAll) {
+        mFontForAll = fontForAll;
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(fontForAll)
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
+    }
+
+    public static String getFontForAll() {
+        return mFontForAll;
     }
 }

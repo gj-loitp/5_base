@@ -285,7 +285,9 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         boolean addBodyStart = !html.toLowerCase().contains("<body>");
         boolean addBodyEnd = !html.toLowerCase().contains("</body");
         return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
-                "src: url(\"file:///android_asset/fonts/baisau.TTF\")}" +
+                "src: url(\"file:///android_asset/" +
+                LUIUtil.getFontForAll() +
+                "\")}" +
                 "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
                 (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
     }
@@ -328,7 +330,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             int pxPadding = dpToPx(10);
             textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
             if (isUseFont) {
-                Typeface face = Typeface.createFromAsset(getAssets(), "fonts/baisau.TTF");
+                Typeface face = Typeface.createFromAsset(getAssets(), LUIUtil.getFontForAll());
                 textView.setTypeface(face);
             }
             scrollView.addView(textView);
