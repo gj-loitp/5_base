@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -263,5 +264,19 @@ public class LDialogUtil {
             }
         });
         iOSDialog.show();
+    }
+
+    public static void showProgress(ProgressBar progressBar) {
+        if (progressBar == null) {
+            return;
+        }
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public static void hideProgress(ProgressBar progressBar) {
+        if (progressBar == null) {
+            return;
+        }
+        progressBar.setVisibility(View.GONE);
     }
 }

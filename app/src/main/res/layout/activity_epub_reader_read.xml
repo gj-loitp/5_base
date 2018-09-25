@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
     <TextView
         android:id="@+id/tv_page"
@@ -19,6 +20,15 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tv_page" />
 
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textSize="@dimen/txt_18"
+        android:textStyle="bold" />
 
 </RelativeLayout>
 

@@ -23,6 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdView;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
@@ -53,6 +55,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private String filePath;
     private boolean isUseFont = true;
     private TextView tvPage;
+    private TextView tvLoading;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         tvPage = (TextView) findViewById(R.id.tv_page);
+        tvLoading = (TextView) findViewById(R.id.tv_loading);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -77,7 +82,21 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             public void onPageScrollStateChanged(int state) {
             }
         });
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
+        /*final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        LinearLayout lnAdview = (LinearLayout) findViewById(loitp.core.R.id.ln_adview);
+        if (adUnitId == null || adUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.setAdUnitId(adUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
+        }*/
         if (getIntent() != null && getIntent().getExtras() != null) {
             filePath = getIntent().getExtras().getString(FILE_PATH);
             isPickedWebView = getIntent().getExtras().getBoolean(IS_WEBVIEW);
@@ -145,6 +164,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
+            mViewPager.setAdapter(mSectionsPagerAdapter);
+            tvLoading.setVisibility(View.GONE);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
             }
