@@ -160,4 +160,20 @@ public class Constants {
             R.drawable.bkg_shadow_white_black,
             R.drawable.bkg_shadow_white_black_dark};
 
+    public static final String[] ARR_URL_BKG_FLICKR = {
+            URL_IMG,
+            URL_IMG_1,
+            URL_IMG_2,
+            URL_IMG_3,
+            URL_IMG_4,
+            URL_IMG_5,
+            URL_IMG_6,
+            URL_IMG_7,
+            URL_IMG_8,
+            URL_IMG_9,
+            URL_IMG_10,
+            URL_IMG_11,
+            URL_IMG_12
+    };
+
 }

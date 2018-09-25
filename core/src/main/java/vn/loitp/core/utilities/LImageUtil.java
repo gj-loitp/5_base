@@ -32,6 +32,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import loitp.core.R;
+import vn.loitp.core.common.Constants;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -467,5 +468,10 @@ public class LImageUtil {
             linkUrlM = linkUrlM.replace(".png", "_b.png");
         }
         return linkUrlM;
+    }
+
+    public static String getRandomUrlFlickr() {
+        int r = LStoreUtil.getRandomNumber(Constants.ARR_URL_BKG_FLICKR.length);
+        return Constants.ARR_URL_BKG_FLICKR[r];
     }
 }

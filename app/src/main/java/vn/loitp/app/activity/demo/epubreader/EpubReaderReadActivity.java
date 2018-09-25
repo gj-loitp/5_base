@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ import com.google.android.gms.ads.AdView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
@@ -57,13 +59,15 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private boolean isUseFont = true;
     private TextView tvPage;
     private TextView tvTitle;
+    private ImageView ivCover;
     private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tvTitle = (TextView) findViewById(R.id.tv_title);
-        LUIUtil.setRandomBackground(tvTitle);
+        ivCover = (ImageView) findViewById(R.id.iv_cover);
+        LImageUtil.load(activity, LImageUtil.getRandomUrlFlickr(), ivCover);
         LUIUtil.setTextShadow(tvTitle);
         String titleBook = getIntent().getStringExtra(TITLE_BOOK);
         if (titleBook == null) {
@@ -173,7 +177,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
             mViewPager.setAdapter(mSectionsPagerAdapter);
-            tvTitle.setVisibility(View.GONE);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
             }
