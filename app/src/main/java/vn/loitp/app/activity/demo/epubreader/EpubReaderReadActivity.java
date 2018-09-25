@@ -28,6 +28,7 @@ import com.google.android.gms.ads.AdView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
 import vn.loitp.function.epub.CssStatus;
@@ -63,6 +64,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tvTitle = (TextView) findViewById(R.id.tv_title);
+        tvTitle.setBackgroundColor(LStoreUtil.getRandomColor());
+        LUIUtil.setTextShadow(tvTitle);
         String titleBook = getIntent().getStringExtra(TITLE_BOOK);
         if (titleBook == null) {
             titleBook = getString(R.string.loading);

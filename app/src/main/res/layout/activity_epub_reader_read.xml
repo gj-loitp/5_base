@@ -23,10 +23,11 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:textSize="@dimen/txt_30"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_50"
         android:textStyle="bold" />
 
 </RelativeLayout>
