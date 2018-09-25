@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import loitp.core.R;
+import vn.loitp.core.common.Constants;
 import vn.loitp.function.epub.core.EpubReaderReadActivity;
 import vn.loitp.function.epub.model.BookInfo;
 
@@ -48,7 +49,7 @@ public class LReaderUtil {
         return R.drawable.l_book_5;
     }
 
-    public static void readEpub(Activity activity, BookInfo bookInfo, boolean isUseFont, boolean isWebview) {
+    public static void readEpub(Activity activity, BookInfo bookInfo, boolean isUseFont, boolean isWebview, String admobAdIdBanner) {
         if (activity == null || bookInfo == null) {
             return;
         }
@@ -56,6 +57,7 @@ public class LReaderUtil {
         intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
         intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, isUseFont);
         intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, isWebview);
+        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner);
         activity.startActivity(intent);
         LActivityUtil.tranIn(activity);
     }

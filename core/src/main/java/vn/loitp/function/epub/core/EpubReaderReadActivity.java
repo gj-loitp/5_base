@@ -21,14 +21,17 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -39,6 +42,7 @@ import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;
 import vn.loitp.views.LToast;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
@@ -113,6 +117,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
+        LUIUtil.setPullLikeIOSHorizontal(mViewPager);
         tvPage = (TextView) findViewById(R.id.tv_page);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
@@ -130,9 +135,9 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             public void onPageScrollStateChanged(int state) {
             }
         });
-        /*final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
         LLog.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = (LinearLayout) findViewById(loitp.core.R.id.ln_adview);
+        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
@@ -143,7 +148,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             lnAdview.addView(adView);
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
-        }*/
+        }
         loadData = new LoadData();
         loadData.execute();
     }
@@ -197,9 +202,28 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     }
 
     @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
+        super.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
         if (loadData == null) {
             loadData.cancel(true);
+        }
+        if (adView != null) {
+            adView.destroy();
         }
         super.onDestroy();
     }
@@ -211,7 +235,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override

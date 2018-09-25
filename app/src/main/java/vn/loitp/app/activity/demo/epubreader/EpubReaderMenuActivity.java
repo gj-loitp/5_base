@@ -132,12 +132,12 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
         LDialogUtil.showDialog2(activity, "Pick your widget", "Textview or WebView?", "TextView", "WebView", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
-                LReaderUtil.readEpub(activity, bookInfo, true, false);
+                LReaderUtil.readEpub(activity, bookInfo, true, false, getString(R.string.str_b));
             }
 
             @Override
             public void onClick2() {
-                LReaderUtil.readEpub(activity, bookInfo, true, true);
+                LReaderUtil.readEpub(activity, bookInfo, true, true, getString(R.string.str_b));
             }
         });
     }

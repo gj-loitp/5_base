@@ -19,7 +19,17 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
         android:layout_below="@+id/tv_page" />
+
+    <LinearLayout
+        android:id="@+id/ln_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="vertical" />
 
     <RelativeLayout
         android:id="@+id/rl_splash"
