@@ -70,7 +70,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
             @Override
             public void onPageSelected(int position) {
-                tvPage.setText("Page " + position);
+                tvPage.setText("" + position);
             }
 
             @Override
@@ -113,13 +113,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
         @Override
         protected void onPreExecute() {
-            LLog.d(TAG, "onPreExecute");
+            //LLog.d(TAG, "onPreExecute");
             super.onPreExecute();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            LLog.d(TAG, "doInBackground");
+            //LLog.d(TAG, "doInBackground");
             try {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
@@ -143,7 +143,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            LLog.d(TAG, "onPostExecute");
+            //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
