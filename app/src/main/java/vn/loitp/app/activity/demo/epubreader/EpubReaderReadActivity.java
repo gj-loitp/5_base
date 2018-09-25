@@ -48,6 +48,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
     private boolean isUseFont = true;
+    private TextView tvPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,23 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
+        tvPage = (TextView) findViewById(R.id.tv_page);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tvPage.setText("Page " + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
         mViewPager.setAdapter(mSectionsPagerAdapter);
         if (getIntent() != null && getIntent().getExtras() != null) {
             String filePath = getIntent().getExtras().getString(FILE_PATH);
