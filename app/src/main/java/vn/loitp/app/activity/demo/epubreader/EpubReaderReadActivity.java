@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
 import vn.loitp.function.epub.CssStatus;
@@ -47,6 +49,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
+
+    private String filePath;
     private boolean isUseFont = true;
     private TextView tvPage;
 
@@ -75,10 +79,10 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         });
         mViewPager.setAdapter(mSectionsPagerAdapter);
         if (getIntent() != null && getIntent().getExtras() != null) {
-            String filePath = getIntent().getExtras().getString(FILE_PATH);
+            filePath = getIntent().getExtras().getString(FILE_PATH);
             isPickedWebView = getIntent().getExtras().getBoolean(IS_WEBVIEW);
             isUseFont = getIntent().getBooleanExtra(IS_USE_FONT, true);
-            try {
+            /*try {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250);
@@ -95,8 +99,64 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
             } catch (ReadingException e) {
                 LToast.show(activity, "Error: " + e.getMessage());
+            }*/
+
+            loadData = new LoadData();
+            loadData.execute();
+        }
+    }
+
+    private LoadData loadData;
+
+    private class LoadData extends AsyncTask<Void, Void, Void> {
+        private int lastSavedPage = 0;
+
+        @Override
+        protected void onPreExecute() {
+            LLog.d(TAG, "onPreExecute");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            LLog.d(TAG, "doInBackground");
+            try {
+                reader = new Reader();
+                // Setting optionals once per file is enough.
+                reader.setMaxContentPerSection(1250);
+                reader.setCssStatus(isPickedWebView ? CssStatus.INCLUDE : CssStatus.OMIT);
+                reader.setIsIncludingTextContent(true);
+                reader.setIsOmittingTitleTag(true);
+                // This method must be called before readSection.
+                reader.setFullContent(filePath);
+                // int lastSavedPage = reader.setFullContentWithProgress(filePath);
+                if (reader.isSavedProgressFound()) {
+                    lastSavedPage = reader.loadProgress();
+                }
+
+            } catch (ReadingException e) {
+                LLog.e(TAG, "doInBackground " + e.toString());
+                LToast.show(activity, "Error: " + e.getMessage());
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            LLog.d(TAG, "onPostExecute");
+            super.onPostExecute(aVoid);
+            if (reader.isSavedProgressFound()) {
+                mViewPager.setCurrentItem(lastSavedPage);
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (loadData == null) {
+            loadData.cancel(true);
+        }
+        super.onDestroy();
     }
 
     @Override
