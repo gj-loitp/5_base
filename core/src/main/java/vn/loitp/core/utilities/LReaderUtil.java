@@ -57,5 +57,6 @@ public class LReaderUtil {
         intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, isUseFont);
         intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, isWebview);
         activity.startActivity(intent);
+        LActivityUtil.tranIn(activity);
     }
 }
