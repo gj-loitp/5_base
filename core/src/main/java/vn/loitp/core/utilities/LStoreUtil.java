@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class LStoreUtil {
@@ -445,5 +447,42 @@ public class LStoreUtil {
                 "Those who can't write programs, write help files.",
                 "The more I C, the less I see.  "
         };
+    }
+
+    public static File getFileFromAssets(Context context, String fileName) {
+        if (context == null) {
+            return null;
+        }
+        File file = new File(context.getCacheDir() + "/" + fileName);
+        if (!file.exists()) try {
+            InputStream is = context.getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(buffer);
+            fos.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return file;
+    }
+
+    public static List<File> getListEpubFiles(File parentDir) {
+        ArrayList<File> inFiles = new ArrayList<>();
+        File[] files = parentDir.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    inFiles.addAll(getListEpubFiles(file));
+                } else {
+                    if (file.getName().endsWith(".epub")) {
+                        inFiles.add(file);
+                    }
+                }
+            }
+        }
+        return inFiles;
     }
 }

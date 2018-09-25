@@ -10,6 +10,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
 import vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
+import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity;
 import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
@@ -55,6 +56,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
         }
+        findViewById(R.id.bt_epub_reader).setOnClickListener(this);
     }
 
     @Override
@@ -130,6 +132,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent = new Intent(activity, GalleryMemberActivity.class);
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
+                break;
+            case R.id.bt_epub_reader:
+                intent = new Intent(activity, EpubReaderMenuActivity.class);
                 break;
         }
         if (intent != null) {

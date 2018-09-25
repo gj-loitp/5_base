@@ -43,6 +43,12 @@
                 android:text="Ebook With Realm" />
 
             <Button
+                android:id="@+id/bt_epub_reader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Epub reader" />
+
+            <Button
                 android:id="@+id/bt_film"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,11 +89,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gallery From Core Album Only" />
+
             <Button
                 android:id="@+id/bt_gallery_member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gallery Member" />
+
             <Button
                 android:id="@+id/bt_sound"
                 android:layout_width="match_parent"
