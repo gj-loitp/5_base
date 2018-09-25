@@ -474,4 +474,9 @@ public class LImageUtil {
         int r = LStoreUtil.getRandomNumber(Constants.ARR_URL_BKG_FLICKR.length);
         return Constants.ARR_URL_BKG_FLICKR[r];
     }
+
+    public static int getRandomMiniDrawable() {
+        int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_MINI_DRAWABLE.length);
+        return Constants.ARR_RANDOM_MINI_DRAWABLE[r];
+    }
 }

@@ -21,13 +21,16 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -60,14 +63,16 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private TextView tvPage;
     private TextView tvTitle;
     private ImageView ivCover;
+    private RelativeLayout rlSplash;
     private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
-        LImageUtil.load(activity, LImageUtil.getRandomUrlFlickr(), ivCover);
+        ivCover.setImageResource(LImageUtil.getRandomMiniDrawable());
         LUIUtil.setTextShadow(tvTitle);
         String titleBook = getIntent().getStringExtra(TITLE_BOOK);
         if (titleBook == null) {
@@ -176,6 +181,25 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
+            LAnimationUtil.play(rlSplash, Techniques.SlideOutUp, new LAnimationUtil.Callback() {
+                @Override
+                public void onCancel() {
+                }
+
+                @Override
+                public void onEnd() {
+                    rlSplash.setVisibility(View.GONE);
+                    rlSplash = null;
+                }
+
+                @Override
+                public void onRepeat() {
+                }
+
+                @Override
+                public void onStart() {
+                }
+            });
             mViewPager.setAdapter(mSectionsPagerAdapter);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);

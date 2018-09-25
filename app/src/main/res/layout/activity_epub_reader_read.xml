@@ -38,8 +38,8 @@
         <vn.loitp.views.realtimeblurview.RealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_50"
-            app:realtimeOverlayColor="@color/black_35" />
+            app:realtimeBlurRadius="@dimen/round_80"
+            app:realtimeOverlayColor="@color/black_65" />
 
         <TextView
             android:id="@+id/tv_title"
