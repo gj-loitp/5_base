@@ -1,7 +1,5 @@
 package vn.loitp.app.activity.demo.epubreader;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,23 +8,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -35,6 +26,7 @@ import vn.loitp.function.epub.CssStatus;
 import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
+import vn.loitp.views.LToast;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     public static final String FILE_PATH = "filePath";
@@ -43,62 +35,48 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private int pageCount = Integer.MAX_VALUE;
     private int pxScreenWidth;
-
     private boolean isPickedWebView = false;
-
-    private MenuItem searchMenuItem;
-    private SearchView searchView;
-
+    //private MenuItem searchMenuItem;
+    //private SearchView searchView;
     private boolean isSkippedToPage = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
-
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         if (getIntent() != null && getIntent().getExtras() != null) {
             String filePath = getIntent().getExtras().getString(FILE_PATH);
             isPickedWebView = getIntent().getExtras().getBoolean(IS_WEBVIEW);
-
             try {
                 reader = new Reader();
-
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250);
                 reader.setCssStatus(isPickedWebView ? CssStatus.INCLUDE : CssStatus.OMIT);
                 reader.setIsIncludingTextContent(true);
                 reader.setIsOmittingTitleTag(true);
-
                 // This method must be called before readSection.
                 reader.setFullContent(filePath);
-
-//                int lastSavedPage = reader.setFullContentWithProgress(filePath);
+                // int lastSavedPage = reader.setFullContentWithProgress(filePath);
                 if (reader.isSavedProgressFound()) {
                     int lastSavedPage = reader.loadProgress();
                     mViewPager.setCurrentItem(lastSavedPage);
                 }
 
             } catch (ReadingException e) {
-                Toast.makeText(activity, e.getMessage(), Toast.LENGTH_LONG).show();
+                LToast.show(activity, "Error: " + e.getMessage());
             }
         }
     }
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        return true;
     }
 
     @Override
@@ -113,35 +91,28 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     @Override
     public View onFragmentReady(int position) {
-
         BookSection bookSection = null;
-
         try {
             bookSection = reader.readSection(position);
         } catch (ReadingException e) {
             e.printStackTrace();
-            Toast.makeText(activity, e.getMessage(), Toast.LENGTH_LONG).show();
+            LToast.show(activity, "Error: " + e.getMessage());
         } catch (OutOfPagesException e) {
             e.printStackTrace();
             this.pageCount = e.getPageCount();
-
             if (isSkippedToPage) {
-                Toast.makeText(activity, "Max page number is: " + this.pageCount, Toast.LENGTH_LONG).show();
+                LToast.show(activity, "Max page number is: " + this.pageCount);
             }
-
             mSectionsPagerAdapter.notifyDataSetChanged();
         }
-
         isSkippedToPage = false;
-
         if (bookSection != null) {
             return setFragmentView(isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
         }
-
         return null;
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_epub_reader, menu);
 
@@ -186,66 +157,56 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         });
 
         return true;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (!searchView.isIconified()) {
             loseFocusOnSearchView();
         } else {
             super.onBackPressed();
         }
-    }
+    }*/
 
     @Override
     public void onStop() {
         super.onStop();
         try {
             reader.saveProgress(mViewPager.getCurrentItem());
-            Toast.makeText(activity, "Saved page: " + mViewPager.getCurrentItem() + "...", Toast.LENGTH_LONG).show();
+            LToast.show(activity, "Saved page: " + mViewPager.getCurrentItem() + "...");
         } catch (ReadingException e) {
             e.printStackTrace();
-            Toast.makeText(activity, "Progress is not saved: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            LToast.show(activity, "Progress is not saved: " + e.getMessage());
         } catch (OutOfPagesException e) {
             e.printStackTrace();
-            Toast.makeText(activity, "Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount(), Toast.LENGTH_LONG).show();
+            LToast.show(activity, "Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount());
         }
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
         if (id == R.id.action_search) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private View setFragmentView(boolean isContentStyled, String data, String mimeType, String encoding) {
-
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-
         if (isContentStyled) {
             WebView webView = new WebView(activity);
             webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
-
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 //                webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 //            }
-
             webView.setLayoutParams(layoutParams);
-
             return webView;
         } else {
             ScrollView scrollView = new ScrollView(activity);
             scrollView.setLayoutParams(layoutParams);
-
             TextView textView = new TextView(activity);
             textView.setLayoutParams(layoutParams);
-
             textView.setText(Html.fromHtml(data, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
@@ -261,22 +222,19 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                     return imageAsDrawable;
                 }
             }, null));
-
             int pxPadding = dpToPx(12);
-
             textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
-
             scrollView.addView(textView);
             return scrollView;
         }
     }
 
-    private void loseFocusOnSearchView() {
+    /*private void loseFocusOnSearchView() {
         searchView.setQuery("", false);
         searchView.clearFocus();
         searchView.setIconified(true);
         MenuItemCompat.collapseActionView(searchMenuItem);
-    }
+    }*/
 
     private int dpToPx(int dp) {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
