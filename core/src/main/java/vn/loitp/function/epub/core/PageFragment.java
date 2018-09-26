@@ -131,7 +131,7 @@ public class PageFragment extends Fragment {
             if (sizeDP >= 45) {
                 sizeDP = 45;
             }
-            LLog.d(TAG, "textView size " + sizeDP);
+            //LLog.d(TAG, "textView size " + sizeDP);
             LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, sizeDP);
         } else {
             //LLog.d(TAG, "textView !VISIBLE");
@@ -149,7 +149,7 @@ public class PageFragment extends Fragment {
                     LAnimationUtil.play(webView, Techniques.Pulse);
                     size = 250;
                 }
-                LLog.d(TAG, "webView size " + size);
+                //LLog.d(TAG, "webView size " + size);
                 settings.setTextZoom(size);
             }
         }
