@@ -37,20 +37,18 @@ import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 public class EpubReaderReadActivity extends BaseFontActivity {
     public static final String BOOK_INFO = "BOOK_INFO";
     public static final String IS_WEBVIEW = "IS_WEBVIEW";
-    public static final String IS_USE_FONT = "IS_USE_FONT";
     private Reader reader;
 
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private int pageCount = Integer.MAX_VALUE;
 
-    private boolean isPickedWebView = false;
+    protected boolean isPickedWebView = false;
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
     protected int pxScreenWidth;
     private BookInfo bookInfo;
-    protected boolean isUseFont = true;
     private TextView tvPage;
     private TextView tvTitle;
     private ImageView ivCover;
@@ -97,7 +95,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             onBackPressed();
         }
         isPickedWebView = getIntent().getBooleanExtra(IS_WEBVIEW, true);
-        isUseFont = getIntent().getBooleanExtra(IS_USE_FONT, true);
         setCoverBitmap();
         String titleBook = bookInfo.getTitle();
         if (titleBook == null) {
@@ -149,11 +146,12 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.play(view, Techniques.Pulse);
-                PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.getItem(mViewPager.getCurrentItem());
+                PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment == null) {
                     LLog.d(TAG, "pageFragment null");
                     return;
                 }
+                pageFragment.zoomIn();
             }
         });
         findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {

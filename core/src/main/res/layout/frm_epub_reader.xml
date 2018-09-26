@@ -2,11 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_main_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
-    <TextView
+    <WebView
+        android:id="@+id/wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/app_name" />
+        android:scrollbarSize="@dimen/w_1"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/scroll_track" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="@dimen/w_1"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
+        android:scrollbarTrackVertical="@drawable/scroll_track">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_5"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_18" />
+    </ScrollView>
 
 </RelativeLayout>

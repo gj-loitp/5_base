@@ -2,28 +2,28 @@ package vn.loitp.function.epub.core;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.Base64;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import loitp.core.R;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
@@ -35,7 +35,7 @@ public class PageFragment extends Fragment {
     private final String TAG = getClass().getSimpleName();
     public static final String BOOK_SECTION = "BOOK_SECTION";
     private int pxScreenWidth;
-    private boolean isUseFont;
+    private boolean isPickedWebView;
 
     public PageFragment() {
     }
@@ -46,7 +46,8 @@ public class PageFragment extends Fragment {
             return null;
         }
         pxScreenWidth = ((EpubReaderReadActivity) getActivity()).pxScreenWidth;
-        isUseFont = ((EpubReaderReadActivity) getActivity()).isUseFont;
+        isPickedWebView = ((EpubReaderReadActivity) getActivity()).isPickedWebView;
+        //LLog.d(TAG, "isPickedWebView " + isPickedWebView);
         return inflater.inflate(R.layout.frm_epub_reader, container, false);
     }
 
@@ -64,27 +65,25 @@ public class PageFragment extends Fragment {
             LLog.e(TAG, "bookSection == null");
             return;
         }
-        setFragmentView(mainLayout, isUseFont, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
+        setFragmentView(mainLayout, isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
     }
 
     public void setFragmentView(RelativeLayout mainLayout, boolean isContentStyled, String data, String mimeType, String encoding) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        WebView webView = (WebView) mainLayout.findViewById(R.id.wv);
+        ScrollView scrollView = (ScrollView) mainLayout.findViewById(R.id.sv);
+        TextView textView = (TextView) mainLayout.findViewById(R.id.tv);
         if (isContentStyled) {
-            WebView webView = new WebView(getActivity());
             //webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
             webView.loadDataWithBaseURL("file:///android_asset/",
                     getStyledFont(data),
                     mimeType, encoding, "about:blank");
-            webView.setLayoutParams(layoutParams);
-            mainLayout.addView(webView);
+            textView.setVisibility(View.GONE);
+            scrollView.setVisibility(View.GONE);
+            textView = null;
+            scrollView = null;
+            mainLayout.removeView(scrollView);
         } else {
-            ScrollView scrollView = new ScrollView(getActivity());
             LUIUtil.setPullLikeIOSVertical(scrollView);
-            scrollView.setLayoutParams(layoutParams);
-            TextView textView = new TextView(getActivity());
-            textView.setTextColor(Color.BLACK);
-            LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
-            textView.setLayoutParams(layoutParams);
             textView.setText(Html.fromHtml(data, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
@@ -100,21 +99,13 @@ public class PageFragment extends Fragment {
                     return imageAsDrawable;
                 }
             }, null));
-            int pxPadding = dpToPx(10);
-            textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
-            if (isUseFont) {
-                Typeface face = Typeface.createFromAsset(getActivity().getAssets(), LUIUtil.getFontForAll());
-                textView.setTypeface(face);
-            }
-            scrollView.addView(textView);
-            mainLayout.addView(scrollView);
+            webView.setVisibility(View.GONE);
+            webView = null;
+            mainLayout.removeView(webView);
         }
     }
 
     private String getStyledFont(String html) {
-        if (!isUseFont) {
-            return html;
-        }
         boolean addBodyStart = !html.toLowerCase().contains("<body>");
         boolean addBodyEnd = !html.toLowerCase().contains("</body");
         return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
@@ -125,9 +116,38 @@ public class PageFragment extends Fragment {
                 (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
     }
 
-    private int dpToPx(int dp) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+    public void zoomIn() {
+        if (getView() == null) {
+            //LLog.d(TAG, "getView null");
+            return;
+        }
+        WebView webView = (WebView) getView().findViewById(R.id.wv);
+        TextView textView = (TextView) getView().findViewById(R.id.tv);
+        if (textView.getVisibility() == View.VISIBLE) {
+            //LLog.d(TAG, "textView VISIBLE");
+            float size = (float) (textView.getTextSize() + 1);
+            LLog.d(TAG, "textView size " + size);
+            textView.setTextSize(size);
+        } else {
+            //LLog.d(TAG, "textView !VISIBLE");
+            if (webView == null) {
+                //LLog.d(TAG, "webView null");
+                return;
+            }
+            WebSettings settings = webView.getSettings();
+            int currentapiVersion = Build.VERSION.SDK_INT;
+            if (currentapiVersion <= 14) {
+                settings.setTextSize(WebSettings.TextSize.LARGER);
+            } else {
+                int size = (int) (settings.getTextZoom() * 1.1);
+                if (size > 250) {
+                    LAnimationUtil.play(webView, Techniques.Pulse);
+                    size = 250;
+                }
+                LLog.d(TAG, "webView size " + size);
+                settings.setTextZoom(size);
+            }
+        }
     }
 
 }

@@ -55,7 +55,6 @@ public class LReaderUtil {
         }
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
         intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
-        intent.putExtra(EpubReaderReadActivity.IS_USE_FONT, isUseFont);
         intent.putExtra(EpubReaderReadActivity.IS_WEBVIEW, isWebview);
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner);
         activity.startActivity(intent);
