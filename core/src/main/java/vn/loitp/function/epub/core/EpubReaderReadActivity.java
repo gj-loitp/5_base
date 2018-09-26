@@ -376,6 +376,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             return webView;
         } else {
             ScrollView scrollView = new ScrollView(activity);
+            LUIUtil.setPullLikeIOSVertical(scrollView);
             scrollView.setLayoutParams(layoutParams);
             TextView textView = new TextView(activity);
             textView.setTextColor(Color.BLACK);
