@@ -36,18 +36,15 @@ import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity {
     public static final String BOOK_INFO = "BOOK_INFO";
-    public static final String IS_WEBVIEW = "IS_WEBVIEW";
     private Reader reader;
 
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private int pageCount = Integer.MAX_VALUE;
 
-    protected boolean isPickedWebView = false;
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
-    protected int pxScreenWidth;
     private BookInfo bookInfo;
     private TextView tvPage;
     private TextView tvTitle;
@@ -84,7 +81,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
@@ -94,7 +90,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             LToast.show(activity, getString(R.string.err_unknow));
             onBackPressed();
         }
-        isPickedWebView = getIntent().getBooleanExtra(IS_WEBVIEW, true);
         setCoverBitmap();
         String titleBook = bookInfo.getTitle();
         if (titleBook == null) {
@@ -146,12 +141,19 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.play(view, Techniques.Pulse);
+
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
-                if (pageFragment == null) {
-                    LLog.d(TAG, "pageFragment null");
-                    return;
+                if (pageFragment != null) {
+                    pageFragment.zoomIn();
                 }
-                pageFragment.zoomIn();
+                PageFragment pageFragmentNext = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() + 1);
+                if (pageFragmentNext != null) {
+                    pageFragmentNext.zoomIn();
+                }
+                PageFragment pageFragmentPrev = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() - 1);
+                if (pageFragmentPrev != null) {
+                    pageFragmentPrev.zoomIn();
+                }
             }
         });
         findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
@@ -183,7 +185,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250 * 10);
-                reader.setCssStatus(isPickedWebView ? CssStatus.INCLUDE : CssStatus.OMIT);
+                reader.setCssStatus(CssStatus.INCLUDE);
                 reader.setIsIncludingTextContent(true);
                 reader.setIsOmittingTitleTag(true);
                 // This method must be called before readSection.

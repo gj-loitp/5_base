@@ -22,6 +22,7 @@ public class LPref {
     public static final String FIRST_RUN_APP = "FIRST_RUN_APP";
     public static final String SAVED_NUMBER_VERSION = "saved.number.version";
     public static final String NOT_READY_USE_APPLICATION = "not.ready.use.application";
+    public static final String TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB";
 
     public static final String INDEX = "INDEX";
     //object
@@ -80,6 +81,17 @@ public class LPref {
     public static void setIndex(Context context, int value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putInt(INDEX, value);
+        editor.apply();
+    }
+
+    public static int getTextSizeEpub(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getInt(TEXT_SIZE_EPUB, 100);
+    }
+
+    public static void setTextSizeEpub(Context context, int value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putInt(TEXT_SIZE_EPUB, value);
         editor.apply();
     }
 }

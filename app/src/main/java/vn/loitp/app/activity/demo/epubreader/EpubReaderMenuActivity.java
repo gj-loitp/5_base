@@ -14,7 +14,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.function.epub.Reader;
@@ -32,7 +31,8 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
         ((GridView) findViewById(R.id.grid_book_info)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                askForWidgetToUse((BookInfo) adapterView.getAdapter().getItem(i));
+                BookInfo bookInfo = (BookInfo) adapterView.getAdapter().getItem(i);
+                LReaderUtil.readEpub(activity, bookInfo, getString(R.string.str_b));
             }
         });
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -126,19 +126,5 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
             }
         }
         return bookInfoList;
-    }
-
-    private void askForWidgetToUse(BookInfo bookInfo) {
-        LDialogUtil.showDialog2(activity, "Pick your widget", "Textview or WebView?", "TextView", "WebView", new LDialogUtil.Callback2() {
-            @Override
-            public void onClick1() {
-                LReaderUtil.readEpub(activity, bookInfo, true, false, getString(R.string.str_b));
-            }
-
-            @Override
-            public void onClick2() {
-                LReaderUtil.readEpub(activity, bookInfo, true, true, getString(R.string.str_b));
-            }
-        });
     }
 }
