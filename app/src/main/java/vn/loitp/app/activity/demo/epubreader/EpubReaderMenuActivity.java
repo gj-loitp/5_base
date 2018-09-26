@@ -44,7 +44,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
     }
 
     private void ask() {
-        LDialogUtil.showDialog2(activity, "Chọn", "Có 2 option", "Load tất cả epub có trong device và 1 file ở asset", "Loat tất cả epub trong asset", new LDialogUtil.Callback2() {
+        LDialogUtil.showDialog2(activity, "Chọn", "Có 2 option", "Load tất cả epub có trong device và 1 file ở asset", "Load tất cả epub trong asset", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI

@@ -46,7 +46,7 @@ public class LReaderUtil {
     }
 
     public static int getDefaultCover() {
-        return R.drawable.l_book_5;
+        return R.drawable.df_cover_epub;
     }
 
     public static void readEpub(Activity activity, BookInfo bookInfo, String admobAdIdBanner) {
