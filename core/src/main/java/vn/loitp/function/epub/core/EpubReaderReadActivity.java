@@ -1,37 +1,26 @@
 package vn.loitp.function.epub.core;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
-import android.util.Base64;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -45,7 +34,7 @@ import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
-public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
+public class EpubReaderReadActivity extends BaseFontActivity {
     public static final String BOOK_INFO = "BOOK_INFO";
     public static final String IS_WEBVIEW = "IS_WEBVIEW";
     public static final String IS_USE_FONT = "IS_USE_FONT";
@@ -54,14 +43,14 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private int pageCount = Integer.MAX_VALUE;
-    private int pxScreenWidth;
+
     private boolean isPickedWebView = false;
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private boolean isSkippedToPage = false;
-
+    protected int pxScreenWidth;
     private BookInfo bookInfo;
-    private boolean isUseFont = true;
+    protected boolean isUseFont = true;
     private TextView tvPage;
     private TextView tvTitle;
     private ImageView ivCover;
@@ -97,6 +86,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
@@ -114,7 +104,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             titleBook = "Loading...";
         }
         tvTitle.setText(titleBook);
-        pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         LUIUtil.setPullLikeIOSHorizontal(mViewPager);
@@ -149,6 +138,31 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
         }
+
+        findViewById(R.id.bt_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        findViewById(R.id.bt_zoom_in).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LAnimationUtil.play(view, Techniques.Pulse);
+                PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.getItem(mViewPager.getCurrentItem());
+                if (pageFragment == null) {
+                    LLog.d(TAG, "pageFragment null");
+                    return;
+                }
+            }
+        });
+        findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LAnimationUtil.play(view, Techniques.Pulse);
+            }
+        });
+
         loadData = new LoadData();
         loadData.execute();
     }
@@ -243,30 +257,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         return R.layout.activity_epub_reader_read;
     }
 
-    @Override
-    public View onFragmentReady(int position) {
-        BookSection bookSection = null;
-        try {
-            bookSection = reader.readSection(position);
-        } catch (ReadingException e) {
-            e.printStackTrace();
-            LToast.show(activity, "Error: " + e.getMessage());
-        } catch (OutOfPagesException e) {
-            e.printStackTrace();
-            this.pageCount = e.getPageCount();
-            if (isSkippedToPage) {
-                LToast.show(activity, "Max page number is: " + this.pageCount);
-            }
-            mSectionsPagerAdapter.notifyDataSetChanged();
-        }
-        isSkippedToPage = false;
-        if (bookSection != null) {
-            //LLog.d(TAG, "onFragmentReady: " + bookSection.getSectionContent());
-            return setFragmentView(isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
-        }
-        return null;
-    }
-
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_epub_reader, menu);
@@ -347,78 +337,12 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         return super.onOptionsItemSelected(item);
     }*/
 
-    private String getStyledFont(String html) {
-        if (!isUseFont) {
-            return html;
-        }
-        boolean addBodyStart = !html.toLowerCase().contains("<body>");
-        boolean addBodyEnd = !html.toLowerCase().contains("</body");
-        return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
-                "src: url(\"file:///android_asset/" +
-                LUIUtil.getFontForAll() +
-                "\")}" +
-                "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
-                (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
-    }
-
-    private View setFragmentView(boolean isContentStyled, String data, String mimeType, String encoding) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        if (isContentStyled) {
-            WebView webView = new WebView(activity);
-            //webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
-            webView.loadDataWithBaseURL("file:///android_asset/",
-                    getStyledFont(data),
-                    mimeType, encoding, "about:blank");
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-//                webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-//            }
-            webView.setLayoutParams(layoutParams);
-            return webView;
-        } else {
-            ScrollView scrollView = new ScrollView(activity);
-            LUIUtil.setPullLikeIOSVertical(scrollView);
-            scrollView.setLayoutParams(layoutParams);
-            TextView textView = new TextView(activity);
-            textView.setTextColor(Color.BLACK);
-            LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(Html.fromHtml(data, new Html.ImageGetter() {
-                @Override
-                public Drawable getDrawable(String source) {
-                    String imageAsStr = source.substring(source.indexOf(";base64,") + 8);
-                    byte[] imageAsBytes = Base64.decode(imageAsStr, Base64.DEFAULT);
-                    Bitmap imageAsBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-
-                    int imageWidthStartPx = (pxScreenWidth - imageAsBitmap.getWidth()) / 2;
-                    int imageWidthEndPx = pxScreenWidth - imageWidthStartPx;
-
-                    Drawable imageAsDrawable = new BitmapDrawable(getResources(), imageAsBitmap);
-                    imageAsDrawable.setBounds(imageWidthStartPx, 0, imageWidthEndPx, imageAsBitmap.getHeight());
-                    return imageAsDrawable;
-                }
-            }, null));
-            int pxPadding = dpToPx(10);
-            textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
-            if (isUseFont) {
-                Typeface face = Typeface.createFromAsset(getAssets(), LUIUtil.getFontForAll());
-                textView.setTypeface(face);
-            }
-            scrollView.addView(textView);
-            return scrollView;
-        }
-    }
-
     /*private void loseFocusOnSearchView() {
         searchView.setQuery("", false);
         searchView.clearFocus();
         searchView.setIconified(true);
         MenuItemCompat.collapseActionView(searchMenuItem);
     }*/
-
-    private int dpToPx(int dp) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-    }
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -433,8 +357,29 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            return PageFragment.newInstance(position);
+            PageFragment pageFragment = new PageFragment();
+            BookSection bookSection = null;
+            try {
+                bookSection = reader.readSection(position);
+            } catch (ReadingException e) {
+                e.printStackTrace();
+                LToast.show(activity, "Error: " + e.getMessage());
+            } catch (OutOfPagesException e) {
+                e.printStackTrace();
+                pageCount = e.getPageCount();
+                if (isSkippedToPage) {
+                    LToast.show(activity, "Max page number is: " + pageCount);
+                }
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }
+            isSkippedToPage = false;
+            if (bookSection != null) {
+                //return setFragmentView(isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(PageFragment.BOOK_SECTION, bookSection);
+                pageFragment.setArguments(bundle);
+            }
+            return pageFragment;
         }
     }
 }

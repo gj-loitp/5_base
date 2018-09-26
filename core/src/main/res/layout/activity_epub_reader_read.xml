@@ -4,23 +4,65 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    android:background="@color/White">
 
-    <TextView
-        android:id="@+id/tv_page"
+    <LinearLayout
+        android:id="@+id/ll_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="@dimen/padding_5"
-        android:textColor="@color/Black"
-        android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_5">
+
+        <ImageButton
+            android:id="@+id/bt_back"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/w_30"
+            android:background="@color/White"
+            android:contentDescription="@string/app_name"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
+            android:tint="@color/Black" />
+
+        <TextView
+            android:id="@+id/tv_page"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/Black"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/bt_zoom_in"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/w_30"
+            android:background="@color/White"
+            android:contentDescription="@string/app_name"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_add_black_48"
+            android:tint="@color/Black" />
+
+        <ImageButton
+            android:id="@+id/bt_zoom_out"
+            android:layout_width="@dimen/w_30"
+            android:layout_height="@dimen/w_30"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:background="@color/White"
+            android:contentDescription="@string/app_name"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_remove_black_48"
+            android:tint="@color/Black" />
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ln_adview"
-        android:layout_below="@+id/tv_page" />
+        android:layout_below="@+id/ll_control" />
 
     <LinearLayout
         android:id="@+id/ln_adview"

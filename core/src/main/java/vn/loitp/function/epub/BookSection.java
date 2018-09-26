@@ -1,6 +1,8 @@
 package vn.loitp.function.epub;
 
-public class BookSection {
+import java.io.Serializable;
+
+public class BookSection implements Serializable {
 
     private String label;
     private String extension;
