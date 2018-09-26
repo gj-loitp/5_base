@@ -18,7 +18,7 @@
             android:id="@+id/bt_back"
             android:layout_width="@dimen/w_30"
             android:layout_height="@dimen/w_30"
-            android:background="@color/White"
+            android:background="@color/transparent"
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
@@ -29,6 +29,7 @@
             android:id="@+id/tv_page"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5"
             android:layout_weight="1"
             android:textColor="@color/Black"
             android:textStyle="bold" />
@@ -37,7 +38,7 @@
             android:id="@+id/bt_zoom_in"
             android:layout_width="@dimen/w_30"
             android:layout_height="@dimen/w_30"
-            android:background="@color/White"
+            android:background="@color/transparent"
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
@@ -49,7 +50,7 @@
             android:layout_width="@dimen/w_30"
             android:layout_height="@dimen/w_30"
             android:layout_marginLeft="@dimen/margin_5"
-            android:background="@color/White"
+            android:background="@color/transparent"
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
@@ -57,12 +58,19 @@
             android:tint="@color/Black" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:layout_below="@+id/ll_control"
+        android:background="@color/WhiteSmoke" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ln_adview"
-        android:layout_below="@+id/ll_control" />
+        android:layout_below="@+id/v_line" />
 
     <LinearLayout
         android:id="@+id/ln_adview"
