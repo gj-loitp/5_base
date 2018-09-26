@@ -23,7 +23,7 @@ public class LPref {
     public static final String SAVED_NUMBER_VERSION = "saved.number.version";
     public static final String NOT_READY_USE_APPLICATION = "not.ready.use.application";
     public static final String TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB";
-
+    public static String JSON_BOOK_ASSET = "JSON_BOOK_ASSET";
     public static final String INDEX = "INDEX";
     //object
     /*public User getUser() {
@@ -92,6 +92,17 @@ public class LPref {
     public static void setTextSizeEpub(Context context, int value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putInt(TEXT_SIZE_EPUB, value);
+        editor.apply();
+    }
+
+    public static String getJsonBookAsset(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return pref.getString(JSON_BOOK_ASSET, null);
+    }
+
+    public static void setJsonBookAsset(Context context, String value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putString(JSON_BOOK_ASSET, value);
         editor.apply();
     }
 }

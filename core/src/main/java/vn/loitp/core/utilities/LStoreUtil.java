@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.StatFs;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -464,7 +465,8 @@ public class LStoreUtil {
             fos.write(buffer);
             fos.close();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            Log.e(TAG, "getFileFromAssets " + e.toString());
+            return null;
         }
         return file;
     }

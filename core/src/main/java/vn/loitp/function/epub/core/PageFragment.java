@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 
 import loitp.core.R;
@@ -56,6 +57,11 @@ public class PageFragment extends Fragment {
 
     public void setFragmentView(RelativeLayout mainLayout, String data, String mimeType, String encoding) {
         WebView webView = (WebView) mainLayout.findViewById(R.id.wv);
+        webView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return true;
+            }
+        });
         //webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
         webView.loadDataWithBaseURL("file:///android_asset/",
                 getStyledFont(data),
