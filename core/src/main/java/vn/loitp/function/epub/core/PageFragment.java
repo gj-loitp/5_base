@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.Base64;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
+import vn.loitp.utils.util.ConvertUtils;
 
 /**
  * Created by loitp on 08.09.2016.
@@ -125,9 +127,12 @@ public class PageFragment extends Fragment {
         TextView textView = (TextView) getView().findViewById(R.id.tv);
         if (textView.getVisibility() == View.VISIBLE) {
             //LLog.d(TAG, "textView VISIBLE");
-            float size = (float) (textView.getTextSize() + 1);
-            LLog.d(TAG, "textView size " + size);
-            textView.setTextSize(size);
+            int sizeDP = ConvertUtils.px2dp(textView.getTextSize()) + 1;
+            if (sizeDP >= 45) {
+                sizeDP = 45;
+            }
+            LLog.d(TAG, "textView size " + sizeDP);
+            LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, sizeDP);
         } else {
             //LLog.d(TAG, "textView !VISIBLE");
             if (webView == null) {
