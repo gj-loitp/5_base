@@ -374,7 +374,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             }
             isSkippedToPage = false;
             if (bookSection != null) {
-                //return setFragmentView(isPickedWebView, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(PageFragment.BOOK_SECTION, bookSection);
                 pageFragment.setArguments(bundle);
