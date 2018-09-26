@@ -86,7 +86,7 @@ public class LPref {
 
     public static int getTextSizeEpub(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        return prefs.getInt(TEXT_SIZE_EPUB, 100);
+        return prefs.getInt(TEXT_SIZE_EPUB, 110);
     }
 
     public static void setTextSizeEpub(Context context, int value) {

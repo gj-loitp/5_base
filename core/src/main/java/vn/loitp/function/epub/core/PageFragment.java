@@ -12,10 +12,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 
-import com.daimajia.androidanimations.library.Techniques;
-
 import loitp.core.R;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
@@ -105,8 +102,32 @@ public class PageFragment extends Fragment {
         } else {
             int size = (int) (settings.getTextZoom() * 1.1);
             if (size > 250) {
-                LAnimationUtil.play(webView, Techniques.Pulse);
                 size = 250;
+            }
+            //LLog.d(TAG, "webView size " + size);
+            LPref.setTextSizeEpub(getActivity(), size);
+            updateUIWevViewSize(webView, size);
+        }
+    }
+
+    public void zoomOut() {
+        if (getView() == null) {
+            //LLog.d(TAG, "getView null");
+            return;
+        }
+        WebView webView = (WebView) getView().findViewById(R.id.wv);
+        if (webView == null) {
+            //LLog.d(TAG, "webView null");
+            return;
+        }
+        WebSettings settings = webView.getSettings();
+        int currentapiVersion = Build.VERSION.SDK_INT;
+        if (currentapiVersion <= 14) {
+            settings.setTextSize(WebSettings.TextSize.SMALLEST);
+        } else {
+            int size = (int) (settings.getTextZoom() / 1.1);
+            if (size < 50) {
+                size = 50;
             }
             //LLog.d(TAG, "webView size " + size);
             LPref.setTextSizeEpub(getActivity(), size);

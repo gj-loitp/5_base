@@ -141,7 +141,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.play(view, Techniques.Pulse);
-
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     pageFragment.zoomIn();
@@ -160,6 +159,18 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.play(view, Techniques.Pulse);
+                PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
+                if (pageFragment != null) {
+                    pageFragment.zoomOut();
+                }
+                PageFragment pageFragmentNext = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() + 1);
+                if (pageFragmentNext != null) {
+                    pageFragmentNext.zoomOut();
+                }
+                PageFragment pageFragmentPrev = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() - 1);
+                if (pageFragmentPrev != null) {
+                    pageFragmentPrev.zoomOut();
+                }
             }
         });
 
