@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import vn.loitp.core.common.Constants;
+import vn.loitp.utils.util.AppUtils;
 
 /**
  * File created on 11/15/2016.
@@ -14,7 +15,7 @@ public class LPref {
     private String TAG = getClass().getSimpleName();
 
     private final static String PREFERENCES_FILE_NAME = "loitp";
-    private final static String CHECK_APP_READY = "CHECK_APP_READY";
+    private final static String CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode();
     private final static String PRE_LOAD = "PRE_LOAD";
     public static final String JSON_LIST_DATA = "JSON_LIST_DATA";
     public static final String JSON_FAV_DATA = "JSON_FAV_DATA";
