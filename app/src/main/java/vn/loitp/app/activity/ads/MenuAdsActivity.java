@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.loitp.core.base.BaseFontActivity;
+import loitp.basemaster.R;
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity;
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity;
-import vn.loitp.app.activity.ads.admobrewardedvideo.AdmobRewardedVideoActivity;
-import loitp.basemaster.R;
+import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.loitp.admobrewardedvideo.AdmobRewardedVideoActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuAdsActivity extends BaseFontActivity {
@@ -37,6 +37,8 @@ public class MenuAdsActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobRewardedVideoActivity.class);
+                intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.app_id));
+                intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward));
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);
             }

@@ -3,7 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/l_gift" />
+
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_80"
+        app:realtimeOverlayColor="@color/WhiteTrans99" />
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -24,7 +39,7 @@
                 android:layout_height="@dimen/w_150"
                 android:layout_marginBottom="@dimen/margin_10"
                 android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/l_gift" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -33,7 +48,7 @@
                 android:gravity="top|center"
                 android:text="Open gift"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/Black"
+                android:textColor="@color/Gray"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -42,8 +57,8 @@
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_10"
         app:indicatorColor="@color/colorPrimary"

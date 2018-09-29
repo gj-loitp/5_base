@@ -1,28 +1,33 @@
-package vn.loitp.app.activity.ads.admobrewardedvideo;
+package vn.loitp.core.loitp.admobrewardedvideo;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.utils.util.ToastUtils;
+import vn.loitp.views.LToast;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class AdmobRewardedVideoActivity extends BaseFontActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;
     private AVLoadingIndicatorView avLoadingIndicatorView;
-
+    public final static String APP_ID = "APP_ID";
+    public final static String ID_REWARD = "ID_REWARD";
     private RelativeLayout llMain;
     private LinearLayout llAd;
+    private String strAppId;
+    private String strReward;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,16 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         llAd.setVisibility(View.GONE);
 
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
-        MobileAds.initialize(this, getString(R.string.str_app_id));
+        strAppId = getIntent().getStringExtra(APP_ID);
+        strReward = getIntent().getStringExtra(ID_REWARD);
+
+        if (strAppId == null || strAppId.isEmpty() || strReward == null || strReward.isEmpty()) {
+            LToast.show(activity, getString(R.string.err_unknow));
+            onBackPressed();
+            return;
+        }
+
+        MobileAds.initialize(this, strAppId);
         mAd = MobileAds.getRewardedVideoAdInstance(this);
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();
@@ -67,7 +81,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         //LLog.d(TAG, "loadRewardedVideoAd");
         avLoadingIndicatorView.smoothToShow();
         llAd.setVisibility(View.GONE);
-        mAd.loadAd(getString(R.string.str_reward), new AdRequest.Builder()
+        mAd.loadAd(strReward, new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
                 .addTestDevice("8FA8E91902B43DCB235ED2F6BBA9CAE0")
@@ -107,7 +121,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
         LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
-        ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
+        //ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         onBackPressed();
     }
 
@@ -121,6 +135,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         LLog.d(TAG, "onRewardedVideoAdLoaded");
         avLoadingIndicatorView.smoothToHide();
         llAd.setVisibility(View.VISIBLE);
+        LAnimationUtil.play(llAd, Techniques.Pulse);
     }
 
     @Override
