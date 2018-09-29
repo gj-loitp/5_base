@@ -120,7 +120,6 @@
         <activity android:name="vn.loitp.app.activity.ads.MenuAdsActivity" />
         <activity android:name="vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity" />
         <activity android:name="vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity" />
-        <activity android:name="vn.loitp.core.loitp.admobrewardedvideo.AdmobRewardedVideoActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity" />
         <activity android:name="vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity" />
