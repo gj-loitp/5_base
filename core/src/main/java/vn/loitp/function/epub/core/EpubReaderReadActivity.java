@@ -30,12 +30,12 @@ import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;
+import vn.loitp.function.epub.model.BookInfoData;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity {
-    public static final String BOOK_INFO = "BOOK_INFO";
     private Reader reader;
 
     private ViewPager mViewPager;
@@ -85,7 +85,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
         LUIUtil.setTextShadow(tvTitle);
-        bookInfo = (BookInfo) getIntent().getSerializableExtra(BOOK_INFO);
+        bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
             LToast.show(activity, getString(R.string.err_unknow));
             onBackPressed();
@@ -217,8 +217,13 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
-            rlSplash.setVisibility(View.GONE);
-            rlSplash = null;
+            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+                @Override
+                public void doAfter(int mls) {
+                    rlSplash.setVisibility(View.GONE);
+                    rlSplash = null;
+                }
+            });
             mViewPager.setAdapter(mSectionsPagerAdapter);
             if (reader.isSavedProgressFound()) {
                 mViewPager.setCurrentItem(lastSavedPage);
@@ -250,6 +255,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         if (adView != null) {
             adView.destroy();
         }
+        BookInfoData.getInstance().setBookInfo(null);
         super.onDestroy();
     }
 

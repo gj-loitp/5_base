@@ -9,6 +9,7 @@ import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.function.epub.core.EpubReaderReadActivity;
 import vn.loitp.function.epub.model.BookInfo;
+import vn.loitp.function.epub.model.BookInfoData;
 
 public class LReaderUtil {
     public static Bitmap decodeBitmapFromByteArray(byte[] coverImage, int reqWidth, int reqHeight) {
@@ -51,10 +52,10 @@ public class LReaderUtil {
 
     public static void readEpub(Activity activity, BookInfo bookInfo, String admobAdIdBanner) {
         if (activity == null || bookInfo == null) {
-            return;
+            throw new NullPointerException("activity == null || bookInfo == null");
         }
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
-        intent.putExtra(EpubReaderReadActivity.BOOK_INFO, bookInfo);
+        BookInfoData.getInstance().setBookInfo(bookInfo);
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner);
         activity.startActivity(intent);
         LActivityUtil.tranIn(activity);
