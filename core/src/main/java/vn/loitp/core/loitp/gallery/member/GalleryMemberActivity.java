@@ -87,7 +87,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
 
         tvTitle = (TextView) findViewById(R.id.tv_title);

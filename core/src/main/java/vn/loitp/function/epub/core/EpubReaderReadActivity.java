@@ -32,7 +32,6 @@ import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;
 import vn.loitp.function.epub.model.BookInfoData;
 import vn.loitp.views.LToast;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity {
@@ -127,8 +126,11 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
-            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
+            lnAdview.invalidate();
+            //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            //LLog.d(TAG, "navigationHeight " + navigationHeight);
+            //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
+            //LUIUtil.setMargins(lnAdview, 0, 0, 0, 0);
         }
 
         findViewById(R.id.bt_back).setOnClickListener(new View.OnClickListener() {
