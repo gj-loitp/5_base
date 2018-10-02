@@ -126,7 +126,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
-            lnAdview.invalidate();
+            lnAdview.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             //LLog.d(TAG, "navigationHeight " + navigationHeight);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);

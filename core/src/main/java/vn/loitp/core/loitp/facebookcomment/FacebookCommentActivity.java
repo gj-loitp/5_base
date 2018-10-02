@@ -21,7 +21,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -30,11 +29,9 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.actionbar.lib.LActionBar;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;
@@ -63,6 +60,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
+            lnAdview.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
         }
