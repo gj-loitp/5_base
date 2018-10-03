@@ -21,6 +21,7 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -118,7 +119,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
-        if (adUnitId == null || adUnitId.isEmpty()) {
+        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.isConnected(activity)) {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(activity);
