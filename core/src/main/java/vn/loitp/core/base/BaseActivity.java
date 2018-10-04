@@ -1,6 +1,5 @@
 package vn.loitp.core.base;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.job.JobInfo;
@@ -12,7 +11,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -203,7 +201,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onBackPressed();
         LActivityUtil.tranOut(activity);
         if (isShowAdWhenExist && !Constants.IS_DEBUG) {
-            LUIUtil.displayInterstitial(interstitialAd, 60);
+            LUIUtil.displayInterstitial(interstitialAd, 30);
         } else {
             //dont use LLog here
             Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);

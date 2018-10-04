@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.AppUtils;
 
 public class GalleryCoreSplashActivity extends BaseFontActivity {
+    private int bkgRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,13 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             urlCoverSplashScreen = Constants.URL_IMG_2;
         }
         LImageUtil.load(activity, urlCoverSplashScreen, ivBkg);
+        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        if (bkgRootView == Constants.NOT_FOUND) {
+            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+        } else {
+            getRootView().setBackgroundResource(bkgRootView);
+        }
 
         TextView tvCopyright = (TextView) findViewById(R.id.tv_copyright);
         LUIUtil.setTextShadow(tvCopyright);
@@ -66,6 +75,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);

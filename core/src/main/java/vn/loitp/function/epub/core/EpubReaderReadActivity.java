@@ -198,7 +198,8 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             try {
                 reader = new Reader();
                 // Setting optionals once per file is enough.
-                reader.setMaxContentPerSection(1250 * 10);
+                reader.setMaxContentPerSection(1250);
+                //reader.setMaxContentPerSection(1250 * 10);
                 reader.setCssStatus(CssStatus.INCLUDE);
                 reader.setIsIncludingTextContent(true);
                 reader.setIsOmittingTitleTag(true);

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -64,6 +65,14 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
+
+        int bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        if (bkgRootView == Constants.NOT_FOUND) {
+            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+        } else {
+            getRootView().setBackgroundResource(bkgRootView);
+        }
 
         int totalPhotos = 0;
         try {

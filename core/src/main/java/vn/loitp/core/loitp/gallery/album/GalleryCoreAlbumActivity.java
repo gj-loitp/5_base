@@ -3,6 +3,7 @@ package vn.loitp.core.loitp.gallery.album;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.OvershootInterpolator;
@@ -35,7 +36,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     private AlbumAdapter albumAdapter;
     private List<Photoset> photosetList = new ArrayList<>();
     private ArrayList<String> removeAlbumList;
-
+    private int bkgRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,14 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        if (bkgRootView == Constants.NOT_FOUND) {
+            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+        } else {
+            getRootView().setBackgroundResource(bkgRootView);
+        }
+
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
@@ -62,6 +71,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             @Override
             public void onClick(int pos) {
                 Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
+                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
                 intent.putExtra(Constants.SK_PHOTOSET_SIZE, photosetList.get(pos).getPhotos());
                 startActivity(intent);
