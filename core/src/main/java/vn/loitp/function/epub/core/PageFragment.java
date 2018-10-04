@@ -4,16 +4,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import loitp.core.R;
+import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
@@ -22,41 +20,35 @@ import vn.loitp.function.epub.BookSection;
 /**
  * Created by loitp on 08.09.2016.
  */
-public class PageFragment extends Fragment {
+public class PageFragment extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
-    public static final String BOOK_SECTION = "BOOK_SECTION";
-
-    public PageFragment() {
-    }
+    private TextView tvLoading;
+    private WebView webView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (getActivity() == null) {
-            return null;
-        }
-        //LLog.d(TAG, "isPickedWebView " + isPickedWebView);
-        return inflater.inflate(R.layout.frm_epub_reader, container, false);
+    protected int setLayoutResourceId() {
+        return R.layout.frm_epub_reader;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RelativeLayout mainLayout = (RelativeLayout) view.findViewById(R.id.fragment_main_layout);
-        Bundle bundle = getArguments();
-        if (bundle == null) {
-            LLog.e(TAG, "bundle == null");
-            return;
-        }
-        BookSection bookSection = (BookSection) bundle.getSerializable(BOOK_SECTION);
-        if (bookSection == null) {
-            LLog.e(TAG, "bookSection == null");
-            return;
-        }
-        setFragmentView(mainLayout, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
+        webView = (WebView) view.findViewById(R.id.wv);
+        tvLoading = (TextView) view.findViewById(R.id.tv_loading);
     }
 
-    public void setFragmentView(RelativeLayout mainLayout, String data, String mimeType, String encoding) {
-        WebView webView = (WebView) mainLayout.findViewById(R.id.wv);
+    public void setData(int position, BookSection bookSection) {
+        LLog.d(TAG, "setData position " + position);
+        if (bookSection != null) {
+            setFragmentView(bookSection.getSectionContent(), "text/html", "UTF-8");
+        }
+    }
+
+    public void setFragmentView(String data, String mimeType, String encoding) {
+        if (getView() == null) {
+            LLog.d(TAG, "getView() == null -> return");
+            return;
+        }
         webView.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return true;
@@ -68,6 +60,7 @@ public class PageFragment extends Fragment {
                 mimeType, encoding, "about:blank");
         int size = LPref.getTextSizeEpub(getActivity());
         updateUIWevViewSize(webView, size);
+        tvLoading.setVisibility(View.GONE);
     }
 
     private String getStyledFont(String html) {

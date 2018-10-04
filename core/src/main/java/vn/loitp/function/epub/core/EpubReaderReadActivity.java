@@ -44,7 +44,6 @@ public class EpubReaderReadActivity extends BaseFontActivity {
 
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
-    private boolean isSkippedToPage = false;
     private BookInfo bookInfo;
     private TextView tvPage;
     private TextView tvTitle;
@@ -109,15 +108,16 @@ public class EpubReaderReadActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                tvPage.setText("" + position);
+                onPage(position);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
             }
         });
+        mViewPager.setAdapter(mSectionsPagerAdapter);
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        //LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.isConnected(activity)) {
             lnAdview.setVisibility(View.GONE);
@@ -181,6 +181,33 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         loadData.execute();
     }
 
+    private void onPage(final int position) {
+        LLog.d(TAG, "onPageSelected " + position);
+        tvPage.setText("" + position);
+        PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
+        if (pageFragment != null) {
+            BookSection bookSection = null;
+            try {
+                bookSection = reader.readSection(position);
+            } catch (ReadingException e) {
+                LLog.e(TAG, "ReadingException " + e.toString());
+                LToast.show(activity, "Error: " + e.getMessage());
+            } catch (OutOfPagesException e) {
+                LLog.e(TAG, "OutOfPagesException " + position + " -> " + e.toString());
+                pageCount = e.getPageCount();
+                LLog.d(TAG, "pageCount " + pageCount);
+                mSectionsPagerAdapter.notifyDataSetChanged();
+                mViewPager.setCurrentItem(pageCount);
+                LToast.show(activity, "This is last page!");
+            } catch (Exception e) {
+                LLog.e(TAG, "Exception " + e.toString());
+            }
+            pageFragment.setData(position, bookSection);
+        } else {
+            LLog.d(TAG, "pageFragment null");
+        }
+    }
+
     private LoadData loadData;
 
     private class LoadData extends AsyncTask<Void, Void, Void> {
@@ -228,9 +255,12 @@ public class EpubReaderReadActivity extends BaseFontActivity {
                     rlSplash = null;
                 }
             });
-            mViewPager.setAdapter(mSectionsPagerAdapter);
-            if (reader.isSavedProgressFound()) {
-                mViewPager.setCurrentItem(lastSavedPage);
+            if (mSectionsPagerAdapter != null) {
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }
+            mViewPager.setCurrentItem(lastSavedPage);
+            if (lastSavedPage == 0) {
+                onPage(0);
             }
         }
     }
@@ -378,28 +408,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
 
         @Override
         public Fragment getItem(int position) {
-            PageFragment pageFragment = new PageFragment();
-            BookSection bookSection = null;
-            try {
-                bookSection = reader.readSection(position);
-            } catch (ReadingException e) {
-                e.printStackTrace();
-                LToast.show(activity, "Error: " + e.getMessage());
-            } catch (OutOfPagesException e) {
-                e.printStackTrace();
-                pageCount = e.getPageCount();
-                if (isSkippedToPage) {
-                    LToast.show(activity, "Max page number is: " + pageCount);
-                }
-                mSectionsPagerAdapter.notifyDataSetChanged();
-            }
-            isSkippedToPage = false;
-            if (bookSection != null) {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(PageFragment.BOOK_SECTION, bookSection);
-                pageFragment.setArguments(bundle);
-            }
-            return pageFragment;
+            return new PageFragment();
         }
     }
 }
