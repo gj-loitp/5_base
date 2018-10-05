@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-    <WebView
+    <!--<WebView
         android:id="@+id/wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,5 +20,5 @@
         android:layout_centerInParent="true"
         android:text="@string/loading"
         android:textColor="@color/Gray"
-        android:textSize="@dimen/txt_18" />
+        android:textSize="@dimen/txt_18" />-->
 </RelativeLayout>

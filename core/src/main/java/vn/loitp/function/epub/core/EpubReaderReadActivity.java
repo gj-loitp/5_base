@@ -1,16 +1,28 @@
 package vn.loitp.function.epub.core;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
+import android.util.Base64;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -23,6 +35,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
@@ -32,16 +45,17 @@ import vn.loitp.function.epub.exception.OutOfPagesException;
 import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;
 import vn.loitp.function.epub.model.BookInfoData;
+import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
-public class EpubReaderReadActivity extends BaseFontActivity {
+public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     private Reader reader;
-
+    private boolean isSkippedToPage = false;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private int pageCount = Integer.MAX_VALUE;
-
+    private int pxScreenWidth;
     //private MenuItem searchMenuItem;
     //private SearchView searchView;
     private BookInfo bookInfo;
@@ -80,6 +94,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
@@ -108,7 +123,7 @@ public class EpubReaderReadActivity extends BaseFontActivity {
 
             @Override
             public void onPageSelected(int position) {
-                onPage(position);
+                tvPage.setText("" + position);
             }
 
             @Override
@@ -146,15 +161,15 @@ public class EpubReaderReadActivity extends BaseFontActivity {
                 LAnimationUtil.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
-                    pageFragment.zoomIn();
+                    zoomIn(pageFragment);
                 }
                 PageFragment pageFragmentNext = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() + 1);
                 if (pageFragmentNext != null) {
-                    pageFragmentNext.zoomIn();
+                    zoomIn(pageFragmentNext);
                 }
                 PageFragment pageFragmentPrev = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() - 1);
                 if (pageFragmentPrev != null) {
-                    pageFragmentPrev.zoomIn();
+                    zoomIn(pageFragmentPrev);
                 }
             }
         });
@@ -164,15 +179,15 @@ public class EpubReaderReadActivity extends BaseFontActivity {
                 LAnimationUtil.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
-                    pageFragment.zoomOut();
+                    zoomOut(pageFragment);
                 }
                 PageFragment pageFragmentNext = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() + 1);
                 if (pageFragmentNext != null) {
-                    pageFragmentNext.zoomOut();
+                    zoomOut(pageFragmentNext);
                 }
                 PageFragment pageFragmentPrev = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem() - 1);
                 if (pageFragmentPrev != null) {
-                    pageFragmentPrev.zoomOut();
+                    zoomOut(pageFragmentPrev);
                 }
             }
         });
@@ -181,34 +196,29 @@ public class EpubReaderReadActivity extends BaseFontActivity {
         loadData.execute();
     }
 
-    private void onPage(final int position) {
-        LLog.d(TAG, "onPageSelected " + position);
-        tvPage.setText("" + position);
-        PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
-        if (pageFragment != null) {
-            BookSection bookSection = null;
-            try {
-                bookSection = reader.readSection(position);
-            } catch (ReadingException e) {
-                LLog.e(TAG, "ReadingException " + e.toString());
-                LToast.show(activity, "Error: " + e.getMessage());
-            } catch (OutOfPagesException e) {
-                LLog.e(TAG, "OutOfPagesException " + position + " -> " + e.toString());
-                pageCount = e.getPageCount();
-                LLog.d(TAG, "pageCount " + pageCount);
-                mSectionsPagerAdapter.notifyDataSetChanged();
-                mViewPager.setCurrentItem(pageCount);
-                LToast.show(activity, "This is last page!");
-            } catch (Exception e) {
-                LLog.e(TAG, "Exception " + e.toString());
-            }
-            pageFragment.setData(position, bookSection);
-        } else {
-            LLog.d(TAG, "pageFragment null");
-        }
-    }
-
     private LoadData loadData;
+
+    @Override
+    public View onFragmentReady(int position) {
+        BookSection bookSection = null;
+        try {
+            bookSection = reader.readSection(position);
+        } catch (ReadingException e) {
+            e.printStackTrace();
+        } catch (OutOfPagesException e) {
+            e.printStackTrace();
+            this.pageCount = e.getPageCount();
+            if (isSkippedToPage) {
+                LToast.show(activity, "Max page number is: " + this.pageCount);
+            }
+            mSectionsPagerAdapter.notifyDataSetChanged();
+        }
+        isSkippedToPage = false;
+        if (bookSection != null) {
+            return setFragmentView(true, bookSection.getSectionContent(), "text/html", "UTF-8"); // reader.isContentStyled
+        }
+        return null;
+    }
 
     private class LoadData extends AsyncTask<Void, Void, Void> {
         private int lastSavedPage = 0;
@@ -258,9 +268,8 @@ public class EpubReaderReadActivity extends BaseFontActivity {
             if (mSectionsPagerAdapter != null) {
                 mSectionsPagerAdapter.notifyDataSetChanged();
             }
-            mViewPager.setCurrentItem(lastSavedPage);
-            if (lastSavedPage == 0) {
-                onPage(0);
+            if (reader.isSavedProgressFound()) {
+                mViewPager.setCurrentItem(lastSavedPage);
             }
         }
     }
@@ -408,7 +417,123 @@ public class EpubReaderReadActivity extends BaseFontActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new PageFragment();
+            // getItem is called to instantiate the fragment for the given page.
+            return PageFragment.newInstance(position);
+        }
+    }
+
+    private final int idWebview = 696969;
+
+    private View setFragmentView(boolean isContentStyled, String data, String mimeType, String encoding) {
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        if (isContentStyled) {
+            WebView webView = new WebView(activity);
+            webView.setWebViewClient(new WebViewClient() {
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    return true;
+                }
+            });
+            webView.setId(idWebview);
+            //webView.loadDataWithBaseURL(null, data, mimeType, encoding, null);
+            webView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null);
+            webView.setScrollBarSize(ConvertUtils.dp2px(2));
+            webView.setLayoutParams(layoutParams);
+            int size = LPref.getTextSizeEpub(activity);
+            updateUIWevViewSize(webView, size);
+            return webView;
+        } else {
+            ScrollView scrollView = new ScrollView(activity);
+            scrollView.setLayoutParams(layoutParams);
+            TextView textView = new TextView(activity);
+            textView.setLayoutParams(layoutParams);
+            textView.setText(Html.fromHtml(data, new Html.ImageGetter() {
+                @Override
+                public Drawable getDrawable(String source) {
+                    String imageAsStr = source.substring(source.indexOf(";base64,") + 8);
+                    byte[] imageAsBytes = Base64.decode(imageAsStr, Base64.DEFAULT);
+                    Bitmap imageAsBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    int imageWidthStartPx = (pxScreenWidth - imageAsBitmap.getWidth()) / 2;
+                    int imageWidthEndPx = pxScreenWidth - imageWidthStartPx;
+                    Drawable imageAsDrawable = new BitmapDrawable(getResources(), imageAsBitmap);
+                    imageAsDrawable.setBounds(imageWidthStartPx, 0, imageWidthEndPx, imageAsBitmap.getHeight());
+                    return imageAsDrawable;
+                }
+            }, null));
+            int pxPadding = ConvertUtils.dp2px(12);
+            textView.setPadding(pxPadding, pxPadding, pxPadding, pxPadding);
+            scrollView.addView(textView);
+            return scrollView;
+        }
+    }
+
+    private String getStyledFont(String html) {
+        boolean addBodyStart = !html.toLowerCase().contains("<body>");
+        boolean addBodyEnd = !html.toLowerCase().contains("</body");
+        return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
+                "src: url(\"file:///android_asset/" +
+                LUIUtil.getFontForAll() +
+                "\")}" +
+                "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
+                (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
+    }
+
+    private void zoomIn(PageFragment pageFragment) {
+        if (pageFragment == null || pageFragment.getView() == null) {
+            //LLog.d(TAG, "getView null");
+            return;
+        }
+        WebView webView = (WebView) pageFragment.getView().findViewById(idWebview);
+        if (webView == null) {
+            LLog.d(TAG, "webView null");
+            return;
+        }
+        WebSettings settings = webView.getSettings();
+        int currentapiVersion = Build.VERSION.SDK_INT;
+        if (currentapiVersion <= 14) {
+            settings.setTextSize(WebSettings.TextSize.LARGER);
+        } else {
+            int size = (int) (settings.getTextZoom() * 1.1);
+            if (size > 250) {
+                size = 250;
+            }
+            //LLog.d(TAG, "webView size " + size);
+            LPref.setTextSizeEpub(activity, size);
+            updateUIWevViewSize(webView, size);
+        }
+    }
+
+    private void zoomOut(PageFragment pageFragment) {
+        if (pageFragment == null || pageFragment.getView() == null) {
+            //LLog.d(TAG, "getView null");
+            return;
+        }
+        WebView webView = (WebView) pageFragment.getView().findViewById(idWebview);
+        if (webView == null) {
+            //LLog.d(TAG, "webView null");
+            return;
+        }
+        WebSettings settings = webView.getSettings();
+        int currentapiVersion = Build.VERSION.SDK_INT;
+        if (currentapiVersion <= 14) {
+            settings.setTextSize(WebSettings.TextSize.SMALLEST);
+        } else {
+            int size = (int) (settings.getTextZoom() / 1.1);
+            if (size < 50) {
+                size = 50;
+            }
+            //LLog.d(TAG, "webView size " + size);
+            LPref.setTextSizeEpub(activity, size);
+            updateUIWevViewSize(webView, size);
+        }
+    }
+
+    private void updateUIWevViewSize(WebView webView, int size) {
+        WebSettings settings = webView.getSettings();
+        int currentapiVersion = Build.VERSION.SDK_INT;
+        if (currentapiVersion <= 14) {
+            settings.setTextSize(WebSettings.TextSize.LARGER);
+        } else {
+            settings.setTextZoom(size);
         }
     }
 }
