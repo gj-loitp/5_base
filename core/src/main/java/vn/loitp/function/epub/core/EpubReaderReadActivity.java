@@ -268,9 +268,11 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (mSectionsPagerAdapter != null) {
                 mSectionsPagerAdapter.notifyDataSetChanged();
             }
-            if (reader.isSavedProgressFound()) {
-                mViewPager.setCurrentItem(lastSavedPage);
+            mViewPager.setCurrentItem(lastSavedPage);
+            if (lastSavedPage == 0) {
+                tvPage.setText("0");
             }
+            LLog.d(TAG, "onPostExecute setCurrentItem " + lastSavedPage);
         }
     }
 
