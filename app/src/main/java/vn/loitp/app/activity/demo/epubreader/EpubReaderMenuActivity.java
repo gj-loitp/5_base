@@ -11,6 +11,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LDialogUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LReaderUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.model.BookInfo;
@@ -56,15 +57,10 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
+                        LLog.d(TAG, "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
-                        if (bookInfoList != null) {
-                            BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
-                            ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
+                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
+                        ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }
                 });
                 getListBookFromDeviceAndAssetTask.execute();
@@ -80,18 +76,13 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
+                        LLog.d(TAG, "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
-                        if (bookInfoList != null) {
-                            bookInfoList.addAll(bookInfoList);
-                            bookInfoList.addAll(bookInfoList);
-                            bookInfoList.addAll(bookInfoList);
-                            BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
-                            ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
-                        }
-                    }
-
-                    @Override
-                    public void onError() {
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
+                        ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }
                 });
                 getListBookAllAssetTask.execute();

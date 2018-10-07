@@ -14,7 +14,6 @@ import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;
 
 public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object, List<BookInfo>> {
-    private Exception exception;
     private Callback callback;
     private Activity activity;
 
@@ -22,8 +21,6 @@ public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object,
         public void onPreExecute();
 
         public void onPostExecute(List<BookInfo> bookInfoList);
-
-        public void onError(Exception e);
     }
 
     public GetListBookFromDeviceAndAssetTask(Activity activity, Callback callback) {
@@ -56,7 +53,6 @@ public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object,
                 }
                 bookInfo.setCoverImage(reader.getCoverImage());
             } catch (ReadingException e) {
-                exception = e;
                 e.printStackTrace();
             }
         }
@@ -66,11 +62,6 @@ public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object,
     @Override
     protected void onPostExecute(List<BookInfo> bookInfoList) {
         super.onPostExecute(bookInfoList);
-        if (exception != null) {
-            if (callback != null) {
-                callback.onError(exception);
-            }
-        }
         if (callback != null) {
             callback.onPostExecute(bookInfoList);
         }

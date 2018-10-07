@@ -22,7 +22,6 @@ import vn.loitp.function.epub.model.BookInfo;
 
 public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
-    private boolean isSuccess = true;
     private int maxBookAsset;
     private String extensionEpub;
     private List<BookInfo> bookInfoList = new ArrayList<>();
@@ -33,8 +32,6 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         public void onPreExecute();
 
         public void onPostExecute(List<BookInfo> bookInfoList);
-
-        public void onError();
     }
 
     public GetListBookAllAssetTask(Context context, int maxBookAsset, String extensionEpub, Callback callback) {
@@ -42,12 +39,13 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         this.maxBookAsset = maxBookAsset;
         this.extensionEpub = extensionEpub;
         this.callback = callback;
+        LLog.d(TAG, "GetListBookAllAssetTask maxBookAsset " + maxBookAsset + ", extensionEpub: " + extensionEpub);
     }
 
     @Override
     protected void onPreExecute() {
-        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
         super.onPreExecute();
+        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
         if (callback != null) {
             callback.onPreExecute();
         }
@@ -58,25 +56,28 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         LLog.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
         String jsonBookAsset = LPref.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
-            searchForFiles();
+            bookInfoList.addAll(searchForFiles());
         } else {
             List<BookInfo> tmpList = new Gson().fromJson(jsonBookAsset, new TypeToken<List<BookInfo>>() {
             }.getType());
             if (tmpList != null) {
                 bookInfoList.addAll(tmpList);
             } else {
-                searchForFiles();
+                bookInfoList.addAll(searchForFiles());
             }
         }
         LLog.d(TAG, "doInBackground searchForPdfFiles " + bookInfoList.size());
-        sortABC();
         Reader reader = new Reader();
-        for (BookInfo bookInfo : bookInfoList) {
+        for (int i = 0; i < bookInfoList.size(); i++) {
             try {
+                BookInfo bookInfo = bookInfoList.get(i);
+                if (bookInfo == null || bookInfo.getFilePath() == null) {
+                    continue;
+                }
                 reader.setInfoContent(bookInfo.getFilePath());
                 String title = reader.getInfoPackage().getMetadata().getTitle();
                 if (title != null && !title.equals("")) {
-                    bookInfo.setTitle(reader.getInfoPackage().getMetadata().getTitle());
+                    bookInfo.setTitle(title);
                 } else {
                     // If txtTitle doesn't exist, use fileName instead.
                     int dotIndex = bookInfo.getTitle().lastIndexOf('.');
@@ -84,41 +85,42 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 }
                 bookInfo.setCoverImage(reader.getCoverImage());
             } catch (ReadingException e) {
-                isSuccess = false;
+                LLog.e(TAG, "doInBackground ReadingException " + e.toString());
                 e.printStackTrace();
             }
         }
+        sortABC();
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPostExecute asset");
-        if (isSuccess) {
-            if (callback != null) {
-                callback.onPostExecute(bookInfoList);
-            }
-        } else {
-            if (callback != null) {
-                callback.onError();
-            }
+        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPostExecute asset " + bookInfoList.size());
+        if (callback != null) {
+            callback.onPostExecute(bookInfoList);
         }
         super.onPostExecute(aVoid);
     }
 
     private void sortABC() {
+        if (bookInfoList == null || bookInfoList.isEmpty()) {
+            LLog.e(TAG, "sortABC bookInfoList==null||isEmpty return");
+        }
         Collections.sort(bookInfoList, new Comparator<BookInfo>() {
             @Override
             public int compare(BookInfo a1, BookInfo a2) {
                 return a1.getTitle().compareToIgnoreCase(a2.getTitle());
             }
         });
+
     }
 
     private List<BookInfo> searchForFiles() {
         List<File> files = new ArrayList<>();
+        List<BookInfo> infoList = new ArrayList<>();
         File f;
         for (int i = 1; i <= maxBookAsset; i++) {
+            LLog.d(TAG, "searchForFiles " + i);
             f = getFileFromAssets("a (" + i + ")" + extensionEpub);
             if (f != null) {
                 files.add(f);
@@ -128,9 +130,9 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
             BookInfo bookInfo = new BookInfo();
             bookInfo.setTitle(file.getName());
             bookInfo.setFilePath(file.getPath());
-            bookInfoList.add(bookInfo);
+            infoList.add(bookInfo);
         }
-        return bookInfoList;
+        return infoList;
     }
 
     private File getFileFromAssets(String fileName) {
@@ -150,6 +152,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 return null;
             }
         }
+        LLog.d(TAG, "getFileFromAssets fileName " + fileName);
         return file;
     }
 }
