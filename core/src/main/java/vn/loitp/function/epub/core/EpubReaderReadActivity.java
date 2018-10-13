@@ -65,6 +65,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private RelativeLayout rlSplash;
     private AdView adView;
 
+    private LinearLayout llGuide;
+
     private void setCoverBitmap() {
         boolean isCoverImageNotExists = bookInfo.isCoverImageNotExists();
         if (!isCoverImageNotExists) {
@@ -98,6 +100,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         rlSplash = (RelativeLayout) findViewById(R.id.rl_splash);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivCover = (ImageView) findViewById(R.id.iv_cover);
+        llGuide = (LinearLayout) findViewById(R.id.ll_guide);
         LUIUtil.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
@@ -191,7 +194,32 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 }
             }
         });
+        llGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LAnimationUtil.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
+                    @Override
+                    public void onCancel() {
+                    }
 
+                    @Override
+                    public void onEnd() {
+                        if (llGuide != null) {
+                            llGuide.setVisibility(View.GONE);
+                            llGuide = null;
+                        }
+                    }
+
+                    @Override
+                    public void onRepeat() {
+                    }
+
+                    @Override
+                    public void onStart() {
+                    }
+                });
+            }
+        });
         loadData = new LoadData();
         loadData.execute();
     }
@@ -272,6 +300,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (lastSavedPage == 0) {
                 tvPage.setText("0");
             }
+            llGuide.setVisibility(View.VISIBLE);
             LLog.d(TAG, "onPostExecute setCurrentItem " + lastSavedPage);
         }
     }

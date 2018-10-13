@@ -23,7 +23,7 @@
     <vn.loitp.views.realtimeblurview.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_15"
+        app:realtimeBlurRadius="@dimen/round_50"
         app:realtimeOverlayColor="@color/black_35" />
 
     <android.support.v4.view.ViewPager

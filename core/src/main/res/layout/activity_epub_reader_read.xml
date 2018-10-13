@@ -81,6 +81,34 @@
         android:gravity="center"
         android:orientation="vertical" />
 
+    <LinearLayout
+        android:id="@+id/ll_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_85"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="@dimen/w_100"
+            android:layout_height="@dimen/w_100"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/gesture"
+            android:tint="@color/White" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_5"
+            android:text="Swipe left/right to another page\n\n\nTouch anywhere to hide."
+            android:textColor="@color/White"
+            android:textSize="@dimen/txt_22"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/rl_splash"
         android:layout_width="match_parent"
