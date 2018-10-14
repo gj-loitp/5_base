@@ -13,7 +13,7 @@
         app:failureImageInitScaleType="center"
         app:optimizeDisplay="false"
         app:tapToRetry="false"
-        app:thumbnailScaleType="centerCrop" />
+        app:thumbnailScaleType="fitCenter" />
 
     <!--<TextView
         android:id="@+id/tv_progress"

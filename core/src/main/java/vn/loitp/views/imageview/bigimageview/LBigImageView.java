@@ -77,7 +77,8 @@ public class LBigImageView extends RelativeLayout {
                 //LLog.d(TAG, "onSuccess");
                 //tvProgress.setVisibility(GONE);
                 //LUIUtil.setProgressBarVisibility(progressBar, GONE);
-                if (isHaveThumbnail) {
+
+                /*if (isHaveThumbnail) {
                     post(new Runnable() {
                         @Override
                         public void run() {
@@ -91,6 +92,9 @@ public class LBigImageView extends RelativeLayout {
                     if (callback != null) {
                         callback.onSuccess(image);
                     }
+                }*/
+                if (callback != null) {
+                    callback.onSuccess(image);
                 }
             }
 
@@ -154,8 +158,8 @@ public class LBigImageView extends RelativeLayout {
         bigImageView.showImage(Uri.parse(url));
     }
 
-    private boolean isHaveThumbnail;
-    private String urlMain;
+    //private boolean isHaveThumbnail;
+    //private String urlMain;
 
     public void load(String urlThumbnail, String urlMain) {
         //LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
@@ -164,9 +168,12 @@ public class LBigImageView extends RelativeLayout {
         if (urlThumbnail == null) {
             throw new NullPointerException("urlThumbnail null");
         }
-        isHaveThumbnail = true;
-        this.urlMain = urlMain;
-        load(urlThumbnail);
+
+        //isHaveThumbnail = true;
+        //this.urlMain = urlMain;
+        //load(urlThumbnail);
+
+        bigImageView.showImage(Uri.parse(urlThumbnail), Uri.parse(urlMain));
     }
 
     public BigImageView getLBigImageView() {
