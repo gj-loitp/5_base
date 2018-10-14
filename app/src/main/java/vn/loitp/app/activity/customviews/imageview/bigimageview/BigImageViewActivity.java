@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
@@ -17,9 +18,28 @@ public class BigImageViewActivity extends BaseFontActivity {
 
         LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
         bigImageView.setColorProgressBar(Color.WHITE);
-        bigImageView.load(Constants.URL_IMG_LARGE);
+        //bigImageView.load(Constants.URL_IMG_LARGE_LAND_O);
 
-        //bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE);
+        findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //bigImageView.load(Constants.URL_IMG_LARGE_LAND_S, Constants.URL_IMG_LARGE_LAND_O);
+                bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE_LAND_O);
+            }
+        });
+        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //bigImageView.load(Constants.URL_IMG_LARGE_PORTRAIT_S, Constants.URL_IMG_LARGE_PORTRAIT_O);
+                bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE_PORTRAIT_O);
+            }
+        });
+        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bigImageView.load(Constants.URL_IMG_GIFT);
+            }
+        });
     }
 
     @Override

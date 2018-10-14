@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -13,6 +14,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
+import com.github.piasy.biv.view.GlideImageViewFactory;
 
 import java.io.File;
 
@@ -43,41 +45,36 @@ public class LBigImageView extends RelativeLayout {
         tvProgress = (TextView) findViewById(R.id.tv_progress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setTextShadow(tvProgress);
-        //bigImageView.setImageViewFactory(new GlideImageViewFactory());
+        bigImageView.setImageViewFactory(new GlideImageViewFactory());
+
         bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
             @Override
-            public void onCacheHit(File image) {
-                //LLog.d(TAG, "Image was found in the cache");
+            public void onCacheHit(int imageType, File image) {
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
-            public void onCacheMiss(File image) {
-                //LLog.d(TAG, "Image was downloaded from the network");
+            public void onCacheMiss(int imageType, File image) {
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onStart() {
-                //LLog.d(TAG, "Image download has started");
             }
 
             @Override
             public void onProgress(int progress) {
-                //LLog.d(TAG, "Image download progress has changed " + progress);
                 tvProgress.setText(progress + "");
             }
 
             @Override
             public void onFinish() {
-                //LLog.d(TAG, "Image download has finished");
                 tvProgress.setVisibility(GONE);
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onSuccess(File image) {
-                //LLog.d(TAG, "Image was retrieved successfully (either from cache or network)");
                 tvProgress.setVisibility(GONE);
                 LUIUtil.setProgressBarVisibility(progressBar, GONE);
                 if (callback != null) {
@@ -122,15 +119,21 @@ public class LBigImageView extends RelativeLayout {
     }
 
     public void clear() {
+        bigImageView.cancel();
         getSSIV().recycle();
     }
 
     public void load(String url) {
+        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        tvProgress.setVisibility(View.VISIBLE);
+        tvProgress.setText("0%");
         bigImageView.showImage(Uri.parse(url));
     }
 
     public void load(String thumnail, String url) {
-        // Or show a thumbnail before the big image is loaded
+        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        tvProgress.setVisibility(View.VISIBLE);
+        tvProgress.setText("0%");
         bigImageView.showImage(Uri.parse(thumnail), Uri.parse(url));
     }
 
