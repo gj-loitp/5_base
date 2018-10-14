@@ -4,7 +4,6 @@ package vn.loitp.core.loitp.gallery.slide;
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -54,7 +53,7 @@ public class FrmIvSlideCore extends Fragment {
         } else {
             imageView.setVisibility(View.GONE);
             imageView = null;
-            bigImageView.setColorProgressBar(Color.WHITE);
+            //bigImageView.setColorProgressBar(Color.WHITE);
             bigImageView.setOptimizeDisplay(true);
             bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
 

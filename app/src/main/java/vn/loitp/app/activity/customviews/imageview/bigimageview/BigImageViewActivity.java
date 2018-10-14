@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.imageview.bigimageview;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -17,21 +16,18 @@ public class BigImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
-        bigImageView.setColorProgressBar(Color.WHITE);
-        //bigImageView.load(Constants.URL_IMG_LARGE_LAND_O);
-
+        //bigImageView.setColorProgressBar(Color.WHITE);
+        //bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //bigImageView.load(Constants.URL_IMG_LARGE_LAND_S, Constants.URL_IMG_LARGE_LAND_O);
-                bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE_LAND_O);
+                bigImageView.load(Constants.URL_IMG_LARGE_LAND_S, Constants.URL_IMG_LARGE_LAND_O);
             }
         });
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //bigImageView.load(Constants.URL_IMG_LARGE_PORTRAIT_S, Constants.URL_IMG_LARGE_PORTRAIT_O);
-                bigImageView.load(Constants.URL_IMG, Constants.URL_IMG_LARGE_PORTRAIT_O);
+                bigImageView.load(Constants.URL_IMG_LARGE_PORTRAIT_S, Constants.URL_IMG_LARGE_PORTRAIT_O);
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {

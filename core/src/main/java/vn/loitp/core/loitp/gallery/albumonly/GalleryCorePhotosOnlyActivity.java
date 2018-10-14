@@ -106,6 +106,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         recyclerView.setItemAnimator(animator);*/
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
         recyclerView.setHasFixedSize(true);
         photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
             @Override

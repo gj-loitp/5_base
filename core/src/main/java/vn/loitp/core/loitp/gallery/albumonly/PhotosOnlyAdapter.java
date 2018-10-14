@@ -2,7 +2,6 @@ package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +19,6 @@ import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.imageview.bigimageview.LBigImageView;
@@ -55,7 +53,9 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         //viewHolder.llControl.setVisibility(View.INVISIBLE);
-        viewHolder.lBigImageView.clear();
+        if (viewHolder != null && viewHolder.lBigImageView != null) {
+            viewHolder.lBigImageView.clear();
+        }
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
 
@@ -75,8 +75,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
 
         viewHolder.lBigImageView.setOptimizeDisplay(false);
-        viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
-        viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
+        //viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
+        //viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         viewHolder.lBigImageView.setZoomEnable(false);
         viewHolder.lBigImageView.load(photo.getUrlO());

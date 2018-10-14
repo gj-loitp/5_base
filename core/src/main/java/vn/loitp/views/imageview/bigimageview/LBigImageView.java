@@ -4,13 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
@@ -19,15 +15,15 @@ import com.github.piasy.biv.view.GlideImageViewFactory;
 import java.io.File;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 //https://github.com/Piasy/BigImageViewer
 public class LBigImageView extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
     private BigImageView bigImageView;
-    private TextView tvProgress;
-    private ProgressBar progressBar;
+    //private TextView tvProgress;
+    //private ProgressBar progressBar;
 
     public LBigImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -42,53 +38,76 @@ public class LBigImageView extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.view_l_big_image_view, this);
         bigImageView = (BigImageView) findViewById(R.id.b_iv);
-        tvProgress = (TextView) findViewById(R.id.tv_progress);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        LUIUtil.setTextShadow(tvProgress);
+        //tvProgress = (TextView) findViewById(R.id.tv_progress);
+        //LUIUtil.setTextShadow(tvProgress);
+        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
         bigImageView.setImageViewFactory(new GlideImageViewFactory());
 
         bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
             @Override
             public void onCacheHit(int imageType, File image) {
-                LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                //LLog.d(TAG, "onCacheHit");
+                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onCacheMiss(int imageType, File image) {
-                LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                //LLog.d(TAG, "onCacheMiss");
+                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onStart() {
+                //LLog.d(TAG, "onStart");
             }
 
             @Override
             public void onProgress(int progress) {
-                tvProgress.setText(progress + "");
+                //tvProgress.setText(progress + "");
             }
 
             @Override
             public void onFinish() {
-                tvProgress.setVisibility(GONE);
-                LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                //LLog.d(TAG, "onFinish");
+                //tvProgress.setVisibility(GONE);
+                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
             }
 
             @Override
             public void onSuccess(File image) {
-                tvProgress.setVisibility(GONE);
-                LUIUtil.setProgressBarVisibility(progressBar, GONE);
-                if (callback != null) {
-                    callback.onSuccess(image);
+                //LLog.d(TAG, "onSuccess");
+                //tvProgress.setVisibility(GONE);
+                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                if (isHaveThumbnail) {
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            LLog.d(TAG, "onSuccess if");
+                            isHaveThumbnail = false;
+
+                            LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+                                @Override
+                                public void doAfter(int mls) {
+                                    load(urlMain);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    LLog.d(TAG, "onSuccess else");
+                    if (callback != null) {
+                        callback.onSuccess(image);
+                    }
                 }
             }
 
             @Override
             public void onFail(Exception error) {
-                //LLog.d(TAG, "Image download failed " + error);
-                tvProgress.setVisibility(VISIBLE);
-                LAnimationUtil.play(tvProgress, Techniques.Pulse);
-                tvProgress.setText("Error");
-                LUIUtil.setProgressBarVisibility(progressBar, GONE);
+                LLog.e(TAG, "onFail " + error);
+                //tvProgress.setVisibility(VISIBLE);
+                //LAnimationUtil.play(tvProgress, Techniques.Pulse);
+                //tvProgress.setText("Error");
+                //LUIUtil.setProgressBarVisibility(progressBar, GONE);
                 if (callback != null) {
                     callback.onFail(error);
                 }
@@ -119,22 +138,39 @@ public class LBigImageView extends RelativeLayout {
     }
 
     public void clear() {
-        bigImageView.cancel();
-        getSSIV().recycle();
+        if (bigImageView != null) {
+            bigImageView.cancel();
+        }
+        if (getSSIV() != null) {
+            getSSIV().recycle();
+        }
     }
 
+
     public void load(String url) {
-        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
-        tvProgress.setVisibility(View.VISIBLE);
-        tvProgress.setText("0%");
+        //LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        //tvProgress.setVisibility(View.VISIBLE);
+        //tvProgress.setText("0%");
+        if (url == null) {
+            throw new NullPointerException("url null");
+        }
+        //LLog.d(TAG, "load url " + url);
         bigImageView.showImage(Uri.parse(url));
     }
 
-    public void load(String thumnail, String url) {
-        LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
-        tvProgress.setVisibility(View.VISIBLE);
-        tvProgress.setText("0%");
-        bigImageView.showImage(Uri.parse(thumnail), Uri.parse(url));
+    private boolean isHaveThumbnail;
+    private String urlMain;
+
+    public void load(String urlThumbnail, String urlMain) {
+        //LUIUtil.setProgressBarVisibility(progressBar, android.view.View.VISIBLE);
+        //tvProgress.setVisibility(View.VISIBLE);
+        //tvProgress.setText("0%");
+        if (urlThumbnail == null) {
+            throw new NullPointerException("urlThumbnail null");
+        }
+        isHaveThumbnail = true;
+        this.urlMain = urlMain;
+        load(urlThumbnail);
     }
 
     public BigImageView getLBigImageView() {
@@ -158,15 +194,15 @@ public class LBigImageView extends RelativeLayout {
         bigImageView.setOptimizeDisplay(optimizeDisplay);
     }
 
+    /*public void setColorProgressBar(int color) {
+        LUIUtil.setColorProgressBar(progressBar, color);
+    }
+
     public TextView getTvProgress() {
         return tvProgress;
     }
 
-    public void setColorProgressBar(int color) {
-        LUIUtil.setColorProgressBar(progressBar, color);
-    }
-
     public void setColorProgressTextView(int color) {
         tvProgress.setTextColor(color);
-    }
+    }*/
 }
