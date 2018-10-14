@@ -19,9 +19,9 @@ public class Constants {
     public final static String URL_IMG_LARGE_LAND_O = "https://c1.staticflickr.com/1/884/41869095245_31d1d854ba_o.jpg";
     public final static String URL_IMG_LARGE_LAND_M = "https://c1.staticflickr.com/1/884/41869095245_6f2e255813_c.jpg";
     public final static String URL_IMG_LARGE_LAND_S = "https://c1.staticflickr.com/1/884/41869095245_6f2e255813_n.jpg";
-    public final static String URL_IMG_LARGE_PORTRAIT_O = "https://c2.staticflickr.com/2/1748/27900379997_ea637bec23_o.jpg";
-    public final static String URL_IMG_LARGE_PORTRAIT_M = "https://c2.staticflickr.com/2/1748/27900379997_212aa3a166_c.jpg";
-    public final static String URL_IMG_LARGE_PORTRAIT_S = "https://c2.staticflickr.com/2/1748/27900379997_212aa3a166_n.jpg";
+    public final static String URL_IMG_LARGE_PORTRAIT_O = "https://c2.staticflickr.com/2/1732/40956766690_4bcb6ef865_o.jpg";
+    public final static String URL_IMG_LARGE_PORTRAIT_M = "https://c2.staticflickr.com/2/1732/40956766690_76ba5f8c21_c.jpg";
+    public final static String URL_IMG_LARGE_PORTRAIT_S = "https://c2.staticflickr.com/2/1732/40956766690_76ba5f8c21_n.jpg";
     public static final String MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen";
 
     public final static String TEST_0 = "6E0762FF2B272D5BCE89FEBAAB872E34";
