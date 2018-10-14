@@ -53,15 +53,6 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
-
-        //viewPager.setPageTransformer(true, new CubeOutTransformer());
-        /*viewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                page.setRotationY(position * -40);
-            }
-        });*/
-
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
         String photoID = getIntent().getStringExtra(Constants.SK_PHOTO_ID);
@@ -122,24 +113,10 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
                         }
                     });
                 }
-
-                //get current page
-                /*FrmIvSlideCore currentFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position);
-                if (currentFrmIvSlideCore != null) {
-                    LLog.d(TAG, "onPageSelected updateBkg currentFrmIvSlideCore");
-                    currentFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                }*/
-                //get next page
-                /*FrmIvSlideCore nextFrmIvSlideCore = (FrmIvSlideCore) slidePagerAdapter.instantiateItem(viewPager, position + 1);
-                if (nextFrmIvSlideCore != null) {
-                    LLog.d(TAG, "onPageSelected updateBkg nextFrmIvSlideCore");
-                    nextFrmIvSlideCore.updateBkg(PhotosDataCore.getInstance().getPhoto(position).getUrlO());
-                }*/
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                //do nothing
             }
         });
 

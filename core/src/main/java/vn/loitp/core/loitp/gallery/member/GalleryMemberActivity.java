@@ -34,7 +34,6 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -110,7 +109,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
 
-        int numCount = LDeviceUtil.isTablet(activity) ? 3 : 2;
+        int numCount = 2;
 
         recyclerView.setLayoutManager(new GridLayoutManager(activity, numCount));
         recyclerView.setHasFixedSize(true);

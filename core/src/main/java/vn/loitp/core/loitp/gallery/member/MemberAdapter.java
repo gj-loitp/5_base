@@ -81,29 +81,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             }
         });
 
-        /*if (isTablet) {
-            if (position == 0 || position == 1 || position == 2) {
-                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            } else if (position == getItemCount() - 1 || position == getItemCount() - 2) {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            }
-        } else {
-            if (position == 0 || position == 1) {
-                viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            } else if (position == getItemCount() - 1) {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.viewSpaceTop.setVisibility(View.GONE);
-                viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-            }
-        }*/
         if (position == 0 || position == 1) {
             viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
             viewHolder.viewSpaceBottom.setVisibility(View.GONE);

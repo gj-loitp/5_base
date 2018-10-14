@@ -17,7 +17,6 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
@@ -97,10 +96,13 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             }
         });
 
-        if (position == 0) {
+        if (position == 0 || position == 1) {
             viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
             viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (position == getItemCount() - 1) {
+        } else if (getItemCount() % 2 == 0 && (position == (getItemCount() - 1) || position == (getItemCount() - 2))) {
+            viewHolder.viewSpaceTop.setVisibility(View.GONE);
+            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
+        } else if (getItemCount() % 2 != 0 && position == (getItemCount() - 1)) {
             viewHolder.viewSpaceTop.setVisibility(View.GONE);
             viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
         } else {
