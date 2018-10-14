@@ -1,7 +1,6 @@
 package vn.loitp.core.loitp.gallery.photos;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import loitp.core.R;
@@ -54,13 +52,14 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         viewHolder.rootView.requestLayout();
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
-        LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
+        //LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
-        LImageUtil.load(context, photo.getFlickrLink640(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        //LImageUtil.load(context, photo.getFlickrLink640(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
+        LImageUtil.loadNoAmin(context, photo.getFlickrLink1024(), photo.getUrlS(), viewHolder.iv);
 
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);
@@ -108,7 +107,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView iv;
         public final TextView tvSize;
-        public final ProgressBar progressBar;
+        //public final ProgressBar progressBar;
         public final LinearLayout rootView;
         public final View viewSpaceTop;
         public final View viewSpaceBottom;
@@ -117,11 +116,11 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
             super(v);
             iv = (ImageView) v.findViewById(R.id.iv);
             tvSize = (TextView) v.findViewById(R.id.tv_size);
-            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+            //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
             viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
-            LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+            //LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
     }
 

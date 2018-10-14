@@ -196,7 +196,7 @@ public class Photoset {
         this.primaryPhotoExtras = primaryPhotoExtras;
     }
 
-    public String getFlickrLink640() {
+    public String getFlickrLinkM() {
         if (getPrimaryPhotoExtras().getUrlO().contains(".gif")) {
             //gif extension have no link large
             return getPrimaryPhotoExtras().getUrlO();
@@ -205,7 +205,7 @@ public class Photoset {
         }
     }
 
-    public String getFlickrLink1024() {
+    public String getFlickrLinkO() {
         if (getPrimaryPhotoExtras().getUrlO().contains(".gif")) {
             //gif extension have no link large
             return getPrimaryPhotoExtras().getUrlO();

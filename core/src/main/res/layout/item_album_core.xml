@@ -56,12 +56,12 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_22" />
 
-        <ProgressBar
+        <!--<ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="@dimen/w_30"
             android:layout_height="@dimen/w_30"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true" />-->
     </RelativeLayout>
 
     <View

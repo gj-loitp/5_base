@@ -1,7 +1,6 @@
 package vn.loitp.core.loitp.gallery.album;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -59,13 +57,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         viewHolder.rootView.requestLayout();
 
         Photoset photoset = photosetList.get(position);
-        LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
+        //LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
         //LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
         //LLog.d(TAG, ">>>getFlickrLink640 " + photoset.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photoset.getFlickrLink1024());
 
-        LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
+        //LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
+        LImageUtil.loadNoAmin(context, photoset.getFlickrLinkO(), photoset.getFlickrLinkM(), viewHolder.iv);
 
         viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
 
@@ -124,7 +123,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public final TextView tvLabel;
         public final TextView tvUpdate;
         public final TextView tvNumber;
-        public final ProgressBar progressBar;
+        //public final ProgressBar progressBar;
         public final LinearLayout rootView;
         public final View viewSpaceTop;
         public final View viewSpaceBottom;
@@ -135,12 +134,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             tvLabel = (TextView) v.findViewById(R.id.tv_label);
             tvUpdate = (TextView) v.findViewById(R.id.tv_update);
             tvNumber = (TextView) v.findViewById(R.id.tv_number);
-            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+            //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
             viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
             viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
 
-            LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+            //LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
     }
 
