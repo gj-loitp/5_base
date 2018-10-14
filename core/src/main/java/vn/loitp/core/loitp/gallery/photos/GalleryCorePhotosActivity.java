@@ -45,6 +45,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     private FloatingActionButton btPage;
     private String photosetID;
 
+    private int bkgRootView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
 
-        int bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
         LLog.d(TAG, "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.NOT_FOUND) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
@@ -112,6 +114,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                 Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
+                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);
             }

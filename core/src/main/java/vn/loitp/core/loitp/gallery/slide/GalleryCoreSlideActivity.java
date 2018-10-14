@@ -1,34 +1,25 @@
 package vn.loitp.core.loitp.gallery.slide;
 
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
+import vn.loitp.views.viewpager.viewpagertransformers.StackTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
@@ -45,15 +36,24 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
+        int bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        if (bkgRootView == Constants.NOT_FOUND) {
+            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+        } else {
+            getRootView().setBackgroundResource(bkgRootView);
+        }
+
         tvSize = (TextView) findViewById(R.id.tv_size);
 
-        final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
-        final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
+        //final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
+        //final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        viewPager.setPageTransformer(true, new StackTransformer());
 
         String photoID = getIntent().getStringExtra(Constants.SK_PHOTO_ID);
         int position = PhotosDataCore.getInstance().getPosition(photoID);
@@ -62,7 +62,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         viewPager.setOffscreenPageLimit(3);
 
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 //do nothing
@@ -118,26 +118,26 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
             }
-        });
+        });*/
 
         findViewById(R.id.bt_download).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
             }
         });
         findViewById(R.id.bt_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 LSocialUtil.share(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
             }
         });
         findViewById(R.id.bt_report).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                //LAnimationUtil.play(v, Techniques.Pulse);
                 LSocialUtil.sendEmail(activity);
             }
         });
