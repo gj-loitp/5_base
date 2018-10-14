@@ -107,12 +107,11 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+
         recyclerView.setHasFixedSize(true);
         photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
-                //do nothing
-
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                 /*Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
@@ -122,7 +121,6 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onLongClick(Photo photo, int pos) {
-                ////do nothing
                 //LSocialUtil.share(activity, photo.getUrlO());
             }
 
@@ -162,7 +160,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        LLog.d(TAG, "last item");
+                        //LLog.d(TAG, "last item");
                         photosetsGetPhotos(photosetID);
                     }
                 }

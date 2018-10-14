@@ -16,7 +16,6 @@ import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 //https://github.com/Piasy/BigImageViewer
 public class LBigImageView extends RelativeLayout {
@@ -84,13 +83,7 @@ public class LBigImageView extends RelativeLayout {
                         public void run() {
                             LLog.d(TAG, "onSuccess if");
                             isHaveThumbnail = false;
-
-                            LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
-                                @Override
-                                public void doAfter(int mls) {
-                                    load(urlMain);
-                                }
-                            });
+                            load(urlMain);
                         }
                     });
                 } else {
@@ -127,13 +120,16 @@ public class LBigImageView extends RelativeLayout {
         this.callback = callback;
     }
 
-    public void setZoomEnable(boolean isEnable) {
+    /*public void setZoomEnable(boolean isEnable) {
         if (getSSIV() != null) {
             getSSIV().setZoomEnabled(isEnable);
         }
-    }
+    }*/
 
     public SubsamplingScaleImageView getSSIV() {
+        if (bigImageView.getSSIV() == null) {
+            LLog.e(TAG, "getSSIV null");
+        }
         return bigImageView.getSSIV();
     }
 

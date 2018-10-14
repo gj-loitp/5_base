@@ -78,20 +78,15 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         //viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
         //viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
         viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        viewHolder.lBigImageView.setZoomEnable(false);
-        viewHolder.lBigImageView.load(photo.getUrlO());
+        //viewHolder.lBigImageView.setZoomEnable(false);
+        viewHolder.lBigImageView.load(photo.getUrlS(), photo.getUrlO());
+
         viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
             @Override
             public void onSuccess(File image) {
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
-                    @Override
-                    public void doAfter(int mls) {
-                        viewHolder.llControl.setVisibility(View.VISIBLE);
-                    }
-                });*/
             }
 
             @Override
@@ -99,12 +94,6 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
-                /*LUIUtil.setDelay(300, new LUIUtil.DelayCallback() {
-                    @Override
-                    public void doAfter(int mls) {
-                        viewHolder.llControl.setVisibility(View.VISIBLE);
-                    }
-                });*/
             }
         });
 
@@ -116,10 +105,10 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             LUIUtil.setTextShadow(viewHolder.tvTitle);
         }
 
-        viewHolder.lBigImageView.getSSIV().setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.lBigImageView.getSSIV().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //LLog.d(TAG, "setOnClickListener");
+                LLog.d(TAG, "setOnClickListener");
                 LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onClick(photo, position);
@@ -129,14 +118,14 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         viewHolder.lBigImageView.getSSIV().setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //LLog.d(TAG, "onLongClick");
+                LLog.d(TAG, "onLongClick");
                 LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
                 return true;
             }
-        });
+        });*/
         viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

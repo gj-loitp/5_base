@@ -16,6 +16,7 @@ public class BigImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
+        //bigImageView.setZoomEnable(true);
         //bigImageView.setColorProgressBar(Color.WHITE);
         //bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
