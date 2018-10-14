@@ -9,6 +9,7 @@ import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunica
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
+import vn.loitp.app.activity.function.glide.GlideActivity;
 import vn.loitp.app.activity.function.hashmap.HashMapActivity;
 import vn.loitp.app.activity.function.location.LocationActivity;
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
@@ -43,6 +44,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_sensor).setOnClickListener(this);
         findViewById(R.id.bt_sensor_video).setOnClickListener(this);
         findViewById(R.id.bt_scrog).setOnClickListener(this);
+        findViewById(R.id.bt_glide).setOnClickListener(this);
     }
 
     @Override
@@ -105,6 +107,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_scrog:
                 intent = new Intent(activity, ScrogActivity.class);
+                break;
+            case R.id.bt_glide:
+                intent = new Intent(activity, GlideActivity.class);
                 break;
         }
         if (intent != null) {

@@ -255,6 +255,10 @@ public class LImageUtil {
         loadNoAmin(context, url, "", imageView, drawableRequestListener);
     }
 
+    public static void loadNoAmin(Context context, String url, String urlThumbnal, ImageView imageView) {
+        loadNoAmin(context, url, urlThumbnal, imageView, null);
+    }
+
     public static void loadNoAmin(Context context, String url, String urlThumbnal, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
         if (context == null || imageView == null) {
             return;

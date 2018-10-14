@@ -49,6 +49,12 @@
                 android:text="Gesto" />
 
             <Button
+                android:id="@+id/bt_glide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Glide" />
+
+            <Button
                 android:id="@+id/bt_hashmap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

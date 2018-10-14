@@ -53,18 +53,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
 
     private void loadItem(Photo photo) {
         tvTitle.setText(photo.getTitle());
-
-        LImageUtil.loadNoAmin(activity, photo.getUrlM(), imageView);
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && addTransitionListener(photo)) {
-            // If we're running on Lollipop and we have added a listener to the shared element
-            // transition, load the thumbnail. The listener will load the full-size image when
-            // the transition is complete.
-            loadThumbnail(photo);
-        } else {
-            // If all other cases we should just load the full-size image now
-            loadFullSizeImage(photo);
-        }*/
+        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlM(), imageView);
     }
 
     /**
@@ -88,7 +77,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
      *
      * @return true if we were successful in adding a listener to the enter transition
      */
-    private boolean addTransitionListener(final Photo photo) {
+    /*private boolean addTransitionListener(final Photo photo) {
         final Transition transition;
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
             return false;
@@ -132,5 +121,5 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
 
         // If we reach here then we have not added a listener
         return false;
-    }
+    }*/
 }
