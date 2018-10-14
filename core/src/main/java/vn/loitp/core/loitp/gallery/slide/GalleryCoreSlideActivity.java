@@ -60,7 +60,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
-        viewPager.setOffscreenPageLimit(3);
+        //viewPager.setOffscreenPageLimit(3);
 
         /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
