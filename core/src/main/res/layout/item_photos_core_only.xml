@@ -22,10 +22,15 @@
         android:textColor="@color/White"
         android:textSize="@dimen/txt_14" />
 
-    <!--<vn.loitp.views.imageview.bigimageview.LBigImageView
-        android:id="@+id/l_big_image_view"
+    <com.github.piasy.biv.view.BigImageView
+        android:id="@+id/biv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />-->
+        android:layout_height="match_parent"
+        app:failureImage="@drawable/l_error_404"
+        app:failureImageInitScaleType="center"
+        app:initScaleType="custom"
+        app:optimizeDisplay="true"
+        app:thumbnailScaleType="fitCenter" />
 
     <LinearLayout
         android:id="@+id/ll_control"

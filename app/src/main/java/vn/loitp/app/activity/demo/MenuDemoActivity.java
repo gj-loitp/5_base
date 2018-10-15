@@ -124,7 +124,8 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
-                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
+                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
+                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 break;
             case R.id.bt_chrome_cast_google:
                 intent = new Intent(activity, VideoBrowserActivity.class);
