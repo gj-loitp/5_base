@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.github.piasy.biv.BigImageViewer;
 import com.github.piasy.biv.loader.ImageLoader;
-import com.github.piasy.biv.loader.glide.GlideImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 
@@ -17,15 +15,18 @@ import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 //https://github.com/Piasy/BigImageViewer
 public class BigImageViewActivity extends BaseFontActivity {
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BigImageViewer.initialize(GlideImageLoader.with(getApplicationContext()));
+        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        avLoadingIndicatorView.hide();
         final BigImageView bigImageView = findViewById(R.id.mBigImage);
         bigImageView.setImageViewFactory(new GlideImageViewFactory());
         bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
@@ -39,6 +40,9 @@ public class BigImageViewActivity extends BaseFontActivity {
 
             @Override
             public void onStart() {
+                if (avLoadingIndicatorView != null) {
+                    avLoadingIndicatorView.smoothToShow();
+                }
             }
 
             @Override
@@ -56,6 +60,9 @@ public class BigImageViewActivity extends BaseFontActivity {
                 SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);
+                }
+                if (avLoadingIndicatorView != null) {
+                    avLoadingIndicatorView.smoothToHide();
                 }
             }
 
