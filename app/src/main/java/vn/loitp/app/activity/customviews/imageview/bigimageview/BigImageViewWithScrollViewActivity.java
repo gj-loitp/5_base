@@ -2,12 +2,8 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview;
 
 import android.os.Bundle;
 
-import com.github.piasy.biv.view.BigImageView;
-
 import loitp.basemaster.R;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 //https://github.com/Piasy/BigImageViewer
 public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
@@ -16,7 +12,7 @@ public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
+        /*LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
         //bigImageView.setColorProgressBar(Color.WHITE);
         bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         //bigImageView.setZoomEnable(true);
@@ -38,7 +34,7 @@ public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
         //bigImageView4.setColorProgressBar(Color.RED);
         bigImageView4.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
         //bigImageView4.setZoomEnable(false);
-        bigImageView4.load(Constants.URL_IMG);
+        bigImageView4.load(Constants.URL_IMG);*/
     }
 
     @Override

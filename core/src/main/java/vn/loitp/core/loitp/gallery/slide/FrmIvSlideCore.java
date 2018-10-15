@@ -17,7 +17,6 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();
@@ -39,12 +38,10 @@ public class FrmIvSlideCore extends Fragment {
         int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
-        LBigImageView bigImageView = (LBigImageView) view.findViewById(R.id.biv);
+        //LBigImageView bigImageView = (LBigImageView) view.findViewById(R.id.biv);
 
-        //bigImageView.setColorProgressBar(Color.WHITE);
-        bigImageView.setOptimizeDisplay(false);
-        //bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CENTER_INSIDE);
+        //bigImageView.setOptimizeDisplay(false);
 
-        bigImageView.load(photo.getUrlS(), photo.getUrlO());
+        //bigImageView.load(photo.getUrlS(), photo.getUrlO());
     }
 }

@@ -1,7 +1,6 @@
 package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
-import com.github.piasy.biv.view.BigImageView;
-
-import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
@@ -21,7 +17,6 @@ import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.imageview.bigimageview.LBigImageView;
 
 /**
  * Created by loitp on 14/04/15.
@@ -44,44 +39,34 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         return new ViewHolder(inflater.inflate(R.layout.item_photos_core_only, viewGroup, false));
     }
 
-    @Override
+    /*@Override
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-    }
+    }*/
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
-        //viewHolder.llControl.setVisibility(View.INVISIBLE);
-        if (viewHolder != null && viewHolder.lBigImageView != null) {
+        /*if (viewHolder != null && viewHolder.lBigImageView != null) {
             viewHolder.lBigImageView.clear();
-        }
+        }*/
 
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
-
         int height = photo.getHeightO() * screenW / photo.getWidthO();
         //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
-
-        //viewHolder.tvTitle.setText(photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
-
         //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
-        viewHolder.lBigImageView.getLayoutParams().width = screenW;
+        /*viewHolder.lBigImageView.getLayoutParams().width = screenW;
         viewHolder.lBigImageView.getLayoutParams().height = height;
-        viewHolder.lBigImageView.requestLayout();
+        viewHolder.lBigImageView.requestLayout();*/
 
         //LImageUtil.load(context, photo.getUrlO(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
         //viewHolder.lBigImageView.setBackgroundColor(LStoreUtil.getRandomColor());
 
-        viewHolder.lBigImageView.setOptimizeDisplay(false);
-        //viewHolder.lBigImageView.setColorProgressBar(ContextCompat.getColor(context, R.color.White));
-        //viewHolder.lBigImageView.setColorProgressTextView(ContextCompat.getColor(context, R.color.White));
-        viewHolder.lBigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        //viewHolder.lBigImageView.setZoomEnable(false);
-        viewHolder.lBigImageView.load(photo.getUrlS(), photo.getUrlO());
+        //viewHolder.lBigImageView.load(photo.getUrlS(), photo.getUrlO());
 
-        viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
+        /*viewHolder.lBigImageView.setCallback(new LBigImageView.Callback() {
             @Override
             public void onSuccess(File image) {
                 viewHolder.lBigImageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -95,7 +80,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 viewHolder.lBigImageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 viewHolder.lBigImageView.requestLayout();
             }
-        });
+        });*/
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);
@@ -175,7 +160,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
         private LinearLayout rootView;
-        private LBigImageView lBigImageView;
+        //private LBigImageView lBigImageView;
         private ImageView btDownload;
         private ImageView btShare;
         private ImageView btReport;
@@ -186,7 +171,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
-            lBigImageView = (LBigImageView) v.findViewById(R.id.l_big_image_view);
+            //lBigImageView = (LBigImageView) v.findViewById(R.id.l_big_image_view);
             btDownload = (ImageView) v.findViewById(R.id.bt_download);
             btShare = (ImageView) v.findViewById(R.id.bt_share);
             btReport = (ImageView) v.findViewById(R.id.bt_report);
