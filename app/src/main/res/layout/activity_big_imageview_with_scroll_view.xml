@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/WhiteSmoke">
 
-    <!--<vn.loitp.views.imageview.bigimageview.LBigImageView
-        android:id="@+id/mBigImage2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
-
-    <!--<android.support.v4.widget.NestedScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -20,26 +16,46 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <vn.loitp.views.imageview.bigimageview.LBigImageView
-                android:id="@+id/mBigImage"
+            <com.github.piasy.biv.view.BigImageView
+                android:id="@+id/biv_0"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                app:failureImage="@drawable/l_error_404"
+                app:failureImageInitScaleType="center"
+                app:initScaleType="custom"
+                app:optimizeDisplay="true"
+                app:thumbnailScaleType="centerCrop" />
 
-            <vn.loitp.views.imageview.bigimageview.LBigImageView
-                android:id="@+id/mBigImage2"
+            <com.github.piasy.biv.view.BigImageView
+                android:id="@+id/biv_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                app:failureImage="@drawable/l_error_404"
+                app:failureImageInitScaleType="center"
+                app:initScaleType="custom"
+                app:optimizeDisplay="true"
+                app:thumbnailScaleType="centerCrop" />
 
-            <vn.loitp.views.imageview.bigimageview.LBigImageView
-                android:id="@+id/mBigImage3"
+            <com.github.piasy.biv.view.BigImageView
+                android:id="@+id/biv_2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                app:failureImage="@drawable/l_error_404"
+                app:failureImageInitScaleType="center"
+                app:initScaleType="custom"
+                app:optimizeDisplay="true"
+                app:thumbnailScaleType="centerCrop" />
 
-            <vn.loitp.views.imageview.bigimageview.LBigImageView
-                android:id="@+id/mBigImage4"
+            <com.github.piasy.biv.view.BigImageView
+                android:id="@+id/biv_3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                app:failureImage="@drawable/l_error_404"
+                app:failureImageInitScaleType="center"
+                app:initScaleType="custom"
+                app:optimizeDisplay="true"
+                app:thumbnailScaleType="centerCrop" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>-->
+    </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
 

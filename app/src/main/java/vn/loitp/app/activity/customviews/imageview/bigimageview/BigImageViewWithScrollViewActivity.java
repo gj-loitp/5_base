@@ -1,8 +1,13 @@
 package vn.loitp.app.activity.customviews.imageview.bigimageview;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.github.piasy.biv.view.BigImageView;
+import com.github.piasy.biv.view.GlideImageViewFactory;
+
 import loitp.basemaster.R;
+import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/Piasy/BigImageViewer
@@ -11,30 +16,19 @@ public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BigImageView biv0 = findViewById(R.id.biv_0);
+        biv0.setImageViewFactory(new GlideImageViewFactory());
+        BigImageView biv1 = findViewById(R.id.biv_1);
+        biv1.setImageViewFactory(new GlideImageViewFactory());
+        BigImageView biv2 = findViewById(R.id.biv_2);
+        biv2.setImageViewFactory(new GlideImageViewFactory());
+        BigImageView biv3 = findViewById(R.id.biv_3);
+        biv3.setImageViewFactory(new GlideImageViewFactory());
 
-        /*LBigImageView bigImageView = (LBigImageView) findViewById(R.id.mBigImage);
-        //bigImageView.setColorProgressBar(Color.WHITE);
-        bigImageView.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        //bigImageView.setZoomEnable(true);
-        bigImageView.load(Constants.URL_IMG_LARGE);
-
-        LBigImageView bigImageView2 = (LBigImageView) findViewById(R.id.mBigImage2);
-        //bigImageView2.setColorProgressBar(Color.RED);
-        bigImageView2.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        //bigImageView2.setZoomEnable(false);
-        bigImageView2.load(Constants.URL_IMG_LONG);
-
-        LBigImageView bigImageView3 = (LBigImageView) findViewById(R.id.mBigImage3);
-        //bigImageView3.setColorProgressBar(Color.RED);
-        bigImageView3.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        //bigImageView3.setZoomEnable(false);
-        bigImageView3.load(Constants.URL_IMG, Constants.URL_IMG_LONG_1);
-
-        LBigImageView bigImageView4 = (LBigImageView) findViewById(R.id.mBigImage4);
-        //bigImageView4.setColorProgressBar(Color.RED);
-        bigImageView4.setInitScaleType(BigImageView.INIT_SCALE_TYPE_CUSTOM);
-        //bigImageView4.setZoomEnable(false);
-        bigImageView4.load(Constants.URL_IMG);*/
+        biv0.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O));
+        biv1.showImage(Uri.parse(Constants.URL_IMG_LONG));
+        biv2.showImage(Uri.parse(Constants.URL_IMG_GIFT));
+        biv3.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O));
     }
 
     @Override
