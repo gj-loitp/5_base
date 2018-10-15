@@ -32,12 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
-            android:layout_centerInParent="true" />
+        <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+            android:id="@+id/av"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_centerInParent="true"
+            app:indicatorColor="@color/White"
+            app:indicatorName="LineScalePulseOutRapidIndicator" />
     </RelativeLayout>
 
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>

@@ -1,7 +1,6 @@
 package vn.loitp.core.loitp.gallery.photos;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -9,7 +8,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -29,12 +27,13 @@ import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
-    private ProgressBar progressBar;
     private TextView tvTitle;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     private int currentPage = 0;
     private int totalPage = 1;
@@ -56,9 +55,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         btPage = (FloatingActionButton) findViewById(R.id.bt_page);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
 
+        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
@@ -198,7 +196,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         }
         LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
-        LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
+        avLoadingIndicatorView.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
         String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         String apiKey = FlickrConst.API_KEY;
@@ -206,7 +204,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         if (currentPage <= 0) {
             LLog.d(TAG, "currentPage <= 0 -> return");
             currentPage = 0;
-            LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+            avLoadingIndicatorView.smoothToHide();
             isLoading = false;
             return;
         }
@@ -223,7 +221,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                 PhotosDataCore.getInstance().addPhoto(photoList);
                 updateAllViews();
-                LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+                avLoadingIndicatorView.smoothToHide();
                 btPage.setVisibility(View.VISIBLE);
                 isLoading = false;
             }
@@ -232,7 +230,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             public void onFail(Throwable e) {
                 LLog.e(TAG, "onFail " + e.toString());
                 handleException(e);
-                LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
+                avLoadingIndicatorView.smoothToHide();
                 isLoading = true;
             }
         });

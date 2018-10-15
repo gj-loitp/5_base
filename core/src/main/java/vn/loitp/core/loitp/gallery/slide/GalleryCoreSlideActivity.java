@@ -19,7 +19,7 @@ import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.viewpager.viewpagertransformers.StackTransformer;
+import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
@@ -53,7 +53,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
-        viewPager.setPageTransformer(true, new StackTransformer());
+        viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
 
         String photoID = getIntent().getStringExtra(Constants.SK_PHOTO_ID);
         int position = PhotosDataCore.getInstance().getPosition(photoID);

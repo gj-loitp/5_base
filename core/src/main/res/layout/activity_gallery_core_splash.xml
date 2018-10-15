@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -38,14 +39,17 @@
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_14" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="@dimen/w_50"
-                android:layout_height="@dimen/w_50"
+            <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+                android:id="@+id/avi"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="@dimen/w_40"
+                android:layout_height="@dimen/w_40"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/margin_55" />
+                android:layout_margin="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_55"
+                app:indicatorColor="@color/White"
+                app:indicatorName="LineScalePulseOutRapidIndicator" />
 
             <TextView
                 android:id="@+id/tv_name"

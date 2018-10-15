@@ -4,6 +4,7 @@ package vn.loitp.core.loitp.gallery.slide;
  * Created by www.muathu@gmail.com on 12/24/2017.
  */
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,12 +12,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.github.piasy.biv.loader.ImageLoader;
+import com.github.piasy.biv.view.BigImageView;
+import com.github.piasy.biv.view.GlideImageViewFactory;
+
+import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();
@@ -38,10 +48,63 @@ public class FrmIvSlideCore extends Fragment {
         int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
-        //LBigImageView bigImageView = (LBigImageView) view.findViewById(R.id.biv);
+        final AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
+        final BigImageView bigImageView = (BigImageView) view.findViewById(R.id.biv);
+        final TextView tvProgress = (TextView) view.findViewById(R.id.tv_progress);
+        LUIUtil.setTextShadow(tvProgress);
 
-        //bigImageView.setOptimizeDisplay(false);
+        bigImageView.setImageViewFactory(new GlideImageViewFactory());
+        bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
+            @Override
+            public void onCacheHit(int imageType, File image) {
+            }
 
-        //bigImageView.load(photo.getUrlS(), photo.getUrlO());
+            @Override
+            public void onCacheMiss(int imageType, File image) {
+            }
+
+            @Override
+            public void onStart() {
+                if (avLoadingIndicatorView != null) {
+                    avLoadingIndicatorView.smoothToShow();
+                }
+                if (tvProgress != null) {
+                    tvProgress.setText("0%");
+                }
+            }
+
+            @Override
+            public void onProgress(int progress) {
+                LLog.d(TAG, "onProgress " + progress);
+                if (tvProgress != null) {
+                    tvProgress.setVisibility(View.VISIBLE);
+                    tvProgress.setText(progress + "%");
+                }
+            }
+
+            @Override
+            public void onFinish() {
+            }
+
+            @Override
+            public void onSuccess(File image) {
+                LLog.d(TAG, "onSuccess");
+                /*SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
+                if (ssiv != null) {
+                    ssiv.setZoomEnabled(true);
+                }*/
+                if (avLoadingIndicatorView != null) {
+                    avLoadingIndicatorView.smoothToHide();
+                }
+                if (tvProgress != null) {
+                    tvProgress.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFail(Exception error) {
+            }
+        });
+        bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
     }
 }
