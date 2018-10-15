@@ -53,7 +53,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
 
     private void loadItem(Photo photo) {
         tvTitle.setText(photo.getTitle());
-        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlM(), imageView);
+        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlS(), imageView);
     }
 
     /**
