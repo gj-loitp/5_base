@@ -37,54 +37,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="@dimen/padding_3">
+        android:padding="@dimen/padding_5">
 
-        <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_report"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            android:padding="@dimen/padding_3"
-            android:src="@drawable/ladybird"
-            app:civ_border_color="@color/LightGrey"
-            app:civ_border_width="@dimen/w_1"
-            app:civ_fill_color="@color/White" />
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_bug_report_black_48"
+            android:tint="@color/Black"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
 
-        <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_download"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
-            android:layout_marginLeft="@dimen/margin_25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
             android:contentDescription="@string/app_name"
-            android:padding="@dimen/padding_3"
-            android:src="@drawable/download"
-            app:civ_border_color="@color/LightGrey"
-            app:civ_border_width="@dimen/w_1"
-            app:civ_fill_color="@color/White" />
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_cloud_download_black_48"
+            android:tint="@color/Black"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
 
-        <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_cmt"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
-            android:layout_marginLeft="@dimen/margin_25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
             android:contentDescription="@string/app_name"
-            android:padding="@dimen/padding_3"
-            android:src="@drawable/l_chat_2"
-            app:civ_border_color="@color/LightGrey"
-            app:civ_border_width="@dimen/w_1"
-            app:civ_fill_color="@color/White" />
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_chat_black_48dp"
+            android:tint="@color/Black"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
 
-        <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_share"
-            android:layout_width="@dimen/w_50"
-            android:layout_height="@dimen/w_50"
-            android:layout_marginLeft="@dimen/margin_25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
             android:contentDescription="@string/app_name"
-            android:padding="@dimen/padding_3"
-            android:src="@drawable/slideshare"
-            app:civ_border_color="@color/LightGrey"
-            app:civ_border_width="@dimen/w_1"
-            app:civ_fill_color="@color/White" />
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share_black_48dp"
+            android:tint="@color/Black"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini" />
 
     </LinearLayout>
 

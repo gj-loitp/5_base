@@ -3,11 +3,11 @@ package vn.loitp.core.loitp.gallery.albumonly;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -57,7 +57,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         int height = photo.getHeightO() * screenW / photo.getWidthO();
-        LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
+        //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
 
         viewHolder.bigImageView.getLayoutParams().width = screenW;
         viewHolder.bigImageView.getLayoutParams().height = height;
@@ -107,20 +107,20 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             @Override
             public void onClick(View view) {
                 LLog.d(TAG, "setOnClickListener");
-                /*LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
+                LAnimationUtil.play(viewHolder.bigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onClick(photo, position);
-                }*/
+                }
             }
         });
         viewHolder.bigImageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 LLog.d(TAG, "onLongClick");
-                /*LAnimationUtil.play(viewHolder.lBigImageView, Techniques.Pulse);
+                LAnimationUtil.play(viewHolder.bigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
-                }*/
+                }
                 return true;
             }
         });
@@ -174,10 +174,10 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         private TextView tvTitle;
         private LinearLayout rootView;
         private BigImageView bigImageView;
-        private ImageView btDownload;
-        private ImageView btShare;
-        private ImageView btReport;
-        private ImageView btCmt;
+        private FloatingActionButton btDownload;
+        private FloatingActionButton btShare;
+        private FloatingActionButton btReport;
+        private FloatingActionButton btCmt;
         private LinearLayout llControl;
 
         public ViewHolder(View v) {
@@ -185,10 +185,10 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
             rootView = (LinearLayout) v.findViewById(R.id.root_view);
             bigImageView = (BigImageView) v.findViewById(R.id.biv);
-            btDownload = (ImageView) v.findViewById(R.id.bt_download);
-            btShare = (ImageView) v.findViewById(R.id.bt_share);
-            btReport = (ImageView) v.findViewById(R.id.bt_report);
-            btCmt = (ImageView) v.findViewById(R.id.bt_cmt);
+            btDownload = (FloatingActionButton) v.findViewById(R.id.bt_download);
+            btShare = (FloatingActionButton) v.findViewById(R.id.bt_share);
+            btReport = (FloatingActionButton) v.findViewById(R.id.bt_report);
+            btCmt = (FloatingActionButton) v.findViewById(R.id.bt_cmt);
             llControl = (LinearLayout) v.findViewById(R.id.ll_control);
         }
     }
