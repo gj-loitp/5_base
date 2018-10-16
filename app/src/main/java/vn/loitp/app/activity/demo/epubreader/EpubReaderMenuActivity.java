@@ -81,6 +81,13 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);
                         BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }

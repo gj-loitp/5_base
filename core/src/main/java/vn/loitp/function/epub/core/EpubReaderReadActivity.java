@@ -50,7 +50,7 @@ import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
-    private Reader reader;
+    private Reader reader = new Reader();
     private boolean isSkippedToPage = false;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -240,6 +240,8 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 LToast.show(activity, "Max page number is: " + this.pageCount);
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
+        } catch (Exception e) {
+            LLog.e(TAG, "onFragmentReady " + e.toString());
         }
         isSkippedToPage = false;
         if (bookSection != null) {
@@ -261,7 +263,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected Void doInBackground(Void... voids) {
             //LLog.d(TAG, "doInBackground");
             try {
-                reader = new Reader();
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250);
                 //reader.setMaxContentPerSection(1250 * 10);
