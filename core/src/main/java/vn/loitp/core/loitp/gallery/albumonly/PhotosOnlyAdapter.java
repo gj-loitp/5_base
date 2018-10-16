@@ -146,7 +146,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                         bigImageView.getSSIV().setZoomEnabled(false);
                     }
                     if (pb != null) {
-                        pb.setVisibility(View.GONE);
+                        pb.setVisibility(View.INVISIBLE);
                     }
                 }
 

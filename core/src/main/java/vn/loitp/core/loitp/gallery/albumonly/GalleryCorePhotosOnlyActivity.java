@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -57,6 +58,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
     private String photosetID;
     private int photosSize;
+    private FloatingActionButton btPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle, Color.WHITE);
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
+        btPage = (FloatingActionButton) findViewById(R.id.bt_page);
 
         photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
         if (photosetID == null || photosetID.isEmpty()) {
@@ -161,6 +164,32 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                         photosetsGetPhotos(photosetID);
                     }
                 }
+            }
+        });
+
+        btPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
+                showListPage();
+            }
+        });
+    }
+
+    private void showListPage() {
+        int size = totalPage;
+        String arr[] = new String[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = "Page " + (totalPage - i);
+        }
+        LDialogUtil.showDialogList(activity, "Select page", arr, new LDialogUtil.CallbackList() {
+            @Override
+            public void onClick(int position) {
+                currentPage = totalPage - position;
+                LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+                PhotosDataCore.getInstance().clearData();
+                updateAllViews();
+                photosetsGetPhotos(photosetID);
             }
         });
     }
@@ -272,6 +301,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                 updateAllViews();
 
                 avLoadingIndicatorView.smoothToHide();
+                btPage.setVisibility(View.VISIBLE);
                 isLoading = false;
                 currentPage--;
             }

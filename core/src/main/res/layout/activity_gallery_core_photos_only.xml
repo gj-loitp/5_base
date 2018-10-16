@@ -57,5 +57,20 @@
             app:indicatorColor="@color/White"
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bt_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ln_adview"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/margin_15"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/l_page"
+            android:tint="@color/colorPrimary"
+            android:visibility="invisible"
+            app:backgroundTint="@color/White"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="normal" />
     </RelativeLayout>
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>
