@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -77,10 +77,14 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
 
             @Override
             public void onStart() {
+                if (viewHolder.pb != null) {
+                    viewHolder.pb.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void onProgress(int progress) {
+                viewHolder.pb.setProgress(progress);
             }
 
             @Override
@@ -93,9 +97,9 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                     if (viewHolder.bigImageView.getSSIV() != null) {
                         viewHolder.bigImageView.getSSIV().setZoomEnabled(false);
                     }
-                    //if (viewHolder.rootView != null) {
-                    //    viewHolder.rootView.setBackgroundColor(Color.TRANSPARENT);
-                    //}
+                    if (viewHolder.pb != null) {
+                        viewHolder.pb.setVisibility(View.GONE);
+                    }
                 }
             }
 
@@ -179,24 +183,22 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
-        private LinearLayout rootView;
         private BigImageView bigImageView;
         private FloatingActionButton btDownload;
         private FloatingActionButton btShare;
         private FloatingActionButton btReport;
         private FloatingActionButton btCmt;
-        private LinearLayout llControl;
+        private ProgressBar pb;
 
         public ViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.tv_title);
-            rootView = (LinearLayout) v.findViewById(R.id.root_view);
             bigImageView = (BigImageView) v.findViewById(R.id.biv);
             btDownload = (FloatingActionButton) v.findViewById(R.id.bt_download);
             btShare = (FloatingActionButton) v.findViewById(R.id.bt_share);
             btReport = (FloatingActionButton) v.findViewById(R.id.bt_report);
             btCmt = (FloatingActionButton) v.findViewById(R.id.bt_cmt);
-            llControl = (LinearLayout) v.findViewById(R.id.ll_control);
+            pb = (ProgressBar) v.findViewById(R.id.pb);
         }
     }
 
