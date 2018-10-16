@@ -128,7 +128,8 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
-                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
+                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
+                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA);
                 break;
             case R.id.bt_chrome_cast_google:
                 intent = new Intent(activity, VideoBrowserActivity.class);

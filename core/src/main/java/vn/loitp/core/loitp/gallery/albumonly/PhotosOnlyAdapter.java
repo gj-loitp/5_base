@@ -12,8 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
+import com.github.piasy.biv.view.GlideImageViewFactory;
+import com.github.piasy.biv.view.ImageViewFactory;
 
 import java.io.File;
 
@@ -33,6 +36,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     private Context context;
     private LayoutInflater inflater;
     private int screenW;
+    private ImageViewFactory viewFactory = new GlideImageViewFactory();
+
 
     public PhotosOnlyAdapter(Context context, Callback callback) {
         this.context = context;
@@ -50,127 +55,21 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     public void onViewRecycled(@NonNull PhotosOnlyAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        holder.bigImageView.cancel();
+        holder.clear();
+    }
+
+    @Override
+    public void onViewAttachedToWindow(ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if (holder.hasNoImage()) {
+            holder.rebind();
+        }
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
-        int height = photo.getHeightO() * screenW / photo.getWidthO();
-        //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
-
-        //viewHolder.rootView.setBackgroundColor(LStoreUtil.getRandomColorLight());
-
-        viewHolder.bigImageView.getLayoutParams().width = screenW;
-        viewHolder.bigImageView.getLayoutParams().height = height;
-        viewHolder.bigImageView.requestLayout();
-
-        viewHolder.bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
-        viewHolder.bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
-            @Override
-            public void onCacheHit(int imageType, File image) {
-            }
-
-            @Override
-            public void onCacheMiss(int imageType, File image) {
-            }
-
-            @Override
-            public void onStart() {
-                if (viewHolder.pb != null) {
-                    viewHolder.pb.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onProgress(int progress) {
-                viewHolder.pb.setProgress(progress);
-            }
-
-            @Override
-            public void onFinish() {
-            }
-
-            @Override
-            public void onSuccess(File image) {
-                if (viewHolder != null) {
-                    if (viewHolder.bigImageView.getSSIV() != null) {
-                        viewHolder.bigImageView.getSSIV().setZoomEnabled(false);
-                    }
-                    if (viewHolder.pb != null) {
-                        viewHolder.pb.setVisibility(View.GONE);
-                    }
-                }
-            }
-
-            @Override
-            public void onFail(Exception error) {
-            }
-        });
-        if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
-            viewHolder.tvTitle.setVisibility(View.INVISIBLE);
-        } else {
-            viewHolder.tvTitle.setVisibility(View.VISIBLE);
-            viewHolder.tvTitle.setText(photo.getTitle());
-            LUIUtil.setTextShadow(viewHolder.tvTitle);
-        }
-        viewHolder.bigImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LLog.d(TAG, "setOnClickListener");
-                LAnimationUtil.play(viewHolder.bigImageView, Techniques.Pulse);
-                if (callback != null) {
-                    callback.onClick(photo, position);
-                }
-            }
-        });
-        viewHolder.bigImageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                LLog.d(TAG, "onLongClick");
-                LAnimationUtil.play(viewHolder.bigImageView, Techniques.Pulse);
-                if (callback != null) {
-                    callback.onLongClick(photo, position);
-                }
-                return true;
-            }
-        });
-        viewHolder.btDownload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickDownload(photo, position);
-                }
-            }
-        });
-        viewHolder.btShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickShare(photo, position);
-                }
-            }
-        });
-        viewHolder.btReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickReport(photo, position);
-                }
-            }
-        });
-        viewHolder.btCmt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LAnimationUtil.play(v, Techniques.Flash);
-                if (callback != null) {
-                    callback.onClickCmt(photo, position);
-                }
-            }
-        });
+        viewHolder.bind(photo, position);
     }
 
     @Override
@@ -181,7 +80,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         return PhotosDataCore.getInstance().getPhotoList().size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle;
         private BigImageView bigImageView;
         private FloatingActionButton btDownload;
@@ -189,6 +88,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         private FloatingActionButton btReport;
         private FloatingActionButton btCmt;
         private ProgressBar pb;
+        private Photo photo;
 
         public ViewHolder(View v) {
             super(v);
@@ -199,6 +99,141 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             btReport = (FloatingActionButton) v.findViewById(R.id.bt_report);
             btCmt = (FloatingActionButton) v.findViewById(R.id.bt_cmt);
             pb = (ProgressBar) v.findViewById(R.id.pb);
+            bigImageView.setTapToRetry(false);
+            bigImageView.setImageViewFactory(viewFactory);
+        }
+
+        void bind(Photo p, final int position) {
+            this.photo = p;
+            int height = photo.getHeightO() * screenW / photo.getWidthO();
+            //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
+
+            //viewHolder.rootView.setBackgroundColor(LStoreUtil.getRandomColorLight());
+
+            bigImageView.getLayoutParams().width = screenW;
+            bigImageView.getLayoutParams().height = height;
+            bigImageView.requestLayout();
+
+            bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
+            bigImageView.setImageLoaderCallback(new ImageLoader.Callback() {
+                @Override
+                public void onCacheHit(int imageType, File image) {
+                }
+
+                @Override
+                public void onCacheMiss(int imageType, File image) {
+                }
+
+                @Override
+                public void onStart() {
+                    if (pb != null) {
+                        pb.setVisibility(View.VISIBLE);
+                    }
+                }
+
+                @Override
+                public void onProgress(int progress) {
+                    pb.setProgress(progress);
+                }
+
+                @Override
+                public void onFinish() {
+                }
+
+                @Override
+                public void onSuccess(File image) {
+                    if (bigImageView.getSSIV() != null) {
+                        bigImageView.getSSIV().setZoomEnabled(false);
+                    }
+                    if (pb != null) {
+                        pb.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onFail(Exception error) {
+                }
+            });
+            if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
+                tvTitle.setVisibility(View.INVISIBLE);
+            } else {
+                tvTitle.setVisibility(View.VISIBLE);
+                tvTitle.setText(photo.getTitle());
+                LUIUtil.setTextShadow(tvTitle);
+            }
+            bigImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LLog.d(TAG, "setOnClickListener");
+                    LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                    if (callback != null) {
+                        callback.onClick(photo, position);
+                    }
+                }
+            });
+            bigImageView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    LLog.d(TAG, "onLongClick");
+                    LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                    if (callback != null) {
+                        callback.onLongClick(photo, position);
+                    }
+                    return true;
+                }
+            });
+            btDownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LAnimationUtil.play(v, Techniques.Flash);
+                    if (callback != null) {
+                        callback.onClickDownload(photo, position);
+                    }
+                }
+            });
+            btShare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LAnimationUtil.play(v, Techniques.Flash);
+                    if (callback != null) {
+                        callback.onClickShare(photo, position);
+                    }
+                }
+            });
+            btReport.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LAnimationUtil.play(v, Techniques.Flash);
+                    if (callback != null) {
+                        callback.onClickReport(photo, position);
+                    }
+                }
+            });
+            btCmt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LAnimationUtil.play(v, Techniques.Flash);
+                    if (callback != null) {
+                        callback.onClickCmt(photo, position);
+                    }
+                }
+            });
+        }
+
+        void rebind() {
+            bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
+        }
+
+        void clear() {
+            SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
+            if (ssiv != null) {
+                ssiv.recycle();
+            }
+        }
+
+        boolean hasNoImage() {
+            SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
+            return ssiv == null || !ssiv.hasImage();
         }
     }
 
