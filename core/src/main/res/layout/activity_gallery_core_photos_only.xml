@@ -38,13 +38,15 @@
             android:textColor="@color/White"
             android:textSize="@dimen/txt_20" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="@dimen/w_30"
-            android:layout_height="@dimen/w_30"
+        <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+            android:id="@+id/av"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/margin_15" />
+            android:layout_marginBottom="@dimen/margin_15"
+            app:indicatorColor="@color/White"
+            app:indicatorName="LineScalePulseOutRapidIndicator" />
 
     </RelativeLayout>
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>

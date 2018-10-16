@@ -59,6 +59,8 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         int height = photo.getHeightO() * screenW / photo.getWidthO();
         //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
 
+        //viewHolder.rootView.setBackgroundColor(LStoreUtil.getRandomColorLight());
+
         viewHolder.bigImageView.getLayoutParams().width = screenW;
         viewHolder.bigImageView.getLayoutParams().height = height;
         viewHolder.bigImageView.requestLayout();
@@ -87,8 +89,13 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
 
             @Override
             public void onSuccess(File image) {
-                if (viewHolder.bigImageView.getSSIV() != null) {
-                    viewHolder.bigImageView.getSSIV().setZoomEnabled(false);
+                if (viewHolder != null) {
+                    if (viewHolder.bigImageView.getSSIV() != null) {
+                        viewHolder.bigImageView.getSSIV().setZoomEnabled(false);
+                    }
+                    //if (viewHolder.rootView != null) {
+                    //    viewHolder.rootView.setBackgroundColor(Color.TRANSPARENT);
+                    //}
                 }
             }
 
