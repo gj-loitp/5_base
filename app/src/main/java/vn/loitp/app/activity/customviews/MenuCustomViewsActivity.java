@@ -17,7 +17,6 @@ import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity;
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity;
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity;
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity;
-import vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity;
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity;
 import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity;
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity;
@@ -60,7 +59,6 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         findViewById(R.id.bt_textview).setOnClickListener(this);
         findViewById(R.id.bt_bottom_bar).setOnClickListener(this);
         findViewById(R.id.bt_sticker).setOnClickListener(this);
-        findViewById(R.id.bt_gg_plus_button).setOnClickListener(this);
         findViewById(R.id.bt_layout).setOnClickListener(this);
         findViewById(R.id.bt_edit_text).setOnClickListener(this);
         findViewById(R.id.bt_videoview).setOnClickListener(this);
@@ -138,9 +136,6 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
                 break;
             case R.id.bt_sticker:
                 intent = new Intent(activity, StickerActivity.class);
-                break;
-            case R.id.bt_gg_plus_button:
-                intent = new Intent(activity, GooglePlusButtonActivity.class);
                 break;
             case R.id.bt_edit_text:
                 intent = new Intent(activity, EditTextMenuActivity.class);
