@@ -2,9 +2,8 @@ package vn.loitp.views.animation.flyschool;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
@@ -15,8 +14,8 @@ import vn.loitp.core.utilities.LImageUtil;
 
 public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
     private final String TAG = getClass().getSimpleName();
-    private SimpleDraweeView ivGift;
-    private SimpleDraweeView ivAvatar;
+    private ImageView ivGift;
+    private ImageView ivAvatar;
     //private TextView tvName;
 
     public LFlySchoolView(Context context) {
@@ -37,14 +36,14 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
     private void init() {
         inflate(getContext(), R.layout.view_l_fly_school, this);
 
-        this.ivGift = (SimpleDraweeView) findViewById(R.id.iv_gift);
-        this.ivAvatar = (SimpleDraweeView) findViewById(R.id.iv_avatar);
+        this.ivGift = (ImageView) findViewById(R.id.iv_gift);
+        this.ivAvatar = (ImageView) findViewById(R.id.iv_avatar);
         //this.tvName = (TextView) findViewById(R.id.tv_name);
     }
 
     @Override
-    public void setShape(int drawable) {
-        LImageUtil.loadImage(ivGift, drawable);
+    public void setShape(int drawableRes) {
+        LImageUtil.load(getContext(), drawableRes, ivGift);
     }
 
     @Override
@@ -56,14 +55,14 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
-                LImageUtil.loadImage(ivGift, urlGift);
+                LImageUtil.load(getContext(), urlGift, ivGift);
             } catch (NullPointerException e) {
                 //do nothing
             }
         } else {
-            LImageUtil.loadImage(ivGift, drawableRes);
+            LImageUtil.load(getContext(), drawableRes, ivGift);
         }
         String urlAvatar = imgObject.getAvatar();
-        LImageUtil.loadImage(ivAvatar, urlAvatar);
+        LImageUtil.load(getContext(), urlAvatar, ivAvatar);
     }
 }

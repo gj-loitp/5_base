@@ -65,7 +65,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
 
     compile 'jp.wasabeef:glide-transformations:2.0.2'
-    compile 'com.facebook.fresco:fresco:1.1.0'
+    //compile 'com.facebook.fresco:fresco:1.1.0'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
 

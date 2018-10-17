@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.animation.flyschool.ImgObject;
@@ -22,7 +20,6 @@ public class FlySchoolActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fresco.initialize(getApplicationContext());
         mShapeFlyer = (ShapeFlyer) findViewById(R.id.floating_container);
         btPlay1 = (Button) findViewById(R.id.bt_play_1);
         btPlay2 = (Button) findViewById(R.id.bt_play_2);
