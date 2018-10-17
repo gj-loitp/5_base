@@ -8,12 +8,16 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -24,16 +28,18 @@ import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private SlidePagerAdapter slidePagerAdapter;
     private TextView tvSize;
+    private LinearLayout rlControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        rlControl = (LinearLayout) findViewById(R.id.rl_control);
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransparentStatusNavigationBar();
-            LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getNavigationBarHeight(activity));
+            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getNavigationBarHeight(activity));
         } else {
-            LUIUtil.setMargins(findViewById(R.id.rl_control), 0, 0, 0, DisplayUtil.getStatusHeight(activity));
+            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
         int bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
@@ -182,5 +188,49 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         public int getCount() {
             return PhotosDataCore.getInstance().getSize();
         }
+    }
+
+    protected void toggleDisplayRlControl() {
+        if (isRlControlShowing) {
+            hideRlControl();
+        } else {
+            showRlControl();
+        }
+    }
+
+    private boolean isRlControlShowing = true;
+
+    private void showRlControl() {
+        if (rlControl == null) {
+            return;
+        }
+        rlControl.setVisibility(View.VISIBLE);
+        isRlControlShowing = true;
+        LAnimationUtil.play(rlControl, Techniques.SlideInUp);
+    }
+
+    private void hideRlControl() {
+        if (rlControl == null) {
+            return;
+        }
+        LAnimationUtil.play(rlControl, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onEnd() {
+                rlControl.setVisibility(View.INVISIBLE);
+                isRlControlShowing = false;
+            }
+
+            @Override
+            public void onRepeat() {
+            }
+
+            @Override
+            public void onStart() {
+            }
+        });
     }
 }

@@ -61,7 +61,7 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="normal" />
+            app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_download"
@@ -74,7 +74,7 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="normal" />
+            app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_share"
@@ -89,6 +89,6 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="normal" />
+            app:fabSize="mini" />
     </LinearLayout>
 </RelativeLayout>

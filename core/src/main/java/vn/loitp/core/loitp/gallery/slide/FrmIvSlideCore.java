@@ -106,5 +106,15 @@ public class FrmIvSlideCore extends Fragment {
             }
         });
         bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
+        bigImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity() == null) {
+                    return;
+                }
+                //LDeviceUtil.vibrate(getActivity());
+                ((GalleryCoreSlideActivity) getActivity()).toggleDisplayRlControl();
+            }
+        });
     }
 }
