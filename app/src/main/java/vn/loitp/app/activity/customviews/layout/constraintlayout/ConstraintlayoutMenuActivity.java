@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset.ConstraintSetActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity;
@@ -18,6 +19,7 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        findViewById(R.id.bt_constraint_set).setOnClickListener(this);
         findViewById(R.id.bt_demo).setOnClickListener(this);
         findViewById(R.id.bt_fab_n_snackbar).setOnClickListener(this);
         findViewById(R.id.bt_fab_follow_widget).setOnClickListener(this);
@@ -54,6 +56,9 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
                 break;
             case R.id.bt_custom_behavior:
                 intent = new Intent(activity, CustomBehaviorActivity.class);
+                break;
+            case R.id.bt_constraint_set:
+                intent = new Intent(activity, ConstraintSetActivity.class);
                 break;
         }
         if (intent != null) {
