@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,7 +22,6 @@ public class ExoPlayerActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         playerView = findViewById(R.id.player_view);
-
         linkPlay = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
         String linkIMAAd = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD);
 
@@ -30,6 +30,7 @@ public class ExoPlayerActivity extends BaseFontActivity {
         } else {
             playerManager = new PlayerManager(activity, linkIMAAd);
         }
+        playerManager.updateSizePlayerView(activity, playerView);
 
         findViewById(R.id.exo_fullscreen).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,16 @@ public class ExoPlayerActivity extends BaseFontActivity {
             playerManager.toggleFullscreen(activity);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            playerManager.updateSizePlayerView(activity, playerView);
+        } else {
+            playerManager.updateSizePlayerView(activity, playerView);
         }
     }
 }

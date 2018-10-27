@@ -18,6 +18,7 @@ package vn.loitp.views.exo;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.view.ViewGroup;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
@@ -166,4 +167,16 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
     }
 
+    public void updateSizePlayerView(Activity activity, PlayerView playerView) {
+        if (activity == null || playerView == null) {
+            return;
+        }
+        if (LScreenUtil.isFullScreen(activity)) {
+            playerView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            playerView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else {
+            playerView.getLayoutParams().height = LScreenUtil.getScreenWidth() * 9 / 16;
+        }
+        playerView.requestLayout();
+    }
 }
