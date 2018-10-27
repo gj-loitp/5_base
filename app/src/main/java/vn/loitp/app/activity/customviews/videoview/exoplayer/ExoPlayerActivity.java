@@ -1,17 +1,20 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.exo.PlayerManager;
 
+//custom UI exo_playback_control_view.xml
 public class ExoPlayerActivity extends BaseFontActivity {
     private PlayerView playerView;
-    private PlayerManager player;
+    private PlayerManager playerManager;
     private String linkPlay = "";
 
     @Override
@@ -23,10 +26,17 @@ public class ExoPlayerActivity extends BaseFontActivity {
         String linkIMAAd = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD);
 
         if (linkIMAAd == null) {
-            player = new PlayerManager(activity);
+            playerManager = new PlayerManager(activity);
         } else {
-            player = new PlayerManager(activity, linkIMAAd);
+            playerManager = new PlayerManager(activity, linkIMAAd);
         }
+
+        findViewById(R.id.exo_fullscreen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerManager.toggleFullscreen(activity);
+            }
+        });
     }
 
     @Override
@@ -47,18 +57,27 @@ public class ExoPlayerActivity extends BaseFontActivity {
     @Override
     public void onResume() {
         super.onResume();
-        player.init(this, playerView, linkPlay);
+        playerManager.init(this, playerView, linkPlay);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        player.reset();
+        playerManager.reset();
     }
 
     @Override
     public void onDestroy() {
-        player.release();
+        playerManager.release();
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (LScreenUtil.isFullScreen(activity)) {
+            playerManager.toggleFullscreen(activity);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

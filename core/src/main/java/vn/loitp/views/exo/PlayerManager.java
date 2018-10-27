@@ -15,6 +15,7 @@
  */
 package vn.loitp.views.exo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 
@@ -39,6 +40,8 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 
 /**
@@ -145,6 +148,21 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                 return new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
             default:
                 throw new IllegalStateException("Unsupported type: " + type);
+        }
+    }
+
+    public void toggleFullscreen(Activity activity) {
+        if (activity == null) {
+            return;
+        }
+        if (LScreenUtil.isFullScreen(activity)) {
+            //land -> port
+            LScreenUtil.toggleFullscreen(activity, false);
+            LActivityUtil.changeScreenPortrait(activity);
+        } else {
+            //port -> land
+            LScreenUtil.toggleFullscreen(activity, true);
+            LActivityUtil.changeScreenLandscape(activity);
         }
     }
 
