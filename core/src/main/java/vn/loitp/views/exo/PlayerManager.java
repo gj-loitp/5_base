@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package vn.loitp.app.activity.customviews.videoview.exoplayer;
+package vn.loitp.views.exo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -44,7 +44,7 @@ import vn.loitp.utils.util.AppUtils;
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
-final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
+public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
 
