@@ -243,4 +243,7 @@ public class Constants {
             R.drawable.ladybird,
             R.drawable.l_chat_2
     };
+
+    public final static String KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY";
+    public final static String KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD";
 }

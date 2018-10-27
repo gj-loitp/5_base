@@ -79,14 +79,14 @@ dependencies {
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
 
     //exoplayer
-    api 'com.google.android.exoplayer:exoplayer:2.8.4'
-    //compile 'com.google.android.exoplayer:exoplayer-core:2.7.3'
-    //api 'com.google.android.exoplayer:extension-ima:2.8.4'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.8.4'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.8.4'
-    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.4'
-    api 'com.google.android.exoplayer:exoplayer-ui:2.8.4'
-    //api 'com.google.android.exoplayer:extension-cast:2.8.4'
+    api 'com.google.android.exoplayer:exoplayer:2.9.0'
+    //compile 'com.google.android.exoplayer:exoplayer-core:2.9.0'
+    api 'com.google.android.exoplayer:extension-ima:2.9.0'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.9.0'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.9.0'
+    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.0'
+    api 'com.google.android.exoplayer:exoplayer-ui:2.9.0'
+    //api 'com.google.android.exoplayer:extension-cast:2.9.0'
     //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
 
     //https://github.com/rubensousa/PreviewSeekBar
