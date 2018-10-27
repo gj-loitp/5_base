@@ -37,7 +37,7 @@ public class MenuAdsActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobRewardedVideoActivity.class);
-                intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.app_id));
+                intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id));
                 intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward));
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);

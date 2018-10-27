@@ -1,94 +1,99 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
-    android:orientation="vertical"
-    android:weightSum="4">
+    android:background="@color/WhiteSmoke">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:fillViewport="true">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_5">
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fillViewport="true">
 
-            <ImageView
-                android:id="@+id/google_icon"
-                android:layout_width="@dimen/w_100"
-                android:layout_height="@dimen/w_100"
-                android:src="@drawable/googleg_standard_color_18" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_5">
 
-            <TextView
-                android:id="@+id/title_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/google_title_text" />
+                <ImageView
+                    android:id="@+id/google_icon"
+                    android:layout_width="@dimen/w_100"
+                    android:layout_height="@dimen/w_100"
+                    android:src="@drawable/googleg_standard_color_18" />
 
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/signed_out" />
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/google_title_text" />
 
-            <TextView
-                android:id="@+id/detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Firebase User ID: 123456789abc" />
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signed_out" />
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Firebase User ID: 123456789abc" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/LightGrey">
+            </LinearLayout>
+        </ScrollView>
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="visible"
-            tools:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/sign_out_and_disconnect"
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/LightGrey">
 
-            <Button
-                android:id="@+id/sign_out_button"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="0dp"
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/sign_out" />
+                android:layout_centerInParent="true"
+                android:visibility="visible"
+                tools:visibility="gone" />
 
-            <Button
-                android:id="@+id/disconnect_button"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/sign_out_and_disconnect"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/disconnect" />
-        </LinearLayout>
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-    </RelativeLayout>
+                <Button
+                    android:id="@+id/sign_out_button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/sign_out" />
 
-</LinearLayout>
+                <Button
+                    android:id="@+id/disconnect_button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/disconnect" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -16,6 +16,11 @@
             android:name="android.max_aspect"
             android:value="2.1" />
 
+        <!--https://ads-developers.googleblog.com/2018/10/announcing-v1700-of-android-google.html-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/str_app_id" />
+
         <activity
             android:name="vn.loitp.app.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -151,9 +156,6 @@
             android:name="vn.loitp.app.activity.customviews.sticker.StickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.googleplusbutton.GooglePlusButtonActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.demo.video.VideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -204,9 +206,6 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.btjzvideoplayer.JZVideoPlayerActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -466,14 +465,8 @@
             android:name="vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2.ExoPlayer2Activity"
-            android:screenOrientation="sensor" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel.ExoPlayer2WithDraggablePanelActivity"
-            android:screenOrientation="sensor" />
         <activity
             android:name="vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -493,13 +486,7 @@
             android:name="vn.loitp.app.activity.customviews.answerview.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel2.ExoPlayer2WithDraggablePanel2Activity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withdragpanel3.ExoPlayer2WithDraggablePanel3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity"
@@ -521,9 +508,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2fullscreen.ExoPlayer2FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.function.hashmap.HashMapActivity"
@@ -560,38 +544,7 @@
             android:name="vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.ExoPlayer2WithPreviewSeekbar"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBMainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2withpreviewseekbar.videowithpreviewseekbar.PBLocalActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PiPVideoActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-
-            android:supportsPictureInPicture="true" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.pipvideo.PipMediaSessionPlaybackActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-
-            android:supportsPictureInPicture="true" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.uizavideo.UizaVideoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayerdemofromgg.ExoPlayerDemoFromGGActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayerdemofromggima.ExoPlayerDemoFromGGIMActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.uizavideowithima.UizaVideoIMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity"
@@ -771,9 +724,6 @@
             android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -809,74 +759,12 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <!--START EXO PLAYER 2 CAST-->
-        <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer2cast.ExoPlayer2CastActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!--<meta-data
-            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />-->
-        <!--STOP EXO PLAYER 2 CAST-->
         <activity
             android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <!--START DEMO CHROMECAST-->
-        <activity
-            android:name="vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity"
-            android:label="@string/app_name">
-            <!-- <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
-        </activity>
-        <activity
-            android:name="vn.loitp.app.activity.demo.chromecast.mediaplayer.LocalPlayerActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
-            android:label="@string/app_name"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="vn.loitp.app.activity.demo.chromecast.settings.CastPreference"
-            android:label="@string/action_settings"
-            android:theme="@style/Theme.AppCompat">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="vn.loitp.app.activity.demo.chromecast.queue.ui.QueueListViewActivity"
-            android:label="@string/queue_list">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="vn.loitp.app.activity.demo.chromecast.expandedcontrols.ExpandedControlsActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-
-            android:theme="@style/Theme.CastVideosDark">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity" />
-        </activity>
-
-        <meta-data
-            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="vn.loitp.app.activity.demo.chromecast.CastOptionsProvider" />
-        <!--STOP DEMO CHROMECAST-->
         <activity
             android:name="vn.loitp.app.activity.customviews.menu.MenuMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -921,6 +809,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset.ConstraintSetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

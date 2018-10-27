@@ -5,11 +5,7 @@ import android.os.Bundle;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.loitp.more.FrmMore;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.FragmentUtils;
-import vn.loitp.views.uizavideo.view.util.UizaUtil;
 
 public class MoreActivity extends BaseFontActivity {
 

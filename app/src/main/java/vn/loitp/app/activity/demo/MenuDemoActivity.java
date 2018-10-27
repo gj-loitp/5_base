@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
-import vn.loitp.app.activity.demo.chromecast.VideoBrowserActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity;
 import vn.loitp.app.activity.demo.film.FilmDemoActivity;
@@ -41,7 +40,6 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_floating_video).setOnClickListener(this);
         findViewById(R.id.bt_firebase).setOnClickListener(this);
         findViewById(R.id.bt_film).setOnClickListener(this);
-        findViewById(R.id.bt_chrome_cast_google).setOnClickListener(this);
         if (Constants.IS_DEBUG) {
             findViewById(R.id.bt_gallery_core).setVisibility(View.VISIBLE);
             findViewById(R.id.bt_gallery_core).setOnClickListener(this);
@@ -130,9 +128,6 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA);
-                break;
-            case R.id.bt_chrome_cast_google:
-                intent = new Intent(activity, VideoBrowserActivity.class);
                 break;
             case R.id.bt_gallery_member:
                 intent = new Intent(activity, GalleryMemberActivity.class);

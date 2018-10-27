@@ -203,9 +203,6 @@ Likewise may someone love you next.
     <string name="ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="num_confetti_desc">Active confetti count: %1$d</string>
     <string name="sample_list_dialog_title">Add samples</string>
-
-    <!--<string name="app_id">4F8B3483</string>-->
-    <string name="app_id">CC1AD845</string>
     <string name="cast_app_name">GoogleCastPlayer</string>
     <string name="media_route_menu_title">Play on&#8230;</string>
     <string name="list_of_videos">Select a Video Clip</string>

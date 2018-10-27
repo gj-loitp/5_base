@@ -78,47 +78,47 @@ repositories {
 }
 
 dependencies {
-    implementation project(':core')
-    //compile 'com.github.tplloi:basemaster:3.0.2'
-    //implementation 'com.github.tplloi.basemaster:core:3.0.4'
+    api project(':core')
+    //api 'com.github.tplloi:basemaster:3.0.2'
+    //api 'com.github.tplloi.basemaster:core:3.0.4'
 
-    compile 'cn.jzvd:jiaozivideoplayer:6.1.1'
-    compile 'io.realm:realm-android:0.82.1'//realm
+    api 'io.realm:realm-android:0.82.1'//realm
 
     // [START gradle_play_config]
-    implementation 'com.google.firebase:firebase-ads:15.0.1'
+    api 'com.google.firebase:firebase-ads:17.0.0'
 
     // Firebase Authentication
-    implementation 'com.google.firebase:firebase-auth:16.0.1'
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    api 'com.google.firebase:firebase-auth:16.0.5'
+    api 'com.google.firebase:firebase-core:16.0.4'
 
     // Google Sign In SDK (only required for Google Sign In)
-    implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    api 'com.google.android.gms:play-services-auth:16.0.1'
 
     // Firebase UI
     // Used in FirebaseUIActivity.
-    implementation 'com.firebaseui:firebase-ui-auth:4.0.0'
+    api 'com.firebaseui:firebase-ui-auth:4.0.0'
 
     // Facebook Android SDK (only required for Facebook Login)
     // Used in FacebookLoginActivity.
-    implementation 'com.facebook.android:facebook-login:4.32.0'
+    api 'com.facebook.android:facebook-login:4.34.0'
 
     //remote config
-    implementation 'com.google.firebase:firebase-config:16.0.0'
+    api 'com.google.firebase:firebase-config:16.1.0'
 
     //database
-    implementation 'com.firebaseui:firebase-ui-database:4.0.0'
+    api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
-    implementation 'com.google.firebase:firebase-database:16.0.1'
+    api 'com.google.firebase:firebase-database:16.0.3'
 
     // Needed to fix a dependency conflict with FirebaseUI'
-    implementation 'android.arch.core:runtime:1.1.1'
+    api 'android.arch.core:runtime:1.1.1'
 
     //invites
-    implementation 'com.google.firebase:firebase-invites:16.0.1'
+    api 'com.google.firebase:firebase-invites:16.0.4'
 
     /*fcm*/
     //compile 'com.google.android.gms:play-services:12.0.1'
-    implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    api 'com.google.firebase:firebase-messaging:17.3.4'
 }
 apply plugin: 'com.google.gms.google-services'
+//com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
