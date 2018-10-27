@@ -18,6 +18,8 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.utils.util.Utils;
 
 //TODO is debug
+//TODO Demo -> Android floating video
+//TODO Demo -> Video
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;

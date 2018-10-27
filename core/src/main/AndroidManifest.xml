@@ -21,24 +21,11 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
-        <!--<receiver android:name="vn.loitp.core.utilities.LConectifyService">
-            <intent-filter>
-                &lt;!&ndash;<action android:name="android.net.wifi.STATE_CHANGE" />&ndash;&gt;
-                &lt;!&ndash;<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />&ndash;&gt;
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>-->
 
         <service
             android:name="vn.loitp.core.utilities.connection.LConectifyService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <service
-            android:name="vn.loitp.views.uizavideo.view.floatview.FloatingUizaVideoService"
-            android:enabled="true"
-            android:exported="false" />
-
         <activity
             android:name="vn.loitp.core.loitp.adhelper.AdHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -60,13 +47,11 @@
             android:name="vn.loitp.core.loitp.facebookcomment.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
-
         <service android:name="vn.loitp.views.scrog.ScrogService" />
         <service
             android:name="vn.loitp.views.ldebugview.LDebugViewService"
             android:enabled="true"
             android:exported="false" />
-
         <activity
             android:name="vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"

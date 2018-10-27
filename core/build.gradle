@@ -72,31 +72,26 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
 
-    api 'com.google.android.gms:play-services-cast-framework:15.0.1'
-    api 'com.google.android.gms:play-services-ads:15.0.1'
-    api 'com.google.android.gms:play-services-location:15.0.1'
+    //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
+    api 'com.google.android.gms:play-services-ads:17.0.0'
+    api 'com.google.android.gms:play-services-location:16.0.0'
 
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
 
     //exoplayer
-    /*compile 'com.google.android.exoplayer:exoplayer:2.7.3'
-    compile 'com.google.android.exoplayer:extension-ima:2.7.3'
-    compile 'com.google.android.exoplayer:exoplayer-dash:2.7.3'
-    compile 'com.google.android.exoplayer:exoplayer-ui:2.7.3'*/
-
-    api 'com.google.android.exoplayer:exoplayer:2.7.3'
+    api 'com.google.android.exoplayer:exoplayer:2.8.4'
     //compile 'com.google.android.exoplayer:exoplayer-core:2.7.3'
-    api 'com.google.android.exoplayer:extension-ima:2.7.3'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.7.3'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.7.3'
-    api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.7.3'
-    api 'com.google.android.exoplayer:exoplayer-ui:2.7.3'
-    api 'com.google.android.exoplayer:extension-cast:2.7.3'
-    api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
+    //api 'com.google.android.exoplayer:extension-ima:2.8.4'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.8.4'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.8.4'
+    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.4'
+    api 'com.google.android.exoplayer:exoplayer-ui:2.8.4'
+    //api 'com.google.android.exoplayer:extension-cast:2.8.4'
+    //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
 
     //https://github.com/rubensousa/PreviewSeekBar
-    api 'com.github.rubensousa:previewseekbar:1.2'
-    api 'com.github.rubensousa:previewseekbar-exoplayer:2.6.0'
+    //api 'com.github.rubensousa:previewseekbar:2.0.0'
+    //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
 
     //https://github.com/juliome10/DoubleViewPager
     api 'com.github.juliome10:DoubleViewPager:1.0.4@aar'

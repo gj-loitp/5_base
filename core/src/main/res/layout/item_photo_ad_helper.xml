@@ -35,7 +35,8 @@
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:textColor="@color/Black"
-        android:textSize="@dimen/txt_14" />
+        android:textSize="@dimen/txt_14"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/bt_okay"

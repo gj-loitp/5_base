@@ -16,7 +16,6 @@ import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
 import vn.loitp.app.activity.function.recolor.RecolorActivity;
 import vn.loitp.app.activity.function.scrog.ScrogActivity;
 import vn.loitp.app.activity.function.sensor.SensorActivity;
-import vn.loitp.app.activity.function.sensorvideo.SensorVideoActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity;
@@ -42,7 +41,6 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_notification).setOnClickListener(this);
         findViewById(R.id.bt_view_drag_helper_simple).setOnClickListener(this);
         findViewById(R.id.bt_sensor).setOnClickListener(this);
-        findViewById(R.id.bt_sensor_video).setOnClickListener(this);
         findViewById(R.id.bt_scrog).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
     }
@@ -101,9 +99,6 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_sensor:
                 intent = new Intent(activity, SensorActivity.class);
-                break;
-            case R.id.bt_sensor_video:
-                intent = new Intent(activity, SensorVideoActivity.class);
                 break;
             case R.id.bt_scrog:
                 intent = new Intent(activity, ScrogActivity.class);

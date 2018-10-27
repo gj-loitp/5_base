@@ -26,8 +26,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.app.LSApplication;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -136,7 +136,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                         } else {
                             // If sign in fails, display a message to the user.
                             LLog.d(TAG, "signInWithCredential:failure " + task.getException());
-                            Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(findViewById(R.id.root_view), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
 
