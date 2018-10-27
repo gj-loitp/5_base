@@ -95,13 +95,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             }
         });
 
-        if (position == 0 || position == 1) {
+        if (position == 0) {
             viewHolder.viewSpaceTop.setVisibility(View.VISIBLE);
             viewHolder.viewSpaceBottom.setVisibility(View.GONE);
-        } else if (getItemCount() % 2 == 0 && (position == (getItemCount() - 1) || position == (getItemCount() - 2))) {
-            viewHolder.viewSpaceTop.setVisibility(View.GONE);
-            viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
-        } else if (getItemCount() % 2 != 0 && position == (getItemCount() - 1)) {
+        } else if (position == (getItemCount() - 1)) {
             viewHolder.viewSpaceTop.setVisibility(View.GONE);
             viewHolder.viewSpaceBottom.setVisibility(View.VISIBLE);
         } else {

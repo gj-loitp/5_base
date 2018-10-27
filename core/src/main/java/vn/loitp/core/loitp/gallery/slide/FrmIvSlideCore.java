@@ -75,7 +75,7 @@ public class FrmIvSlideCore extends Fragment {
 
             @Override
             public void onProgress(int progress) {
-                LLog.d(TAG, "onProgress " + progress);
+                //LLog.d(TAG, "onProgress " + progress);
                 if (tvProgress != null) {
                     tvProgress.setVisibility(View.VISIBLE);
                     tvProgress.setText(progress + "%");
