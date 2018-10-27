@@ -52,21 +52,21 @@
         android:orientation="horizontal"
         android:paddingTop="4dp">
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_prev"
-            style="@style/ExoMediaButton.Previous" />
+            style="@style/ExoMediaButton.Previous" />-->
 
         <ImageButton
             android:id="@id/exo_rew"
             style="@style/ExoMediaButton.Rewind" />
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_shuffle"
-            style="@style/ExoMediaButton.Shuffle" />
+            style="@style/ExoMediaButton.Shuffle" />-->
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_repeat_toggle"
-            style="@style/ExoMediaButton" />
+            style="@style/ExoMediaButton" />-->
 
         <ImageButton
             android:id="@id/exo_play"
@@ -80,16 +80,15 @@
             android:id="@id/exo_ffwd"
             style="@style/ExoMediaButton.FastForward" />
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@id/exo_next"
-            style="@style/ExoMediaButton.Next" />
+            style="@style/ExoMediaButton.Next" />-->
 
         <ImageButton
             android:id="@+id/exo_fullscreen"
             android:layout_width="@dimen/exo_media_button_width"
             android:layout_height="@dimen/exo_media_button_height"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/exo_controls_fullscreen_enter"
             android:tint="@color/White" />
     </LinearLayout>
 </LinearLayout>

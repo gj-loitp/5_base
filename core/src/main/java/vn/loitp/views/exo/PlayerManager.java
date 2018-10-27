@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
@@ -41,6 +42,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
@@ -167,15 +169,17 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
     }
 
-    public void updateSizePlayerView(Activity activity, PlayerView playerView) {
-        if (activity == null || playerView == null) {
+    public void updateSizePlayerView(Activity activity, PlayerView playerView, ImageButton exoFullscreen) {
+        if (activity == null || playerView == null || exoFullscreen == null) {
             return;
         }
         if (LScreenUtil.isFullScreen(activity)) {
             playerView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
             playerView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit);
         } else {
             playerView.getLayoutParams().height = LScreenUtil.getScreenWidth() * 9 / 16;
+            exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter);
         }
         playerView.requestLayout();
     }
