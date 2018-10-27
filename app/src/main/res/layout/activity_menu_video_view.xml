@@ -25,12 +25,6 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_jzvideoplayer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="JZVideoPlayer" />
-
-            <Button
                 android:id="@+id/bt_exoplayer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
