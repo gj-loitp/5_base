@@ -12,6 +12,7 @@
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="@dimen/padding_5"
             android:textColor="@color/grey"
             android:textSize="@dimen/txt_14" />

@@ -106,4 +106,7 @@ dependencies {
     api 'com.github.piasy:BigImageViewer:1.5.5'
     api 'com.github.piasy:GlideImageLoader:1.5.5'
     api 'com.github.piasy:GlideImageViewFactory:1.5.5'
+
+    //https://github.com/thealeksandr/PFLockScreen-Android
+    api 'com.github.thealeksandr:PFLockScreen-Android:1.0.0-beta3'
 }
