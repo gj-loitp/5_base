@@ -2,6 +2,7 @@ package vn.loitp.app.activity.security.fingerprint;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 
 import com.beautycoder.pflockscreen.PFFLockScreenConfiguration;
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment;
@@ -9,16 +10,23 @@ import com.beautycoder.pflockscreen.security.PFFingerprintPinCodeHelper;
 import com.beautycoder.pflockscreen.security.PFSecurityException;
 
 import loitp.basemaster.R;
+import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.LToast;
 
+//customize UI style/FingerPrintTheme
 public class FingerPrintActivity extends BaseFontActivity {
+    //private RelativeLayout rlMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //rlMsg = (RelativeLayout) findViewById(R.id.rl_msg);
+        //rlMsg.setVisibility(View.GONE);
+        LScreenUtil.toggleFullscreen(activity, true);
         showLockScreenFragment();
     }
 
@@ -94,8 +102,8 @@ public class FingerPrintActivity extends BaseFontActivity {
                     })*/
 
                     .setUseFingerprint(true);
-            PFLockScreenFragment fragment = new PFLockScreenFragment();
 
+            PFLockScreenFragment fragment = new PFLockScreenFragment();
             builder.setMode(isPinExist ? PFFLockScreenConfiguration.MODE_AUTH : PFFLockScreenConfiguration.MODE_CREATE);
             if (isPinExist) {
                 fragment.setEncodedPinCode(LPref.getPassCode(this));
@@ -103,7 +111,9 @@ public class FingerPrintActivity extends BaseFontActivity {
             }
             fragment.setConfiguration(builder.build());
             fragment.setCodeCreateListener(mCodeCreateListener);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).setCustomAnimations(android.R.anim.fade_in, 0).commit();
 
         } catch (PFSecurityException e) {
             LLog.e(TAG, "PFSecurityException " + e.toString());
@@ -113,7 +123,10 @@ public class FingerPrintActivity extends BaseFontActivity {
     }
 
     private void showMainFragment() {
+        LScreenUtil.toggleFullscreen(activity, false);
         Fragment fragment = new MainFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        FragmentTransaction transaction = ((BaseActivity) activity).getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment).commit();
+        //transaction.replace(R.id.container, fragment).setCustomAnimations(R.anim.pdlg_anim_fade_out, 0).commit();
     }
 }
