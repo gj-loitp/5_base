@@ -216,7 +216,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
-                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.Red));
+                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.RedTrans));
                 tvConnectStt.setPadding(20, 20, 20, 20);
                 tvConnectStt.setGravity(Gravity.CENTER);
                 //tvConnectStt.setText(R.string.check_ur_connection);
@@ -242,6 +242,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
         } else {
             //LLog.d(TAG, "rootView == null");
+        }
+    }
+
+    public void goneTvNoConnect() {
+        if (tvConnectStt != null) {
+            tvConnectStt.setVisibility(View.GONE);
         }
     }
 
