@@ -60,6 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private InterstitialAd interstitialAd;
 
     protected boolean isShowAdWhenExist = true;
+    protected boolean isShowTvConnectStt = false;
 
     protected RelativeLayout getRootView() {
         return rootView;
@@ -212,7 +213,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void showTvNoConnect() {
         if (rootView != null) {
-            if (tvConnectStt == null) {
+            if (tvConnectStt == null && isShowTvConnectStt) {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
