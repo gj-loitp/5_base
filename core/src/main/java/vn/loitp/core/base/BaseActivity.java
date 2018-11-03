@@ -212,8 +212,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private TextView tvConnectStt;
 
     private void showTvNoConnect() {
-        if (rootView != null) {
-            if (tvConnectStt == null && isShowTvConnectStt) {
+        if (rootView != null && isShowTvConnectStt) {
+            if (tvConnectStt == null) {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
@@ -246,7 +246,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void goneTvNoConnect() {
+    protected void goneTvNoConnect() {
         if (tvConnectStt != null) {
             tvConnectStt.setVisibility(View.GONE);
         }
