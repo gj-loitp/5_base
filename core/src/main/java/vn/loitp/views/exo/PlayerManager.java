@@ -57,6 +57,10 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private SimpleExoPlayer player;
     private long contentPosition;
 
+    public SimpleExoPlayer getPlayer() {
+        return player;
+    }
+
     public PlayerManager(Context context) {
         this.adsLoader = null;
         dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
@@ -182,5 +186,17 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter);
         }
         playerView.requestLayout();
+    }
+
+    public void pauseVideo() {
+        if (player != null) {
+            player.setPlayWhenReady(false);
+        }
+    }
+
+    public void resumeVideo() {
+        if (player != null) {
+            player.setPlayWhenReady(true);
+        }
     }
 }
