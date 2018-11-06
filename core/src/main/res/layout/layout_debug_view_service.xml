@@ -20,7 +20,6 @@
 
             <!--Icon of floating widget -->
             <ImageView
-                android:id="@+id/collapsed_iv"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
                 android:layout_marginTop="@dimen/margin_5"

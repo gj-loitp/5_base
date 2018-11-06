@@ -9,14 +9,12 @@
         android:layout_height="match_parent">
 
         <View
-            android:id="@+id/bottom_bar_background"
             android:layout_width="match_parent"
             android:layout_height="50.0dip"
             android:layout_alignParentBottom="true"
             android:background="@drawable/player_bottom_bar" />
 
         <View
-            android:id="@+id/top_bar_background"
             android:layout_width="match_parent"
             android:layout_height="56.0dip"
             android:layout_alignParentTop="true"

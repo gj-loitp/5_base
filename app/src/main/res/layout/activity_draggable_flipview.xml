@@ -7,7 +7,6 @@
     android:background="@color/LightGrey">
 
     <vn.loitp.views.draggableflipview.DraggableFlipView
-        android:id="@+id/draggable_flip_view"
         android:layout_width="@dimen/w_350"
         android:layout_height="@dimen/w_250"
         android:layout_centerInParent="true"

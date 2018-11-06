@@ -18,7 +18,6 @@
         android:layout_height="wrap_content">
 
         <vn.loitp.views.layout.autolinearlayout.AutoLinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"

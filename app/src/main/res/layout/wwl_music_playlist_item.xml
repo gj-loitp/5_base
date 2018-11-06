@@ -44,7 +44,6 @@
         android:layout_centerVertical="true">
 
         <ImageView
-            android:id="@+id/contextual_menu_anchor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"

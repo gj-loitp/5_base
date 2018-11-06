@@ -35,6 +35,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ExoPlayer2 IMA Ad" />
+
+            <Button
+                android:id="@+id/bt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Place controller under the video without overlapping the video" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

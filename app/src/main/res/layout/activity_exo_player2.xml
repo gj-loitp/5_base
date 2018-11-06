@@ -3,56 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Black">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:keepScreenOn="true"
+            app:auto_show="false" />
 
-            <FrameLayout
-                android:id="@+id/main_media_frame"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-                    android:id="@+id/exoplayer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    app:controller_layout_id="@layout/exo_controller_default" />
-
-            </FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="@dimen/txt_18" />
-
-            <Button
-                android:id="@+id/bt_m3u8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="M3U8"
-                android:textSize="@dimen/txt_18" />
-
-            <Button
-                android:id="@+id/bt_mp3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="MP3"
-                android:textSize="@dimen/txt_18" />
-        </LinearLayout>
-    </ScrollView>
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="@string/large_text"
+                android:textColor="@color/White" />
+        </ScrollView>
+    </LinearLayout>
 </RelativeLayout>
 

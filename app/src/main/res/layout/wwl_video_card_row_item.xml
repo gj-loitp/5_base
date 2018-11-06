@@ -22,7 +22,6 @@
             android:src="@drawable/iv" />
 
         <TextView
-            android:id="@+id/li_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -60,7 +59,6 @@
     </FrameLayout>
 
     <RelativeLayout
-        android:id="@+id/details_container"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/thumbnail_container"
@@ -100,7 +98,6 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/li_overflow"
         android:layout_width="48.0dip"
         android:layout_height="48.0dip"
         android:layout_alignParentRight="true"

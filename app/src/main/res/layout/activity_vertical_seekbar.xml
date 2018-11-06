@@ -53,7 +53,6 @@
 
             <!-- Clock wise - 270 -->
             <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
-                android:id="@+id/seekBarContainer2"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_marginLeft="50dp"
@@ -63,7 +62,6 @@
                 android:minWidth="10dp">
 
                 <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                    android:id="@+id/seekBar2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
@@ -101,7 +99,6 @@
                     android:layout_height="150dp">
 
                     <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                        android:id="@+id/seekBar3"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
@@ -110,7 +107,6 @@
 
                 <!-- Clock wise - 270 -->
                 <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
-                    android:id="@+id/seekBarContainer4"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_marginLeft="50dp"
@@ -119,7 +115,6 @@
                     android:layout_toRightOf="@+id/seekBarContainer3">
 
                     <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
-                        android:id="@+id/seekBar4"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
