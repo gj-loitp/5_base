@@ -41,6 +41,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Place controller under the video without overlapping the video" />
+
+            <Button
+                android:id="@+id/bt_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Switch target view" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
