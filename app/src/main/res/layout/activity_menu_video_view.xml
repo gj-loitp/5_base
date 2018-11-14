@@ -47,6 +47,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Switch target view" />
+
+            <Button
+                android:id="@+id/bt_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UZVideo" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
