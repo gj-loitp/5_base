@@ -94,7 +94,12 @@ public class UZVideo extends RelativeLayout {
         }
     }
 
-    public void play(final String entityId) {
+    public void playUrl(String linkPlay) {
+        this.linkPlay = linkPlay;
+        playerManager.init(activity, playerView, linkPlay);
+    }
+
+    public void playEntity(final String entityId) {
         getTokenStreaming(entityId, new Callback() {
             @Override
             public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay) {

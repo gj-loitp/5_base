@@ -19,10 +19,16 @@ public class UZActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
+        findViewById(R.id.bt_any_linkplay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uzVideo.playUrl("https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
+            }
+        });
         findViewById(R.id.bt_vod).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uzVideo.play(entityIdDefaultVOD);
+                uzVideo.playEntity(entityIdDefaultVOD);
             }
         });
     }
