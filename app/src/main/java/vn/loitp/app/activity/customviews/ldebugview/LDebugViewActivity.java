@@ -9,7 +9,6 @@ import android.widget.Button;
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.restapi.livestar.corev3.api.model.v3.roomgetbycategory.User;
 import vn.loitp.views.ldebugview.ComunicateDebug;
 import vn.loitp.views.ldebugview.LDebug;
 
@@ -95,6 +94,45 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 user.setEmail("www.muathu@gmail.com");
                 LDebug.log(user);
                 break;
+        }
+    }
+
+    public class User {
+        private String avatar;
+        private String address;
+        private String cover;
+        private String email;
+
+        public String getAvatar() {
+            return avatar;
+        }
+
+        public void setAvatar(String avatar) {
+            this.avatar = avatar;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getCover() {
+            return cover;
+        }
+
+        public void setCover(String cover) {
+            this.cover = cover;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
     }
 }

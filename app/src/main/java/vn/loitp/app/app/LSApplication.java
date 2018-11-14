@@ -15,6 +15,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.ActivityData;
 import vn.loitp.data.AdmobData;
+import vn.loitp.utils.util.UizaUtils;
 import vn.loitp.utils.util.Utils;
 
 //TODO is debug
@@ -22,6 +23,14 @@ public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;
     private Gson gson;
+
+    //prod
+    public static final String DF_DOMAIN_API = "teamplayer.uiza.co";
+    public static final String DF_TOKEN = "uap-01e137ad1b534004ad822035bf89b29f-b9b31f29";
+    public static final String DF_APP_ID = "01e137ad1b534004ad822035bf89b29f";
+    public static String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
+    public static String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
+    public static String metadataDefault0 = "53c2e63e-6ddf-4259-8159-cb43371943d1";
 
     @Override
     public void onCreate() {
@@ -53,6 +62,9 @@ public class LSApplication extends MultiDexApplication {
 
         //big imageview
         BigImageViewer.initialize(GlideImageLoader.with(getApplicationContext()));
+
+        //uiza rest api
+        UizaUtils.initWorkspace(DF_DOMAIN_API, DF_TOKEN, Constants.URL_GET_LINK_PLAY_PROD);
     }
 
     public Gson getGson() {

@@ -47,7 +47,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.core.utilities.connection.LConectifyService;
 import vn.loitp.data.EventBusData;
-import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
+import vn.loitp.exception.NoConnectionException;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
