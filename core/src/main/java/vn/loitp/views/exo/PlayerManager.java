@@ -23,12 +23,16 @@ import android.widget.ImageButton;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
+import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.source.ads.AdsMediaSource;
 import com.google.android.exoplayer2.source.dash.DashMediaSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
@@ -36,14 +40,17 @@ import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.google.android.exoplayer2.video.VideoListener;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 
@@ -51,6 +58,7 @@ import vn.loitp.utils.util.AppUtils;
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
+    private final String TAG = getClass().getSimpleName();
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
 
@@ -107,6 +115,57 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             player.prepare(mediaSourceWithAds);
         }
         player.setPlayWhenReady(true);
+        player.addListener(new Player.EventListener() {
+            @Override
+            public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+            }
+
+            @Override
+            public void onLoadingChanged(boolean isLoading) {
+                LLog.d(TAG, "onLoadingChanged " + isLoading);
+            }
+
+            @Override
+            public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+                switch (playbackState) {
+                    case Player.STATE_BUFFERING:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        break;
+                    case Player.STATE_IDLE:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        break;
+                    case Player.STATE_READY:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        break;
+                    case Player.STATE_ENDED:
+                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        break;
+                }
+            }
+
+            @Override
+            public void onPlayerError(ExoPlaybackException error) {
+            }
+
+            @Override
+            public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+            }
+        });
+        player.addVideoListener(new VideoListener() {
+            @Override
+            public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
+                LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
+            }
+
+            @Override
+            public void onSurfaceSizeChanged(int width, int height) {
+                LLog.d(TAG, "onSurfaceSizeChanged " + width + "x" + height);
+            }
+
+            @Override
+            public void onRenderedFirstFrame() {
+            }
+        });
     }
 
     public void reset() {
