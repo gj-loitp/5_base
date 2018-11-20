@@ -5,10 +5,9 @@
     <item name="y_scale_factor" format="float" type="dimen">2.3</item>
     <dimen name="top_fragment_margin">10dip</dimen>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <!-- ShowCaseView -->
-
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

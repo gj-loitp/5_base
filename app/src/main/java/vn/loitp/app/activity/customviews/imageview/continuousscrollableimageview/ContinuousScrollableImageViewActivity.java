@@ -23,7 +23,7 @@ public class ContinuousScrollableImageViewActivity extends BaseFontActivity {
         rootLayout.addView(image);*/
 
         //Builder Way
-        /*image = new ContinuousScrollableImageView.Builder(MainActivity.this)
+        /*image = new ContinuousScrollableImageView.Builder(MenuMotionLayoutActivity.this)
                 .setResourceId(R.drawable.bg_sample)
                 .setDirection(ContinuousScrollableImageView.UP)
                 .setDuration(3000)

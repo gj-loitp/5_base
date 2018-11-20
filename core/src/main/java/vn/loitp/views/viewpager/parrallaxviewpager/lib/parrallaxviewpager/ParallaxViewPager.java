@@ -57,7 +57,7 @@ public class ParallaxViewPager extends ViewPager {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ParallaxViewPager, 0,
                 0);
         mMode =
-                Mode.values()[a.getInt(R.styleable.ParallaxViewPager_mode, 0)];
+                Mode.values()[a.getInt(R.styleable.ParallaxViewPager_modeParallaxViewPager, 0)];
         setMode(mMode);
 
         if (a.hasValue(R.styleable.ParallaxViewPager_right_shadow)) {
@@ -78,7 +78,7 @@ public class ParallaxViewPager extends ViewPager {
                 setOutset(mOutset);
             }
         }
-        final int resID = a.getResourceId(R.styleable.ParallaxViewPager_interpolator, 0);
+        final int resID = a.getResourceId(R.styleable.ParallaxViewPager_interpolatorParallaxViewPager, 0);
         if (resID > 0) {
             setInterpolator(context, resID);
         }

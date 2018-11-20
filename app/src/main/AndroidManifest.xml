@@ -829,6 +829,13 @@
             android:name="vn.loitp.app.activity.security.fingerprint.FingerPrintActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/FingerPrintTheme" />
+
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.DemoActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity2" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExampleActivity" />
+        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExample2Activity" />
     </application>
 
 </manifest>
