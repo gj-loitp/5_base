@@ -11,10 +11,10 @@ import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.Fragm
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExampleActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity2
-import vn.loitp.core.base.BaseActivity
+import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.core.utilities.LActivityUtil
 
-class MenuMotionLayoutActivity : BaseActivity(), CompoundButton.OnCheckedChangeListener {
+class MenuMotionLayoutActivity : BaseFontActivity(), CompoundButton.OnCheckedChangeListener {
     override fun setFullScreen(): Boolean {
         return false;
     }

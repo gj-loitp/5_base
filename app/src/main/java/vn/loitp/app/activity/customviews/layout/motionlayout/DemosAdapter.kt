@@ -9,8 +9,8 @@ import loitp.basemaster.R
 
 class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) : RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
 
-    data class Demo(val title: String, val description: String, val layout: Int = 0, val activity: Class<*> = DemoActivity::class.java) {
-        constructor(title: String, description: String, activity: Class<*> = DemoActivity::class.java) : this(title, description, 0, activity)
+    data class Demo(val title: String, val description: String, val layout: Int = 0, val activity: Class<*> = DemoMotionLayoutActivity::class.java) {
+        constructor(title: String, description: String, activity: Class<*> = DemoMotionLayoutActivity::class.java) : this(title, description, 0, activity)
     }
 
     class ViewHolder(val layout: ConstraintLayout) : RecyclerView.ViewHolder(layout) {

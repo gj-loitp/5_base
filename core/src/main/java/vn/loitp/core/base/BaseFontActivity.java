@@ -3,10 +3,9 @@ package vn.loitp.core.base;
 import android.content.Context;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-import vn.loitp.core.base.BaseActivity;
 
 /**
- * Created by LENOVO on 6/3/2018.
+ * Created by loitp on 6/3/2018.
  */
 
 public class BaseFontActivity extends BaseActivity {
