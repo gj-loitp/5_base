@@ -115,13 +115,14 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
 
         // Prepare the player with the source.
-        player.seekTo(contentPosition);
         if (mediaSourceWithAds == null) {
             player.prepare(contentMediaSource);
         } else {
             player.prepare(mediaSourceWithAds);
         }
         player.setPlayWhenReady(true);
+        player.seekTo(contentPosition);
+        //LLog.d(TAG, "seekTo contentPosition: " + contentPosition);
         player.addListener(new Player.EventListener() {
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
@@ -203,6 +204,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public void release() {
         if (player != null) {
+            contentPosition = 0;
             player.release();
             player = null;
         }

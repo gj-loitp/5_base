@@ -6,6 +6,7 @@ import android.view.View;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.data.EventBusData;
 import vn.loitp.views.uzvideo.UZVideo;
 
 //custom UI exo_playback_control_view.xml
@@ -72,6 +73,15 @@ public class UZActivity extends BaseFontActivity {
             uzVideo.toggleFullscreen();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onNetworkChange(EventBusData.ConnectEvent event) {
+        super.onNetworkChange(event);
+        //LLog.d(TAG, "onNetworkChange isConnected " + event.isConnected());
+        if (uzVideo != null) {
+            uzVideo.onNetworkChange(event);
         }
     }
 }

@@ -13,7 +13,9 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.data.EventBusData;
 import vn.loitp.data.UZData;
 import vn.loitp.restapi.uiza.UZRestClient;
 import vn.loitp.restapi.uiza.UZRestClientGetLinkPlay;
@@ -54,9 +56,13 @@ public class UZVideo extends RelativeLayout {
         init();
     }
 
+    private boolean isConnectedFirst;
+
     private void init() {
         inflate(getContext(), R.layout.view_uz_video, this);
         activity = (BaseActivity) getContext();
+        isConnectedFirst = LConnectivityUtil.isConnected(activity);
+        //LLog.d(TAG, "isConnectedFirst " + isConnectedFirst);
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
@@ -199,6 +205,26 @@ public class UZVideo extends RelativeLayout {
     public void hideLoading() {
         if (avl != null) {
             avl.smoothToHide();
+        }
+    }
+
+    public void onNetworkChange(EventBusData.ConnectEvent event) {
+        if (event == null) {
+            return;
+        }
+        if (isConnectedFirst) {
+            isConnectedFirst = false;
+            return;
+        }
+        //LLog.d(TAG, "onNetworkChange isConnected " + event.isConnected());
+        if (event.isConnected()) {
+            if (playerManager == null) {
+                //LLog.d(TAG, "null");
+            } else {
+                //LLog.d(TAG, "play again");
+                playerManager.reset();
+                playerManager.init(activity, this, playerView, linkPlay);
+            }
         }
     }
 }
