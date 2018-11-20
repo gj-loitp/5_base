@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2018 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.customviews.layout.motionlayout
 
 import android.support.constraint.ConstraintLayout
@@ -23,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import loitp.basemaster.R
 
-class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) :
-        RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
+class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) : RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
 
     data class Demo(val title: String, val description: String, val layout: Int = 0, val activity: Class<*> = DemoActivity::class.java) {
         constructor(title: String, description: String, activity: Class<*> = DemoActivity::class.java) : this(title, description, 0, activity)
@@ -39,18 +22,13 @@ class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) :
         init {
             layout.setOnClickListener {
                 val context = it?.context as MenuMotionLayoutActivity
-                activity?.let {
-                    context.start(it, layoutFileId)
-                }
+                activity?.let { context.start(it, layoutFileId) }
             }
         }
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): DemosAdapter.ViewHolder {
-        val row = LayoutInflater.from(parent.context)
-                .inflate(R.layout.row, parent, false) as ConstraintLayout
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DemosAdapter.ViewHolder {
+        val row = LayoutInflater.from(parent.context).inflate(R.layout.row_menu_motion_layout, parent, false) as ConstraintLayout
         return ViewHolder(row)
     }
 
