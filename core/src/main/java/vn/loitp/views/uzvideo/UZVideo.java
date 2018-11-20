@@ -24,6 +24,7 @@ import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.ResultGetTokenS
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.SendGetTokenStreaming;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.exo.PlayerManager;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
@@ -35,6 +36,7 @@ public class UZVideo extends RelativeLayout {
     private PlayerManager playerManager;
     private String linkPlay = "";
     private ImageButton exoFullscreen;
+    private AVLoadingIndicatorView avl;
     private BaseActivity activity;
 
     public UZVideo(Context context) {
@@ -57,6 +59,7 @@ public class UZVideo extends RelativeLayout {
         activity = (BaseActivity) getContext();
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
+        avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
 
         playerManager = new PlayerManager(activity);
         playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
@@ -96,12 +99,14 @@ public class UZVideo extends RelativeLayout {
 
     public void playUrl(String linkPlay) {
         playerManager.release();
+        showLoading();
         this.linkPlay = linkPlay;
-        playerManager.init(activity, playerView, linkPlay);
+        playerManager.init(activity, this, playerView, linkPlay);
     }
 
     public void playEntity(final String entityId) {
         playerManager.release();
+        showLoading();
         getTokenStreaming(entityId, new Callback() {
             @Override
             public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay) {
@@ -113,7 +118,7 @@ public class UZVideo extends RelativeLayout {
                         }
                     }
                     LLog.d(TAG, "linkPlay " + linkPlay);
-                    playerManager.init(activity, playerView, linkPlay);
+                    playerManager.init(activity, UZVideo.this, playerView, linkPlay);
                 } catch (NullPointerException e) {
                     LLog.e(TAG, "Error NullPointerException " + e.toString());
                 }
@@ -183,5 +188,17 @@ public class UZVideo extends RelativeLayout {
         public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay);
 
         public void onFail(Throwable e);
+    }
+
+    public void showLoading() {
+        if (avl != null) {
+            avl.smoothToShow();
+        }
+    }
+
+    public void hideLoading() {
+        if (avl != null) {
+            avl.smoothToHide();
+        }
     }
 }

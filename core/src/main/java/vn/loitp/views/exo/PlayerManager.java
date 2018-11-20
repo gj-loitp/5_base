@@ -50,15 +50,16 @@ import com.google.android.exoplayer2.video.VideoListener;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
+import vn.loitp.views.uzvideo.UZVideo;
 
 /**
  * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
  */
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private final String TAG = getClass().getSimpleName();
+    private UZVideo uzVideo;
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
 
@@ -81,7 +82,13 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
     }
 
-    public void init(Context context, PlayerView playerView, String linkPlay) {
+    public void init(Context context, final PlayerView playerView, String linkPlay) {
+        init(context, null, playerView, linkPlay);
+    }
+
+    public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay) {
+        this.uzVideo = uzVideo;
+
         // Create a default track selector.
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -122,29 +129,47 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                LLog.d(TAG, "onLoadingChanged " + isLoading);
+                //LLog.d(TAG, "onLoadingChanged " + isLoading);
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        if (uzVideo != null) {
+                            uzVideo.showLoading();
+                        }
                         break;
                     case Player.STATE_IDLE:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        if (uzVideo != null) {
+                            uzVideo.showLoading();
+                        }
                         break;
                     case Player.STATE_READY:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        if (uzVideo != null) {
+                            uzVideo.hideLoading();
+                        }
                         break;
                     case Player.STATE_ENDED:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        if (uzVideo != null) {
+                            uzVideo.hideLoading();
+                        }
+                        if (playerView != null) {
+                            playerView.showController();
+                        }
                         break;
                 }
             }
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
+                if (uzVideo != null) {
+                    uzVideo.hideLoading();
+                }
             }
 
             @Override
@@ -154,12 +179,12 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         player.addVideoListener(new VideoListener() {
             @Override
             public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-                LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
+                //LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
             }
 
             @Override
             public void onSurfaceSizeChanged(int width, int height) {
-                LLog.d(TAG, "onSurfaceSizeChanged " + width + "x" + height);
+                //LLog.d(TAG, "onSurfaceSizeChanged " + width + "x" + height);
             }
 
             @Override

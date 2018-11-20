@@ -12,4 +12,13 @@
         app:auto_show="false"
         app:controller_layout_id="@layout/exo_playback_control_view_uz_video" />
 
+    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+        android:id="@+id/avl"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="@dimen/w_25"
+        android:layout_height="@dimen/w_25"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/White"
+        app:indicatorName="BallZigZagDeflectIndicator" />
+
 </RelativeLayout>
