@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,12 +43,33 @@ public class MenuLottieActivity extends BaseFontActivity {
     }
 
     private void prepareData() {
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
-        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        getListAssetFiles("lottie");
+        for (int i = 0; i < stringList.size(); i++) {
+            lottieItemList.add(new LottieItem(i + " - " + stringList.get(i), "lottie/" + stringList.get(i)));
+        }
         lottieAdapter.notifyDataSetChanged();
+    }
+
+    private List<String> stringList = new ArrayList<>();
+
+    private boolean getListAssetFiles(String path) {
+        String[] list;
+        try {
+            list = getAssets().list(path);
+            if (list.length > 0) {
+                // This is a folder
+                for (String file : list) {
+                    if (!getListAssetFiles(path + "/" + file))
+                        return false;
+                    else {
+                        // This is a file
+                        stringList.add(file);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
     }
 }
