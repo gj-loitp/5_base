@@ -17,4 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:layout_below="@+id/animation_view"
+        android:layout_marginTop="@dimen/margin_5"
+        android:background="@color/grey" />
 </RelativeLayout>

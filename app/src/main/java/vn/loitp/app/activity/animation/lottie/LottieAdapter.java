@@ -21,7 +21,7 @@ import loitp.basemaster.R;
 public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieViewHolder> {
     private final String TAG = getClass().getSimpleName();
     private Context context;
-    private List<String> itemList;
+    private List<LottieItem> lottieItemList;
 
     public class LottieViewHolder extends RecyclerView.ViewHolder {
         public RelativeLayout rootView;
@@ -36,9 +36,9 @@ public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieView
         }
     }
 
-    public LottieAdapter(Context context, List<String> itemList) {
+    public LottieAdapter(Context context, List<LottieItem> lottieItemList) {
         this.context = context;
-        this.itemList = itemList;
+        this.lottieItemList = lottieItemList;
     }
 
     @Override
@@ -49,9 +49,9 @@ public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieView
 
     @Override
     public void onBindViewHolder(LottieViewHolder holder, int position) {
-        String s = itemList.get(position);
-        holder.tv.setText(s);
-        holder.lottieAnimationView.setAnimation("lottie/a.json");
+        LottieItem lottieItem = lottieItemList.get(position);
+        holder.tv.setText(lottieItem.getName());
+        holder.lottieAnimationView.setAnimation(lottieItem.getPathAsset());
         //holder.lottieAnimationView.playAnimation();
         //holder.lottieAnimationView.loop(true);
 
@@ -65,6 +65,6 @@ public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieView
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return lottieItemList.size();
     }
 }

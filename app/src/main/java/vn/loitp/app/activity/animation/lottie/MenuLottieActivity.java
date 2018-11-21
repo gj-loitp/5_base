@@ -12,7 +12,7 @@ import vn.loitp.core.base.BaseFontActivity;
 
 //https://www.lottiefiles.com/?page=1
 public class MenuLottieActivity extends BaseFontActivity {
-    private List<String> stringList = new ArrayList<>();
+    private List<LottieItem> lottieItemList = new ArrayList<>();
     private RecyclerView recyclerView;
     private LottieAdapter lottieAdapter;
 
@@ -20,7 +20,7 @@ public class MenuLottieActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
-        lottieAdapter = new LottieAdapter(activity, stringList);
+        lottieAdapter = new LottieAdapter(activity, lottieItemList);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setAdapter(lottieAdapter);
         prepareData();
@@ -42,10 +42,12 @@ public class MenuLottieActivity extends BaseFontActivity {
     }
 
     private void prepareData() {
-        String cover;
-        for (int i = 0; i < 5; i++) {
-            stringList.add("Loitp " + i);
-        }
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
+        lottieItemList.add(new LottieItem("1", "lottie/a.json"));
         lottieAdapter.notifyDataSetChanged();
     }
 }
