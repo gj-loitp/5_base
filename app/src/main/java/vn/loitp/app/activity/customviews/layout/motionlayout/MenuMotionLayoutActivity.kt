@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.CompoundButton
 import kotlinx.android.synthetic.main.activity_menu_motion_layout.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExample2Activity
+import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExample2Activity
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExampleActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity2
@@ -54,8 +54,7 @@ class MenuMotionLayoutActivity : BaseFontActivity(), CompoundButton.OnCheckedCha
             DemosAdapter.Demo("Complex Motion Example (3/4)", "Advanced CoordinatorLayout-like behavior (adding a FAB). Implemented with MotionLayout only, using direct resizing of the view.", R.layout.motion_19_coordination),
             DemosAdapter.Demo("Complex Motion Example (4/4)", "Advanced Synchronized reval motion + helper (bounce). Implemented with MotionLayout only.", R.layout.motion_20_reveal),
             DemosAdapter.Demo("Fragment Transition Example (1/2)", "Example showing transitioning fragments within MotionLayout", MotionLayoutFragmentExampleActivity::class.java),
-
-            DemosAdapter.Demo("Fragment Transition Example (2/2)", "Example showing transitioning fragments within MotionLayout", FragmentExample2Activity::class.java)
+            DemosAdapter.Demo("Fragment Transition Example (2/2)", "Example showing transitioning fragments within MotionLayout", MotionLayoutFragmentExample2Activity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
