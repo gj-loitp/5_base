@@ -38,9 +38,9 @@ class MenuMotionLayoutActivity : BaseFontActivity(), CompoundButton.OnCheckedCha
             DemosAdapter.Demo("ImageFilterView (1/2)", "Show image cross-fade (using ML's ImageFilterView + custom attribute)", R.layout.motion_04_imagefilter),
             DemosAdapter.Demo("ImageFilterView (2/2)", "Show image saturation transition (using ML's ImageFilterView + custom attribute)", R.layout.motion_05_imagefilter),
             DemosAdapter.Demo("Keyframe Position (1/3)", "Use a simple keyframe to change the interpolated motion", R.layout.motion_06_keyframe),
-
             DemosAdapter.Demo("Keyframe Interpolation (2/3)", "More complex keyframe, adding rotation interpolation", R.layout.motion_07_keyframe),
             DemosAdapter.Demo("Keyframe Cycle (3/3)", "Basic example of using a keyframe cycle ", R.layout.motion_08_cycle),
+            
             DemosAdapter.Demo("CoordinatorLayout Example (1/3)", "Basic example of using MotionLayout instead of AppBarLayout", R.layout.motion_09_coordinatorlayout),
             DemosAdapter.Demo("CoordinatorLayout Example (2/3)", "Slightly more complex example of MotionLayout replacing AppBarLayout, with multiple elements and parallax background", R.layout.motion_10_coordinatorlayout),
             DemosAdapter.Demo("CoordinatorLayout Example (3/3)", "Another AppBarLayout replacement example", R.layout.motion_11_coordinatorlayout),
