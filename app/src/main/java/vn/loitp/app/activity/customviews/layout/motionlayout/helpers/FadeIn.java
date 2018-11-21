@@ -37,6 +37,7 @@ public class FadeIn extends MotionHelper {
 
     @Override
     public void setProgress(View view, float progress) {
-        view.setAlpha(progress);
+        if (view != null)
+            view.setAlpha(progress);
     }
 }

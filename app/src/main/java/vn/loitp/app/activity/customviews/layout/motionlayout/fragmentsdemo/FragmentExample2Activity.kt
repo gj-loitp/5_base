@@ -21,7 +21,7 @@ import android.support.constraint.motion.MotionLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.activity_motion_layout_fragment_example.*
 import loitp.basemaster.R
 
 class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
@@ -30,7 +30,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
         if (progress - lastProgress > 0) {
             // from start to end
             val atEnd = Math.abs(progress - 1f) < 0.1f
-            if (atEnd && fragment is MainFragment) {
+            if (atEnd && fragment is MotionLayoutMainFragment) {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
@@ -46,7 +46,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
-                fragment = MainFragment.newInstance()
+                fragment = MotionLayoutMainFragment.newInstance()
                 transaction
                         .replace(R.id.container, fragment)
                         .commitNow()
@@ -65,10 +65,10 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_motion_layout_fragment_example)
         var fragment: Fragment? = null
         if (savedInstanceState == null) {
-            fragment = MainFragment.newInstance()
+            fragment = MotionLayoutMainFragment.newInstance()
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, fragment)
                     .commitNow()
@@ -82,15 +82,15 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
         if (view?.id == R.id.toggle) {
             val transaction = supportFragmentManager.beginTransaction()
             var fragment: Fragment? = null
-            fragment = if (fragment == null || fragment is MainFragment) {
+            fragment = if (fragment == null || fragment is MotionLayoutMainFragment) {
                 last = 1f
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
-                SecondFragment.newInstance()
+                MotionLayoutSecondFragment.newInstance()
             } else {
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
-                MainFragment.newInstance()
+                MotionLayoutMainFragment.newInstance()
             }
             transaction
                     .replace(R.id.container, fragment)
