@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
@@ -20,14 +21,8 @@ public class ConstraintSetActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRootLayout = (ConstraintLayout) findViewById(R.id.activity_constraintset_example);
-        // Note that this can also be achieved by calling
-        // `mConstraintSetNormal.load(this, R.layout.constraintset_example_main);`
-        // Since we already have an inflated ConstraintLayout in `mRootLayout`, clone() is
-        // faster and considered the best practice.
         mConstraintSetNormal.clone(mRootLayout);
-        // Load the constraints from the layout where ImageView is enlarged.
         mConstraintSetBig.load(this, R.layout.constraintset_example_big);
-
         if (savedInstanceState != null) {
             boolean previous = savedInstanceState.getBoolean(SHOW_BIG_IMAGE);
             if (previous != mShowBigImage) {
@@ -65,10 +60,10 @@ public class ConstraintSetActivity extends BaseFontActivity {
         outState.putBoolean(SHOW_BIG_IMAGE, mShowBigImage);
     }
 
-    // Method called when the ImageView within R.layout.constraintset_example_main
-    // is clicked.
     public void toggleMode(View v) {
-        TransitionManager.beginDelayedTransition(mRootLayout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            TransitionManager.beginDelayedTransition(mRootLayout);
+        }
         mShowBigImage = !mShowBigImage;
         applyConfig();
     }

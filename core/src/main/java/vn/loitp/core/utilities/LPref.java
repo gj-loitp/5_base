@@ -26,6 +26,7 @@ public class LPref {
     public static final String TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB";
     public static String JSON_BOOK_ASSET = "JSON_BOOK_ASSET";
     public static final String INDEX = "INDEX";
+    public static final String PASS_CODE = "PASS_CODE";
     //object
     /*public User getUser() {
         SharedPreferences pref = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
@@ -105,5 +106,18 @@ public class LPref {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putString(JSON_BOOK_ASSET, value);
         editor.apply();
+    }
+
+    public static void savePassCode(Context context, String str) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(PASS_CODE, str);
+        editor.commit();
+    }
+
+    public static String getPassCode(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+        String defaultValue = "";
+        return sharedPref.getString(PASS_CODE, defaultValue);
     }
 }

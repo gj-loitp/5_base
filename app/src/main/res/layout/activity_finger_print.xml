@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<RelativeLayout
+        android:id="@+id/rl_msg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <vn.loitp.views.realtimeblurview.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="@dimen/round_15"
+            app:realtimeOverlayColor="@color/black_65" />
+
+        <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/margin_10"
+            app:indicatorColor="@color/White"
+            app:indicatorName="BallPulseIndicator" />
+
+    </RelativeLayout>-->
+
+</RelativeLayout>
+

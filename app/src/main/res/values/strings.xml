@@ -42,7 +42,6 @@ Likewise may someone love you next.
         <item>180</item>
         <item>300</item>
     </string-array>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -132,7 +131,6 @@ Likewise may someone love you next.
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
     <string name="input_hint">text</string>
     <string name="label_normal">Normal:</string>
     <string name="label_autofit">Autofit:</string>
@@ -155,19 +153,11 @@ Likewise may someone love you next.
     <string name="sign_out">Sign Out</string>
     <string name="disconnect">Disconnect</string>
     <string name="google_status_fmt">Google User: %s</string>
-    <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="facebook_title_text">Facebook Login</string>
     <string name="facebook_status_fmt">Facebook User: %s</string>
 
-    <string name="menu_login">Log in</string>
-    <string name="menu_logout">Log out</string>
-    <string name="login_label">Log In</string>
-    <string name="email_label">Email</string>
-    <string name="password_label">Password</string>
-    <string name="send_text">Send</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
-    <string name="title_sign_in">Welcome</string>
     <string name="sign_up">Sign Up</string>
     <string name="hint_password">password</string>
     <string name="hint_email">email</string>
@@ -175,121 +165,39 @@ Likewise may someone love you next.
     <string name="heading_recent">Recent</string>
     <string name="heading_my_posts">My Posts</string>
     <string name="heading_my_top_posts">My Top Posts</string>
-    <string name="action_deep_link">com.google.android.gms.samples.appinvite.DEEP_LINK_ACTION</string>
-    <string name="invite">Send invitations!</string>
-    <string name="welcome">Invites</string>
-    <string name="referrer_hint">Deep link not provided</string>
-    <string name="deep_link_default">Deep link not set</string>
-    <string name="invitation_id_default">Invitation ID not set</string>
     <string name="invite_friends">Invite Friends</string>
     <string name="invitation_title">Send App Invite Quickstart Invitation</string>
     <string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>
     <string name="invitation_deep_link">http://example.com/offer/five_dollar_offer</string>
     <string name="invitation_custom_image">https://developers.google.com/identity/images/g-logo.png</string>
     <string name="invitation_cta">Install!</string>
-    <string name="deep_link_fmt" formatted="false">Deep Link: %s</string>
     <string name="send_failed">Sending invitations failed</string>
-    <string name="invite_dialog_title">You got an invitation!</string>
     <string name="google_play_services_error">Google Play Services Error</string>
     <string name="generate_confetti_once">Once</string>
     <string name="generate_confetti_stream">Stream</string>
     <string name="generate_confetti_infinite">Infinite</string>
     <string name="stop_confetti">Stop</string>
-    <string name="falling_confetti_from_top">Falling confetti from top</string>
-    <string name="falling_confetti_from_point">Falling confetti from point</string>
-    <string name="explosion_confetti">Explosion</string>
-    <string name="shimmering_confetti">Shimmering confetti</string>
-    <string name="ice_flakes_with_touch">Falling ice flakes with touch</string>
-    <string name="ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="num_confetti_desc">Active confetti count: %1$d</string>
-    <string name="sample_list_dialog_title">Add samples</string>
-    <string name="cast_app_name">GoogleCastPlayer</string>
-    <string name="media_route_menu_title">Play on&#8230;</string>
-    <string name="list_of_videos">Select a Video Clip</string>
     <string name="ok">OK</string>
-    <string name="no_device">(No Device Selected)</string>
-    <string name="error">Error</string>
-    <string name="stop">Stop</string>
-    <string name="mute">Mute</string>
-    <string name="unmute">Unmute</string>
     <string name="loading">Loading&#8230;</string>
-    <string name="no_video_found">No video was found</string>
-    <string name="about_app">About Cast Videos</string>
-    <string name="version">CastVideos: %1$s</string>
-    <string name="session_reconnection_attempt">Attempting to recover previous
-        session&#8230;</string>
-    <string name="introducing_cast">Introducting Cast</string>
 
     <!-- Error messages -->
     <!-- onApplicationConnectionFailed() errors -->
-    <string name="failed_to_set_volume">Failed to set the volume</string>
-    <string name="failed_to_launch_app">Failed to launch application</string>
-    <string name="failed_to_set_mute">Failed to adjust the volume mute</string>
-    <string name="failed_to_find_app">The application you are trying to launch is not available on
-        your Chromecast device
-    </string>
-    <string name="failed_app_launch_timeout">The request to launch the application has timed out!
-    </string>
-    <string name="failed_to_play">Failed to start the playback of media</string>
-    <string name="failed_to_pause">Failed to pause the playback of media</string>
-    <string name="failed_to_connect">Could not connect to the device</string>
-    <string name="failed_to_seek">Failed to seek to the specified position on the remote device
-    </string>
-    <string name="video_error_media_load_timeout">Media loading timed out</string>
-    <string name="video_error_server_unaccessible">Media server was not reachable</string>
-    <string name="video_error_unknown_error">Failed to load video</string>
-    <string name="connection_temp_lost">Connection to the cast device is temporarily lost</string>
-    <string name="connection_recovered">Connection to the cast device is recovered</string>
-    <string name="connection_lost_retry">Connection to the cast device has been temporarily lost.
-        Application is trying to recover connection, please try again later
-    </string>
-    <string name="connection_lost">No connection to the cast device exist</string>
-    <string name="failed_to_perform_action">Sorry, ran into issues performing the task you wanted
-    </string>
-    <string name="oops">Oops</string>
 
     <!-- Preferences -->
-    <string name="prefs_header_application">Application Behavior</string>
-    <string name="prefs_header_application_summary">Control how the application behaves on the TV
-    </string>
-    <string name="prefs_termination_policy_default">0</string>
-    <string name="prefs_termination_policy_dialog_title">When Disconnecting</string>
-    <string name="prefs_volume_title">Volume Assignment</string>
-    <string name="prefs_volume_title_summary">Controls %1$s</string>
-    <string name="prefs_volume_dialog_title">Volume Assignment</string>
-    <string name="prefs_volume_default">device</string>
-    <string name="title_activity_test">TestActivity</string>
 
     <!-- Tabs -->
-    <string name="tab_videos_title">Videos</string>
-    <string name="tab_music_title">Songs</string>
-    <string name="tab_photos_title">Photos</string>
 
     <!-- ShowCaseView -->
-    <string name="touch_to_cast">Touch to cast videos to your TV</string>
 
     <!-- Captions -->
-    <string name="captions_settings">Captions Settings</string>
-    <string name="captions">Captions</string>
 
     <!-- Queue -->
-    <string name="show_queue">Show Queue</string>
-    <string name="queue_list">Queue</string>
-    <string name="transition_image">transition-image</string>
-    <string name="queue_empty">Queue is empty!</string>
-    <string name="queue_tag_item">queue-tag-item</string>
-    <string name="play_now">Play Now</string>
-    <string name="play_next">Play Next</string>
-    <string name="add_to_queue">Add to Queue</string>
-    <string name="action_clear_queue">Clear Queue</string>
-    <string name="queue_item_added_to_play_next">An item was added to play next</string>
-    <string name="queue_item_added_to_queue">An item was added to the queue</string>
     <string name="scene">Scene</string>
     <string name="scene_1">1</string>
     <string name="scene_2">2</string>
     <string name="scene_3">3</string>
     <string name="scene_4">4</string>
-    <string name="hello">Hello!</string>
     <string name="additional_message">This text fades in and out.</string>
     <string name="image_header">%1$s by %2$s</string>
     <string-array name="vertical_positions">

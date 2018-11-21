@@ -14,6 +14,7 @@ public class Constants {
 
     public static final int NOT_FOUND = -6969;
 
+    public final static String URL_IMG_THUMBNAIL = "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg";
     public final static String URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg";
     public final static String URL_IMG_1 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg";
     public final static String URL_IMG_2 = "https://c1.staticflickr.com/5/4263/35746631876_0c45ec2943_h.jpg";
@@ -246,4 +247,8 @@ public class Constants {
 
     public final static String KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY";
     public final static String KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD";
+
+    public final static String URL_GET_LINK_PLAY_DEV = "https://dev-ucc.uizadev.io/";
+    public final static String URL_GET_LINK_PLAY_STAG = "https://stag-ucc.uizadev.io/";
+    public final static String URL_GET_LINK_PLAY_PROD = "https://ucc.uiza.io/";
 }

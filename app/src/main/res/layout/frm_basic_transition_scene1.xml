@@ -19,7 +19,6 @@
         android:src="@drawable/ic_launcher" />
 
     <ImageView
-        android:id="@+id/transition_oval"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_below="@id/transition_image"

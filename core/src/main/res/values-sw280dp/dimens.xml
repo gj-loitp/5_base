@@ -13,7 +13,6 @@
     <dimen name="pdlg_tv_message">11.2sp</dimen>
 
     <!-- BUTTON -->
-    <dimen name="pdlg_button_stroke">1.4dp</dimen>
 
     <!-- SPACING -->
     <dimen name="pdlg_space_1.0x">8.4dp</dimen>

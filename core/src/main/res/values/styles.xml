@@ -123,7 +123,6 @@
     </style>
 
     <color name="aw_cevap_1">#FFFFFF</color>
-    <color name="aw_cevap_2">#FBE7EC</color>
     <color name="aw_cevap_border">#D61D7D</color>
     <color name="aw_cevap_ic">#4fe0bc</color>
     <color name="aw_cevap_text">@color/aw_cevap_border</color>

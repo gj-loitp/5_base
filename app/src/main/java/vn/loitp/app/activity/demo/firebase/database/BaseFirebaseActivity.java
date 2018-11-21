@@ -6,11 +6,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import vn.loitp.core.base.BaseFontActivity;
 
-/**
- * Created by LENOVO on 6/5/2018.
- */
-
-public class BaseFirebaseActivity extends BaseFontActivity {
+public abstract class BaseFirebaseActivity extends BaseFontActivity {
     private ProgressDialog mProgressDialog;
 
     public void showProgressDialog() {

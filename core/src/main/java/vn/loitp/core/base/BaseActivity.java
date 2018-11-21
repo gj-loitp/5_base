@@ -7,7 +7,6 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,16 +14,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
@@ -40,14 +35,13 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.core.utilities.connection.LConectifyService;
 import vn.loitp.data.EventBusData;
-import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
+import vn.loitp.exception.NoConnectionException;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
@@ -56,16 +50,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Activity activity;
     protected String TAG;
     private RelativeLayout rootView;
-
     private InterstitialAd interstitialAd;
-
     protected boolean isShowAdWhenExist = true;
+    //protected boolean isShowTvConnectStt = false;
 
     protected RelativeLayout getRootView() {
         return rootView;
     }
 
     protected void setRootViewPadding() {
+        if (rootView == null) {
+            return;
+        }
         rootView.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity));
     }
 
@@ -106,7 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
         if (rootView == null) {
-            throw new NullPointerException("Please set top root layout is relative layout, and set id root_view");
+            LLog.e(TAG, "BE CAREFUL LOITP -> " + TAG + "rootView == null");
         }
 
         scheduleJob();
@@ -147,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    protected void subscribe(Observable observable, Subscriber subscriber) {
+    public void subscribe(Observable observable, Subscriber subscriber) {
         if (!LConnectivityUtil.isConnected(activity)) {
             subscriber.onError(new NoConnectionException());
             return;
@@ -208,15 +204,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private TextView tvConnectStt;
+    //private TextView tvConnectStt;
 
-    private void showTvNoConnect() {
-        if (rootView != null) {
+    /*private void showTvNoConnect() {
+        if (rootView != null && isShowTvConnectStt) {
             if (tvConnectStt == null) {
                 //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
                 tvConnectStt = new TextView(activity);
                 tvConnectStt.setTextColor(Color.WHITE);
-                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.Red));
+                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.RedTrans));
                 tvConnectStt.setPadding(20, 20, 20, 20);
                 tvConnectStt.setGravity(Gravity.CENTER);
                 //tvConnectStt.setText(R.string.check_ur_connection);
@@ -243,9 +239,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             //LLog.d(TAG, "rootView == null");
         }
-    }
+    }*/
 
-    private void hideTvNoConnect() {
+    /*protected void goneTvNoConnect() {
+        if (tvConnectStt != null) {
+            tvConnectStt.setVisibility(View.GONE);
+        }
+    }*/
+
+    /*private void hideTvNoConnect() {
         if (tvConnectStt != null) {
             LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
                 @Override
@@ -272,23 +274,22 @@ public abstract class BaseActivity extends AppCompatActivity {
             });
             tvConnectStt = null;
         }
-    }
+    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(EventBusData.ConnectEvent event) {
         //TAG = "onMessageEvent";
         //LLog.d(TAG, "onMessageEvent " + event.isConnected());
         onNetworkChange(event);
-        if (!event.isConnected()) {
+        /*if (!event.isConnected()) {
             //no network
             showTvNoConnect();
         } else {
             hideTvNoConnect();
-        }
+        }*/
     }
 
     protected void onNetworkChange(EventBusData.ConnectEvent event) {
-
     }
 
     @Override
@@ -310,13 +311,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         if (!LConnectivityUtil.isConnected(activity)) {
             showTvNoConnect();
         }
         super.onResume();
-    }
+    }*/
 
 
     private void scheduleJob() {

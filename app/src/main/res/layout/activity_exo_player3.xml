@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_0_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch 0-1" />
+
+        <Button
+            android:id="@+id/bt_1_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch 1_0" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_5"
+            android:text="PlayerView 0"
+            android:textColor="@color/White" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:keepScreenOn="true"
+            app:auto_show="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_5"
+            android:text="PlayerView 1"
+            android:textColor="@color/White" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:keepScreenOn="true"
+            app:auto_show="false" />
+    </LinearLayout>
+</RelativeLayout>
+

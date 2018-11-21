@@ -26,18 +26,49 @@ public class LToast {
     }
 
     @SuppressLint("InflateParams")
+    public static void showShort(Context context, String msg) {
+        show(context, msg, Toast.LENGTH_SHORT, R.drawable.bkg_primary_black);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void showLong(Context context, String msg) {
+        show(context, msg, Toast.LENGTH_LONG, R.drawable.bkg_primary_black);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void showShort(Context context, String msg, int backgroundRes) {
+        show(context, msg, Toast.LENGTH_SHORT, backgroundRes);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void showLong(Context context, String msg, int backgroundRes) {
+        show(context, msg, Toast.LENGTH_LONG, backgroundRes);
+    }
+
+    @SuppressLint("InflateParams")
     public static void show(Context context, int resource, int length) {
-        show(context, context.getResources().getString(resource), length);
+        show(context, context.getResources().getString(resource), length, R.drawable.bkg_primary_black);
     }
 
     @SuppressLint("InflateParams")
     public static void show(Context context, String msg, int length) {
+        show(context, msg, length, R.drawable.bkg_primary_black);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void show(Context context, int resource, int length, int backgroundRes) {
+        show(context, context.getResources().getString(resource), length, backgroundRes);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void show(Context context, String msg, int length, int backgroundRes) {
         clear();
         try {
             LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View layout = inf.inflate(R.layout.l_toast, null);
             TextView textView = (TextView) layout.findViewById(R.id.tv_loading);
             textView.setText(msg);
+            textView.setBackgroundResource(backgroundRes);
             Toast toast = new Toast(context);
             toast.setGravity(Gravity.BOTTOM, 0, 0);
             toast.setDuration(length);

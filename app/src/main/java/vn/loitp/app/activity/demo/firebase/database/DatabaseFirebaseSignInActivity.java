@@ -116,7 +116,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         // Write new user
         writeNewUser(user.getUid(), username, user.getEmail());
 
-        // Go to MainActivity
+        // Go to MenuMotionLayoutActivity
         startActivity(new Intent(activity, DatabaseFirebaseActivity.class));
         finish();
     }

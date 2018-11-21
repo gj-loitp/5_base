@@ -18,7 +18,7 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.restapi.livestar.corev3.api.exception.NoConnectionException;
+import vn.loitp.exception.NoConnectionException;
 
 /**
  * Created by khanh on 7/31/16.

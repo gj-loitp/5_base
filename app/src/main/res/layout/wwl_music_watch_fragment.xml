@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicPlayerPanel xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/player_panel_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vn.loitp.app.activity.customviews.layout.motionlayout.utils.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:minHeight="50dp"
+    app:layoutDescription="@xml/scene_09"
+    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright"
+        android:textColor="#FFF"
+        android:textSize="@dimen/txt_32"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+</vn.loitp.app.activity.customviews.layout.motionlayout.utils.CollapsibleToolbar>

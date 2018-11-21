@@ -31,7 +31,6 @@
                     android:src="@drawable/googleg_standard_color_18" />
 
                 <TextView
-                    android:id="@+id/title_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/google_title_text" />

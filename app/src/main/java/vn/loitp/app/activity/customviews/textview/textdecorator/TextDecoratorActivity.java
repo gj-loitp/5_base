@@ -48,7 +48,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
         //    .blur(3, BlurMaskFilter.Blur.NORMAL, 0, 2)
         //    .makeTextClickable(new OnTextClickListener() {
         //      @Override public void onClick(View view, String text) {
-        //        Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+        //        Toast.makeText(MenuMotionLayoutActivity.this, text, Toast.LENGTH_SHORT).show();
         //      }
         //    }, 250, 270, false)
         //    .setTextColor(android.R.color.holo_green_light, 250, 270)

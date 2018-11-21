@@ -20,7 +20,6 @@
 
             <!--Icon of floating widget -->
             <ImageView
-                android:id="@+id/collapsed_iv"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
                 android:layout_marginTop="@dimen/margin_5"
@@ -75,7 +74,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/w_0.5"
+                android:layout_height="0.5dp"
                 android:background="@color/grey" />
 
             <ScrollView
