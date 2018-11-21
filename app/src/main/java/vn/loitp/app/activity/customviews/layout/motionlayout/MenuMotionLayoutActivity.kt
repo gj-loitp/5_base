@@ -46,8 +46,8 @@ class MenuMotionLayoutActivity : BaseFontActivity(), CompoundButton.OnCheckedCha
             DemosAdapter.Demo("DrawerLayout Example (1/2)", "Basic DrawerLayout with MotionLayout", R.layout.motion_12_drawerlayout),
             DemosAdapter.Demo("DrawerLayout Example (2/2)", "Advanced DrawerLayout with MotionLayout", R.layout.motion_13_drawerlayout),
             DemosAdapter.Demo("Side Panel Example", "Side Panel, implemented with MotionLayout only", R.layout.motion_14_side_panel),
-            
             DemosAdapter.Demo("Parallax Example", "Parallax background. Drag the car.", R.layout.motion_15_parallax),
+
             DemosAdapter.Demo("ViewPager Example", "Using MotionLayout with ViewPager", ViewPagerActivity::class.java),
             DemosAdapter.Demo("ViewPager Lottie Example", "Using MotionLayout and Lottie with ViewPager", ViewPagerActivity2::class.java),
             DemosAdapter.Demo("Complex Motion Example (1/4)", "Basic CoordinatorLayout-like behavior. Implemented with MotionLayout only, using a moving guideline. Note the view isn't resized. ", R.layout.motion_17_coordination),
