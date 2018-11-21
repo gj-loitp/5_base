@@ -73,6 +73,12 @@
                 android:text="Fly school" />
 
             <Button
+                android:id="@+id/bt_lottie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lottie" />
+
+            <Button
                 android:id="@+id/bt_over_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
