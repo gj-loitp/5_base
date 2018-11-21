@@ -9,7 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.List;
 
@@ -19,14 +22,17 @@ public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieView
     private final String TAG = getClass().getSimpleName();
     private Context context;
     private List<String> itemList;
-    private int column;
 
     public class LottieViewHolder extends RecyclerView.ViewHolder {
+        public RelativeLayout rootView;
         public TextView tv;
+        public LottieAnimationView lottieAnimationView;
 
         public LottieViewHolder(View view) {
             super(view);
+            rootView = (RelativeLayout) view.findViewById(R.id.root_view);
             tv = (TextView) view.findViewById(R.id.tv);
+            lottieAnimationView = (LottieAnimationView) view.findViewById(R.id.animation_view);
         }
     }
 
@@ -45,6 +51,16 @@ public class LottieAdapter extends RecyclerView.Adapter<LottieAdapter.LottieView
     public void onBindViewHolder(LottieViewHolder holder, int position) {
         String s = itemList.get(position);
         holder.tv.setText(s);
+        holder.lottieAnimationView.setAnimation("lottie/a.json");
+        //holder.lottieAnimationView.playAnimation();
+        //holder.lottieAnimationView.loop(true);
+
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.lottieAnimationView.playAnimation();
+            }
+        });
     }
 
     @Override

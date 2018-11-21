@@ -10,6 +10,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 
+//https://www.lottiefiles.com/?page=1
 public class MenuLottieActivity extends BaseFontActivity {
     private List<String> stringList = new ArrayList<>();
     private RecyclerView recyclerView;

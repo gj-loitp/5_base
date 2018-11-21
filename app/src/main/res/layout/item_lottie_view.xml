@@ -11,4 +11,10 @@
         android:padding="@dimen/padding_5"
         android:text="@string/copyright"
         android:textSize="@dimen/txt_8" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv" />
 </RelativeLayout>
