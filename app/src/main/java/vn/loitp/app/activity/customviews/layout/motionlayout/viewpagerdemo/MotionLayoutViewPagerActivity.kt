@@ -19,16 +19,27 @@ package vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo
 import android.os.Bundle
 import android.support.constraint.motion.MotionLayout
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 import loitp.basemaster.R
+import vn.loitp.core.base.BaseFontActivity
 
-class ViewPagerActivity : AppCompatActivity() {
+class MotionLayoutViewPagerActivity : BaseFontActivity() {
+    override fun setFullScreen(): Boolean {
+        return false;
+    }
+
+    override fun setTag(): String {
+        return javaClass.simpleName;
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.motion_16_viewpager;
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val layout = R.layout.motion_16_viewpager
-        setContentView(layout)
+        //val layout = R.layout.motion_16_viewpager
+        //setContentView(layout)
         val motionLayout = findViewById<MotionLayout>(R.id.motionLayout)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
@@ -40,7 +51,6 @@ class ViewPagerActivity : AppCompatActivity() {
         if (motionLayout != null) {
             pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
         }
-
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
         motionLayout.setShowPaths(doShowPaths)
     }

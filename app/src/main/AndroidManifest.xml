@@ -830,12 +830,24 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/FingerPrintTheme" />
 
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.DemoMotionLayoutActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity2" />
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExampleActivity" />
-        <activity android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExample2Activity" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.DemoMotionLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.ViewPagerActivity2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExampleActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.FragmentExample2Activity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>
