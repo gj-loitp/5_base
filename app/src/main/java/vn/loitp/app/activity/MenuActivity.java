@@ -29,7 +29,6 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
-        isShowTvConnectStt = true;
 
         TextView tvPolicy = (TextView) findViewById(R.id.tv_policy);
         LUIUtil.setTextShadow(tvPolicy);
