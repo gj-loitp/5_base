@@ -25,13 +25,15 @@ public class MenuLottieActivity extends BaseFontActivity {
     private List<LottieItem> lottieItemList = new ArrayList<>();
     private ViewPager viewPager;
     private SeekBar sb;
+    private SlidePagerAdapter slidePagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         sb = (SeekBar) findViewById(R.id.sb);
-        viewPager.setAdapter(new SlidePagerAdapter());
+        slidePagerAdapter = new SlidePagerAdapter();
+        viewPager.setAdapter(slidePagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
@@ -127,13 +129,14 @@ public class MenuLottieActivity extends BaseFontActivity {
             lottieAnimationView.useHardwareAcceleration();
             //lottieAnimationView.setScale(0.3f);
 
-            lottieAnimationView.playAnimation();
+            //lottieAnimationView.playAnimation();
             lottieAnimationView.loop(true);
 
             rl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     lottieAnimationView.playAnimation();
+                    //lottieAnimationView.loop(true);
                 }
             });
 
