@@ -15,5 +15,12 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/sb"
         android:layout_below="@+id/sliding_tabs" />
+
+    <SeekBar
+        android:id="@+id/sb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

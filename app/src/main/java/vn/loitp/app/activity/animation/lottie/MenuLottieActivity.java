@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -23,15 +24,46 @@ import vn.loitp.core.utilities.LUIUtil;
 public class MenuLottieActivity extends BaseFontActivity {
     private List<LottieItem> lottieItemList = new ArrayList<>();
     private ViewPager viewPager;
+    private SeekBar sb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
+        sb = (SeekBar) findViewById(R.id.sb);
         viewPager.setAdapter(new SlidePagerAdapter());
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                viewPager.setCurrentItem(seekBar.getProgress());
+            }
+        });
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                sb.setProgress(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+            }
+        });
         prepareData();
     }
 
@@ -55,6 +87,7 @@ public class MenuLottieActivity extends BaseFontActivity {
         for (int i = 0; i < stringList.size(); i++) {
             lottieItemList.add(new LottieItem(i + " - " + stringList.get(i), "lottie/" + stringList.get(i)));
         }
+        sb.setMax(lottieItemList.size());
         viewPager.getAdapter().notifyDataSetChanged();
     }
 
@@ -94,8 +127,8 @@ public class MenuLottieActivity extends BaseFontActivity {
             lottieAnimationView.useHardwareAcceleration();
             //lottieAnimationView.setScale(0.3f);
 
-            //holder.lottieAnimationView.playAnimation();
-            //holder.lottieAnimationView.loop(true);
+            lottieAnimationView.playAnimation();
+            lottieAnimationView.loop(true);
 
             rl.setOnClickListener(new View.OnClickListener() {
                 @Override
