@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Menu Lottie"
-        android:textColor="@color/Black"
-        android:textSize="@dimen/txt_20" />
+        app:tabMode="scrollable" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv" />
+        android:layout_below="@+id/sliding_tabs" />
 </RelativeLayout>
