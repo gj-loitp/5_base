@@ -161,7 +161,7 @@ public class MenuLottieActivity extends BaseFontActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return position + " - " + lottieItemList.get(position).getName();
+            return lottieItemList.get(position).getName();
         }
     }
 }
