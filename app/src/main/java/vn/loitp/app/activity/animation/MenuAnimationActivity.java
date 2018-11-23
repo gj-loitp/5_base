@@ -13,6 +13,7 @@ import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivit
 import vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity;
 import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity;
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity;
+import vn.loitp.app.activity.animation.lottie.MenuLottieActivity;
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity;
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity;
 import vn.loitp.core.base.BaseFontActivity;
@@ -33,6 +34,7 @@ public class MenuAnimationActivity extends BaseFontActivity implements View.OnCl
         findViewById(R.id.bt_basic_transition_frm).setOnClickListener(this);
         findViewById(R.id.bt_basic_transition_activity).setOnClickListener(this);
         findViewById(R.id.bt_basic_transition).setOnClickListener(this);
+        findViewById(R.id.bt_lottie).setOnClickListener(this);
     }
 
     @Override
@@ -83,6 +85,9 @@ public class MenuAnimationActivity extends BaseFontActivity implements View.OnCl
                 break;
             case R.id.bt_basic_transition:
                 intent = new Intent(activity, BasicTransition0Activity.class);
+                break;
+            case R.id.bt_lottie:
+                intent = new Intent(activity, MenuLottieActivity.class);
                 break;
         }
         if (intent != null) {

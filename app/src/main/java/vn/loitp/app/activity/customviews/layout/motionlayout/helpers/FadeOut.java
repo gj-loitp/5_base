@@ -37,6 +37,7 @@ public class FadeOut extends MotionHelper {
 
     @Override
     public void setProgress(View view, float progress) {
-        view.setAlpha(1f - progress);
+        if (view != null)
+            view.setAlpha(1f - progress);
     }
 }

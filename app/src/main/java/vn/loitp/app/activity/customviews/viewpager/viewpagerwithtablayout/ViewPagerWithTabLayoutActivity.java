@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.AccordionTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.BackgroundToForegroundTransformer;
@@ -40,7 +40,6 @@ import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutTranformer;
 
 //https://github.com/geftimov/android-viewpager-transformers
 public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
-
     private List<Integer> resList = new ArrayList<>();
     private ViewPager viewPager;
 
@@ -56,7 +55,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
+        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
 
         findViewById(R.id.bt_anim).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,8 +229,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         }
     }
 
-    private void changeTabsFont(TabLayout tabLayout, String fontName) {
-
+    /*private void changeTabsFont(TabLayout tabLayout, String fontName) {
         ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
         int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {
@@ -244,5 +242,5 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
                 }
             }
         }
-    }
+    }*/
 }
