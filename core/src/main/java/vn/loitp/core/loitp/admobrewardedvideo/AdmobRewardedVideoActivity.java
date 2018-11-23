@@ -34,7 +34,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         super.onCreate(savedInstanceState);
         isShowAdWhenExist = false;
         tv = (TextView) findViewById(R.id.tv);
-        tv.setVisibility(View.GONE);
+        tv.setText(R.string.loading);
         LUIUtil.setTextShadow(tv);
         //avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
@@ -91,7 +91,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     private void loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
         //avLoadingIndicatorView.smoothToShow();
-        tv.setVisibility(View.GONE);
+        tv.setText(R.string.loading);
         mAd.loadAd(strReward, new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
@@ -145,7 +145,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     public void onRewardedVideoAdLoaded() {
         LLog.d(TAG, "onRewardedVideoAdLoaded");
         //avLoadingIndicatorView.smoothToHide();
-        tv.setVisibility(View.VISIBLE);
+        tv.setText(R.string.open_gift);
         LAnimationUtil.play(getRootView(), Techniques.Pulse);
         lottieAnimationViewGift.playAnimation();
     }

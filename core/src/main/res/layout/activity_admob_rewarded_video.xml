@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/animation_view_gift"
         android:gravity="center"
-        android:text="Open gift"
+        android:text="@string/loading"
         android:textColor="@color/White"
         android:textSize="@dimen/txt_18"
         android:textStyle="bold" />
