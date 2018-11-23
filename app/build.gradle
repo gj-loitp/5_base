@@ -119,7 +119,7 @@ dependencies {
     api 'com.google.firebase:firebase-messaging:17.3.4'
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.airbnb.android:lottie:2.5.1'
+    //implementation 'com.airbnb.android:lottie:2.5.1'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
 }
 apply plugin: 'com.google.gms.google-services'

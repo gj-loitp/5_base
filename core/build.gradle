@@ -110,4 +110,6 @@ dependencies {
 
     //https://github.com/thealeksandr/PFLockScreen-Android
     api 'com.github.thealeksandr:PFLockScreen-Android:1.0.0-beta3'
+
+    api 'com.airbnb.android:lottie:2.5.1'
 }

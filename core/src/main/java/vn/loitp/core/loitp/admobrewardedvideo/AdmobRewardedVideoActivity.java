@@ -2,9 +2,9 @@ package vn.loitp.core.loitp.admobrewardedvideo;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
@@ -16,33 +16,44 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class AdmobRewardedVideoActivity extends BaseFontActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;
-    private AVLoadingIndicatorView avLoadingIndicatorView;
+    //private AVLoadingIndicatorView avLoadingIndicatorView;
     public final static String APP_ID = "APP_ID";
     public final static String ID_REWARD = "ID_REWARD";
-    private RelativeLayout llMain;
-    private LinearLayout llAd;
+    private TextView tv;
     private String strAppId;
     private String strReward;
+    private LottieAnimationView lottieAnimationViewGift;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         isShowAdWhenExist = false;
-        llMain = (RelativeLayout) findViewById(R.id.root_view);
+        tv = (TextView) findViewById(R.id.tv);
+        tv.setVisibility(View.GONE);
+        LUIUtil.setTextShadow(tv);
+        //avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
-        llAd = (LinearLayout) findViewById(R.id.ll_ad);
-        llAd.setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
+        lottieAnimationView.setAnimation("lottie/gradient_animated_background.json");
+        lottieAnimationView.useHardwareAcceleration();
+        //lottieAnimationView.setScale(0.3f);
+        lottieAnimationView.playAnimation();
+        lottieAnimationView.loop(true);
 
-        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        lottieAnimationViewGift = (LottieAnimationView) findViewById(R.id.animation_view_gift);
+        lottieAnimationViewGift.setAnimation("lottie/happy_gift.json");
+        lottieAnimationViewGift.useHardwareAcceleration();
+        //lottieAnimationView.setScale(0.3f);
+        //lottieAnimationViewGift.playAnimation();
+        lottieAnimationViewGift.loop(true);
+
         strAppId = getIntent().getStringExtra(APP_ID);
         strReward = getIntent().getStringExtra(ID_REWARD);
-
         if (strAppId == null || strAppId.isEmpty() || strReward == null || strReward.isEmpty()) {
             LToast.show(activity, getString(R.string.err_unknow));
             onBackPressed();
@@ -54,7 +65,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();
 
-        llAd.setOnClickListener(new View.OnClickListener() {
+        getRootView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 displayRewardAd();
@@ -64,7 +75,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     @Override
     protected boolean setFullScreen() {
-        return false;
+        return true;
     }
 
     @Override
@@ -79,8 +90,8 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     private void loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
-        avLoadingIndicatorView.smoothToShow();
-        llAd.setVisibility(View.GONE);
+        //avLoadingIndicatorView.smoothToShow();
+        tv.setVisibility(View.GONE);
         mAd.loadAd(strReward, new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
@@ -133,9 +144,10 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     @Override
     public void onRewardedVideoAdLoaded() {
         LLog.d(TAG, "onRewardedVideoAdLoaded");
-        avLoadingIndicatorView.smoothToHide();
-        llAd.setVisibility(View.VISIBLE);
-        LAnimationUtil.play(llAd, Techniques.Pulse);
+        //avLoadingIndicatorView.smoothToHide();
+        tv.setVisibility(View.VISIBLE);
+        LAnimationUtil.play(getRootView(), Techniques.Pulse);
+        lottieAnimationViewGift.playAnimation();
     }
 
     @Override
