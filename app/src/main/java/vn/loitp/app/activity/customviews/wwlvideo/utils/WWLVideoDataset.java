@@ -25,12 +25,12 @@ public class WWLVideoDataset {
         public String url;
 
         public DatasetItem(int _id) {
-            String _url = "android.resource://" + AppUtils.getAppPackageName() + "/" + R.raw.vid_bigbuckbunny;
+            String url = "android.resource://" + AppUtils.getAppPackageName() + "/" + R.raw.vid_bigbuckbunny;
 
             this.id = _id;
             this.title = String.format("This is element #%d", _id);
             this.subtitle = "Loitp";
-            this.url = _url;
+            this.url = url;
         }
     }
 }

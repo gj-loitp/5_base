@@ -227,4 +227,22 @@ public class UZVideo extends RelativeLayout {
             }
         }
     }
+
+    public void hideController() {
+        if (playerView != null) {
+            playerView.hideController();
+        }
+    }
+
+    public void showController() {
+        if (playerView != null) {
+            playerView.showController();
+        }
+    }
+
+    public void setUseController(boolean useController) {
+        if (playerView != null) {
+            playerView.setUseController(useController);
+        }
+    }
 }
