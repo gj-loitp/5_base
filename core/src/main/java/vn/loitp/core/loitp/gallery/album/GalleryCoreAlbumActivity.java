@@ -123,11 +123,17 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                //LLog.d(TAG, "onSuccess " + gson.toJson(wrapperPhotosetGetlist));
+                //LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
                 photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
 
-                LLog.d(TAG, "orginal size: " + photosetList.size());
-                LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
+                /*String x = "";
+                for (int i = 0; i < photosetList.size(); i++) {
+                    x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
+                }
+                LLog.d(TAG, "fuck " + x);*/
+
+                //LLog.d(TAG, "orginal size: " + photosetList.size());
+                //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
                 for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
                     for (int j = photosetList.size() - 1; j >= 0; j--) {
                         if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
@@ -135,7 +141,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
                         }
                     }
                 }
-                LLog.d(TAG, "after size: " + photosetList.size());
+                //LLog.d(TAG, "after size: " + photosetList.size());
                 Collections.sort(photosetList, new Comparator<Photoset>() {
                     @Override
                     public int compare(Photoset o1, Photoset o2) {
