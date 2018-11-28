@@ -18,6 +18,7 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.data.UZData;
 import vn.loitp.utils.util.Utils;
 
+//TODO core film plus
 //TODO is debug
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();

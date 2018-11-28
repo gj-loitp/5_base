@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 
 import loitp.basemaster.R;
 
-public class FrmTest extends Fragment {
-    public static FrmTest newInstance() {
-        return new FrmTest();
+public class FrmTestTop extends Fragment {
+    public static FrmTestTop newInstance() {
+        return new FrmTestTop();
     }
 
     @Nullable
