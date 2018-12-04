@@ -17,6 +17,7 @@ import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
+import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -55,6 +56,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
+        findViewById(R.id.bt_uiza).setOnClickListener(this);
     }
 
     @Override
@@ -136,6 +138,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_epub_reader:
                 intent = new Intent(activity, EpubReaderMenuActivity.class);
+                break;
+            case R.id.bt_uiza:
+                intent = new Intent(activity, UZMainActivity.class);
                 break;
         }
         if (intent != null) {

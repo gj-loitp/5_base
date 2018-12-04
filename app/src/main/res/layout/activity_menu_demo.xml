@@ -103,6 +103,12 @@
                 android:text="Text to speech" />
 
             <Button
+                android:id="@+id/bt_uiza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uiza" />
+
+            <Button
                 android:id="@+id/bt_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

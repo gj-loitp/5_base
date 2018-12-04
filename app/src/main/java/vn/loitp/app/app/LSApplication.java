@@ -26,9 +26,13 @@ public class LSApplication extends MultiDexApplication {
     private Gson gson;
 
     //prod
-    private final String DF_DOMAIN_API = "teamplayer.uiza.co";
+    /*private final String DF_DOMAIN_API = "teamplayer.uiza.co";
     private final String DF_TOKEN = "uap-01e137ad1b534004ad822035bf89b29f-b9b31f29";
-    private final String DF_APP_ID = "01e137ad1b534004ad822035bf89b29f";
+    private final String DF_APP_ID = "01e137ad1b534004ad822035bf89b29f";*/
+
+    private final String DF_DOMAIN_API = "loitp-api.uizadev.io";
+    private final String DF_TOKEN = "uap-c4c747cc839949cb96cc27feb8e5ea34-7f228697";
+    private final String DF_APP_ID = "c4c747cc839949cb96cc27feb8e5ea34";
 
     @Override
     public void onCreate() {
