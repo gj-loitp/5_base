@@ -90,11 +90,16 @@ public class UZMainActivity extends BaseFontActivity {
                 if (resultGetListMetadata == null) {
                     return;
                 }
-                metadataList = resultGetListMetadata.getData();
                 if (navigationView == null) {
                     return;
                 }
                 final Menu menu = navigationView.getMenu();
+                metadataList = resultGetListMetadata.getData();
+                //add menuItem Trang chu
+                Data home = new Data();
+                home.setName("Trang chủ");
+                metadataList.add(0, home);
+
                 for (int i = 0; i < metadataList.size(); i++) {
                     MenuItem menuItem = menu.add(metadataList.get(i).getName());
                     menuItem.setCheckable(true);

@@ -13,13 +13,14 @@ import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 
 public class FrmEntity extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
+    private Data metadata;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) view.findViewById(R.id.tv);
+        metadata = UZD.getInstance().getMetadata();
 
-        Data metadata = UZD.getInstance().getMetadata();
+        TextView tv = (TextView) view.findViewById(R.id.tv);
         tv.setText(LSApplication.getInstance().getGson().toJson(metadata));
     }
 
