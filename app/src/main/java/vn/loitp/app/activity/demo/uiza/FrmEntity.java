@@ -13,13 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
 import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
@@ -35,9 +31,9 @@ public class FrmEntity extends BaseFragment {
     private Data metadata;
     private boolean isMetadataHome;
     private AVLoadingIndicatorView avl;
-    private List<Movie> movieList = new ArrayList<>();
+    private List<Data> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private MoviesAdapter mAdapter;
+    private EntityAdapter entityAdapter;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -58,14 +54,14 @@ public class FrmEntity extends BaseFragment {
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
-        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
+        entityAdapter = new EntityAdapter(getActivity(), dataList, new EntityAdapter.Callback() {
             @Override
-            public void onClick(Movie movie, int position) {
-                LToast.show(getActivity(), "Click " + movie.getTitle());
+            public void onClick(Data data, int position) {
+                LToast.show(getActivity(), "Click " + data.getEntityName());
             }
 
             @Override
-            public void onLongClick(Movie movie, int position) {
+            public void onLongClick(Data data, int position) {
             }
 
             @Override
@@ -75,12 +71,11 @@ public class FrmEntity extends BaseFragment {
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(entityAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
-        prepareMovieData();
         getListEntity();
     }
 
@@ -111,6 +106,12 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onSuccess(ResultListEntity result) {
                 LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                if (result == null || result.getData() == null || result.getData().isEmpty()) {
+
+                } else {
+                    dataList.addAll(result.getData());
+                    refreshAllViews();
+                }
                 avl.smoothToHide();
             }
 
@@ -143,11 +144,10 @@ public class FrmEntity extends BaseFragment {
         });
     }
 
-    private void prepareMovieData() {
-        for (int i = 0; i < 100; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
-            movieList.add(movie);
+    private void refreshAllViews() {
+        LLog.d(TAG, "refreshAllViews size: " + dataList.size());
+        if (entityAdapter != null) {
+            entityAdapter.notifyDataSetChanged();
         }
-        mAdapter.notifyDataSetChanged();
     }
 }
