@@ -109,13 +109,13 @@ public class UZMainActivity extends BaseFontActivity {
                         switchPage();
                     }
                 }
-                hideAvl();
+                avl.smoothToHide();
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getListMetadata onFail " + e.getMessage());
-                hideAvl();
+                avl.smoothToHide();
             }
         });
     }
@@ -123,18 +123,6 @@ public class UZMainActivity extends BaseFontActivity {
     public void switchPage() {
         FrmEntity frmEntity = new FrmEntity();
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
-    }
-
-    public void showAvl() {
-        if (avl != null) {
-            avl.smoothToShow();
-        }
-    }
-
-    public void hideAvl() {
-        if (avl != null) {
-            avl.smoothToHide();
-        }
     }
 
     private Data getMetadata(MenuItem menuItem) {
