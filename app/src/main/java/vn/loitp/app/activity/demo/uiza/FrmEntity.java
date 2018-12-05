@@ -3,12 +3,13 @@ package vn.loitp.app.activity.demo.uiza;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import loitp.basemaster.R;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 
 public class FrmEntity extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
@@ -18,8 +19,8 @@ public class FrmEntity extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         TextView tv = (TextView) view.findViewById(R.id.tv);
 
-        MenuItem menuItem = UZD.getInstance().getMenuItem();
-        tv.setText(menuItem.getTitle());
+        Data metadata = UZD.getInstance().getMetadata();
+        tv.setText(LSApplication.getInstance().getGson().toJson(metadata));
     }
 
     @Override

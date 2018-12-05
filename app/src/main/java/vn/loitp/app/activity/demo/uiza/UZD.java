@@ -2,6 +2,8 @@ package vn.loitp.app.activity.demo.uiza;
 
 import android.view.MenuItem;
 
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
+
 public class UZD {
     private static final UZD ourInstance = new UZD();
 
@@ -12,13 +14,13 @@ public class UZD {
     private UZD() {
     }
 
-    private MenuItem menuItem;
+    private Data metadata;
 
-    public MenuItem getMenuItem() {
-        return menuItem;
+    public Data getMetadata() {
+        return metadata;
     }
 
-    public void setMenuItem(MenuItem menuItem) {
-        this.menuItem = menuItem;
+    public void setMetadata(Data metadata) {
+        this.metadata = metadata;
     }
 }

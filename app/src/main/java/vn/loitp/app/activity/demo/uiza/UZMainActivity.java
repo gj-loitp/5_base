@@ -27,6 +27,7 @@ public class UZMainActivity extends BaseFontActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private AVLoadingIndicatorView avl;
+    private List<Data> metadataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class UZMainActivity extends BaseFontActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 LLog.d(TAG, "onNavigationItemSelected " + item.getTitle() + ", isCheckable: " + item.isCheckable());
-                UZD.getInstance().setMenuItem(item);
+                UZD.getInstance().setMetadata(getMetadata(item));
                 switchPage();
                 drawerLayout.closeDrawers();
                 return true;
@@ -89,17 +90,17 @@ public class UZMainActivity extends BaseFontActivity {
                 if (resultGetListMetadata == null) {
                     return;
                 }
-                List<Data> data = resultGetListMetadata.getData();
+                metadataList = resultGetListMetadata.getData();
                 if (navigationView == null) {
                     return;
                 }
                 final Menu menu = navigationView.getMenu();
-                for (int i = 0; i < data.size(); i++) {
-                    MenuItem menuItem = menu.add(data.get(i).getName());
+                for (int i = 0; i < metadataList.size(); i++) {
+                    MenuItem menuItem = menu.add(metadataList.get(i).getName());
                     menuItem.setCheckable(true);
                     if (i == 0) {
+                        UZD.getInstance().setMetadata(metadataList.get(0));
                         menuItem.setChecked(true);
-                        UZD.getInstance().setMenuItem(menuItem);
                         switchPage();
                     }
                 }
@@ -129,5 +130,17 @@ public class UZMainActivity extends BaseFontActivity {
         if (avl != null) {
             avl.smoothToHide();
         }
+    }
+
+    private Data getMetadata(MenuItem menuItem) {
+        if (menuItem == null || metadataList == null) {
+            return null;
+        }
+        for (int i = 0; i < metadataList.size(); i++) {
+            if (menuItem.getTitle().equals(metadataList.get(i).getName())) {
+                return metadataList.get(i);
+            }
+        }
+        return null;
     }
 }
