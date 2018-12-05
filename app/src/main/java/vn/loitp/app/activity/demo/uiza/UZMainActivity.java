@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +14,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
 import vn.loitp.restapi.uiza.UZService;
@@ -54,12 +54,14 @@ public class UZMainActivity extends BaseFontActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //LLog.d(TAG, "onNavigationItemSelected " + item.getTitle() + ", isCheckable: " + item.isCheckable());
+                LLog.d(TAG, "onNavigationItemSelected " + item.getTitle() + ", isCheckable: " + item.isCheckable());
+                UZD.getInstance().setMenuItem(item);
+                switchPage();
                 drawerLayout.closeDrawers();
                 return true;
             }
         });
-        LUIUtil.setNavMenuItemThemeColors(navigationView, ContextCompat.getColor(activity, R.color.DarkGray), Color.BLACK);
+        LUIUtil.setNavMenuItemThemeColors(navigationView, Color.GRAY, Color.BLACK);
         getListMetadata();
     }
 
@@ -95,6 +97,11 @@ public class UZMainActivity extends BaseFontActivity {
                 for (int i = 0; i < data.size(); i++) {
                     MenuItem menuItem = menu.add(data.get(i).getName());
                     menuItem.setCheckable(true);
+                    if (i == 0) {
+                        menuItem.setChecked(true);
+                        UZD.getInstance().setMenuItem(menuItem);
+                        switchPage();
+                    }
                 }
                 hideAvl();
             }
@@ -105,6 +112,11 @@ public class UZMainActivity extends BaseFontActivity {
                 hideAvl();
             }
         });
+    }
+
+    public void switchPage() {
+        FrmEntity frmEntity = new FrmEntity();
+        LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }
 
     public void showAvl() {

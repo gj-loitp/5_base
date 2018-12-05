@@ -97,6 +97,7 @@ public class LPref {
         editor.apply();
     }
 
+    /////////////////////////////////STRING
     public static String getJsonBookAsset(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
         return pref.getString(JSON_BOOK_ASSET, null);
