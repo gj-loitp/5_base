@@ -5,16 +5,19 @@ package vn.loitp.app.activity.demo.uiza;
  */
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 
 public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewHolder> {
@@ -32,13 +35,15 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
     private List<Data> dataList;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
-        public TextView title;
-        public LinearLayout rootView;
+        public TextView tvName;
+        public CardView cv;
+        private ImageView ivThumbnail;
 
         public MovieViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            rootView = (LinearLayout) view.findViewById(R.id.root_view);
+            tvName = (TextView) view.findViewById(R.id.tv_name);
+            cv = (CardView) view.findViewById(R.id.cv);
+            ivThumbnail = (ImageView) view.findViewById(R.id.iv_thumbnail);
         }
     }
 
@@ -57,9 +62,10 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         final Data data = dataList.get(position);
-        holder.title.setText(data.getEntityName() + " ->>>>>>>>>>>>>>");
+        holder.tvName.setText(data.getName());
+        LImageUtil.load(context, data.getThumbnail(), holder.ivThumbnail, LStoreUtil.getRandomColorLight());
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
+        holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (callback != null) {
@@ -67,7 +73,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
                 }
             }
         });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.cv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 if (callback != null) {
