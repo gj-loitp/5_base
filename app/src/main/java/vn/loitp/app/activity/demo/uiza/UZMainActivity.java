@@ -97,7 +97,7 @@ public class UZMainActivity extends BaseFontActivity {
                 metadataList = resultGetListMetadata.getData();
                 //add menuItem Trang chu
                 Data home = new Data();
-                home.setName("Trang chủ");
+                home.setName(UZCons.HOME);
                 metadataList.add(0, home);
 
                 for (int i = 0; i < metadataList.size(); i++) {
