@@ -42,10 +42,10 @@
             android:layout_height="wrap_content"
             android:text="@string/show_customized_demo" />
 
-        <!--<Button
-            android:id="@+id/show_settings"
+        <Button
+            android:id="@+id/show_customized_demo_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/show_settings" />-->
+            android:text="Video" />
     </LinearLayout>
 </LinearLayout>

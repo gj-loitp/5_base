@@ -22,12 +22,16 @@ import android.view.WindowManager;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService;
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService;
+import vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService;
 import vn.loitp.views.floatingview.FloatingViewManager;
 
 public class FVControlFragment extends Fragment {
-    private static final String TAG = "FloatingViewControl";
-    private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
-    private static final int CUSTOM_OVERLAY_PERMISSION_REQUEST_CODE = 101;
+    private final String TAG = "FloatingViewControl";
+    private final int REQUEST_CODE = 100;
+
+    private enum SV {ONE, TWO, THREE}
+
+    private SV sv;
 
     public static FVControlFragment newInstance() {
         final FVControlFragment fragment = new FVControlFragment();
@@ -44,54 +48,50 @@ public class FVControlFragment extends Fragment {
         rootView.findViewById(R.id.show_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFloatingView(getActivity(), true, false);
+                sv = SV.ONE;
+                showFloatingView(getActivity());
             }
         });
         rootView.findViewById(R.id.show_customized_demo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFloatingView(getActivity(), true, true);
+                sv = SV.TWO;
+                showFloatingView(getActivity());
             }
         });
-        /*rootView.findViewById(R.id.show_settings).setOnClickListener(new View.OnClickListener() {
+        rootView.findViewById(R.id.show_customized_demo_video).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, FloatingViewSettingsFragment.newInstance());
-                ft.addToBackStack(null);
-                ft.commit();
+                sv = SV.THREE;
+                showFloatingView(getActivity());
             }
-        });*/
+        });
         return rootView;
     }
 
     @Override
     @TargetApi(Build.VERSION_CODES.M)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE) {
-            showFloatingView(getActivity(), false, false);
-        } else if (requestCode == CUSTOM_OVERLAY_PERMISSION_REQUEST_CODE) {
-            showFloatingView(getActivity(), false, true);
+        if (requestCode == REQUEST_CODE) {
+            showFloatingView(getActivity());
         }
     }
 
     @SuppressLint("NewApi")
-    private void showFloatingView(Context context, boolean isShowOverlayPermission, boolean isCustomFloatingView) {
+    private void showFloatingView(Context context) {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            startFloatingViewService(getActivity(), isCustomFloatingView);
+            startFloatingViewService(getActivity());
             return;
         }
         if (Settings.canDrawOverlays(context)) {
-            startFloatingViewService(getActivity(), isCustomFloatingView);
+            startFloatingViewService(getActivity());
             return;
         }
-        if (isShowOverlayPermission) {
-            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
-            startActivityForResult(intent, CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE);
-        }
+        final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
-    private static void startFloatingViewService(Activity activity, boolean isCustomFloatingView) {
+    private void startFloatingViewService(Activity activity) {
         // *** You must follow these rules when obtain the cutout(FloatingViewManager.findCutoutSafeArea) ***
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // 1. 'windowLayoutInDisplayCutoutMode' do not be set to 'never'
@@ -104,17 +104,22 @@ public class FVControlFragment extends Fragment {
             }
         }
         // launch service
-        final Class<? extends Service> service;
-        final String key;
-        if (isCustomFloatingView) {
+        Class<? extends Service> service = null;
+        String key = null;
+        if (sv == SV.ONE) {
             service = FVCustomFloatingViewService.class;
             key = FVCustomFloatingViewService.EXTRA_CUTOUT_SAFE_AREA;
-        } else {
+        } else if (sv == SV.TWO) {
             service = FVChatHeadService.class;
             key = FVChatHeadService.EXTRA_CUTOUT_SAFE_AREA;
+        } else if (sv == SV.THREE) {
+            service = FVCustomUZVideoService.class;
+            key = FVCustomFloatingViewService.EXTRA_CUTOUT_SAFE_AREA;
         }
-        final Intent intent = new Intent(activity, service);
-        intent.putExtra(key, FloatingViewManager.findCutoutSafeArea(activity));
-        ContextCompat.startForegroundService(activity, intent);
+        if (service != null || key != null) {
+            final Intent intent = new Intent(activity, service);
+            intent.putExtra(key, FloatingViewManager.findCutoutSafeArea(activity));
+            ContextCompat.startForegroundService(activity, intent);
+        }
     }
 }

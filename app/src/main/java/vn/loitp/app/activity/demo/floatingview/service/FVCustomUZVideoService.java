@@ -21,15 +21,15 @@ import vn.loitp.views.LToast;
 import vn.loitp.views.floatingview.FloatingViewListener;
 import vn.loitp.views.floatingview.FloatingViewManager;
 
-public class FVCustomFloatingViewService extends Service implements FloatingViewListener {
+public class FVCustomUZVideoService extends Service implements FloatingViewListener {
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";
 
     //https://stackoverflow.com/questions/8725909/startforeground-does-not-show-my-notification
-    private static final int NOTIFICATION_ID = 908114;
-    //private static final int NOTIFICATION_ID = 0;
+    //private  final int NOTIFICATION_ID = 908114;
+    private final int NOTIFICATION_ID = 0;
 
-    private static final String PREF_KEY_LAST_POSITION_X = "last_position_x";
-    private static final String PREF_KEY_LAST_POSITION_Y = "last_position_y";
+    private final String PREF_KEY_LAST_POSITION_X = "last_position_x";
+    private final String PREF_KEY_LAST_POSITION_Y = "last_position_y";
     private FloatingViewManager mFloatingViewManager;
 
     @Override
@@ -42,7 +42,7 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
         final WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(metrics);
         final LayoutInflater inflater = LayoutInflater.from(this);
-        final RelativeLayout relativeLayout = (RelativeLayout) inflater.inflate(R.layout.fv_widget_custom, null, false);
+        final RelativeLayout relativeLayout = (RelativeLayout) inflater.inflate(R.layout.fv_widget_video, null, false);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

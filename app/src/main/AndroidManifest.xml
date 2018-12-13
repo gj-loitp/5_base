@@ -858,13 +858,15 @@
         <activity
             android:name="vn.loitp.app.activity.demo.floatingview.FloatingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!-- デモ表示サービス -->
+
         <service
             android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
             android:exported="false" />
-        <!-- カスタムデモ表示サービス -->
         <service
             android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService"
             android:exported="false" />
         <!--end floating view-->
     </application>
