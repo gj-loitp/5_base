@@ -14,6 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import loitp.basemaster.R;
@@ -31,24 +32,31 @@ public class FVCustomUZVideoService extends Service implements FloatingViewListe
     private final String PREF_KEY_LAST_POSITION_X = "last_position_x";
     private final String PREF_KEY_LAST_POSITION_Y = "last_position_y";
     private FloatingViewManager mFloatingViewManager;
+    //private UZVideo uzVideo;
+    private String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
+    private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (mFloatingViewManager != null) {
             return START_STICKY;
         }
-
         final DisplayMetrics metrics = new DisplayMetrics();
         final WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(metrics);
         final LayoutInflater inflater = LayoutInflater.from(this);
         final RelativeLayout relativeLayout = (RelativeLayout) inflater.inflate(R.layout.fv_widget_video, null, false);
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton ib = (ImageButton) relativeLayout.findViewById(R.id.ib);
+        ib.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                LToast.show(getBaseContext(), getString(R.string.chathead_click_message));
+            public void onClick(View view) {
+                LToast.show(getBaseContext(), "Click");
             }
         });
+
+        //uzVideo = (UZVideo) relativeLayout.findViewById(R.id.uz_video);
+        //uzVideo.playUrl("https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
         mFloatingViewManager = new FloatingViewManager(this, this);
         mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_trash_fixed);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.ic_trash_action);
@@ -91,6 +99,9 @@ public class FVCustomUZVideoService extends Service implements FloatingViewListe
     }
 
     private void destroy() {
+        /*if (uzVideo != null) {
+            uzVideo.onDestroy();
+        }*/
         if (mFloatingViewManager != null) {
             mFloatingViewManager.removeAllViewToWindow();
             mFloatingViewManager = null;
