@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.floatingview.service;
 
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -18,14 +17,17 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.floatingview.FVDeleteActionActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.floatingview.FloatingViewListener;
 import vn.loitp.views.floatingview.FloatingViewManager;
 
 public class FVCustomFloatingViewService extends Service implements FloatingViewListener {
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";
-    private static final int NOTIFICATION_ID = 908114;
+
+    //https://stackoverflow.com/questions/8725909/startforeground-does-not-show-my-notification
+    //private static final int NOTIFICATION_ID = 908114;
+    private static final int NOTIFICATION_ID = 0;
+
     private static final String PREF_KEY_LAST_POSITION_X = "last_position_x";
     private static final String PREF_KEY_LAST_POSITION_Y = "last_position_y";
     private FloatingViewManager mFloatingViewManager;
@@ -104,11 +106,6 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
         builder.setOngoing(true);
         builder.setPriority(NotificationCompat.PRIORITY_MIN);
         builder.setCategory(NotificationCompat.CATEGORY_SERVICE);
-
-        final Intent notifyIntent = new Intent(context, FVDeleteActionActivity.class);
-        PendingIntent notifyPendingIntent = PendingIntent.getActivity(context, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(notifyPendingIntent);
-
         return builder.build();
     }
 

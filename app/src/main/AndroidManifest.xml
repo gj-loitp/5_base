@@ -858,11 +858,6 @@
         <activity
             android:name="vn.loitp.app.activity.demo.floatingview.FloatingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.floatingview.FVDeleteActionActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:taskAffinity="jp.co.recruit.floatingview.ChatHeadActivity" />
         <!-- デモ表示サービス -->
         <service
             android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
