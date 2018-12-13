@@ -13,6 +13,7 @@ import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity;
 import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
+import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity;
 import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
@@ -39,6 +40,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_text_to_speech).setOnClickListener(this);
         findViewById(R.id.bt_floating_widget).setOnClickListener(this);
         findViewById(R.id.bt_floating_video).setOnClickListener(this);
+        findViewById(R.id.bt_floating_view).setOnClickListener(this);
         findViewById(R.id.bt_firebase).setOnClickListener(this);
         findViewById(R.id.bt_film).setOnClickListener(this);
         if (Constants.IS_DEBUG) {
@@ -141,6 +143,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_uiza:
                 intent = new Intent(activity, UZMainActivity.class);
+                break;
+            case R.id.bt_floating_view:
+                intent = new Intent(activity, FloatingViewActivity.class);
                 break;
         }
         if (intent != null) {

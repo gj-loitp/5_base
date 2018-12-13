@@ -218,8 +218,8 @@
     <declare-styleable name="CircularSeekBar">
         <attr name="enabled" format="boolean" />
         <attr name="showIndicator_circular_seekbar" format="boolean" />
-        <attr name="min" format="float" />
-        <attr name="max" format="float" />
+        <attr name="minCircularSeekBar" format="float" />
+        <attr name="maxCircularSeekBar" format="float" />
         <attr name="speedMultiplier" format="float" />
         <attr name="progressCircularSeekBar" format="float" />
         <attr name="showProgressText" format="boolean" />
@@ -491,7 +491,7 @@
         <attr name="points" format="integer" />
         <attr name="max_boxed" format="integer" />
         <attr name="min_boxed" format="integer" />
-        <attr name="defaultValue" format="integer" />
+        <attr name="defaultValueBoxedVertical" format="integer" />
         <attr name="textBottomPadding" format="integer" />
         <attr name="cornerRadius_boxed" format="integer" />
         <attr name="step" format="integer" />
