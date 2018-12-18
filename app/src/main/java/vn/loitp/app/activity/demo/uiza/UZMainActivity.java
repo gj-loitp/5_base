@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.Menu;
@@ -54,6 +55,8 @@ public class UZMainActivity extends BaseFontActivity {
             }
         });*/
         lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
+        lActionBar.getIvIconBack().setImageResource(R.drawable.ic_more_vert_white_48dp);
+        lActionBar.getIvIconBack().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary));
         lActionBar.setOnClickBack(new LActionBar.Callback() {
             @Override
             public void onClickBack() {

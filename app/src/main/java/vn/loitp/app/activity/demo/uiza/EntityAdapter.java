@@ -38,9 +38,11 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
         public TextView tvName;
         public CardView cv;
         private ImageView ivThumbnail;
+        private View viewSpaceTop;
 
         public MovieViewHolder(View view) {
             super(view);
+            viewSpaceTop = (View) view.findViewById(R.id.view_space_top);
             tvName = (TextView) view.findViewById(R.id.tv_name);
             cv = (CardView) view.findViewById(R.id.cv);
             ivThumbnail = (ImageView) view.findViewById(R.id.iv_thumbnail);
@@ -82,6 +84,11 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
                 return true;
             }
         });
+        if (position == 0) {
+            holder.viewSpaceTop.setVisibility(View.VISIBLE);
+        } else {
+            holder.viewSpaceTop.setVisibility(View.GONE);
+        }
         if (position == dataList.size() - 1) {
             if (callback != null) {
                 callback.onLoadMore();
