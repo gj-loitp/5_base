@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,6 +22,7 @@ import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.restapi.uiza.model.v3.metadata.getlistmetadata.ResultGetListMetadata;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.actionbar.lib.LActionBar;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class UZMainActivity extends BaseFontActivity {
@@ -28,6 +30,7 @@ public class UZMainActivity extends BaseFontActivity {
     private DrawerLayout drawerLayout;
     private AVLoadingIndicatorView avl;
     private List<Data> metadataList;
+    private LActionBar lActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,20 @@ public class UZMainActivity extends BaseFontActivity {
             public void onDrawerStateChanged(int i) {
             }
         });*/
+        lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
+        lActionBar.setOnClickBack(new LActionBar.Callback() {
+            @Override
+            public void onClickBack() {
+                if (drawerLayout != null) {
+                    drawerLayout.openDrawer(Gravity.START);
+                }
+            }
+
+            @Override
+            public void onClickMenu() {
+
+            }
+        });
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -121,6 +138,7 @@ public class UZMainActivity extends BaseFontActivity {
     }
 
     public void switchPage() {
+        lActionBar.setTvTitle(UZD.getInstance().getMetadata().getName());
         FrmEntity frmEntity = new FrmEntity();
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }

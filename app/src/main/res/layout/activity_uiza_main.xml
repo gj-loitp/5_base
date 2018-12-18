@@ -15,6 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <vn.loitp.views.actionbar.lib.LActionBar
+            android:id="@+id/l_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
             android:id="@+id/avl"
             style="@style/AVLoadingIndicatorView"
@@ -32,6 +37,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:textColorSecondary="@color/Red"
+        android:theme="@style/NavigationTheme"
         app:headerLayout="@layout/uiza_nav_header"
         app:itemBackground="?attr/selectableItemBackground" />
 </android.support.v4.widget.DrawerLayout>

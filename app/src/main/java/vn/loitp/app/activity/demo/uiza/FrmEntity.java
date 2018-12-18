@@ -48,8 +48,6 @@ public class FrmEntity extends BaseFragment {
             isMetadataHome = false;
         }
         avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
-        TextView tvMetadata = (TextView) view.findViewById(R.id.tv_metadata);
-        tvMetadata.setText(metadata.getName());
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
