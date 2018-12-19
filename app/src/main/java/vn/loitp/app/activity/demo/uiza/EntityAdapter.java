@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -37,6 +38,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
+        public TextView tvUpdateAt;
         public CardView cv;
         private ImageView ivThumbnail;
         private View viewSpaceTop;
@@ -45,6 +47,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
             super(view);
             viewSpaceTop = (View) view.findViewById(R.id.view_space_top);
             tvName = (TextView) view.findViewById(R.id.tv_name);
+            tvUpdateAt = (TextView) view.findViewById(R.id.tv_update_at);
             cv = (CardView) view.findViewById(R.id.cv);
             ivThumbnail = (ImageView) view.findViewById(R.id.iv_thumbnail);
         }
@@ -67,6 +70,8 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
         final Data data = dataList.get(position);
         holder.tvName.setText(data.getName());
         LUIUtil.setTextShadow(holder.tvName);
+        holder.tvUpdateAt.setText(LDateUtils.getDateWithoutTime(data.getUpdatedAt()));
+        LUIUtil.setTextShadow(holder.tvUpdateAt);
         LImageUtil.load(context, data.getThumbnail(), holder.ivThumbnail, LStoreUtil.getRandomColorLight());
 
         holder.cv.setOnClickListener(new View.OnClickListener() {
