@@ -32,6 +32,7 @@ public class FrmEntity extends BaseFragment {
     private Data metadata;
     private boolean isMetadataHome;
     private AVLoadingIndicatorView avl;
+    private TextView tvMsg;
     private List<Data> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
     private EntityAdapter entityAdapter;
@@ -50,6 +51,7 @@ public class FrmEntity extends BaseFragment {
         }
         avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+        tvMsg = (TextView) view.findViewById(R.id.tv_msg);
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
@@ -96,6 +98,7 @@ public class FrmEntity extends BaseFragment {
     }
 
     private void listAllEntity() {
+        tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         String metadataId = "";
         int limit = 50;
@@ -107,7 +110,7 @@ public class FrmEntity extends BaseFragment {
             public void onSuccess(ResultListEntity result) {
                 LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
-
+                    tvMsg.setVisibility(View.VISIBLE);
                 } else {
                     dataList.addAll(result.getData());
                     refreshAllViews();
@@ -118,12 +121,14 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getListAllEntity onFail " + e.getMessage());
+                tvMsg.setVisibility(View.VISIBLE);
                 avl.smoothToHide();
             }
         });
     }
 
     private void listAllEntityMetadata() {
+        tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         int limit = 50;
         int page = 0;
@@ -133,12 +138,19 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onSuccess(ResultListEntity result) {
                 LLog.d(TAG, "listAllEntityMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                if (result == null || result.getData() == null || result.getData().isEmpty()) {
+                    tvMsg.setVisibility(View.VISIBLE);
+                } else {
+                    dataList.addAll(result.getData());
+                    refreshAllViews();
+                }
                 avl.smoothToHide();
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "listAllEntityMetadata onFail " + e.getMessage());
+                tvMsg.setVisibility(View.VISIBLE);
                 avl.smoothToHide();
             }
         });
