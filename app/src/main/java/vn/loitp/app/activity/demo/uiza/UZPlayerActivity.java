@@ -1,7 +1,6 @@
-package vn.loitp.app.activity.customviews.videoview.uzvideo;
+package vn.loitp.app.activity.demo.uiza;
 
 import android.os.Bundle;
-import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -10,28 +9,19 @@ import vn.loitp.data.EventBusData;
 import vn.loitp.views.uzvideo.UZVideo;
 
 //custom UI exo_playback_control_view.xml
-public class UZActivity extends BaseFontActivity {
+public class UZPlayerActivity extends BaseFontActivity {
     private UZVideo uzVideo;
-    private String entityIdDefaultVOD = "ff57c08a-b528-4c5e-a316-c638f14e6cc3";
-    private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
-        findViewById(R.id.bt_any_linkplay).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uzVideo.playUrl("https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
-            }
-        });
-        findViewById(R.id.bt_vod).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uzVideo.playEntity(entityIdDefaultVOD);
-            }
-        });
+        String entityId = getIntent().getStringExtra(UZCons.ENTITY_ID);
+        if (entityId == null || entityId.isEmpty()) {
+            showDialogError(getString(R.string.video_not_found));
+            return;
+        }
+        uzVideo.playEntity(entityId);
     }
 
     @Override
@@ -46,7 +36,7 @@ public class UZActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_uz;
+        return R.layout.activity_uz_player;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.uiza;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -22,7 +24,6 @@ import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.restapi.uiza.model.v3.videoondeman.listallentity.ResultListEntity;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.views.LToast;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
@@ -58,7 +59,10 @@ public class FrmEntity extends BaseFragment {
         entityAdapter = new EntityAdapter(getActivity(), dataList, new EntityAdapter.Callback() {
             @Override
             public void onClick(Data data, int position) {
-                LToast.show(getActivity(), "Click " + data.getEntityName());
+                Intent intent = new Intent(getActivity(), UZPlayerActivity.class);
+                intent.putExtra(UZCons.ENTITY_ID, data.getId());
+                startActivity(intent);
+                LActivityUtil.tranIn(getActivity());
             }
 
             @Override

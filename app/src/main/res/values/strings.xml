@@ -241,4 +241,5 @@ Likewise may someone love you next.
     <string name="finish_deleted">FloatingView has been deleted.</string>
     <string name="default_floatingview_channel_id">default_floatingview_channel</string>
     <string name="no_data">Không có dữ liệu</string>
+    <string name="video_not_found">Không tìm thấy video này</string>
 </resources>
