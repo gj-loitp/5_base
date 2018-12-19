@@ -50,6 +50,7 @@ import com.google.android.exoplayer2.video.VideoListener;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.uzvideo.UZVideo;
@@ -155,7 +156,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                         }
                         break;
                     case Player.STATE_ENDED:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
                         if (uzVideo != null) {
                             uzVideo.hideLoading();
                         }

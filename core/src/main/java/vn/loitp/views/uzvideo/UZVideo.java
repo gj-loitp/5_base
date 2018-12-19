@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.exoplayer2.ui.PlayerView;
 
@@ -15,6 +16,7 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.data.UZData;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -39,6 +41,8 @@ public class UZVideo extends RelativeLayout {
     private String linkPlay = "";
     private ImageButton exoFullscreen;
     private AVLoadingIndicatorView avl;
+    private ImageButton exoBack;
+    private TextView tvTitle;
     private BaseActivity activity;
 
     public UZVideo(Context context) {
@@ -65,7 +69,12 @@ public class UZVideo extends RelativeLayout {
         //LLog.d(TAG, "isConnectedFirst " + isConnectedFirst);
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
+        exoBack = (ImageButton) findViewById(R.id.exo_back);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        if (tvTitle != null) {
+            LUIUtil.setTextShadow(tvTitle);
+        }
 
         playerManager = new PlayerManager(activity);
         playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
@@ -73,6 +82,12 @@ public class UZVideo extends RelativeLayout {
             @Override
             public void onClick(View view) {
                 playerManager.toggleFullscreen(activity);
+            }
+        });
+        exoBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickBack();
             }
         });
     }
@@ -93,12 +108,16 @@ public class UZVideo extends RelativeLayout {
         playerManager.release();
     }
 
+    private boolean isLandscape;
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            isLandscape = true;
             playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
         } else {
+            isLandscape = false;
             playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
         }
     }
@@ -243,6 +262,20 @@ public class UZVideo extends RelativeLayout {
     public void setUseController(boolean useController) {
         if (playerView != null) {
             playerView.setUseController(useController);
+        }
+    }
+
+    private void onClickBack() {
+        if (isLandscape) {
+            toggleFullscreen();
+        } else {
+            activity.onBackPressed();
+        }
+    }
+
+    public void setTvTitle(String title) {
+        if (tvTitle != null) {
+            tvTitle.setText(title);
         }
     }
 }

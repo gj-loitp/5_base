@@ -60,7 +60,7 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onClick(Data data, int position) {
                 Intent intent = new Intent(getActivity(), UZPlayerActivity.class);
-                intent.putExtra(UZCons.ENTITY_ID, data.getId());
+                intent.putExtra(UZCons.ENTITY_DATA, data);
                 startActivity(intent);
                 LActivityUtil.tranIn(getActivity());
             }

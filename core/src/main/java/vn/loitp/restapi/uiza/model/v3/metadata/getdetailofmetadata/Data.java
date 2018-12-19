@@ -4,13 +4,14 @@ package vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 import vn.loitp.core.common.Constants;
 import vn.loitp.restapi.uiza.model.v3.livestreaming.retrievealiveevent.LastPullInfo;
 import vn.loitp.restapi.uiza.model.v3.livestreaming.retrievealiveevent.LastPushInfo;
 
-public class Data {
+public class Data implements Serializable {
 
     @SerializedName("entityId")
     @Expose

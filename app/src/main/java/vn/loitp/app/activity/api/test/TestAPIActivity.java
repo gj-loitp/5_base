@@ -32,7 +32,6 @@ import vn.loitp.views.LToast;
 
 public class TestAPIActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
-
     private String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
     private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
     private String metadataDefault0 = "53c2e63e-6ddf-4259-8159-cb43371943d1";
@@ -284,7 +283,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
 
     private void retrieveAnEntity() {
         UZService service = UZRestClient.createService(UZService.class);
-        String id = "7789b7cc-9fd8-499b-bd35-745d133b6089";
+        String id = "d41ad6b7-854b-4b8a-9a4d-1d88ed532931";
         subscribe(service.retrieveAnEntity(id), new ApiSubscriber<ResultRetrieveAnEntity>() {
             @Override
             public void onSuccess(ResultRetrieveAnEntity result) {
