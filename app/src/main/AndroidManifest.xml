@@ -868,10 +868,14 @@
         <service
             android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService"
             android:exported="false" />
+
         <activity
             android:name="vn.loitp.app.activity.demo.uiza.UZPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end floating view-->
+        <activity
+            android:name="vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

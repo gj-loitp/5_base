@@ -793,4 +793,20 @@ public class LUIUtil {
         }
         return result;
     }
+
+    public static int getWidthOfView(View view) {
+        if (view == null) {
+            return 0;
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return view.getMeasuredWidth();
+    }
+
+    public static int getHeightOfView(View view) {
+        if (view == null) {
+            return 0;
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return view.getMeasuredHeight();
+    }
 }
