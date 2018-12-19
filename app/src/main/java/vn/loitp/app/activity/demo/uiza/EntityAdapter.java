@@ -18,6 +18,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 
 public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewHolder> {
@@ -65,6 +66,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         final Data data = dataList.get(position);
         holder.tvName.setText(data.getName());
+        LUIUtil.setTextShadow(holder.tvName);
         LImageUtil.load(context, data.getThumbnail(), holder.ivThumbnail, LStoreUtil.getRandomColorLight());
 
         holder.cv.setOnClickListener(new View.OnClickListener() {

@@ -16,6 +16,7 @@ import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
 import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
@@ -74,6 +75,7 @@ public class FrmEntity extends BaseFragment {
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
         getListEntity();
     }
 
