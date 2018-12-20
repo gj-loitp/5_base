@@ -25,4 +25,6 @@
     <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
     <string name="loading">Loading...</string>
     <string name="open_gift">Open gift</string>
+    <string name="no_data">Không có dữ liệu</string>
+    <string name="video_not_found">Không tìm thấy video này</string>
 </resources>

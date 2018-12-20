@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.uiza;
+package vn.loitp.core.loitp.uiza;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDateUtils;

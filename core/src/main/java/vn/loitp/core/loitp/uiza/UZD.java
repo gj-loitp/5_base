@@ -1,6 +1,4 @@
-package vn.loitp.app.activity.demo.uiza;
-
-import android.view.MenuItem;
+package vn.loitp.core.loitp.uiza;
 
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 

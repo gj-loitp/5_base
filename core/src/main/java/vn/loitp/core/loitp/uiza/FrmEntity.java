@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.uiza;
+package vn.loitp.core.loitp.uiza;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
-import vn.loitp.app.app.LSApplication;
+import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -38,10 +37,16 @@ public class FrmEntity extends BaseFragment {
     private List<Data> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
     private EntityAdapter entityAdapter;
+    private String admobBaner = null;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            admobBaner = bundle.getString(Constants.AD_UNIT_ID_BANNER);
+        }
+        LLog.d(TAG, "admobBaner " + admobBaner);
         metadata = UZD.getInstance().getMetadata();
         if (metadata == null) {
             return;
@@ -62,7 +67,9 @@ public class FrmEntity extends BaseFragment {
             public void onClick(Data data, int position) {
                 Intent intent = new Intent(getActivity(), UZPlayerActivity.class);
                 intent.putExtra(UZCons.ENTITY_DATA, data);
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
+                if (admobBaner != null) {
+                    intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
+                }
                 startActivity(intent);
                 LActivityUtil.tranIn(getActivity());
             }
@@ -132,7 +139,6 @@ public class FrmEntity extends BaseFragment {
         subscribe(service.getListAllEntity(metadataId, limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
             @Override
             public void onSuccess(ResultListEntity result) {
-                LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
                     if (page == 0) {
                         tvMsg.setVisibility(View.VISIBLE);
@@ -141,6 +147,9 @@ public class FrmEntity extends BaseFragment {
                         isCanLoadMore = false;
                     }
                 } else {
+                    if (dataList.size() > 500) {
+                        dataList.clear();
+                    }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
                     LLog.d(TAG, "totalPage " + totalPage);
@@ -169,7 +178,6 @@ public class FrmEntity extends BaseFragment {
         subscribe(service.getListAllEntity(metadata.getId(), limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
             @Override
             public void onSuccess(ResultListEntity result) {
-                LLog.d(TAG, "listAllEntityMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
                     if (page == 0) {
                         tvMsg.setVisibility(View.VISIBLE);
@@ -178,6 +186,9 @@ public class FrmEntity extends BaseFragment {
                         isCanLoadMore = false;
                     }
                 } else {
+                    if (dataList.size() > 500) {
+                        dataList.clear();
+                    }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
                     LLog.d(TAG, "totalPage " + totalPage);

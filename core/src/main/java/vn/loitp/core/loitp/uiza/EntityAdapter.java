@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.uiza;
+package vn.loitp.core.loitp.uiza;
 
 /**
  * Created by www.muathu@gmail.com on 12/8/2017.
@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LStoreUtil;
@@ -72,7 +72,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
     }
 
     @Override
-    public void onBindViewHolder(MovieViewHolder holder, int position) {
+    public void onBindViewHolder(MovieViewHolder holder, final int position) {
         final Data data = dataList.get(position);
         holder.tvName.setText(data.getName());
         LUIUtil.setTextShadow(holder.tvName);

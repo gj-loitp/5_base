@@ -18,6 +18,9 @@ import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.adhelper.AdHelperActivity;
+import vn.loitp.core.loitp.uiza.FrmEntity;
+import vn.loitp.core.loitp.uiza.UZCons;
+import vn.loitp.core.loitp.uiza.UZD;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPopupMenu;
@@ -191,6 +194,9 @@ public class UZMainActivity extends BaseFontActivity {
     public void switchPage() {
         setTvTilte(UZD.getInstance().getMetadata().getName());
         FrmEntity frmEntity = new FrmEntity();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
+        frmEntity.setArguments(bundle);
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }
 
