@@ -78,7 +78,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
 
     @Override
     protected boolean setFullScreen() {
-        return true;
+        return false;
     }
 
     @Override

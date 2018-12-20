@@ -135,7 +135,7 @@ public class UZMainActivity extends BaseFontActivity {
 
     @Override
     protected boolean setFullScreen() {
-        return true;
+        return false;
     }
 
     @Override
