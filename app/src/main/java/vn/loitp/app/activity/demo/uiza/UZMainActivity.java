@@ -55,6 +55,7 @@ public class UZMainActivity extends BaseFontActivity {
             }
         });*/
         lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
+        LUIUtil.setTextShadow(lActionBar.getTvTitle(), Color.WHITE);
         lActionBar.getIvIconBack().setImageResource(R.drawable.ic_more_vert_white_48dp);
         lActionBar.getIvIconBack().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary));
         lActionBar.setOnClickBack(new LActionBar.Callback() {
@@ -67,7 +68,6 @@ public class UZMainActivity extends BaseFontActivity {
 
             @Override
             public void onClickMenu() {
-
             }
         });
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
