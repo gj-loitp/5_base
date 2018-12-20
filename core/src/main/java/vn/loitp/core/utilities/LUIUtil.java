@@ -694,10 +694,6 @@ public class LUIUtil {
     }
 
     public static void changeTabsFont(TabLayout tabLayout, String fontName) {
-        changeTabsFont(tabLayout, fontName, false);
-    }
-
-    public static void changeTabsFont(TabLayout tabLayout, String fontName, boolean isAllCaps) {
         ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
         int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {
@@ -706,7 +702,6 @@ public class LUIUtil {
             for (int i = 0; i < tabChildsCount; i++) {
                 View tabViewChild = vgTab.getChildAt(i);
                 if (tabViewChild instanceof TextView) {
-                    ((TextView) tabViewChild).setAllCaps(isAllCaps);
                     CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
                 }
             }
