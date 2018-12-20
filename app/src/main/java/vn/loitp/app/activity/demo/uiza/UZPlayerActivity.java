@@ -14,12 +14,14 @@ import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
+import vn.loitp.views.layout.swipeback.SwipeBackLayout;
 import vn.loitp.views.uzvideo.UZVideo;
 
 //custom UI exo_playback_control_view.xml
-public class UZPlayerActivity extends BaseFontActivity {
+public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCallback {
     private UZVideo uzVideo;
     private Data data;
+    private SwipeBackLayout swipeBackLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +38,12 @@ public class UZPlayerActivity extends BaseFontActivity {
         }
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
+        swipeBackLayout = (SwipeBackLayout) findViewById(R.id.swipe_back_layout);
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
         uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
         uzVideo.setTvTitle(data.getName() + "");
         uzVideo.playEntity(entityId);
+        uzVideo.setUzCallback(this);
 
         ScrollView sv = (ScrollView) findViewById(R.id.sv);
         LUIUtil.setPullLikeIOSVertical(sv);
@@ -106,6 +110,15 @@ public class UZPlayerActivity extends BaseFontActivity {
         //LLog.d(TAG, "onNetworkChange isConnected " + event.isConnected());
         if (uzVideo != null) {
             uzVideo.onNetworkChange(event);
+        }
+    }
+
+    @Override
+    public void onScreenRotateChange(boolean isLandscape) {
+        if (isLandscape) {
+            swipeBackLayout.setSwipeFromEdge(true);
+        } else {
+            swipeBackLayout.setSwipeFromEdge(false);
         }
     }
 }

@@ -122,9 +122,15 @@ public class UZVideo extends RelativeLayout {
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             isLandscape = true;
             playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        } else {
+            if (uzCallback != null) {
+                uzCallback.onScreenRotateChange(true);
+            }
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             isLandscape = false;
             playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            if (uzCallback != null) {
+                uzCallback.onScreenRotateChange(false);
+            }
         }
     }
 
@@ -138,7 +144,7 @@ public class UZVideo extends RelativeLayout {
     public void playEntity(final String entityId) {
         playerManager.release();
         showLoading();
-        getTokenStreaming(entityId, new Callback() {
+        getTokenStreaming(entityId, new CallbackAPI() {
             @Override
             public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay) {
                 try {
@@ -162,7 +168,7 @@ public class UZVideo extends RelativeLayout {
         });
     }
 
-    private void getTokenStreaming(final String entityId, final Callback callback) {
+    private void getTokenStreaming(final String entityId, final CallbackAPI callbackAPI) {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
         sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
@@ -173,23 +179,23 @@ public class UZVideo extends RelativeLayout {
             public void onSuccess(ResultGetTokenStreaming result) {
                 //LLog.d(TAG, "getTokenStreaming onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 String tokenStreaming = result.getData().getToken();
-                getLinkPlay(tokenStreaming, entityId, result, callback);
+                getLinkPlay(tokenStreaming, entityId, result, callbackAPI);
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getTokenStreaming onFail " + e.getMessage());
-                if (callback != null) {
-                    callback.onFail(e);
+                if (callbackAPI != null) {
+                    callbackAPI.onFail(e);
                 }
             }
         });
     }
 
-    private void getLinkPlay(final String tokenStreaming, String entityId, final ResultGetTokenStreaming resultGetTokenStreaming, final Callback callback) {
+    private void getLinkPlay(final String tokenStreaming, String entityId, final ResultGetTokenStreaming resultGetTokenStreaming, final CallbackAPI callbackAPI) {
         if (tokenStreaming == null || tokenStreaming.isEmpty()) {
-            if (callback != null) {
-                callback.onFail(new Throwable("No token streaming found"));
+            if (callbackAPI != null) {
+                callbackAPI.onFail(new Throwable("No token streaming found"));
             }
             return;
         }
@@ -200,25 +206,35 @@ public class UZVideo extends RelativeLayout {
             @Override
             public void onSuccess(ResultGetLinkPlay resultGetLinkPlay) {
                 //LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetLinkPlay));
-                if (callback != null) {
-                    callback.onSuccess(resultGetTokenStreaming, resultGetLinkPlay);
+                if (callbackAPI != null) {
+                    callbackAPI.onSuccess(resultGetTokenStreaming, resultGetLinkPlay);
                 }
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getLinkPlay onFail " + e.getMessage());
-                if (callback != null) {
-                    callback.onFail(e);
+                if (callbackAPI != null) {
+                    callbackAPI.onFail(e);
                 }
             }
         });
     }
 
-    public interface Callback {
+    public interface CallbackAPI {
         public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay);
 
         public void onFail(Throwable e);
+    }
+
+    private UZCallback uzCallback;
+
+    public void setUzCallback(UZCallback uzCallback) {
+        this.uzCallback = uzCallback;
+    }
+
+    public interface UZCallback {
+        public void onScreenRotateChange(boolean isLandscape);
     }
 
     public void showLoading() {
