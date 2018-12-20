@@ -110,6 +110,10 @@ public class UZVideo extends RelativeLayout {
 
     private boolean isLandscape;
 
+    public boolean isLandscape() {
+        return isLandscape;
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

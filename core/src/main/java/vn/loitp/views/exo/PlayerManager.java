@@ -63,7 +63,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private UZVideo uzVideo;
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
-
     private SimpleExoPlayer player;
     private long contentPosition;
 
@@ -88,8 +87,12 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     }
 
     public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay) {
+        if (context == null || uzVideo == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
+            return;
+        }
         this.uzVideo = uzVideo;
-
+        playerView.setControllerShowTimeoutMs(8000);
+        playerView.setControllerHideOnTouch(true);
         // Create a default track selector.
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -138,30 +141,40 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
-                        if (uzVideo != null) {
-                            uzVideo.showLoading();
+                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        if (playerView != null) {
+                            if (playerView.getControllerShowTimeoutMs() == 0) {
+                                playerView.setControllerShowTimeoutMs(8000);
+                            }
+                            if (!playerView.getControllerHideOnTouch()) {
+                                playerView.setControllerHideOnTouch(true);
+                            }
+                            if (uzVideo != null) {
+                                uzVideo.showLoading();
+                            }
                         }
                         break;
                     case Player.STATE_IDLE:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
                         if (uzVideo != null) {
                             uzVideo.showLoading();
                         }
                         break;
                     case Player.STATE_READY:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
                         if (uzVideo != null) {
                             uzVideo.hideLoading();
                         }
                         break;
                     case Player.STATE_ENDED:
                         LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
-                        if (uzVideo != null) {
-                            uzVideo.hideLoading();
-                        }
                         if (playerView != null) {
                             playerView.showController();
+                            playerView.setControllerShowTimeoutMs(0);
+                            playerView.setControllerHideOnTouch(false);
+                        }
+                        if (uzVideo != null) {
+                            uzVideo.hideLoading();
                         }
                         break;
                 }
