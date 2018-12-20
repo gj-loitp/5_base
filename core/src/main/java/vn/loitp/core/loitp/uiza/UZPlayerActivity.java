@@ -14,6 +14,7 @@ import com.google.android.gms.ads.AdView;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.facebookcomment.FrmFBComment;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
@@ -155,5 +156,20 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             swipeBackLayout.setSwipeFromEdge(false);
             lnAdview.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onInitSuccess(String linkPlay) {
+        if (linkPlay != null && !linkPlay.isEmpty()) {
+            addFrmFBComment(linkPlay);
+        }
+    }
+
+    private void addFrmFBComment(String FBCommentURL) {
+        FrmFBComment frmFBComment = new FrmFBComment();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.FACEBOOK_COMMENT_URL, FBCommentURL);
+        frmFBComment.setArguments(bundle);
+        LScreenUtil.replaceFragment(activity, R.id.fl_fb_cmt, frmFBComment, false);
     }
 }

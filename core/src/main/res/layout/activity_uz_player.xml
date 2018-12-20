@@ -97,6 +97,18 @@
                     android:layout_marginTop="@dimen/margin_5"
                     android:textColor="@color/White"
                     android:textSize="@dimen/txt_18" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_1"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/WhiteSmoke" />
+
+                <FrameLayout
+                    android:id="@+id/fl_fb_cmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5" />
             </LinearLayout>
         </ScrollView>
 

@@ -139,6 +139,9 @@ public class UZVideo extends RelativeLayout {
         showLoading();
         this.linkPlay = linkPlay;
         playerManager.init(activity, this, playerView, linkPlay);
+        if (uzCallback != null) {
+            uzCallback.onInitSuccess(linkPlay);
+        }
     }
 
     public void playEntity(final String entityId) {
@@ -156,6 +159,9 @@ public class UZVideo extends RelativeLayout {
                     }
                     LLog.d(TAG, "linkPlay " + linkPlay);
                     playerManager.init(activity, UZVideo.this, playerView, linkPlay);
+                    if (uzCallback != null) {
+                        uzCallback.onInitSuccess(linkPlay);
+                    }
                 } catch (NullPointerException e) {
                     LLog.e(TAG, "Error NullPointerException " + e.toString());
                 }
@@ -235,6 +241,8 @@ public class UZVideo extends RelativeLayout {
 
     public interface UZCallback {
         public void onScreenRotateChange(boolean isLandscape);
+
+        public void onInitSuccess(String linkPlay);
     }
 
     public void showLoading() {
