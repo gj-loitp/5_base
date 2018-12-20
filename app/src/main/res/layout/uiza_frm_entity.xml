@@ -12,22 +12,6 @@
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/tv_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_65"
-        android:background="@drawable/bkg_primary_black"
-        android:gravity="center"
-        android:paddingLeft="@dimen/padding_10"
-        android:paddingTop="@dimen/padding_5"
-        android:paddingRight="@dimen/padding_10"
-        android:paddingBottom="@dimen/padding_5"
-        android:textColor="@color/White"
-        android:textSize="@dimen/txt_14"
-        android:visibility="gone" />
-
-    <TextView
         android:id="@+id/tv_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

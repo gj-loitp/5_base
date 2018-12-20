@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,6 @@ import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -40,7 +37,6 @@ public class FrmEntity extends BaseFragment {
     private TextView tvMsg;
     private List<Data> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private TextView tvPage;
     private EntityAdapter entityAdapter;
 
     @Override
@@ -55,7 +51,6 @@ public class FrmEntity extends BaseFragment {
         } else {
             isMetadataHome = false;
         }
-        tvPage = (TextView) view.findViewById(R.id.tv_page);
         avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tvMsg = (TextView) view.findViewById(R.id.tv_msg);
@@ -78,41 +73,17 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onLoadMore() {
-                LLog.d(TAG, "onLoadMore");
+                getListEntity();
             }
 
             @Override
             public void onScrollUp() {
-                LLog.d(TAG, "onScrollUp -> show");
-                if (tvPage.getVisibility() != View.VISIBLE) {
-                    tvPage.setVisibility(View.VISIBLE);
-                    LAnimationUtil.play(tvPage, Techniques.SlideInDown);
-                }
+                //LLog.d(TAG, "onScrollUp -> show");
             }
 
             @Override
             public void onScrollDown() {
-                LLog.d(TAG, "onScrollDown -> hide");
-                if (tvPage.getVisibility() == View.VISIBLE) {
-                    LAnimationUtil.play(tvPage, Techniques.SlideOutUp, new LAnimationUtil.Callback() {
-                        @Override
-                        public void onCancel() {
-                        }
-
-                        @Override
-                        public void onEnd() {
-                            tvPage.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onRepeat() {
-                        }
-
-                        @Override
-                        public void onStart() {
-                        }
-                    });
-                }
+                //LLog.d(TAG, "onScrollDown -> hide");
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -135,6 +106,11 @@ public class FrmEntity extends BaseFragment {
         if (metadata == null) {
             return;
         }
+        if (!isCanLoadMore) {
+            LLog.d(TAG, "Cannot loadmore because this is last page!");
+            return;
+        }
+        page++;
         if (isMetadataHome) {
             listAllEntity();
         } else {
@@ -142,14 +118,15 @@ public class FrmEntity extends BaseFragment {
         }
     }
 
-    private int page;
+    private int page = 0;
+    private double totalPage = Integer.MAX_VALUE;
+    private boolean isCanLoadMore = true;
 
     private void listAllEntity() {
         tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         String metadataId = "";
         int limit = 50;
-        page = 0;
         String orderBy = "createdAt";
         String orderType = "DESC";
         subscribe(service.getListAllEntity(metadataId, limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
@@ -157,9 +134,16 @@ public class FrmEntity extends BaseFragment {
             public void onSuccess(ResultListEntity result) {
                 LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
-                    tvMsg.setVisibility(View.VISIBLE);
+                    if (page == 0) {
+                        tvMsg.setVisibility(View.VISIBLE);
+                    } else {
+                        LLog.d(TAG, "last page");
+                        isCanLoadMore = false;
+                    }
                 } else {
                     dataList.addAll(result.getData());
+                    totalPage = result.getMetadata().getTotal();
+                    LLog.d(TAG, "totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
@@ -168,7 +152,9 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getListAllEntity onFail " + e.getMessage());
-                tvMsg.setVisibility(View.VISIBLE);
+                if (page == 0) {
+                    tvMsg.setVisibility(View.VISIBLE);
+                }
                 avl.smoothToHide();
             }
         });
@@ -178,7 +164,6 @@ public class FrmEntity extends BaseFragment {
         tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         int limit = 50;
-        page = 0;
         String orderBy = "createdAt";
         String orderType = "DESC";
         subscribe(service.getListAllEntity(metadata.getId(), limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
@@ -186,9 +171,16 @@ public class FrmEntity extends BaseFragment {
             public void onSuccess(ResultListEntity result) {
                 LLog.d(TAG, "listAllEntityMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
-                    tvMsg.setVisibility(View.VISIBLE);
+                    if (page == 0) {
+                        tvMsg.setVisibility(View.VISIBLE);
+                    } else {
+                        LLog.d(TAG, "last page");
+                        isCanLoadMore = false;
+                    }
                 } else {
                     dataList.addAll(result.getData());
+                    totalPage = result.getMetadata().getTotal();
+                    LLog.d(TAG, "totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
@@ -197,7 +189,9 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "listAllEntityMetadata onFail " + e.getMessage());
-                tvMsg.setVisibility(View.VISIBLE);
+                if (page == 0) {
+                    tvMsg.setVisibility(View.VISIBLE);
+                }
                 avl.smoothToHide();
             }
         });
@@ -206,10 +200,6 @@ public class FrmEntity extends BaseFragment {
     private void refreshAllViews() {
         LLog.d(TAG, "refreshAllViews size: " + dataList.size());
         if (entityAdapter != null) {
-            //TODO
-            tvPage.setText(page + "/50");
-            tvPage.setVisibility(View.VISIBLE);
-            LAnimationUtil.play(tvPage, Techniques.SlideInRight);
             entityAdapter.notifyDataSetChanged();
         }
     }
