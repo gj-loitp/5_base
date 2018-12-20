@@ -1,99 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<vn.loitp.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Black">
+    app:directionMode="left"
+    app:isSwipeFromEdge="false"
+    app:maskAlpha="125"
+    app:swipeBackFactor="0.5">
 
-    <ImageView
-        android:id="@+id/iv_bkg"
+    <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
+        android:background="@color/Black">
 
-    <vn.loitp.views.realtimeblurview.RealtimeBlurView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_15"
-        app:realtimeOverlayColor="@color/black_65" />
-
-    <ScrollView
-        android:id="@+id/sv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/uz_video">
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/iv_bkg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_10">
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/tv_name"
+        <vn.loitp.views.realtimeblurview.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="@dimen/round_15"
+            app:realtimeOverlayColor="@color/black_65" />
+
+        <ScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/uz_video">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/White"
-                android:textSize="@dimen/txt_25"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="@dimen/padding_10">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:layout_marginTop="@dimen/margin_5"
-                android:background="@color/WhiteSmoke" />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/txt_25"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/White"
-                android:textSize="@dimen/txt_18" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_1"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/WhiteSmoke" />
 
-            <TextView
-                android:id="@+id/tv_created_at"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
-                android:textSize="@dimen/txt_18" />
+                <TextView
+                    android:id="@+id/tv_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/txt_18" />
 
-            <TextView
-                android:id="@+id/tv_updated_at"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
-                android:textSize="@dimen/txt_18" />
+                <TextView
+                    android:id="@+id/tv_created_at"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/txt_18" />
 
-            <TextView
-                android:id="@+id/tv_duration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/Gray"
-                android:textSize="@dimen/txt_18" />
+                <TextView
+                    android:id="@+id/tv_updated_at"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/txt_18" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:layout_marginTop="@dimen/margin_5"
-                android:background="@color/WhiteSmoke" />
+                <TextView
+                    android:id="@+id/tv_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Gray"
+                    android:textSize="@dimen/txt_18" />
 
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
-                android:textSize="@dimen/txt_18" />
-        </LinearLayout>
-    </ScrollView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/w_1"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/WhiteSmoke" />
 
-    <vn.loitp.views.uzvideo.UZVideo
-        android:id="@+id/uz_video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/txt_18" />
+            </LinearLayout>
+        </ScrollView>
 
-</RelativeLayout>
+        <vn.loitp.views.uzvideo.UZVideo
+            android:id="@+id/uz_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</vn.loitp.views.layout.swipeback.SwipeBackLayout>
 
