@@ -49,6 +49,7 @@
     <dimen name="txt_150">150dp</dimen>
     <dimen name="txt_32">32dp</dimen>
     <dimen name="margin_55">55dp</dimen>
+    <dimen name="margin_65">65dp</dimen>
     <dimen name="margin_75">75dp</dimen>
     <dimen name="margin_100">100dp</dimen>
     <dimen name="label_title_size">14sp</dimen>

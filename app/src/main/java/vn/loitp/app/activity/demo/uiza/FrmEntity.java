@@ -37,6 +37,7 @@ public class FrmEntity extends BaseFragment {
     private TextView tvMsg;
     private List<Data> dataList = new ArrayList<>();
     private RecyclerView recyclerView;
+    private TextView tvPage;
     private EntityAdapter entityAdapter;
 
     @Override
@@ -51,6 +52,7 @@ public class FrmEntity extends BaseFragment {
         } else {
             isMetadataHome = false;
         }
+        tvPage = (TextView) view.findViewById(R.id.tv_page);
         avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         tvMsg = (TextView) view.findViewById(R.id.tv_msg);
@@ -103,12 +105,14 @@ public class FrmEntity extends BaseFragment {
         }
     }
 
+    private int page;
+
     private void listAllEntity() {
         tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         String metadataId = "";
         int limit = 50;
-        int page = 0;
+        page = 0;
         String orderBy = "createdAt";
         String orderType = "DESC";
         subscribe(service.getListAllEntity(metadataId, limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
@@ -118,7 +122,6 @@ public class FrmEntity extends BaseFragment {
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
                     tvMsg.setVisibility(View.VISIBLE);
                 } else {
-                    ((UZMainActivity) getActivity()).setTvTiltePage(page + "/llll");
                     dataList.addAll(result.getData());
                     refreshAllViews();
                 }
@@ -138,7 +141,7 @@ public class FrmEntity extends BaseFragment {
         tvMsg.setVisibility(View.GONE);
         UZService service = UZRestClient.createService(UZService.class);
         int limit = 50;
-        int page = 0;
+        page = 0;
         String orderBy = "createdAt";
         String orderType = "DESC";
         subscribe(service.getListAllEntity(metadata.getId(), limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
@@ -166,6 +169,9 @@ public class FrmEntity extends BaseFragment {
     private void refreshAllViews() {
         LLog.d(TAG, "refreshAllViews size: " + dataList.size());
         if (entityAdapter != null) {
+            //TODO
+            tvPage.setText(page + "/50");
+            tvPage.setVisibility(View.VISIBLE);
             entityAdapter.notifyDataSetChanged();
         }
     }

@@ -188,10 +188,6 @@ public class UZMainActivity extends BaseFontActivity {
         lActionBar.setTvTitle(title);
     }
 
-    public void setTvTiltePage(String page) {
-        lActionBar.setTvTitle(lActionBar.getTvTitle().getText().toString() + " (" + page + ")");
-    }
-
     public void switchPage() {
         setTvTilte(UZD.getInstance().getMetadata().getName());
         FrmEntity frmEntity = new FrmEntity();
