@@ -37,7 +37,7 @@ public class FrmInformation extends BaseFragment {
         tvCreatedAt.setText("Created At: " + LDateUtils.getDateWithoutTime(data.getCreatedAt()));
         tvUpdatedAt.setText("Created At: " + LDateUtils.getDateWithoutTime(data.getUpdatedAt()));
         tvDuration.setText(LDateUtils.convertDate(data.getDuration(), "hh:mm:ss"));
-        tvView.setText(data.getView() + "");
+        tvView.setText("View: " + data.getView());
         tvDescription.setText("Description: " + (data.getDescription() == null ? " - " : data.getDescription()));
     }
 
