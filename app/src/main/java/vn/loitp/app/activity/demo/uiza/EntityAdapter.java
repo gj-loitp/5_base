@@ -30,11 +30,17 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
         public void onLongClick(Data data, int position);
 
         public void onLoadMore();
+
+        public void onScrollUp();
+
+        public void onScrollDown();
     }
 
     private Context context;
     private Callback callback;
     private List<Data> dataList;
+    private int lastItemPosition = -1;
+    private boolean onScrollDown;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
@@ -101,6 +107,22 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
                 callback.onLoadMore();
             }
         }
+        if (position > lastItemPosition) {
+            if (!onScrollDown) {
+                onScrollDown = true;
+                if (callback != null) {
+                    callback.onScrollDown();
+                }
+            }
+        } else {
+            if (onScrollDown) {
+                onScrollDown = false;
+                if (callback != null) {
+                    callback.onScrollUp();
+                }
+            }
+        }
+        lastItemPosition = position;
     }
 
     @Override

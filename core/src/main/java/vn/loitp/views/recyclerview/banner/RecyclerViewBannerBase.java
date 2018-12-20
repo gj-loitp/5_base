@@ -144,7 +144,6 @@ public abstract class RecyclerViewBannerBase<L extends RecyclerView.LayoutManage
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 onBannerScrollStateChanged(recyclerView, newState);
-
             }
         });
         LayoutParams vpLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

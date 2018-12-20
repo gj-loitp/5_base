@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -76,6 +79,40 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onLoadMore() {
                 LLog.d(TAG, "onLoadMore");
+            }
+
+            @Override
+            public void onScrollUp() {
+                LLog.d(TAG, "onScrollUp -> show");
+                if (tvPage.getVisibility() != View.VISIBLE) {
+                    tvPage.setVisibility(View.VISIBLE);
+                    LAnimationUtil.play(tvPage, Techniques.SlideInDown);
+                }
+            }
+
+            @Override
+            public void onScrollDown() {
+                LLog.d(TAG, "onScrollDown -> hide");
+                if (tvPage.getVisibility() == View.VISIBLE) {
+                    LAnimationUtil.play(tvPage, Techniques.SlideOutUp, new LAnimationUtil.Callback() {
+                        @Override
+                        public void onCancel() {
+                        }
+
+                        @Override
+                        public void onEnd() {
+                            tvPage.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onRepeat() {
+                        }
+
+                        @Override
+                        public void onStart() {
+                        }
+                    });
+                }
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -172,6 +209,7 @@ public class FrmEntity extends BaseFragment {
             //TODO
             tvPage.setText(page + "/50");
             tvPage.setVisibility(View.VISIBLE);
+            LAnimationUtil.play(tvPage, Techniques.SlideInRight);
             entityAdapter.notifyDataSetChanged();
         }
     }
