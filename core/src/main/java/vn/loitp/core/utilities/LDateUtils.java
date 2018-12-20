@@ -1,7 +1,5 @@
 package vn.loitp.core.utilities;
 
-import android.content.Context;
-
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
@@ -12,7 +10,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import loitp.core.R;
 import vn.loitp.core.common.Constants;
 
 /**
@@ -208,9 +205,9 @@ public class LDateUtils {
     }
 
     /*
-    * getDateCurrentTimeZone("1524141369", "yyyy-MM-dd HH:mm:ss");
-    * -> 2018-04-20 02:36:09
-    */
+     * getDateCurrentTimeZone("1524141369", "yyyy-MM-dd HH:mm:ss");
+     * -> 2018-04-20 02:36:09
+     */
     public static String getDateCurrentTimeZone(long timestamp, String format) {
         try {
             Calendar calendar = Calendar.getInstance();
@@ -227,9 +224,9 @@ public class LDateUtils {
     }
 
     /*
-    * getDateCurrentTimeZone(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
-    * -> 2018-04-20 02:36:09
-    */
+     * getDateCurrentTimeZone(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
+     * -> 2018-04-20 02:36:09
+     */
     public static String getDateCurrentTimeZoneMls(long timestampMls, String format) {
         //LLog.d(TAG, "getDateCurrentTimeZoneMls " + timestampMls);
         try {
@@ -247,13 +244,17 @@ public class LDateUtils {
     }
 
     public static String convertDate(String dateInMilliseconds, String dateFormat) {
-        long timeStamp = Long.parseLong(dateInMilliseconds);
-        SimpleDateFormat objFormatter = new SimpleDateFormat(dateFormat);
-        objFormatter.setTimeZone(TimeZone.getDefault());
-        Calendar objCalendar = Calendar.getInstance(TimeZone.getDefault());
-        objCalendar.setTimeInMillis(timeStamp * 1000);
-        String result = objFormatter.format(objCalendar.getTime());
-        objCalendar.clear();
-        return result;
+        try {
+            long timeStamp = Long.parseLong(dateInMilliseconds);
+            SimpleDateFormat objFormatter = new SimpleDateFormat(dateFormat);
+            objFormatter.setTimeZone(TimeZone.getDefault());
+            Calendar objCalendar = Calendar.getInstance(TimeZone.getDefault());
+            objCalendar.setTimeInMillis(timeStamp * 1000);
+            String result = objFormatter.format(objCalendar.getTime());
+            objCalendar.clear();
+            return result;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

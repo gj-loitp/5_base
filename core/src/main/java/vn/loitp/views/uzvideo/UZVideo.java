@@ -39,6 +39,7 @@ public class UZVideo extends RelativeLayout {
     private PlayerView playerView;
     private PlayerManager playerManager;
     private String linkPlay = "";
+    private RelativeLayout rlRootView;
     private ImageButton exoFullscreen;
     private AVLoadingIndicatorView avl;
     private ImageButton exoBack;
@@ -67,6 +68,7 @@ public class UZVideo extends RelativeLayout {
         activity = (BaseActivity) getContext();
         isConnectedFirst = LConnectivityUtil.isConnected(activity);
         //LLog.d(TAG, "isConnectedFirst " + isConnectedFirst);
+        rlRootView = findViewById(R.id.rl_root_view);
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
         exoBack = (ImageButton) findViewById(R.id.exo_back);
@@ -281,5 +283,9 @@ public class UZVideo extends RelativeLayout {
         if (tvTitle != null) {
             tvTitle.setText(title);
         }
+    }
+
+    public RelativeLayout getRlRootView() {
+        return rlRootView;
     }
 }
