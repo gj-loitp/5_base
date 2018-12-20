@@ -31,6 +31,7 @@
             android:id="@+id/sv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/ln_adview"
             android:layout_below="@+id/uz_video">
 
             <LinearLayout
@@ -103,6 +104,15 @@
             android:id="@+id/uz_video"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/ln_adview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:orientation="vertical" />
 
     </RelativeLayout>
 </vn.loitp.views.layout.swipeback.SwipeBackLayout>

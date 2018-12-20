@@ -10,14 +10,13 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.InterstitialAd;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -63,6 +62,7 @@ public class FrmEntity extends BaseFragment {
             public void onClick(Data data, int position) {
                 Intent intent = new Intent(getActivity(), UZPlayerActivity.class);
                 intent.putExtra(UZCons.ENTITY_DATA, data);
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
                 startActivity(intent);
                 LActivityUtil.tranIn(getActivity());
             }

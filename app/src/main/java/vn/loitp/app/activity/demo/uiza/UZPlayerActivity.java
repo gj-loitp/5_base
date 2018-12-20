@@ -2,14 +2,21 @@ package vn.loitp.app.activity.demo.uiza;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDateUtils;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
@@ -22,6 +29,8 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     private UZVideo uzVideo;
     private Data data;
     private SwipeBackLayout swipeBackLayout;
+    private AdView adView;
+    private LinearLayout lnAdview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,21 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         tvDuration.setText(LDateUtils.convertDate(data.getDuration(), "hh:mm:ss"));
         tvView.setText(data.getView() + "");
         tvDescription.setText("Description: " + (data.getDescription() == null ? " - " : data.getDescription()));
+
+        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        lnAdview = (LinearLayout) findViewById(loitp.core.R.id.ln_adview);
+        if (adUnitId == null || adUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.setAdUnitId(adUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            int navigationHeight = LScreenUtil.getBottomBarHeight(activity);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
+        }
     }
 
     @Override
@@ -79,18 +103,27 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
 
     @Override
     public void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
         super.onResume();
         uzVideo.onResume();
     }
 
     @Override
     public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
         super.onPause();
         uzVideo.onPause();
     }
 
     @Override
     public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
         uzVideo.onDestroy();
         super.onDestroy();
     }
@@ -117,8 +150,10 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     public void onScreenRotateChange(boolean isLandscape) {
         if (isLandscape) {
             swipeBackLayout.setSwipeFromEdge(true);
+            lnAdview.setVisibility(View.GONE);
         } else {
             swipeBackLayout.setSwipeFromEdge(false);
+            lnAdview.setVisibility(View.VISIBLE);
         }
     }
 }
