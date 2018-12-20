@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.uiza;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,8 +16,13 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.adhelper.AdHelperActivity;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
 import vn.loitp.restapi.uiza.UZService;
@@ -56,8 +62,11 @@ public class UZMainActivity extends BaseFontActivity {
         });*/
         lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
         LUIUtil.setTextShadow(lActionBar.getTvTitle(), Color.WHITE);
-        lActionBar.getIvIconBack().setImageResource(R.drawable.ic_more_vert_white_48dp);
+        lActionBar.showMenuIcon();
+        lActionBar.setImageBackIcon(R.drawable.ic_more_vert_white_48dp);
+        lActionBar.setImageMenuIcon(R.drawable.ic_more_vert_white_48dp);
         lActionBar.getIvIconBack().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary));
+        lActionBar.getIvIconMenu().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary));
         lActionBar.setOnClickBack(new LActionBar.Callback() {
             @Override
             public void onClickBack() {
@@ -68,6 +77,7 @@ public class UZMainActivity extends BaseFontActivity {
 
             @Override
             public void onClickMenu() {
+                showMenu();
             }
         });
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -75,7 +85,7 @@ public class UZMainActivity extends BaseFontActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                LLog.d(TAG, "onNavigationItemSelected " + item.getTitle() + ", isCheckable: " + item.isCheckable());
+                //LLog.d(TAG, "onNavigationItemSelected " + item.getTitle() + ", isCheckable: " + item.isCheckable());
                 UZD.getInstance().setMetadata(getMetadata(item));
                 switchPage();
                 drawerLayout.closeDrawers();
@@ -84,6 +94,40 @@ public class UZMainActivity extends BaseFontActivity {
         });
         LUIUtil.setNavMenuItemThemeColors(navigationView, Color.GRAY, Color.BLACK);
         getListMetadata();
+    }
+
+    private void showMenu() {
+        LPopupMenu.show(activity, lActionBar.getIvIconMenu(), R.menu.menu_uz, new LPopupMenu.CallBack() {
+            @Override
+            public void clickOnItem(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_rate:
+                        LSocialUtil.rateApp(activity, getPackageName());
+                        break;
+                    case R.id.action_more:
+                        LSocialUtil.moreApp(activity);
+                        break;
+                    case R.id.action_share:
+                        LSocialUtil.shareApp(activity);
+                        break;
+                    case R.id.action_like_fb:
+                        LSocialUtil.likeFacebookFanpage(activity);
+                        break;
+                    case R.id.bt_support_24_7:
+                        LSocialUtil.chatMessenger(activity);
+                        break;
+                    case R.id.action_why_u_see_ad:
+                        Intent intent = new Intent(activity, AdHelperActivity.class);
+                        intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
+                        startActivity(intent);
+                        LActivityUtil.tranIn(activity);
+                        break;
+                    case R.id.action_policy:
+                        LSocialUtil.openBrowserPolicy(activity);
+                        break;
+                }
+            }
+        });
     }
 
     @Override
