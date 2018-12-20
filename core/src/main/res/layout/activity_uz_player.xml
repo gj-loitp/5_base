@@ -1,131 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vn.loitp.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipe_back_layout"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:directionMode="left"
-    app:isSwipeFromEdge="false"
-    app:maskAlpha="125"
-    app:swipeBackFactor="0.5">
+    android:background="@color/Black">
 
-    <RelativeLayout
-        android:id="@+id/root_view"
+    <ImageView
+        android:id="@+id/iv_bkg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/Black">
+        android:scaleType="centerCrop" />
 
-        <ImageView
-            android:id="@+id/iv_bkg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:realtimeBlurRadius="@dimen/round_15"
+        app:realtimeOverlayColor="@color/black_65" />
 
-        <vn.loitp.views.realtimeblurview.RealtimeBlurView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_15"
-            app:realtimeOverlayColor="@color/black_65" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
+        android:layout_below="@+id/uz_video"
+        android:orientation="vertical">
 
-        <ScrollView
-            android:id="@+id/sv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/ln_adview"
-            android:layout_below="@+id/uz_video">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/padding_10">
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/txt_25"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/w_1"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:background="@color/WhiteSmoke" />
-
-                <TextView
-                    android:id="@+id/tv_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/txt_18" />
-
-                <TextView
-                    android:id="@+id/tv_created_at"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/txt_18" />
-
-                <TextView
-                    android:id="@+id/tv_updated_at"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/txt_18" />
-
-                <TextView
-                    android:id="@+id/tv_duration"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/Gray"
-                    android:textSize="@dimen/txt_18" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/w_1"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:background="@color/WhiteSmoke" />
-
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/txt_18" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/w_1"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:background="@color/WhiteSmoke" />
-
-                <FrameLayout
-                    android:id="@+id/fl_fb_cmt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5" />
-            </LinearLayout>
-        </ScrollView>
-
-        <vn.loitp.views.uzvideo.UZVideo
-            android:id="@+id/uz_video"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:id="@+id/ln_adview"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/sliding_tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/transparent"
-            android:gravity="center"
-            android:orientation="vertical" />
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/White"
+            app:tabIndicatorHeight="@dimen/w_3"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/White"
+            app:tabTextColor="@color/WhiteSmoke" />
 
-    </RelativeLayout>
-</vn.loitp.views.layout.swipeback.SwipeBackLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <vn.loitp.views.uzvideo.UZVideo
+        android:id="@+id/uz_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/ln_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="vertical" />
+</RelativeLayout>
 
