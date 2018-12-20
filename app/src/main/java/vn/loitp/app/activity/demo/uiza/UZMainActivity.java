@@ -184,8 +184,16 @@ public class UZMainActivity extends BaseFontActivity {
         });
     }
 
+    private void setTvTilte(String title) {
+        lActionBar.setTvTitle(title);
+    }
+
+    public void setTvTiltePage(String page) {
+        lActionBar.setTvTitle(lActionBar.getTvTitle().getText().toString() + " (" + page + ")");
+    }
+
     public void switchPage() {
-        lActionBar.setTvTitle(UZD.getInstance().getMetadata().getName());
+        setTvTilte(UZD.getInstance().getMetadata().getName());
         FrmEntity frmEntity = new FrmEntity();
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }

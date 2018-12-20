@@ -118,6 +118,7 @@ public class FrmEntity extends BaseFragment {
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
                     tvMsg.setVisibility(View.VISIBLE);
                 } else {
+                    ((UZMainActivity) getActivity()).setTvTiltePage(page + "/llll");
                     dataList.addAll(result.getData());
                     refreshAllViews();
                 }
