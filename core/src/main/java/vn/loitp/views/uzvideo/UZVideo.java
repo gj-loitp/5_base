@@ -30,6 +30,7 @@ import vn.loitp.restapi.uiza.model.v3.linkplay.getlinkplay.Url;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.ResultGetTokenStreaming;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.SendGetTokenStreaming;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.utils.util.ServiceUtils;
 import vn.loitp.views.exo.PlayerManager;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -156,6 +157,7 @@ public class UZVideo extends RelativeLayout {
     }
 
     public void playUrl(String linkPlay) {
+        ServiceUtils.stopService(FUZService.class);
         playerManager.release();
         showLoading();
         this.linkPlay = linkPlay;
@@ -166,6 +168,7 @@ public class UZVideo extends RelativeLayout {
     }
 
     public void playEntity(final String entityId) {
+        ServiceUtils.stopService(FUZService.class);
         playerManager.release();
         showLoading();
         getTokenStreaming(entityId, new CallbackAPI() {
