@@ -99,7 +99,9 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             adView.resume();
         }
         super.onResume();
-        uzVideo.onResume();
+        if (uzVideo != null) {
+            uzVideo.onResume();
+        }
     }
 
     @Override
@@ -108,7 +110,9 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             adView.pause();
         }
         super.onPause();
-        uzVideo.onPause();
+        if (uzVideo != null) {
+            uzVideo.onPause();
+        }
     }
 
     @Override
@@ -116,7 +120,9 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         if (adView != null) {
             adView.destroy();
         }
-        uzVideo.onDestroy();
+        if (uzVideo != null) {
+            uzVideo.onDestroy();
+        }
         super.onDestroy();
     }
 

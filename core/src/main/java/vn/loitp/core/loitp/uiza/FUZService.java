@@ -19,6 +19,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -447,14 +448,14 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     }
 
     private void openApp() {
-        //TODO open app
-        /*//Open the application  click.
-        Intent intent = new Intent(FloatingViewEdgeService.this, FloatingWidgetActivity.class);
+        //Open the application  click.
+        Intent intent = new Intent(FUZService.this, UZPlayerActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        //LActivityUtil.slideUp(getBaseContext());
 
         //close the service and remove view from the view hierarchy
-        stopSelf();*/
+        stopSelf();
     }
 
     //click vo se larger, click lan nua de smaller
