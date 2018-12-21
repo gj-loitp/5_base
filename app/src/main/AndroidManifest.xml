@@ -529,7 +529,7 @@
             android:exported="false" />
 
         <activity
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity"
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service

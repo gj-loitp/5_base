@@ -12,9 +12,8 @@ import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity;
 import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
-import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity;
+import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity;
-import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
@@ -99,10 +98,10 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent = new Intent(activity, TextToSpeechActivity.class);
                 break;
             case R.id.bt_floating_widget:
-                intent = new Intent(activity, FloatingWidgetActivity.class);
+                intent = new Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity.class);
                 break;
             case R.id.bt_floating_video:
-                intent = new Intent(activity, FloatingWidgetVideoActivity.class);
+                intent = new Intent(activity, FloatingWidgetActivity.class);
                 break;
             case R.id.bt_firebase:
                 intent = new Intent(activity, MenuFirebaseActivity.class);

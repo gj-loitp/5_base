@@ -156,7 +156,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
     //Open the application on thi button click
     private void openApp() {
         //Open the application  click.
-        Intent intent = new Intent(FloatingViewVideoService.this, FloatingWidgetVideoActivity.class);
+        Intent intent = new Intent(FloatingViewVideoService.this, FloatingWidgetActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 

@@ -16,8 +16,8 @@ import android.widget.RelativeLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.views.LToast;
 
 /**
  * Created by loitp on 3/27/2018.
@@ -154,7 +154,8 @@ public class FUZService extends Service {
 
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-            LLog.d(TAG, "onSingleTapConfirmed");
+            LToast.show(getBaseContext(), "onSingleTapConfirmed");
+            openApp();
             return true;
         }
     }
@@ -284,7 +285,7 @@ public class FUZService extends Service {
     }
 
     private void onMoveUp() {
-        LLog.d(TAG, "onMoveUp " + pos.name());
+        //LLog.d(TAG, "onMoveUp " + pos.name());
         if (pos == null) {
             return;
         }
@@ -379,7 +380,7 @@ public class FUZService extends Service {
 
     private void openApp() {
         //Open the application  click.
-        Intent intent = new Intent(FUZService.this, FloatingWidgetVideoActivity.class);
+        Intent intent = new Intent(FUZService.this, FloatingWidgetActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 

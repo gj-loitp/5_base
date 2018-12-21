@@ -11,7 +11,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
-public class FloatingWidgetVideoActivity extends BaseFontActivity {
+public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
 
     @Override
