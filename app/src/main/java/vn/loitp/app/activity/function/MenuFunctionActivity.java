@@ -27,7 +27,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
 
         findViewById(R.id.bt_gesto).setOnClickListener(this);
         findViewById(R.id.bt_simple_finger_gesture).setOnClickListener(this);

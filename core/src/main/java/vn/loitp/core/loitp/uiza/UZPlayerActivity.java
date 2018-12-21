@@ -18,6 +18,7 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.facebookcomment.FrmFBComment;
+import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
@@ -37,6 +38,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isShowAnimWhenExit = false;
         data = (Data) getIntent().getSerializableExtra(UZCons.ENTITY_DATA);
         if (data == null) {
             showDialogError(getString(R.string.video_not_found));
@@ -124,6 +126,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             uzVideo.toggleFullscreen();
         } else {
             super.onBackPressed();
+            LActivityUtil.slideDown(activity);
         }
     }
 

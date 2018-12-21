@@ -22,7 +22,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
         imageView = (ImageView) findViewById(R.id.image_view);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);

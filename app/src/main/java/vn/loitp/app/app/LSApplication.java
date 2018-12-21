@@ -41,7 +41,7 @@ public class LSApplication extends MultiDexApplication {
         //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         //config activity transition default
-        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_FADE);
 
         //config realm
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)

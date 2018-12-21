@@ -100,7 +100,7 @@ public class AdHelperActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
 
         isEnglishLanguage = getIntent().getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
 

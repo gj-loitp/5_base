@@ -37,7 +37,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
 
         RestClient.init(getString(R.string.flickr_URL));

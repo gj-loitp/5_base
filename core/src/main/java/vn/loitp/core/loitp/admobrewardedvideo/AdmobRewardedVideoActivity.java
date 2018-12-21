@@ -32,7 +32,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
         tv = (TextView) findViewById(R.id.tv);
         tv.setText(R.string.loading);
         LUIUtil.setTextShadow(tv);

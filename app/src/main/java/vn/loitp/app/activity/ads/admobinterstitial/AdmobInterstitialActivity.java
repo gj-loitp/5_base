@@ -16,7 +16,7 @@ public class AdmobInterstitialActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;//remove show duplicate ads in BaseActivity
+        isShowAdWhenExit = false;//remove show duplicate ads in BaseActivity
         interstitialAd = LUIUtil.createAdFull(activity);
         TextView tv = (TextView) findViewById(R.id.tv);
         String s = LStoreUtil.readTxtFromRawFolder(activity, R.raw.ad_full);

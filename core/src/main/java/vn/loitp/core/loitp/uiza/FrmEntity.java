@@ -71,7 +71,7 @@ public class FrmEntity extends BaseFragment {
                     intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
                 }
                 startActivity(intent);
-                LActivityUtil.tranIn(getActivity());
+                LActivityUtil.slideUp(getActivity());
             }
 
             @Override

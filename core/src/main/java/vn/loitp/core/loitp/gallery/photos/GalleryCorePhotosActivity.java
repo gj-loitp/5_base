@@ -49,7 +49,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
         btPage = (FloatingActionButton) findViewById(R.id.bt_page);

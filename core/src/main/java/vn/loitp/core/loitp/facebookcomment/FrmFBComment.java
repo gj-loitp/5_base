@@ -1,6 +1,5 @@
 package vn.loitp.core.loitp.facebookcomment;
 
-import android.graphics.Color;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
@@ -9,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -46,7 +46,7 @@ public class FrmFBComment extends BaseFragment {
         mWebViewComments = (WebView) view.findViewById(R.id.commentsView);
         mContainer = (RelativeLayout) view.findViewById(R.id.webview_frame);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         Bundle bundle = getArguments();
         if (bundle == null) {
             return;
