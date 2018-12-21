@@ -537,7 +537,7 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FUZService"
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewEdgeService"
             android:enabled="true"
             android:exported="false" />
 

@@ -58,7 +58,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 LToast.show(activity, "onClick");
-                startService(new Intent(activity, FUZService.class));
+                startService(new Intent(activity, FloatingViewEdgeService.class));
                 onBackPressed();
             }
         });

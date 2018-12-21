@@ -23,17 +23,18 @@ import vn.loitp.views.LToast;
  * Created by loitp on 3/27/2018.
  */
 
-public class FUZService extends Service {
+public class FloatingViewEdgeService extends Service {
     private final String TAG = getClass().getSimpleName();
     private WindowManager mWindowManager;
     private View mFloatingView;
+    private View vBkgDestroy;
     private int screenWidth;
     private int screenHeight;
     private int statusBarHeight;
     private WindowManager.LayoutParams params;
     private RelativeLayout moveView;
 
-    public FUZService() {
+    public FloatingViewEdgeService() {
     }
 
     @Override
@@ -50,6 +51,7 @@ public class FUZService extends Service {
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_fuz, null);
         moveView = (RelativeLayout) mFloatingView.findViewById(R.id.move_view);
+        vBkgDestroy = (View) mFloatingView.findViewById(R.id.v_bkg_destroy);
         //Add the view to the window.
         int LAYOUT_FLAG;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -214,8 +216,12 @@ public class FUZService extends Service {
                 case BOTTOM_LEFT:
                 case BOTTOM_RIGHT:
                     LDeviceUtil.vibrate(getBaseContext());
+                    vBkgDestroy.setVisibility(View.VISIBLE);
                     break;
                 default:
+                    if (vBkgDestroy.getVisibility() != View.GONE) {
+                        vBkgDestroy.setVisibility(View.GONE);
+                    }
                     break;
             }
         }
@@ -380,7 +386,7 @@ public class FUZService extends Service {
 
     private void openApp() {
         //Open the application  click.
-        Intent intent = new Intent(FUZService.this, FloatingWidgetActivity.class);
+        Intent intent = new Intent(FloatingViewEdgeService.this, FloatingWidgetActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
