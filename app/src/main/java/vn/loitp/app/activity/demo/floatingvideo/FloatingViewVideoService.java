@@ -44,9 +44,8 @@ import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 
 /**
- * Created by LENOVO on 3/27/2018.
+ * Created by loitp on 3/27/2018.
  */
-
 
 public class FloatingViewVideoService extends Service implements VideoRendererEventListener {
     private final String TAG = getClass().getSimpleName();

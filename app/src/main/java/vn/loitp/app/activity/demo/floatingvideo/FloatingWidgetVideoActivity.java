@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
-import android.widget.Toast;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -55,6 +54,14 @@ public class FloatingWidgetVideoActivity extends BaseFontActivity {
                 onBackPressed();
             }
         });
+        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LToast.show(activity, "onClick");
+                startService(new Intent(activity, FUZService.class));
+                onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -64,8 +71,8 @@ public class FloatingWidgetVideoActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                Toast.makeText(this, "Draw over other app permission not available. Closing the application", Toast.LENGTH_SHORT).show();
-                finish();
+                LToast.show(activity, "Draw over other app permission not available. Closing the application");
+                onBackPressed();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
