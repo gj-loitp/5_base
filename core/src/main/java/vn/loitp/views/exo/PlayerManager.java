@@ -299,4 +299,11 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             player.setPlayWhenReady(true);
         }
     }
+
+    public long getContentPosition() {
+        if (player != null) {
+            return player.getContentPosition();
+        }
+        return 0;
+    }
 }

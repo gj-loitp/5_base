@@ -83,6 +83,11 @@
         <activity
             android:name="vn.loitp.core.loitp.admobrewardedvideo.AdmobRewardedVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <service
+            android:name="vn.loitp.core.loitp.uiza.FUZService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

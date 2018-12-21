@@ -38,6 +38,16 @@
             android:textSize="@dimen/txt_18" />
 
         <ImageButton
+            android:id="@+id/exo_mini_player"
+            android:layout_width="@dimen/w_25"
+            android:layout_height="@dimen/w_25"
+            android:layout_marginRight="@dimen/margin_5"
+            android:background="@color/transparent"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_picture_in_picture_alt_white_48dp" />
+
+        <ImageButton
             android:id="@+id/exo_fullscreen"
             android:layout_width="@dimen/w_25"
             android:layout_height="@dimen/w_25"

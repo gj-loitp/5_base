@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:keepScreenOn="true"
-        app:auto_show="false"
+        app:auto_show="true"
         app:controller_layout_id="@layout/exo_playback_control_view_uz_video" />
 
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView

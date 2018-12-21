@@ -1,6 +1,7 @@
 package vn.loitp.views.uzvideo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,6 +15,8 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.uiza.FUZService;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -41,6 +44,7 @@ public class UZVideo extends RelativeLayout {
     private String linkPlay = "";
     private RelativeLayout rlRootView;
     private ImageButton exoFullscreen;
+    private ImageButton exoMiniPlayer;
     private AVLoadingIndicatorView avl;
     private ImageButton exoBack;
     private TextView tvTitle;
@@ -71,6 +75,7 @@ public class UZVideo extends RelativeLayout {
         rlRootView = findViewById(R.id.rl_root_view);
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
+        exoMiniPlayer = (ImageButton) findViewById(R.id.exo_mini_player);
         exoBack = (ImageButton) findViewById(R.id.exo_back);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
         tvTitle = (TextView) findViewById(R.id.tv_title);
@@ -84,6 +89,12 @@ public class UZVideo extends RelativeLayout {
             @Override
             public void onClick(View view) {
                 playerManager.toggleFullscreen(activity);
+            }
+        });
+        exoMiniPlayer.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPip();
             }
         });
         exoBack.setOnClickListener(new OnClickListener() {
@@ -121,13 +132,23 @@ public class UZVideo extends RelativeLayout {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             isLandscape = true;
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            if (exoMiniPlayer != null) {
+                exoMiniPlayer.setVisibility(View.GONE);
+            }
+            if (playerManager != null) {
+                playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            }
             if (uzCallback != null) {
                 uzCallback.onScreenRotateChange(true);
             }
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             isLandscape = false;
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            if (exoMiniPlayer != null) {
+                exoMiniPlayer.setVisibility(View.VISIBLE);
+            }
+            if (playerManager != null) {
+                playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            }
             if (uzCallback != null) {
                 uzCallback.onScreenRotateChange(false);
             }
@@ -311,5 +332,17 @@ public class UZVideo extends RelativeLayout {
 
     public RelativeLayout getRlRootView() {
         return rlRootView;
+    }
+
+    private void showPip() {
+        //TODO permssion overlay
+        if (linkPlay == null || playerManager == null) {
+            return;
+        }
+        Intent intent = new Intent(activity, FUZService.class);
+        intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, linkPlay);
+        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
+        activity.startService(intent);
+        activity.onBackPressed();
     }
 }

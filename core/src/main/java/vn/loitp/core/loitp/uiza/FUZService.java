@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.floatingvideo;
+package vn.loitp.core.loitp.uiza;
 
 import android.app.Service;
 import android.content.Intent;
@@ -14,16 +14,22 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
-import loitp.basemaster.R;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.ui.PlayerView;
+
+import loitp.core.R;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.LToast;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by loitp on 3/27/2018.
  */
 
-public class FloatingViewEdgeService extends Service {
+public class FUZService extends Service implements FUZPlayerManager.Callback {
     private final String TAG = getClass().getSimpleName();
     private WindowManager mWindowManager;
     private View mFloatingView;
@@ -33,8 +39,12 @@ public class FloatingViewEdgeService extends Service {
     private int statusBarHeight;
     private WindowManager.LayoutParams params;
     private RelativeLayout moveView;
+    private PlayerView playerView;
+    private AVLoadingIndicatorView avl;
+    private FUZPlayerManager playerManager;
+    private String linkPlay;
 
-    public FloatingViewEdgeService() {
+    public FUZService() {
     }
 
     @Override
@@ -43,15 +53,33 @@ public class FloatingViewEdgeService extends Service {
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
+        long contentPosition = intent.getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
+        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition);
+        playUrl(linkPlay, contentPosition);
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    private void findViews() {
+        //Inflate the floating view layout we created
+        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_fuz, null);
+        moveView = (RelativeLayout) mFloatingView.findViewById(R.id.move_view);
+        vBkgDestroy = (View) mFloatingView.findViewById(R.id.v_bkg_destroy);
+        playerView = mFloatingView.findViewById(R.id.player_view);
+        avl = (AVLoadingIndicatorView) mFloatingView.findViewById(R.id.avl);
+    }
+
+    @Override
     public void onCreate() {
+        LLog.d(TAG, "onCreate");
         super.onCreate();
         screenWidth = LScreenUtil.getScreenWidth();
         screenHeight = LScreenUtil.getScreenHeight();
         statusBarHeight = LScreenUtil.getStatusBarHeight(getApplicationContext());
-        //Inflate the floating view layout we created
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_view_edge, null);
-        moveView = (RelativeLayout) mFloatingView.findViewById(R.id.move_view);
-        vBkgDestroy = (View) mFloatingView.findViewById(R.id.v_bkg_destroy);
+        findViews();
+        playerManager = new FUZPlayerManager(getBaseContext());
+        playerManager.setCallback(this);
         //Add the view to the window.
         int LAYOUT_FLAG;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -147,6 +175,37 @@ public class FloatingViewEdgeService extends Service {
     }
 
     private GestureDetector mTapDetector;
+
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        switch (playbackState) {
+            case Player.STATE_BUFFERING:
+                LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                showLoading();
+                break;
+            case Player.STATE_IDLE:
+                LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                break;
+            case Player.STATE_READY:
+                LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                hideLoading();
+                break;
+            case Player.STATE_ENDED:
+                LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                hideLoading();
+                stopSelf();
+                break;
+        }
+    }
+
+    @Override
+    public void onVideoSizeChanged(int width, int height) {
+
+    }
+
+    @Override
+    public void onRenderedFirstFrame() {
+    }
 
     private class GestureTap extends GestureDetector.SimpleOnGestureListener {
         @Override
@@ -381,17 +440,21 @@ public class FloatingViewEdgeService extends Service {
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
+        if (playerManager != null) {
+            playerManager.release();
+        }
         super.onDestroy();
     }
 
     private void openApp() {
-        //Open the application  click.
+        //TODO open app
+        /*//Open the application  click.
         Intent intent = new Intent(FloatingViewEdgeService.this, FloatingWidgetActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
         //close the service and remove view from the view hierarchy
-        stopSelf();
+        stopSelf();*/
     }
 
     //click vo se larger, click lan nua de smaller
@@ -438,5 +501,27 @@ public class FloatingViewEdgeService extends Service {
             return 0;
         }
         return moveView.getLayoutParams().height;
+    }
+
+    private void playUrl(String linkPlay, long contentPosition) {
+        if (linkPlay == null || linkPlay.isEmpty()) {
+            return;
+        }
+        playerManager.release();
+        showLoading();
+        this.linkPlay = linkPlay;
+        playerManager.init(getBaseContext(), playerView, linkPlay, contentPosition);
+    }
+
+    public void showLoading() {
+        if (avl != null) {
+            avl.smoothToShow();
+        }
+    }
+
+    public void hideLoading() {
+        if (avl != null) {
+            avl.smoothToHide();
+        }
     }
 }
