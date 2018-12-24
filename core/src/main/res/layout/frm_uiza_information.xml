@@ -18,7 +18,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_25"
                 android:textStyle="bold" />
 
@@ -26,13 +26,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@color/WhiteSmoke" />
+                android:background="@color/Black" />
 
             <TextView
                 android:id="@+id/tv_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18"
                 android:visibility="gone" />
 
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
 
             <TextView
@@ -49,28 +49,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
 
             <TextView
                 android:id="@+id/tv_duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Gray"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:layout_marginTop="@dimen/margin_5"
-                android:background="@color/WhiteSmoke" />
+                android:background="@color/Black" />
 
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
-                android:textColor="@color/White"
+                android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
         </LinearLayout>
     </ScrollView>

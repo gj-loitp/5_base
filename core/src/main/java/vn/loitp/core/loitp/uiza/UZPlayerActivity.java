@@ -151,8 +151,24 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     public void onScreenRotateChange(boolean isLandscape) {
         if (isLandscape) {
             lnAdview.setVisibility(View.GONE);
+            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+                @Override
+                public void doAfter(int mls) {
+                    if (uzVideo != null) {
+                        uzVideo.getRlRootView().setBackgroundColor(Color.BLACK);
+                    }
+                }
+            });
         } else {
             lnAdview.setVisibility(View.VISIBLE);
+            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+                @Override
+                public void doAfter(int mls) {
+                    if (uzVideo != null) {
+                        uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
+                    }
+                }
+            });
         }
     }
 

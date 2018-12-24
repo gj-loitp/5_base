@@ -1,5 +1,6 @@
 package vn.loitp.core.loitp.facebookcomment;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
@@ -38,15 +39,16 @@ public class FrmFBComment extends BaseFragment {
     private String postUrl;
     // the default number of comments should be visible
     // on page load.
-    private static final int NUMBER_OF_COMMENTS = 80;
+    private static final int NUMBER_OF_COMMENTS = 50;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mWebViewComments = (WebView) view.findViewById(R.id.commentsView);
-        //mWebViewComments.setBackgroundColor(Color.TRANSPARENT);
-        //mWebViewComments.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.WhiteTrans99));
-        //mWebViewComments.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+
+        mWebViewComments.setBackgroundColor(Color.TRANSPARENT);
+        mWebViewComments.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+
         mContainer = (RelativeLayout) view.findViewById(R.id.webview_frame);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(getActivity(), R.color.colorPrimary));

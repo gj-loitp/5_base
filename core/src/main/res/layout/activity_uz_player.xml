@@ -15,8 +15,8 @@
     <vn.loitp.views.realtimeblurview.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_15"
-        app:realtimeOverlayColor="@color/black_65" />
+        app:realtimeBlurRadius="@dimen/round_80"
+        app:realtimeOverlayColor="@color/WhiteTrans99" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,11 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/White"
+            app:tabIndicatorColor="@color/Black"
             app:tabIndicatorHeight="@dimen/w_3"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/White"
-            app:tabTextColor="@color/WhiteSmoke" />
+            app:tabSelectedTextColor="@color/Black"
+            app:tabTextColor="@color/Gray" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
