@@ -19,11 +19,10 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.LToast;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
@@ -43,7 +42,9 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     private PlayerView playerView;
     private AVLoadingIndicatorView avl;
     private FUZPlayerManager playerManager;
+    private Data data;
     private String linkPlay;
+    private String admobIDBanner;
 
     public FUZService() {
     }
@@ -55,9 +56,14 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        data = (Data) intent.getSerializableExtra(UZCons.ENTITY_DATA);
         linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
+        admobIDBanner = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER);
         long contentPosition = intent.getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
-        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition);
+        if (data == null || linkPlay == null) {
+            return super.onStartCommand(intent, flags, startId);
+        }
+        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
         playUrl(linkPlay, contentPosition);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -216,7 +222,6 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-            LToast.show(getBaseContext(), "onSingleTapConfirmed");
             openApp();
             return true;
         }
@@ -450,6 +455,9 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     private void openApp() {
         //Open the application  click.
         Intent intent = new Intent(FUZService.this, UZPlayerActivity.class);
+        intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
+        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         //LActivityUtil.slideUp(getBaseContext());

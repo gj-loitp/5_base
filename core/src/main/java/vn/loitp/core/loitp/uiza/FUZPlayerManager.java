@@ -158,6 +158,13 @@ public final class FUZPlayerManager {
         }
     }
 
+    public long getContentPosition() {
+        if (player == null) {
+            return 0;
+        }
+        return player.getContentPosition();
+    }
+
     public interface Callback {
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState);
 

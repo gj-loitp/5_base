@@ -40,6 +40,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         super.onCreate(savedInstanceState);
         isShowAnimWhenExit = false;
         data = (Data) getIntent().getSerializableExtra(UZCons.ENTITY_DATA);
+        long contentPosition = getIntent().getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
         if (data == null) {
             showDialogError(getString(R.string.video_not_found));
             return;
@@ -49,16 +50,17 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             showDialogError(getString(R.string.video_not_found));
             return;
         }
+        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
         uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
         uzVideo.setTvTitle(data.getName() + "");
-        uzVideo.playEntity(entityId);
+        uzVideo.setData(data);
+        uzVideo.setAdmobIDBanner(adUnitId);
+        uzVideo.playEntity(entityId, contentPosition);
         uzVideo.setUzCallback(this);
-
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LLog.d(TAG, "adUnitId " + adUnitId);
         lnAdview = (LinearLayout) findViewById(loitp.core.R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);

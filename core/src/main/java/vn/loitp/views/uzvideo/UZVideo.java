@@ -17,6 +17,7 @@ import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.uiza.FUZService;
+import vn.loitp.core.loitp.uiza.UZCons;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -29,6 +30,7 @@ import vn.loitp.restapi.uiza.model.v3.linkplay.getlinkplay.ResultGetLinkPlay;
 import vn.loitp.restapi.uiza.model.v3.linkplay.getlinkplay.Url;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.ResultGetTokenStreaming;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.SendGetTokenStreaming;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.utils.util.ServiceUtils;
 import vn.loitp.views.exo.PlayerManager;
@@ -83,7 +85,6 @@ public class UZVideo extends RelativeLayout {
         if (tvTitle != null) {
             LUIUtil.setTextShadow(tvTitle);
         }
-
         playerManager = new PlayerManager(activity);
         playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
         exoFullscreen.setOnClickListener(new View.OnClickListener() {
@@ -157,17 +158,25 @@ public class UZVideo extends RelativeLayout {
     }
 
     public void playUrl(String linkPlay) {
+        playUrl(linkPlay, 0);
+    }
+
+    public void playUrl(String linkPlay, long contentPosition) {
         ServiceUtils.stopService(FUZService.class);
         playerManager.release();
         showLoading();
         this.linkPlay = linkPlay;
-        playerManager.init(activity, this, playerView, linkPlay);
+        playerManager.init(activity, this, playerView, linkPlay, contentPosition);
         if (uzCallback != null) {
             uzCallback.onInitSuccess(linkPlay);
         }
     }
 
     public void playEntity(final String entityId) {
+        playEntity(entityId, 0);
+    }
+
+    public void playEntity(final String entityId, final long contentPosition) {
         ServiceUtils.stopService(FUZService.class);
         playerManager.release();
         showLoading();
@@ -182,7 +191,7 @@ public class UZVideo extends RelativeLayout {
                         }
                     }
                     LLog.d(TAG, "linkPlay " + linkPlay);
-                    playerManager.init(activity, UZVideo.this, playerView, linkPlay);
+                    playerManager.init(activity, UZVideo.this, playerView, linkPlay, contentPosition);
                     if (uzCallback != null) {
                         uzCallback.onInitSuccess(linkPlay);
                     }
@@ -337,12 +346,26 @@ public class UZVideo extends RelativeLayout {
         return rlRootView;
     }
 
+    private Data data;
+
+    public void setData(Data data) {
+        this.data = data;
+    }
+
+    private String admobIDBanner;
+
+    public void setAdmobIDBanner(String admobIDBanner) {
+        this.admobIDBanner = admobIDBanner;
+    }
+
     private void showPip() {
         //TODO permssion overlay
         if (linkPlay == null || playerManager == null) {
             return;
         }
         Intent intent = new Intent(activity, FUZService.class);
+        intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
         intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, linkPlay);
         intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
         activity.startService(intent);

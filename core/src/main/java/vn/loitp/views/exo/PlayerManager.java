@@ -64,7 +64,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
     private SimpleExoPlayer player;
-    private long contentPosition;
 
     public SimpleExoPlayer getPlayer() {
         return player;
@@ -83,10 +82,14 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     }
 
     public void init(Context context, final PlayerView playerView, String linkPlay) {
-        init(context, null, playerView, linkPlay);
+        init(context, null, playerView, linkPlay, 0);
     }
 
     public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay) {
+        init(context, uzVideo, playerView, linkPlay, 0);
+    }
+
+    public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay, long contentPosition) {
         if (context == null || uzVideo == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
             return;
         }
@@ -210,7 +213,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public void reset() {
         if (player != null) {
-            contentPosition = player.getContentPosition();
             player.release();
             player = null;
         }
@@ -218,7 +220,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public void release() {
         if (player != null) {
-            contentPosition = 0;
             player.release();
             player = null;
         }

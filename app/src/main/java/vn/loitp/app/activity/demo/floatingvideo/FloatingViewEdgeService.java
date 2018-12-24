@@ -156,7 +156,6 @@ public class FloatingViewEdgeService extends Service {
 
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-            LToast.show(getBaseContext(), "onSingleTapConfirmed");
             openApp();
             return true;
         }
