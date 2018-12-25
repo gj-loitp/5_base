@@ -23,6 +23,7 @@ import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -68,7 +69,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         if (data == null || linkPlay == null) {
             return super.onStartCommand(intent, flags, startId);
         }
-        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
+        //LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
         playUrl(linkPlay, contentPosition);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -184,10 +185,15 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
                 break;
             case Player.STATE_IDLE:
                 LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
-                if (playerManager != null) {
-                    playerManager.release();
-                }
-                playUrl(linkPlay, contentPosition);
+                LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
+                    @Override
+                    public void doAfter(int mls) {
+                        if (playerManager != null) {
+                            playerManager.release();
+                        }
+                        playUrl(linkPlay, contentPosition);
+                    }
+                });
                 break;
             case Player.STATE_READY:
                 LLog.d(TAG, "onPlayerStateChanged STATE_READY");
