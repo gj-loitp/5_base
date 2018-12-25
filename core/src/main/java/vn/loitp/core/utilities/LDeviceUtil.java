@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
@@ -74,5 +75,16 @@ public class LDeviceUtil {
     public static int getRandomNumber(int max) {
         Random r = new Random();
         return r.nextInt(max);
+    }
+
+    public static boolean isCanOverlay(Activity activity) {
+        if (activity == null) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

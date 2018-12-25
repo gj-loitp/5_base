@@ -1,6 +1,9 @@
 package vn.loitp.core.loitp.uiza;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +21,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.facebookcomment.FrmFBComment;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
@@ -32,10 +36,16 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     private AdView adView;
     private LinearLayout lnAdview;
     private ViewPager viewPager;
+    private final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!LDeviceUtil.isCanOverlay(activity)) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + activity.getPackageName()));
+            activity.startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
+            LActivityUtil.tranIn(activity);
+        }
         isShowAnimWhenExit = false;
         data = (Data) getIntent().getSerializableExtra(UZCons.ENTITY_DATA);
         boolean isShowCover = getIntent().getBooleanExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
@@ -218,4 +228,9 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //LLog.d(TAG, "onActivityResult " + requestCode + ", " + resultCode);
+    }
 }

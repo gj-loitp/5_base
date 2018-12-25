@@ -22,6 +22,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.uiza.FUZService;
 import vn.loitp.core.loitp.uiza.UZCons;
 import vn.loitp.core.utilities.LConnectivityUtil;
+import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
@@ -169,7 +170,9 @@ public class UZVideo extends RelativeLayout implements Callback {
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             isLandscape = false;
             if (exoMiniPlayer != null) {
-                exoMiniPlayer.setVisibility(View.VISIBLE);
+                if (LDeviceUtil.isCanOverlay(activity)) {
+                    exoMiniPlayer.setVisibility(View.VISIBLE);
+                }
             }
             if (playerManager != null) {
                 //update size portrait
@@ -304,7 +307,9 @@ public class UZVideo extends RelativeLayout implements Callback {
 
     @Override
     public void OnFirstVideoSizeChanged() {
-        exoMiniPlayer.setVisibility(View.VISIBLE);
+        if (LDeviceUtil.isCanOverlay(activity)) {
+            exoMiniPlayer.setVisibility(View.VISIBLE);
+        }
         hideCover();
     }
 
@@ -425,7 +430,6 @@ public class UZVideo extends RelativeLayout implements Callback {
     }
 
     private void showPip() {
-        //TODO permssion overlay
         if (linkPlay == null || playerManager == null) {
             return;
         }
