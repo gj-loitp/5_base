@@ -8,4 +8,5 @@ public interface Callback {
     public void onPlayerError(ExoPlaybackException error);
     public void onPlaybackParametersChanged(PlaybackParameters playbackParameters);
     public void onVideoSizeChanged(int width, int height);
+    public void OnFirstVideoSizeChanged();
 }

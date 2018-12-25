@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.uiza.FUZService;
 import vn.loitp.core.loitp.uiza.UZCons;
 import vn.loitp.core.utilities.LConnectivityUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
@@ -49,6 +51,7 @@ public class UZVideo extends RelativeLayout implements Callback {
     private PlayerManager playerManager;
     private String linkPlay = "";
     private RelativeLayout rlRootView;
+    private ImageView ivCover;
     private ImageButton exoFullscreen;
     private ImageButton exoMiniPlayer;
     private AVLoadingIndicatorView avl;
@@ -96,6 +99,7 @@ public class UZVideo extends RelativeLayout implements Callback {
         exoMiniPlayer = (ImageButton) findViewById(R.id.exo_mini_player);
         exoBack = (ImageButton) findViewById(R.id.exo_back);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
+        ivCover = (ImageView) findViewById(R.id.iv_cover);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         if (tvTitle != null) {
             LUIUtil.setTextShadow(tvTitle);
@@ -297,6 +301,11 @@ public class UZVideo extends RelativeLayout implements Callback {
     public void onVideoSizeChanged(int width, int height) {
     }
 
+    @Override
+    public void OnFirstVideoSizeChanged() {
+        hideCover();
+    }
+
     public interface CallbackAPI {
         public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay);
 
@@ -387,6 +396,22 @@ public class UZVideo extends RelativeLayout implements Callback {
 
     public void setData(Data data) {
         this.data = data;
+        showCover();
+    }
+
+    private void showCover() {
+        if (ivCover == null || data == null) {
+            return;
+        }
+        LImageUtil.load(activity, data.getThumbnail(), ivCover);
+    }
+
+    private void hideCover() {
+        if (ivCover == null) {
+            return;
+        }
+        ivCover.setVisibility(View.GONE);
+        ivCover = null;
     }
 
     private String admobIDBanner;

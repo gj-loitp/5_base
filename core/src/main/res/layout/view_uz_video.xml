@@ -15,6 +15,12 @@
         app:auto_show="false"
         app:controller_layout_id="@layout/exo_playback_control_view_uz_video" />
 
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
     <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avl"
         style="@style/AVLoadingIndicatorView"

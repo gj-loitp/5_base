@@ -1,6 +1,5 @@
 package vn.loitp.core.loitp.uiza;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -56,8 +55,8 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
         //uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
-        uzVideo.setTvTitle(data.getName() + "");
         uzVideo.setData(data);
+        uzVideo.setTvTitle(data.getName() + "");
         uzVideo.setAdmobIDBanner(adUnitId);
         uzVideo.playEntity(entityId, contentPosition);
         uzVideo.setUzCallback(this);
