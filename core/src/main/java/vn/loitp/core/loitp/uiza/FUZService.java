@@ -48,6 +48,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     private String admobIDBanner;
     private int videoW = 16;
     private int videoH = 9;
+    private long contentPosition;
 
     public FUZService() {
     }
@@ -63,11 +64,11 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         data = (Data) intent.getSerializableExtra(UZCons.ENTITY_DATA);
         linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
         admobIDBanner = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        long contentPosition = intent.getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
+        contentPosition = intent.getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
         if (data == null || linkPlay == null) {
             return super.onStartCommand(intent, flags, startId);
         }
-        //LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
+        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
         playUrl(linkPlay, contentPosition);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -183,6 +184,10 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
                 break;
             case Player.STATE_IDLE:
                 LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                if (playerManager != null) {
+                    playerManager.release();
+                }
+                playUrl(linkPlay, contentPosition);
                 break;
             case Player.STATE_READY:
                 LLog.d(TAG, "onPlayerStateChanged STATE_READY");
@@ -198,7 +203,6 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
     @Override
     public void onVideoSizeChanged(int width, int height) {
-
     }
 
     @Override
@@ -505,12 +509,14 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     }
 
     private void playUrl(String linkPlay, long contentPosition) {
-        if (linkPlay == null || linkPlay.isEmpty()) {
+        if (linkPlay == null || linkPlay.isEmpty() || playerManager == null) {
+            stopSelf();
             return;
         }
         playerManager.release();
         showLoading();
         this.linkPlay = linkPlay;
+        LLog.d(TAG, "playUrl linkPlay: " + linkPlay + ", contentPosition " + contentPosition);
         playerManager.init(getBaseContext(), playerView, linkPlay, contentPosition);
     }
 

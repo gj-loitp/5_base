@@ -6,7 +6,6 @@ import android.net.Uri;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -28,11 +27,9 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.utils.util.AppUtils;
 
-/**
- * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
- */
 public final class FUZPlayerManager {
     private final String TAG = getClass().getSimpleName();
     private DataSource.Factory dataSourceFactory;
@@ -48,6 +45,7 @@ public final class FUZPlayerManager {
 
     public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
         if (context == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
+            LLog.e(TAG, "init null or empty");
             return;
         }
         // Create a default track selector.
@@ -74,7 +72,6 @@ public final class FUZPlayerManager {
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                //LLog.d(TAG, "onLoadingChanged " + isLoading);
             }
 
             @Override
@@ -95,7 +92,6 @@ public final class FUZPlayerManager {
         player.addVideoListener(new VideoListener() {
             @Override
             public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-                //LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
                 if (callback != null) {
                     callback.onVideoSizeChanged(width, height);
                 }
@@ -103,7 +99,6 @@ public final class FUZPlayerManager {
 
             @Override
             public void onSurfaceSizeChanged(int width, int height) {
-                //LLog.d(TAG, "onSurfaceSizeChanged " + width + "x" + height);
             }
 
             @Override
