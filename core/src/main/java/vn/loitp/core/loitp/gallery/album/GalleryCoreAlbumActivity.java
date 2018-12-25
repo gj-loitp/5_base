@@ -130,7 +130,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
                 for (int i = 0; i < photosetList.size(); i++) {
                     x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
                 }
-                LLog.d(TAG, "fuck " + x);*/
+                LLog.d(TAG, "" + x);*/
 
                 //LLog.d(TAG, "orginal size: " + photosetList.size());
                 //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());

@@ -456,6 +456,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         //Open the application  click.
         Intent intent = new Intent(FUZService.this, UZPlayerActivity.class);
         intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, false);
         intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

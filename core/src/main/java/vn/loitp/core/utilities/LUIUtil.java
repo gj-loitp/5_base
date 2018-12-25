@@ -2,6 +2,7 @@ package vn.loitp.core.utilities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -57,7 +58,10 @@ import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.uiza.UZCons;
+import vn.loitp.core.loitp.uiza.UZPlayerActivity;
 import vn.loitp.data.AdmobData;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
@@ -808,5 +812,16 @@ public class LUIUtil {
         }
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         return view.getMeasuredHeight();
+    }
+
+    public static void goToUZPlayerActivity(Activity activity, Data data, String admobBaner) {
+        Intent intent = new Intent(activity, UZPlayerActivity.class);
+        intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
+        if (admobBaner != null) {
+            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
+        }
+        activity.startActivity(intent);
+        LActivityUtil.slideUp(activity);
     }
 }

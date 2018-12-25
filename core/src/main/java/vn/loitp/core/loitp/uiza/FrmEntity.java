@@ -1,6 +1,5 @@
 package vn.loitp.core.loitp.uiza;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +15,6 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -65,13 +63,7 @@ public class FrmEntity extends BaseFragment {
         entityAdapter = new EntityAdapter(getActivity(), dataList, new EntityAdapter.Callback() {
             @Override
             public void onClick(Data data, int position) {
-                Intent intent = new Intent(getActivity(), UZPlayerActivity.class);
-                intent.putExtra(UZCons.ENTITY_DATA, data);
-                if (admobBaner != null) {
-                    intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
-                }
-                startActivity(intent);
-                LActivityUtil.slideUp(getActivity());
+                LUIUtil.goToUZPlayerActivity(getActivity(), data, admobBaner);
             }
 
             @Override

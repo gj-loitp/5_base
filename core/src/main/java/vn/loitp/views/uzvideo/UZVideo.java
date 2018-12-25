@@ -394,9 +394,11 @@ public class UZVideo extends RelativeLayout implements Callback {
 
     private Data data;
 
-    public void setData(Data data) {
+    public void setData(Data data, boolean isShowCover) {
         this.data = data;
-        showCover();
+        if (isShowCover) {
+            showCover();
+        }
     }
 
     private void showCover() {

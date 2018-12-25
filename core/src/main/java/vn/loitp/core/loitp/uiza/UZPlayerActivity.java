@@ -19,7 +19,6 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.facebookcomment.FrmFBComment;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
@@ -39,6 +38,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         super.onCreate(savedInstanceState);
         isShowAnimWhenExit = false;
         data = (Data) getIntent().getSerializableExtra(UZCons.ENTITY_DATA);
+        boolean isShowCover = getIntent().getBooleanExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
         long contentPosition = getIntent().getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
         if (data == null) {
             showDialogError(getString(R.string.video_not_found));
@@ -50,12 +50,12 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             return;
         }
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        //LLog.d(TAG, "adUnitId " + adUnitId);
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
         //uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
-        uzVideo.setData(data);
+        uzVideo.setData(data, isShowCover);
         uzVideo.setTvTitle(data.getName() + "");
         uzVideo.setAdmobIDBanner(adUnitId);
         uzVideo.playEntity(entityId, contentPosition);

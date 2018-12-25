@@ -231,7 +231,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     //OnVideoSizeChanged in the first time
     private void firstOnVideoSizeChanged() {
         if (!isFirstOnVideoSizeChanged) {
-            LLog.d(TAG, "fuck firstOnVideoSizeChanged");
+            //LLog.d(TAG, "firstOnVideoSizeChanged");
             updateSizePlayerView();
             isFirstOnVideoSizeChanged = true;
             if (callback != null) {
@@ -320,10 +320,10 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     //for UZVideo
     public void updateSizePlayerView() {
         if (uzVideo == null || uzVideo.getRlRootView() == null || uzVideo.getExoFullscreen() == null || uzVideo.getActivity() == null) {
-            LLog.d(TAG, "fuck updateSizePlayerView null -> return");
+            //LLog.d(TAG, "updateSizePlayerView null -> return");
             return;
         }
-        LLog.d(TAG, "fuck updateSizePlayerView " + videoW + "x" + videoH);
+        //LLog.d(TAG, "updateSizePlayerView " + videoW + "x" + videoH);
         if (LScreenUtil.isFullScreen(uzVideo.getActivity())) {
             //landscape
             uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -338,7 +338,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             } else {
                 int scaleW = screenW;
                 int scaleH = scaleW * videoH / videoW;
-                LLog.d(TAG, "fuck updateSizeOneTime " + videoW + "x" + videoH + " -> " + scaleW + "x" + scaleH);
+                //LLog.d(TAG, "updateSizeOneTime " + videoW + "x" + videoH + " -> " + scaleW + "x" + scaleH);
                 uzVideo.getRlRootView().getLayoutParams().width = scaleW;
                 uzVideo.getRlRootView().getLayoutParams().height = scaleH;
             }
