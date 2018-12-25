@@ -24,6 +24,7 @@ import vn.loitp.core.loitp.uiza.UZCons;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.data.UZData;
@@ -427,6 +428,8 @@ public class UZVideo extends RelativeLayout implements Callback {
         if (linkPlay == null || playerManager == null) {
             return;
         }
+        LPref.setUZvideoWidth(activity, playerManager.getVideoW());
+        LPref.setUzvideoHeight(activity, playerManager.getVideoH());
         Intent intent = new Intent(activity, FUZService.class);
         intent.putExtra(UZCons.ENTITY_DATA, data);
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);

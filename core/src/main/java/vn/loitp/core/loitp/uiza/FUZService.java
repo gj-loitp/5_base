@@ -21,6 +21,7 @@ import loitp.core.R;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
@@ -45,6 +46,8 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     private Data data;
     private String linkPlay;
     private String admobIDBanner;
+    private int videoW = 16;
+    private int videoH = 9;
 
     public FUZService() {
     }
@@ -56,6 +59,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        //LLog.d(TAG, "onStartCommand");
         data = (Data) intent.getSerializableExtra(UZCons.ENTITY_DATA);
         linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
         admobIDBanner = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER);
@@ -63,7 +67,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         if (data == null || linkPlay == null) {
             return super.onStartCommand(intent, flags, startId);
         }
-        LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
+        //LLog.d(TAG, "onStartCommand linkPlay " + linkPlay + ", contentPosition: " + contentPosition + " - " + data.getName());
         playUrl(linkPlay, contentPosition);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -79,11 +83,14 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
     @Override
     public void onCreate() {
-        LLog.d(TAG, "onCreate");
+        //LLog.d(TAG, "onCreate");
         super.onCreate();
         screenWidth = LScreenUtil.getScreenWidth();
         screenHeight = LScreenUtil.getScreenHeight();
         statusBarHeight = LScreenUtil.getStatusBarHeight(getApplicationContext());
+        videoW = LPref.getUZvideoWidth(getBaseContext());
+        videoH = LPref.getUzvideoHeight(getBaseContext());
+        //LLog.d(TAG, "onCreate " + videoW + "x" + videoH);
         findViews();
         playerManager = new FUZPlayerManager(getBaseContext());
         playerManager.setCallback(this);
@@ -114,22 +121,6 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
         //Drag and move floating view using user's touch action.
         dragAndMove();
-    }
-
-    //only update 1 one time
-    private boolean isUpdatedUIVideoSize;
-
-    private void updateUIVideoSizeOneTime(int videoW, int videoH) {
-        if (!isUpdatedUIVideoSize) {
-            //LLog.d(TAG, "updateUIVideoSizeOneTime " + videoW + "x" + videoH);
-            int vW = screenWidth / 2;
-            int vH = vW * videoH / videoW;
-            //LLog.d(TAG, "-> " + vW + "x" + vH);
-            int newPosX = params.x;
-            int newPosY = screenHeight - vH - statusBarHeight;//dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
-            updateUISlide(newPosX, newPosY);
-            isUpdatedUIVideoSize = true;
-        }
     }
 
     private CountDownTimer countDownTimer;
@@ -476,7 +467,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         int h = 0;
         if (isFirstSizeInit) {
             w = screenWidth / 2;
-            h = w * 9 / 16;
+            h = w * videoH / videoW;
         } else {
             //works fine
             //OPTION 1: isLarger->mini player se to hon 1 chut
