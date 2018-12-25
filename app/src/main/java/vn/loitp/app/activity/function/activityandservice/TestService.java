@@ -24,7 +24,7 @@ import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
 import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 
 /**
- * Created by LENOVO on 3/27/2018.
+ * Created by loitp on 3/27/2018.
  */
 
 

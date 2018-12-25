@@ -184,10 +184,6 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
                 break;
             case Player.STATE_IDLE:
                 LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
-                /*if (playerManager != null) {
-                    playerManager.release();
-                }
-                playUrl(linkPlay, contentPosition);*/
                 break;
             case Player.STATE_READY:
                 LLog.d(TAG, "onPlayerStateChanged STATE_READY");
@@ -435,6 +431,11 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
 
     @Override
     public void onDestroy() {
+        release();
+        super.onDestroy();
+    }
+
+    private void release() {
         if (mFloatingView != null) {
             mWindowManager.removeView(mFloatingView);
         }
@@ -444,7 +445,6 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         if (playerManager != null) {
             playerManager.release();
         }
-        super.onDestroy();
     }
 
     private void openApp() {
