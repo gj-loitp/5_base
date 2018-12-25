@@ -23,7 +23,6 @@ import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -185,15 +184,10 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
                 break;
             case Player.STATE_IDLE:
                 LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
-                LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
-                    @Override
-                    public void doAfter(int mls) {
-                        if (playerManager != null) {
-                            playerManager.release();
-                        }
-                        playUrl(linkPlay, contentPosition);
-                    }
-                });
+                /*if (playerManager != null) {
+                    playerManager.release();
+                }
+                playUrl(linkPlay, contentPosition);*/
                 break;
             case Player.STATE_READY:
                 LLog.d(TAG, "onPlayerStateChanged STATE_READY");

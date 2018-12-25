@@ -45,7 +45,8 @@
             android:background="@color/transparent"
             android:foreground="?attr/selectableItemBackground"
             android:scaleType="centerInside"
-            android:src="@drawable/baseline_picture_in_picture_alt_white_48dp" />
+            android:src="@drawable/baseline_picture_in_picture_alt_white_48dp"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/exo_fullscreen"

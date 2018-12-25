@@ -304,6 +304,7 @@ public class UZVideo extends RelativeLayout implements Callback {
 
     @Override
     public void OnFirstVideoSizeChanged() {
+        exoMiniPlayer.setVisibility(View.VISIBLE);
         hideCover();
     }
 
