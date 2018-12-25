@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -40,9 +39,6 @@ import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.uzvideo.UZVideo;
 
-/**
- * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
- */
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private final String TAG = getClass().getSimpleName();
     private UZVideo uzVideo;
