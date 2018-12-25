@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import java.util.List;
@@ -33,6 +35,7 @@ import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.SendGetTokenStr
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.utils.util.ServiceUtils;
+import vn.loitp.views.exo.Callback;
 import vn.loitp.views.exo.PlayerManager;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -40,7 +43,7 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
-public class UZVideo extends RelativeLayout {
+public class UZVideo extends RelativeLayout implements Callback {
     private final String TAG = getClass().getSimpleName();
     private PlayerView playerView;
     private PlayerManager playerManager;
@@ -68,6 +71,18 @@ public class UZVideo extends RelativeLayout {
         init();
     }
 
+    public PlayerView getPlayerView() {
+        return playerView;
+    }
+
+    public ImageButton getExoFullscreen() {
+        return exoFullscreen;
+    }
+
+    public BaseActivity getActivity() {
+        return activity;
+    }
+
     private boolean isConnectedFirst;
 
     private void init() {
@@ -76,8 +91,8 @@ public class UZVideo extends RelativeLayout {
         isConnectedFirst = LConnectivityUtil.isConnected(activity);
         //LLog.d(TAG, "isConnectedFirst " + isConnectedFirst);
         rlRootView = findViewById(R.id.rl_root_view);
-        playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
+        playerView = findViewById(R.id.player_view);
         exoMiniPlayer = (ImageButton) findViewById(R.id.exo_mini_player);
         exoBack = (ImageButton) findViewById(R.id.exo_back);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
@@ -85,8 +100,10 @@ public class UZVideo extends RelativeLayout {
         if (tvTitle != null) {
             LUIUtil.setTextShadow(tvTitle);
         }
-        playerManager = new PlayerManager(activity);
-        playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+        playerManager = new PlayerManager(activity, this);
+        //update first size 16:9
+        playerManager.updateSizePlayerView();
+        playerManager.setCallback(this);
         exoFullscreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +155,8 @@ public class UZVideo extends RelativeLayout {
                 exoMiniPlayer.setVisibility(View.GONE);
             }
             if (playerManager != null) {
-                playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+                //update size landscape
+                playerManager.updateSizePlayerView();
             }
             if (uzCallback != null) {
                 uzCallback.onScreenRotateChange(true);
@@ -149,7 +167,8 @@ public class UZVideo extends RelativeLayout {
                 exoMiniPlayer.setVisibility(View.VISIBLE);
             }
             if (playerManager != null) {
-                playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+                //update size portrait
+                playerManager.updateSizePlayerView();
             }
             if (uzCallback != null) {
                 uzCallback.onScreenRotateChange(false);
@@ -162,14 +181,18 @@ public class UZVideo extends RelativeLayout {
     }
 
     public void playUrl(String linkPlay, long contentPosition) {
-        ServiceUtils.stopService(FUZService.class);
-        playerManager.release();
-        showLoading();
+        clearValues();
         this.linkPlay = linkPlay;
-        playerManager.init(activity, this, playerView, linkPlay, contentPosition);
+        playerManager.init(activity, playerView, linkPlay, contentPosition);
         if (uzCallback != null) {
             uzCallback.onInitSuccess(linkPlay);
         }
+    }
+
+    private void clearValues() {
+        showLoading();
+        ServiceUtils.stopService(FUZService.class);
+        playerManager.release();
     }
 
     public void playEntity(final String entityId) {
@@ -177,9 +200,7 @@ public class UZVideo extends RelativeLayout {
     }
 
     public void playEntity(final String entityId, final long contentPosition) {
-        ServiceUtils.stopService(FUZService.class);
-        playerManager.release();
-        showLoading();
+        clearValues();
         getTokenStreaming(entityId, new CallbackAPI() {
             @Override
             public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay) {
@@ -191,7 +212,7 @@ public class UZVideo extends RelativeLayout {
                         }
                     }
                     LLog.d(TAG, "linkPlay " + linkPlay);
-                    playerManager.init(activity, UZVideo.this, playerView, linkPlay, contentPosition);
+                    playerManager.init(activity, playerView, linkPlay, contentPosition);
                     if (uzCallback != null) {
                         uzCallback.onInitSuccess(linkPlay);
                     }
@@ -260,6 +281,22 @@ public class UZVideo extends RelativeLayout {
         });
     }
 
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+    }
+
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+    }
+
+    @Override
+    public void onVideoSizeChanged(int width, int height) {
+    }
+
     public interface CallbackAPI {
         public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay);
 
@@ -305,7 +342,7 @@ public class UZVideo extends RelativeLayout {
             } else {
                 //LLog.d(TAG, "play again");
                 playerManager.reset();
-                playerManager.init(activity, this, playerView, linkPlay);
+                playerManager.init(activity, playerView, linkPlay);
             }
         }
     }

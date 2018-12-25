@@ -55,7 +55,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
         uzVideo = (UZVideo) findViewById(R.id.uz_video);
-        uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
+        //uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
         uzVideo.setTvTitle(data.getName() + "");
         uzVideo.setData(data);
         uzVideo.setAdmobIDBanner(adUnitId);
@@ -151,24 +151,24 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
     public void onScreenRotateChange(boolean isLandscape) {
         if (isLandscape) {
             lnAdview.setVisibility(View.GONE);
-            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+            /*LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
                 @Override
                 public void doAfter(int mls) {
                     if (uzVideo != null) {
                         uzVideo.getRlRootView().setBackgroundColor(Color.BLACK);
                     }
                 }
-            });
+            });*/
         } else {
             lnAdview.setVisibility(View.VISIBLE);
-            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
+            /*LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
                 @Override
                 public void doAfter(int mls) {
                     if (uzVideo != null) {
                         uzVideo.getRlRootView().setBackgroundColor(Color.TRANSPARENT);
                     }
                 }
-            });
+            });*/
         }
     }
 

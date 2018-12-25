@@ -64,6 +64,12 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
     private SimpleExoPlayer player;
+    private Callback callback;
+    private int screenW;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
 
     public SimpleExoPlayer getPlayer() {
         return player;
@@ -71,6 +77,13 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public PlayerManager(Context context) {
         this.adsLoader = null;
+        dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
+    }
+
+    public PlayerManager(Context context, UZVideo uzVideo) {
+        this.adsLoader = null;
+        this.uzVideo = uzVideo;
+        this.screenW = LScreenUtil.getScreenWidth();
         dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
     }
 
@@ -82,18 +95,14 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     }
 
     public void init(Context context, final PlayerView playerView, String linkPlay) {
-        init(context, null, playerView, linkPlay, 0);
+        init(context, playerView, linkPlay, 0);
     }
 
-    public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay) {
-        init(context, uzVideo, playerView, linkPlay, 0);
-    }
-
-    public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay, long contentPosition) {
+    public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
         if (context == null || uzVideo == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
             return;
         }
-        this.uzVideo = uzVideo;
+        isFirstOnVideoSizeChanged = false;
         playerView.setControllerShowTimeoutMs(8000);
         playerView.setControllerHideOnTouch(true);
         // Create a default track selector.
@@ -181,6 +190,9 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                         }
                         break;
                 }
+                if (callback != null) {
+                    callback.onPlayerStateChanged(playWhenReady, playbackState);
+                }
             }
 
             @Override
@@ -188,16 +200,27 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                 if (uzVideo != null) {
                     uzVideo.hideLoading();
                 }
+                if (callback != null) {
+                    callback.onPlayerError(error);
+                }
             }
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+                if (callback != null) {
+                    callback.onPlaybackParametersChanged(playbackParameters);
+                }
             }
         });
         player.addVideoListener(new VideoListener() {
             @Override
             public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-                //LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
+                videoW = width;
+                videoH = height;
+                firstOnVideoSizeChanged();
+                if (callback != null) {
+                    callback.onVideoSizeChanged(width, height);
+                }
             }
 
             @Override
@@ -209,6 +232,28 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             public void onRenderedFirstFrame() {
             }
         });
+    }
+
+    private int videoW = 0;
+    private int videoH = 0;
+
+    public int getVideoW() {
+        return videoW;
+    }
+
+    public int getVideoH() {
+        return videoH;
+    }
+
+    private boolean isFirstOnVideoSizeChanged;
+
+    //OnVideoSizeChanged in the first time
+    private void firstOnVideoSizeChanged() {
+        if (!isFirstOnVideoSizeChanged) {
+            LLog.d(TAG, "fuck firstOnVideoSizeChanged");
+            updateSizePlayerView();
+            isFirstOnVideoSizeChanged = true;
+        }
     }
 
     public void reset() {
@@ -226,10 +271,10 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         if (adsLoader != null) {
             adsLoader.release();
         }
+        isFirstOnVideoSizeChanged = false;
     }
 
     // AdsMediaSource.MediaSourceFactory implementation.
-
     @Override
     public MediaSource createMediaSource(Uri uri) {
         return buildMediaSource(uri);
@@ -240,8 +285,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         // IMA does not support Smooth Streaming ads.
         return new int[]{C.TYPE_DASH, C.TYPE_HLS, C.TYPE_OTHER};
     }
-
-    // Internal methods.
 
     private MediaSource buildMediaSource(Uri uri) {
         @ContentType int type = Util.inferContentType(uri);
@@ -274,6 +317,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
     }
 
+    //for other sample not UZVideo
     public void updateSizePlayerView(Activity activity, PlayerView playerView, ImageButton exoFullscreen) {
         if (activity == null || playerView == null || exoFullscreen == null) {
             return;
@@ -283,10 +327,39 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             playerView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit);
         } else {
-            playerView.getLayoutParams().height = LScreenUtil.getScreenWidth() * 9 / 16;
+            playerView.getLayoutParams().height = screenW * 9 / 16;
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter);
         }
         playerView.requestLayout();
+    }
+
+    //for UZVideo
+    public void updateSizePlayerView() {
+        if (uzVideo == null || uzVideo.getRlRootView() == null || uzVideo.getExoFullscreen() == null || uzVideo.getActivity() == null) {
+            LLog.d(TAG, "fuck updateSizePlayerView null -> return");
+            return;
+        }
+        LLog.d(TAG, "fuck updateSizePlayerView " + videoW + "x" + videoH);
+        if (LScreenUtil.isFullScreen(uzVideo.getActivity())) {
+            //landscape
+            uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            uzVideo.getRlRootView().getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_exit);
+        } else {
+            //portrait
+            if (videoW == 0 || videoH == 0) {
+                //uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                uzVideo.getRlRootView().getLayoutParams().height = screenW * 9 / 16;
+                uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_enter);
+            } else {
+                int scaleW = screenW;
+                int scaleH = scaleW * videoH / videoW;
+                LLog.d(TAG, "fuck updateSizeOneTime " + videoW + "x" + videoH + " -> " + scaleW + "x" + scaleH);
+                uzVideo.getRlRootView().getLayoutParams().width = scaleW;
+                uzVideo.getRlRootView().getLayoutParams().height = scaleH;
+            }
+        }
+        uzVideo.getRlRootView().requestLayout();
     }
 
     public void pauseVideo() {
