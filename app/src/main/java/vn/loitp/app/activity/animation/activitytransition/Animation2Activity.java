@@ -11,7 +11,7 @@ public class Animation2Activity extends BaseFontActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
         findViewById(R.id.tv_exit).setOnClickListener(this);
     }
 

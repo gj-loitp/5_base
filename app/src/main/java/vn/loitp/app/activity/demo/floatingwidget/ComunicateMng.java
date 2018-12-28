@@ -3,7 +3,7 @@ package vn.loitp.app.activity.demo.floatingwidget;
 import org.greenrobot.eventbus.EventBus;
 
 /**
- * Created by LENOVO on 5/31/2018.
+ * Created by loitp on 5/31/2018.
  */
 
 public class ComunicateMng {

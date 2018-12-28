@@ -96,4 +96,9 @@
     <style name="MyLockScreenCodeStyle">
         <item name="android:button">@drawable/code_selector_pf</item>
     </style>
+
+    <style name="NavigationTheme" parent="AppTheme">
+        <item name="android:textSize">@dimen/txt_18</item>
+        <item  name="android:textStyle">bold</item>
+    </style>
 </resources>

@@ -24,7 +24,6 @@ import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 //https://github.com/wasabeef/recyclerview-animators
-
 public class RecyclerViewActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;

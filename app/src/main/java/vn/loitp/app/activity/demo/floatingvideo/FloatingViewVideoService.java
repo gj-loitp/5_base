@@ -44,9 +44,8 @@ import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
 
 /**
- * Created by LENOVO on 3/27/2018.
+ * Created by loitp on 3/27/2018.
  */
-
 
 public class FloatingViewVideoService extends Service implements VideoRendererEventListener {
     private final String TAG = getClass().getSimpleName();
@@ -157,7 +156,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
     //Open the application on thi button click
     private void openApp() {
         //Open the application  click.
-        Intent intent = new Intent(FloatingViewVideoService.this, FloatingWidgetVideoActivity.class);
+        Intent intent = new Intent(FloatingViewVideoService.this, FloatingWidgetActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 

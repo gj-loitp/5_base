@@ -1,20 +1,32 @@
 package vn.loitp.views.uzvideo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseActivity;
+import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.uiza.FUZService;
+import vn.loitp.core.loitp.uiza.UZCons;
 import vn.loitp.core.utilities.LConnectivityUtil;
+import vn.loitp.core.utilities.LDeviceUtil;
+import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.data.EventBusData;
 import vn.loitp.data.UZData;
 import vn.loitp.restapi.uiza.UZRestClient;
@@ -24,7 +36,10 @@ import vn.loitp.restapi.uiza.model.v3.linkplay.getlinkplay.ResultGetLinkPlay;
 import vn.loitp.restapi.uiza.model.v3.linkplay.getlinkplay.Url;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.ResultGetTokenStreaming;
 import vn.loitp.restapi.uiza.model.v3.linkplay.gettokenstreaming.SendGetTokenStreaming;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.utils.util.ServiceUtils;
+import vn.loitp.views.exo.Callback;
 import vn.loitp.views.exo.PlayerManager;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -32,13 +47,18 @@ import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadi
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
-public class UZVideo extends RelativeLayout {
+public class UZVideo extends RelativeLayout implements Callback {
     private final String TAG = getClass().getSimpleName();
     private PlayerView playerView;
     private PlayerManager playerManager;
     private String linkPlay = "";
+    private RelativeLayout rlRootView;
+    private ImageView ivCover;
     private ImageButton exoFullscreen;
+    private ImageButton exoMiniPlayer;
     private AVLoadingIndicatorView avl;
+    private ImageButton exoBack;
+    private TextView tvTitle;
     private BaseActivity activity;
 
     public UZVideo(Context context) {
@@ -56,6 +76,18 @@ public class UZVideo extends RelativeLayout {
         init();
     }
 
+    public PlayerView getPlayerView() {
+        return playerView;
+    }
+
+    public ImageButton getExoFullscreen() {
+        return exoFullscreen;
+    }
+
+    public BaseActivity getActivity() {
+        return activity;
+    }
+
     private boolean isConnectedFirst;
 
     private void init() {
@@ -63,16 +95,37 @@ public class UZVideo extends RelativeLayout {
         activity = (BaseActivity) getContext();
         isConnectedFirst = LConnectivityUtil.isConnected(activity);
         //LLog.d(TAG, "isConnectedFirst " + isConnectedFirst);
-        playerView = findViewById(R.id.player_view);
+        rlRootView = findViewById(R.id.rl_root_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
+        playerView = findViewById(R.id.player_view);
+        exoMiniPlayer = (ImageButton) findViewById(R.id.exo_mini_player);
+        exoBack = (ImageButton) findViewById(R.id.exo_back);
         avl = (AVLoadingIndicatorView) findViewById(R.id.avl);
-
-        playerManager = new PlayerManager(activity);
-        playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+        ivCover = (ImageView) findViewById(R.id.iv_cover);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        if (tvTitle != null) {
+            LUIUtil.setTextShadow(tvTitle);
+        }
+        playerManager = new PlayerManager(activity, this);
+        //update first size 16:9
+        playerManager.updateSizePlayerView();
+        playerManager.setCallback(this);
         exoFullscreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerManager.toggleFullscreen(activity);
+            }
+        });
+        exoMiniPlayer.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPip();
+            }
+        });
+        exoBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickBack();
             }
         });
     }
@@ -93,27 +146,70 @@ public class UZVideo extends RelativeLayout {
         playerManager.release();
     }
 
+    private boolean isLandscape;
+
+    public boolean isLandscape() {
+        return isLandscape;
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        } else {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            isLandscape = true;
+            if (exoMiniPlayer != null) {
+                exoMiniPlayer.setVisibility(View.GONE);
+            }
+            if (playerManager != null) {
+                //update size landscape
+                playerManager.updateSizePlayerView();
+            }
+            if (uzCallback != null) {
+                uzCallback.onScreenRotateChange(true);
+            }
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            isLandscape = false;
+            if (exoMiniPlayer != null) {
+                if (LDeviceUtil.isCanOverlay(activity)) {
+                    exoMiniPlayer.setVisibility(View.VISIBLE);
+                }
+            }
+            if (playerManager != null) {
+                //update size portrait
+                playerManager.updateSizePlayerView();
+            }
+            if (uzCallback != null) {
+                uzCallback.onScreenRotateChange(false);
+            }
         }
     }
 
     public void playUrl(String linkPlay) {
-        playerManager.release();
-        showLoading();
+        playUrl(linkPlay, 0);
+    }
+
+    public void playUrl(String linkPlay, long contentPosition) {
+        clearValues();
         this.linkPlay = linkPlay;
-        playerManager.init(activity, this, playerView, linkPlay);
+        playerManager.init(activity, playerView, linkPlay, contentPosition);
+        if (uzCallback != null) {
+            uzCallback.onInitSuccess(linkPlay);
+        }
+    }
+
+    private void clearValues() {
+        showLoading();
+        ServiceUtils.stopService(FUZService.class);
+        playerManager.release();
     }
 
     public void playEntity(final String entityId) {
-        playerManager.release();
-        showLoading();
-        getTokenStreaming(entityId, new Callback() {
+        playEntity(entityId, 0);
+    }
+
+    public void playEntity(final String entityId, final long contentPosition) {
+        clearValues();
+        getTokenStreaming(entityId, new CallbackAPI() {
             @Override
             public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay) {
                 try {
@@ -124,7 +220,10 @@ public class UZVideo extends RelativeLayout {
                         }
                     }
                     LLog.d(TAG, "linkPlay " + linkPlay);
-                    playerManager.init(activity, UZVideo.this, playerView, linkPlay);
+                    playerManager.init(activity, playerView, linkPlay, contentPosition);
+                    if (uzCallback != null) {
+                        uzCallback.onInitSuccess(linkPlay);
+                    }
                 } catch (NullPointerException e) {
                     LLog.e(TAG, "Error NullPointerException " + e.toString());
                 }
@@ -137,7 +236,7 @@ public class UZVideo extends RelativeLayout {
         });
     }
 
-    private void getTokenStreaming(final String entityId, final Callback callback) {
+    private void getTokenStreaming(final String entityId, final CallbackAPI callbackAPI) {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
         sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
@@ -148,23 +247,23 @@ public class UZVideo extends RelativeLayout {
             public void onSuccess(ResultGetTokenStreaming result) {
                 //LLog.d(TAG, "getTokenStreaming onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
                 String tokenStreaming = result.getData().getToken();
-                getLinkPlay(tokenStreaming, entityId, result, callback);
+                getLinkPlay(tokenStreaming, entityId, result, callbackAPI);
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getTokenStreaming onFail " + e.getMessage());
-                if (callback != null) {
-                    callback.onFail(e);
+                if (callbackAPI != null) {
+                    callbackAPI.onFail(e);
                 }
             }
         });
     }
 
-    private void getLinkPlay(final String tokenStreaming, String entityId, final ResultGetTokenStreaming resultGetTokenStreaming, final Callback callback) {
+    private void getLinkPlay(final String tokenStreaming, String entityId, final ResultGetTokenStreaming resultGetTokenStreaming, final CallbackAPI callbackAPI) {
         if (tokenStreaming == null || tokenStreaming.isEmpty()) {
-            if (callback != null) {
-                callback.onFail(new Throwable("No token streaming found"));
+            if (callbackAPI != null) {
+                callbackAPI.onFail(new Throwable("No token streaming found"));
             }
             return;
         }
@@ -175,25 +274,61 @@ public class UZVideo extends RelativeLayout {
             @Override
             public void onSuccess(ResultGetLinkPlay resultGetLinkPlay) {
                 //LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetLinkPlay));
-                if (callback != null) {
-                    callback.onSuccess(resultGetTokenStreaming, resultGetLinkPlay);
+                if (callbackAPI != null) {
+                    callbackAPI.onSuccess(resultGetTokenStreaming, resultGetLinkPlay);
                 }
             }
 
             @Override
             public void onFail(Throwable e) {
                 LLog.e(TAG, "getLinkPlay onFail " + e.getMessage());
-                if (callback != null) {
-                    callback.onFail(e);
+                if (callbackAPI != null) {
+                    callbackAPI.onFail(e);
                 }
             }
         });
     }
 
-    public interface Callback {
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+    }
+
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+    }
+
+    @Override
+    public void onVideoSizeChanged(int width, int height) {
+    }
+
+    @Override
+    public void OnFirstVideoSizeChanged() {
+        if (LDeviceUtil.isCanOverlay(activity)) {
+            exoMiniPlayer.setVisibility(View.VISIBLE);
+        }
+        hideCover();
+    }
+
+    public interface CallbackAPI {
         public void onSuccess(ResultGetTokenStreaming resultGetTokenStreaming, ResultGetLinkPlay resultGetLinkPlay);
 
         public void onFail(Throwable e);
+    }
+
+    private UZCallback uzCallback;
+
+    public void setUzCallback(UZCallback uzCallback) {
+        this.uzCallback = uzCallback;
+    }
+
+    public interface UZCallback {
+        public void onScreenRotateChange(boolean isLandscape);
+
+        public void onInitSuccess(String linkPlay);
     }
 
     public void showLoading() {
@@ -223,8 +358,89 @@ public class UZVideo extends RelativeLayout {
             } else {
                 //LLog.d(TAG, "play again");
                 playerManager.reset();
-                playerManager.init(activity, this, playerView, linkPlay);
+                playerManager.init(activity, playerView, linkPlay);
             }
         }
+    }
+
+    public void hideController() {
+        if (playerView != null) {
+            playerView.hideController();
+        }
+    }
+
+    public void showController() {
+        if (playerView != null) {
+            playerView.showController();
+        }
+    }
+
+    public void setUseController(boolean useController) {
+        if (playerView != null) {
+            playerView.setUseController(useController);
+        }
+    }
+
+    private void onClickBack() {
+        if (isLandscape) {
+            toggleFullscreen();
+        } else {
+            activity.onBackPressed();
+        }
+    }
+
+    public void setTvTitle(String title) {
+        if (tvTitle != null) {
+            tvTitle.setText(title);
+        }
+    }
+
+    public RelativeLayout getRlRootView() {
+        return rlRootView;
+    }
+
+    private Data data;
+
+    public void setData(Data data, boolean isShowCover) {
+        this.data = data;
+        if (isShowCover) {
+            showCover();
+        }
+    }
+
+    private void showCover() {
+        if (ivCover == null || data == null) {
+            return;
+        }
+        LImageUtil.load(activity, data.getThumbnail(), ivCover);
+    }
+
+    private void hideCover() {
+        if (ivCover == null) {
+            return;
+        }
+        ivCover.setVisibility(View.GONE);
+        ivCover = null;
+    }
+
+    private String admobIDBanner;
+
+    public void setAdmobIDBanner(String admobIDBanner) {
+        this.admobIDBanner = admobIDBanner;
+    }
+
+    private void showPip() {
+        if (linkPlay == null || playerManager == null) {
+            return;
+        }
+        LPref.setUZvideoWidth(activity, playerManager.getVideoW());
+        LPref.setUzvideoHeight(activity, playerManager.getVideoH());
+        Intent intent = new Intent(activity, FUZService.class);
+        intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
+        intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, linkPlay);
+        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
+        activity.startService(intent);
+        activity.onBackPressed();
     }
 }

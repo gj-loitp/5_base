@@ -89,6 +89,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ShadowView Helper" />
+
+            <Button
+                android:id="@+id/bt_value_animator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Value Animator" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

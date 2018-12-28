@@ -1,60 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_gift"
+        android:layout_width="@dimen/w_250"
+        android:layout_height="@dimen/w_250"
+        android:layout_centerInParent="true" />
+
+    <!--<ImageView
+        android:layout_width="@dimen/w_150"
+        android:layout_height="@dimen/w_150"
         android:layout_marginBottom="@dimen/margin_10"
         android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop"
-        android:src="@drawable/l_gift" />
+        android:src="@drawable/l_gift" />-->
 
-    <vn.loitp.views.realtimeblurview.RealtimeBlurView
+    <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_80"
-        app:realtimeOverlayColor="@color/WhiteTrans99" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/animation_view_gift"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_18"
+        android:textStyle="bold" />
 
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
-
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="@dimen/w_150"
-                android:layout_height="@dimen/w_150"
-                android:layout_marginBottom="@dimen/margin_10"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/l_gift" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                android:gravity="top|center"
-                android:text="Open gift"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/Gray"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-    </ScrollView>
-
-    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+    <!--<vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_40"
@@ -62,6 +42,6 @@
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_10"
         app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="BallPulseIndicator" />
+        app:indicatorName="BallPulseIndicator" />-->
 </RelativeLayout>
 

@@ -14,9 +14,7 @@
     <string name="fast_forward">Fast forward</string>
     <string name="fast_rewind">Fast rewind</string>
     <string name="minimize">Minimize</string>
-
     <string name="ad_tag_url"><![CDATA[https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=]]></string>
-
     <string name="policy">Điều khoản sử dụng ứng dụng, chính sách bảo mật và quyền riêng tư</string>
     <string name="copyright">© Loitp</string>
     <string name="rate_app">Đánh giá</string>
@@ -26,4 +24,7 @@
     <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
     <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
     <string name="loading">Loading...</string>
+    <string name="open_gift">Open gift</string>
+    <string name="no_data">Không có dữ liệu</string>
+    <string name="video_not_found">Không tìm thấy video này</string>
 </resources>

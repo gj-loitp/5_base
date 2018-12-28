@@ -119,8 +119,8 @@ public class CircularSeekBar extends View {
         try {
             mEnabled = a.getBoolean(R.styleable.CircularSeekBar_enabled, mEnabled);
             mShowIndicator = a.getBoolean(R.styleable.CircularSeekBar_showIndicator_circular_seekbar, mShowIndicator);
-            mMinValue = a.getFloat(R.styleable.CircularSeekBar_min, mMinValue);
-            mMaxValue = a.getFloat(R.styleable.CircularSeekBar_max, mMaxValue);
+            mMinValue = a.getFloat(R.styleable.CircularSeekBar_minCircularSeekBar, mMinValue);
+            mMaxValue = a.getFloat(R.styleable.CircularSeekBar_maxCircularSeekBar, mMaxValue);
             mSpeedMultiplier = a.getFloat(R.styleable.CircularSeekBar_speedMultiplier, mSpeedMultiplier);
             mProgress = a.getFloat(R.styleable.CircularSeekBar_progressCircularSeekBar, mProgress);
             mShowText = a.getBoolean(R.styleable.CircularSeekBar_showProgressText, mShowText);

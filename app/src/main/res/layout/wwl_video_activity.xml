@@ -20,7 +20,6 @@
             app:metadataViewId="@+id/up_next_fragment"
             app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
             app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
-            app:overlayViewId="@+id/overlay_view"
             app:playerViewId="@+id/player_fragment_container"
             app:tabletLayout="false">
 

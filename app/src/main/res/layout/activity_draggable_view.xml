@@ -59,7 +59,8 @@
             android:layout_height="@dimen/w_200"
             android:layout_alignParentTop="true"
             android:background="@color/White"
-            android:src="@drawable/iv" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/loitp" />
 
     </vn.loitp.views.layout.draggablepanel.DraggableView>
 </RelativeLayout>

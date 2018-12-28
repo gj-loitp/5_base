@@ -27,6 +27,8 @@ public class LPref {
     public static String JSON_BOOK_ASSET = "JSON_BOOK_ASSET";
     public static final String INDEX = "INDEX";
     public static final String PASS_CODE = "PASS_CODE";
+    public static final String UZVIDEO_WIDTH = "UZVIDEO_WIDTH";
+    public static final String UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT";
     //object
     /*public User getUser() {
         SharedPreferences pref = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
@@ -97,6 +99,29 @@ public class LPref {
         editor.apply();
     }
 
+    public static int getUZvideoWidth(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getInt(UZVIDEO_WIDTH, 16);
+    }
+
+    public static void setUZvideoWidth(Context context, int value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putInt(UZVIDEO_WIDTH, value);
+        editor.apply();
+    }
+
+    public static int getUzvideoHeight(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getInt(UZVIDEO_HEIGHT, 9);
+    }
+
+    public static void setUzvideoHeight(Context context, int value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putInt(UZVIDEO_HEIGHT, value);
+        editor.apply();
+    }
+
+    /////////////////////////////////STRING
     public static String getJsonBookAsset(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
         return pref.getString(JSON_BOOK_ASSET, null);

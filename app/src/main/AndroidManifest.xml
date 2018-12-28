@@ -529,11 +529,15 @@
             android:exported="false" />
 
         <activity
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetVideoActivity"
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service
             android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewEdgeService"
             android:enabled="true"
             android:exported="false" />
 
@@ -590,7 +594,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
-
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
             android:name="vn.loitp.app.activity.function.location.LocationActivity"
@@ -850,6 +853,32 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.animation.lottie.MenuLottieActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.uiza.UZMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--start floating view-->
+        <activity
+            android:name="vn.loitp.app.activity.demo.floatingview.FloatingViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService"
+            android:exported="false" />
+
+        <activity
+            android:name="vn.loitp.core.loitp.uiza.UZPlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
+        <!--end floating view-->
+        <activity
+            android:name="vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

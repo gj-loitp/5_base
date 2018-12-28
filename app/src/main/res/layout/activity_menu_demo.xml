@@ -67,6 +67,12 @@
                 android:text="Android Floating Widget like Facebook Chat Head" />
 
             <Button
+                android:id="@+id/bt_floating_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Floating view" />
+
+            <Button
                 android:id="@+id/bt_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,6 +107,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Text to speech" />
+
+            <Button
+                android:id="@+id/bt_uiza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uiza" />
 
             <Button
                 android:id="@+id/bt_video"

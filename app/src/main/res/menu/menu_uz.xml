@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_rate"
+        android:title="@string/rate_app" />
+    <item
+        android:id="@+id/action_more"
+        android:title="@string/more_app" />
+    <item
+        android:id="@+id/action_share"
+        android:title="@string/share_app" />
+    <item
+        android:id="@+id/action_like_fb"
+        android:title="@string/like_facebook_fanpage" />
+    <item
+        android:id="@+id/bt_support_24_7"
+        android:title="@string/support_24_7" />
+    <item
+        android:id="@+id/action_why_u_see_ad"
+        android:title="@string/why_u_see_ad" />
+    <item
+        android:id="@+id/action_policy"
+        android:title="@string/policy" />
+</menu>

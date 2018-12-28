@@ -51,7 +51,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String TAG;
     private RelativeLayout rootView;
     private InterstitialAd interstitialAd;
-    protected boolean isShowAdWhenExist = true;
+    protected boolean isShowAdWhenExit = true;
+    protected boolean isShowAnimWhenExit = true;
     //protected boolean isShowTvConnectStt = false;
 
     protected RelativeLayout getRootView() {
@@ -195,12 +196,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        LActivityUtil.tranOut(activity);
-        if (isShowAdWhenExist && !Constants.IS_DEBUG) {
+        if (isShowAnimWhenExit) {
+            LActivityUtil.tranOut(activity);
+        }
+        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
             LUIUtil.displayInterstitial(interstitialAd, 30);
         } else {
             //dont use LLog here
-            Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExist=" + isShowAdWhenExist);
+            Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExit=" + isShowAdWhenExit);
         }
     }
 

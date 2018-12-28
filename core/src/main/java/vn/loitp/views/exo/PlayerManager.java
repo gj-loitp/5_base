@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2017 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package vn.loitp.views.exo;
 
 import android.app.Activity;
@@ -24,7 +9,6 @@ import android.widget.ImageButton;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -50,21 +34,23 @@ import com.google.android.exoplayer2.video.VideoListener;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.uzvideo.UZVideo;
 
-/**
- * Manages the {@link ExoPlayer}, the IMA plugin and all video playback.
- */
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private final String TAG = getClass().getSimpleName();
     private UZVideo uzVideo;
     private ImaAdsLoader adsLoader;
     private DataSource.Factory dataSourceFactory;
-
     private SimpleExoPlayer player;
-    private long contentPosition;
+    private Callback callback;
+    private int screenW;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
 
     public SimpleExoPlayer getPlayer() {
         return player;
@@ -72,6 +58,13 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public PlayerManager(Context context) {
         this.adsLoader = null;
+        dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
+    }
+
+    public PlayerManager(Context context, UZVideo uzVideo) {
+        this.adsLoader = null;
+        this.uzVideo = uzVideo;
+        this.screenW = LScreenUtil.getScreenWidth();
         dataSourceFactory = new DefaultDataSourceFactory(context, AppUtils.getAppName());
     }
 
@@ -83,12 +76,16 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     }
 
     public void init(Context context, final PlayerView playerView, String linkPlay) {
-        init(context, null, playerView, linkPlay);
+        init(context, playerView, linkPlay, 0);
     }
 
-    public void init(Context context, final UZVideo uzVideo, final PlayerView playerView, String linkPlay) {
-        this.uzVideo = uzVideo;
-
+    public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
+        if (context == null || uzVideo == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
+            return;
+        }
+        isFirstOnVideoSizeChanged = false;
+        playerView.setControllerShowTimeoutMs(8000);
+        playerView.setControllerHideOnTouch(true);
         // Create a default track selector.
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
@@ -137,32 +134,45 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
-                        if (uzVideo != null) {
-                            uzVideo.showLoading();
+                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        if (playerView != null) {
+                            if (playerView.getControllerShowTimeoutMs() == 0) {
+                                playerView.setControllerShowTimeoutMs(8000);
+                            }
+                            if (!playerView.getControllerHideOnTouch()) {
+                                playerView.setControllerHideOnTouch(true);
+                            }
+                            if (uzVideo != null) {
+                                uzVideo.showLoading();
+                            }
                         }
                         break;
                     case Player.STATE_IDLE:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
                         if (uzVideo != null) {
                             uzVideo.showLoading();
                         }
                         break;
                     case Player.STATE_READY:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
                         if (uzVideo != null) {
                             uzVideo.hideLoading();
                         }
                         break;
                     case Player.STATE_ENDED:
-                        //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        if (playerView != null) {
+                            playerView.showController();
+                            playerView.setControllerShowTimeoutMs(0);
+                            playerView.setControllerHideOnTouch(false);
+                        }
                         if (uzVideo != null) {
                             uzVideo.hideLoading();
                         }
-                        if (playerView != null) {
-                            playerView.showController();
-                        }
                         break;
+                }
+                if (callback != null) {
+                    callback.onPlayerStateChanged(playWhenReady, playbackState);
                 }
             }
 
@@ -171,16 +181,27 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                 if (uzVideo != null) {
                     uzVideo.hideLoading();
                 }
+                if (callback != null) {
+                    callback.onPlayerError(error);
+                }
             }
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+                if (callback != null) {
+                    callback.onPlaybackParametersChanged(playbackParameters);
+                }
             }
         });
         player.addVideoListener(new VideoListener() {
             @Override
             public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-                //LLog.d(TAG, "onVideoSizeChanged " + width + "x" + height);
+                videoW = width;
+                videoH = height;
+                firstOnVideoSizeChanged();
+                if (callback != null) {
+                    callback.onVideoSizeChanged(width, height);
+                }
             }
 
             @Override
@@ -194,9 +215,33 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         });
     }
 
+    private int videoW = 0;
+    private int videoH = 0;
+
+    public int getVideoW() {
+        return videoW;
+    }
+
+    public int getVideoH() {
+        return videoH;
+    }
+
+    private boolean isFirstOnVideoSizeChanged;
+
+    //OnVideoSizeChanged in the first time
+    private void firstOnVideoSizeChanged() {
+        if (!isFirstOnVideoSizeChanged) {
+            //LLog.d(TAG, "firstOnVideoSizeChanged");
+            updateSizePlayerView();
+            isFirstOnVideoSizeChanged = true;
+            if (callback != null) {
+                callback.OnFirstVideoSizeChanged();
+            }
+        }
+    }
+
     public void reset() {
         if (player != null) {
-            contentPosition = player.getContentPosition();
             player.release();
             player = null;
         }
@@ -204,17 +249,16 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public void release() {
         if (player != null) {
-            contentPosition = 0;
             player.release();
             player = null;
         }
         if (adsLoader != null) {
             adsLoader.release();
         }
+        isFirstOnVideoSizeChanged = false;
     }
 
     // AdsMediaSource.MediaSourceFactory implementation.
-
     @Override
     public MediaSource createMediaSource(Uri uri) {
         return buildMediaSource(uri);
@@ -225,8 +269,6 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         // IMA does not support Smooth Streaming ads.
         return new int[]{C.TYPE_DASH, C.TYPE_HLS, C.TYPE_OTHER};
     }
-
-    // Internal methods.
 
     private MediaSource buildMediaSource(Uri uri) {
         @ContentType int type = Util.inferContentType(uri);
@@ -259,6 +301,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
     }
 
+    //for other sample not UZVideo
     public void updateSizePlayerView(Activity activity, PlayerView playerView, ImageButton exoFullscreen) {
         if (activity == null || playerView == null || exoFullscreen == null) {
             return;
@@ -268,10 +311,39 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             playerView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit);
         } else {
-            playerView.getLayoutParams().height = LScreenUtil.getScreenWidth() * 9 / 16;
+            playerView.getLayoutParams().height = screenW * 9 / 16;
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter);
         }
         playerView.requestLayout();
+    }
+
+    //for UZVideo
+    public void updateSizePlayerView() {
+        if (uzVideo == null || uzVideo.getRlRootView() == null || uzVideo.getExoFullscreen() == null || uzVideo.getActivity() == null) {
+            //LLog.d(TAG, "updateSizePlayerView null -> return");
+            return;
+        }
+        //LLog.d(TAG, "updateSizePlayerView " + videoW + "x" + videoH);
+        if (LScreenUtil.isFullScreen(uzVideo.getActivity())) {
+            //landscape
+            uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            uzVideo.getRlRootView().getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_exit);
+        } else {
+            //portrait
+            if (videoW == 0 || videoH == 0) {
+                //uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+                uzVideo.getRlRootView().getLayoutParams().height = screenW * 9 / 16;
+                uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_enter);
+            } else {
+                int scaleW = screenW;
+                int scaleH = scaleW * videoH / videoW;
+                //LLog.d(TAG, "updateSizeOneTime " + videoW + "x" + videoH + " -> " + scaleW + "x" + scaleH);
+                uzVideo.getRlRootView().getLayoutParams().width = scaleW;
+                uzVideo.getRlRootView().getLayoutParams().height = scaleH;
+            }
+        }
+        uzVideo.getRlRootView().requestLayout();
     }
 
     public void pauseVideo() {
@@ -284,5 +356,12 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         if (player != null) {
             player.setPlayWhenReady(true);
         }
+    }
+
+    public long getContentPosition() {
+        if (player != null) {
+            return player.getContentPosition();
+        }
+        return 0;
     }
 }

@@ -57,8 +57,8 @@ public class DraggablePanelActivity extends BaseFontActivity {
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {
-        FrmTest frmTop = new FrmTest();
-        FrmTest frmBottom = new FrmTest();
+        FrmTestTop frmTop = new FrmTestTop();
+        FrmTestBottom frmBottom = new FrmTestBottom();
 
         draggablePanel.setFragmentManager(getSupportFragmentManager());
         draggablePanel.setTopFragment(frmTop);

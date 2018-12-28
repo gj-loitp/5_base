@@ -18,16 +18,16 @@ import vn.loitp.data.AdmobData;
 import vn.loitp.data.UZData;
 import vn.loitp.utils.util.Utils;
 
+//TODO core film plus
 //TODO is debug
 public class LSApplication extends MultiDexApplication {
     private final String TAG = LSApplication.class.getSimpleName();
     private static LSApplication instance;
     private Gson gson;
-
     //prod
-    private final String DF_DOMAIN_API = "teamplayer.uiza.co";
-    private final String DF_TOKEN = "uap-01e137ad1b534004ad822035bf89b29f-b9b31f29";
-    private final String DF_APP_ID = "01e137ad1b534004ad822035bf89b29f";
+    private final String DF_DOMAIN_API = "loitpdubai.uiza.co";
+    private final String DF_TOKEN = "uap-c7ff811da5de41f8816040d13270b48c-555b47cc";
+    private final String DF_APP_ID = "c7ff811da5de41f8816040d13270b48c";
 
     @Override
     public void onCreate() {
@@ -36,12 +36,12 @@ public class LSApplication extends MultiDexApplication {
         if (gson == null) {
             gson = new Gson();
         }
-        Constants.setIsDebug(false);
+        Constants.setIsDebug(true);
         Utils.init(this);
         //config admob id
         AdmobData.getInstance().setIdAdmobFull(getString(R.string.str_f));
         //config activity transition default
-        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
+        ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_FADE);
 
         //config realm
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)

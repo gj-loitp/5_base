@@ -4,7 +4,9 @@ package vn.loitp.restapi.uiza.model.v3.livestreaming.retrievealiveevent;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LastPushInfo {
+import java.io.Serializable;
+
+public class LastPushInfo implements Serializable {
 
     @SerializedName("streamUrl")
     @Expose

@@ -12,7 +12,7 @@ import vn.loitp.views.uzvideo.UZVideo;
 //custom UI exo_playback_control_view.xml
 public class UZActivity extends BaseFontActivity {
     private UZVideo uzVideo;
-    private String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
+    private String entityIdDefaultVOD = "ff57c08a-b528-4c5e-a316-c638f14e6cc3";
     private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
 
     @Override

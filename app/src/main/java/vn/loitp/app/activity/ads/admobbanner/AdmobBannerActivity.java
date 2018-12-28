@@ -17,7 +17,7 @@ public class AdmobBannerActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        isShowAdWhenExist = false;
+        isShowAdWhenExit = false;
 
         adView = (AdView) findViewById(R.id.adView);
         LUIUtil.createAdBanner(adView);

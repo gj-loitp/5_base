@@ -228,19 +228,4 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
             return "Page Title " + position;
         }
     }
-
-    /*private void changeTabsFont(TabLayout tabLayout, String fontName) {
-        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
-        int tabsCount = vg.getChildCount();
-        for (int j = 0; j < tabsCount; j++) {
-            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
-            int tabChildsCount = vgTab.getChildCount();
-            for (int i = 0; i < tabChildsCount; i++) {
-                View tabViewChild = vgTab.getChildAt(i);
-                if (tabViewChild instanceof TextView) {
-                    CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
-                }
-            }
-        }
-    }*/
 }

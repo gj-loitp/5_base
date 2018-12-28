@@ -2,6 +2,8 @@ package vn.loitp.core.utilities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.PorterDuff;
@@ -15,6 +17,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -48,13 +51,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Random;
 
 import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
+import vn.loitp.core.loitp.uiza.UZCons;
+import vn.loitp.core.loitp.uiza.UZPlayerActivity;
 import vn.loitp.data.AdmobData;
+import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
@@ -727,5 +734,94 @@ public class LUIUtil {
         int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.length);
         int bkg = Constants.ARR_RANDOM_BKG[r];
         view.setBackgroundResource(bkg);
+    }
+
+    public static void setNavMenuItemThemeColors(NavigationView navigationView, int colorDefault, int color) {
+        //Setting default colors for menu item Text and Icon
+        int navDefaultTextColor = colorDefault;
+        int navDefaultIconColor = colorDefault;
+
+        //Defining ColorStateList for menu item Text
+        ColorStateList navMenuTextList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_enabled},
+                        new int[]{android.R.attr.state_pressed},
+                        new int[]{android.R.attr.state_focused},
+                        new int[]{android.R.attr.state_pressed}
+                },
+                new int[]{
+                        color,
+                        navDefaultTextColor,
+                        navDefaultTextColor,
+                        navDefaultTextColor,
+                        navDefaultTextColor
+                }
+        );
+
+        //Defining ColorStateList for menu item Icon
+        ColorStateList navMenuIconList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_enabled},
+                        new int[]{android.R.attr.state_pressed},
+                        new int[]{android.R.attr.state_focused},
+                        new int[]{android.R.attr.state_pressed}
+                },
+                new int[]{
+                        color,
+                        navDefaultIconColor,
+                        navDefaultIconColor,
+                        navDefaultIconColor,
+                        navDefaultIconColor
+                }
+        );
+        navigationView.setItemTextColor(navMenuTextList);
+        navigationView.setItemIconTintList(navMenuIconList);
+    }
+
+    public static ArrayList<View> getAllChildren(View v) {
+        if (!(v instanceof ViewGroup)) {
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            return viewArrayList;
+        }
+        ArrayList<View> result = new ArrayList<View>();
+        ViewGroup viewGroup = (ViewGroup) v;
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View child = viewGroup.getChildAt(i);
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            viewArrayList.addAll(getAllChildren(child));
+            result.addAll(viewArrayList);
+        }
+        return result;
+    }
+
+    public static int getWidthOfView(View view) {
+        if (view == null) {
+            return 0;
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return view.getMeasuredWidth();
+    }
+
+    public static int getHeightOfView(View view) {
+        if (view == null) {
+            return 0;
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        return view.getMeasuredHeight();
+    }
+
+    public static void goToUZPlayerActivity(Activity activity, Data data, String admobBaner) {
+        Intent intent = new Intent(activity, UZPlayerActivity.class);
+        intent.putExtra(UZCons.ENTITY_DATA, data);
+        intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
+        if (admobBaner != null) {
+            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
+        }
+        activity.startActivity(intent);
+        LActivityUtil.slideUp(activity);
     }
 }
