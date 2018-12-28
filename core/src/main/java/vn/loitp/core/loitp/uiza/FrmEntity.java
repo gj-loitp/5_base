@@ -132,7 +132,7 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onSuccess(ResultListEntity result) {
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
-                    if (page == 0) {
+                    if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
                         LLog.d(TAG, "last page");
@@ -171,7 +171,7 @@ public class FrmEntity extends BaseFragment {
             @Override
             public void onSuccess(ResultListEntity result) {
                 if (result == null || result.getData() == null || result.getData().isEmpty()) {
-                    if (page == 0) {
+                    if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
                         LLog.d(TAG, "last page");
