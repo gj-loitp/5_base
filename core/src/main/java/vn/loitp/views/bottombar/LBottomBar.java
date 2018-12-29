@@ -5,12 +5,11 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.daimajia.androidanimations.library.Techniques;
-
 import loitp.core.R;
-import vn.loitp.core.utilities.LAnimationUtil;
+import vn.loitp.views.realtimeblurview.RealtimeBlurView;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
@@ -18,18 +17,19 @@ import vn.loitp.core.utilities.LAnimationUtil;
 
 public class LBottomBar extends RelativeLayout implements View.OnClickListener {
     private final String TAG = getClass().getSimpleName();
-    //private LinearLayout ll0;
-    //private LinearLayout ll1;
-    //private FrameLayout ll2;
-    //private LinearLayout ll3;
-    //private LinearLayout ll4;
-
-    private ImageView btIcon0;
-    private ImageView btIcon1;
-    private ImageView btIcon2;
-    private ImageView btIcon3;
-    private ImageView btIcon4;
-
+    private RealtimeBlurView blurView;
+    private LinearLayout llIcon0;
+    private LinearLayout llIcon1;
+    private LinearLayout llIcon2;
+    private LinearLayout llIcon3;
+    private LinearLayout llIcon4;
+    private LinearLayout llIcon5;
+    private ImageView ivIcon0;
+    private ImageView ivIcon1;
+    private ImageView ivIcon2;
+    private ImageView ivIcon3;
+    private ImageView ivIcon4;
+    private ImageView ivIcon5;
     private int previousPos;
     private int currentPos;
     public final static int PAGE_NONE = -1;
@@ -38,6 +38,7 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
     public final static int PAGE_2 = 2;
     public final static int PAGE_3 = 3;
     public final static int PAGE_4 = 4;
+    public final static int PAGE_5 = 5;
 
     public LBottomBar(Context context) {
         super(context);
@@ -54,85 +55,172 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         init();
     }
 
+    public RealtimeBlurView getBlurView() {
+        return blurView;
+    }
+
     private void init() {
         inflate(getContext(), R.layout.view_l_bottom_bar, this);
+        this.blurView = (RealtimeBlurView) findViewById(R.id.real_time_blur_view);
+        this.llIcon0 = (LinearLayout) findViewById(R.id.ll_icon_0);
+        this.llIcon1 = (LinearLayout) findViewById(R.id.ll_icon_1);
+        this.llIcon2 = (LinearLayout) findViewById(R.id.ll_icon_2);
+        this.llIcon3 = (LinearLayout) findViewById(R.id.ll_icon_3);
+        this.llIcon4 = (LinearLayout) findViewById(R.id.ll_icon_4);
+        this.llIcon5 = (LinearLayout) findViewById(R.id.ll_icon_5);
+        this.ivIcon0 = (ImageView) findViewById(R.id.iv_icon_0);
+        this.ivIcon1 = (ImageView) findViewById(R.id.iv_icon_1);
+        this.ivIcon2 = (ImageView) findViewById(R.id.iv_icon_2);
+        this.ivIcon3 = (ImageView) findViewById(R.id.iv_icon_3);
+        this.ivIcon4 = (ImageView) findViewById(R.id.iv_icon_4);
+        this.ivIcon5 = (ImageView) findViewById(R.id.iv_icon_5);
+        llIcon0.setOnClickListener(this);
+        llIcon1.setOnClickListener(this);
+        llIcon2.setOnClickListener(this);
+        llIcon3.setOnClickListener(this);
+        llIcon4.setOnClickListener(this);
+        llIcon5.setOnClickListener(this);
+        updateView(ivIcon0);
+    }
 
-        //this.ll0 = (LinearLayout) findViewById(R.id.ll_0);
-        //this.ll1 = (LinearLayout) findViewById(R.id.ll_1);
-        //this.ll2 = (FrameLayout) findViewById(R.id.ll_2);
-        //this.ll3 = (LinearLayout) findViewById(R.id.ll_3);
-        //this.ll4 = (LinearLayout) findViewById(R.id.ll_4);
-
-        this.btIcon0 = (ImageView) findViewById(R.id.bt_icon_0);
-        this.btIcon1 = (ImageView) findViewById(R.id.bt_icon_1);
-        this.btIcon2 = (ImageView) findViewById(R.id.bt_icon_2);
-        this.btIcon3 = (ImageView) findViewById(R.id.bt_icon_3);
-        this.btIcon4 = (ImageView) findViewById(R.id.bt_icon_4);
-
-        btIcon0.setOnClickListener(this);
-        btIcon1.setOnClickListener(this);
-        btIcon2.setOnClickListener(this);
-        btIcon3.setOnClickListener(this);
-        btIcon4.setOnClickListener(this);
-
-        updateView(btIcon0);
+    public void setCount(int count) {
+        if (count < 0 || count >= 7) {
+            throw new IllegalArgumentException("Error value of count number, value must between 0 and 7.");
+        }
+        if (count == 0) {
+            llIcon0.setVisibility(View.GONE);
+            llIcon1.setVisibility(View.GONE);
+            llIcon2.setVisibility(View.GONE);
+            llIcon3.setVisibility(View.GONE);
+            llIcon4.setVisibility(View.GONE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 1) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.GONE);
+            llIcon2.setVisibility(View.GONE);
+            llIcon3.setVisibility(View.GONE);
+            llIcon4.setVisibility(View.GONE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 2) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.VISIBLE);
+            llIcon2.setVisibility(View.GONE);
+            llIcon3.setVisibility(View.GONE);
+            llIcon4.setVisibility(View.GONE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 3) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.VISIBLE);
+            llIcon2.setVisibility(View.VISIBLE);
+            llIcon3.setVisibility(View.GONE);
+            llIcon4.setVisibility(View.GONE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 4) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.VISIBLE);
+            llIcon2.setVisibility(View.VISIBLE);
+            llIcon3.setVisibility(View.VISIBLE);
+            llIcon4.setVisibility(View.GONE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 5) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.VISIBLE);
+            llIcon2.setVisibility(View.VISIBLE);
+            llIcon3.setVisibility(View.VISIBLE);
+            llIcon4.setVisibility(View.VISIBLE);
+            llIcon5.setVisibility(View.GONE);
+        } else if (count == 6) {
+            llIcon0.setVisibility(View.VISIBLE);
+            llIcon1.setVisibility(View.VISIBLE);
+            llIcon2.setVisibility(View.VISIBLE);
+            llIcon3.setVisibility(View.VISIBLE);
+            llIcon4.setVisibility(View.VISIBLE);
+            llIcon5.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void onClick(View v) {
-        //LLog.d(TAG, "onClickRootView");
-        int i = v.getId();
-        if (i == R.id.bt_icon_0) {
+        if (v == llIcon0) {
             if (currentPos != PAGE_0) {
                 previousPos = currentPos;
                 currentPos = PAGE_0;
                 onClickItem(currentPos);
-                updateView(btIcon0);
+                updateView(ivIcon0);
             }
-
-        } else if (i == R.id.bt_icon_1) {
+        } else if (v == llIcon1) {
             if (currentPos != PAGE_1) {
                 previousPos = currentPos;
                 currentPos = PAGE_1;
                 onClickItem(currentPos);
-                updateView(btIcon1);
+                updateView(ivIcon1);
             }
-
-        } else if (i == R.id.bt_icon_2) {
+        } else if (v == llIcon2) {
             if (currentPos != PAGE_2) {
                 previousPos = currentPos;
                 currentPos = PAGE_2;
                 onClickItem(currentPos);
-                updateView(btIcon2);
+                updateView(ivIcon2);
             }
-
-        } else if (i == R.id.bt_icon_3) {
+        } else if (v == llIcon3) {
             if (currentPos != PAGE_3) {
                 previousPos = currentPos;
                 currentPos = PAGE_3;
                 onClickItem(currentPos);
-                updateView(btIcon3);
+                updateView(ivIcon3);
             }
-
-        } else if (i == R.id.bt_icon_4) {
+        } else if (v == llIcon4) {
             if (currentPos != PAGE_4) {
                 previousPos = currentPos;
                 currentPos = PAGE_4;
                 onClickItem(currentPos);
-                updateView(btIcon4);
+                updateView(ivIcon4);
             }
-
+        } else if (v == llIcon5) {
+            if (currentPos != PAGE_5) {
+                previousPos = currentPos;
+                currentPos = PAGE_5;
+                onClickItem(currentPos);
+                updateView(ivIcon5);
+            }
         }
     }
 
+    private int colorOn = R.color.colorPrimary;
+    private int colorOff = R.color.Black;
+    //private Techniques techniques = Techniques.Pulse;
+
+    //public void setTechniques(Techniques techniques) {
+    //    this.techniques = techniques;
+    //}
+
+    public int getColorOn() {
+        return colorOn;
+    }
+
+    public void setColorOn(int colorOn) {
+        this.colorOn = colorOn;
+    }
+
+    public int getColorOff() {
+        return colorOff;
+    }
+
+    public void setColorOff(int colorOff) {
+        this.colorOff = colorOff;
+    }
+
     private void updateView(ImageView imageView) {
-        LAnimationUtil.play(imageView, Techniques.Pulse);
-        btIcon0.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
-        btIcon1.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
-        btIcon2.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
-        btIcon3.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
-        btIcon4.setColorFilter(ContextCompat.getColor(getContext(), R.color.Black));
-        imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color.bottom_press_icon));
+        //if (techniques != null) {
+        //    LAnimationUtil.play(imageView, techniques);
+        //}
+        ivIcon0.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        ivIcon1.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        ivIcon2.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        ivIcon3.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        ivIcon4.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        ivIcon5.setColorFilter(ContextCompat.getColor(getContext(), colorOff));
+        imageView.setColorFilter(ContextCompat.getColor(getContext(), colorOn));
     }
 
     private void onClickItem(int pos) {
@@ -158,23 +246,27 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         switch (position) {
             case PAGE_0:
                 onClickItem(PAGE_0);
-                updateView(btIcon0);
+                updateView(ivIcon0);
                 break;
             case PAGE_1:
                 onClickItem(PAGE_1);
-                updateView(btIcon1);
+                updateView(ivIcon1);
                 break;
             case PAGE_2:
                 onClickItem(PAGE_2);
-                updateView(btIcon2);
+                updateView(ivIcon2);
                 break;
             case PAGE_3:
                 onClickItem(PAGE_3);
-                updateView(btIcon3);
+                updateView(ivIcon3);
                 break;
             case PAGE_4:
                 onClickItem(PAGE_4);
-                updateView(btIcon4);
+                updateView(ivIcon4);
+                break;
+            case PAGE_5:
+                onClickItem(PAGE_5);
+                updateView(ivIcon5);
                 break;
         }
     }

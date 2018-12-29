@@ -325,6 +325,7 @@
     <color name="Algae_Green">#64E986</color>
     <color name="Jade_Green">#5EFB6E</color>
     <color name="Green">#00FF00</color>
+    <color name="GreenTrans">#5500FF00</color>
     <color name="Emerald_Green">#5FFB17</color>
     <color name="Lawn_Green">#87F717</color>
     <color name="Chartreuse">#8AFB17</color>
