@@ -268,6 +268,7 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
     private void updateView(ImageView imageView, TextView textView) {
         if (techniques != null) {
             LAnimationUtil.play(imageView, techniques);
+            LAnimationUtil.play(textView, techniques);
         }
         ivIcon0.setColorFilter(ContextCompat.getColor(getContext(), colorIvOff));
         ivIcon1.setColorFilter(ContextCompat.getColor(getContext(), colorIvOff));
@@ -281,12 +282,12 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         tvIcon3.setVisibility(View.GONE);
         tvIcon4.setVisibility(View.GONE);
         tvIcon5.setVisibility(View.GONE);
-        ivIcon0.setPadding(15, 15, 15, 15);
-        ivIcon1.setPadding(15, 15, 15, 15);
-        ivIcon2.setPadding(15, 15, 15, 15);
-        ivIcon3.setPadding(15, 15, 15, 15);
-        ivIcon4.setPadding(15, 15, 15, 15);
-        ivIcon5.setPadding(15, 15, 15, 15);
+        ivIcon0.setPadding(20, 20, 20, 20);
+        ivIcon1.setPadding(20, 20, 20, 20);
+        ivIcon2.setPadding(20, 20, 20, 20);
+        ivIcon3.setPadding(20, 20, 20, 20);
+        ivIcon4.setPadding(20, 20, 20, 20);
+        ivIcon5.setPadding(20, 20, 20, 20);
         imageView.setColorFilter(ContextCompat.getColor(getContext(), colorIvOn));
         imageView.setPadding(5, 5, 5, 5);
         textView.setVisibility(View.VISIBLE);

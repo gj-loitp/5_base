@@ -5,6 +5,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
@@ -25,6 +27,9 @@ public class BottomBarActivity extends BaseFontActivity {
         lBottomBar.setItem3(R.drawable.baseline_clear_black_48, "Clear");
         lBottomBar.setItem4(R.drawable.baseline_cloud_download_black_48, "Cloud");
         lBottomBar.setItem5(R.drawable.baseline_picture_in_picture_alt_white_48dp, "Picture");
+        lBottomBar.setColorIvOn(R.color.Red);
+        lBottomBar.setColorIvOff(R.color.Pink);
+        lBottomBar.setTechniques(Techniques.Bounce);
         lBottomBar.setOnItemClick(new LBottomBar.Callback() {
             @Override
             public void OnClickItem(int position) {
