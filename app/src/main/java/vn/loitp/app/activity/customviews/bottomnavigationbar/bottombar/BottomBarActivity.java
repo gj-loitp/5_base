@@ -10,6 +10,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.bottombar.LBottomBar;
 
@@ -21,14 +22,14 @@ public class BottomBarActivity extends BaseFontActivity {
         TextView tv = (TextView) findViewById(R.id.tv);
         tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
         LBottomBar lBottomBar = (LBottomBar) findViewById(R.id.bottom_bar);
+        lBottomBar.setColorIvOn(R.color.Red);
+        lBottomBar.setColorIvOff(R.color.Pink);
         lBottomBar.setItem0(R.drawable.baseline_bug_report_black_48, "Bug report");
         lBottomBar.setItem1(R.drawable.baseline_add_black_48, "Add");
         lBottomBar.setItem2(R.drawable.baseline_chat_black_48dp, "Chat");
         lBottomBar.setItem3(R.drawable.baseline_clear_black_48, "Clear");
         lBottomBar.setItem4(R.drawable.baseline_cloud_download_black_48, "Cloud");
         lBottomBar.setItem5(R.drawable.baseline_picture_in_picture_alt_white_48dp, "Picture");
-        lBottomBar.setColorIvOn(R.color.Red);
-        lBottomBar.setColorIvOff(R.color.Pink);
         lBottomBar.setTechniques(Techniques.Bounce);
         lBottomBar.setOnItemClick(new LBottomBar.Callback() {
             @Override
@@ -88,6 +89,14 @@ public class BottomBarActivity extends BaseFontActivity {
             @Override
             public void onClick(View view) {
                 lBottomBar.setColorTextView(R.color.Blue);
+            }
+        });
+        LUIUtil.setDelay(5000, new LUIUtil.DelayCallback() {
+            @Override
+            public void doAfter(int mls) {
+                if (lBottomBar != null) {
+                    lBottomBar.setPerformItemClick(4);
+                }
             }
         });
     }

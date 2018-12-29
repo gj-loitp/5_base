@@ -246,6 +246,7 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
 
     public void setColorIvOn(int colorOn) {
         this.colorIvOn = colorOn;
+        refreshUI();
     }
 
     public int getColorIvOff() {
@@ -254,6 +255,7 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
 
     public void setColorIvOff(int colorOff) {
         this.colorIvOff = colorOff;
+        refreshUI();
     }
 
     public void setColorTextView(int colorRes) {
@@ -282,6 +284,22 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
 
     public void setPaddingOffInDp(int paddingOffInDp) {
         this.paddingOffInDp = paddingOffInDp;
+    }
+
+    public void refreshUI() {
+        if (currentPos == PAGE_0) {
+            updateView(ivIcon0, tvIcon0);
+        } else if (currentPos == PAGE_1) {
+            updateView(ivIcon1, tvIcon1);
+        } else if (currentPos == PAGE_2) {
+            updateView(ivIcon2, tvIcon2);
+        } else if (currentPos == PAGE_3) {
+            updateView(ivIcon3, tvIcon3);
+        } else if (currentPos == PAGE_4) {
+            updateView(ivIcon4, tvIcon4);
+        } else if (currentPos == PAGE_5) {
+            updateView(ivIcon5, tvIcon5);
+        }
     }
 
     private void updateView(ImageView imageView, TextView textView) {
@@ -358,10 +376,6 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
                 updateView(ivIcon5, tvIcon5);
                 break;
         }
-    }
-
-    public void setCurrentPos(int currentPos) {
-        this.currentPos = currentPos;
     }
 
     public int getCurrentPos() {
