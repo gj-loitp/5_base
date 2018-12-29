@@ -265,6 +265,25 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         tvIcon5.setTextColor(ContextCompat.getColor(getContext(), colorRes));
     }
 
+    private int paddingOnInDp = 5;
+    private int paddingOffInDp = 25;
+
+    public int getPaddingOnInDp() {
+        return paddingOnInDp;
+    }
+
+    public void setPaddingOnInDp(int paddingOnInDp) {
+        this.paddingOnInDp = paddingOnInDp;
+    }
+
+    public int getPaddingOffInDp() {
+        return paddingOffInDp;
+    }
+
+    public void setPaddingOffInDp(int paddingOffInDp) {
+        this.paddingOffInDp = paddingOffInDp;
+    }
+
     private void updateView(ImageView imageView, TextView textView) {
         if (techniques != null) {
             LAnimationUtil.play(imageView, techniques);
@@ -282,14 +301,14 @@ public class LBottomBar extends RelativeLayout implements View.OnClickListener {
         tvIcon3.setVisibility(View.GONE);
         tvIcon4.setVisibility(View.GONE);
         tvIcon5.setVisibility(View.GONE);
-        ivIcon0.setPadding(20, 20, 20, 20);
-        ivIcon1.setPadding(20, 20, 20, 20);
-        ivIcon2.setPadding(20, 20, 20, 20);
-        ivIcon3.setPadding(20, 20, 20, 20);
-        ivIcon4.setPadding(20, 20, 20, 20);
-        ivIcon5.setPadding(20, 20, 20, 20);
+        ivIcon0.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
+        ivIcon1.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
+        ivIcon2.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
+        ivIcon3.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
+        ivIcon4.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
+        ivIcon5.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp);
         imageView.setColorFilter(ContextCompat.getColor(getContext(), colorIvOn));
-        imageView.setPadding(5, 5, 5, 5);
+        imageView.setPadding(paddingOnInDp, paddingOnInDp, paddingOnInDp, paddingOnInDp);
         textView.setVisibility(View.VISIBLE);
     }
 
