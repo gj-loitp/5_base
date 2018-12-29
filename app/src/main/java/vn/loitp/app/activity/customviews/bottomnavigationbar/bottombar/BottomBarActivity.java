@@ -37,6 +37,30 @@ public class BottomBarActivity extends BaseFontActivity {
                 lBottomBar.getBlurView().setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans));
             }
         });
+        findViewById(R.id.bt_count_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lBottomBar.setCount(1);
+            }
+        });
+        findViewById(R.id.bt_count_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lBottomBar.setCount(3);
+            }
+        });
+        findViewById(R.id.bt_count_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lBottomBar.setCount(5);
+            }
+        });
+        findViewById(R.id.bt_count_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lBottomBar.setCount(6);
+            }
+        });
     }
 
     @Override
