@@ -44,7 +44,7 @@ public class FrmEntity extends BaseFragment {
         if (bundle != null) {
             admobBaner = bundle.getString(Constants.AD_UNIT_ID_BANNER);
         }
-        LLog.d(TAG, "admobBaner " + admobBaner);
+        //LLog.d(TAG, "admobBaner " + admobBaner);
         metadata = UZD.getInstance().getMetadata();
         if (metadata == null) {
             return;
@@ -72,6 +72,7 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onLoadMore() {
+                LLog.d(TAG, "onLoadMore");
                 getListEntity();
             }
 
@@ -110,6 +111,7 @@ public class FrmEntity extends BaseFragment {
             return;
         }
         page++;
+        LLog.d(TAG, "getListEntity page " + page);
         if (isMetadataHome) {
             listAllEntity();
         } else {
@@ -135,16 +137,27 @@ public class FrmEntity extends BaseFragment {
                     if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
-                        LLog.d(TAG, "last page");
-                        isCanLoadMore = false;
+                        LLog.d(TAG, "listAllEntity last page");
                     }
+                    isCanLoadMore = false;
                 } else {
+                    boolean isLastPage = checkIsLastPage(result.getData());
+                    if (isLastPage) {
+                        isCanLoadMore = false;
+                    } else {
+                        isCanLoadMore = true;
+                    }
+                    LLog.d(TAG, "isCanLoadMore " + isCanLoadMore);
+                    if (!isCanLoadMore) {
+                        LLog.d(TAG, "isCanLoadMore false -> return -> total page is " + page);
+                        return;
+                    }
                     if (dataList.size() > 500) {
                         dataList.clear();
                     }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
-                    LLog.d(TAG, "totalPage " + totalPage);
+                    LLog.d(TAG, "listAllEntity totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
@@ -152,13 +165,26 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "getListAllEntity onFail " + e.getMessage());
+                LLog.e(TAG, "listAllEntity getListAllEntity onFail " + e.getMessage());
                 if (page == 0) {
                     tvMsg.setVisibility(View.VISIBLE);
                 }
                 avl.smoothToHide();
             }
         });
+    }
+
+    private boolean checkIsLastPage(List<Data> dl) {
+        for (int i = 0; i < dl.size(); i++) {
+            String idI = dl.get(i).getId();
+            for (int j = 0; j < dataList.size(); j++) {
+                String idJ = dataList.get(j).getId();
+                if (idI.equals(idJ)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private void listAllEntityMetadata() {
@@ -174,16 +200,27 @@ public class FrmEntity extends BaseFragment {
                     if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
-                        LLog.d(TAG, "last page");
-                        isCanLoadMore = false;
+                        LLog.d(TAG, "listAllEntityMetadata last page");
                     }
+                    isCanLoadMore = false;
                 } else {
+                    boolean isLastPage = checkIsLastPage(result.getData());
+                    if (isLastPage) {
+                        isCanLoadMore = false;
+                    } else {
+                        isCanLoadMore = true;
+                    }
+                    LLog.d(TAG, "isCanLoadMore " + isCanLoadMore);
+                    if (!isCanLoadMore) {
+                        LLog.d(TAG, "!isCanLoadMore true -> return -> total page is " + page);
+                        return;
+                    }
                     if (dataList.size() > 500) {
                         dataList.clear();
                     }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
-                    LLog.d(TAG, "totalPage " + totalPage);
+                    LLog.d(TAG, "listAllEntityMetadata totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
