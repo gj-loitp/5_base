@@ -88,6 +88,9 @@
             android:name="vn.loitp.core.loitp.uiza.FUZService"
             android:enabled="true"
             android:exported="false" />
+        <activity
+            android:name="vn.loitp.core.loitp.uiza.UZPlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>
