@@ -32,7 +32,6 @@ import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.restapi.uiza.model.v3.metadata.getlistmetadata.ResultGetListMetadata;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.utils.util.ServiceUtils;
 import vn.loitp.views.actionbar.lib.LActionBar;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
@@ -197,6 +196,7 @@ public class UZMainActivity extends BaseFontActivity {
         FrmEntity frmEntity = new FrmEntity();
         Bundle bundle = new Bundle();
         bundle.putString(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
+        bundle.putBoolean(Constants.IS_HIDE_SPACE_VIEW, false);
         frmEntity.setArguments(bundle);
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }

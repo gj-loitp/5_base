@@ -161,6 +161,7 @@ public class Constants {
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
     public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
     public final static String BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN";
+    public final static String IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW";
 
     public static final int[] ARR_RANDOM_BKG = {R.drawable.bkg_gradient_man_of_steel,
             R.drawable.bkg_shadow_black_white,

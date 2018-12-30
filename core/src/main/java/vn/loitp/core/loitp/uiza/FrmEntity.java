@@ -41,9 +41,11 @@ public class FrmEntity extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle bundle = getArguments();
-        if (bundle != null) {
-            admobBaner = bundle.getString(Constants.AD_UNIT_ID_BANNER);
+        if (bundle == null) {
+            return;
         }
+        admobBaner = bundle.getString(Constants.AD_UNIT_ID_BANNER);
+        boolean isHideSpaceView = bundle.getBoolean(Constants.IS_HIDE_SPACE_VIEW);
         //LLog.d(TAG, "admobBaner " + admobBaner);
         metadata = UZD.getInstance().getMetadata();
         if (metadata == null) {
@@ -60,7 +62,7 @@ public class FrmEntity extends BaseFragment {
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
-        entityAdapter = new EntityAdapter(getActivity(), dataList, new EntityAdapter.Callback() {
+        entityAdapter = new EntityAdapter(getActivity(), dataList, isHideSpaceView, new EntityAdapter.Callback() {
             @Override
             public void onClick(Data data, int position) {
                 LUIUtil.goToUZPlayerActivity(getActivity(), data, admobBaner);
