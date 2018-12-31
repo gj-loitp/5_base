@@ -86,7 +86,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         }
 
         tvTitle = (TextView) findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle, Color.WHITE);
+        LUIUtil.setTextShadow(tvTitle);
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
         btPage = (FloatingActionButton) findViewById(R.id.bt_page);
 

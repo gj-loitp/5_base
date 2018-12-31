@@ -78,7 +78,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         }
         PhotosDataCore.getInstance().clearData();
         tvTitle = (TextView) view.findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle, Color.WHITE);
+        LUIUtil.setTextShadow(tvTitle);
         avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.av);
         btPage = (FloatingActionButton) view.findViewById(R.id.bt_page);
 

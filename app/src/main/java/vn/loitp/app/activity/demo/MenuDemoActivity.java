@@ -14,6 +14,7 @@ import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity;
+import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
@@ -51,10 +52,14 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
 
             findViewById(R.id.bt_gallery_member).setVisibility(View.VISIBLE);
             findViewById(R.id.bt_gallery_member).setOnClickListener(this);
+
+            findViewById(R.id.bt_gallery_core_album_frm).setOnClickListener(this);
+            findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
+            findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
         findViewById(R.id.bt_uiza).setOnClickListener(this);
@@ -131,6 +136,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA);
+                break;
+            case R.id.bt_gallery_core_album_frm:
+                intent = new Intent(activity, FlicrkFrmActivity.class);
                 break;
             case R.id.bt_gallery_member:
                 intent = new Intent(activity, GalleryMemberActivity.class);
