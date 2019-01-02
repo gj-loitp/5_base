@@ -91,6 +91,12 @@
                 android:text="Gallery From Core Album Only" />
 
             <Button
+                android:id="@+id/bt_gallery_core_album_frm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery From Core Album Only Fragment" />
+
+            <Button
                 android:id="@+id/bt_gallery_member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

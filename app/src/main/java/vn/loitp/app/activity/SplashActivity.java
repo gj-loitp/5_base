@@ -25,6 +25,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LConnectivityUtil;
@@ -33,7 +34,10 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.core.utilities.LSocialUtil;
+import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.interfaces.GGSettingCallback;
+import vn.loitp.model.App;
 
 public class SplashActivity extends BaseFontActivity {
     private boolean isAnimDone = false;
@@ -60,6 +64,8 @@ public class SplashActivity extends BaseFontActivity {
                 LSocialUtil.openBrowserPolicy(activity);
             }
         });
+
+        getSettingFromGGDrive();
     }
 
     @Override
@@ -258,5 +264,23 @@ public class SplashActivity extends BaseFontActivity {
             }
         });
         alertDialog.setCancelable(false);
+    }
+
+    private void getSettingFromGGDrive() {
+        LStoreUtil.getSettingFromGGDrive(new GGSettingCallback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(App app) {
+                if (app == null) {
+                    LLog.d(TAG, "getSettingFromGGDrive chua co setting cho app nay");
+                } else {
+                    LLog.d(TAG, "getSettingFromGGDrive setting " + LSApplication.getInstance().getGson().toJson(app));
+                    //LPref.setGGAppSetting(activity, app);
+                }
+            }
+        });
     }
 }

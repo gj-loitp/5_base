@@ -3,7 +3,10 @@ package vn.loitp.core.utilities;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
 import vn.loitp.core.common.Constants;
+import vn.loitp.model.App;
 import vn.loitp.utils.util.AppUtils;
 
 /**
@@ -29,17 +32,19 @@ public class LPref {
     public static final String PASS_CODE = "PASS_CODE";
     public static final String UZVIDEO_WIDTH = "UZVIDEO_WIDTH";
     public static final String UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT";
+    public static final String GG_APP_SETTING = "GG_APP_SETTING";
+
     //object
-    /*public User getUser() {
-        SharedPreferences pref = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0);
-        return gson.fromJson(pref.getString(KEY_USER, ""), User.class);
+    public static App getGGAppSetting(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return new Gson().fromJson(pref.getString(GG_APP_SETTING, ""), App.class);
     }
 
-    public void setUser(User user) {
-        SharedPreferences.Editor editor = context.getSharedPreferences(Const.PREFERENCES_FILE_NAME, 0).edit();
-        editor.putString(KEY_USER, gson.toJson(user));
+    public static void setGGAppSetting(Context context, App user) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putString(GG_APP_SETTING, new Gson().toJson(user));
         editor.apply();
-    }*/
+    }
 
     /////////////////////////////////STRING
     /*public static String getJsonListData(Context context) {

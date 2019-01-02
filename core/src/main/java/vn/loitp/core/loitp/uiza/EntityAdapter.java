@@ -41,6 +41,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
     private List<Data> dataList;
     private int lastItemPosition = -1;
     private boolean onScrollDown;
+    private boolean isHideSpaceView;
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
@@ -59,9 +60,10 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
         }
     }
 
-    public EntityAdapter(Context context, List<Data> dataList, Callback callback) {
+    public EntityAdapter(Context context, List<Data> dataList, boolean isHideSpaceView, Callback callback) {
         this.context = context;
         this.dataList = dataList;
+        this.isHideSpaceView = isHideSpaceView;
         this.callback = callback;
     }
 
@@ -97,7 +99,7 @@ public class EntityAdapter extends RecyclerView.Adapter<EntityAdapter.MovieViewH
                 return true;
             }
         });
-        if (position == 0) {
+        if (position == 0 && !isHideSpaceView) {
             holder.viewSpaceTop.setVisibility(View.VISIBLE);
         } else {
             holder.viewSpaceTop.setVisibility(View.GONE);

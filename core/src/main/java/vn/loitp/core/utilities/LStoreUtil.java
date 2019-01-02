@@ -8,6 +8,8 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -20,6 +22,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import vn.loitp.core.common.Constants;
+import vn.loitp.interfaces.GGSettingCallback;
+import vn.loitp.model.App;
+import vn.loitp.model.Loitp;
+import vn.loitp.utils.util.AppUtils;
 
 public class LStoreUtil {
     static String TAG = LStoreUtil.class.getSimpleName();
@@ -503,5 +517,65 @@ public class LStoreUtil {
             }
         }
         return inFiles;
+    }
+
+    public static void getSettingFromGGDrive(final GGSettingCallback ggSettingCallback) {
+        LLog.d(TAG, "getSettingFromGGDrive");
+        final String LINK_GG_DRIVE_SETTING = Constants.LINK_GG_DRIVE_SETTING;
+        Request request = new Request.Builder().url(LINK_GG_DRIVE_SETTING).build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LLog.d(TAG, "getSettingFromGGDrive onFailure " + e.toString());
+                if (ggSettingCallback != null) {
+                    ggSettingCallback.onFailure(call, e);
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    ResponseBody responseBody = response.body();
+                    if (responseBody == null) {
+                        return;
+                    }
+                    String json = responseBody.string();
+                    LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful " + json);
+                    if (json == null) {
+                        return;
+                    }
+                    Loitp loitp = new Gson().fromJson(json, Loitp.class);
+                    if (loitp == null) {
+                        return;
+                    }
+                    List<App> appList = loitp.getLoitp();
+                    if (appList == null || appList.isEmpty()) {
+                        return;
+                    }
+                    String currentPkgName = AppUtils.getAppPackageName();
+                    for (App app : appList) {
+                        if (app.getPkg() != null) {
+                            if (app.getPkg().trim().equalsIgnoreCase(currentPkgName)) {
+                                LLog.d(TAG, "getSettingFromGGDriveonResponse find app " + currentPkgName);
+                                if (ggSettingCallback != null) {
+                                    ggSettingCallback.onResponse(app);
+                                }
+                                return;
+                            }
+                        }
+                    }
+                    LLog.d(TAG, "getSettingFromGGDriveonResponse cannot find app " + currentPkgName);
+                    if (ggSettingCallback != null) {
+                        ggSettingCallback.onResponse(null);
+                    }
+                } else {
+                    LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
+                    if (ggSettingCallback != null) {
+                        ggSettingCallback.onResponse(null);
+                    }
+                }
+            }
+        });
     }
 }

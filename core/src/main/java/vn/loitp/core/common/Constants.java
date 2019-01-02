@@ -14,6 +14,8 @@ public class Constants {
 
     public static final int NOT_FOUND = -6969;
 
+    public static final String LINK_GG_DRIVE_SETTING = "https://drive.google.com/uc?export=download&id=1_S3AYczXBZ4ZsKC2Gr3ycVLK3JCviFy5";
+
     public final static String URL_IMG_THUMBNAIL = "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg";
     public final static String URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg";
     public final static String URL_IMG_1 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg";
@@ -161,6 +163,7 @@ public class Constants {
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
     public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
     public final static String BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN";
+    public final static String IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW";
 
     public static final int[] ARR_RANDOM_BKG = {R.drawable.bkg_gradient_man_of_steel,
             R.drawable.bkg_shadow_black_white,

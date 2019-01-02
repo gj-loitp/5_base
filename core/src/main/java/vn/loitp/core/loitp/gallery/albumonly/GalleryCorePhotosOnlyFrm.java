@@ -7,15 +7,14 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -26,7 +25,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -42,10 +41,10 @@ import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.task.AsyncTaskDownloadImage;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
-public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
+public class GalleryCorePhotosOnlyFrm extends BaseFragment {
+    private final String TAG = getClass().getSimpleName();
     private TextView tvTitle;
     private AVLoadingIndicatorView avLoadingIndicatorView;
     private int currentPage = 0;
@@ -54,62 +53,55 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
     private boolean isLoading;
     private PhotosOnlyAdapter photosOnlyAdapter;
-    private AdView adView;
 
     private String photosetID;
     private int photosSize;
     private FloatingActionButton btPage;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected int setLayoutResourceId() {
+        return R.layout.frm_gallery_core_photos_only;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RestClient.init(getString(R.string.flickr_URL));
-        setTransparentStatusNavigationBar();
-        PhotosDataCore.getInstance().clearData();
+    }
 
-        final int resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
-        getRootView().setBackgroundResource(resBkgRootView);
-
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LLog.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
-        if (adUnitId == null || adUnitId.isEmpty()) {
-            lnAdview.setVisibility(View.GONE);
-        } else {
-            adView = new AdView(activity);
-            adView.setAdSize(AdSize.SMART_BANNER);
-            adView.setAdUnitId(adUnitId);
-            LUIUtil.createAdBanner(adView);
-            lnAdview.addView(adView);
-            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getArguments();
+        if (bundle == null) {
+            return;
         }
-
-        tvTitle = (TextView) findViewById(R.id.tv_title);
+        PhotosDataCore.getInstance().clearData();
+        tvTitle = (TextView) view.findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
-        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
-        btPage = (FloatingActionButton) findViewById(R.id.bt_page);
+        avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.av);
+        btPage = (FloatingActionButton) view.findViewById(R.id.bt_page);
 
-        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        photosetID = bundle.getString(Constants.SK_PHOTOSET_ID);
         if (photosetID == null || photosetID.isEmpty()) {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
         LLog.d(TAG, "photosetID " + photosetID);
-        photosSize = getIntent().getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
+        photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
         LLog.d(TAG, "photosSize " + photosSize);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
         recyclerView.setHasFixedSize(true);
-        photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
+        photosOnlyAdapter = new PhotosOnlyAdapter(getActivity(), new PhotosOnlyAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
@@ -127,22 +119,22 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             @Override
             public void onClickDownload(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
-                new AsyncTaskDownloadImage(getApplicationContext(), photo.getUrlO()).execute();
+                new AsyncTaskDownloadImage(getActivity(), photo.getUrlO()).execute();
             }
 
             @Override
             public void onClickShare(Photo photo, int pos) {
-                LSocialUtil.share(activity, photo.getUrlO());
+                LSocialUtil.share(getActivity(), photo.getUrlO());
             }
 
             @Override
             public void onClickReport(Photo photo, int pos) {
-                LSocialUtil.sendEmail(activity);
+                LSocialUtil.sendEmail(getActivity());
             }
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), adUnitId);
+                LSocialUtil.openFacebookComment(getActivity(), photo.getUrlO());
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);
@@ -182,7 +174,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(activity, "Select page", arr, new LDialogUtil.CallbackList() {
+        LDialogUtil.showDialogList(getActivity(), "Select page", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
                 currentPage = totalPage - position;
@@ -200,21 +192,6 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         } else {
             init();
         }
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_core_photos_only;
     }
 
     private void init() {
@@ -316,12 +293,6 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        //PhotosDataCore.getInstance().clearData();
-        super.onBackPressed();
-    }
-
     private void updateAllViews() {
         if (photosOnlyAdapter != null) {
             photosOnlyAdapter.notifyDataSetChanged();
@@ -329,37 +300,18 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     @Override
-    public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
     public void onResume() {
-        if (adView != null) {
-            adView.resume();
-        }
         super.onResume();
         if (!isShowDialogCheck) {
             checkPermission();
         }
     }
 
-    @Override
-    public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
-        super.onDestroy();
-    }
-
     private boolean isShowDialogCheck;
 
     private void checkPermission() {
         isShowDialogCheck = true;
-        Dexter.withActivity(this)
+        Dexter.withActivity(getActivity())
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -395,7 +347,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -403,26 +355,30 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onClick2() {
-                onBackPressed();
+                if (getActivity() != null) {
+                    getActivity().onBackPressed();
+                }
             }
         });
         alertDialog.setCancelable(false);
     }
 
     private void showSettingsDialog() {
-        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;
                 Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
                 intent.setData(uri);
                 startActivityForResult(intent, 101);
             }
 
             @Override
             public void onClick2() {
-                onBackPressed();
+                if (getActivity() != null) {
+                    getActivity().onBackPressed();
+                }
             }
         });
         alertDialog.setCancelable(false);
