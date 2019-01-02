@@ -559,7 +559,7 @@
         <attr name="moveSpeed" format="float" />
     </declare-styleable>
     <declare-styleable name="VerticalSeekBar">
-        <attr name="seekBarRotation">
+        <attr name="VSseekBarRotation">
             <!-- Clock wise - 90 deg; top = min, bottom = max -->
             <enum name="CW90" value="90" />
             <!-- Clock wise - 270 deg; bottom = min, top = max -->
