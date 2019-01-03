@@ -29,10 +29,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import vn.loitp.core.common.Constants;
 import vn.loitp.interfaces.GGSettingCallback;
 import vn.loitp.model.App;
-import vn.loitp.model.Loitp;
 import vn.loitp.utils.util.AppUtils;
 
 public class LStoreUtil {
@@ -519,13 +517,12 @@ public class LStoreUtil {
         return inFiles;
     }
 
-    public static void getSettingFromGGDrive(final Context context, final GGSettingCallback ggSettingCallback) {
-        if (context == null) {
+    public static void getSettingFromGGDrive(final Context context, final String linkGGDriveSetting, final GGSettingCallback ggSettingCallback) {
+        if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
             return;
         }
         LLog.d(TAG, "getSettingFromGGDrive");
-        final String LINK_GG_DRIVE_SETTING = Constants.LINK_GG_DRIVE_SETTING;
-        Request request = new Request.Builder().url(LINK_GG_DRIVE_SETTING).build();
+        Request request = new Request.Builder().url(linkGGDriveSetting).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -548,39 +545,30 @@ public class LStoreUtil {
                     if (json == null) {
                         return;
                     }
-                    Loitp loitp = new Gson().fromJson(json, Loitp.class);
-                    if (loitp == null) {
-                        return;
-                    }
-                    List<App> appList = loitp.getLoitp();
-                    if (appList == null || appList.isEmpty()) {
-                        return;
-                    }
-                    String currentPkgName = AppUtils.getAppPackageName();
-                    for (App app : appList) {
-                        if (app.getPkg() != null) {
-                            if (app.getPkg().trim().equalsIgnoreCase(currentPkgName)) {
-                                LLog.d(TAG, "getSettingFromGGDriveonResponse find app " + currentPkgName);
-                                String localMsg = LPref.getGGAppMsg(context);
-                                String serverMsg = app.getConfig().getMsg();
-                                LPref.setGGAppMsg(context, serverMsg);
-                                boolean isNeedToShowMsg;
-                                if (localMsg.trim().equalsIgnoreCase(serverMsg)) {
-                                    isNeedToShowMsg = false;
-                                } else {
-                                    isNeedToShowMsg = true;
-                                }
-                                if (ggSettingCallback != null) {
-                                    ggSettingCallback.onResponse(app, isNeedToShowMsg);
-                                }
-                                return;
+                    App app = new Gson().fromJson(json, App.class);
+                    if (app == null) {
+                        if (ggSettingCallback != null) {
+                            ggSettingCallback.onResponse(null, false);
+                        }
+                    } else {
+                        String localMsg = LPref.getGGAppMsg(context);
+                        String serverMsg = app.getConfig().getMsg();
+                        LPref.setGGAppMsg(context, serverMsg);
+                        boolean isNeedToShowMsg;
+                        if (serverMsg == null || serverMsg.isEmpty()) {
+                            isNeedToShowMsg = false;
+                        } else {
+                            if (localMsg.trim().equalsIgnoreCase(serverMsg)) {
+                                isNeedToShowMsg = false;
+                            } else {
+                                isNeedToShowMsg = true;
                             }
                         }
+                        if (ggSettingCallback != null) {
+                            ggSettingCallback.onResponse(app, isNeedToShowMsg);
+                        }
                     }
-                    LLog.d(TAG, "getSettingFromGGDriveonResponse cannot find app " + currentPkgName);
-                    if (ggSettingCallback != null) {
-                        ggSettingCallback.onResponse(null, false);
-                    }
+
                 } else {
                     LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
                     if (ggSettingCallback != null) {

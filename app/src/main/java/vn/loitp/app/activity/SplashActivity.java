@@ -267,7 +267,8 @@ public class SplashActivity extends BaseFontActivity {
     }
 
     private void getSettingFromGGDrive() {
-        LStoreUtil.getSettingFromGGDrive(activity, new GGSettingCallback() {
+        String linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT";
+        LStoreUtil.getSettingFromGGDrive(activity, linkGGDriveConfigSetting, new GGSettingCallback() {
             @Override
             public void onFailure(Call call, IOException e) {
             }
