@@ -290,7 +290,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         if (activity == null) {
             return;
         }
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             //land -> port
             LScreenUtil.toggleFullscreen(activity, false);
             LActivityUtil.changeScreenPortrait(activity);
@@ -306,7 +306,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         if (activity == null || playerView == null || exoFullscreen == null) {
             return;
         }
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             playerView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
             playerView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit);
@@ -324,17 +324,17 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             return;
         }
         //LLog.d(TAG, "updateSizePlayerView " + videoW + "x" + videoH);
-        if (LScreenUtil.isFullScreen(uzVideo.getActivity())) {
+        if (LScreenUtil.isLandscape(uzVideo.getActivity())) {
             //landscape
             uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
             uzVideo.getRlRootView().getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_exit);
+            LLog.d(TAG, "updateSizePlayerView landscape");
         } else {
             //portrait
             if (videoW == 0 || videoH == 0) {
                 //uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
                 uzVideo.getRlRootView().getLayoutParams().height = screenW * 9 / 16;
-                uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_enter);
             } else {
                 int scaleW = screenW;
                 int scaleH = scaleW * videoH / videoW;
@@ -342,6 +342,8 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                 uzVideo.getRlRootView().getLayoutParams().width = scaleW;
                 uzVideo.getRlRootView().getLayoutParams().height = scaleH;
             }
+            uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_enter);
+            LLog.d(TAG, "updateSizePlayerView portrait");
         }
         uzVideo.getRlRootView().requestLayout();
     }

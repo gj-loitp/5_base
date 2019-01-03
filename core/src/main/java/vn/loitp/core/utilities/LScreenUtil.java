@@ -374,8 +374,8 @@ public class LScreenUtil {
         FragmentUtils.removeAllFragments(((BaseActivity) activity).getSupportFragmentManager());
     }
 
-    public static boolean isFullScreen(Context context) {
-        final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+    public static boolean isLandscape(Context context) {
+        final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
         switch (rotation) {
             case Surface.ROTATION_0:
                 return false;
