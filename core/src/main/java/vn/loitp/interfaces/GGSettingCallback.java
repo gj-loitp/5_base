@@ -8,5 +8,5 @@ import vn.loitp.model.App;
 public interface GGSettingCallback {
     public void onFailure(Call call, IOException e);
 
-    public void onResponse(App app);
+    public void onResponse(App app, boolean isNeedToShowMsg);
 }

@@ -519,7 +519,10 @@ public class LStoreUtil {
         return inFiles;
     }
 
-    public static void getSettingFromGGDrive(final GGSettingCallback ggSettingCallback) {
+    public static void getSettingFromGGDrive(final Context context, final GGSettingCallback ggSettingCallback) {
+        if (context == null) {
+            return;
+        }
         LLog.d(TAG, "getSettingFromGGDrive");
         final String LINK_GG_DRIVE_SETTING = Constants.LINK_GG_DRIVE_SETTING;
         Request request = new Request.Builder().url(LINK_GG_DRIVE_SETTING).build();
@@ -558,8 +561,17 @@ public class LStoreUtil {
                         if (app.getPkg() != null) {
                             if (app.getPkg().trim().equalsIgnoreCase(currentPkgName)) {
                                 LLog.d(TAG, "getSettingFromGGDriveonResponse find app " + currentPkgName);
+                                String localMsg = LPref.getGGAppMsg(context);
+                                String serverMsg = app.getConfig().getMsg();
+                                LPref.setGGAppMsg(context, serverMsg);
+                                boolean isNeedToShowMsg;
+                                if (localMsg.trim().equalsIgnoreCase(serverMsg)) {
+                                    isNeedToShowMsg = false;
+                                } else {
+                                    isNeedToShowMsg = true;
+                                }
                                 if (ggSettingCallback != null) {
-                                    ggSettingCallback.onResponse(app);
+                                    ggSettingCallback.onResponse(app, isNeedToShowMsg);
                                 }
                                 return;
                             }
@@ -567,12 +579,12 @@ public class LStoreUtil {
                     }
                     LLog.d(TAG, "getSettingFromGGDriveonResponse cannot find app " + currentPkgName);
                     if (ggSettingCallback != null) {
-                        ggSettingCallback.onResponse(null);
+                        ggSettingCallback.onResponse(null, false);
                     }
                 } else {
                     LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
                     if (ggSettingCallback != null) {
-                        ggSettingCallback.onResponse(null);
+                        ggSettingCallback.onResponse(null, false);
                     }
                 }
             }
