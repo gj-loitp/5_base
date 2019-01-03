@@ -63,14 +63,12 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //playerManager.init(this, playerView, linkPlay);
         playerManager.resumeVideo();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        //playerManager.reset();
         playerManager.pauseVideo();
     }
 
