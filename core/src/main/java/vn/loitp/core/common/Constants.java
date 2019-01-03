@@ -7,15 +7,10 @@ import loitp.core.R;
  */
 public class Constants {
     public static boolean IS_DEBUG = false;
-
     public static void setIsDebug(boolean isDebug) {
         IS_DEBUG = isDebug;
     }
-
     public static final int NOT_FOUND = -6969;
-
-    public static final String LINK_GG_DRIVE_SETTING = "https://drive.google.com/uc?export=download&id=1_S3AYczXBZ4ZsKC2Gr3ycVLK3JCviFy5";
-
     public final static String URL_IMG_THUMBNAIL = "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg";
     public final static String URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg";
     public final static String URL_IMG_1 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg";
@@ -30,11 +25,8 @@ public class Constants {
     public final static String URL_IMG_10 = "https://c1.staticflickr.com/5/4541/24904557088_3dc06c3bcf_h.jpg";
     public final static String URL_IMG_11 = "https://c2.staticflickr.com/6/5542/30333782080_ef19d1b037_b.jpg";
     public final static String URL_IMG_12 = "https://c2.staticflickr.com/6/5491/30597322996_f317c58a31_h.jpg";
-
     public final static String URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg";
-
     public static final String MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen";
-
     public final static String TEST_0 = "6E0762FF2B272D5BCE89FEBAAB872E34";
     public final static String TEST_1 = "8FA8E91902B43DCB235ED2F6BBA9CAE0";
     public final static String TEST_2 = "58844B2E50AF6E33DC818387CC50E593";
@@ -45,9 +37,7 @@ public class Constants {
     public final static String TEST_7 = "E3876538025DFE31EE38DC997F860C83";
     public final static String TEST_8 = "263712DA42399656FF39E197148C935A";
     public final static String TEST_9 = "462FEA8E9EF7A8BBC6E2D24CC4945511";
-
     public final static String LOITP = "LoitpDebug";
-
     public static int TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1;
     public static int TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0;
     public static int TYPE_ACTIVITY_TRANSITION_SLIDELEFT = 1;
@@ -59,22 +49,17 @@ public class Constants {
     public static int TYPE_ACTIVITY_TRANSITION_WINDMILL = 7;
     public static int TYPE_ACTIVITY_TRANSITION_DIAGONAL = 8;
     public static int TYPE_ACTIVITY_TRANSITION_SPIN = 9;
-
     public final static String PREFIXS = "https://";
     public final static String PREFIXS_SHORT = "https:";
-
     public final static String FCM_TOPIC = "/topics/loitp";
     public final static String URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/";
-
     public final static String SK_PHOTOSET_ID = "SK_PHOTOSET_ID";
     public final static String SK_PHOTOSET_SIZE = "SK_PHOTOSET_SIZE";
     public final static String SK_PHOTO_ID = "SK_PHOTO_ID";
     public final static String SK_PHOTO_PISITION = "SK_PHOTO_PISITION";
-
     public final static String ASSET_FILE_GIFT = "img/ic_gift.png";
     public final static String FONT_PATH = "fonts/baisau.TTF";
     public final static String FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL";
-
     public final static String FLICKR_ID_IT = "72157680937087024";
     public final static String FLICKR_ID_MUSIC = "72157684069831365";
     public final static String FLICKR_ID_ICONS = "72157683121358194";
@@ -156,21 +141,17 @@ public class Constants {
     public final static String FLICKR_ID_VN_DOCDAOTHUVI = "72157672326565186";
     public final static String FLICKR_ID_VN_ANHCHESACHGIAOKHOA = "72157670443622896";
     public final static String FLICKR_ID_VN_ANHTHEOTEN = "72157670868460705";
-
     public final static String KEY_REMOVE_ALBUM_FLICKR_LIST = "KEY_REMOVE_ALBUM_FLICKR_LIST";
     public final static String AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE";
-
     public final static String AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER";
     public final static String BKG_ROOT_VIEW = "BKG_ROOT_VIEW";
     public final static String BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN";
     public final static String IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW";
-
     public static final int[] ARR_RANDOM_BKG = {R.drawable.bkg_gradient_man_of_steel,
             R.drawable.bkg_shadow_black_white,
             R.drawable.bkg_shadow_black_white_dark,
             R.drawable.bkg_shadow_white_black,
             R.drawable.bkg_shadow_white_black_dark};
-
     public static final String[] ARR_URL_BKG_FLICKR = {
             URL_IMG,
             URL_IMG_1,
@@ -254,11 +235,9 @@ public class Constants {
             R.drawable.ladybird,
             R.drawable.l_chat_2
     };
-
     public final static String KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION";
     public final static String KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY";
     public final static String KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD";
-
     public final static String URL_GET_LINK_PLAY_DEV = "https://dev-ucc.uizadev.io/";
     public final static String URL_GET_LINK_PLAY_STAG = "https://stag-ucc.uizadev.io/";
     public final static String URL_GET_LINK_PLAY_PROD = "https://ucc.uiza.io/";
