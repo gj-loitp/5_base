@@ -1,35 +1,45 @@
 package vn.loitp.app.activity.customviews.layout.swipebacklayout;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioGroup;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.layout.swipeback.SwipeBackLayout;
 
 //https://github.com/gongwen/SwipeBackLayout
 public class SwipeBackLayoutActivity extends BaseFontActivity {
     private SwipeBackLayout mSwipeBackLayout;
+    private int screenW;
+    private int screenH;
+    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSwipeBackLayout = (SwipeBackLayout) findViewById(R.id.swipeBackLayout);
+        view = (View) findViewById(R.id.view);
+        screenW = LScreenUtil.getScreenWidth();
+        screenH = LScreenUtil.getScreenHeight();
         mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
         mSwipeBackLayout.setMaskAlpha(125);
         mSwipeBackLayout.setSwipeBackFactor(0.5f);
-        /*mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
+        mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
             @Override
             public void onViewPositionChanged(View mView, float swipeBackFraction, float SWIPE_BACK_FACTOR) {
-                LLog.d(TAG, "onViewPositionChanged");
+                LLog.d(TAG, "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
+                float newY = screenH * swipeBackFraction;
+                view.setTranslationY(newY);
             }
 
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
                 LLog.d(TAG, "onViewSwipeFinished");
             }
-        });*/
+        });
 
         RadioGroup rb = (RadioGroup) findViewById(R.id.radio_group);
         rb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -60,7 +70,7 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override
