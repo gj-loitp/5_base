@@ -22,6 +22,7 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -63,4 +64,11 @@
         </RelativeLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/ln_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical" />
 </RelativeLayout>

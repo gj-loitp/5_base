@@ -116,6 +116,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_gallery_core:
                 intent = new Intent(activity, GalleryCoreSplashActivity.class);
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg");
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel);
                 //neu muon remove albumn nao thi cu pass id cua albumn do

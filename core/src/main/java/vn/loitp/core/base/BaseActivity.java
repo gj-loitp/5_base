@@ -199,7 +199,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             LActivityUtil.tranOut(activity);
         }
         if (isShowAdWhenExit && !Constants.IS_DEBUG) {
-            LUIUtil.displayInterstitial(interstitialAd, 30);
+            LUIUtil.displayInterstitial(interstitialAd, 70);
         } else {
             //dont use LLog here
             Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExit=" + isShowAdWhenExit);

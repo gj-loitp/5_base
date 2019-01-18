@@ -7,9 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -30,18 +34,32 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.AppUtils;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class GalleryCoreSplashActivity extends BaseFontActivity {
     private int bkgRootView;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
-
         RestClient.init(getString(R.string.flickr_URL));
-
+        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        if (adUnitId == null || adUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.BANNER);
+            adView.setAdUnitId(adUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
+        }
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         String urlCoverSplashScreen = getIntent().getStringExtra(Constants.BKG_SPLASH_SCREEN);
         if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
@@ -96,10 +114,29 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
 
     @Override
     protected void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
         super.onResume();
         if (!isShowDialogCheck) {
             checkPermission();
         }
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 
     private boolean isShowDialogCheck;
