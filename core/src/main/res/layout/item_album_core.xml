@@ -23,6 +23,11 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bkg_shadow_white_black_dark" />
+
         <TextView
             android:id="@+id/tv_label"
             android:layout_width="wrap_content"
@@ -39,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/margin_3"
             android:layout_marginLeft="@dimen/margin_3"
+            android:layout_marginBottom="@dimen/margin_3"
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_14" />
@@ -50,8 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/margin_3"
             android:layout_marginTop="@dimen/margin_3"
+            android:layout_marginRight="@dimen/margin_3"
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_22" />
@@ -67,5 +72,5 @@
     <View
         android:id="@+id/view_space_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_50" />
+        android:layout_height="@dimen/w_60" />
 </LinearLayout>

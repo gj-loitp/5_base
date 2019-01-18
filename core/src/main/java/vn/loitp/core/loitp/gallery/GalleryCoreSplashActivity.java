@@ -39,6 +39,7 @@ import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 public class GalleryCoreSplashActivity extends BaseFontActivity {
     private int bkgRootView;
     private AdView adView;
+    private String admobBannerUnitId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +47,15 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
         RestClient.init(getString(R.string.flickr_URL));
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        admobBannerUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
-        if (adUnitId == null || adUnitId.isEmpty()) {
+        if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(activity);
             adView.setAdSize(AdSize.BANNER);
-            adView.setAdUnitId(adUnitId);
+            adView.setAdUnitId(admobBannerUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
@@ -88,6 +89,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId);
                 intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
