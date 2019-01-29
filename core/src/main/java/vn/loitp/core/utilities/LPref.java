@@ -33,6 +33,7 @@ public class LPref {
     public static final String UZVIDEO_WIDTH = "UZVIDEO_WIDTH";
     public static final String UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT";
     public static final String GG_APP_SETTING = "GG_APP_SETTING";
+    public static final String GG_APP_MSG = "GG_APP_MSG";
 
     //object
     public static App getGGAppSetting(Context context) {
@@ -47,16 +48,16 @@ public class LPref {
     }
 
     /////////////////////////////////STRING
-    /*public static String getJsonListData(Context context) {
+    public static String getGGAppMsg(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        return pref.getString(JSON_LIST_DATA, null);
+        return pref.getString(GG_APP_MSG, "");
     }
 
-    public static void setJsonListData(Context context, String value) {
+    public static void setGGAppMsg(Context context, String value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
-        editor.putString(JSON_LIST_DATA, value);
+        editor.putString(GG_APP_MSG, value);
         editor.apply();
-    }*/
+    }
     /////////////////////////////////BOOLEAN
 
     public static Boolean getCheckAppReady(Context context) {

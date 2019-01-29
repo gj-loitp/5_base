@@ -69,7 +69,7 @@ public class UZActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             uzVideo.toggleFullscreen();
         } else {
             super.onBackPressed();

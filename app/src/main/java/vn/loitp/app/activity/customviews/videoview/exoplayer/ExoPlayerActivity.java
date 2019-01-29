@@ -27,7 +27,6 @@ public class ExoPlayerActivity extends BaseFontActivity {
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
         linkPlay = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
         String linkIMAAd = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD);
-
         if (linkIMAAd == null) {
             playerManager = new PlayerManager(activity);
         } else {
@@ -77,7 +76,7 @@ public class ExoPlayerActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             playerManager.toggleFullscreen(activity);
         } else {
             super.onBackPressed();

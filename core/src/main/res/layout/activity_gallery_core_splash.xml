@@ -22,6 +22,7 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ln_adview"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -57,10 +58,18 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
+                android:padding="@dimen/padding_5"
                 android:text="LGallery"
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_50" />
         </RelativeLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/ln_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical" />
 </RelativeLayout>

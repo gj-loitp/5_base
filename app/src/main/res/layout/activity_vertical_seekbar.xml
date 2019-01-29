@@ -48,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
-                    app:seekBarRotation="CW90" />
+                    app:VSseekBarRotation="CW90" />
             </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
             <!-- Clock wise - 270 -->
@@ -65,7 +65,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
-                    app:seekBarRotation="CW270" />
+                    app:VSseekBarRotation="CW270" />
             </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
         </RelativeLayout>
@@ -102,7 +102,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
-                        app:seekBarRotation="CW90" />
+                        app:VSseekBarRotation="CW90" />
                 </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
                 <!-- Clock wise - 270 -->
@@ -118,7 +118,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
-                        app:seekBarRotation="CW270" />
+                        app:VSseekBarRotation="CW270" />
                 </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
             </RelativeLayout>

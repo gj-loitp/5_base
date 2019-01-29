@@ -83,7 +83,7 @@ public class VerticalSeekBar extends AppCompatSeekBar {
 
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.VerticalSeekBar, defStyleAttr, defStyleRes);
-            final int rotationAngle = a.getInteger(R.styleable.VerticalSeekBar_seekBarRotation, 0);
+            final int rotationAngle = a.getInteger(R.styleable.VerticalSeekBar_VSseekBarRotation, 0);
             if (isValidRotationAngle(rotationAngle)) {
                 mRotationAngle = rotationAngle;
             }

@@ -57,14 +57,12 @@ public class ExoPlayerActivity3 extends BaseFontActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //playerManager.init(this, playerView0, linkPlay);
         playerManager.resumeVideo();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        //playerManager.reset();
         playerManager.pauseVideo();
     }
 
@@ -76,7 +74,7 @@ public class ExoPlayerActivity3 extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             playerManager.toggleFullscreen(activity);
         } else {
             super.onBackPressed();

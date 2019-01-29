@@ -267,17 +267,18 @@ public class SplashActivity extends BaseFontActivity {
     }
 
     private void getSettingFromGGDrive() {
-        LStoreUtil.getSettingFromGGDrive(new GGSettingCallback() {
+        String linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT";
+        LStoreUtil.getSettingFromGGDrive(activity, linkGGDriveConfigSetting, new GGSettingCallback() {
             @Override
             public void onFailure(Call call, IOException e) {
             }
 
             @Override
-            public void onResponse(App app) {
+            public void onResponse(App app, boolean isNeedToShowMsg) {
                 if (app == null) {
                     LLog.d(TAG, "getSettingFromGGDrive chua co setting cho app nay");
                 } else {
-                    LLog.d(TAG, "getSettingFromGGDrive setting " + LSApplication.getInstance().getGson().toJson(app));
+                    LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.getInstance().getGson().toJson(app));
                     //LPref.setGGAppSetting(activity, app);
                 }
             }

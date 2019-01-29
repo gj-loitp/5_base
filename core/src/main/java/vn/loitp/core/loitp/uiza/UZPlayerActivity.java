@@ -139,7 +139,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isFullScreen(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             uzVideo.toggleFullscreen();
         } else {
             super.onBackPressed();

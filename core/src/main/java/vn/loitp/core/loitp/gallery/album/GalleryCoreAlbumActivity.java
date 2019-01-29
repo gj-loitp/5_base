@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.LinearLayout;
+
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,12 +23,14 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.rxandroid.ApiSubscriber;
+import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
@@ -35,6 +42,8 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     private ArrayList<String> removeAlbumList;
     private int bkgRootView;
     private AVLoadingIndicatorView avLoadingIndicatorView;
+    private AdView adView;
+    private String admobBannerUnitId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,21 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+
+        admobBannerUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
+        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
+            lnAdview.setVisibility(View.GONE);
+        } else {
+            adView = new AdView(activity);
+            adView.setAdSize(AdSize.BANNER);
+            adView.setAdUnitId(admobBannerUnitId);
+            LUIUtil.createAdBanner(adView);
+            lnAdview.addView(adView);
+            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
+        }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -164,5 +188,29 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         if (albumAdapter != null) {
             albumAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        if (adView != null) {
+            adView.resume();
+        }
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

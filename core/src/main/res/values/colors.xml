@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimary_600">#3949AB</color>
-    <color name="colorPrimaryDark">#1A237E</color>
-    <color name="colorAccent">#1A237E</color>
+    <color name="colorPrimary">#00ff00</color>
+    <color name="colorPrimaryTrans">#00ff00</color>
+    <color name="colorEdgeEffect">#00ff00</color>
+    <color name="colorPrimary_600">#5500ff00</color>
+    <color name="colorPrimaryDark">#00ff00</color>
+    <color name="colorAccent">#00ff00</color>
 
     <color name="vip1">#d3131f</color>
     <color name="vip2">#19875c</color>
@@ -30,15 +32,10 @@
     <color name="alarm_details">#888888</color>
 
     <color name="default_background_label">#ff303030</color>
-
     <color name="blue01">#0099CC</color>
-
     <color name="purple01">#9933CC</color>
-
     <color name="green01">#669900</color>
-
     <color name="orange01">#FF8A00</color>
-
     <color name="red01">#CC0000</color>
     <color name="red04">#E21D1D</color>
 

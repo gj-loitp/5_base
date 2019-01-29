@@ -27,10 +27,10 @@
                 android:id="@+id/fromLeftRb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
                 android:checked="true"
                 android:text="Left" />
 
@@ -38,30 +38,30 @@
                 android:id="@+id/fromTopRb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="Top" />
 
             <RadioButton
                 android:id="@+id/fromRightRb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="Right" />
 
             <RadioButton
                 android:id="@+id/fromBottomRb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="Bottom" />
         </RadioGroup>
 
@@ -76,6 +76,12 @@
                 android:padding="@dimen/padding_10"
                 android:text="@string/large_text" />
         </ScrollView>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_150"
+            android:background="@color/RedTrans" />
 
     </RelativeLayout>
 
