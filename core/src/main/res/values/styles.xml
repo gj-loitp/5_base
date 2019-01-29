@@ -7,6 +7,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -18,6 +19,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="NoTitleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -25,6 +27,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
@@ -33,6 +36,7 @@
         <!--<item name="android:windowFullscreen">true</item>-->
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowDisablePreview">true</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
