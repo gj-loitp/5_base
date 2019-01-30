@@ -12,6 +12,9 @@ public class Config {
     @SerializedName("isReady")
     @Expose
     private boolean isReady;
+    @SerializedName("isFullData")
+    @Expose
+    private boolean isFullData;
     @SerializedName("bkgSplash")
     @Expose
     private String bkgSplash;
@@ -51,4 +54,11 @@ public class Config {
         this.msg = msg;
     }
 
+    public boolean isFullData() {
+        return isFullData;
+    }
+
+    public void setFullData(boolean fullData) {
+        isFullData = fullData;
+    }
 }
