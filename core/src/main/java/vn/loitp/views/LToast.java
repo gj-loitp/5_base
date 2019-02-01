@@ -41,8 +41,18 @@ public class LToast {
     }
 
     @SuppressLint("InflateParams")
+    public static void showShort(Context context, int msgRes, int backgroundRes) {
+        show(context, context.getString(msgRes), Toast.LENGTH_SHORT, backgroundRes);
+    }
+
+    @SuppressLint("InflateParams")
     public static void showLong(Context context, String msg, int backgroundRes) {
         show(context, msg, Toast.LENGTH_LONG, backgroundRes);
+    }
+
+    @SuppressLint("InflateParams")
+    public static void showLong(Context context, int msgRes, int backgroundRes) {
+        show(context, context.getString(msgRes), Toast.LENGTH_LONG, backgroundRes);
     }
 
     @SuppressLint("InflateParams")

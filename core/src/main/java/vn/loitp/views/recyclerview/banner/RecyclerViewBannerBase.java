@@ -121,7 +121,7 @@ public abstract class RecyclerViewBannerBase<L extends RecyclerView.LayoutManage
         } else {
             gravity = Gravity.CENTER;
         }
-        int o = a.getInt(R.styleable.RecyclerViewBannerBase_orientation, 0);
+        int o = a.getInt(R.styleable.RecyclerViewBannerBase_orientation_banner_base, 0);
         int orientation = 0;
         if (o == 0) {
             orientation = LinearLayoutManager.HORIZONTAL;

@@ -524,17 +524,17 @@
             <enum name="bottom" value="8" />
         </attr>
     </declare-styleable>
-    <attr name="interval" format="integer" />
+    <!--<attr name="interval" format="integer" />
     <attr name="showIndicator" format="boolean" />
     <attr name="orientation" format="enum">
         <enum name="horizontal" value="0" />
         <enum name="vertical" value="1" />
     </attr>
-    <attr name="autoPlaying" format="boolean" />
+    <attr name="autoPlaying" format="boolean" />-->
     <declare-styleable name="RecyclerViewBannerBase">
         <attr name="interval" />
         <attr name="showIndicator_banner_base" />
-        <attr name="orientation" />
+        <attr name="orientation_banner_base" />
         <attr name="autoPlaying" />
         <attr name="indicatorSelectedSrc" format="color|reference" />
         <attr name="indicatorUnselectedSrc" format="color|reference" />
@@ -552,7 +552,7 @@
     <declare-styleable name="BannerLayout">
         <attr name="interval" />
         <attr name="showIndicator_banner_layout" />
-        <attr name="orientation" />
+        <attr name="orientation_banner_layout" />
         <attr name="autoPlaying" />
         <attr name="itemSpace" format="integer" />
         <attr name="centerScale" format="float" />
