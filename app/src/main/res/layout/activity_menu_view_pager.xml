@@ -37,12 +37,6 @@
                 android:text="Parallax ViewPager" />
 
             <Button
-                android:id="@+id/bt_double_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Double ViewPager" />
-
-            <Button
                 android:id="@+id/bt_detect_viewpager_swipe_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

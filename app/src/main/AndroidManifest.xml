@@ -207,12 +207,6 @@
             android:name="vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerSplashActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.customviews.viewpager.doubleviewpager.DoubleViewPagerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
