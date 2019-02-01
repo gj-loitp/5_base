@@ -25,40 +25,16 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_exoplayer2"
+                android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ExoPlayer2" />
+                android:text="URL" />
 
             <Button
-                android:id="@+id/bt_exoplayer2_ima"
+                android:id="@+id/bt_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ExoPlayer2 IMA Ad" />
-
-            <Button
-                android:id="@+id/bt_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Place controller under the video without overlapping the video" />
-
-            <Button
-                android:id="@+id/bt_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Switch target view" />
-
-            <Button
-                android:id="@+id/bt_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="UZVideo" />
-
-            <Button
-                android:id="@+id/bt_youtube"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Youtube" />
+                android:text="ID" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

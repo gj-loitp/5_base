@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3;
 import vn.loitp.app.activity.customviews.videoview.uzvideo.UZActivity;
+import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -24,6 +25,7 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         findViewById(R.id.bt_2).setOnClickListener(this);
         findViewById(R.id.bt_3).setOnClickListener(this);
         findViewById(R.id.bt_4).setOnClickListener(this);
+        findViewById(R.id.bt_youtube).setOnClickListener(this);
     }
 
     @Override
@@ -62,6 +64,9 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
                 break;
             case R.id.bt_4:
                 intent = new Intent(activity, UZActivity.class);
+                break;
+            case R.id.bt_youtube:
+                intent = new Intent(activity, YoutubeActivity.class);
                 break;
         }
         if (intent != null) {
