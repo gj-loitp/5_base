@@ -55,14 +55,18 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
 
             findViewById(R.id.bt_gallery_core_album_frm).setOnClickListener(this);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.VISIBLE);
+
+            findViewById(R.id.bt_uiza).setOnClickListener(this);
+            findViewById(R.id.bt_uiza).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.GONE);
+            findViewById(R.id.bt_uiza).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
-        findViewById(R.id.bt_uiza).setOnClickListener(this);
+
     }
 
     @Override
