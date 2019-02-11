@@ -10,6 +10,7 @@ import vn.loitp.core.utilities.LScreenUtil;
 public class CoordinatorLayoutSampleActivity extends BaseFontActivity {
     public static final String KEY = "KEY";
     public static final String VALUE_0 = "Standard App bar scrolling with only Toolbar";
+    public static final String VALUE_1 = "App bar scrolling with tabs\n";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,9 @@ public class CoordinatorLayoutSampleActivity extends BaseFontActivity {
         switch (value) {
             case VALUE_0:
                 LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator0(), false);
+                break;
+            case VALUE_1:
+                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator1(), false);
                 break;
         }
     }

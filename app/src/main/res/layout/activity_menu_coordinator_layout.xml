@@ -36,6 +36,12 @@
                 android:layout_height="wrap_content"
                 android:text="Standard App bar scrolling with only Toolbar" />
 
+            <Button
+                android:id="@+id/bt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App bar scrolling with tabs" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
