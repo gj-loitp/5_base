@@ -1,37 +1,62 @@
 <resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_5">5dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
     <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_25">25dp</dimen>
     <dimen name="padding_30">30dp</dimen>
+    <dimen name="padding_35">35dp</dimen>
+    <dimen name="padding_50">50dp</dimen>
+    <dimen name="padding_55">55dp</dimen>
+    <dimen name="padding_100">100dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_55">55dp</dimen>
+    <dimen name="margin_65">65dp</dimen>
+    <dimen name="margin_75">75dp</dimen>
+    <dimen name="txt_8">8dp</dimen>
     <dimen name="txt_10">10dp</dimen>
     <dimen name="txt_12">12dp</dimen>
-    <dimen name="txt_8">8dp</dimen>
-    <dimen name="margin_5">5dp</dimen>
-    <dimen name="margin_3">3dp</dimen>
+    <dimen name="txt_15">15dp</dimen>
+    <dimen name="txt_16">16dp</dimen>
+    <dimen name="txt_18">18dp</dimen>
     <dimen name="txt_20">20dp</dimen>
     <dimen name="txt_22">22dp</dimen>
     <dimen name="txt_25">25dp</dimen>
     <dimen name="txt_30">30dp</dimen>
+    <dimen name="txt_35">35dp</dimen>
     <dimen name="txt_40">40dp</dimen>
+    <dimen name="txt_45">45dp</dimen>
     <dimen name="txt_50">50dp</dimen>
+    <dimen name="txt_55">55dp</dimen>
+    <dimen name="txt_65">65dp</dimen>
     <dimen name="txt_80">80dp</dimen>
-    <dimen name="padding_3">3dp</dimen>
+    <dimen name="txt_100">100dp</dimen>
     <dimen name="round_5">5dp</dimen>
+    <dimen name="round_10">10dp</dimen>
     <dimen name="round_15">15dp</dimen>
+    <dimen name="round_25">25dp</dimen>
     <dimen name="round_35">35dp</dimen>
+    <dimen name="round_45">45dp</dimen>
     <dimen name="round_50">50dp</dimen>
     <dimen name="round_80">80dp</dimen>
-    <dimen name="txt_18">18dp</dimen>
-    <dimen name="txt_16">16dp</dimen>
     <dimen name="w_60">60dp</dimen>
     <dimen name="w_65">65dp</dimen>
     <dimen name="w_48">48dp</dimen>
     <dimen name="w_80">80dp</dimen>
     <dimen name="w_50">50dp</dimen>
     <dimen name="w_300">300dp</dimen>
-    <dimen name="margin_20">20dp</dimen>
-    <dimen name="margin_25">25dp</dimen>
-    <dimen name="margin_30">30dp</dimen>
     <dimen name="w_40">40dp</dimen>
     <dimen name="w_1">1dp</dimen>
     <dimen name="w_3">3dp</dimen>
@@ -44,46 +69,33 @@
     <dimen name="w_70">70dp</dimen>
     <dimen name="w_350">350dp</dimen>
     <dimen name="w_100">100dp</dimen>
-    <dimen name="margin_10">10dp</dimen>
-    <dimen name="margin_15">15dp</dimen>
     <dimen name="txt_14">14dp</dimen>
     <dimen name="txt_150">150dp</dimen>
     <dimen name="txt_32">32dp</dimen>
-    <dimen name="margin_55">55dp</dimen>
-    <dimen name="margin_65">65dp</dimen>
-    <dimen name="margin_75">75dp</dimen>
-    <dimen name="margin_100">100dp</dimen>
     <dimen name="label_title_size">14sp</dimen>
     <dimen name="padding_label_view">10dp</dimen>
     <dimen name="margin_between_labels">3dp</dimen>
     <dimen name="padding_icon_cross">5dp</dimen>
-
     <dimen name="fbutton_default_conner_radius">8dp</dimen>
     <dimen name="fbutton_default_shadow_height">4dp</dimen>
-
     <dimen name="mtf_cardHeight_initial">4dp</dimen>
     <dimen name="mtf_cardHeight_final">55dp</dimen>
     <dimen name="mtf_corner_radius">4dp</dimen>
-
     <dimen name="biu_text_start_size">20sp</dimen>
     <dimen name="w_120">120dp</dimen>
     <dimen name="w_200">200dp</dimen>
     <dimen name="w_250">250dp</dimen>
-
     <dimen name="animated_expandable_edit_text_expanded_height">35dp</dimen>
     <dimen name="default_width">72dp</dimen>
     <dimen name="default_height">32dp</dimen>
-
     <dimen name="heart_anim_bezier_x_rand">40.0dp</dimen>
     <dimen name="heart_anim_init_x">50.0dp</dimen>
     <dimen name="heart_anim_init_y">25.0dp</dimen>
     <dimen name="heart_anim_length">100.0dp</dimen>
     <dimen name="heart_anim_length_rand">150.0dp</dimen>
     <dimen name="heart_anim_x_point_factor">30.0dp</dimen>
-
     <dimen name="heart_size_height">27.3dp</dimen>
     <dimen name="heart_size_width">32.5dp</dimen>
-
     <dimen name="watch_while_mini_player_padding">8.0dip</dimen>
     <dimen name="watch_while_mini_player_width">113.0dip</dimen>
     <dimen name="watch_while_mini_player_dismiss_drag_distance">90.0dip</dimen>
@@ -94,7 +106,6 @@
     <dimen name="medium_font_size">16.0sp</dimen>
     <dimen name="small_font_size">14.0sp</dimen>
     <dimen name="watch_while_mini_player_shadow_size">4.0dip</dimen>
-
     <!-- Default elevation for the confetti -->
     <dimen name="confetti_default_elevation">9999dp</dimen>
     <!-- Default configuration for some common confetti animations -->

@@ -1,13 +1,10 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="w_250">250dp</dimen>
     <item name="x_scale_factor" format="float" type="dimen">2.3</item>
     <item name="y_scale_factor" format="float" type="dimen">2.3</item>
     <dimen name="top_fragment_margin">10dip</dimen>
-
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
 </resources>
