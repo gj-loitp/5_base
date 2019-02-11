@@ -25,6 +25,7 @@
     <dimen name="margin_55">55dp</dimen>
     <dimen name="margin_65">65dp</dimen>
     <dimen name="margin_75">75dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
     <dimen name="txt_8">8dp</dimen>
     <dimen name="txt_10">10dp</dimen>
     <dimen name="txt_12">12dp</dimen>
