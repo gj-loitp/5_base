@@ -27,6 +27,6 @@
         app:interval="2000"
         app:itemSpace="20"
         app:moveSpeed="1.8"
-        app:orientation_banner_layout="horizontal"
+        app:orientation_banner_layout="0"
         app:showIndicator_banner_layout="true" />
 </LinearLayout>
