@@ -34,6 +34,7 @@ public class LPref {
     public static final String UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT";
     public static final String GG_APP_SETTING = "GG_APP_SETTING";
     public static final String GG_APP_MSG = "GG_APP_MSG";
+    public static final String IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER";
 
     //object
     public static App getGGAppSetting(Context context) {
@@ -79,6 +80,17 @@ public class LPref {
     public static void setPreLoad(Context context, Boolean value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putBoolean(PRE_LOAD, value);
+        editor.apply();
+    }
+
+    public static boolean getIsShowedDlgWarningYoutubeParser(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, false);
+    }
+
+    public static void setIsShowedDlgWarningYoutubeParser(Context context, boolean value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, value);
         editor.apply();
     }
 

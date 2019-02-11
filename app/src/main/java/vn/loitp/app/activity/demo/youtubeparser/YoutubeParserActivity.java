@@ -17,6 +17,7 @@ import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.Parser;
 import vn.loitp.function.youtubeparser.models.videos.Video;
 import vn.loitp.views.LToast;
@@ -32,6 +33,7 @@ public class YoutubeParserActivity extends BaseFontActivity {
     private String nextToken;
     private final String CHANNEL_ID = "UCdDnufSiFrEvS7jqcKOkN0Q";
     public static final String API_KEY = "AIzaSyBIPIyBbvDxUHPyEi9Qy-phu9VuOzy7iUI";
+    private boolean isEnglishMsg;
 
     private void findViews() {
         progressBar = findViewById(R.id.pb);
@@ -123,7 +125,24 @@ public class YoutubeParserActivity extends BaseFontActivity {
     }
 
     private void checkToShowWarningDialog() {
-
+        boolean isShowed = LPref.getIsShowedDlgWarningYoutubeParser(activity);
+        if (!isShowed) {
+            String tit;
+            String msg;
+            if (isEnglishMsg) {
+                tit = "Warning";
+                msg = "All of the videos below are copyrighted from Youtube, we only provide links for you to see more easily. If you have any copyright issues, please contact the video owner on YouTube. Sincerely thank you.";
+            } else {
+                tit = "Thông báo";
+                msg = "Tất cả những video dưới đây đều có bản quyền từ Youtube, chúng tôi chỉ cung cấp link để các bạn xem dễ dàng hơn. Nếu có bất cứ vấn đề gì về bản quyền, xin vui lòng liên hệ với chủ sở hữu video đó trên Youtube. Trân trọng cảm ơn.";
+            }
+            LDialogUtil.showDialog1(activity, tit, msg, "Okay", new LDialogUtil.Callback1() {
+                @Override
+                public void onClick1() {
+                    LPref.setIsShowedDlgWarningYoutubeParser(activity, true);
+                }
+            });
+        }
     }
 
     @Override
