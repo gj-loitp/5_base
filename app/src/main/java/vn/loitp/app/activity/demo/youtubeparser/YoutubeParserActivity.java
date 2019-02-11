@@ -98,13 +98,14 @@ public class YoutubeParserActivity extends BaseFontActivity {
                         @Override
                         public void onTaskCompleted(ArrayList<Video> list, String nextPageToken) {
                             //update the adapter with the new data
+                            int indexScroll = videoAdapter.getList().size() + 1;
                             videoAdapter.getList().addAll(list);
                             totalElement = videoAdapter.getItemCount();
                             nextToken = nextPageToken;
                             videoAdapter.notifyDataSetChanged();
-                            LToast.showShort(activity, "New video added!");
                             fab.setVisibility(View.GONE);
-                            recyclerView.scrollBy(0, 1000);
+                            //recyclerView.scrollToPosition(indexScroll);
+                            recyclerView.smoothScrollToPosition(indexScroll);
                         }
 
                         @Override
