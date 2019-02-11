@@ -37,6 +37,7 @@ public class FrmYoutubeParser extends BaseFragment {
     private final String CHANNEL_ID = "UCdDnufSiFrEvS7jqcKOkN0Q";
     public static final String API_KEY = "AIzaSyBIPIyBbvDxUHPyEi9Qy-phu9VuOzy7iUI";
     private boolean isEnglishMsg;
+    public static final String KEY_IS_ENGLISH_MSG = "KEY_IS_ENGLISH_MSG";
 
     @Override
     protected int setLayoutResourceId() {
@@ -46,6 +47,10 @@ public class FrmYoutubeParser extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            isEnglishMsg = bundle.getBoolean(KEY_IS_ENGLISH_MSG, false);
+        }
         findViews();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
