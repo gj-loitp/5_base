@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 
-public class CoordinatorLayoutActivity extends BaseFontActivity {
+public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

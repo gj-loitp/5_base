@@ -773,7 +773,7 @@
             android:name="vn.loitp.app.activity.customviews.lcardview.LCardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutActivity"
+            android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutWithImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity"
@@ -898,6 +898,8 @@
             android:exported="false" />
         <activity
             android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" /><activity
+            android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
