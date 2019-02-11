@@ -1,6 +1,5 @@
-package vn.loitp.app.activity.demo.youtubeparser;
+package vn.loitp.function.youtubeparser.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LScreenUtil;

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.youtubeparser;
+package vn.loitp.function.youtubeparser.ui;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -22,6 +22,7 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.Parser;
 import vn.loitp.function.youtubeparser.models.videos.Video;
+import vn.loitp.function.youtubeparser.ui.VideoAdapter;
 import vn.loitp.views.LToast;
 
 //https://www.slickremix.com/docs/get-api-key-for-youtube/
