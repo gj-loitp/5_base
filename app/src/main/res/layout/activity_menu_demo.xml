@@ -131,6 +131,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Video" />
+
+            <Button
+                android:id="@+id/bt_youtube_parser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Youtube parser" />
         </LinearLayout>
     </ScrollView>
 

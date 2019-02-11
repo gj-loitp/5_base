@@ -896,6 +896,9 @@
             android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

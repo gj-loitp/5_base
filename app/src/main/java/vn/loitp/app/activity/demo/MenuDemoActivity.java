@@ -21,6 +21,7 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
+import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
@@ -68,7 +69,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
         findViewById(R.id.bt_2_instance_activity).setOnClickListener(this);
-
+        findViewById(R.id.bt_youtube_parser).setOnClickListener(this);
     }
 
     @Override
@@ -163,6 +164,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_2_instance_activity:
                 intent = new Intent(activity, Activity1.class);
+                break;
+            case R.id.bt_youtube_parser:
+                intent = new Intent(activity, YoutubeParserActivity.class);
                 break;
         }
         if (intent != null) {
