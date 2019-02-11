@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="loitp.basemaster">
 
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
     <application
         android:name="vn.loitp.app.app.LSApplication"
         android:allowBackup="true"
@@ -881,6 +882,20 @@
         <activity
             android:name="vn.loitp.app.activity.donation.DonationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.Activity1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.Activity2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.Activity3"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <service
+            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

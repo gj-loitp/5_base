@@ -18,6 +18,7 @@ import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
+import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.core.base.BaseFontActivity;
@@ -66,6 +67,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
             findViewById(R.id.bt_uiza).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
+        findViewById(R.id.bt_2_instance_activity).setOnClickListener(this);
 
     }
 
@@ -158,6 +160,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_floating_view:
                 intent = new Intent(activity, FloatingViewActivity.class);
+                break;
+            case R.id.bt_2_instance_activity:
+                intent = new Intent(activity, Activity1.class);
                 break;
         }
         if (intent != null) {

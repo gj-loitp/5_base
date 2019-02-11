@@ -16,7 +16,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Required on all api levels if you are using setPersisted(true) -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
