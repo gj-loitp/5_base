@@ -896,10 +896,15 @@
             android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
+
         <activity
             android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" /><activity
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
             android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

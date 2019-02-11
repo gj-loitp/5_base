@@ -15,6 +15,7 @@ public class CoordinatorLayoutMenuActivity extends BaseFontActivity implements V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_0).setOnClickListener(this);
+        findViewById(R.id.bt_1).setOnClickListener(this);
 
     }
 
@@ -39,6 +40,10 @@ public class CoordinatorLayoutMenuActivity extends BaseFontActivity implements V
         switch (v.getId()) {
             case R.id.bt_0:
                 intent = new Intent(activity, CoordinatorLayoutWithImageViewActivity.class);
+                break;
+            case R.id.bt_1:
+                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_0);
                 break;
         }
         if (intent != null) {
