@@ -197,7 +197,9 @@ public class Parser extends AsyncTask<String, Void, String> {
                     SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy");
                     String pubDateString = sdf2.format(date);
                     Video tempVideo = new Video(title, videoId, imageLink, pubDateString);
-                    videos.add(tempVideo);
+                    if (videoId != null) {
+                        videos.add(tempVideo);
+                    }
                 }
                 Log.i("YoutubeParser", "Youtube data parsed correctly!");
                 onComplete.onTaskCompleted(videos, nextToken);
