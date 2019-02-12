@@ -6,10 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.Parser;
 import vn.loitp.function.youtubeparser.models.videos.Video;
 import vn.loitp.views.LToast;
+import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 
 //https://www.slickremix.com/docs/get-api-key-for-youtube/
 public class FrmYoutubeParser extends BaseFragment {
@@ -56,8 +57,8 @@ public class FrmYoutubeParser extends BaseFragment {
         }
         findViews();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //recyclerView.setHasFixedSize(true);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark);
         swipeRefreshLayout.canChildScrollUp();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -177,6 +178,14 @@ public class FrmYoutubeParser extends BaseFragment {
                     LLog.d(TAG, i + "-> " + list.get(i).getLinkYoutube());
                 }*/
                 videoAdapter = new VideoAdapter(list, R.layout.yt_row, getActivity());
+                //recyclerView.setAdapter(videoAdapter);
+
+                ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(videoAdapter);
+                scaleAdapter.setDuration(1000);
+                scaleAdapter.setInterpolator(new OvershootInterpolator());
+                scaleAdapter.setFirstOnly(true);
+                recyclerView.setAdapter(scaleAdapter);
+
                 recyclerView.setAdapter(videoAdapter);
                 totalElement = videoAdapter.getItemCount();
                 nextToken = nextPageToken;
