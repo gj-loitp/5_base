@@ -906,6 +906,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

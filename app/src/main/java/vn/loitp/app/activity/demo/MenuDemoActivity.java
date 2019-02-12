@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity;
+import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
@@ -166,7 +167,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent = new Intent(activity, Activity1.class);
                 break;
             case R.id.bt_youtube_parser:
-                intent = new Intent(activity, YoutubeParserActivity.class);
+                intent = new Intent(activity, YoutubeParserChannelActivity.class);
                 break;
         }
         if (intent != null) {
