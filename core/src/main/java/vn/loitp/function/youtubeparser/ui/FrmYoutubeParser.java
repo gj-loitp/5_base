@@ -22,7 +22,6 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.Parser;
 import vn.loitp.function.youtubeparser.models.videos.Video;
-import vn.loitp.function.youtubeparser.ui.VideoAdapter;
 import vn.loitp.views.LToast;
 
 //https://www.slickremix.com/docs/get-api-key-for-youtube/
@@ -35,10 +34,12 @@ public class FrmYoutubeParser extends BaseFragment {
     private FloatingActionButton fab;
     private int totalElement;
     private String nextToken;
-    private final String CHANNEL_ID = "UCdDnufSiFrEvS7jqcKOkN0Q";
+    public static final String CHANNEL_ID_LOITP = "UCdDnufSiFrEvS7jqcKOkN0Q";
     public static final String API_KEY = "AIzaSyBIPIyBbvDxUHPyEi9Qy-phu9VuOzy7iUI";
-    private boolean isEnglishMsg;
+    public static final String KEY_CHANNEL_ID = "KEY_CHANNEL_ID";
     public static final String KEY_IS_ENGLISH_MSG = "KEY_IS_ENGLISH_MSG";
+    private boolean isEnglishMsg;
+    private String channelId = CHANNEL_ID_LOITP;
 
     @Override
     protected int setLayoutResourceId() {
@@ -51,6 +52,7 @@ public class FrmYoutubeParser extends BaseFragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             isEnglishMsg = bundle.getBoolean(KEY_IS_ENGLISH_MSG, false);
+            channelId = bundle.getString(KEY_CHANNEL_ID);
         }
         findViews();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -101,7 +103,7 @@ public class FrmYoutubeParser extends BaseFragment {
             public void onClick(View v) {
                 Parser parser = new Parser();
                 if (nextToken != null) {
-                    String url = parser.generateMoreDataRequest(CHANNEL_ID, 50, Parser.ORDER_DATE, API_KEY, nextToken);
+                    String url = parser.generateMoreDataRequest(channelId, 50, Parser.ORDER_DATE, API_KEY, nextToken);
                     parser.execute(url);
                     parser.onFinish(new Parser.OnTaskCompleted() {
                         @Override
@@ -164,7 +166,7 @@ public class FrmYoutubeParser extends BaseFragment {
             progressBar.setVisibility(View.VISIBLE);
         }
         Parser parser = new Parser();
-        String url = parser.generateRequest(CHANNEL_ID, 50, Parser.ORDER_DATE, API_KEY);
+        String url = parser.generateRequest(channelId, 50, Parser.ORDER_DATE, API_KEY);
         parser.execute(url);
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
