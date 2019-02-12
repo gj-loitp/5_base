@@ -30,7 +30,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         this.rowLayout = rowLayout;
         this.mContext = context;
         int screenWidth = LScreenUtil.getScreenWidth();
-        ivHeight = screenWidth * 9 / 16;
+        ivHeight = screenWidth * 12 / 16;
     }
 
     public void clearData() {

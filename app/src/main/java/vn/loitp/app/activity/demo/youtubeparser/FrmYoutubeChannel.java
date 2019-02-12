@@ -1,12 +1,18 @@
 package vn.loitp.app.activity.demo.youtubeparser;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import loitp.basemaster.R;
 import okhttp3.Call;
@@ -16,13 +22,21 @@ import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
+import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
 import vn.loitp.function.youtubeparser.models.utubechannel.UtubeChannel;
+import vn.loitp.function.youtubeparser.ui.FrmYoutubeParser;
+import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class FrmYoutubeChannel extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
+    private List<UItem> uItemList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private UtubeChannelAdapter utubeChannelAdapter;
 
     @Override
     protected int setLayoutResourceId() {
@@ -32,6 +46,37 @@ public class FrmYoutubeChannel extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        animator.setAddDuration(300);
+        recyclerView.setItemAnimator(animator);
+        utubeChannelAdapter = new UtubeChannelAdapter(getActivity(), uItemList, new UtubeChannelAdapter.Callback() {
+            @Override
+            public void onClick(UItem uItem, int position) {
+                Intent intent = new Intent(getActivity(), YoutubeParserActivity.class);
+                intent.putExtra(FrmYoutubeParser.KEY_CHANNEL_ID, uItem.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(UItem uItem, int position) {
+            }
+
+            @Override
+            public void onLoadMore() {
+            }
+        });
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(mLayoutManager);
+        //recyclerView.setAdapter(mAdapter);
+
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(utubeChannelAdapter);
+        scaleAdapter.setDuration(1000);
+        scaleAdapter.setInterpolator(new OvershootInterpolator());
+        scaleAdapter.setFirstOnly(true);
+        recyclerView.setAdapter(scaleAdapter);
+
+        //LUIUtil.setPullLikeIOSVertical(recyclerView);
         getListChannel();
     }
 
@@ -44,10 +89,11 @@ public class FrmYoutubeChannel extends BaseFragment {
             long currentTime = System.currentTimeMillis();
             long duration = currentTime - lastTime;
             int durationS = (int) (duration / (60 * 1000));
-            if (durationS > 15) {
-                LLog.d(TAG, "neu durationS > 15 phut -> se call gg drive de lay list moi");
+            int range = Constants.IS_DEBUG ? 1 : 15;
+            if (durationS > range) {
+                LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
-                LLog.d(TAG, "do durationS <=15 phut nen se lay list cu da luu");
+                LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
                 UtubeChannel utubeChannel = LPref.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
@@ -103,6 +149,16 @@ public class FrmYoutubeChannel extends BaseFragment {
     }
 
     private void getListYoutubeChannelSuccess(UtubeChannel utubeChannel) {
+        if (getActivity() == null) {
+            return;
+        }
         LLog.d(TAG, "getListYoutubeChannelSuccess " + LSApplication.getInstance().getGson().toJson(utubeChannel));
+        uItemList.addAll(utubeChannel.getList());
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                utubeChannelAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }
