@@ -90,6 +90,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                         LToast.showShort(mContext, "Unable to get statistic for this video. Please try again");
                     }
                 });*/
+                LLog.d(TAG, "id " + videos.get(position).getVideoId());
                 LLog.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videos.get(position).getLinkYoutube())));
                 LActivityUtil.tranIn(mContext);
