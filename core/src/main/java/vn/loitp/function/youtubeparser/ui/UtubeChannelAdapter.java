@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.youtubeparser;
+package vn.loitp.function.youtubeparser.ui;
 
 /**
  * Created by www.muathu@gmail.com on 12/8/2017.
@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
@@ -69,8 +69,8 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
     }
 
     @Override
-    public void onBindViewHolder(UItemViewHolder holder, int position) {
-        UItem uItem = uItemList.get(position);
+    public void onBindViewHolder(UItemViewHolder holder, final int position) {
+        final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());
         LImageUtil.load(context, uItem.getImg(), holder.iv);
         holder.cv.setOnClickListener(new View.OnClickListener() {

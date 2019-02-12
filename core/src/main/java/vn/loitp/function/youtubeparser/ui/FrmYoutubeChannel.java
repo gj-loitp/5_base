@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.youtubeparser;
+package vn.loitp.function.youtubeparser.ui;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -11,17 +11,18 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import loitp.core.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LDialogUtil;
@@ -29,7 +30,6 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
 import vn.loitp.function.youtubeparser.models.utubechannel.UtubeChannel;
-import vn.loitp.function.youtubeparser.ui.FrmYoutubeParser;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -134,8 +134,8 @@ public class FrmYoutubeChannel extends BaseFragment {
                         getListYoutubeChannelFailed();
                         return;
                     }
-                    UtubeChannel utubeChannel = LSApplication.getInstance().getGson().fromJson(response.body().string(), UtubeChannel.class);
-                    LLog.d(TAG, "onResponse " + LSApplication.getInstance().getGson().toJson(utubeChannel));
+                    UtubeChannel utubeChannel = new Gson().fromJson(response.body().string(), UtubeChannel.class);
+                    //LLog.d(TAG, "onResponse " + new Gson().toJson(utubeChannel));
                     if (utubeChannel == null) {
                         getListYoutubeChannelFailed();
                         return;
@@ -170,7 +170,7 @@ public class FrmYoutubeChannel extends BaseFragment {
         if (getActivity() == null) {
             return;
         }
-        LLog.d(TAG, "getListYoutubeChannelSuccess " + LSApplication.getInstance().getGson().toJson(utubeChannel));
+        //LLog.d(TAG, "getListYoutubeChannelSuccess " + new Gson().toJson(utubeChannel));
         uItemList.addAll(utubeChannel.getList());
         getActivity().runOnUiThread(new Runnable() {
             @Override
