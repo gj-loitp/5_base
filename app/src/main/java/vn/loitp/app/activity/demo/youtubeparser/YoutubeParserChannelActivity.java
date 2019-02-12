@@ -11,7 +11,11 @@ public class YoutubeParserChannelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LScreenUtil.addFragment(activity, R.id.fl_container, new FrmYoutubeChannel(), false);
+        FrmYoutubeChannel frm = new FrmYoutubeChannel();
+        Bundle bundle = new Bundle();
+        bundle.putString(FrmYoutubeChannel.KEY_WATCHER_ACTIVITY, YoutubeParserActivity.class.getName());
+        frm.setArguments(bundle);
+        LScreenUtil.addFragment(activity, R.id.fl_container, frm, false);
     }
 
     @Override

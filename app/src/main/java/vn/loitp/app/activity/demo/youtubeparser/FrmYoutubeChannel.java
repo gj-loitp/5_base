@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ProgressBar;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class FrmYoutubeChannel extends BaseFragment {
     private List<UItem> uItemList = new ArrayList<>();
     private RecyclerView recyclerView;
     private UtubeChannelAdapter utubeChannelAdapter;
+    private ProgressBar progressBar;
+    public static final String KEY_WATCHER_ACTIVITY = "KEY_WATCHER_ACTIVITY";
+    private String watcherActivity = null;
 
     @Override
     protected int setLayoutResourceId() {
@@ -46,16 +50,30 @@ public class FrmYoutubeChannel extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            watcherActivity = bundle.getString(KEY_WATCHER_ACTIVITY);
+        }
+        LLog.d(TAG, "watcherActivity " + watcherActivity);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+        progressBar = (ProgressBar) view.findViewById(R.id.pb);
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
         utubeChannelAdapter = new UtubeChannelAdapter(getActivity(), uItemList, new UtubeChannelAdapter.Callback() {
             @Override
             public void onClick(UItem uItem, int position) {
-                Intent intent = new Intent(getActivity(), YoutubeParserActivity.class);
-                intent.putExtra(FrmYoutubeParser.KEY_CHANNEL_ID, uItem.getId());
-                startActivity(intent);
+                if (watcherActivity == null) {
+                    return;
+                }
+                try {
+                    Class aClass = Class.forName(watcherActivity);
+                    Intent intent = new Intent(getActivity(), aClass);
+                    intent.putExtra(FrmYoutubeParser.KEY_CHANNEL_ID, uItem.getId());
+                    startActivity(intent);
+                } catch (ClassNotFoundException e) {
+                    LLog.e(TAG, "ClassNotFoundException " + e.toString());
+                }
             }
 
             @Override
@@ -158,6 +176,7 @@ public class FrmYoutubeChannel extends BaseFragment {
             @Override
             public void run() {
                 utubeChannelAdapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
