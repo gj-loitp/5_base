@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.function.youtubeparser.models.videos.Video;
 
@@ -30,7 +31,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         this.rowLayout = rowLayout;
         this.mContext = context;
         int screenWidth = LScreenUtil.getScreenWidth();
-        ivHeight = screenWidth * 12 / 16;
+        ivHeight = screenWidth * 9 / 16;
     }
 
     public void clearData() {
@@ -89,6 +90,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                         LToast.showShort(mContext, "Unable to get statistic for this video. Please try again");
                     }
                 });*/
+                LLog.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videos.get(position).getLinkYoutube())));
                 LActivityUtil.tranIn(mContext);
             }

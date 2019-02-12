@@ -18,6 +18,7 @@ import java.util.List;
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
 
 public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapter.UItemViewHolder> {
@@ -70,6 +71,11 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
 
     @Override
     public void onBindViewHolder(UItemViewHolder holder, final int position) {
+        if (position % 2 == 0) {
+            LUIUtil.setMarginsDp(holder.cv, 10, 5, 5, 5);
+        } else {
+            LUIUtil.setMarginsDp(holder.cv, 5, 5, 10, 5);
+        }
         final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());
         LImageUtil.load(context, uItem.getImg(), holder.iv);
