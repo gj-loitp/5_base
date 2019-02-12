@@ -17,6 +17,7 @@ public class CoordinatorLayoutMenuActivity extends BaseFontActivity implements V
         findViewById(R.id.bt_0).setOnClickListener(this);
         findViewById(R.id.bt_1).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
+        findViewById(R.id.bt_3).setOnClickListener(this);
 
     }
 
@@ -49,6 +50,10 @@ public class CoordinatorLayoutMenuActivity extends BaseFontActivity implements V
             case R.id.bt_2:
                 intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_1);
+                break;
+            case R.id.bt_3:
+                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_2);
                 break;
         }
         if (intent != null) {
