@@ -12,6 +12,7 @@ import vn.loitp.app.activity.api.MenuAPIActivity;
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity;
 import vn.loitp.app.activity.database.MenuDatabaseActivity;
 import vn.loitp.app.activity.demo.MenuDemoActivity;
+import vn.loitp.app.activity.donation.DonationActivity;
 import vn.loitp.app.activity.function.MenuFunctionActivity;
 import vn.loitp.app.activity.more.MoreActivity;
 import vn.loitp.app.activity.pattern.MenuPatternActivity;
@@ -55,6 +56,7 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
         findViewById(R.id.bt_fb_fanpage).setOnClickListener(this);
         findViewById(R.id.bt_frm_more).setOnClickListener(this);
         findViewById(R.id.bt_security).setOnClickListener(this);
+        findViewById(R.id.bt_donation).setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +126,9 @@ public class MenuActivity extends BaseFontActivity implements View.OnClickListen
                 break;
             case R.id.bt_security:
                 intent = new Intent(activity, MenuSecurityActivity.class);
+                break;
+            case R.id.bt_donation:
+                intent = new Intent(activity, DonationActivity.class);
                 break;
         }
         if (intent != null) {

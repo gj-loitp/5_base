@@ -15,6 +15,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.PaintDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -823,5 +824,18 @@ public class LUIUtil {
         }
         activity.startActivity(intent);
         LActivityUtil.slideUp(activity);
+    }
+
+    //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
+    public static void playYoutube(Activity activity, String url) {
+        if (activity == null || url == null || url.isEmpty()) {
+            return;
+        }
+        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        LActivityUtil.tranIn(activity);
+    }
+
+    public static void playYoutubeWithId(Activity activity, String id) {
+        playYoutube(activity, "http://www.youtube.com/watch?v=" + id);
     }
 }

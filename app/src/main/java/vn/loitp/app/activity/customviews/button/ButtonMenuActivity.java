@@ -12,6 +12,7 @@ import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImage
 import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
 import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity;
+import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -28,6 +29,7 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
         findViewById(R.id.bt_goodview).setOnClickListener(this);
         findViewById(R.id.bt_l_button).setOnClickListener(this);
         findViewById(R.id.bt_auto_size_button).setOnClickListener(this);
+        findViewById(R.id.bt_rounded_button).setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +71,9 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
                 break;
             case R.id.bt_auto_size_button:
                 intent = new Intent(activity, AutoSizeButtonActivity.class);
+                break;
+            case R.id.bt_rounded_button:
+                intent = new Intent(activity, RoundedButtonActivity.class);
                 break;
         }
         if (intent != null) {

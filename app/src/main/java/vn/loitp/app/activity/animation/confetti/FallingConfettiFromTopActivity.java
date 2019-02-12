@@ -16,7 +16,6 @@ import vn.loitp.views.animation.confetti.ConfettiManager;
 public class FallingConfettiFromTopActivity extends BaseFontActivity implements View.OnClickListener {
     protected int goldDark, goldMed, gold, goldLight;
     protected int[] colors;
-
     private final List<ConfettiManager> activeConfettiManagers = new ArrayList<>();
 
     @Override

@@ -53,6 +53,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="UZVideo" />
+
+            <Button
+                android:id="@+id/bt_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Youtube" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

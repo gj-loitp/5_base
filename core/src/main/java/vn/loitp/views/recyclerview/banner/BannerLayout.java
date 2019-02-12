@@ -114,7 +114,7 @@ public class BannerLayout extends FrameLayout {
         int marginRight = dp2px(0);
         int marginBottom = dp2px(11);
         int gravity = GravityCompat.START;
-        int o = a.getInt(R.styleable.BannerLayout_orientation, 0);
+        int o = a.getInt(R.styleable.BannerLayout_orientation_banner_layout, 0);
         int orientation = 0;
         if (o == 0) {
             orientation = OrientationHelper.HORIZONTAL;

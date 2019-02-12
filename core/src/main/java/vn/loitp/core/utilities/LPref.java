@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import vn.loitp.core.common.Constants;
+import vn.loitp.function.youtubeparser.models.utubechannel.UtubeChannel;
 import vn.loitp.model.App;
 import vn.loitp.utils.util.AppUtils;
 
@@ -34,6 +35,9 @@ public class LPref {
     public static final String UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT";
     public static final String GG_APP_SETTING = "GG_APP_SETTING";
     public static final String GG_APP_MSG = "GG_APP_MSG";
+    public static final String IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER";
+    public static final String YOUTUBE_CHANNEL_LIST = "YOUTUBE_CHANNEL_LIST";
+    public static final String TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS = "TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS";
 
     //object
     public static App getGGAppSetting(Context context) {
@@ -44,6 +48,21 @@ public class LPref {
     public static void setGGAppSetting(Context context, App user) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putString(GG_APP_SETTING, new Gson().toJson(user));
+        editor.apply();
+    }
+
+    public static UtubeChannel getYoutubeChannelList(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        String json = pref.getString(YOUTUBE_CHANNEL_LIST, "");
+        if (json.isEmpty()) {
+            return null;
+        }
+        return new Gson().fromJson(json, UtubeChannel.class);
+    }
+
+    public static void setYoutubeChannelList(Context context, UtubeChannel utubeChannel) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putString(YOUTUBE_CHANNEL_LIST, new Gson().toJson(utubeChannel));
         editor.apply();
     }
 
@@ -79,6 +98,29 @@ public class LPref {
     public static void setPreLoad(Context context, Boolean value) {
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
         editor.putBoolean(PRE_LOAD, value);
+        editor.apply();
+    }
+
+    public static boolean getIsShowedDlgWarningYoutubeParser(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, false);
+    }
+
+    public static void setIsShowedDlgWarningYoutubeParser(Context context, boolean value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, value);
+        editor.apply();
+    }
+
+    /////////////////////////////////LONG
+    public static long getTimeGetYoutubeChannelListSuccess(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+        return prefs.getLong(TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS, 0);
+    }
+
+    public static void setTimeGetYoutubeChannelListSuccess(Context context, long value) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit();
+        editor.putLong(TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS, value);
         editor.apply();
     }
 

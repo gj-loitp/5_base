@@ -18,8 +18,11 @@ import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
+import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
+import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity;
+import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
@@ -55,14 +58,19 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
 
             findViewById(R.id.bt_gallery_core_album_frm).setOnClickListener(this);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.VISIBLE);
+
+            findViewById(R.id.bt_uiza).setOnClickListener(this);
+            findViewById(R.id.bt_uiza).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.GONE);
+            findViewById(R.id.bt_uiza).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
-        findViewById(R.id.bt_uiza).setOnClickListener(this);
+        findViewById(R.id.bt_2_instance_activity).setOnClickListener(this);
+        findViewById(R.id.bt_youtube_parser).setOnClickListener(this);
     }
 
     @Override
@@ -154,6 +162,12 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_floating_view:
                 intent = new Intent(activity, FloatingViewActivity.class);
+                break;
+            case R.id.bt_2_instance_activity:
+                intent = new Intent(activity, Activity1.class);
+                break;
+            case R.id.bt_youtube_parser:
+                intent = new Intent(activity, YoutubeParserChannelActivity.class);
                 break;
         }
         if (intent != null) {

@@ -61,6 +61,12 @@
                 android:text="LButton" />
 
             <Button
+                android:id="@+id/bt_rounded_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rounded Button" />
+
+            <Button
                 android:id="@+id/bt_shine_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

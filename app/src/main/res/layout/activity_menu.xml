@@ -116,6 +116,12 @@
                 android:text="Thêm" />
 
             <Button
+                android:id="@+id/bt_donation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Donation" />
+
+            <Button
                 android:id="@+id/bt_github"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
