@@ -1,6 +1,5 @@
 package vn.loitp.function.youtubeparser.ui;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -25,7 +25,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
@@ -37,6 +36,7 @@ public class FrmYoutubeChannel extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private List<UItem> uItemList = new ArrayList<>();
     private RecyclerView recyclerView;
+    private TextView tvMsg;
     private UtubeChannelAdapter utubeChannelAdapter;
     private ProgressBar progressBar;
     public static final String KEY_WATCHER_ACTIVITY = "KEY_WATCHER_ACTIVITY";
@@ -57,6 +57,7 @@ public class FrmYoutubeChannel extends BaseFragment {
         LLog.d(TAG, "watcherActivity " + watcherActivity);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         progressBar = (ProgressBar) view.findViewById(R.id.pb);
+        tvMsg = (TextView) view.findViewById(R.id.tv_msg);
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
@@ -155,15 +156,15 @@ public class FrmYoutubeChannel extends BaseFragment {
         if (getActivity() == null) {
             return;
         }
-        AlertDialog alertDialog = LDialogUtil.showDialog1(getActivity(), getString(R.string.err), getString(R.string.err_unknow_en), getString(R.string.ok), new LDialogUtil.Callback1() {
+        getActivity().runOnUiThread(new Runnable() {
             @Override
-            public void onClick1() {
-                if (getActivity() != null) {
-                    getActivity().onBackPressed();
+            public void run() {
+                if (tvMsg != null && tvMsg.getVisibility() != View.VISIBLE) {
+                    tvMsg.setVisibility(View.VISIBLE);
                 }
+                progressBar.setVisibility(View.GONE);
             }
         });
-        alertDialog.setCancelable(false);
     }
 
     private void getListYoutubeChannelSuccess(UtubeChannel utubeChannel) {
@@ -175,6 +176,9 @@ public class FrmYoutubeChannel extends BaseFragment {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if (tvMsg != null && tvMsg.getVisibility() != View.GONE) {
+                    tvMsg.setVisibility(View.GONE);
+                }
                 utubeChannelAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
             }
