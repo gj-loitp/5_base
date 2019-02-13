@@ -77,7 +77,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(activity);
-            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.setAdSize(AdSize.BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
@@ -152,7 +152,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);*/
 
-        //LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
