@@ -27,6 +27,7 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LPref;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
 import vn.loitp.function.youtubeparser.models.utubechannel.UtubeChannel;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
@@ -95,7 +96,7 @@ public class FrmYoutubeChannel extends BaseFragment {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
 
-        //LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
         getListChannel();
     }
 

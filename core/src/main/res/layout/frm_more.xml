@@ -11,9 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:scrollbarSize="@dimen/w_1"
-        android:scrollbarThumbVertical="@drawable/scroll_thumb"
-        android:scrollbarTrackVertical="@drawable/scroll_track">
+        style="@style/ScrollVertical">
 
         <LinearLayout
             android:layout_width="match_parent"

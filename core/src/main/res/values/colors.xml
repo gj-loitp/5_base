@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#00ff00</color>
+    <color name="colorPrimary2">#00ffff</color>
     <color name="colorPrimaryTrans">#00ff00</color>
     <color name="colorEdgeEffect">#00ff00</color>
     <color name="colorPrimary_600">#5500ff00</color>

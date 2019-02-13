@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import life.sabujak.roundedbutton.RoundedButton;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -172,7 +172,6 @@ public class AdHelperActivity extends BaseFontActivity {
 
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
-
             AdPage adPage = adPageList.get(position);
 
             LayoutInflater inflater = LayoutInflater.from(activity);
@@ -189,7 +188,7 @@ public class AdHelperActivity extends BaseFontActivity {
             tvMsg.setText(adPage.getMsg());
             LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White));
 
-            Button btOkay = (Button) layout.findViewById(R.id.bt_okay);
+            RoundedButton btOkay = (RoundedButton) layout.findViewById(R.id.bt_okay);
             if (isEnglishLanguage) {
                 btOkay.setText("I understand");
             } else {
