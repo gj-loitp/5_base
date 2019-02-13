@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 
 import loitp.core.R;
@@ -11,22 +12,13 @@ import vn.loitp.core.base.BaseFragment;
 import vn.loitp.core.loitp.adhelper.AdHelperActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LSocialUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
  */
 
 public class FrmMore extends BaseFragment implements View.OnClickListener {
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -38,8 +30,8 @@ public class FrmMore extends BaseFragment implements View.OnClickListener {
         view.findViewById(R.id.bt_support).setOnClickListener(this);
         view.findViewById(R.id.bt_ad_helper).setOnClickListener(this);
 
-        //NestedScrollView nestedScrollView = (NestedScrollView) view.findViewById(R.id.scroll_view);
-        //LUIUtil.setPullLikeIOSVertical(nestedScrollView);
+        NestedScrollView nestedScrollView = (NestedScrollView) view.findViewById(R.id.sv);
+        LUIUtil.setPullLikeIOSVertical(nestedScrollView);
     }
 
     @Override
