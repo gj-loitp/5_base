@@ -30,6 +30,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/DarkCyan"
+                android:padding="@dimen/padding_5"
+                android:text="@string/large_text"
+                android:textColor="@color/White" />
         </LinearLayout>
     </ScrollView>
 
@@ -57,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black_35"
+                android:background="@color/WhiteTrans99"
                 android:padding="@dimen/padding_10"
                 android:text="@string/large_text"
                 android:textColor="@color/Black" />
