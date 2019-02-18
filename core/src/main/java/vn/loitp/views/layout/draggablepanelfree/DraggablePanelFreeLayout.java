@@ -74,11 +74,26 @@ public class DraggablePanelFreeLayout extends ViewGroup {
             mDragOffset = (float) top / mDragRange;
             LLog.d(TAG, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
             if (mDragOffset == 0f) {
-                isPositionTop();
+                if (mState != State.TOP) {
+                    mState = State.TOP;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                }
             } else if (mDragOffset == 1f) {
-                isPositionBottom();
+                if (mState != State.BOTTOM) {
+                    mState = State.BOTTOM;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                }
             } else {
-                isPositionMid();
+                if (mState != State.MID) {
+                    mState = State.MID;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                }
             }
             mHeaderView.setPivotX(mHeaderView.getWidth());
             mHeaderView.setPivotY(mHeaderView.getHeight());
@@ -231,22 +246,29 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         mDescView.layout(0, mTop + mHeaderView.getMeasuredHeight(), r, mTop + b);
     }
 
-    private enum STATE {TOP, BOTTOM, MID}
+    public enum State {TOP, BOTTOM, MID}
 
-    private STATE state;
+    private State mState;
 
-    private void isPositionTop() {
-        //LLog.d(TAG, "onViewPositionChanged TOP");
-        state = STATE.TOP;
+    private boolean isPositionTop() {
+        return mState == State.TOP;
     }
 
-    private void isPositionBottom() {
-        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
-        state = STATE.BOTTOM;
+    private boolean isPositionBottom() {
+        return mState == State.BOTTOM;
     }
 
-    private void isPositionMid() {
-        //LLog.d(TAG, "onViewPositionChanged MID");
-        state = STATE.MID;
+    private boolean isPositionMid() {
+        return mState == State.MID;
+    }
+
+    public interface Callback {
+        public void onStateChange(State state);
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
     }
 }
