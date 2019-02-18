@@ -70,6 +70,9 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+            if (isPositionBottom()) {
+                LLog.d(TAG, "onViewPositionChanged no slide");
+            }
             mTop = top;
             mDragOffset = (float) top / mDragRange;
             LLog.d(TAG, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
@@ -79,6 +82,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                     if (callback != null) {
                         callback.onStateChange(mState);
                     }
+                    LLog.d(TAG, "State.TOP");
                 }
             } else if (mDragOffset == 1f) {
                 if (mState != State.BOTTOM) {
@@ -86,6 +90,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                     if (callback != null) {
                         callback.onStateChange(mState);
                     }
+                    LLog.d(TAG, "State.BOTTOM");
                 }
             } else {
                 if (mState != State.MID) {
@@ -93,6 +98,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                     if (callback != null) {
                         callback.onStateChange(mState);
                     }
+                    LLog.d(TAG, "State.MID");
                 }
             }
             mHeaderView.setPivotX(mHeaderView.getWidth());
@@ -182,6 +188,10 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        if (isPositionBottom()) {
+            LLog.d(TAG, "onTouchEvent no slide");
+            return true;
+        }
         mDragHelper.processTouchEvent(ev);
         final int action = ev.getAction();
         final float x = ev.getX();
@@ -241,6 +251,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        //LLog.d(TAG, "onLayout " + l + ", " + t + ", " + r + ", " + b);
         mDragRange = getHeight() - mHeaderView.getHeight();
         mHeaderView.layout(0, mTop, r, mTop + mHeaderView.getMeasuredHeight());
         mDescView.layout(0, mTop + mHeaderView.getMeasuredHeight(), r, mTop + b);
