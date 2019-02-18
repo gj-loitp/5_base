@@ -43,6 +43,10 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
     }
 
+    public void minimize() {
+        smoothSlideTo(1f);
+    }
+
     public void maximize() {
         smoothSlideTo(0f);
     }
@@ -190,9 +194,9 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                 } */
                 //LLog.d(TAG, "mDragOffset " + mDragOffset);
                 if (mDragOffset < 0.5f) {
-                    smoothSlideTo(0f);
+                    maximize();
                 } else {
-                    smoothSlideTo(1f);
+                    minimize();
                 }
                 break;
             }
