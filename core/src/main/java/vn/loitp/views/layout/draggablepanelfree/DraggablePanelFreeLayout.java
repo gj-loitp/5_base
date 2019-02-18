@@ -66,11 +66,9 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-            LLog.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
             mTop = top;
-
             mDragOffset = (float) top / mDragRange;
-            //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
+            LLog.d(TAG, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
             if (mDragOffset == 0f) {
                 isPositionTop();
             } else if (mDragOffset == 1f) {
@@ -78,14 +76,11 @@ public class DraggablePanelFreeLayout extends ViewGroup {
             } else {
                 isPositionMid();
             }
-
             mHeaderView.setPivotX(mHeaderView.getWidth());
             mHeaderView.setPivotY(mHeaderView.getHeight());
             mHeaderView.setScaleX(1 - mDragOffset / 2);
             mHeaderView.setScaleY(1 - mDragOffset / 2);
-
             mDescView.setAlpha(1 - mDragOffset);
-
             requestLayout();
         }
 
@@ -152,7 +147,6 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                 interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
                 break;
             }
-
             case MotionEvent.ACTION_MOVE: {
                 LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
                 final float adx = Math.abs(x - mInitialMotionX);
@@ -238,17 +232,17 @@ public class DraggablePanelFreeLayout extends ViewGroup {
     private STATE state;
 
     private void isPositionTop() {
-        LLog.d(TAG, "onViewPositionChanged TOP");
+        //LLog.d(TAG, "onViewPositionChanged TOP");
         state = STATE.TOP;
     }
 
     private void isPositionBottom() {
-        LLog.d(TAG, "onViewPositionChanged BOTTOM");
+        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
         state = STATE.BOTTOM;
     }
 
     private void isPositionMid() {
-        LLog.d(TAG, "onViewPositionChanged MID");
+        //LLog.d(TAG, "onViewPositionChanged MID");
         state = STATE.MID;
     }
 }
