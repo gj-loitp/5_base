@@ -72,6 +72,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
             if (isPositionBottom()) {
                 LLog.d(TAG, "onViewPositionChanged no slide");
+                return;
             }
             mTop = top;
             mDragOffset = (float) top / mDragRange;
@@ -188,15 +189,15 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (isPositionBottom()) {
-            LLog.d(TAG, "onTouchEvent no slide");
-            return true;
-        }
         mDragHelper.processTouchEvent(ev);
         final int action = ev.getAction();
         final float x = ev.getX();
         final float y = ev.getY();
         boolean isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
+        if (isPositionBottom()) {
+            LLog.d(TAG, "onTouchEvent no slide");
+            return false;
+        }
         switch (action & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN");
