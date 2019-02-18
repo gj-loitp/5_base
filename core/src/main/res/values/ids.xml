@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="tv_title" type="id" />
-    <item name="viewHeader" type="id" />
-    <item name="viewDesc" type="id" />
+    <item name="view_header" type="id" />
+    <item name="view_desc" type="id" />
 </resources>

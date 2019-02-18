@@ -61,6 +61,18 @@
                 android:text="DraggableView" />
 
             <Button
+                android:id="@+id/bt_drag_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Drag Layout" />
+
+            <Button
+                android:id="@+id/bt_draggable_panel_free"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DraggablePanel Free" />
+
+            <Button
                 android:id="@+id/bt_dragueur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

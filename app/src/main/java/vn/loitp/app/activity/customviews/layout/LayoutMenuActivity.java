@@ -10,6 +10,7 @@ import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivit
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity;
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity;
+import vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity;
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity;
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity;
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity;
@@ -34,6 +35,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_draggable_panel).setOnClickListener(this);
+        findViewById(R.id.bt_draggable_panel_free).setOnClickListener(this);
         findViewById(R.id.bt_draggable_view).setOnClickListener(this);
         findViewById(R.id.bt_zoom_layout).setOnClickListener(this);
         findViewById(R.id.bt_ripple_layout).setOnClickListener(this);
@@ -53,6 +55,7 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_square_layout).setOnClickListener(this);
         findViewById(R.id.bt_relative_popup_window).setOnClickListener(this);
         findViewById(R.id.bt_motion_layout).setOnClickListener(this);
+        findViewById(R.id.bt_drag_layout).setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +79,9 @@ public class LayoutMenuActivity extends BaseFontActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.bt_draggable_panel:
                 intent = new Intent(activity, DraggablePanelActivity.class);
+                break;
+            case R.id.bt_draggable_panel_free:
+                intent = new Intent(activity, DraggablePanelFreeActivity.class);
                 break;
             case R.id.bt_draggable_view:
                 intent = new Intent(activity, DraggableViewActivity.class);
