@@ -70,10 +70,10 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-            if (isPositionBottom()) {
+            /*if (isPositionBottom()) {
                 LLog.d(TAG, "onViewPositionChanged no slide " + left + ", " + top + ", " + dx + ", " + dy);
                 return;
-            }
+            }*/
             mTop = top;
             mDragOffset = (float) top / mDragRange;
             LLog.d(TAG, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
@@ -203,7 +203,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
             }
             case MotionEvent.ACTION_UP: {
                 LLog.d(TAG, "onTouchEvent ACTION_UP");
-                /*final float dx = x - mInitialMotionX;
+                final float dx = x - mInitialMotionX;
                 final float dy = y - mInitialMotionY;
                 final int slop = mDragHelper.getTouchSlop();
                 if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
@@ -213,9 +213,9 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                     } else {
                         smoothSlideTo(0f);
                     }
-                } */
+                }
                 //LLog.d(TAG, "mDragOffset " + mDragOffset);
-                if (isPositionBottom()) {
+                /*if (isPositionBottom()) {
                     LLog.d(TAG, "onTouchEvent ACTION_UP no slide");
                 } else {
                     if (mDragOffset < 0.5f) {
@@ -223,7 +223,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                     } else {
                         minimize();
                     }
-                }
+                }*/
                 break;
             }
         }
