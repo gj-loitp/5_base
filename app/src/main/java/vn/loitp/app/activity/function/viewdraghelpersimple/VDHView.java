@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -12,10 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.nineoldandroids.view.ViewHelper;
-
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -26,6 +24,8 @@ public class VDHView extends LinearLayout {
     private int mAutoBackViewY;
     //private float mInitialMotionX;
     //private float mInitialMotionY;
+    private int mDragRange;
+    private float mDragOffset;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -56,13 +56,19 @@ public class VDHView extends LinearLayout {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
-            LLog.d(TAG, "onViewPositionChanged left:" + left + ", top: " + top);
+            mDragOffset = (float) top / mDragRange;
+            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
 
+            //failed
             //LUIUtil.setMargins(bodyView, 0, top, 0, 0);
+
             //bodyView.layout(0, screenH - headerView.getHeight() - top, 0, screenH);
             //bodyView.setTranslationX(left);
             //bodyView.setTranslationY(top);
-            ViewHelper.setTranslationY(bodyView, top);
+            //ViewHelper.setTranslationY(bodyView, top);
+
+            //failed
+            //bodyView.animate().x(left).y(top + headerView.getHeight());
 
             /*headerView.setPivotX(headerView.getWidth());
             headerView.setPivotY(headerView.getHeight());
@@ -139,7 +145,8 @@ public class VDHView extends LinearLayout {
         final float x = event.getX();
         final float y = event.getY();
         boolean isViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
-        switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
+        LLog.d(TAG, "onTouchEvent isViewUnder: " + isViewUnder);
+        /*switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN touch:" + x + " x " + y);
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN isViewUnder:" + isViewUnder);
@@ -149,7 +156,7 @@ public class VDHView extends LinearLayout {
                 LLog.d(TAG, "onTouchEvent ACTION_UP isViewUnder:" + isViewUnder);
                 break;
             }
-        }
+        }*/
         return isViewUnder;
     }
 
@@ -235,6 +242,7 @@ public class VDHView extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        mDragRange = getHeight() - headerView.getHeight();
         mAutoBackViewX = headerView.getLeft();
         mAutoBackViewY = headerView.getTop();
         LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
