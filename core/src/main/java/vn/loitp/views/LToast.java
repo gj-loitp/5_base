@@ -27,12 +27,12 @@ public class LToast {
 
     @SuppressLint("InflateParams")
     public static void showShort(Context context, String msg) {
-        show(context, msg, Toast.LENGTH_SHORT, R.drawable.bkg_primary_black);
+        show(context, msg, Toast.LENGTH_SHORT, R.drawable.bkg_horizontal);
     }
 
     @SuppressLint("InflateParams")
     public static void showLong(Context context, String msg) {
-        show(context, msg, Toast.LENGTH_LONG, R.drawable.bkg_primary_black);
+        show(context, msg, Toast.LENGTH_LONG, R.drawable.bkg_horizontal);
     }
 
     @SuppressLint("InflateParams")
@@ -57,12 +57,12 @@ public class LToast {
 
     @SuppressLint("InflateParams")
     public static void show(Context context, int resource, int length) {
-        show(context, context.getResources().getString(resource), length, R.drawable.bkg_primary_black);
+        show(context, context.getResources().getString(resource), length, R.drawable.bkg_horizontal);
     }
 
     @SuppressLint("InflateParams")
     public static void show(Context context, String msg, int length) {
-        show(context, msg, length, R.drawable.bkg_primary_black);
+        show(context, msg, length, R.drawable.bkg_horizontal);
     }
 
     @SuppressLint("InflateParams")

@@ -19,6 +19,7 @@ import vn.loitp.app.activity.function.sensor.SensorActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity;
+import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -40,6 +41,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_location).setOnClickListener(this);
         findViewById(R.id.bt_notification).setOnClickListener(this);
         findViewById(R.id.bt_view_drag_helper_simple).setOnClickListener(this);
+        findViewById(R.id.bt_view_drag_helper_simple_1).setOnClickListener(this);
         findViewById(R.id.bt_sensor).setOnClickListener(this);
         findViewById(R.id.bt_scrog).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
@@ -96,6 +98,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_view_drag_helper_simple:
                 intent = new Intent(activity, ViewDragHelperSimpleActivity.class);
+                break;
+            case R.id.bt_view_drag_helper_simple_1:
+                intent = new Intent(activity, ViewDragHelperSimpleActivity1.class);
                 break;
             case R.id.bt_sensor:
                 intent = new Intent(activity, SensorActivity.class);
