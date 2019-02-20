@@ -4,20 +4,18 @@ import android.content.Context;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ViewAnimator;
 
 import com.nineoldandroids.view.ViewHelper;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -26,7 +24,8 @@ public class VDHView extends LinearLayout {
     private ViewDragHelper mViewDragHelper;
     private int mAutoBackViewX;
     private int mAutoBackViewY;
-    private int screenH;
+    //private float mInitialMotionX;
+    //private float mInitialMotionY;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -42,27 +41,57 @@ public class VDHView extends LinearLayout {
     }
 
     private void initView() {
-        screenH = LScreenUtil.getScreenHeight();
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, callback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        headerView = findViewById(R.id.header_view);
+        bodyView = findViewById(R.id.body_view);
     }
 
     private ViewDragHelper.Callback callback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
-            LLog.d(TAG, "onViewPositionChanged " + left + ", " + top);
+            LLog.d(TAG, "onViewPositionChanged left:" + left + ", top: " + top);
 
             //LUIUtil.setMargins(bodyView, 0, top, 0, 0);
             //bodyView.layout(0, screenH - headerView.getHeight() - top, 0, screenH);
             //bodyView.setTranslationX(left);
             //bodyView.setTranslationY(top);
             ViewHelper.setTranslationY(bodyView, top);
+
+            /*headerView.setPivotX(headerView.getWidth());
+            headerView.setPivotY(headerView.getHeight());
+            headerView.setScaleX(1 - mDragOffset / 2);
+            headerView.setScaleY(1 - mDragOffset / 2);
+            bodyView.setAlpha(1 - mDragOffset);
+            requestLayout();*/
         }
 
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
             return headerView == child;
+        }
+
+        /*@Override
+        public int getViewVerticalDragRange(View child) {
+            return mDragRange;
+        }*/
+
+        @Override
+        public int clampViewPositionVertical(View child, int top, int dy) {
+            int rangeY = getHeight() - child.getHeight();
+            if (top <= 0) {
+                return 0;
+            } else if (top > rangeY) {
+                return rangeY;
+            } else {
+                return top;
+            }
         }
 
         @Override
@@ -74,18 +103,6 @@ public class VDHView extends LinearLayout {
                 return rangeX;
             } else {
                 return left;
-            }
-        }
-
-        @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
-            int rangeY = getHeight() - child.getHeight();
-            if (top <= 0) {
-                return 0;
-            } else if (top > rangeY) {
-                return rangeY;
-            } else {
-                return top;
             }
         }
 
@@ -103,19 +120,6 @@ public class VDHView extends LinearLayout {
     };
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        LLog.d(TAG, "onInterceptTouchEvent");
-        return mViewDragHelper.shouldInterceptTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        LLog.d(TAG, "onTouchEvent");
-        mViewDragHelper.processTouchEvent(event);
-        return true;
-    }
-
-    @Override
     public void computeScroll() {
         if (mViewDragHelper.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
@@ -123,19 +127,136 @@ public class VDHView extends LinearLayout {
     }
 
     @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        headerView = findViewById(R.id.header_view);
-        bodyView = findViewById(R.id.body_view);
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //LLog.d(TAG, "onInterceptTouchEvent");
+        return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //LLog.d(TAG, "onTouchEvent");
+        mViewDragHelper.processTouchEvent(event);
+        final float x = event.getX();
+        final float y = event.getY();
+        boolean isViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
+        switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN: {
+                LLog.d(TAG, "onTouchEvent ACTION_DOWN touch:" + x + " x " + y);
+                LLog.d(TAG, "onTouchEvent ACTION_DOWN isViewUnder:" + isViewUnder);
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                LLog.d(TAG, "onTouchEvent ACTION_UP isViewUnder:" + isViewUnder);
+                break;
+            }
+        }
+        return isViewUnder;
+    }
+
+    /*@Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        final int action = MotionEventCompat.getActionMasked(ev);
+        if (action != MotionEvent.ACTION_DOWN) {
+            mViewDragHelper.cancel();
+            LLog.d(TAG, "fuck onInterceptTouchEvent return super.onInterceptTouchEven");
+            return super.onInterceptTouchEvent(ev);
+        }
+        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+            mViewDragHelper.cancel();
+            LLog.d(TAG, "fuck onInterceptTouchEvent return false");
+            return false;
+        }
+        final float x = ev.getX();
+        final float y = ev.getY();
+        boolean interceptTap = false;
+        switch (action) {
+            case MotionEvent.ACTION_DOWN: {
+                //LLog.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
+                mInitialMotionX = x;
+                mInitialMotionY = y;
+                interceptTap = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
+                break;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                //LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
+                final float adx = Math.abs(x - mInitialMotionX);
+                final float ady = Math.abs(y - mInitialMotionY);
+                final int slop = mViewDragHelper.getTouchSlop();
+                if (ady > slop && adx > ady) {
+                    mViewDragHelper.cancel();
+                    LLog.d(TAG, "fuck onInterceptTouchEvent ACTION_MOVE return false");
+                    return false;
+                }
+            }
+        }
+        LLog.d(TAG, "fuck onInterceptTouchEvent mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap");
+        return mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        mViewDragHelper.processTouchEvent(ev);
+        final int action = ev.getAction();
+        final float x = ev.getX();
+        final float y = ev.getY();
+        boolean isHeaderViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
+        //LLog.d(TAG, "onTouchEvent isHeaderViewUnder: " + isHeaderViewUnder);
+        switch (action & MotionEventCompat.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN: {
+                mInitialMotionX = x;
+                mInitialMotionY = y;
+                LLog.d(TAG, "onTouchEvent ACTION_DOWN");
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                LLog.d(TAG, "onTouchEvent ACTION_UP");
+                *//*if (mDragOffset < 0.5f) {
+                    smoothSlideTo(0f);
+                } else {
+                    smoothSlideTo(1f);
+                }*//*
+                break;
+            }
+        }
+        LLog.d(TAG, "fuck onTouchEvent: " + (isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y)));
+        return isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y);
+    }*/
+
+    private boolean isViewHit(View view, int x, int y) {
+        int[] viewLocation = new int[2];
+        view.getLocationOnScreen(viewLocation);
+        int[] parentLocation = new int[2];
+        this.getLocationOnScreen(parentLocation);
+        int screenX = parentLocation[0] + x;
+        int screenY = parentLocation[1] + y;
+        return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.getWidth() && screenY >= viewLocation[1] && screenY < viewLocation[1] + view.getHeight();
+    }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b);
         super.onLayout(changed, l, t, r, b);
         mAutoBackViewX = headerView.getLeft();
         mAutoBackViewY = headerView.getTop();
+        LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
+    }
+
+    private enum State {TOP, BOTTOM, MID}
+
+    private State state;
+
+    private void isPositionTop() {
+        //LLog.d(TAG, "onViewPositionChanged TOP");
+        state = State.TOP;
+    }
+
+    private void isPositionBottom() {
+        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
+        state = State.BOTTOM;
+    }
+
+    private void isPositionMid() {
+        //LLog.d(TAG, "onViewPositionChanged MID");
+        state = State.MID;
     }
 
     private boolean isAutoBackToOriginalPosition;

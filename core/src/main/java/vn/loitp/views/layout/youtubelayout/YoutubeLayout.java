@@ -72,7 +72,6 @@ public class YoutubeLayout extends ViewGroup {
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
             LLog.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
             mTop = top;
-
             mDragOffset = (float) top / mDragRange;
             //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
             if (mDragOffset == 0f) {
@@ -82,14 +81,11 @@ public class YoutubeLayout extends ViewGroup {
             } else {
                 isPositionMid();
             }
-
             mHeaderView.setPivotX(mHeaderView.getWidth());
             mHeaderView.setPivotY(mHeaderView.getHeight());
             mHeaderView.setScaleX(1 - mDragOffset / 2);
             mHeaderView.setScaleY(1 - mDragOffset / 2);
-
             mDescView.setAlpha(1 - mDragOffset);
-
             requestLayout();
         }
 
