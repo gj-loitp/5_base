@@ -10,9 +10,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ViewAnimator;
+
+import com.nineoldandroids.view.ViewHelper;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
+import vn.loitp.core.utilities.LUIUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -21,6 +26,7 @@ public class VDHView extends LinearLayout {
     private ViewDragHelper mViewDragHelper;
     private int mAutoBackViewX;
     private int mAutoBackViewY;
+    private int screenH;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -36,6 +42,7 @@ public class VDHView extends LinearLayout {
     }
 
     private void initView() {
+        screenH = LScreenUtil.getScreenHeight();
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, callback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
@@ -46,9 +53,11 @@ public class VDHView extends LinearLayout {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             LLog.d(TAG, "onViewPositionChanged " + left + ", " + top);
 
-            //bodyView.layout(l, t + headerView.getTop(), r, b);
-            bodyView.setTranslationX(left);
-            bodyView.setTranslationY(top);
+            //LUIUtil.setMargins(bodyView, 0, top, 0, 0);
+            //bodyView.layout(0, screenH - headerView.getHeight() - top, 0, screenH);
+            //bodyView.setTranslationX(left);
+            //bodyView.setTranslationY(top);
+            ViewHelper.setTranslationY(bodyView, top);
         }
 
         @Override
@@ -95,11 +104,13 @@ public class VDHView extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        LLog.d(TAG, "onInterceptTouchEvent");
         return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        LLog.d(TAG, "onTouchEvent");
         mViewDragHelper.processTouchEvent(event);
         return true;
     }

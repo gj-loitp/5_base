@@ -53,12 +53,18 @@
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />
 
-        <View
+        <ScrollView
             android:id="@+id/body_view"
-            android:layout_width="@dimen/w_200"
-            android:layout_height="@dimen/w_200"
-            android:background="@color/RedTrans"
-            android:orientation="vertical" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/LightPink">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_10"
+                android:text="@string/large_text" />
+        </ScrollView>
     </vn.loitp.app.activity.function.viewdraghelpersimple.VDHView>
 </RelativeLayout>
 
