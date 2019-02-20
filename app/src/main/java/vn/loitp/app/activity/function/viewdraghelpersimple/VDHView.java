@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -50,7 +49,6 @@ public class VDHView extends LinearLayout {
         super.onFinishInflate();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
-        bodyView.setVisibility(GONE);
     }
 
     private ViewDragHelper.Callback callback = new ViewDragHelper.Callback() {
@@ -60,23 +58,9 @@ public class VDHView extends LinearLayout {
             mDragOffset = (float) top / mDragRange;
             LLog.d(TAG, "fuck onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
 
-            //failed
-            //LUIUtil.setMargins(bodyView, 0, top, 0, 0);
-
-            //bodyView.layout(0, screenH - headerView.getHeight() - top, 0, screenH);
-            //bodyView.setTranslationX(left);
-            //bodyView.setTranslationY(top);
-            //ViewHelper.setTranslationY(bodyView, top);
-
-            //failed
-            //bodyView.animate().x(left).y(top + headerView.getHeight());
-
-            /*headerView.setPivotX(headerView.getWidth());
-            headerView.setPivotY(headerView.getHeight());
-            headerView.setScaleX(1 - mDragOffset / 2);
-            headerView.setScaleY(1 - mDragOffset / 2);
-            bodyView.setAlpha(1 - mDragOffset);*/
-            requestLayout();
+            int x = 0;
+            int y = headerView.getHeight() + top;
+            bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
         }
 
         @Override
