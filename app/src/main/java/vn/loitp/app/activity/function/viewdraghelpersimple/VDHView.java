@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -25,6 +26,8 @@ public class VDHView extends LinearLayout {
     //private float mInitialMotionY;
     private int mDragRange;
     private float mDragOffset;
+    private int screenW;
+    private int screenH;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -40,6 +43,9 @@ public class VDHView extends LinearLayout {
     }
 
     private void initView() {
+        screenW = LScreenUtil.getScreenWidth();
+        screenH = LScreenUtil.getScreenHeight();
+        LLog.d(TAG, "fuck initView screenW x screenH: " + screenW + " x " + screenH);
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, callback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
@@ -49,6 +55,13 @@ public class VDHView extends LinearLayout {
         super.onFinishInflate();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
+        headerView.post(new Runnable() {
+            @Override
+            public void run() {
+                LLog.d(TAG, "fuck onFinishInflate size headerView: " + headerView.getMeasuredWidth() + "x" + headerView.getMeasuredHeight());
+                LLog.d(TAG, "fuck onFinishInflate size bodyView: " + bodyView.getMeasuredWidth() + "x" + bodyView.getMeasuredHeight());
+            }
+        });
     }
 
     private ViewDragHelper.Callback callback = new ViewDragHelper.Callback() {
@@ -56,11 +69,12 @@ public class VDHView extends LinearLayout {
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             mDragOffset = (float) top / mDragRange;
-            LLog.d(TAG, "fuck onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
+            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
 
             int x = 0;
             int y = headerView.getHeight() + top;
             bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
+            bodyView.setAlpha(1 - mDragOffset);
         }
 
         @Override
@@ -150,12 +164,12 @@ public class VDHView extends LinearLayout {
         final int action = MotionEventCompat.getActionMasked(ev);
         if (action != MotionEvent.ACTION_DOWN) {
             mViewDragHelper.cancel();
-            LLog.d(TAG, "fuck onInterceptTouchEvent return super.onInterceptTouchEven");
+            LLog.d(TAG, "onInterceptTouchEvent return super.onInterceptTouchEven");
             return super.onInterceptTouchEvent(ev);
         }
         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
             mViewDragHelper.cancel();
-            LLog.d(TAG, "fuck onInterceptTouchEvent return false");
+            LLog.d(TAG, "onInterceptTouchEvent return false");
             return false;
         }
         final float x = ev.getX();
@@ -176,12 +190,12 @@ public class VDHView extends LinearLayout {
                 final int slop = mViewDragHelper.getTouchSlop();
                 if (ady > slop && adx > ady) {
                     mViewDragHelper.cancel();
-                    LLog.d(TAG, "fuck onInterceptTouchEvent ACTION_MOVE return false");
+                    LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE return false");
                     return false;
                 }
             }
         }
-        LLog.d(TAG, "fuck onInterceptTouchEvent mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap");
+        LLog.d(TAG, "onInterceptTouchEvent mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap");
         return mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
     }
 
@@ -210,7 +224,7 @@ public class VDHView extends LinearLayout {
                 break;
             }
         }
-        LLog.d(TAG, "fuck onTouchEvent: " + (isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y)));
+        LLog.d(TAG, "onTouchEvent: " + (isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y)));
         return isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y);
     }*/
 
@@ -230,7 +244,7 @@ public class VDHView extends LinearLayout {
         mDragRange = getHeight() - headerView.getHeight();
         mAutoBackViewX = headerView.getLeft();
         mAutoBackViewY = headerView.getTop();
-        LLog.d(TAG, "fuck onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
+        LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
     }
 
     private enum State {TOP, BOTTOM, MID}
@@ -260,5 +274,13 @@ public class VDHView extends LinearLayout {
 
     public void setAutoBackToOriginalPosition(boolean autoBackToOriginalPosition) {
         isAutoBackToOriginalPosition = autoBackToOriginalPosition;
+    }
+
+    public void maximize() {
+        mViewDragHelper.smoothSlideViewTo(headerView, 0, 0);
+    }
+
+    public void minimize() {
+        mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getWidth(), screenH - headerView.getHeight());
     }
 }
