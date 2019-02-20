@@ -108,6 +108,10 @@ public class VDHView extends LinearLayout {
             bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
             if (isEnableAlpha) {
                 bodyView.setAlpha(1 - mDragOffset);
+            } else {
+                if (bodyView.getAlpha() != 1f) {
+                    bodyView.setAlpha(1f);
+                }
             }
         }
 
@@ -327,8 +331,21 @@ public class VDHView extends LinearLayout {
 
     public void setEnableAlpha(boolean enableAlpha) {
         isEnableAlpha = enableAlpha;
-        if (isEnableAlpha) {
-            bodyView.setAlpha(0f);
-        }
+    }
+
+    public void setVisibilityHeaderView(int visibilityHeaderView) {
+        headerView.setVisibility(visibilityHeaderView);
+    }
+
+    public int getVisibilityHeaderView() {
+        return headerView.getVisibility();
+    }
+
+    public void setVisibilityBodyView(int visibilityBodyView) {
+        bodyView.setVisibility(visibilityBodyView);
+    }
+
+    public int getVisibilityBodyView() {
+        return bodyView.getVisibility();
     }
 }

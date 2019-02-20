@@ -48,6 +48,26 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 vdhv.setEnableAlpha(!vdhv.isEnableAlpha());
             }
         });
+        findViewById(R.id.bt_4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (vdhv.getVisibilityHeaderView() == View.VISIBLE) {
+                    vdhv.setVisibilityHeaderView(View.GONE);
+                } else {
+                    vdhv.setVisibilityHeaderView(View.VISIBLE);
+                }
+            }
+        });
+        findViewById(R.id.bt_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (vdhv.getVisibilityBodyView() == View.VISIBLE) {
+                    vdhv.setVisibilityBodyView(View.GONE);
+                } else {
+                    vdhv.setVisibilityBodyView(View.VISIBLE);
+                }
+            }
+        });
     }
 
     @Override

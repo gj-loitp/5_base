@@ -35,13 +35,13 @@
                     android:id="@+id/bt_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Toggle auto back" />
+                    android:text="Enable/Disable auto slide back" />
 
                 <Button
                     android:id="@+id/bt_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Toggle enable alpha" />
+                    android:text="Enable/Disable alpha" />
 
                 <Button
                     android:id="@+id/bt_1"
@@ -54,6 +54,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize" />
+
+                <Button
+                    android:id="@+id/bt_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show/Hide header" />
+
+                <Button
+                    android:id="@+id/bt_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show/Hide body" />
 
                 <TextView
                     android:layout_width="match_parent"
