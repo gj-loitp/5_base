@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.layout.dragueur.Direction;
 import vn.loitp.views.layout.dragueur.DraggableView;
 
@@ -19,21 +20,26 @@ public class DragueurActivity extends BaseFontActivity {
         draggableView = (DraggableView) findViewById(R.id.dragueur);
         tv = (TextView) findViewById(R.id.tv);
         draggableView.setRotationEnabled(true);
+        //draggableView.setAnimating(true);
         draggableView.setRotationValue(10f);
+        //draggableView.setDraggable(true);
         draggableView.setDragListener(new DraggableView.DraggableViewListener() {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
+                LLog.d(TAG, "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
+                LLog.d(TAG, "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
+                LLog.d(TAG, "onDraggedEnded " + direction.name());
             }
 
             @Override

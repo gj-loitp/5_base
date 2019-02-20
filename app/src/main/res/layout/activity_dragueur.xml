@@ -6,9 +6,8 @@
 
     <vn.loitp.views.layout.dragueur.DraggableView
         android:id="@+id/dragueur"
-        android:layout_width="@dimen/w_100"
-        android:layout_height="@dimen/w_100"
-        android:layout_centerInParent="true">
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_200">
 
         <ImageView
             android:layout_width="match_parent"
@@ -21,8 +20,8 @@
     <vn.loitp.views.layout.dragueur.DraggableView
         android:layout_width="@dimen/w_100"
         android:layout_height="@dimen/w_100"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true">
 
         <ImageView
