@@ -50,6 +50,7 @@ public class VDHView extends LinearLayout {
         super.onFinishInflate();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
+        bodyView.setVisibility(GONE);
     }
 
     private ViewDragHelper.Callback callback = new ViewDragHelper.Callback() {
@@ -57,7 +58,7 @@ public class VDHView extends LinearLayout {
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             mDragOffset = (float) top / mDragRange;
-            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
+            LLog.d(TAG, "fuck onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
 
             //failed
             //LUIUtil.setMargins(bodyView, 0, top, 0, 0);
@@ -74,8 +75,8 @@ public class VDHView extends LinearLayout {
             headerView.setPivotY(headerView.getHeight());
             headerView.setScaleX(1 - mDragOffset / 2);
             headerView.setScaleY(1 - mDragOffset / 2);
-            bodyView.setAlpha(1 - mDragOffset);
-            requestLayout();*/
+            bodyView.setAlpha(1 - mDragOffset);*/
+            requestLayout();
         }
 
         @Override
@@ -245,7 +246,7 @@ public class VDHView extends LinearLayout {
         mDragRange = getHeight() - headerView.getHeight();
         mAutoBackViewX = headerView.getLeft();
         mAutoBackViewY = headerView.getTop();
-        LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
+        LLog.d(TAG, "fuck onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
     }
 
     private enum State {TOP, BOTTOM, MID}
