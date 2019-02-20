@@ -25,6 +25,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
                 <Button
                     android:id="@+id/bt"
                     android:layout_width="wrap_content"
@@ -54,6 +59,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize" />
+
+                <Button
+                    android:id="@+id/bt_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slide to position" />
 
                 <Button
                     android:id="@+id/bt_4"

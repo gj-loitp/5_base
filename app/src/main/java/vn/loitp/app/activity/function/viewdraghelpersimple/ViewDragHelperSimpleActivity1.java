@@ -11,12 +11,14 @@ import vn.loitp.views.LToast;
 public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements VDHView.Callback {
     private VDHView vdhv;
     private TextView tv0;
+    private TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         vdhv = (VDHView) findViewById(R.id.vdhv);
         tv0 = (TextView) findViewById(R.id.tv_0);
+        tv1 = (TextView) findViewById(R.id.tv_1);
         vdhv.setCallback(this);
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,12 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 vdhv.toggleShowHideBodyView();
             }
         });
+        findViewById(R.id.bt_7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.smoothSlideTo(300, 600);
+            }
+        });
     }
 
     @Override
@@ -80,5 +88,10 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     @Override
     public void onStateChange(VDHView.State state) {
         tv0.setText("onStateChange: " + state.name());
+    }
+
+    @Override
+    public void onViewPositionChanged(int left, int top, float dragOffset) {
+        tv1.setText("onViewPositionChanged left: " + left + ", top: " + top + ", dragOffset: " + dragOffset);
     }
 }

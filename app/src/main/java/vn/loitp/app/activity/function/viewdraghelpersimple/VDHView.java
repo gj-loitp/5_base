@@ -45,6 +45,8 @@ public class VDHView extends LinearLayout {
 
     public interface Callback {
         public void onStateChange(State state);
+
+        public void onViewPositionChanged(int left, int top, float dragOffset);
     }
 
     private Callback callback;
@@ -80,6 +82,12 @@ public class VDHView extends LinearLayout {
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             mDragOffset = (float) top / mDragRange;
+            if (mDragOffset > 1) {
+                mDragOffset = 1;
+            }
+            if (callback != null) {
+                callback.onViewPositionChanged(left, top, mDragOffset);
+            }
             LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
             if (mDragOffset == 0) {
                 if (state != State.TOP) {
@@ -107,7 +115,7 @@ public class VDHView extends LinearLayout {
             int y = headerView.getHeight() + top;
             bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
             if (isEnableAlpha) {
-                bodyView.setAlpha(1 - mDragOffset);
+                bodyView.setAlpha(1 - mDragOffset / 2);
             } else {
                 if (bodyView.getAlpha() != 1f) {
                     bodyView.setAlpha(1f);
@@ -119,11 +127,6 @@ public class VDHView extends LinearLayout {
         public boolean tryCaptureView(View child, int pointerId) {
             return headerView == child;
         }
-
-        /*@Override
-        public int getViewVerticalDragRange(View child) {
-            return mDragRange;
-        }*/
 
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
@@ -171,13 +174,11 @@ public class VDHView extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        //LLog.d(TAG, "onInterceptTouchEvent");
         return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //LLog.d(TAG, "onTouchEvent");
         mViewDragHelper.processTouchEvent(event);
         final float x = event.getX();
         final float y = event.getY();
@@ -246,6 +247,13 @@ public class VDHView extends LinearLayout {
         }
     }
 
+    public void smoothSlideTo(int positionX, int positionY) {
+        if (mViewDragHelper.smoothSlideViewTo(headerView, positionX, positionY)) {
+            ViewCompat.postInvalidateOnAnimation(this);
+            postInvalidate();
+        }
+    }
+
     public boolean isEnableAlpha() {
         return isEnableAlpha;
     }
@@ -261,6 +269,7 @@ public class VDHView extends LinearLayout {
             headerView.setVisibility(VISIBLE);
         }
     }
+
     public void toggleShowHideBodyView() {
         if (bodyView.getVisibility() == VISIBLE) {
             bodyView.setVisibility(INVISIBLE);
