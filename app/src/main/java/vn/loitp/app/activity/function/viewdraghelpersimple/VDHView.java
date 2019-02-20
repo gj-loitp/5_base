@@ -197,85 +197,6 @@ public class VDHView extends LinearLayout {
         return isViewUnder;
     }
 
-    /*@Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        final int action = MotionEventCompat.getActionMasked(ev);
-        if (action != MotionEvent.ACTION_DOWN) {
-            mViewDragHelper.cancel();
-            LLog.d(TAG, "onInterceptTouchEvent return super.onInterceptTouchEven");
-            return super.onInterceptTouchEvent(ev);
-        }
-        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-            mViewDragHelper.cancel();
-            LLog.d(TAG, "onInterceptTouchEvent return false");
-            return false;
-        }
-        final float x = ev.getX();
-        final float y = ev.getY();
-        boolean interceptTap = false;
-        switch (action) {
-            case MotionEvent.ACTION_DOWN: {
-                //LLog.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
-                mInitialMotionX = x;
-                mInitialMotionY = y;
-                interceptTap = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
-                break;
-            }
-            case MotionEvent.ACTION_MOVE: {
-                //LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
-                final float adx = Math.abs(x - mInitialMotionX);
-                final float ady = Math.abs(y - mInitialMotionY);
-                final int slop = mViewDragHelper.getTouchSlop();
-                if (ady > slop && adx > ady) {
-                    mViewDragHelper.cancel();
-                    LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE return false");
-                    return false;
-                }
-            }
-        }
-        LLog.d(TAG, "onInterceptTouchEvent mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap");
-        return mViewDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        mViewDragHelper.processTouchEvent(ev);
-        final int action = ev.getAction();
-        final float x = ev.getX();
-        final float y = ev.getY();
-        boolean isHeaderViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
-        //LLog.d(TAG, "onTouchEvent isHeaderViewUnder: " + isHeaderViewUnder);
-        switch (action & MotionEventCompat.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN: {
-                mInitialMotionX = x;
-                mInitialMotionY = y;
-                LLog.d(TAG, "onTouchEvent ACTION_DOWN");
-                break;
-            }
-            case MotionEvent.ACTION_UP: {
-                LLog.d(TAG, "onTouchEvent ACTION_UP");
-                *//*if (mDragOffset < 0.5f) {
-                    smoothSlideTo(0f);
-                } else {
-                    smoothSlideTo(1f);
-                }*//*
-                break;
-            }
-        }
-        LLog.d(TAG, "onTouchEvent: " + (isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y)));
-        return isHeaderViewUnder && isViewHit(headerView, (int) x, (int) y) || isViewHit(bodyView, (int) x, (int) y);
-    }*/
-
-    private boolean isViewHit(View view, int x, int y) {
-        int[] viewLocation = new int[2];
-        view.getLocationOnScreen(viewLocation);
-        int[] parentLocation = new int[2];
-        this.getLocationOnScreen(parentLocation);
-        int screenX = parentLocation[0] + x;
-        int screenY = parentLocation[1] + y;
-        return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.getWidth() && screenY >= viewLocation[1] && screenY < viewLocation[1] + view.getHeight();
-    }
-
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
@@ -319,7 +240,7 @@ public class VDHView extends LinearLayout {
     }
 
     public void minimize() {
-        if (mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getWidth(), screenH - headerView.getHeight())) {
+        if (mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getMeasuredWidth(), screenH - headerView.getMeasuredHeight())) {
             ViewCompat.postInvalidateOnAnimation(this);
             postInvalidate();
         }
@@ -333,19 +254,18 @@ public class VDHView extends LinearLayout {
         isEnableAlpha = enableAlpha;
     }
 
-    public void setVisibilityHeaderView(int visibilityHeaderView) {
-        headerView.setVisibility(visibilityHeaderView);
+    public void toggleShowHideHeaderView() {
+        if (headerView.getVisibility() == VISIBLE) {
+            headerView.setVisibility(INVISIBLE);
+        } else {
+            headerView.setVisibility(VISIBLE);
+        }
     }
-
-    public int getVisibilityHeaderView() {
-        return headerView.getVisibility();
-    }
-
-    public void setVisibilityBodyView(int visibilityBodyView) {
-        bodyView.setVisibility(visibilityBodyView);
-    }
-
-    public int getVisibilityBodyView() {
-        return bodyView.getVisibility();
+    public void toggleShowHideBodyView() {
+        if (bodyView.getVisibility() == VISIBLE) {
+            bodyView.setVisibility(INVISIBLE);
+        } else {
+            bodyView.setVisibility(VISIBLE);
+        }
     }
 }
