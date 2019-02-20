@@ -28,6 +28,7 @@ public class VDHView extends LinearLayout {
     private float mDragOffset;
     private int screenW;
     private int screenH;
+    private boolean isEnableAlpha = true;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -42,11 +43,21 @@ public class VDHView extends LinearLayout {
         initView();
     }
 
+    public interface Callback {
+        public void onStateChange(State state);
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+    }
+
     private void initView() {
         screenW = LScreenUtil.getScreenWidth();
         screenH = LScreenUtil.getScreenHeight();
         LLog.d(TAG, "fuck initView screenW x screenH: " + screenW + " x " + screenH);
-        mViewDragHelper = ViewDragHelper.create(this, 1.0f, callback);
+        mViewDragHelper = ViewDragHelper.create(this, 1.0f, mCallback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
 
@@ -64,17 +75,40 @@ public class VDHView extends LinearLayout {
         });
     }
 
-    private ViewDragHelper.Callback callback = new ViewDragHelper.Callback() {
+    private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             mDragOffset = (float) top / mDragRange;
             LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset);
-
+            if (mDragOffset == 0) {
+                if (state != State.TOP) {
+                    state = State.TOP;
+                    if (callback != null) {
+                        callback.onStateChange(state);
+                    }
+                }
+            } else if (mDragOffset == 1) {
+                if (state != State.BOTTOM) {
+                    state = State.BOTTOM;
+                    if (callback != null) {
+                        callback.onStateChange(state);
+                    }
+                }
+            } else {
+                if (state != State.MID) {
+                    state = State.MID;
+                    if (callback != null) {
+                        callback.onStateChange(state);
+                    }
+                }
+            }
             int x = 0;
             int y = headerView.getHeight() + top;
             bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
-            bodyView.setAlpha(1 - mDragOffset);
+            if (isEnableAlpha) {
+                bodyView.setAlpha(1 - mDragOffset);
+            }
         }
 
         @Override
@@ -247,22 +281,19 @@ public class VDHView extends LinearLayout {
         LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
     }
 
-    private enum State {TOP, BOTTOM, MID}
+    public enum State {TOP, BOTTOM, MID}
 
     private State state;
 
     private void isPositionTop() {
-        //LLog.d(TAG, "onViewPositionChanged TOP");
         state = State.TOP;
     }
 
     private void isPositionBottom() {
-        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
         state = State.BOTTOM;
     }
 
     private void isPositionMid() {
-        //LLog.d(TAG, "onViewPositionChanged MID");
         state = State.MID;
     }
 
@@ -282,5 +313,16 @@ public class VDHView extends LinearLayout {
 
     public void minimize() {
         mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getWidth(), screenH - headerView.getHeight());
+    }
+
+    public boolean isEnableAlpha() {
+        return isEnableAlpha;
+    }
+
+    public void setEnableAlpha(boolean enableAlpha) {
+        isEnableAlpha = enableAlpha;
+        if (isEnableAlpha) {
+            bodyView.setAlpha(1f);
+        }
     }
 }

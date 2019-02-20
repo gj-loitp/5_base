@@ -2,18 +2,22 @@ package vn.loitp.app.activity.function.viewdraghelpersimple;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
-public class ViewDragHelperSimpleActivity1 extends BaseFontActivity {
+public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements VDHView.Callback {
     private VDHView vdhv;
+    private TextView tv0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         vdhv = (VDHView) findViewById(R.id.vdhv);
+        tv0 = (TextView) findViewById(R.id.tv_0);
+        vdhv.setCallback(this);
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +42,12 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity {
                 vdhv.maximize();
             }
         });
+        findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.setEnableAlpha(!vdhv.isEnableAlpha());
+            }
+        });
     }
 
     @Override
@@ -53,5 +63,10 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity {
     @Override
     protected int setLayoutResourceId() {
         return R.layout.activity_view_draghelper_simple_1;
+    }
+
+    @Override
+    public void onStateChange(VDHView.State state) {
+        tv0.setText("onStateChange: " + state.name());
     }
 }

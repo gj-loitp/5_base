@@ -20,6 +20,11 @@
                 android:gravity="right"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/tv_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
                 <Button
                     android:id="@+id/bt"
                     android:layout_width="wrap_content"
@@ -30,7 +35,13 @@
                     android:id="@+id/bt_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Set auto back" />
+                    android:text="Toggle auto back" />
+
+                <Button
+                    android:id="@+id/bt_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle enable alpha" />
 
                 <Button
                     android:id="@+id/bt_1"
