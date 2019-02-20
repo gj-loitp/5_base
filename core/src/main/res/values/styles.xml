@@ -50,14 +50,18 @@
 
     <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:background">@color/black_35</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+    </style>
 
     <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">false</item>
