@@ -39,7 +39,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                vdhv.maximize();
+                vdhv.minimize();
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {

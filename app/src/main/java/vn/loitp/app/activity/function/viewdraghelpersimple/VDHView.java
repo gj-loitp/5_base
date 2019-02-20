@@ -308,11 +308,17 @@ public class VDHView extends LinearLayout {
     }
 
     public void maximize() {
-        mViewDragHelper.smoothSlideViewTo(headerView, 0, 0);
+        if (mViewDragHelper.smoothSlideViewTo(headerView, 0, 0)) {
+            ViewCompat.postInvalidateOnAnimation(this);
+            postInvalidate();
+        }
     }
 
     public void minimize() {
-        mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getWidth(), screenH - headerView.getHeight());
+        if (mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getWidth(), screenH - headerView.getHeight())) {
+            ViewCompat.postInvalidateOnAnimation(this);
+            postInvalidate();
+        }
     }
 
     public boolean isEnableAlpha() {
@@ -322,7 +328,7 @@ public class VDHView extends LinearLayout {
     public void setEnableAlpha(boolean enableAlpha) {
         isEnableAlpha = enableAlpha;
         if (isEnableAlpha) {
-            bodyView.setAlpha(1f);
+            bodyView.setAlpha(0f);
         }
     }
 }
