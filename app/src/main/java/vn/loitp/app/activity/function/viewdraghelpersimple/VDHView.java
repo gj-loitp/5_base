@@ -227,7 +227,7 @@ public class VDHView extends LinearLayout {
     private void changeState(State newState) {
         if (state != newState) {
             state = newState;
-            //LLog.d(TAG, "changeState: " + newState);
+            LLog.d(TAG, "changeState: " + newState);
             if (callback != null) {
                 callback.onStateChange(state);
             }
