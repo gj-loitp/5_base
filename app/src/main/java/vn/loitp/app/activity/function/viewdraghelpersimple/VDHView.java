@@ -31,6 +31,8 @@ public class VDHView extends LinearLayout {
     private int sizeHHeaderViewOriginal;
     private int sizeWHeaderViewMin;
     private int sizeHHeaderViewMin;
+    private int newSizeWHeaderView;
+    private int newSizeHHeaderView;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -138,19 +140,15 @@ public class VDHView extends LinearLayout {
                 }
             }
 
-            //float sizeWhenSlide = (1 - mDragOffset / 2) * headerView.getWidth();
-            //LLog.d(TAG, "onViewPositionChanged mDragOffset: " + mDragOffset + " -> sizeWhenSlide: " + sizeWhenSlide);
-
             //work
             headerView.setPivotX(headerView.getWidth() / 2f);
             headerView.setPivotY(headerView.getHeight());
             headerView.setScaleX(1 - mDragOffset / 2);
             headerView.setScaleY(1 - mDragOffset / 2);
 
-            int newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
-            int newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
-
-            LLog.d(TAG, "fuck newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
+            newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
+            newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
+            //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
         }
 
         @Override
