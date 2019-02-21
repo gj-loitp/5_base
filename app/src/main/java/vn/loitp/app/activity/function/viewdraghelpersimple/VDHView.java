@@ -26,7 +26,8 @@ public class VDHView extends LinearLayout {
     private int mDragRange;
     private float mDragOffset;
     private boolean isEnableAlpha = true;
-
+    private boolean isEnableRevertMaxSize;
+    private boolean isMinimized;//header view is scaled at least 1
     private int sizeWHeaderViewOriginal;
     private int sizeHHeaderViewOriginal;
     private int sizeWHeaderViewMin;
@@ -112,11 +113,22 @@ public class VDHView extends LinearLayout {
                 }
             }
 
-            //work
-            headerView.setPivotX(headerView.getWidth() / 2f);
-            headerView.setPivotY(headerView.getHeight());
-            headerView.setScaleX(1 - mDragOffset / 2);
-            headerView.setScaleY(1 - mDragOffset / 2);
+            if (isMinimized) {
+                //TODO
+                if (isEnableRevertMaxSize) {
+                    headerView.setPivotX(headerView.getWidth() / 2f);
+                    headerView.setPivotY(headerView.getHeight());
+                    headerView.setScaleX(1 - mDragOffset / 2);
+                    headerView.setScaleY(1 - mDragOffset / 2);
+                } else {
+
+                }
+            } else {
+                headerView.setPivotX(headerView.getWidth() / 2f);
+                headerView.setPivotY(headerView.getHeight());
+                headerView.setScaleX(1 - mDragOffset / 2);
+                headerView.setScaleY(1 - mDragOffset / 2);
+            }
 
             newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
             newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
@@ -135,8 +147,10 @@ public class VDHView extends LinearLayout {
             } else if (mDragOffset == 1) {
                 //bottom
                 if (centerPosX <= 0) {
+                    isMinimized = true;
                     changeState(State.BOTTOM_LEFT);
                 } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
+                    isMinimized = true;
                     changeState(State.BOTTOM_RIGHT);
                 } else {
                     changeState(State.BOTTOM);
@@ -301,7 +315,7 @@ public class VDHView extends LinearLayout {
     }
 
     public void minimizeBottomLeft() {
-        int posX = getWidth() - sizeWHeaderViewOriginal - sizeWHeaderViewMin;
+        int posX = getWidth() - sizeWHeaderViewOriginal - sizeWHeaderViewMin / 2;
         int posY = getHeight() - sizeHHeaderViewOriginal;
         //LLog.d(TAG, "minimize " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
@@ -327,6 +341,14 @@ public class VDHView extends LinearLayout {
 
     public void setEnableAlpha(boolean enableAlpha) {
         isEnableAlpha = enableAlpha;
+    }
+
+    public boolean isEnableRevertMaxSize() {
+        return isEnableRevertMaxSize;
+    }
+
+    public void setEnableRevertMaxSize(boolean enableRevertMaxSize) {
+        isEnableRevertMaxSize = enableRevertMaxSize;
     }
 
     public void toggleShowHideHeaderView() {

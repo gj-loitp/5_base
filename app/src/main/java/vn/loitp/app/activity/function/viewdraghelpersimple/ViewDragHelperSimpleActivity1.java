@@ -74,6 +74,12 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 vdhv.smoothSlideTo(300, 600);
             }
         });
+        findViewById(R.id.bt_8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.setEnableRevertMaxSize(!vdhv.isEnableRevertMaxSize());
+            }
+        });
     }
 
     @Override

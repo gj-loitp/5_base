@@ -53,6 +53,12 @@
                     android:text="Enable/Disable alpha" />
 
                 <Button
+                    android:id="@+id/bt_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable/Disable isEnableRevertMaxSize" />
+
+                <Button
                     android:id="@+id/bt_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,7 +111,7 @@
 
         <ImageView
             android:id="@+id/header_view"
-            android:layout_width="@dimen/w_300"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/w_200"
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />
