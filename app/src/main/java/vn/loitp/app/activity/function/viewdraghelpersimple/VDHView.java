@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -26,8 +25,6 @@ public class VDHView extends LinearLayout {
     //private float mInitialMotionY;
     private int mDragRange;
     private float mDragOffset;
-    private int screenW;
-    private int screenH;
     private boolean isEnableAlpha = true;
 
     public VDHView(@NonNull Context context) {
@@ -56,9 +53,6 @@ public class VDHView extends LinearLayout {
     }
 
     private void initView() {
-        screenW = LScreenUtil.getScreenWidth();
-        screenH = LScreenUtil.getScreenHeight();
-        LLog.d(TAG, "initView screenW x screenH: " + screenW + " x " + screenH);
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, mCallback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
@@ -83,6 +77,7 @@ public class VDHView extends LinearLayout {
         });*/
     }
 
+    private boolean isLeftPart;
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
@@ -103,7 +98,7 @@ public class VDHView extends LinearLayout {
                 //top
                 if (left == 0) {
                     changeState(State.TOP_LEFT);
-                } else if (left == screenW - headerView.getWidth()) {
+                } else if (left == getWidth() - headerView.getWidth()) {
                     changeState(State.TOP_RIGHT);
                 } else {
                     changeState(State.TOP);
@@ -112,7 +107,7 @@ public class VDHView extends LinearLayout {
                 //bottom
                 if (left == 0) {
                     changeState(State.BOTTOM_LEFT);
-                } else if (left == screenW - headerView.getWidth()) {
+                } else if (left == getWidth() - headerView.getWidth()) {
                     changeState(State.BOTTOM_RIGHT);
                 } else {
                     changeState(State.BOTTOM);
@@ -120,12 +115,20 @@ public class VDHView extends LinearLayout {
             } else {
                 //mid
                 if (left == 0) {
+                    isLeftPart = true;
                     changeState(State.LEFT);
-                } else if (left == screenW - headerView.getWidth()) {
+                } else if (left == getWidth() - headerView.getWidth()) {
+                    isLeftPart = false;
                     changeState(State.RIGHT);
                 } else {
+                    if (left + headerView.getWidth() / 2 <= getWidth() / 2) {
+                        isLeftPart = true;
+                    } else {
+                        isLeftPart = false;
+                    }
                     changeState(State.MID);
                 }
+                LLog.d(TAG, "fuck isLeftPart: " + isLeftPart);
             }
             int x = 0;
             int y = headerView.getHeight() + top;
@@ -142,11 +145,12 @@ public class VDHView extends LinearLayout {
             //LLog.d(TAG, "onViewPositionChanged mDragOffset: " + mDragOffset + " -> sizeWhenSlide: " + sizeWhenSlide);
 
             //work
-            /*headerView.setPivotX(headerView.getWidth());
+            headerView.setPivotX(headerView.getWidth() / 2f);
             headerView.setPivotY(headerView.getHeight());
             headerView.setScaleX(1 - mDragOffset / 2);
-            headerView.setScaleY(1 - mDragOffset / 2);*/
-            if (left + headerView.getWidth() / 2 <= screenW / 2) {
+            headerView.setScaleY(1 - mDragOffset / 2);
+
+            /*if (isLeftPart) {
                 headerView.setPivotX(0);
                 headerView.setPivotY(headerView.getHeight());
                 headerView.setScaleX(1 - mDragOffset / 2);
@@ -156,7 +160,7 @@ public class VDHView extends LinearLayout {
                 headerView.setPivotY(headerView.getHeight());
                 headerView.setScaleX(1 - mDragOffset / 2);
                 headerView.setScaleY(1 - mDragOffset / 2);
-            }
+            }*/
         }
 
         @Override
@@ -165,7 +169,34 @@ public class VDHView extends LinearLayout {
         }
 
         @Override
+        public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
+            int minY = -child.getHeight() / 2;
+            int maxY = getHeight() - child.getHeight() ;
+            if (top <= minY) {
+                return minY;
+            } else if (top > maxY) {
+                return maxY;
+            } else {
+                return top;
+            }
+        }
+
+        @Override
+        public int clampViewPositionHorizontal(@NonNull View child, int left, int dx) {
+            int minX = -child.getWidth() / 2;
+            int maxX = getWidth() - child.getWidth() / 2;
+            if (left <= minX) {
+                return minX;
+            } else if (left > maxX) {
+                return maxX;
+            } else {
+                return left;
+            }
+        }
+
+        /*@Override
         public int clampViewPositionVertical(View child, int top, int dy) {
+            //return super.clampViewPositionVertical(child, top, dy);
             int rangeY = getHeight() - child.getHeight();
             if (top <= 0) {
                 return 0;
@@ -174,10 +205,11 @@ public class VDHView extends LinearLayout {
             } else {
                 return top;
             }
-        }
+        }*/
 
-        @Override
+        /*@Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
+            //return super.clampViewPositionHorizontal(child, left, dx);
             int rangeX = getWidth() - child.getWidth();
             if (left <= 0) {
                 return 0;
@@ -186,7 +218,7 @@ public class VDHView extends LinearLayout {
             } else {
                 return left;
             }
-        }
+        }*/
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
@@ -279,7 +311,7 @@ public class VDHView extends LinearLayout {
     }
 
     public void minimize() {
-        if (mViewDragHelper.smoothSlideViewTo(headerView, screenW - headerView.getMeasuredWidth(), screenH - headerView.getMeasuredHeight())) {
+        if (mViewDragHelper.smoothSlideViewTo(headerView, getWidth() - headerView.getMeasuredWidth(), getHeight() - headerView.getMeasuredHeight())) {
             ViewCompat.postInvalidateOnAnimation(this);
             postInvalidate();
         }
