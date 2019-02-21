@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,7 +27,7 @@ public class VDHView extends LinearLayout {
     private int mDragRange;
     private float mDragOffset;
     private boolean isEnableAlpha = true;
-    private boolean isEnableRevertMaxSize;
+    private boolean isEnableRevertMaxSize = true;
     private boolean isMinimized;//header view is scaled at least 1
     private int sizeWHeaderViewOriginal;
     private int sizeHHeaderViewOriginal;
@@ -114,7 +115,6 @@ public class VDHView extends LinearLayout {
             }
 
             if (isMinimized) {
-                //TODO
                 if (isEnableRevertMaxSize) {
                     headerView.setPivotX(headerView.getWidth() / 2f);
                     headerView.setPivotY(headerView.getHeight());
@@ -153,6 +153,7 @@ public class VDHView extends LinearLayout {
                     isMinimized = true;
                     changeState(State.BOTTOM_RIGHT);
                 } else {
+                    isMinimized = true;
                     changeState(State.BOTTOM);
                 }
             } else {
@@ -311,7 +312,11 @@ public class VDHView extends LinearLayout {
     }
 
     public void maximize() {
-        smoothSlideTo(0, 0);
+        if (isEnableRevertMaxSize) {
+            smoothSlideTo(0, 0);
+        } else {
+            Log.e(TAG, "Error: cannot maximize because isEnableRevertMaxSize is true");
+        }
     }
 
     public void minimizeBottomLeft() {
@@ -324,7 +329,22 @@ public class VDHView extends LinearLayout {
     public void minimizeBottomRight() {
         int posX = getWidth() - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2;
         int posY = getHeight() - sizeHHeaderViewOriginal;
-        LLog.d(TAG, "minimize " + posX + "x" + posY);
+        //LLog.d(TAG, "minimize " + posX + "x" + posY);
+        smoothSlideTo(posX, posY);
+    }
+
+    public void minimizeTopRight() {
+        if (isEnableRevertMaxSize) {
+            Log.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true");
+            return;
+        }
+        if (!isMinimized) {
+            Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM");
+            return;
+        }
+        int posX = getWidth() - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2;
+        int posY = -sizeHHeaderViewOriginal / 2;
+        LLog.d(TAG, "fuck minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
     }
 
@@ -333,6 +353,10 @@ public class VDHView extends LinearLayout {
             ViewCompat.postInvalidateOnAnimation(this);
             postInvalidate();
         }
+    }
+
+    public boolean isMinimized() {
+        return isMinimized;
     }
 
     public boolean isEnableAlpha() {
