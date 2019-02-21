@@ -127,6 +127,6 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     protected void onPause() {
         super.onPause();
         //TODO neu dang hien thi an
-        vdhv.minimizeBottomRight();
+        //vdhv.minimizeBottomRight();
     }
 }
