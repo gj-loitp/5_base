@@ -95,7 +95,7 @@ public class VDHView extends LinearLayout {
             if (callback != null) {
                 callback.onViewPositionChanged(left, top, mDragOffset);
             }
-            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
+            //LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
             int centerPosX = left + headerView.getWidth() / 2;
             if (mDragOffset == 0) {
                 //top
@@ -222,7 +222,7 @@ public class VDHView extends LinearLayout {
     private void changeState(State newState) {
         if (state != newState) {
             state = newState;
-            LLog.d(TAG, "fuck changeState: " + newState);
+            //LLog.d(TAG, "changeState: " + newState);
             if (callback != null) {
                 callback.onStateChange(state);
             }
@@ -247,7 +247,7 @@ public class VDHView extends LinearLayout {
         final float x = event.getX();
         final float y = event.getY();
         boolean isViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
-        LLog.d(TAG, "onTouchEvent isViewUnder: " + isViewUnder);
+        //LLog.d(TAG, "onTouchEvent isViewUnder: " + isViewUnder);
         /*switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN touch:" + x + " x " + y);
@@ -268,7 +268,7 @@ public class VDHView extends LinearLayout {
         mDragRange = getHeight() - headerView.getHeight();
         mAutoBackViewX = headerView.getLeft();
         mAutoBackViewY = headerView.getTop();
-        LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
+        //LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
     }
 
     public enum State {TOP, BOTTOM, LEFT, RIGHT, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, MID}
