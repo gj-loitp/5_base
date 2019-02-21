@@ -121,6 +121,11 @@ public class VDHView extends LinearLayout {
                     bodyView.setAlpha(1f);
                 }
             }
+            headerView.setPivotX(headerView.getWidth());
+            headerView.setPivotY(headerView.getHeight());
+            headerView.setScaleX(1 - mDragOffset / 2);
+            headerView.setScaleY(1 - mDragOffset / 2);
+            //requestLayout();
         }
 
         @Override
