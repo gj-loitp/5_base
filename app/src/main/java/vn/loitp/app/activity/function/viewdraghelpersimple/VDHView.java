@@ -58,7 +58,7 @@ public class VDHView extends LinearLayout {
     private void initView() {
         screenW = LScreenUtil.getScreenWidth();
         screenH = LScreenUtil.getScreenHeight();
-        LLog.d(TAG, "fuck initView screenW x screenH: " + screenW + " x " + screenH);
+        LLog.d(TAG, "initView screenW x screenH: " + screenW + " x " + screenH);
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, mCallback);
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
@@ -68,20 +68,24 @@ public class VDHView extends LinearLayout {
         super.onFinishInflate();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
-        headerView.post(new Runnable() {
+        /*headerView.post(new Runnable() {
             @Override
             public void run() {
-                LLog.d(TAG, "fuck onFinishInflate size headerView: " + headerView.getMeasuredWidth() + "x" + headerView.getMeasuredHeight());
-                LLog.d(TAG, "fuck onFinishInflate size bodyView: " + bodyView.getMeasuredWidth() + "x" + bodyView.getMeasuredHeight());
+                LLog.d(TAG, "onFinishInflate size headerView: " + headerView.getMeasuredWidth() + "x" + headerView.getMeasuredHeight());
+                LLog.d(TAG, "onFinishInflate size bodyView: " + bodyView.getMeasuredWidth() + "x" + bodyView.getMeasuredHeight());
             }
-        });
+        });*/
     }
 
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
-            mDragOffset = (float) top / mDragRange;
+            if (mDragOffset == (float) top / mDragRange) {
+                return;
+            } else {
+                mDragOffset = (float) top / mDragRange;
+            }
             if (mDragOffset > 1) {
                 mDragOffset = 1;
             }
@@ -121,11 +125,14 @@ public class VDHView extends LinearLayout {
                     bodyView.setAlpha(1f);
                 }
             }
-            headerView.setPivotX(headerView.getWidth());
-            headerView.setPivotY(headerView.getHeight());
-            headerView.setScaleX(1 - mDragOffset / 2);
-            headerView.setScaleY(1 - mDragOffset / 2);
-            //requestLayout();
+
+            //work
+            //headerView.setPivotX(headerView.getWidth());
+            //headerView.setPivotY(headerView.getHeight());
+            //headerView.setScaleX(1 - mDragOffset / 2);
+            //headerView.setScaleY(1 - mDragOffset / 2);
+            float sizeWhenSlide = (1 - mDragOffset / 2) * headerView.getWidth();
+            LLog.d(TAG, "fuck onViewPositionChanged mDragOffset: " + mDragOffset + " -> sizeWhenSlide: " + sizeWhenSlide);
         }
 
         @Override
