@@ -77,7 +77,6 @@ public class VDHView extends LinearLayout {
         });*/
     }
 
-    //private boolean isLeftPart;
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
@@ -90,45 +89,43 @@ public class VDHView extends LinearLayout {
             if (mDragOffset > 1) {
                 mDragOffset = 1;
             }
+            if (mDragOffset < 0) {
+                mDragOffset = 0;
+            }
             if (callback != null) {
                 callback.onViewPositionChanged(left, top, mDragOffset);
             }
             LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
             if (mDragOffset == 0) {
                 //top
-                if (left == 0) {
+                int centerPosW = left + headerView.getWidth() / 2;
+                if (centerPosW == 0) {
                     changeState(State.TOP_LEFT);
-                } else if (left == getWidth() - headerView.getWidth()) {
+                } else if (centerPosW == getWidth() - headerView.getWidth() / 2) {
                     changeState(State.TOP_RIGHT);
                 } else {
                     changeState(State.TOP);
                 }
             } else if (mDragOffset == 1) {
                 //bottom
-                if (left == 0) {
+                int centerPosX = left + headerView.getWidth() / 2;
+                if (centerPosX == 0) {
                     changeState(State.BOTTOM_LEFT);
-                } else if (left == getWidth() - headerView.getWidth()) {
+                } else if (centerPosX == getWidth() - headerView.getWidth() / 2) {
                     changeState(State.BOTTOM_RIGHT);
                 } else {
                     changeState(State.BOTTOM);
                 }
             } else {
                 //mid
-                if (left == 0) {
-                    //isLeftPart = true;
+                int centerPosX = left + headerView.getWidth() / 2;
+                if (centerPosX == 0) {
                     changeState(State.LEFT);
-                } else if (left == getWidth() - headerView.getWidth()) {
-                    //isLeftPart = false;
+                } else if (centerPosX == getWidth() - headerView.getWidth() / 2) {
                     changeState(State.RIGHT);
                 } else {
-                    /*if (left + headerView.getWidth() / 2 <= getWidth() / 2) {
-                        isLeftPart = true;
-                    } else {
-                        isLeftPart = false;
-                    }*/
                     changeState(State.MID);
                 }
-                //LLog.d(TAG, "fuck isLeftPart: " + isLeftPart);
             }
             int x = 0;
             int y = headerView.getHeight() + top;
@@ -149,18 +146,6 @@ public class VDHView extends LinearLayout {
             headerView.setPivotY(headerView.getHeight());
             headerView.setScaleX(1 - mDragOffset / 2);
             headerView.setScaleY(1 - mDragOffset / 2);
-
-            /*if (isLeftPart) {
-                headerView.setPivotX(0);
-                headerView.setPivotY(headerView.getHeight());
-                headerView.setScaleX(1 - mDragOffset / 2);
-                headerView.setScaleY(1 - mDragOffset / 2);
-            } else {
-                headerView.setPivotX(headerView.getWidth());
-                headerView.setPivotY(headerView.getHeight());
-                headerView.setScaleX(1 - mDragOffset / 2);
-                headerView.setScaleY(1 - mDragOffset / 2);
-            }*/
         }
 
         @Override
