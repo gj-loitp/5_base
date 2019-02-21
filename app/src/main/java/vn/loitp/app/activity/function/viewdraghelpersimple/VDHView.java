@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -35,6 +36,8 @@ public class VDHView extends LinearLayout {
     private int sizeHHeaderViewMin;
     private int newSizeWHeaderView;
     private int newSizeHHeaderView;
+    private int mTop;
+    private int mLeft;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -87,6 +90,8 @@ public class VDHView extends LinearLayout {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
+            mLeft = left;
+            mTop = top;
             if (mDragOffset == (float) top / mDragRange) {
                 return;
             } else {
@@ -134,12 +139,12 @@ public class VDHView extends LinearLayout {
             newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
             //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
 
-            int centerPosX = left + headerView.getWidth() / 2;
+            int centerPosX = left + newSizeWHeaderView / 2;
             if (mDragOffset == 0) {
                 //top
                 if (centerPosX <= 0) {
                     changeState(State.TOP_LEFT);
-                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
                     changeState(State.TOP_RIGHT);
                 } else {
                     changeState(State.TOP);
@@ -149,7 +154,7 @@ public class VDHView extends LinearLayout {
                 if (centerPosX <= 0) {
                     isMinimized = true;
                     changeState(State.BOTTOM_LEFT);
-                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
                     isMinimized = true;
                     changeState(State.BOTTOM_RIGHT);
                 } else {
@@ -160,7 +165,7 @@ public class VDHView extends LinearLayout {
                 //mid
                 if (centerPosX <= 0) {
                     changeState(State.LEFT);
-                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
                     changeState(State.RIGHT);
                 } else {
                     changeState(State.MID);
@@ -175,7 +180,12 @@ public class VDHView extends LinearLayout {
 
         @Override
         public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
-            int minY = -child.getHeight() / 2;
+            int minY;
+            if (isEnableRevertMaxSize) {
+                minY = -child.getHeight() / 2;
+            } else {
+                minY = -child.getHeight() * 3 / 2;
+            }
             float scaledY = child.getScaleY();
             int sizeHScaled = (int) (scaledY * child.getHeight());
             int maxY = getHeight() - sizeHScaled * 3 / 2;
@@ -270,17 +280,75 @@ public class VDHView extends LinearLayout {
         final float y = event.getY();
         boolean isViewUnder = mViewDragHelper.isViewUnder(headerView, (int) x, (int) y);
         //LLog.d(TAG, "onTouchEvent isViewUnder: " + isViewUnder);
-        /*switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN: {
+        switch (event.getAction() & MotionEventCompat.ACTION_MASK) {
+            /*case MotionEvent.ACTION_DOWN: {
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN touch:" + x + " x " + y);
                 LLog.d(TAG, "onTouchEvent ACTION_DOWN isViewUnder:" + isViewUnder);
                 break;
-            }
+            }*/
             case MotionEvent.ACTION_UP: {
-                LLog.d(TAG, "onTouchEvent ACTION_UP isViewUnder:" + isViewUnder);
+                int mCenterX = mLeft + headerView.getWidth() / 2;
+                LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mLeft: " + mLeft + ", mTop: " + mTop + ", mCenterX: " + mCenterX);
+                if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
+                    //TODO iplm
+                    LLog.d(TAG, "fuck destroy state: " + state.name());
+                } else if (state == State.TOP) {
+                    if (isEnableRevertMaxSize) {
+                        maximize();
+                    } else {
+                        if (isMinimized) {
+                            if (mCenterX <= getWidth() / 2) {
+                                //left part
+                                minimizeTopLeft();
+                            } else {
+                                //right part
+                                minimizeTopRight();
+                            }
+                        }
+                    }
+                } else if (state == State.BOTTOM) {
+                    if (mCenterX <= getWidth() / 2) {
+                        //left part
+                        minimizeBottomLeft();
+                    } else {
+                        //right part
+                        minimizeBottomRight();
+                    }
+                } else {
+                    int mCenterY = mTop + headerView.getHeight() / 2;
+                    if (mCenterX <= getWidth() / 2) {
+                        if (mCenterY <= getHeight() / 2) {
+                            if (isEnableRevertMaxSize) {
+                                maximize();
+                            } else {
+                                if (isMinimized) {
+                                    //top left
+                                    minimizeTopLeft();
+                                }
+                            }
+                        } else {
+                            //bottom left
+                            minimizeBottomLeft();
+                        }
+                    } else {
+                        if (mCenterY <= getHeight() / 2) {
+                            if (isEnableRevertMaxSize) {
+                                maximize();
+                            } else {
+                                if (isMinimized) {
+                                    //top right
+                                    minimizeTopRight();
+                                }
+                            }
+                        } else {
+                            //bottom right
+                            minimizeBottomRight();
+                        }
+                    }
+                }
                 break;
             }
-        }*/
+        }
         return isViewUnder;
     }
 
@@ -343,9 +411,13 @@ public class VDHView extends LinearLayout {
             return;
         }
         int posX = getWidth() - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2;
-        int posY = -sizeHHeaderViewOriginal / 2;
+        int posY = -sizeHHeaderViewOriginal * 2;
         LLog.d(TAG, "fuck minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
+    }
+
+    public void minimizeTopLeft() {
+
     }
 
     public void smoothSlideTo(int positionX, int positionY) {

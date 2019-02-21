@@ -122,4 +122,10 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     public void onViewPositionChanged(int left, int top, float dragOffset) {
         tv1.setText("onViewPositionChanged left: " + left + ", top: " + top + ", dragOffset: " + dragOffset);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        vdhv.minimizeBottomRight();
+    }
 }
