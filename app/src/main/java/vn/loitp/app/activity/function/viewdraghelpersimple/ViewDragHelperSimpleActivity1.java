@@ -38,10 +38,16 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 vdhv.maximize();
             }
         });
-        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_2_left).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                vdhv.minimize();
+                vdhv.minimizeBottomLeft();
+            }
+        });
+        findViewById(R.id.bt_2_right).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.minimizeBottomRight();
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {

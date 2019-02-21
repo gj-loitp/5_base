@@ -27,6 +27,11 @@ public class VDHView extends LinearLayout {
     private float mDragOffset;
     private boolean isEnableAlpha = true;
 
+    private int sizeWHeaderViewOriginal;
+    private int sizeHHeaderViewOriginal;
+    private int sizeWHeaderViewMin;
+    private int sizeHHeaderViewMin;
+
     public VDHView(@NonNull Context context) {
         this(context, null);
     }
@@ -62,19 +67,16 @@ public class VDHView extends LinearLayout {
         super.onFinishInflate();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
-        /*headerView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LToast.showShort(getContext(), "Size: " + view.getWidth() + " x " + view.getHeight());
-            }
-        });*/
-        /*headerView.post(new Runnable() {
+        headerView.post(new Runnable() {
             @Override
             public void run() {
-                LLog.d(TAG, "onFinishInflate size headerView: " + headerView.getMeasuredWidth() + "x" + headerView.getMeasuredHeight());
-                LLog.d(TAG, "onFinishInflate size bodyView: " + bodyView.getMeasuredWidth() + "x" + bodyView.getMeasuredHeight());
+                sizeWHeaderViewOriginal = headerView.getMeasuredWidth();
+                sizeHHeaderViewOriginal = headerView.getMeasuredHeight();
+                sizeWHeaderViewMin = sizeWHeaderViewOriginal / 2;
+                sizeHHeaderViewMin = sizeHHeaderViewOriginal / 2;
+                LLog.d(TAG, "fuck size original: " + sizeWHeaderViewOriginal + "x" + sizeHHeaderViewOriginal + " -> " + sizeWHeaderViewMin + "x" + sizeHHeaderViewMin);
             }
-        });*/
+        });
     }
 
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
@@ -144,6 +146,11 @@ public class VDHView extends LinearLayout {
             headerView.setPivotY(headerView.getHeight());
             headerView.setScaleX(1 - mDragOffset / 2);
             headerView.setScaleY(1 - mDragOffset / 2);
+
+            int newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
+            int newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
+
+            LLog.d(TAG, "fuck newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
         }
 
         @Override
@@ -290,17 +297,21 @@ public class VDHView extends LinearLayout {
     }
 
     public void maximize() {
-        if (mViewDragHelper.smoothSlideViewTo(headerView, 0, 0)) {
-            ViewCompat.postInvalidateOnAnimation(this);
-            postInvalidate();
-        }
+        smoothSlideTo(0, 0);
     }
 
-    public void minimize() {
-        if (mViewDragHelper.smoothSlideViewTo(headerView, getWidth() - headerView.getMeasuredWidth(), getHeight() - headerView.getMeasuredHeight())) {
-            ViewCompat.postInvalidateOnAnimation(this);
-            postInvalidate();
-        }
+    public void minimizeBottomLeft() {
+        int posX = getWidth() - sizeWHeaderViewOriginal - sizeWHeaderViewMin;
+        int posY = getHeight() - sizeHHeaderViewOriginal;
+        //LLog.d(TAG, "minimize " + posX + "x" + posY);
+        smoothSlideTo(posX, posY);
+    }
+
+    public void minimizeBottomRight() {
+        int posX = getWidth() - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2;
+        int posY = getHeight() - sizeHHeaderViewOriginal;
+        LLog.d(TAG, "minimize " + posX + "x" + posY);
+        smoothSlideTo(posX, posY);
     }
 
     public void smoothSlideTo(int positionX, int positionY) {

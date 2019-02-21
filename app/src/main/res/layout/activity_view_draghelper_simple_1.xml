@@ -59,10 +59,16 @@
                     android:text="Maximize" />
 
                 <Button
-                    android:id="@+id/bt_2"
+                    android:id="@+id/bt_2_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minimize" />
+                    android:text="Minimize Bottom Left" />
+
+                <Button
+                    android:id="@+id/bt_2_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Bottom Right" />
 
                 <Button
                     android:id="@+id/bt_7"
@@ -99,7 +105,7 @@
 
         <ImageView
             android:id="@+id/header_view"
-            android:layout_width="@dimen/w_200"
+            android:layout_width="@dimen/w_300"
             android:layout_height="@dimen/w_200"
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />
