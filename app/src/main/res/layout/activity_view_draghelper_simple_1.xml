@@ -99,7 +99,7 @@
 
         <ImageView
             android:id="@+id/header_view"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/w_200"
             android:layout_height="@dimen/w_200"
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />
