@@ -96,32 +96,30 @@ public class VDHView extends LinearLayout {
                 callback.onViewPositionChanged(left, top, mDragOffset);
             }
             LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
+            int centerPosX = left + headerView.getWidth() / 2;
             if (mDragOffset == 0) {
                 //top
-                int centerPosW = left + headerView.getWidth() / 2;
-                if (centerPosW == 0) {
+                if (centerPosX <= 0) {
                     changeState(State.TOP_LEFT);
-                } else if (centerPosW == getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
                     changeState(State.TOP_RIGHT);
                 } else {
                     changeState(State.TOP);
                 }
             } else if (mDragOffset == 1) {
                 //bottom
-                int centerPosX = left + headerView.getWidth() / 2;
-                if (centerPosX == 0) {
+                if (centerPosX <= 0) {
                     changeState(State.BOTTOM_LEFT);
-                } else if (centerPosX == getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
                     changeState(State.BOTTOM_RIGHT);
                 } else {
                     changeState(State.BOTTOM);
                 }
             } else {
                 //mid
-                int centerPosX = left + headerView.getWidth() / 2;
-                if (centerPosX == 0) {
+                if (centerPosX <= 0) {
                     changeState(State.LEFT);
-                } else if (centerPosX == getWidth() - headerView.getWidth() / 2) {
+                } else if (centerPosX >= getWidth() - headerView.getWidth() / 2) {
                     changeState(State.RIGHT);
                 } else {
                     changeState(State.MID);
