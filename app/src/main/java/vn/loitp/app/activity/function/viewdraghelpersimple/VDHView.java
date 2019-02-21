@@ -77,7 +77,7 @@ public class VDHView extends LinearLayout {
         });*/
     }
 
-    private boolean isLeftPart;
+    //private boolean isLeftPart;
     private ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
@@ -115,20 +115,20 @@ public class VDHView extends LinearLayout {
             } else {
                 //mid
                 if (left == 0) {
-                    isLeftPart = true;
+                    //isLeftPart = true;
                     changeState(State.LEFT);
                 } else if (left == getWidth() - headerView.getWidth()) {
-                    isLeftPart = false;
+                    //isLeftPart = false;
                     changeState(State.RIGHT);
                 } else {
-                    if (left + headerView.getWidth() / 2 <= getWidth() / 2) {
+                    /*if (left + headerView.getWidth() / 2 <= getWidth() / 2) {
                         isLeftPart = true;
                     } else {
                         isLeftPart = false;
-                    }
+                    }*/
                     changeState(State.MID);
                 }
-                LLog.d(TAG, "fuck isLeftPart: " + isLeftPart);
+                //LLog.d(TAG, "fuck isLeftPart: " + isLeftPart);
             }
             int x = 0;
             int y = headerView.getHeight() + top;
