@@ -99,7 +99,29 @@ public class VDHView extends LinearLayout {
             if (callback != null) {
                 callback.onViewPositionChanged(left, top, mDragOffset);
             }
-            //LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
+            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
+
+            int x = 0;
+            int y = headerView.getHeight() + top;
+            bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
+            if (isEnableAlpha) {
+                bodyView.setAlpha(1 - mDragOffset / 2);
+            } else {
+                if (bodyView.getAlpha() != 1f) {
+                    bodyView.setAlpha(1f);
+                }
+            }
+
+            //work
+            headerView.setPivotX(headerView.getWidth() / 2f);
+            headerView.setPivotY(headerView.getHeight());
+            headerView.setScaleX(1 - mDragOffset / 2);
+            headerView.setScaleY(1 - mDragOffset / 2);
+
+            newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
+            newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
+            //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
+
             int centerPosX = left + headerView.getWidth() / 2;
             if (mDragOffset == 0) {
                 //top
@@ -129,26 +151,6 @@ public class VDHView extends LinearLayout {
                     changeState(State.MID);
                 }
             }
-            int x = 0;
-            int y = headerView.getHeight() + top;
-            bodyView.layout(x, y, x + bodyView.getMeasuredWidth(), y + bodyView.getMeasuredHeight());
-            if (isEnableAlpha) {
-                bodyView.setAlpha(1 - mDragOffset / 2);
-            } else {
-                if (bodyView.getAlpha() != 1f) {
-                    bodyView.setAlpha(1f);
-                }
-            }
-
-            //work
-            headerView.setPivotX(headerView.getWidth() / 2f);
-            headerView.setPivotY(headerView.getHeight());
-            headerView.setScaleX(1 - mDragOffset / 2);
-            headerView.setScaleY(1 - mDragOffset / 2);
-
-            newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
-            newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
-            //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
         }
 
         @Override
