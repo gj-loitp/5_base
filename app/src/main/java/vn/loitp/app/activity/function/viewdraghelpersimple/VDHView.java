@@ -171,7 +171,10 @@ public class VDHView extends LinearLayout {
         @Override
         public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
             int minY = -child.getHeight() / 2;
-            int maxY = getHeight() - child.getHeight() ;
+            float scaledY = child.getScaleY();
+            int sizeHScaled = (int) (scaledY * child.getHeight());
+            int maxY = getHeight() - sizeHScaled * 3 / 2;
+            //LLog.d(TAG, "clampViewPositionVertical getHeight:" + getHeight() + ", scaledY:" + scaledY + ", sizeHScaled: " + sizeHScaled + ", top:" + top + ", minY: " + minY + ", maxY: " + maxY);
             if (top <= minY) {
                 return minY;
             } else if (top > maxY) {

@@ -108,13 +108,14 @@
             android:id="@+id/body_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/LightPink">
+            android:background="@color/Gray">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_10"
-                android:text="@string/large_text" />
+                android:text="@string/large_text"
+                android:textColor="@color/White" />
         </ScrollView>
     </vn.loitp.app.activity.function.viewdraghelpersimple.VDHView>
 </RelativeLayout>
