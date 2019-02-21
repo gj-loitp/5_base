@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LScreenUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();
@@ -38,6 +39,8 @@ public class VDHView extends LinearLayout {
     private int newSizeHHeaderView;
     private int mTop;
     private int mLeft;
+    private int screenW;
+    private int screenH;
 
     public VDHView(@NonNull Context context) {
         this(context, null);
@@ -54,6 +57,8 @@ public class VDHView extends LinearLayout {
 
     public interface Callback {
         public void onStateChange(State state);
+
+        public void onPartChange(Part part);
 
         public void onViewPositionChanged(int left, int top, float dragOffset);
     }
@@ -72,6 +77,8 @@ public class VDHView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        screenW = LScreenUtil.getScreenWidth();
+        screenH = LScreenUtil.getScreenHeight();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
         headerView.post(new Runnable() {
@@ -168,6 +175,21 @@ public class VDHView extends LinearLayout {
                     changeState(State.MID);
                 }
             }
+            /*if (top < screenH / 2) {
+                //top
+                if (left < screenW / 2) {
+                    changePart(Part.TOP_LEFT);
+                } else {
+                    changePart(Part.TOP_RIGHT);
+                }
+            } else {
+                //bottom
+                if (left < screenW / 2) {
+                    changePart(Part.BOTTOM_LEFT);
+                } else {
+                    changePart(Part.BOTTOM_RIGHT);
+                }
+            }*/
         }
 
         @Override
@@ -254,6 +276,16 @@ public class VDHView extends LinearLayout {
             LLog.d(TAG, "changeState: " + newState);
             if (callback != null) {
                 callback.onStateChange(state);
+            }
+        }
+    }
+
+    private void changePart(Part newPart) {
+        if (part != newPart) {
+            part = newPart;
+            LLog.d(TAG, "changePart: " + part);
+            if (callback != null) {
+                callback.onPartChange(part);
             }
         }
     }
@@ -360,10 +392,17 @@ public class VDHView extends LinearLayout {
 
     public enum State {TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, MID, MID_LEFT, MID_RIGHT}
 
+    public enum Part {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
+
     private State state;
+    private Part part;
 
     public State getState() {
         return state;
+    }
+
+    public Part getPart() {
+        return part;
     }
 
     private boolean isAutoBackToOriginalPosition;

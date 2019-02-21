@@ -12,6 +12,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     private VDHView vdhv;
     private TextView tv0;
     private TextView tv1;
+    private TextView tv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
         vdhv = (VDHView) findViewById(R.id.vdhv);
         tv0 = (TextView) findViewById(R.id.tv_0);
         tv1 = (TextView) findViewById(R.id.tv_1);
+        tv2 = (TextView) findViewById(R.id.tv_2);
         vdhv.setCallback(this);
         findViewById(R.id.bt_toast).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +118,11 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     @Override
     public void onStateChange(VDHView.State state) {
         tv0.setText("onStateChange: " + state.name());
+    }
+
+    @Override
+    public void onPartChange(VDHView.Part part) {
+        tv2.setText("onPartChange: " + part.name());
     }
 
     @Override
