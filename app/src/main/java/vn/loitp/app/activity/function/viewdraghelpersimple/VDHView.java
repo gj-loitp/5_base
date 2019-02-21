@@ -139,34 +139,31 @@ public class VDHView extends LinearLayout {
             newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
             //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
 
-            int centerPosX = left + newSizeWHeaderView / 2;
             if (mDragOffset == 0) {
-                //top
-                if (centerPosX <= 0) {
+                //top_left, top, top_right
+                if (left <= -headerView.getWidth() / 2) {
                     changeState(State.TOP_LEFT);
-                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
+                } else if (left >= headerView.getWidth() / 2) {
                     changeState(State.TOP_RIGHT);
                 } else {
                     changeState(State.TOP);
                 }
             } else if (mDragOffset == 1) {
-                //bottom
-                if (centerPosX <= 0) {
-                    isMinimized = true;
+                //bottom_left, bottom, bottom_right
+                if (left <= -headerView.getWidth() / 2) {
                     changeState(State.BOTTOM_LEFT);
-                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
-                    isMinimized = true;
+                } else if (left >= headerView.getWidth() / 2) {
                     changeState(State.BOTTOM_RIGHT);
                 } else {
-                    isMinimized = true;
                     changeState(State.BOTTOM);
                 }
+                isMinimized = true;
             } else {
-                //mid
-                if (centerPosX <= 0) {
-                    changeState(State.LEFT);
-                } else if (centerPosX >= getWidth() - newSizeWHeaderView / 2) {
-                    changeState(State.RIGHT);
+                //mid_left, mid, mid_right
+                if (left <= -headerView.getWidth() / 2) {
+                    changeState(State.MID_LEFT);
+                } else if (left >= headerView.getWidth() / 2) {
+                    changeState(State.MID_RIGHT);
                 } else {
                     changeState(State.MID);
                 }
@@ -287,7 +284,7 @@ public class VDHView extends LinearLayout {
                 break;
             }*/
             case MotionEvent.ACTION_UP: {
-                int mCenterX = mLeft + headerView.getWidth() / 2;
+                /*int mCenterX = mLeft + headerView.getWidth() / 2;
                 LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mLeft: " + mLeft + ", mTop: " + mTop + ", mCenterX: " + mCenterX);
                 if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
                     //TODO iplm
@@ -346,7 +343,7 @@ public class VDHView extends LinearLayout {
                         }
                     }
                 }
-                break;
+                break;*/
             }
         }
         return isViewUnder;
@@ -361,7 +358,7 @@ public class VDHView extends LinearLayout {
         //LLog.d(TAG, "onLayout l:" + l + ", t:" + t + ", r:" + r + ", b:" + b + ", mAutoBackViewX: " + mAutoBackViewX + ", mAutoBackViewY: " + mAutoBackViewY);
     }
 
-    public enum State {TOP, BOTTOM, LEFT, RIGHT, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, MID}
+    public enum State {TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, MID, MID_LEFT, MID_RIGHT}
 
     private State state;
 
