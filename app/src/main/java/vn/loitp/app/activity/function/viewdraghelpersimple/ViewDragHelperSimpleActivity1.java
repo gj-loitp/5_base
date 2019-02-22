@@ -140,7 +140,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
 
     @Override
     public void onOverScroll(VDHView.State state, VDHView.Part part) {
-        
+
     }
 
     @Override
