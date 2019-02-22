@@ -58,6 +58,12 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 vdhv.minimizeTopRight();
             }
         });
+        findViewById(R.id.bt_minimize_top_left).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.minimizeTopLeft();
+            }
+        });
         findViewById(R.id.bt_alpha).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,11 +96,13 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                     findViewById(R.id.bt_maximize).setVisibility(View.GONE);
                     if (vdhv.isMinimized()) {
                         findViewById(R.id.bt_minimize_top_right).setVisibility(View.VISIBLE);
+                        findViewById(R.id.bt_minimize_top_left).setVisibility(View.VISIBLE);
                     }
                 } else {
                     vdhv.setEnableRevertMaxSize(true);
                     findViewById(R.id.bt_maximize).setVisibility(View.VISIBLE);
                     findViewById(R.id.bt_minimize_top_right).setVisibility(View.GONE);
+                    findViewById(R.id.bt_minimize_top_left).setVisibility(View.GONE);
                 }
             }
         });
@@ -128,6 +136,11 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
     @Override
     public void onViewPositionChanged(int left, int top, float dragOffset) {
         tv1.setText("onViewPositionChanged left: " + left + ", top: " + top + ", dragOffset: " + dragOffset);
+    }
+
+    @Override
+    public void onOverScroll(VDHView.State state, VDHView.Part part) {
+        
     }
 
     @Override

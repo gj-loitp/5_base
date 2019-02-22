@@ -61,6 +61,8 @@ public class VDHView extends LinearLayout {
         public void onPartChange(Part part);
 
         public void onViewPositionChanged(int left, int top, float dragOffset);
+
+        public void onOverScroll(State state, Part part);
     }
 
     private Callback callback;
@@ -292,10 +294,12 @@ public class VDHView extends LinearLayout {
                 break;
             }*/
             case MotionEvent.ACTION_UP: {
-                LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
-                /*if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
-                    //TODO iplm
-                    LLog.d(TAG, "fuck destroy state: " + state.name());
+                LLog.d(TAG, "onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
+                if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
+                    LLog.d(TAG, "destroy state: " + state.name());
+                    if (callback != null) {
+                        callback.onOverScroll(state, part);
+                    }
                 } else {
                     if (part == Part.BOTTOM_LEFT) {
                         minimizeBottomLeft();
@@ -318,7 +322,7 @@ public class VDHView extends LinearLayout {
                             }
                         }
                     }
-                }*/
+                }
                 break;
             }
         }
@@ -392,12 +396,23 @@ public class VDHView extends LinearLayout {
         }
         int posX = screenW - sizeWHeaderViewMin * 3 / 2;
         int posY = -sizeHHeaderViewMin;
-        LLog.d(TAG, "fuck minimizeTopRight " + posX + "x" + posY);
+        //LLog.d(TAG, "minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
     }
 
     public void minimizeTopLeft() {
-
+        if (isEnableRevertMaxSize) {
+            Log.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true");
+            return;
+        }
+        if (!isMinimized) {
+            Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM");
+            return;
+        }
+        int posX = -sizeWHeaderViewMin / 2;
+        int posY = -sizeHHeaderViewMin;
+        //LLog.d(TAG, "minimizeTopRight " + posX + "x" + posY);
+        smoothSlideTo(posX, posY);
     }
 
     public void smoothSlideTo(int positionX, int positionY) {

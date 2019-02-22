@@ -91,6 +91,13 @@
                     android:visibility="gone" />
 
                 <Button
+                    android:id="@+id/bt_minimize_top_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Top Left"
+                    android:visibility="gone" />
+
+                <Button
                     android:id="@+id/bt_slide_to_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
