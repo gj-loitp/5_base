@@ -205,7 +205,7 @@ public class VDHView extends LinearLayout {
             if (isEnableRevertMaxSize) {
                 minY = -child.getHeight() / 2;
             } else {
-                minY = -child.getHeight() * 3 / 2;
+                minY = -sizeHHeaderViewMin * 3 / 2;
             }
             float scaledY = child.getScaleY();
             int sizeHScaled = (int) (scaledY * child.getHeight());
@@ -232,32 +232,6 @@ public class VDHView extends LinearLayout {
                 return left;
             }
         }
-
-        /*@Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
-            //return super.clampViewPositionVertical(child, top, dy);
-            int rangeY = getHeight() - child.getHeight();
-            if (top <= 0) {
-                return 0;
-            } else if (top > rangeY) {
-                return rangeY;
-            } else {
-                return top;
-            }
-        }*/
-
-        /*@Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
-            //return super.clampViewPositionHorizontal(child, left, dx);
-            int rangeX = getWidth() - child.getWidth();
-            if (left <= 0) {
-                return 0;
-            } else if (left > rangeX) {
-                return rangeX;
-            } else {
-                return left;
-            }
-        }*/
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
@@ -319,7 +293,7 @@ public class VDHView extends LinearLayout {
             }*/
             case MotionEvent.ACTION_UP: {
                 LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
-                if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
+                /*if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
                     //TODO iplm
                     LLog.d(TAG, "fuck destroy state: " + state.name());
                 } else {
@@ -344,7 +318,7 @@ public class VDHView extends LinearLayout {
                             }
                         }
                     }
-                }
+                }*/
                 break;
             }
         }
@@ -416,8 +390,8 @@ public class VDHView extends LinearLayout {
             Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM");
             return;
         }
-        int posX = getWidth() - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2;
-        int posY = -sizeHHeaderViewOriginal * 2;
+        int posX = screenW - sizeWHeaderViewMin / 2;
+        int posY = -sizeHHeaderViewMin;
         LLog.d(TAG, "fuck minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
     }
