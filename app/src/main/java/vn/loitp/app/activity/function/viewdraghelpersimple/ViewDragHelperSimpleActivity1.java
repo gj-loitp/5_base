@@ -100,6 +100,18 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 }
             }
         });
+        findViewById(R.id.bt_appear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.appear();
+            }
+        });
+        findViewById(R.id.bt_disappear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vdhv.dissappear();
+            }
+        });
     }
 
     @Override

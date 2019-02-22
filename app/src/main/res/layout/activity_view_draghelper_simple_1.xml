@@ -109,6 +109,18 @@
                     android:layout_height="wrap_content"
                     android:text="Show/Hide body" />
 
+                <Button
+                    android:id="@+id/bt_appear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appear" />
+
+                <Button
+                    android:id="@+id/bt_disappear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disappear" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
