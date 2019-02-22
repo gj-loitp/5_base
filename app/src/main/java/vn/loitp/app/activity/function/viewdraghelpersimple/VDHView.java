@@ -113,7 +113,6 @@ public class VDHView extends LinearLayout {
             if (callback != null) {
                 callback.onViewPositionChanged(left, top, mDragOffset);
             }
-            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + " -> mDragOffset: " + mDragOffset + " -> center: " + (left + headerView.getWidth() / 2));
 
             int x = 0;
             int y = headerView.getHeight() + top;
@@ -144,7 +143,14 @@ public class VDHView extends LinearLayout {
 
             newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
             newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
-            //LLog.d(TAG, "newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView);
+
+            int centerX = left + sizeWHeaderViewOriginal / 2;
+            int centerY = top + newSizeHHeaderView / 2 + sizeHHeaderViewOriginal - newSizeHHeaderView;
+
+            //int posX = centerX - newSizeWHeaderView / 2;
+            //int posY = centerY - newSizeHHeaderView / 2;
+            //LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> centerX: " + centerX + ", centerY: " + centerY + ", posX: " + posX + ", posY: " + posY);
+            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> centerX: " + centerX + ", centerY: " + centerY);
 
             if (mDragOffset == 0) {
                 //top_left, top, top_right
@@ -175,21 +181,19 @@ public class VDHView extends LinearLayout {
                     changeState(State.MID);
                 }
             }
-            /*if (top < screenH / 2) {
-                //top
-                if (left < screenW / 2) {
+            if (centerY < screenH / 2) {
+                if (centerX < screenW / 2) {
                     changePart(Part.TOP_LEFT);
                 } else {
                     changePart(Part.TOP_RIGHT);
                 }
             } else {
-                //bottom
-                if (left < screenW / 2) {
+                if (centerX < screenW / 2) {
                     changePart(Part.BOTTOM_LEFT);
                 } else {
                     changePart(Part.BOTTOM_RIGHT);
                 }
-            }*/
+            }
         }
 
         @Override
