@@ -450,9 +450,9 @@ public class VDHView extends LinearLayout {
 
     public void onPause() {
         if (!isEnableRevertMaxSize) {
-            if (headerView.getVisibility() == VISIBLE || bodyView.getVisibility() == VISIBLE) {
-                minimizeBottomRight();
-            }
+            headerView.setVisibility(INVISIBLE);
+            bodyView.setVisibility(INVISIBLE);
+            minimizeBottomRight();
         }
     }
 
