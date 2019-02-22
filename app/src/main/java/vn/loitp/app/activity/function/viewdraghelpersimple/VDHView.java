@@ -390,7 +390,7 @@ public class VDHView extends LinearLayout {
             Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM");
             return;
         }
-        int posX = screenW - sizeWHeaderViewMin / 2;
+        int posX = screenW - sizeWHeaderViewMin * 3 / 2;
         int posY = -sizeHHeaderViewMin;
         LLog.d(TAG, "fuck minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY);
