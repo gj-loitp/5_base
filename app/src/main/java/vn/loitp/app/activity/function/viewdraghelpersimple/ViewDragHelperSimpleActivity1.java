@@ -28,12 +28,6 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
                 LToast.showShort(activity, "Click");
             }
         });
-        findViewById(R.id.bt_slide_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vdhv.setAutoBackToOriginalPosition(!vdhv.isAutoBackToOriginalPosition());
-            }
-        });
         findViewById(R.id.bt_maximize).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,13 +134,12 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
 
     @Override
     public void onOverScroll(VDHView.State state, VDHView.Part part) {
-
+        vdhv.dissappear();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //TODO neu dang hien thi an
-        //vdhv.minimizeBottomRight();
+        vdhv.onPause();
     }
 }

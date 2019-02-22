@@ -237,7 +237,7 @@ public class VDHView extends LinearLayout {
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
-            if (releasedChild == headerView && isAutoBackToOriginalPosition) {
+            if (releasedChild == headerView) {
                 mViewDragHelper.settleCapturedViewAt(mAutoBackViewX, mAutoBackViewY);
             }
             invalidate();
@@ -353,16 +353,6 @@ public class VDHView extends LinearLayout {
         return part;
     }
 
-    private boolean isAutoBackToOriginalPosition;
-
-    public boolean isAutoBackToOriginalPosition() {
-        return isAutoBackToOriginalPosition;
-    }
-
-    public void setAutoBackToOriginalPosition(boolean autoBackToOriginalPosition) {
-        isAutoBackToOriginalPosition = autoBackToOriginalPosition;
-    }
-
     public void maximize() {
         if (isEnableRevertMaxSize) {
             smoothSlideTo(0, 0);
@@ -456,5 +446,21 @@ public class VDHView extends LinearLayout {
         } else {
             bodyView.setVisibility(VISIBLE);
         }
+    }
+
+    public void onPause() {
+        if (!isEnableRevertMaxSize) {
+            if (headerView.getVisibility() == VISIBLE || bodyView.getVisibility() == VISIBLE) {
+                minimizeBottomRight();
+            }
+        }
+    }
+
+    public void dissappear() {
+
+    }
+
+    public void appear() {
+
     }
 }
