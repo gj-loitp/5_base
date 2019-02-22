@@ -37,8 +37,8 @@ public class VDHView extends LinearLayout {
     private int sizeHHeaderViewMin;
     private int newSizeWHeaderView;
     private int newSizeHHeaderView;
-    private int mTop;
-    private int mLeft;
+    private int mCenterY;
+    private int mCenterX;
     private int screenW;
     private int screenH;
 
@@ -97,8 +97,6 @@ public class VDHView extends LinearLayout {
         @Override
         public void onViewPositionChanged(@NonNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
-            mLeft = left;
-            mTop = top;
             if (mDragOffset == (float) top / mDragRange) {
                 return;
             } else {
@@ -144,13 +142,13 @@ public class VDHView extends LinearLayout {
             newSizeWHeaderView = (int) (sizeWHeaderViewOriginal * headerView.getScaleX());
             newSizeHHeaderView = (int) (sizeHHeaderViewOriginal * headerView.getScaleY());
 
-            int centerX = left + sizeWHeaderViewOriginal / 2;
-            int centerY = top + newSizeHHeaderView / 2 + sizeHHeaderViewOriginal - newSizeHHeaderView;
+            mCenterX = left + sizeWHeaderViewOriginal / 2;
+            mCenterY = top + newSizeHHeaderView / 2 + sizeHHeaderViewOriginal - newSizeHHeaderView;
 
             //int posX = centerX - newSizeWHeaderView / 2;
             //int posY = centerY - newSizeHHeaderView / 2;
             //LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> centerX: " + centerX + ", centerY: " + centerY + ", posX: " + posX + ", posY: " + posY);
-            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> centerX: " + centerX + ", centerY: " + centerY);
+            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> mCenterX: " + mCenterX + ", mCenterY: " + mCenterY);
 
             if (mDragOffset == 0) {
                 //top_left, top, top_right
@@ -181,14 +179,14 @@ public class VDHView extends LinearLayout {
                     changeState(State.MID);
                 }
             }
-            if (centerY < screenH / 2) {
-                if (centerX < screenW / 2) {
+            if (mCenterY < screenH / 2) {
+                if (mCenterX < screenW / 2) {
                     changePart(Part.TOP_LEFT);
                 } else {
                     changePart(Part.TOP_RIGHT);
                 }
             } else {
-                if (centerX < screenW / 2) {
+                if (mCenterX < screenW / 2) {
                     changePart(Part.BOTTOM_LEFT);
                 } else {
                     changePart(Part.BOTTOM_RIGHT);
@@ -320,66 +318,34 @@ public class VDHView extends LinearLayout {
                 break;
             }*/
             case MotionEvent.ACTION_UP: {
-                /*int mCenterX = mLeft + headerView.getWidth() / 2;
-                LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mLeft: " + mLeft + ", mTop: " + mTop + ", mCenterX: " + mCenterX);
+                LLog.d(TAG, "fuck onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
                 if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
                     //TODO iplm
                     LLog.d(TAG, "fuck destroy state: " + state.name());
-                } else if (state == State.TOP) {
-                    if (isEnableRevertMaxSize) {
-                        maximize();
-                    } else {
-                        if (isMinimized) {
-                            if (mCenterX <= getWidth() / 2) {
-                                //left part
+                } else {
+                    if (part == Part.BOTTOM_LEFT) {
+                        minimizeBottomLeft();
+                    } else if (part == Part.BOTTOM_RIGHT) {
+                        minimizeBottomRight();
+                    } else if (part == Part.TOP_LEFT) {
+                        if (isEnableRevertMaxSize) {
+                            maximize();
+                        } else {
+                            if (isMinimized) {
                                 minimizeTopLeft();
-                            } else {
-                                //right part
+                            }
+                        }
+                    } else if (part == Part.TOP_RIGHT) {
+                        if (isEnableRevertMaxSize) {
+                            maximize();
+                        } else {
+                            if (isMinimized) {
                                 minimizeTopRight();
                             }
                         }
                     }
-                } else if (state == State.BOTTOM) {
-                    if (mCenterX <= getWidth() / 2) {
-                        //left part
-                        minimizeBottomLeft();
-                    } else {
-                        //right part
-                        minimizeBottomRight();
-                    }
-                } else {
-                    int mCenterY = mTop + headerView.getHeight() / 2;
-                    if (mCenterX <= getWidth() / 2) {
-                        if (mCenterY <= getHeight() / 2) {
-                            if (isEnableRevertMaxSize) {
-                                maximize();
-                            } else {
-                                if (isMinimized) {
-                                    //top left
-                                    minimizeTopLeft();
-                                }
-                            }
-                        } else {
-                            //bottom left
-                            minimizeBottomLeft();
-                        }
-                    } else {
-                        if (mCenterY <= getHeight() / 2) {
-                            if (isEnableRevertMaxSize) {
-                                maximize();
-                            } else {
-                                if (isMinimized) {
-                                    //top right
-                                    minimizeTopRight();
-                                }
-                            }
-                        } else {
-                            //bottom right
-                            minimizeBottomRight();
-                        }
-                    }
                 }
-                break;*/
+                break;
             }
         }
         return isViewUnder;
