@@ -74,12 +74,6 @@
                 android:text="Pattern" />
 
             <Button
-                android:id="@+id/bt_security"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Security" />
-
-            <Button
                 android:id="@+id/bt_rate_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

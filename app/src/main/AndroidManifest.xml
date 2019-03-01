@@ -811,9 +811,6 @@
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.security.MenuSecurityActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -822,11 +819,6 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.uzvideo.UZActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.security.fingerprint.FingerPrintActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:theme="@style/FingerPrintTheme" />
-
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
