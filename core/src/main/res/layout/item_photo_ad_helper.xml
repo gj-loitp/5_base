@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +39,7 @@
         android:textSize="@dimen/txt_14"
         android:textStyle="bold" />
 
-    <Button
+    <!--<Button
         android:id="@+id/bt_okay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,5 +48,19 @@
         android:textAllCaps="false"
         android:textColor="@color/White"
         android:textSize="@dimen/txt_18"
-        android:visibility="visible" />
+        android:visibility="visible" />-->
+    <life.sabujak.roundedbutton.RoundedButton
+        android:id="@+id/bt_okay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_10"
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_18"
+        app:buttonCornerRadius="0dp"
+        app:buttonGradientEndColor="@color/colorPrimary2"
+        app:buttonGradientStartColor="@color/colorPrimary"
+        app:buttonRippleAlpha="10"
+        app:buttonRippleColor="@color/colorPrimary" />
 </RelativeLayout>

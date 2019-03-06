@@ -9,10 +9,6 @@
         android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_10"
-        android:layout_marginTop="@dimen/margin_5"
-        android:layout_marginRight="@dimen/margin_10"
-        android:layout_marginBottom="@dimen/margin_5"
         app:cardBackgroundColor="@color/White"
         app:cardCornerRadius="0dp"
         app:cardElevation="@dimen/w_3">
@@ -37,7 +33,7 @@
                 android:maxLines="1"
                 android:padding="@dimen/padding_5"
                 android:textColor="@color/Black"
-                android:textSize="@dimen/txt_18"
+                android:textSize="@dimen/txt_14"
                 android:textStyle="bold" />
         </RelativeLayout>
 

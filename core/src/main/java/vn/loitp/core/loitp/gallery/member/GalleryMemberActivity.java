@@ -136,7 +136,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);*/
 
-        //LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.setPullLikeIOSVertical(recyclerView);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

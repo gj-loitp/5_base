@@ -49,9 +49,9 @@ dependencies {
     api 'jp.wasabeef:glide-transformations:2.0.2'
 
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api 'com.squareup.retrofit2:converter-gson:2.3.0'
-    api 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     api 'com.j256.ormlite:ormlite-core:4.48'
     api 'com.j256.ormlite:ormlite-android:4.48'
@@ -89,13 +89,13 @@ dependencies {
     api 'com.google.android.gms:play-services-location:16.0.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
     //exoplayer
-    api 'com.google.android.exoplayer:exoplayer:2.9.2'
+    api 'com.google.android.exoplayer:exoplayer:2.9.5'
     //compile 'com.google.android.exoplayer:exoplayer-core:2.9.2'
-    api 'com.google.android.exoplayer:extension-ima:2.9.2'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.9.2'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.9.2'
+    api 'com.google.android.exoplayer:extension-ima:2.9.5'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.9.5'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.9.5'
     //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.2'
-    api 'com.google.android.exoplayer:exoplayer-ui:2.9.2'
+    api 'com.google.android.exoplayer:exoplayer-ui:2.9.5'
     //api 'com.google.android.exoplayer:extension-cast:2.9.2'
     //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
 
@@ -111,9 +111,6 @@ dependencies {
 
     //font
     api 'uk.co.chrisjenx:calligraphy:2.3.0'
-
-    //https://github.com/thealeksandr/PFLockScreen-Android
-    api 'com.github.thealeksandr:PFLockScreen-Android:1.0.0-beta3'
 
     //animation
     api 'com.airbnb.android:lottie:2.5.1'

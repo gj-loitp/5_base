@@ -35,6 +35,7 @@ import java.util.TimeZone;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.youtubeparser.models.videos.High;
 import vn.loitp.function.youtubeparser.models.videos.Id;
 import vn.loitp.function.youtubeparser.models.videos.Item;
@@ -167,35 +168,25 @@ public class Parser extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
         if (result != null) {
             try {
-
                 ArrayList<Video> videos = new ArrayList<>();
-
                 Gson gson = new GsonBuilder().create();
                 Main data = gson.fromJson(result, Main.class);
-
                 //Begin parsing Json data
                 List<Item> itemList = data.getItems();
                 String nextToken = data.getNextPageToken();
-
                 for (int i = 0; i < itemList.size(); i++) {
-
                     Item item = itemList.get(i);
                     Snippet snippet = item.getSnippet();
-
                     Id id = item.getId();
-
+                    LLog.d("loitp", "parse id: " + id);
                     Thumbnails image = snippet.getThumbnails();
-
                     High high = image.getHigh();
-
                     String title = snippet.getTitle();
                     String videoId = id.getVideoId();
                     String imageLink = high.getUrl();
                     String sDate = snippet.getPublishedAt();
-
                     Locale.setDefault(Locale.getDefault());
                     TimeZone tz = TimeZone.getDefault();
                     Calendar cal = Calendar.getInstance(tz);
@@ -203,19 +194,17 @@ public class Parser extends AsyncTask<String, Void, String> {
                     sdf.setCalendar(cal);
                     cal.setTime(sdf.parse(sDate));
                     Date date = cal.getTime();
-
                     SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy");
                     String pubDateString = sdf2.format(date);
-
                     Video tempVideo = new Video(title, videoId, imageLink, pubDateString);
-                    videos.add(tempVideo);
+                    if (videoId != null) {
+                        videos.add(tempVideo);
+                    }
                 }
-
                 Log.i("YoutubeParser", "Youtube data parsed correctly!");
                 onComplete.onTaskCompleted(videos, nextToken);
 
             } catch (Exception e) {
-
                 e.printStackTrace();
                 onComplete.onError();
             }

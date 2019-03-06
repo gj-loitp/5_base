@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/WhiteSmoke">
 
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/sv"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbarSize="@dimen/w_1"
-        android:scrollbarThumbVertical="@drawable/scroll_thumb"
-        android:scrollbarTrackVertical="@drawable/scroll_track">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,13 +20,14 @@
             <LinearLayout
                 android:id="@+id/bt_ad_helper"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -49,13 +47,14 @@
             <LinearLayout
                 android:id="@+id/bt_rate_app"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -75,13 +74,14 @@
             <LinearLayout
                 android:id="@+id/bt_more_app"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -101,13 +101,14 @@
             <LinearLayout
                 android:id="@+id/bt_share_app"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -127,13 +128,14 @@
             <LinearLayout
                 android:id="@+id/bt_like_fb_fanpage"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -153,13 +155,14 @@
             <LinearLayout
                 android:id="@+id/bt_support"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10">
+                android:paddingTop="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_5">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"

@@ -1,4 +1,4 @@
-package vn.loitp.views.layout.youtubelayout;
+package vn.loitp.views.layout.draggablepanelfree;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
@@ -12,11 +12,7 @@ import android.view.ViewGroup;
 import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 
-/**
- * Created by loitp on 4/22/2018.
- */
-
-public class YoutubeLayout extends ViewGroup {
+public class DraggablePanelFreeLayout extends ViewGroup {
     private final String TAG = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;
     private View mHeaderView;
@@ -27,11 +23,11 @@ public class YoutubeLayout extends ViewGroup {
     private int mTop;
     private float mDragOffset;
 
-    public YoutubeLayout(Context context) {
+    public DraggablePanelFreeLayout(Context context) {
         this(context, null);
     }
 
-    public YoutubeLayout(Context context, AttributeSet attrs) {
+    public DraggablePanelFreeLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -42,9 +38,13 @@ public class YoutubeLayout extends ViewGroup {
         mDescView = findViewById(R.id.view_desc);
     }
 
-    public YoutubeLayout(Context context, AttributeSet attrs, int defStyle) {
+    public DraggablePanelFreeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
+    }
+
+    public void minimize() {
+        smoothSlideTo(1f);
     }
 
     public void maximize() {
@@ -70,16 +70,37 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-            LLog.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
+            /*if (isPositionBottom()) {
+                LLog.d(TAG, "onViewPositionChanged no slide " + left + ", " + top + ", " + dx + ", " + dy);
+                return;
+            }*/
             mTop = top;
             mDragOffset = (float) top / mDragRange;
-            //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
+            LLog.d(TAG, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
             if (mDragOffset == 0f) {
-                isPositionTop();
+                if (mState != State.TOP) {
+                    mState = State.TOP;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                    LLog.d(TAG, "State.TOP");
+                }
             } else if (mDragOffset == 1f) {
-                isPositionBottom();
+                if (mState != State.BOTTOM) {
+                    mState = State.BOTTOM;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                    LLog.d(TAG, "State.BOTTOM");
+                }
             } else {
-                isPositionMid();
+                if (mState != State.MID) {
+                    mState = State.MID;
+                    if (callback != null) {
+                        callback.onStateChange(mState);
+                    }
+                    LLog.d(TAG, "State.MID");
+                }
             }
             mHeaderView.setPivotX(mHeaderView.getWidth());
             mHeaderView.setPivotY(mHeaderView.getHeight());
@@ -106,7 +127,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
-            LLog.d(TAG, "clampViewPositionVertical " + top);
+            //LLog.d(TAG, "clampViewPositionVertical " + top);
             final int topBound = getPaddingTop();
             final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
             final int newTop = Math.min(Math.max(top, topBound), bottomBound);
@@ -115,7 +136,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
-            LLog.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
+            //LLog.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
             final int leftBound = getPaddingLeft();
             final int rightBound = getWidth() - mHeaderView.getWidth();
             final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
@@ -133,21 +154,17 @@ public class YoutubeLayout extends ViewGroup {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         final int action = MotionEventCompat.getActionMasked(ev);
-
         if ((action != MotionEvent.ACTION_DOWN)) {
             mDragHelper.cancel();
             return super.onInterceptTouchEvent(ev);
         }
-
         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
             mDragHelper.cancel();
             return false;
         }
-
         final float x = ev.getX();
         final float y = ev.getY();
         boolean interceptTap = false;
-
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
                 LLog.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
@@ -156,7 +173,6 @@ public class YoutubeLayout extends ViewGroup {
                 interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
                 break;
             }
-
             case MotionEvent.ACTION_MOVE: {
                 LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
                 final float adx = Math.abs(x - mInitialMotionX);
@@ -168,18 +184,15 @@ public class YoutubeLayout extends ViewGroup {
                 }
             }
         }
-
         return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         mDragHelper.processTouchEvent(ev);
-
         final int action = ev.getAction();
         final float x = ev.getX();
         final float y = ev.getY();
-
         boolean isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
         switch (action & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
@@ -188,30 +201,34 @@ public class YoutubeLayout extends ViewGroup {
                 mInitialMotionY = y;
                 break;
             }
-
             case MotionEvent.ACTION_UP: {
                 LLog.d(TAG, "onTouchEvent ACTION_UP");
                 /*final float dx = x - mInitialMotionX;
                 final float dy = y - mInitialMotionY;
                 final int slop = mDragHelper.getTouchSlop();
                 if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
-                    LLog.d(TAG, "if");
+                    LLog.d(TAG, "ACTION_UP if");
                     if (mDragOffset == 0) {
                         smoothSlideTo(1f);
                     } else {
                         smoothSlideTo(0f);
                     }
-                } */
+                }else{
+                    LLog.d(TAG, "ACTION_UP else");
+                }*/
                 //LLog.d(TAG, "mDragOffset " + mDragOffset);
-                if (mDragOffset < 0.5f) {
-                    smoothSlideTo(0f);
+                if (isPositionBottom()) {
+                    LLog.d(TAG, "onTouchEvent ACTION_UP no slide");
                 } else {
-                    smoothSlideTo(1f);
+                    if (mDragOffset < 0.5f) {
+                        maximize();
+                    } else {
+                        minimize();
+                    }
                 }
                 break;
             }
         }
-
         return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y) || isViewHit(mDescView, (int) x, (int) y);
     }
 
@@ -229,46 +246,43 @@ public class YoutubeLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         measureChildren(widthMeasureSpec, heightMeasureSpec);
-
         int maxWidth = MeasureSpec.getSize(widthMeasureSpec);
         int maxHeight = MeasureSpec.getSize(heightMeasureSpec);
-
         setMeasuredDimension(resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
                 resolveSizeAndState(maxHeight, heightMeasureSpec, 0));
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        //LLog.d(TAG, "onLayout " + l + ", " + t + ", " + r + ", " + b);
         mDragRange = getHeight() - mHeaderView.getHeight();
-        mHeaderView.layout(
-                0,
-                mTop,
-                r,
-                mTop + mHeaderView.getMeasuredHeight());
-
-        mDescView.layout(
-                0,
-                mTop + mHeaderView.getMeasuredHeight(),
-                r,
-                mTop + b);
+        mHeaderView.layout(0, mTop, r, mTop + mHeaderView.getMeasuredHeight());
+        mDescView.layout(0, mTop + mHeaderView.getMeasuredHeight(), r, mTop + b);
     }
 
-    private enum STATE {TOP, BOTTOM, MID}
+    public enum State {TOP, BOTTOM, MID}
 
-    private STATE state;
+    private State mState;
 
-    private void isPositionTop() {
-        //LLog.d(TAG, "onViewPositionChanged TOP");
-        state = STATE.TOP;
+    private boolean isPositionTop() {
+        return mState == State.TOP;
     }
 
-    private void isPositionBottom() {
-        //LLog.d(TAG, "onViewPositionChanged BOTTOM");
-        state = STATE.BOTTOM;
+    private boolean isPositionBottom() {
+        return mState == State.BOTTOM;
     }
 
-    private void isPositionMid() {
-        //LLog.d(TAG, "onViewPositionChanged MID");
-        state = STATE.MID;
+    private boolean isPositionMid() {
+        return mState == State.MID;
+    }
+
+    public interface Callback {
+        public void onStateChange(State state);
+    }
+
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
     }
 }

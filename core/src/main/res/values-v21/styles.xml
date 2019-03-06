@@ -11,6 +11,7 @@
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>-->
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
 </resources>

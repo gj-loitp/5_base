@@ -31,6 +31,12 @@
                 android:text="Activity Service Comunicate" />
 
             <Button
+                android:id="@+id/bt_bs_image_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BSImage picker" />
+
+            <Button
                 android:id="@+id/bt_drag_drop_sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,6 +113,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ViewDragHelper simple" />
+
+            <Button
+                android:id="@+id/bt_view_drag_helper_simple_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewDragHelper simple 1" />
 
         </LinearLayout>
     </ScrollView>

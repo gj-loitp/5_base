@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppThemeAndroidO" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -49,14 +50,18 @@
 
     <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:background">@color/black_35</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
     <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+    </style>
 
     <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">false</item>
@@ -163,5 +168,15 @@
         <item name="android:padding">16.0dip</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ScrollVertical">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
+        <item name="android:scrollbarSize">@dimen/w_3</item>
     </style>
 </resources>

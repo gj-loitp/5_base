@@ -7,7 +7,9 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-`    <RelativeLayout
+    `
+
+    <RelativeLayout
         android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,12 +30,10 @@
 
             <WebView
                 android:id="@+id/commentsView"
+                style="@style/ScrollVertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/ln_adview"
-                android:scrollbarSize="@dimen/w_3"
-                android:scrollbarThumbVertical="@drawable/scroll_thumb"
-                android:scrollbarTrackHorizontal="@drawable/scroll_track" />
+                android:layout_above="@+id/ln_adview" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

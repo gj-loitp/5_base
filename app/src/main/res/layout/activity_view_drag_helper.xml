@@ -25,7 +25,7 @@
             android:visibility="visible">
 
             <ImageView
-                android:id="@id/viewHeader"
+                android:id="@id/view_header"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
                 android:tag="text" />
 
             <ScrollView
-                android:id="@id/viewDesc"
+                android:id="@id/view_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/White">

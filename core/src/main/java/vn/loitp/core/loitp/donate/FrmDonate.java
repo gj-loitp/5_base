@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import java.util.List;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.animation.confetti.CommonConfetti;
 import vn.loitp.views.animation.confetti.ConfettiManager;
@@ -30,6 +30,8 @@ public class FrmDonate extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
+        LUIUtil.setPullLikeIOSVertical(sv);
         rv = (RelativeLayout) view.findViewById(R.id.rv);
         tv = (TextView) view.findViewById(R.id.tv);
         final String text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +

@@ -25,7 +25,6 @@
         <activity
             android:name="vn.loitp.app.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -812,9 +811,6 @@
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.security.MenuSecurityActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -823,11 +819,6 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.videoview.uzvideo.UZActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.security.fingerprint.FingerPrintActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:theme="@style/FingerPrintTheme" />
-
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -908,6 +899,25 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:name="vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

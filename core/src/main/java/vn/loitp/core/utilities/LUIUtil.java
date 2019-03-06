@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -587,6 +588,11 @@ public class LUIUtil {
     public static void setPullLikeIOSVertical(ListView listView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(listView);
+    }
+
+    public static void setPullLikeIOSVertical(GridView gridView) {
+        //guide: https://github.com/EverythingMe/overscroll-decor
+        OverScrollDecoratorHelper.setUpOverScroll(gridView);
     }
 
     public static void setPullLikeIOSVertical(HorizontalScrollView scrollView) {
