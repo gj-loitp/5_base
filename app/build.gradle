@@ -126,6 +126,9 @@ dependencies {
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizacoresdk:3.0.8'
     //for live broadcaster
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizalivestream:3.0.8'
+
+    implementation 'com.asksira.android:bsimagepicker:1.1.0'
+//https://github.com/siralam/BSImagePicker
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

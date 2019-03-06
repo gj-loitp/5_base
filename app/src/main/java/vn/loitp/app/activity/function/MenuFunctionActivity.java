@@ -6,6 +6,7 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
+import vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
@@ -45,6 +46,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_sensor).setOnClickListener(this);
         findViewById(R.id.bt_scrog).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
+        findViewById(R.id.bt_bs_image_picker).setOnClickListener(this);
     }
 
     @Override
@@ -110,6 +112,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_glide:
                 intent = new Intent(activity, GlideActivity.class);
+                break;
+            case R.id.bt_bs_image_picker:
+                intent = new Intent(activity, BSImagePickerActivity.class);
                 break;
         }
         if (intent != null) {
