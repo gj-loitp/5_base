@@ -916,8 +916,12 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name="vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
