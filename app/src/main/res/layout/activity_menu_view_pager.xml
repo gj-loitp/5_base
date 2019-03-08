@@ -55,6 +55,12 @@
                 android:text="Parallax ViewPager" />
 
             <Button
+                android:id="@+id/bt_refresh_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Refresh ViewPager" />
+
+            <Button
                 android:id="@+id/bt_view_pager_tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
