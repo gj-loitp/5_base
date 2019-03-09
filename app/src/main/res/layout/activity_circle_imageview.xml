@@ -26,6 +26,20 @@
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="@dimen/w_10" />
 
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/w_350"
+                android:layout_height="@dimen/w_350"
+                android:layout_marginTop="@dimen/margin_30"
+                android:contentDescription="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="@dimen/w_350"
+                android:layout_height="@dimen/w_350"
+                android:layout_marginTop="@dimen/margin_30"
+                android:contentDescription="@string/app_name" />
+
             <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
                 android:layout_width="@dimen/w_250"
                 android:layout_height="@dimen/w_250"
