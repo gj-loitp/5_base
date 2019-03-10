@@ -116,6 +116,18 @@ public class LImageUtil {
                 .apply(RequestOptions.circleCropTransform())
                 .into(imageView);
     }
+
+    public static void loadCircle(String url, ImageView imageView, int resPlaceHolder, int resError) {
+        if (imageView == null) {
+            return;
+        }
+        Glide.with(imageView.getContext())
+                .load(url)
+                .transition(withCrossFade())
+                .apply(RequestOptions.circleCropTransform().placeholder(resPlaceHolder).error(resError)
+                )
+                .into(imageView);
+    }
     /*public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
         Glide.with(activity).load(url)
                 .listener(glideDrawableRequestListener)
