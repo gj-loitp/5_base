@@ -929,6 +929,9 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.actionbar.navigationview.NavigationViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

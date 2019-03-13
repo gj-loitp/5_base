@@ -32,7 +32,7 @@ import vn.loitp.restapi.uiza.UZService;
 import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.restapi.uiza.model.v3.metadata.getlistmetadata.ResultGetListMetadata;
 import vn.loitp.rxandroid.ApiSubscriber;
-import vn.loitp.views.actionbar.lib.LActionBar;
+import vn.loitp.views.actionbar.LActionBar;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class UZMainActivity extends BaseFontActivity {

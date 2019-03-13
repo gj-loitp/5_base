@@ -31,7 +31,7 @@ import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.actionbar.lib.LActionBar;
+import vn.loitp.views.actionbar.LActionBar;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;

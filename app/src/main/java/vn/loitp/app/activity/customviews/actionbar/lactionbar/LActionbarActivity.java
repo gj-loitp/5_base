@@ -7,7 +7,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.actionbar.lib.LActionBar;
+import vn.loitp.views.actionbar.LActionBar;
 
 public class LActionbarActivity extends BaseFontActivity {
 

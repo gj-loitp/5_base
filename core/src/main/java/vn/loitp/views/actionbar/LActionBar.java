@@ -1,4 +1,4 @@
-package vn.loitp.views.actionbar.lib;
+package vn.loitp.views.actionbar;
 
 import android.content.Context;
 import android.util.AttributeSet;
