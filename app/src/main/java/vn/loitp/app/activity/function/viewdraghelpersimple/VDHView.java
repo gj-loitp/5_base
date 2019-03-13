@@ -90,7 +90,7 @@ public class VDHView extends LinearLayout {
                 sizeHHeaderViewOriginal = headerView.getMeasuredHeight();
                 sizeWHeaderViewMin = sizeWHeaderViewOriginal / 2;
                 sizeHHeaderViewMin = sizeHHeaderViewOriginal / 2;
-                LLog.d(TAG, "fuck size original: " + sizeWHeaderViewOriginal + "x" + sizeHHeaderViewOriginal + " -> " + sizeWHeaderViewMin + "x" + sizeHHeaderViewMin);
+                //LLog.d(TAG, "size original: " + sizeWHeaderViewOriginal + "x" + sizeHHeaderViewOriginal + " -> " + sizeWHeaderViewMin + "x" + sizeHHeaderViewMin);
             }
         });
     }

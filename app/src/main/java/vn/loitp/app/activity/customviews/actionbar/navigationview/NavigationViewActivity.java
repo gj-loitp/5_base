@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,8 +40,26 @@ public class NavigationViewActivity extends BaseFontActivity {
         nv.setNVCallback(new LNavigationView.NVCallback() {
             @Override
             public void onIndexChange(int index, String s) {
-                LLog.d(TAG, "fuck onIndexChange " + index + " -> " + s);
+                LLog.d(TAG, "onIndexChange " + index + " -> " + s);
                 tvMsg.setText(index + " -> " + s);
+            }
+        });
+        findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nv.setCurrenIndex(0);
+            }
+        });
+        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nv.setCurrenIndex(stringList.size() - 1);
+            }
+        });
+        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nv.setCurrenIndex(2);
             }
         });
     }

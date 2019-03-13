@@ -82,7 +82,7 @@ public class LNavigationView extends RelativeLayout implements View.OnClickListe
         updateUI();
     }
 
-    private void setCurrenIndex(int index) {
+    public void setCurrenIndex(int index) {
         if (stringList == null || stringList.isEmpty()) {
             return;
         }

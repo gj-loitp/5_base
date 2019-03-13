@@ -12,8 +12,28 @@
     <TextView
         android:id="@+id/tv_msg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
         android:gravity="center"
+        android:padding="@dimen/padding_10"
         android:textSize="@dimen/txt_18" />
+
+    <Button
+        android:id="@+id/bt_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scroll to first" />
+
+    <Button
+        android:id="@+id/bt_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scroll to last" />
+
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scroll to 2" />
 </LinearLayout>
 
