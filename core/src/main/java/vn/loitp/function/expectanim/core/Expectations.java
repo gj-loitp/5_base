@@ -1,6 +1,6 @@
 package vn.loitp.function.expectanim.core;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.Gravity;
 import android.view.View;
 

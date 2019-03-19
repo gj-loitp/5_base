@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.demo.floatingview;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingview.fragment.FVControlFragment;

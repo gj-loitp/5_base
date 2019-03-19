@@ -908,7 +908,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

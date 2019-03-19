@@ -17,8 +17,8 @@ package vn.loitp.views.layout.draggablepanel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 

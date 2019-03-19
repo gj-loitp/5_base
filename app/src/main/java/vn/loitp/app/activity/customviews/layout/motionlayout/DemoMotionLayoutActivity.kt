@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.layout.motionlayout
 
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.constraint.motion.MotionLayout
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.motion.widget.MotionLayout
 import android.view.View
 import android.widget.ImageView
 import loitp.basemaster.R

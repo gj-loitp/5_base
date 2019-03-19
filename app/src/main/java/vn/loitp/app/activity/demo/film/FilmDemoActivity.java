@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.demo.film;
 
 import android.os.Bundle;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.core.widget.NestedScrollView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;

@@ -17,7 +17,7 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.helpers;
 
 import android.content.Context;
-import android.support.constraint.motion.MotionHelper;
+import androidx.constraintlayout.motion.widget.MotionHelper;
 import android.util.AttributeSet;
 import android.view.View;
 

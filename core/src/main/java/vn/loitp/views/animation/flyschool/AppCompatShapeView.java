@@ -1,11 +1,10 @@
 package vn.loitp.views.animation.flyschool;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * * ShapeView to be used inside {@link ShapeFlyer}

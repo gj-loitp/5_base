@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo
 
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.view.ViewPager
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 import loitp.basemaster.R
 import vn.loitp.core.base.BaseFontActivity

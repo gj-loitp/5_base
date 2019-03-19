@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.graphics.Matrix;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import android.widget.ImageView;
 
 import loitp.basemaster.R;

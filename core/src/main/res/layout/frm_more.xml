@@ -5,7 +5,7 @@
     android:animateLayoutChanges="true"
     android:background="@color/WhiteSmoke">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/sv"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -181,5 +181,5 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

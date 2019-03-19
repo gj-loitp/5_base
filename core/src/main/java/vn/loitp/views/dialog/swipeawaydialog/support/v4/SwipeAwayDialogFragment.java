@@ -1,6 +1,6 @@
 package vn.loitp.views.dialog.swipeawaydialog.support.v4;
 
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;

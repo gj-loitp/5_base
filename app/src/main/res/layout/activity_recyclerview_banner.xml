@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:id="@+id/sv"
         android:layout_height="match_parent">
@@ -67,6 +67,6 @@
                 android:layout_height="@dimen/w_1"
                 android:background="@color/LightGrey" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
 

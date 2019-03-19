@@ -1,8 +1,8 @@
 package vn.loitp.utils.util;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.LayoutRes;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.ColorInt;
+import androidx.annotation.LayoutRes;
+import com.google.android.material.snackbar.Snackbar;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;

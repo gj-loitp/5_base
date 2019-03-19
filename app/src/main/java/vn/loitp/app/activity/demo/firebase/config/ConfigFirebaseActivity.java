@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.demo.firebase.config;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;

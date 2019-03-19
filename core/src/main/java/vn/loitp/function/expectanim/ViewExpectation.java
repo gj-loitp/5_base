@@ -1,7 +1,7 @@
 package vn.loitp.function.expectanim;
 
 import android.animation.Animator;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import java.util.ArrayList;

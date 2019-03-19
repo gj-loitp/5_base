@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -42,6 +42,6 @@
                 android:layout_below="@+id/bt"
                 android:text="@string/large_text" />
         </RelativeLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout>

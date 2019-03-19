@@ -2,7 +2,7 @@ package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.transition.Scene;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;

@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;

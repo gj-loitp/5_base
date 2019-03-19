@@ -2,7 +2,7 @@ package vn.loitp.views.layout.elasticdragdismisslayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;

@@ -1,15 +1,17 @@
 package vn.loitp.views.viewpager.swipeoutviewpager;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
+import androidx.core.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by loitp on 7/20/2018.
  */
 
-public class SwipeOutViewPager extends android.support.v4.view.ViewPager {
+public class SwipeOutViewPager extends ViewPager {
 
     float mStartDragX;
     OnSwipeOutListener mOnSwipeOutListener;

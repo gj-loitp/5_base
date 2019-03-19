@@ -17,8 +17,8 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.utils
 
 import android.content.Context
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.view.ViewPager
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 
 class ViewpagerHeader @JvmOverloads constructor(

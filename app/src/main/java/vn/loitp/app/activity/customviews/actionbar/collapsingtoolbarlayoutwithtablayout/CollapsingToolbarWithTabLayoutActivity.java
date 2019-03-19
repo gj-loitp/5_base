@@ -2,15 +2,15 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwitht
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +21,6 @@ import android.widget.TextView;
 import loitp.basemaster.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 
@@ -39,7 +38,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material);
         toolbar.setNavigationOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,10 +1,10 @@
 package vn.loitp.views.layout.dragueur;
 
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
-import android.support.v4.view.ViewPropertyAnimatorUpdateListener;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewPropertyAnimatorCompat;
+import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
+import androidx.core.view.ViewPropertyAnimatorUpdateListener;
 import android.view.View;
 
 import java.util.concurrent.atomic.AtomicBoolean;

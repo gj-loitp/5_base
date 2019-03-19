@@ -2,7 +2,7 @@ package vn.loitp.function.expectanim.core.rotation;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import java.util.ArrayList;

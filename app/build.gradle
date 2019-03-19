@@ -28,7 +28,7 @@ android {
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -109,7 +109,7 @@ dependencies {
     api 'com.google.firebase:firebase-database:16.1.0'
 
     // Needed to fix a dependency conflict with FirebaseUI'
-    api 'android.arch.core:runtime:1.1.1'
+    api 'androidx.arch.core:core-runtime:2.0.0-beta01'
 
     //invites
     api 'com.google.firebase:firebase-invites:16.1.0'
@@ -120,7 +120,7 @@ dependencies {
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
 
     //for playing video VOD, LIVE
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizacoresdk:3.0.8'

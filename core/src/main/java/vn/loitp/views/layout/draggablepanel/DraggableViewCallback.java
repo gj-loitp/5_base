@@ -15,7 +15,7 @@
  */
 package vn.loitp.views.layout.draggablepanel;
 
-import android.support.v4.widget.ViewDragHelper;
+import androidx.customview.widget.ViewDragHelper;
 import android.view.View;
 
 /**

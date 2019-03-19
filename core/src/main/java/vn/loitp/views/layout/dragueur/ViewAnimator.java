@@ -1,6 +1,6 @@
 package vn.loitp.views.layout.dragueur;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface ViewAnimator<D extends DraggableView> {
 

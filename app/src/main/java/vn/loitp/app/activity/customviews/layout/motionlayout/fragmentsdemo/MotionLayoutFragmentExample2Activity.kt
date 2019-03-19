@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.app.Fragment
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import android.view.View
 import kotlinx.android.synthetic.main.activity_motion_layout_fragment_example.*
 import loitp.basemaster.R
