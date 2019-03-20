@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.customviews.viewpager.lockableviewpager;
 
 import android.os.Bundle;
+import android.view.View;
+
 import com.google.android.material.tabs.TabLayout;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import android.view.View;
-
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
 import vn.loitp.core.base.BaseFontActivity;

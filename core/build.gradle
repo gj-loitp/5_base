@@ -61,7 +61,6 @@ dependencies {
     api 'androidx.cardview:cardview:1.0.0-beta01'
     //api 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
 
     api 'org.jsoup:jsoup:1.10.2'
     api 'io.reactivex:rxandroid:1.2.1'

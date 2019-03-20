@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.actionbar.navigationview;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.core.content.ContextCompat;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
