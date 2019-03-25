@@ -186,7 +186,7 @@ public class LTextNavigationView extends RelativeLayout implements View.OnClickL
     }
 
     public void setTextNext(String next) {
-        tvPrev.setText(next);
+        tvNext.setText(next);
     }
 
     public void setTextSize(int dpPrev, int dpText, int dpNext) {
