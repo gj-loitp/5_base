@@ -32,7 +32,6 @@ public class NavigationViewWithTextActivity extends BaseFontActivity {
         nv.setColorOn(ContextCompat.getColor(activity, R.color.Red));
         nv.setColorOff(ContextCompat.getColor(activity, R.color.Gray));
         nv.getTv().setTextColor(Color.BLACK);
-        LUIUtil.setTextSize(nv.getTv(), TypedValue.COMPLEX_UNIT_DIP, 20);//20dp
 
         List<String> stringList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
