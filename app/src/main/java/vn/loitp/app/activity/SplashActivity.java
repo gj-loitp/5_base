@@ -42,6 +42,7 @@ import vn.loitp.model.App;
 public class SplashActivity extends BaseFontActivity {
     private boolean isAnimDone = false;
     private boolean isCheckReadyDone = false;
+    private boolean isShowDialogCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +76,6 @@ public class SplashActivity extends BaseFontActivity {
             checkPermission();
         }
     }
-
-    private boolean isShowDialogCheck;
 
     private void checkPermission() {
         isShowDialogCheck = true;
