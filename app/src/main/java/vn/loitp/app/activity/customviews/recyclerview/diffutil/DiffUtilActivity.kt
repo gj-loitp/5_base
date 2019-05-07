@@ -27,10 +27,14 @@ class DiffUtilActivity : BaseFontActivity() {
         return items.filter { rand.nextBoolean() }
     }
 
-    //op1
     fun add(): List<Content> {
         items.add(Content(1, "Loitp ${System.currentTimeMillis()}", "http://lorempixel.com/200/200/animals/1/"))
         adapter.notifyDataSetChanged()
+        return items
+    }
+
+    fun shuffle(): List<Content> {
+        Collections.shuffle(items);
         return items
     }
 
@@ -50,6 +54,9 @@ class DiffUtilActivity : BaseFontActivity() {
         }
         btAdd.setOnClickListener {
             adapter.items = add()
+        }
+        btShuffle.setOnClickListener {
+            adapter.items = shuffle()
         }
     }
 }
