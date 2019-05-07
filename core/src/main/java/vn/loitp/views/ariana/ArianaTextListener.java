@@ -1,7 +1,7 @@
 package vn.loitp.views.ariana;
 
 import android.os.Build;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.widget.TextView;
 
 import java.util.Arrays;

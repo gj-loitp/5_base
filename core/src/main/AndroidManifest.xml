@@ -17,7 +17,6 @@
     <!-- Required on all api levels if you are using setPersisted(true) -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-    <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-feature
         android:name="android.hardware.fingerprint"
@@ -25,7 +24,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:usesCleartextTraffic="true">
         <!-- support 18:9 -->
         <meta-data
             android:name="android.max_aspect"

@@ -17,8 +17,8 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.utils
 
 import android.content.Context
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.widget.DrawerLayout
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.drawerlayout.widget.DrawerLayout
 import android.util.AttributeSet
 import android.view.View
 

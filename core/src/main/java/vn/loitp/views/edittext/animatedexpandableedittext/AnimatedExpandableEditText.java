@@ -6,7 +6,7 @@ package vn.loitp.views.edittext.animatedexpandableedittext;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import loitp.core.R;
 
-public class AnimatedExpandableEditText extends android.support.v7.widget.AppCompatEditText {
+public class AnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     public static int expandHeightPixels;
     public static int expandAnimationDurationMilliseconds;

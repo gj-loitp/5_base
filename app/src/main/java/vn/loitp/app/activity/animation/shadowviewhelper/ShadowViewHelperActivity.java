@@ -2,7 +2,7 @@ package vn.loitp.app.activity.animation.shadowviewhelper;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 

@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar;
 
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 import android.widget.Button;
 

@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.SeekBar;
 
 import loitp.basemaster.R;

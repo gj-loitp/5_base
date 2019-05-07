@@ -31,12 +31,6 @@
                 android:text="Auto ViewPager" />
 
             <Button
-                android:id="@+id/bt_parallax_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Parallax ViewPager" />
-
-            <Button
                 android:id="@+id/bt_detect_viewpager_swipe_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +40,25 @@
                 android:id="@+id/bt_detect_viewpager_swipe_out_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detect ViewPager SwipeOut 2" />
+                android:text="Detect ViewPager SwipeOut 2 (Nice)" />
+
+            <Button
+                android:id="@+id/bt_lockable_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LockableViewPager" />
+
+            <Button
+                android:id="@+id/bt_parallax_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parallax ViewPager" />
+
+            <Button
+                android:id="@+id/bt_refresh_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Refresh ViewPager" />
 
             <Button
                 android:id="@+id/bt_view_pager_tablayout"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity;
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity;
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity;
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity;
@@ -21,6 +22,7 @@ public class DialogMenuActivity extends BaseFontActivity implements View.OnClick
         findViewById(R.id.bt_original_dialog).setOnClickListener(this);
         findViewById(R.id.bt_pretty_dialog).setOnClickListener(this);
         findViewById(R.id.bt_swipe_away_dialog).setOnClickListener(this);
+        findViewById(R.id.bt_custom_progress_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +55,9 @@ public class DialogMenuActivity extends BaseFontActivity implements View.OnClick
                 break;
             case R.id.bt_swipe_away_dialog:
                 intent = new Intent(activity, SwipeAwayDialogActivity.class);
+                break;
+            case R.id.bt_custom_progress_dialog:
+                intent = new Intent(activity, CustomProgressDialoglActivity.class);
                 break;
         }
         if (intent != null) {

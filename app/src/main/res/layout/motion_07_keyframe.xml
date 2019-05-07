@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.motion.MotionLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/motionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +23,6 @@
             tools:layout_editor_absoluteX="215dp"
             tools:layout_editor_absoluteY="223dp" />
 
-    </android.support.constraint.motion.MotionLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </RelativeLayout>

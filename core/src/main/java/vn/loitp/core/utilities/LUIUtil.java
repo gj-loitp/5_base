@@ -18,13 +18,13 @@ import android.graphics.drawable.shapes.RectShape;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -346,41 +346,6 @@ public class LUIUtil {
         if (!editText.getText().toString().isEmpty()) {
             editText.setSelection(editText.getText().length());
         }
-    }
-
-    public static void removeUnderlineOfSearchView(SearchView searchView) {
-        View v = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
-        v.setBackgroundColor(Color.TRANSPARENT);
-    }
-
-    public static SearchView customizeWhiteSearchView(SearchView searchView, Context context, String hintText) {
-        View v = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
-        v.setBackgroundColor(Color.TRANSPARENT);
-
-        EditText searchEditText = (EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        searchEditText.setTextColor(Color.WHITE);
-        searchEditText.setHintTextColor(ContextCompat.getColor(context, R.color.LightGrey));
-
-        //ImageView imgViewSearchView = (ImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_button);
-        //imgViewSearchView.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.search_color));
-
-        SpannableStringBuilder ssb = new SpannableStringBuilder("   ");
-        if (hintText != null) {
-            ssb.append(hintText);
-        } else {
-            ssb.append("Mínim 3 caràcters...");
-        }
-
-        Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.search_color);
-        int textSize = (int) (searchEditText.getTextSize() * 1.05);
-        searchIcon.setBounds(0, 0, textSize, textSize);
-        ssb.setSpan(new ImageSpan(searchIcon), 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        searchEditText.setHint(ssb);
-
-        ImageView close = (ImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-        close.setImageResource(R.drawable.delete_border);
-
-        return searchView;
     }
 
     public static void setColorForSwipeRefreshLayout(SwipeRefreshLayout swipeRefreshLayout) {

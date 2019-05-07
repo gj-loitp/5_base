@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
 

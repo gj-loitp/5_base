@@ -28,7 +28,7 @@ android {
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -78,15 +78,15 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:3.4.1'
+    //api 'com.github.tplloi:basemaster:3.5.5'
 
     api 'io.realm:realm-android:0.82.1'//realm
 
     // [START gradle_play_config]
-    api 'com.google.firebase:firebase-ads:17.1.3'
+    api 'com.google.firebase:firebase-ads:17.2.0'
 
     // Firebase Authentication
-    api 'com.google.firebase:firebase-auth:16.1.0'
+    api 'com.google.firebase:firebase-auth:16.2.0'
     api 'com.google.firebase:firebase-core:16.0.7'
 
     // Google Sign In SDK (only required for Google Sign In)
@@ -101,34 +101,39 @@ dependencies {
     api 'com.facebook.android:facebook-login:4.34.0'
 
     //remote config
-    api 'com.google.firebase:firebase-config:16.1.3'
+    api 'com.google.firebase:firebase-config:16.4.0'
 
     //database
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
-    api 'com.google.firebase:firebase-database:16.0.6'
+    api 'com.google.firebase:firebase-database:16.1.0'
 
     // Needed to fix a dependency conflict with FirebaseUI'
-    api 'android.arch.core:runtime:1.1.1'
+    api 'androidx.arch.core:core-runtime:2.0.0-beta01'
 
     //invites
-    api 'com.google.firebase:firebase-invites:16.0.6'
+    api 'com.google.firebase:firebase-invites:16.1.0'
 
     /*fcm*/
     //compile 'com.google.android.gms:play-services:12.0.1'
-    api 'com.google.firebase:firebase-messaging:17.3.4'
+    api 'com.google.firebase:firebase-messaging:17.4.0'
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
 
     //for playing video VOD, LIVE
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizacoresdk:3.0.8'
     //for live broadcaster
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizalivestream:3.0.8'
 
-    implementation 'com.asksira.android:bsimagepicker:1.1.0'
-//https://github.com/siralam/BSImagePicker
+    implementation 'com.asksira.android:bsimagepicker:1.1.0'//https://github.com/siralam/BSImagePicker
+
+    //https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

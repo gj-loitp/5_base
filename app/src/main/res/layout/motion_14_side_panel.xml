@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.motion.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
@@ -9,7 +9,7 @@
 
     <include layout="@layout/activity_scrolling" />
 
-    <android.support.constraint.utils.MockView
+    <androidx.constraintlayout.utils.widget.MockView
         android:id="@+id/button"
         android:layout_width="180dp"
         android:layout_height="match_parent"
@@ -17,4 +17,4 @@
         app:mock_diagonalsColor="#FFF"
         app:mock_label="Side Panel" />
 
-</android.support.constraint.motion.MotionLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

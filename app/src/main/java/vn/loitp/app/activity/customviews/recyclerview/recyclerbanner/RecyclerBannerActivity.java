@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclerbanner;
 
 import android.os.Bundle;
-import android.support.v4.widget.NestedScrollView;
+import androidx.core.widget.NestedScrollView;
 
 import java.util.ArrayList;
 import java.util.List;

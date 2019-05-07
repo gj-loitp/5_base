@@ -4,7 +4,7 @@ package vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid;
  * Created by www.muathu@gmail.com on 1/2/2018.
  */
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 /**

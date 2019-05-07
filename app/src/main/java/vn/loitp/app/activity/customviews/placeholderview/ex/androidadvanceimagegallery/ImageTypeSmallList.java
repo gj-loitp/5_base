@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.List;
 import loitp.basemaster.R;

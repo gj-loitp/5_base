@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.demo.firebase.database;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;

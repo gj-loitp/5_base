@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
 import android.view.View;
 
 import loitp.basemaster.R;

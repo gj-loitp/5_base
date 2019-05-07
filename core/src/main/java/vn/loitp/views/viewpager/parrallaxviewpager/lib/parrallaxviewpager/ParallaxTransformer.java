@@ -6,7 +6,7 @@ package vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager;
 
 import android.animation.FloatEvaluator;
 import android.os.Build;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;

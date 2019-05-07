@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.seekbar.circularseekbar;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DecimalFormat;
 

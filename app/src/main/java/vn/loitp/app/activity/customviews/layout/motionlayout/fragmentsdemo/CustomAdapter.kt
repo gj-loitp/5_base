@@ -17,9 +17,9 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.graphics.Rect
-import android.support.constraint.motion.MotionLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

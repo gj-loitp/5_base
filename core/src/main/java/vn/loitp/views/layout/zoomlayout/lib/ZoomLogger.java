@@ -4,7 +4,7 @@ package vn.loitp.views.layout.zoomlayout.lib;
  * Created by www.muathu@gmail.com on 10/31/2017.
  */
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.util.Log;
 
 import java.lang.annotation.Retention;

@@ -10,7 +10,7 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.DimenRes;
+import androidx.annotation.DimenRes;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;

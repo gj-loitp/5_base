@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
 import loitp.basemaster.R;

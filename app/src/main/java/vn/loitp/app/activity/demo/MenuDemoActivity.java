@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity;
+import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity;
 import vn.loitp.app.activity.demo.film.FilmDemoActivity;
@@ -21,7 +22,6 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
-import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity;
 import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -36,6 +36,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_alarm).setOnClickListener(this);
+        findViewById(R.id.bt_butter_knife).setOnClickListener(this);
         findViewById(R.id.bt_ebook_with_realm).setOnClickListener(this);
         findViewById(R.id.bt_gallery).setOnClickListener(this);
         findViewById(R.id.bt_video).setOnClickListener(this);
@@ -94,6 +95,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.bt_alarm:
                 intent = new Intent(activity, AlarmMeActivity.class);
+                break;
+            case R.id.bt_butter_knife:
+                intent = new Intent(activity, ButterKnifeActivity.class);
                 break;
             case R.id.bt_ebook_with_realm:
                 intent = new Intent(activity, EbookWithRealmActivity.class);

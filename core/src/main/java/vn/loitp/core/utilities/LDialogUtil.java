@@ -6,7 +6,10 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.content.ContextCompat;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import androidx.core.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -264,6 +267,36 @@ public class LDialogUtil {
             }
         });
         iOSDialog.show();
+    }
+
+    public static AlertDialog showCustomProgressDialog(Context context) {
+        return showCustomProgressDialog(context, 0f);
+    }
+
+    public static AlertDialog showCustomProgressDialog(Context context, float amount) {
+        if (context == null) {
+            return null;
+        }
+        clearAll();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.dlg_custom_progress, null);
+        /*RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.rl);
+        rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });*/
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.getWindow().setDimAmount(amount);
+        }
+        dialog.setCancelable(false);
+        dialog.show();
+        alertDialogList.add(dialog);
+        return dialog;
     }
 
     public static void showProgress(ProgressBar progressBar) {

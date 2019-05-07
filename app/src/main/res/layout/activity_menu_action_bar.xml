@@ -42,6 +42,17 @@
                 android:layout_height="wrap_content"
                 android:text="LActionBar" />
 
+            <Button
+                android:id="@+id/bt_navigation_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navigation View" />
+
+            <Button
+                android:id="@+id/bt_navigation_view_with_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navigation View With Text" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;

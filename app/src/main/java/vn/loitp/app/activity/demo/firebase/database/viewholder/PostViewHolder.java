@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.firebase.database.viewholder;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

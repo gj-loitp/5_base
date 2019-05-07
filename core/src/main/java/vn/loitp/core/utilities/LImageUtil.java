@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
@@ -91,6 +93,41 @@ public class LImageUtil {
                 .into(imageView);
     }
 
+    public static void loadRound(String url, ImageView imageView, int roundingRadius, int resPlaceHolder) {
+        if (imageView == null) {
+            return;
+        }
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(roundingRadius)).placeholder(resPlaceHolder);
+        Glide.with(imageView.getContext())
+                .load(url)
+                .transition(withCrossFade())
+                .apply(requestOptions)
+                .into(imageView);
+    }
+
+    public static void loadCircle(String url, ImageView imageView) {
+        if (imageView == null) {
+            return;
+        }
+        Glide.with(imageView.getContext())
+                .load(url)
+                .transition(withCrossFade())
+                .apply(RequestOptions.circleCropTransform())
+                .into(imageView);
+    }
+
+    public static void loadCircle(String url, ImageView imageView, int resPlaceHolder, int resError) {
+        if (imageView == null) {
+            return;
+        }
+        Glide.with(imageView.getContext())
+                .load(url)
+                .transition(withCrossFade())
+                .apply(RequestOptions.circleCropTransform().placeholder(resPlaceHolder).error(resError)
+                )
+                .into(imageView);
+    }
     /*public static void load(Activity activity, String url, ImageView imageView, RequestListener<String, GlideDrawable> glideDrawableRequestListener) {
         Glide.with(activity).load(url)
                 .listener(glideDrawableRequestListener)

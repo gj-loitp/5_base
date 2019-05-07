@@ -1,6 +1,6 @@
 package vn.loitp.function.notification.notifications;
 
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 public class BigPictureNotification extends BaseNotification {
     public BigPictureNotification(String title, String content) {

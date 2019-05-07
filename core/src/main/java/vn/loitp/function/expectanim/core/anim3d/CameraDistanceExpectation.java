@@ -1,6 +1,6 @@
 package vn.loitp.function.expectanim.core.anim3d;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import vn.loitp.function.expectanim.core.AnimExpectation;

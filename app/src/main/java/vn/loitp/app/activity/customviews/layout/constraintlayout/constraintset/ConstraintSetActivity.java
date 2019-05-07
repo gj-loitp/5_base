@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import android.transition.TransitionManager;
 import android.view.View;
 
