@@ -1,11 +1,11 @@
 package com.antonioleiva.diffutilkotlin
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_diff_util.*
 import loitp.basemaster.R
 import vn.loitp.core.base.BaseFontActivity
+import java.util.*
 
 class DiffUtilActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
@@ -20,25 +20,23 @@ class DiffUtilActivity : BaseFontActivity() {
         return R.layout.activity_diff_util
     }
 
-    val provider = ContentProvider()
+    private val items = (1..10).map { Content(it, "Item $it", "http://lorempixel.com/200/200/animals/$it/") }
+
+    fun generate(): List<Content> {
+        val rand = Random(System.currentTimeMillis())
+        return items.filter { rand.nextBoolean() }
+    }
+
     val adapter = ContentAdapter()
-    val handler = Handler()
-    val runnable = { fillAdapter(); scheduleReload() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diff_util)
-
         rv.layoutManager = GridLayoutManager(this, 3)
         rv.adapter = adapter
-        runnable()
-    }
-
-    private fun scheduleReload() {
-        handler.postDelayed(runnable, 3000)
-    }
-
-    private fun fillAdapter() {
-        adapter.items = provider.generate()
+        adapter.items = items
+        bt.setOnClickListener {
+            adapter.items = generate()
+        }
     }
 }
