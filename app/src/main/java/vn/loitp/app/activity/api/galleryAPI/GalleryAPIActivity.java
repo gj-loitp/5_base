@@ -92,7 +92,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetlist));
+                LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                 mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
                 LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
                 avi.smoothToHide();
@@ -144,7 +144,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback), new ApiSubscriber<Object>() {
             @Override
             public void onSuccess(Object wrapperPhotosetGetlist) {
-                LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetlist));
+                LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                 LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
                 avi.smoothToHide();
                 bt2.setVisibility(View.VISIBLE);

@@ -59,7 +59,7 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "json == null || json.isEmpty()");
             mResult = RESULT_COMIC_IS_NOT_EXIST;
         } else {
-            comicList = LSApplication.getInstance().getGson().fromJson(json, new TypeToken<List<Comic>>() {
+            comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
             LLog.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
@@ -67,7 +67,7 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             if (pos != Constants.NOT_FOUND) {
                 comicList.remove(pos);
 
-                String newJson = LSApplication.getInstance().getGson().toJson(comicList);
+                String newJson = LSApplication.Companion.getGson().toJson(comicList);
                 boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
                 if (isSaved) {
                     mResult = RESULT_REMOVE_COMIC_SUCCESS;

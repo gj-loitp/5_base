@@ -51,7 +51,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
         if (json == null || json.isEmpty()) {
             LLog.d(TAG, "json == null || json.isEmpty()");
         } else {
-            comicList = LSApplication.getInstance().getGson().fromJson(json, new TypeToken<List<Comic>>() {
+            comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
         }
         LLog.d(TAG, "comicList size: " + comicList);

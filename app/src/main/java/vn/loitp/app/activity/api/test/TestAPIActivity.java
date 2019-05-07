@@ -141,7 +141,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getListMetadata(), new ApiSubscriber<ResultGetListMetadata>() {
             @Override
             public void onSuccess(ResultGetListMetadata resultGetListMetadata) {
-                LLog.d(TAG, "getListMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetListMetadata));
+                LLog.d(TAG, "getListMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultGetListMetadata));
                 showTv(resultGetListMetadata);
             }
 
@@ -164,7 +164,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.createMetadata(createMetadata), new ApiSubscriber<ResultCreateMetadata>() {
             @Override
             public void onSuccess(ResultCreateMetadata resultCreateMetadata) {
-                LLog.d(TAG, "createMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(resultCreateMetadata));
+                LLog.d(TAG, "createMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultCreateMetadata));
                 showTv(resultCreateMetadata);
             }
 
@@ -182,7 +182,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getDetailOfMetadata(metadataId), new ApiSubscriber<ResultGetDetailOfMetadata>() {
             @Override
             public void onSuccess(ResultGetDetailOfMetadata resultGetDetailOfMetadata) {
-                LLog.d(TAG, "getDetailOfMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetDetailOfMetadata));
+                LLog.d(TAG, "getDetailOfMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultGetDetailOfMetadata));
                 showTv(resultGetDetailOfMetadata);
             }
 
@@ -206,7 +206,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.updateMetadata(createMetadata), new ApiSubscriber<ResultUpdateMetadata>() {
             @Override
             public void onSuccess(ResultUpdateMetadata result) {
-                LLog.d(TAG, "updateMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "updateMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -224,7 +224,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.deleteAnMetadata(deleteMetadataId), new ApiSubscriber<ResultDeleteAnMetadata>() {
             @Override
             public void onSuccess(ResultDeleteAnMetadata result) {
-                LLog.d(TAG, "updateMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "updateMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -247,7 +247,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getListAllEntity(metadataId, limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
             @Override
             public void onSuccess(ResultListEntity result) {
-                LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -269,7 +269,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getListAllEntity(metadataId, limit, page, orderBy, orderType, "success"), new ApiSubscriber<ResultListEntity>() {
             @Override
             public void onSuccess(ResultListEntity result) {
-                LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getListAllEntity onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -287,7 +287,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.retrieveAnEntity(id), new ApiSubscriber<ResultRetrieveAnEntity>() {
             @Override
             public void onSuccess(ResultRetrieveAnEntity result) {
-                LLog.d(TAG, "retrieveAnEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "retrieveAnEntity onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -305,7 +305,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.searchEntity(keyword), new ApiSubscriber<ResultListEntity>() {
             @Override
             public void onSuccess(ResultListEntity result) {
-                LLog.d(TAG, "searchAnEntity onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "searchAnEntity onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -326,7 +326,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
             @Override
             public void onSuccess(ResultGetTokenStreaming result) {
-                LLog.d(TAG, "getTokenStreaming onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getTokenStreaming onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
                 tokenStreaming = result.getData().getToken();
             }
@@ -352,7 +352,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getLinkPlay(UZData.getInstance().getAppId(), entityIdDefaultVOD, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay result) {
-                LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -373,7 +373,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.retrieveALiveEvent(limit, page, orderBy, orderType), new ApiSubscriber<ResultRetrieveALiveEvent>() {
             @Override
             public void onSuccess(ResultRetrieveALiveEvent result) {
-                LLog.d(TAG, "retrieveALiveEvent onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "retrieveALiveEvent onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -396,7 +396,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
             @Override
             public void onSuccess(ResultGetTokenStreaming result) {
-                LLog.d(TAG, "getTokenStreamingLive onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getTokenStreamingLive onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
                 tokenStreamingLive = result.getData().getToken();
             }
@@ -420,7 +420,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getLinkPlayLive(UZData.getInstance().getAppId(), streamName), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay result) {
-                LLog.d(TAG, "getLinkPlayLive onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getLinkPlayLive onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -438,7 +438,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getViewALiveFeed(id), new ApiSubscriber<ResultGetViewALiveFeed>() {
             @Override
             public void onSuccess(ResultGetViewALiveFeed result) {
-                LLog.d(TAG, "getViewALiveFeed onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getViewALiveFeed onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 
@@ -457,7 +457,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         subscribe(service.getTimeStartLive(entityId, feedId), new ApiSubscriber<ResultTimeStartLive>() {
             @Override
             public void onSuccess(ResultTimeStartLive result) {
-                LLog.d(TAG, "getTimeStartLive onSuccess: " + LSApplication.getInstance().getGson().toJson(result));
+                LLog.d(TAG, "getTimeStartLive onSuccess: " + LSApplication.Companion.getGson().toJson(result));
                 showTv(result);
             }
 

@@ -154,7 +154,7 @@ public class UZMainActivity extends BaseFontActivity {
         subscribe(service.getListMetadata(), new ApiSubscriber<ResultGetListMetadata>() {
             @Override
             public void onSuccess(ResultGetListMetadata resultGetListMetadata) {
-                LLog.d(TAG, "getListMetadata onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetListMetadata));
+                LLog.d(TAG, "getListMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultGetListMetadata));
                 if (resultGetListMetadata == null) {
                     return;
                 }

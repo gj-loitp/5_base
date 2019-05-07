@@ -178,7 +178,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             LUIUtil.printBeautyJson(user, mDetailTextView);
 
-            LLog.d(TAG, "updateUI " + LSApplication.getInstance().getGson().toJson(user));
+            LLog.d(TAG, "updateUI " + LSApplication.Companion.getGson().toJson(user));
             LLog.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
                 LImageUtil.load(activity, user.getPhotoUrl() + "?height=500", (ImageView) findViewById(R.id.icon));

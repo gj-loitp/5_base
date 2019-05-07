@@ -56,7 +56,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         LLog.d(TAG, "doInBackground");
         imagesListOfOneChap = doTask(link);
-        LLog.d(TAG, ">>>imagesListOfOneChap: " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
+        LLog.d(TAG, ">>>imagesListOfOneChap: " + LSApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             for (int i = 0; i < imagesListOfOneChap.size(); i++) {
                 String urlImg = imagesListOfOneChap.get(i);
@@ -73,7 +73,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, "onPostExecute: " + LSApplication.getInstance().getGson().toJson(imagesListOfOneChap));
+        LLog.d(TAG, "onPostExecute: " + LSApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             if (callback != null) {
                 callback.onSuccess(imagesListOfOneChap);
@@ -133,7 +133,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
                             needToSortList = true;
                         }
                         arrString = stringAfterSplit.split(",");
-                        LLog.d(TAG, "gson stringAfterSplit: " + LSApplication.getInstance().getGson().toJson(arrString));
+                        LLog.d(TAG, "gson stringAfterSplit: " + LSApplication.Companion.getGson().toJson(arrString));
                         Collections.addAll(imgList, arrString);
                         if (needToSortList) {
                             Collections.sort(imgList, new Comparator<String>() {
@@ -145,7 +145,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
                             });
                         }
-                        LLog.d(TAG, "gson stringAfterSplit after sort: " + LSApplication.getInstance().getGson().toJson(arrString));
+                        LLog.d(TAG, "gson stringAfterSplit after sort: " + LSApplication.Companion.getGson().toJson(arrString));
                         return imgList;
                     } else {
                         LLog.d(TAG, "doTask else");

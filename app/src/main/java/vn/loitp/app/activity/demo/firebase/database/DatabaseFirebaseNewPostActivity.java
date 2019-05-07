@@ -85,7 +85,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        LLog.d(TAG, "onDataChange user: " + LSApplication.getInstance().getGson().toJson(user));
+                        LLog.d(TAG, "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out

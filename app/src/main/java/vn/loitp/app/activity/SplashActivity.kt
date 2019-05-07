@@ -220,7 +220,7 @@ class SplashActivity : BaseFontActivity() {
                 if (app == null) {
                     LLog.d(TAG, "getSettingFromGGDrive chua co setting cho app nay")
                 } else {
-                    LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.getInstance().gson.toJson(app))
+                    LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson?.toJson(app))
                     //LPref.setGGAppSetting(activity, app);
                 }
             }
