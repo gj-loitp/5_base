@@ -3,9 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.antonioleiva.diffutilkotlin.DiffUtilActivity
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity

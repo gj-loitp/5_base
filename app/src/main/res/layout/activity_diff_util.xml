@@ -10,6 +10,14 @@
 		android:layout_height="match_parent" />
 
 	<Button
+		android:id="@+id/btAdd"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Add"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent" />
+
+	<Button
 		android:id="@+id/bt"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

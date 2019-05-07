@@ -1,4 +1,4 @@
-package com.antonioleiva.diffutilkotlin
+package vn.loitp.app.activity.customviews.recyclerview.diffutil
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
