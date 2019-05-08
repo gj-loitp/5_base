@@ -2,14 +2,15 @@ package vn.loitp.core.loitp.gallery.slide;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.daimajia.androidanimations.library.Techniques;
 
@@ -42,9 +43,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(activity));
         }
 
-        int bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        int bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.NOT_FOUND) {
+        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
@@ -61,7 +62,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
         viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
 
-        String photoID = getIntent().getStringExtra(Constants.SK_PHOTO_ID);
+        String photoID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTO_ID());
         int position = PhotosDataCore.getInstance().getPosition(photoID);
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
@@ -179,7 +180,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             //LLog.d(TAG, "getItem position " + position);
             FrmIvSlideCore frmIvSlideCore = new FrmIvSlideCore();
             Bundle bundle = new Bundle();
-            bundle.putInt(Constants.SK_PHOTO_PISITION, position);
+            bundle.putInt(Constants.INSTANCE.getSK_PHOTO_PISITION(), position);
             frmIvSlideCore.setArguments(bundle);
             return frmIvSlideCore;
         }

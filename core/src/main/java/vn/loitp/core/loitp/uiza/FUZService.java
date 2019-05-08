@@ -62,9 +62,9 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     public int onStartCommand(Intent intent, int flags, int startId) {
         //LLog.d(TAG, "onStartCommand");
         data = (Data) intent.getSerializableExtra(UZCons.ENTITY_DATA);
-        linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
-        admobIDBanner = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        contentPosition = intent.getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
+        linkPlay = intent.getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY());
+        admobIDBanner = intent.getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
+        contentPosition = intent.getLongExtra(Constants.INSTANCE.getKEY_VIDEO_CURRENT_POSITION(), 0);
         if (data == null || linkPlay == null) {
             return super.onStartCommand(intent, flags, startId);
         }
@@ -452,8 +452,8 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         Intent intent = new Intent(FUZService.this, UZPlayerActivity.class);
         intent.putExtra(UZCons.ENTITY_DATA, data);
         intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, false);
-        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
-        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
+        intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_CURRENT_POSITION(), playerManager.getContentPosition());
+        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobIDBanner);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         //LActivityUtil.slideUp(getBaseContext());

@@ -437,9 +437,9 @@ public class UZVideo extends RelativeLayout implements Callback {
         LPref.setUzvideoHeight(activity, playerManager.getVideoH());
         Intent intent = new Intent(activity, FUZService.class);
         intent.putExtra(UZCons.ENTITY_DATA, data);
-        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
-        intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, linkPlay);
-        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
+        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobIDBanner);
+        intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), linkPlay);
+        intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_CURRENT_POSITION(), playerManager.getContentPosition());
         activity.startService(intent);
         activity.onBackPressed();
     }

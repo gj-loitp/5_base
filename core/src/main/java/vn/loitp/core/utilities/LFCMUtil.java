@@ -6,8 +6,6 @@ package vn.loitp.core.utilities;
 
 import android.os.AsyncTask;
 
-import com.google.gson.Gson;
-
 import org.json.JSONObject;
 
 import loitp.core.R;
@@ -36,7 +34,7 @@ public class LFCMUtil {
                     dataJson.put("body", body);
                     dataJson.put("title", R.string.app_name);
                     json.put("notification", dataJson);
-                    json.put("to", Constants.FCM_TOPIC);
+                    json.put("to", Constants.INSTANCE.getFCM_TOPIC());
                     RequestBody body = RequestBody.create(JSON, json.toString());
                     //LLog.d(TAG, "body:" + LApplication.getGson().toJson(body));
                     Request request = new Request.Builder()

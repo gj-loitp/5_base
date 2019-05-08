@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import android.content.Context;
-import androidx.viewpager.widget.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +76,9 @@ public class VGViewPager extends RelativeLayout {
             page.setColor(LStoreUtil.getRandomColor());
             page.setName("Loitp " + i + "/" + (max));
             if (i % 2 == 0) {
-                page.setUrlImg(Constants.URL_IMG_1);
+                page.setUrlImg(Constants.INSTANCE.getURL_IMG_1());
             } else {
-                page.setUrlImg(Constants.URL_IMG_2);
+                page.setUrlImg(Constants.INSTANCE.getURL_IMG_2());
             }
             pages.add(page);
         }

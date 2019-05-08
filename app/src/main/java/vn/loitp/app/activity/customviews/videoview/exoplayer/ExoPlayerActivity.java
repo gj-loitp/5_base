@@ -25,8 +25,8 @@ public class ExoPlayerActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         playerView = findViewById(R.id.player_view);
         exoFullscreen = (ImageButton) findViewById(R.id.exo_fullscreen);
-        linkPlay = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_PLAY);
-        String linkIMAAd = getIntent().getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD);
+        linkPlay = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY());
+        String linkIMAAd = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD());
         if (linkIMAAd == null) {
             playerManager = new PlayerManager(activity);
         } else {

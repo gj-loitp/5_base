@@ -4,10 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -459,12 +460,12 @@ public class LImageUtil {
     }
 
     public static String getRandomUrlFlickr() {
-        int r = LStoreUtil.getRandomNumber(Constants.ARR_URL_BKG_FLICKR.length);
-        return Constants.ARR_URL_BKG_FLICKR[r];
+        int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_URL_BKG_FLICKR().length);
+        return Constants.INSTANCE.getARR_URL_BKG_FLICKR()[r];
     }
 
     public static int getRandomMiniDrawable() {
-        int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_MINI_DRAWABLE.length);
-        return Constants.ARR_RANDOM_MINI_DRAWABLE[r];
+        int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_RANDOM_MINI_DRAWABLE().length);
+        return Constants.INSTANCE.getARR_RANDOM_MINI_DRAWABLE()[r];
     }
 }

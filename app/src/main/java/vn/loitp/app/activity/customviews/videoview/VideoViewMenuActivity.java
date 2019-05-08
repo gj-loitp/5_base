@@ -49,12 +49,12 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         switch (v.getId()) {
             case R.id.bt_exoplayer2:
                 intent = new Intent(activity, ExoPlayerActivity.class);
-                intent.putExtra(vn.loitp.core.common.Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
                 break;
             case R.id.bt_exoplayer2_ima:
                 intent = new Intent(activity, ExoPlayerActivity.class);
-                intent.putExtra(vn.loitp.core.common.Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
-                intent.putExtra(Constants.KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url));
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD(), getString(R.string.ad_tag_url));
                 break;
             case R.id.bt_2:
                 intent = new Intent(activity, ExoPlayerActivity2.class);

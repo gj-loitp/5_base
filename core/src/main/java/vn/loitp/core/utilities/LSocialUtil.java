@@ -138,7 +138,7 @@ public class LSocialUtil {
     }
 
     public static void openBrowserPolicy(Context context) {
-        openUrlInBrowser(context, Constants.URL_POLICY);
+        openUrlInBrowser(context, Constants.INSTANCE.getURL_POLICY());
     }
 
     public static void openUrlInBrowser(Context context, String url) {
@@ -152,15 +152,15 @@ public class LSocialUtil {
 
     public static void openFacebookComment(Context context, String url) {
         Intent intent = new Intent(context, FacebookCommentActivity.class);
-        intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url);
+        intent.putExtra(Constants.INSTANCE.getFACEBOOK_COMMENT_URL(), url);
         context.startActivity(intent);
         LActivityUtil.INSTANCE.tranIn(context);
     }
 
     public static void openFacebookComment(Context context, String url, String adUnitId) {
         Intent intent = new Intent(context, FacebookCommentActivity.class);
-        intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url);
-        intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId);
+        intent.putExtra(Constants.INSTANCE.getFACEBOOK_COMMENT_URL(), url);
+        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), adUnitId);
         context.startActivity(intent);
         LActivityUtil.INSTANCE.tranIn(context);
     }

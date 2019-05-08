@@ -63,7 +63,7 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
             LLog.d(TAG, "pos " + pos);
-            if (pos != vn.loitp.core.common.Constants.NOT_FOUND) {
+            if (pos != vn.loitp.core.common.Constants.INSTANCE.getNOT_FOUND()) {
                 comicList.remove(pos);
 
                 String newJson = LSApplication.Companion.getGson().toJson(comicList);

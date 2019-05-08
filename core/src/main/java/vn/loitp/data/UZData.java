@@ -16,7 +16,7 @@ public class UZData {
 
     public void initWorkspace(String domainApi, String appId, String token, String urlLinkPlayEnvironment) {
         this.appId = appId;
-        UZRestClient.init(Constants.PREFIXS + domainApi, token);
+        UZRestClient.init(Constants.INSTANCE.getPREFIXS() + domainApi, token);
         UZRestClientGetLinkPlay.init(urlLinkPlayEnvironment);
     }
 

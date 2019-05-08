@@ -2,14 +2,15 @@ package vn.loitp.function.youtubeparser.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
@@ -109,7 +110,7 @@ public class FrmYoutubeChannel extends BaseFragment {
             long currentTime = System.currentTimeMillis();
             long duration = currentTime - lastTime;
             int durationS = (int) (duration / (60 * 1000));
-            int range = Constants.IS_DEBUG ? 1 : 15;
+            int range = Constants.INSTANCE.getIS_DEBUG() ? 1 : 15;
             if (durationS > range) {
                 LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {

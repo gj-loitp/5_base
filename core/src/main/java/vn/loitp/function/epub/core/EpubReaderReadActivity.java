@@ -7,10 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.text.Html;
 import android.util.Base64;
 import android.view.View;
@@ -24,6 +20,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdSize;
@@ -134,7 +135,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             }
         });
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        final String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         //LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.isConnected(activity)) {

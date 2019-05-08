@@ -103,7 +103,7 @@ public class AdHelperActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
 
-        isEnglishLanguage = getIntent().getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
+        isEnglishLanguage = getIntent().getBooleanExtra(Constants.INSTANCE.getAD_HELPER_IS_ENGLISH_LANGUAGE(), false);
 
         btPrevScreen = (ImageButton) findViewById(R.id.bt_prev_screen);
         btNextScreen = (ImageButton) findViewById(R.id.bt_next_screen);

@@ -32,7 +32,7 @@ public class SADilog extends SwipeAwayDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle bundle = getArguments();
-        int key = Constants.NOT_FOUND;
+        int key = Constants.INSTANCE.getNOT_FOUND();
         if (bundle != null) {
             key = bundle.getInt(KEY);
         }

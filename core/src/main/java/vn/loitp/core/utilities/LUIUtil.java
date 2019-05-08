@@ -82,16 +82,16 @@ public class LUIUtil {
 
     public static AdView createAdBanner(AdView adView) {
         adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.TEST_0)
-                .addTestDevice(Constants.TEST_1)
-                .addTestDevice(Constants.TEST_2)
-                .addTestDevice(Constants.TEST_3)
-                .addTestDevice(Constants.TEST_4)
-                .addTestDevice(Constants.TEST_5)
-                .addTestDevice(Constants.TEST_6)
-                .addTestDevice(Constants.TEST_7)
-                .addTestDevice(Constants.TEST_8)
-                .addTestDevice(Constants.TEST_9)
+                .addTestDevice(Constants.INSTANCE.getTEST_0())
+                .addTestDevice(Constants.INSTANCE.getTEST_1())
+                .addTestDevice(Constants.INSTANCE.getTEST_2())
+                .addTestDevice(Constants.INSTANCE.getTEST_3())
+                .addTestDevice(Constants.INSTANCE.getTEST_4())
+                .addTestDevice(Constants.INSTANCE.getTEST_5())
+                .addTestDevice(Constants.INSTANCE.getTEST_6())
+                .addTestDevice(Constants.INSTANCE.getTEST_7())
+                .addTestDevice(Constants.INSTANCE.getTEST_8())
+                .addTestDevice(Constants.INSTANCE.getTEST_9())
                 .build());
         return adView;
     }
@@ -100,16 +100,16 @@ public class LUIUtil {
         InterstitialAd interstitial = new InterstitialAd(context);
         interstitial.setAdUnitId(AdmobData.getInstance().getIdAdmobFull());
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.TEST_0)
-                .addTestDevice(Constants.TEST_1)
-                .addTestDevice(Constants.TEST_2)
-                .addTestDevice(Constants.TEST_3)
-                .addTestDevice(Constants.TEST_4)
-                .addTestDevice(Constants.TEST_5)
-                .addTestDevice(Constants.TEST_6)
-                .addTestDevice(Constants.TEST_7)
-                .addTestDevice(Constants.TEST_8)
-                .addTestDevice(Constants.TEST_9)
+                .addTestDevice(Constants.INSTANCE.getTEST_0())
+                .addTestDevice(Constants.INSTANCE.getTEST_1())
+                .addTestDevice(Constants.INSTANCE.getTEST_2())
+                .addTestDevice(Constants.INSTANCE.getTEST_3())
+                .addTestDevice(Constants.INSTANCE.getTEST_4())
+                .addTestDevice(Constants.INSTANCE.getTEST_5())
+                .addTestDevice(Constants.INSTANCE.getTEST_6())
+                .addTestDevice(Constants.INSTANCE.getTEST_7())
+                .addTestDevice(Constants.INSTANCE.getTEST_8())
+                .addTestDevice(Constants.INSTANCE.getTEST_9())
                 .build();
         interstitial.loadAd(adRequest);
         return interstitial;
@@ -700,8 +700,8 @@ public class LUIUtil {
         if (view == null) {
             return;
         }
-        int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.length);
-        int bkg = Constants.ARR_RANDOM_BKG[r];
+        int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_RANDOM_BKG().length);
+        int bkg = Constants.INSTANCE.getARR_RANDOM_BKG()[r];
         view.setBackgroundResource(bkg);
     }
 
@@ -788,7 +788,7 @@ public class LUIUtil {
         intent.putExtra(UZCons.ENTITY_DATA, data);
         intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
         if (admobBaner != null) {
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
+            intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobBaner);
         }
         activity.startActivity(intent);
         LActivityUtil.INSTANCE.slideUp(activity);

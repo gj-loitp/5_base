@@ -6,14 +6,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -81,13 +82,13 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.av);
         btPage = (FloatingActionButton) view.findViewById(R.id.bt_page);
 
-        photosetID = bundle.getString(Constants.SK_PHOTOSET_ID);
+        photosetID = bundle.getString(Constants.INSTANCE.getSK_PHOTOSET_ID());
         if (photosetID == null || photosetID.isEmpty()) {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
         LLog.d(TAG, "photosetID " + photosetID);
-        photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
+        photosSize = bundle.getInt(Constants.INSTANCE.getSK_PHOTOSET_SIZE(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "photosSize " + photosSize);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
@@ -186,7 +187,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
     }
 
     private void goToHome() {
-        if (photosSize == Constants.NOT_FOUND) {
+        if (photosSize == Constants.INSTANCE.getNOT_FOUND()) {
             photosetsGetList();
         } else {
             init();

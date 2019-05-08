@@ -34,7 +34,7 @@ public class FlicrkFrmActivity extends BaseFontActivity {
     private void switchPage() {
         GalleryCorePhotosOnlyFrm frmPhoto = new GalleryCorePhotosOnlyFrm();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_ENGLISH);
+        bundle.putString(Constants.INSTANCE.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_ENGLISH());
         frmPhoto.setArguments(bundle);
         LScreenUtil.replaceFragment(activity, R.id.fl_container_photo, frmPhoto, false);
     }

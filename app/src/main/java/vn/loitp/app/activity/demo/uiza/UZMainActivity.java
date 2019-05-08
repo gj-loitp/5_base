@@ -123,7 +123,7 @@ public class UZMainActivity extends BaseFontActivity {
                         break;
                     case R.id.action_why_u_see_ad:
                         Intent intent = new Intent(activity, AdHelperActivity.class);
-                        intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
+                        intent.putExtra(Constants.INSTANCE.getAD_HELPER_IS_ENGLISH_LANGUAGE(), false);
                         startActivity(intent);
                         LActivityUtil.INSTANCE.tranIn(activity);
                         break;
@@ -197,8 +197,8 @@ public class UZMainActivity extends BaseFontActivity {
         setTvTilte(UZD.getInstance().getMetadata().getName());
         FrmEntity frmEntity = new FrmEntity();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b));
-        bundle.putBoolean(Constants.IS_HIDE_SPACE_VIEW, false);
+        bundle.putString(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
+        bundle.putBoolean(Constants.INSTANCE.getIS_HIDE_SPACE_VIEW(), false);
         frmEntity.setArguments(bundle);
         LScreenUtil.replaceFragment(activity, R.id.fl_container, frmEntity, false);
     }

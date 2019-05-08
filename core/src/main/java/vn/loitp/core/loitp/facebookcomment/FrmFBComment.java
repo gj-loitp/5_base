@@ -7,9 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
@@ -22,6 +19,10 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFragment;
@@ -56,8 +57,8 @@ public class FrmFBComment extends BaseFragment {
         if (bundle == null) {
             return;
         }
-        postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL);
-        if (Constants.IS_DEBUG) {
+        postUrl = bundle.getString(Constants.INSTANCE.getFACEBOOK_COMMENT_URL());
+        if (Constants.INSTANCE.getIS_DEBUG()) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";
         }
         if (postUrl != null && !postUrl.isEmpty()) {

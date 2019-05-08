@@ -195,7 +195,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isShowAnimWhenExit) {
             LActivityUtil.INSTANCE.tranOut(activity);
         }
-        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
+        if (isShowAdWhenExit && !Constants.INSTANCE.getIS_DEBUG()) {
             LUIUtil.displayInterstitial(interstitialAd, 70);
         } else {
             //dont use LLog here

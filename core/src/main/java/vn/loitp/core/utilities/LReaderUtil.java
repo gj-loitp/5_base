@@ -56,7 +56,7 @@ public class LReaderUtil {
         }
         final Intent intent = new Intent(activity, EpubReaderReadActivity.class);
         BookInfoData.getInstance().setBookInfo(bookInfo);
-        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner);
+        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobAdIdBanner);
         activity.startActivity(intent);
         LActivityUtil.INSTANCE.tranIn(activity);
     }
