@@ -52,9 +52,9 @@ public class VGReVHorizontal extends RelativeLayout {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             if (i % 2 == 0) {
-                list.add(Constants.URL_IMG_1);
+                list.add(Constants.INSTANCE.getURL_IMG_1());
             } else {
-                list.add(Constants.URL_IMG_2);
+                list.add(Constants.INSTANCE.getURL_IMG_2());
             }
         }
 

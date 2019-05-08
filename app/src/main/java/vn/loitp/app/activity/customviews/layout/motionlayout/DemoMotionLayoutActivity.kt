@@ -2,10 +2,10 @@ package vn.loitp.app.activity.customviews.layout.motionlayout
 
 import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
-import androidx.constraintlayout.motion.widget.MotionLayout
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.motion.widget.MotionLayout
 import loitp.basemaster.R
 import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.core.utilities.LLog
@@ -44,7 +44,7 @@ class DemoMotionLayoutActivity : BaseFontActivity() {
         (container as? MotionLayout)?.setShowPaths(doShowPaths)
     }
 
-    fun changeState(v: View?) {
+    fun changeState() {
         val motionLayout = container as? MotionLayout ?: return
         if (motionLayout.progress > 0.5f) {
             motionLayout.transitionToStart()

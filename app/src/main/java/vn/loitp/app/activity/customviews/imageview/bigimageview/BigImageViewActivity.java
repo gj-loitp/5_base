@@ -74,25 +74,25 @@ public class BigImageViewActivity extends BaseFontActivity {
         findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O));
+                bigImageView.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_LAND_S()), Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_LAND_O()));
             }
         });
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O));
+                bigImageView.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_PORTRAIT_S()), Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_PORTRAIT_O()));
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG));
+                bigImageView.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LONG()));
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bigImageView.showImage(Uri.parse(Constants.URL_IMG_GIFT));
+                bigImageView.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_GIFT()));
             }
         });
     }

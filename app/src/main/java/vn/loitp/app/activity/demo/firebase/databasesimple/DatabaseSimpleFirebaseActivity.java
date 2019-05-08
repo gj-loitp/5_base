@@ -1,11 +1,12 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-import android.view.animation.OvershootInterpolator;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
@@ -105,7 +106,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     private void addData() {
         User user = new User();
         user.setTimestamp(System.currentTimeMillis());
-        user.setAvt(Constants.URL_IMG);
+        user.setAvt(Constants.INSTANCE.getURL_IMG());
         user.setName("loitp");
         user.setMsg("dummy msg " + user.getTimestamp());
         mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
@@ -136,7 +137,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
-                user.setAvt(Constants.URL_IMG_1);
+                user.setAvt(Constants.INSTANCE.getURL_IMG_1());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user);
             }
 

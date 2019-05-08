@@ -11,7 +11,6 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 
@@ -64,7 +63,7 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
             LLog.d(TAG, "pos " + pos);
-            if (pos != Constants.NOT_FOUND) {
+            if (pos != vn.loitp.core.common.Constants.NOT_FOUND) {
                 comicList.remove(pos);
 
                 String newJson = LSApplication.Companion.getGson().toJson(comicList);

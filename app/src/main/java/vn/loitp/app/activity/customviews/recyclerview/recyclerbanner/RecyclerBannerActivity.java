@@ -1,14 +1,15 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclerbanner;
 
 import android.os.Bundle;
+
 import androidx.core.widget.NestedScrollView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.banner.BannerLayout;
 
@@ -27,7 +28,7 @@ public class RecyclerBannerActivity extends BaseFontActivity {
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            list.add(Constants.URL_IMG);
+            list.add(Constants.INSTANCE.getURL_IMG());
         }
 
         WebBannerAdapter webBannerAdapter = new WebBannerAdapter(this, list);

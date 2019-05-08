@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalwithspansize;
 
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
@@ -70,7 +71,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
             public void doAfter(int mls) {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.URL_IMG);
+                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -96,7 +97,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
 
     private void prepareMovieData() {
         for (int i = 0; i < 100; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
+            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();

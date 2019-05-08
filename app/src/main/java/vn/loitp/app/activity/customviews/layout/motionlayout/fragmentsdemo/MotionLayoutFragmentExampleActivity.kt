@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.os.Bundle
+import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
-import android.view.View
 import kotlinx.android.synthetic.main.activity_motion_layout_fragment_example.*
 import loitp.basemaster.R
 import vn.loitp.core.base.BaseFontActivity
@@ -77,7 +77,7 @@ class MotionLayoutFragmentExampleActivity : BaseFontActivity(), View.OnClickList
         if (view?.id == R.id.toggle) {
             val transaction = supportFragmentManager.beginTransaction()
             //var fragment: Fragment? = null
-            fragment = if (fragment == null || fragment is MotionLayoutMainFragment) {
+            fragment = if (fragment is MotionLayoutMainFragment) {
                 last = 1f
                 transaction.setCustomAnimations(R.animator.show, 0)
                 MotionLayoutSecondFragment.newInstance()

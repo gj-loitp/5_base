@@ -1,13 +1,14 @@
 package vn.loitp.app.activity.demo.film.grouprecyclerviewvertical;
 
 import android.content.Context;
-import androidx.core.view.ViewCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
+
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +120,7 @@ public class VGReVVertical extends RelativeLayout {
 
     private void prepareMovieData() {
         for (int i = 0; i < 50; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
+            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();
