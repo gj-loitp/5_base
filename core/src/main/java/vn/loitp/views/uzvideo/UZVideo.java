@@ -239,7 +239,7 @@ public class UZVideo extends RelativeLayout implements Callback {
     private void getTokenStreaming(final String entityId, final CallbackAPI callbackAPI) {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
-        sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
+        sendGetTokenStreaming.setAppId(UZData.Companion.getInstance().getAppId());
         sendGetTokenStreaming.setEntityId(entityId);
         sendGetTokenStreaming.setContentType(SendGetTokenStreaming.STREAM);
         activity.subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
@@ -270,7 +270,7 @@ public class UZVideo extends RelativeLayout implements Callback {
         UZRestClientGetLinkPlay.addAuthorization(tokenStreaming);
         UZService service = UZRestClientGetLinkPlay.createService(UZService.class);
         String typeContent = SendGetTokenStreaming.STREAM;
-        activity.subscribe(service.getLinkPlay(UZData.getInstance().getAppId(), entityId, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
+        activity.subscribe(service.getLinkPlay(UZData.Companion.getInstance().getAppId(), entityId, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay resultGetLinkPlay) {
                 //LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetLinkPlay));

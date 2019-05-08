@@ -60,6 +60,6 @@ class LSApplication : MultiDexApplication() {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         //uiza rest api
-        UZData.getInstance().initWorkspace(DF_DOMAIN_API, DF_APP_ID, DF_TOKEN, Constants.URL_GET_LINK_PLAY_PROD)
+        UZData.instance.initWorkspace(DF_DOMAIN_API, DF_APP_ID, DF_TOKEN, Constants.URL_GET_LINK_PLAY_PROD)
     }
 }

@@ -320,7 +320,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
     private void getTokenStreaming() {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
-        sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
+        sendGetTokenStreaming.setAppId(UZData.Companion.getInstance().getAppId());
         sendGetTokenStreaming.setEntityId(entityIdDefaultVOD);
         sendGetTokenStreaming.setContentType(SendGetTokenStreaming.STREAM);
         subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
@@ -349,7 +349,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         UZRestClientGetLinkPlay.addAuthorization(tokenStreaming);
         UZService service = UZRestClientGetLinkPlay.createService(UZService.class);
         String typeContent = SendGetTokenStreaming.STREAM;
-        subscribe(service.getLinkPlay(UZData.getInstance().getAppId(), entityIdDefaultVOD, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
+        subscribe(service.getLinkPlay(UZData.Companion.getInstance().getAppId(), entityIdDefaultVOD, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay result) {
                 LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.Companion.getGson().toJson(result));
@@ -390,7 +390,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
     private void getTokenStreamingLive() {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
-        sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
+        sendGetTokenStreaming.setAppId(UZData.Companion.getInstance().getAppId());
         sendGetTokenStreaming.setEntityId(entityIdDefaultLIVE);
         sendGetTokenStreaming.setContentType(SendGetTokenStreaming.LIVE);
         subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
@@ -417,7 +417,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
         UZRestClientGetLinkPlay.addAuthorization(tokenStreamingLive);
         UZService service = UZRestClientGetLinkPlay.createService(UZService.class);
         String streamName = "ffdfdfdfd";
-        subscribe(service.getLinkPlayLive(UZData.getInstance().getAppId(), streamName), new ApiSubscriber<ResultGetLinkPlay>() {
+        subscribe(service.getLinkPlayLive(UZData.Companion.getInstance().getAppId(), streamName), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay result) {
                 LLog.d(TAG, "getLinkPlayLive onSuccess: " + LSApplication.Companion.getGson().toJson(result));
