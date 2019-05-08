@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.demo.firebase.database;
 
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,7 +71,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.show(activity, "Posting...");
+        LToast.INSTANCE.show(activity, "Posting...");
 
         // [START single_value_read]
         final String userId = getUid();
@@ -90,7 +90,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         if (user == null) {
                             // User is null, error out
                             LLog.e(TAG, "User " + userId + " is unexpectedly null");
-                            LToast.show(activity, "Error: could not fetch user.");
+                            LToast.INSTANCE.show(activity, "Error: could not fetch user.");
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);

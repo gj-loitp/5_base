@@ -110,7 +110,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         LDialogUtil.showDialogList(activity, "Select", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
-                LToast.show(activity, "Click position " + position + ", item: " + arr[position]);
+                LToast.INSTANCE.show(activity, "Click position " + position + ", item: " + arr[position]);
                 switch (stringList.get(position)) {
                     case AccordionTransformer:
                         viewPager.setPageTransformer(true, new AccordionTransformer());

@@ -8,13 +8,14 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -46,7 +47,7 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(getBaseContext(), getString(R.string.chathead_click_message));
+                LToast.INSTANCE.show(getBaseContext(), getString(R.string.chathead_click_message));
             }
         });
         mFloatingViewManager = new FloatingViewManager(this, this);

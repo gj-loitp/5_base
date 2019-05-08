@@ -5,7 +5,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseActivity;
@@ -34,7 +33,7 @@ public class FloatDragFullScreenActivity extends BaseActivity {
         floatDragLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(activity, "Click on the hover and drag buttons");
+                LToast.INSTANCE.show(activity, "Click on the hover and drag buttons");
             }
         });
     }

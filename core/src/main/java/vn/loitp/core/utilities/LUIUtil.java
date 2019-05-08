@@ -98,7 +98,7 @@ public class LUIUtil {
 
     public static InterstitialAd createAdFull(Context context) {
         InterstitialAd interstitial = new InterstitialAd(context);
-        interstitial.setAdUnitId(AdmobData.getInstance().getIdAdmobFull());
+        interstitial.setAdUnitId(AdmobData.Companion.getInstance().getIdAdmobFull());
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(Constants.INSTANCE.getTEST_0())
                 .addTestDevice(Constants.INSTANCE.getTEST_1())

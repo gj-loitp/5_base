@@ -2,9 +2,10 @@ package vn.loitp.app.activity.customviews.wwlvideo.detail;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
@@ -72,7 +73,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }*/
 
     public void switchFullscreen(boolean selected) {
-        LToast.showShort(getActivity(), "Loitp switchFullscreen " + selected);
+        LToast.INSTANCE.showShort(getActivity(), "Loitp switchFullscreen " + selected);
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.switchFullscreen(selected);
         }*/
@@ -84,7 +85,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }
 
     public void toggleControls() {
-        LToast.showShort(getActivity(), "Loitp toggleControls");
+        LToast.INSTANCE.showShort(getActivity(), "Loitp toggleControls");
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.toggleControls();
         }*/

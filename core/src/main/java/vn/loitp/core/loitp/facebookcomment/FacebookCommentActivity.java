@@ -79,7 +79,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.show(activity, "The web url shouldn't be empty");
+            LToast.INSTANCE.show(activity, "The web url shouldn't be empty");
             onBackPressed();
             return;
         }

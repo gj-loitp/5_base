@@ -343,7 +343,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
 
     private void getLinkPlay() {
         if (tokenStreaming == null || tokenStreaming.isEmpty()) {
-            LToast.show(activity, "Token streaming not found, pls call getTokenStreaming before.");
+            LToast.INSTANCE.show(activity, "Token streaming not found, pls call getTokenStreaming before.");
             return;
         }
         UZRestClientGetLinkPlay.addAuthorization(tokenStreaming);
@@ -411,7 +411,7 @@ public class TestAPIActivity extends BaseFontActivity implements View.OnClickLis
 
     private void getLinkPlayLive() {
         if (tokenStreamingLive == null || tokenStreamingLive.isEmpty()) {
-            LToast.show(activity, "Token streaming not found, pls call getTokenStreamingLive before.");
+            LToast.INSTANCE.show(activity, "Token streaming not found, pls call getTokenStreamingLive before.");
             return;
         }
         UZRestClientGetLinkPlay.addAuthorization(tokenStreamingLive);

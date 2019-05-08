@@ -2,12 +2,13 @@ package vn.loitp.app.activity.customviews.menu.residemenu;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -126,12 +127,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.show(activity, "Menu is opened!");
+            LToast.INSTANCE.show(activity, "Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.show(activity, "Menu is closed!");
+            LToast.INSTANCE.show(activity, "Menu is closed!");
         }
     };
 

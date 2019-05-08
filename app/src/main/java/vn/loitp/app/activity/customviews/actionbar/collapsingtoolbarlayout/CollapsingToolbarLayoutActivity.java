@@ -2,13 +2,15 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -93,7 +95,7 @@ public class CollapsingToolbarLayoutActivity extends BaseFontActivity implements
                 LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
-                        LToast.show(activity, menuItem.getTitle().toString());
+                        LToast.INSTANCE.show(activity, menuItem.getTitle().toString());
                     }
                 });
                 break;

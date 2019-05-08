@@ -65,7 +65,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
         mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
@@ -149,7 +149,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                LToast.show(activity, "Finish loadMore");
+                LToast.INSTANCE.show(activity, "Finish loadMore");
             }
         });
     }

@@ -18,11 +18,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import loitp.core.R;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LSoundUtil;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.LToast;
 
 /**

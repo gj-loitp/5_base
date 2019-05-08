@@ -112,7 +112,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
                 LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
-                        LToast.show(activity, menuItem.getTitle().toString());
+                        LToast.INSTANCE.show(activity, menuItem.getTitle().toString());
                     }
                 });
                 break;

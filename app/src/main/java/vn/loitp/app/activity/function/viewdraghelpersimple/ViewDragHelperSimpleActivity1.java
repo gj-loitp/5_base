@@ -25,7 +25,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
         findViewById(R.id.bt_toast).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(activity, "Click");
             }
         });
         findViewById(R.id.bt_maximize).setOnClickListener(new View.OnClickListener() {

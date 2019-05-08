@@ -1,10 +1,11 @@
 package vn.loitp.app.activity.customviews.scrollablepanel;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,14 +132,14 @@ public class ScrollablePanelAdapter extends PanelAdapter {
                     @Override
                     public void onClick(View v) {
                         if (orderInfo.isBegin()) {
-                            LToast.show(v.getContext(), "name:" + orderInfo.getGuestName());
+                            LToast.INSTANCE.show(v.getContext(), "name:" + orderInfo.getGuestName());
                         } else {
                             int i = 2;
                             while (column - i >= 0 && ordersList.get(row - 1).get(column - i).getId() == orderInfo.getId()) {
                                 i++;
                             }
                             final OrderInfo info = ordersList.get(row - 1).get(column - i + 1);
-                            LToast.show(v.getContext(), "name:" + info.getGuestName());
+                            LToast.INSTANCE.show(v.getContext(), "name:" + info.getGuestName());
                         }
                     }
                 });

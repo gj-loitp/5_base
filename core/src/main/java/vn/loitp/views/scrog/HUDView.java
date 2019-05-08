@@ -75,7 +75,7 @@ class HUDView extends ScrollView {
     private void init() {
         TapDetector tapDetector = new TapDetector(mPaint, this, colMan);
         mDetector = new GestureDetector(mContext, tapDetector);
-        LToast.show(mContext, "You may double tap, move or resize info window");
+        LToast.INSTANCE.show(mContext, "You may double tap, move or resize info window");
     }
 
     public void initView() {

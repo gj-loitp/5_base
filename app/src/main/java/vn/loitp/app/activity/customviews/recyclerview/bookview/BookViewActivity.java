@@ -47,7 +47,7 @@ public class BookViewActivity extends BaseFontActivity {
         mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
             }
 
             @Override

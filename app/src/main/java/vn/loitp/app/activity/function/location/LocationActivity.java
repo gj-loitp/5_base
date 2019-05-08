@@ -11,11 +11,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -230,7 +231,7 @@ public class LocationActivity extends BaseActivity {
                     public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                         LLog.d(TAG, "All location settings are satisfied.");
 
-                        LToast.show(activity, "Started location updates!");
+                        LToast.INSTANCE.show(activity, "Started location updates!");
 
                         //noinspection MissingPermission
                         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
@@ -259,7 +260,7 @@ public class LocationActivity extends BaseActivity {
                                         "fixed here. Fix in Settings.";
                                 LLog.d(TAG, errorMessage);
 
-                                LToast.show(activity, errorMessage);
+                                LToast.INSTANCE.show(activity, errorMessage);
                         }
 
                         updateLocationUI();
@@ -306,7 +307,7 @@ public class LocationActivity extends BaseActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        LToast.show(activity, "Location updates stopped!");
+                        LToast.INSTANCE.show(activity, "Location updates stopped!");
                         toggleButtons();
                     }
                 });
@@ -314,10 +315,10 @@ public class LocationActivity extends BaseActivity {
 
     public void showLastKnownLocation() {
         if (mCurrentLocation != null) {
-            LToast.show(activity, "Lat: " + mCurrentLocation.getLatitude()
+            LToast.INSTANCE.show(activity, "Lat: " + mCurrentLocation.getLatitude()
                     + ",Lng: " + mCurrentLocation.getLongitude());
         } else {
-            LToast.show(activity, "Last known location is not available!");
+            LToast.INSTANCE.show(activity, "Last known location is not available!");
         }
     }
 

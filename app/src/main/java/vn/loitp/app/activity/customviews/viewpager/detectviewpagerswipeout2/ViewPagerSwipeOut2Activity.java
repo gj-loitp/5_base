@@ -27,12 +27,12 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.show(activity, "onSwipeOutAtStart");
+                LToast.INSTANCE.show(activity, "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.show(activity, "onSwipeOutAtEnd");
+                LToast.INSTANCE.show(activity, "onSwipeOutAtEnd");
             }
         });
 

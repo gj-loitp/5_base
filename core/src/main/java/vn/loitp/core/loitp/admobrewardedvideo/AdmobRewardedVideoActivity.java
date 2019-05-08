@@ -55,7 +55,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         strAppId = getIntent().getStringExtra(APP_ID);
         strReward = getIntent().getStringExtra(ID_REWARD);
         if (strAppId == null || strAppId.isEmpty() || strReward == null || strReward.isEmpty()) {
-            LToast.show(activity, getString(R.string.err_unknow));
+            LToast.INSTANCE.show(activity, getString(R.string.err_unknow));
             onBackPressed();
             return;
         }

@@ -159,7 +159,7 @@ public class SADilog extends SwipeAwayDialogFragment {
         btY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(getActivity(), "Click yes");
+                LToast.INSTANCE.show(getActivity(), "Click yes");
             }
         });
 
@@ -167,7 +167,7 @@ public class SADilog extends SwipeAwayDialogFragment {
         btN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(getActivity(), "Click no");
+                LToast.INSTANCE.show(getActivity(), "Click no");
             }
         });
 

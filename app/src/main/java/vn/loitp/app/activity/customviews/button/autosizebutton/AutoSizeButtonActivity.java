@@ -66,7 +66,7 @@ public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickL
             case R.id.bt_0:
             case R.id.bt_1:
             case R.id.bt_2:
-                LToast.show(activity, "Click");
+                LToast.INSTANCE.show(activity, "Click");
                 break;
         }
     }

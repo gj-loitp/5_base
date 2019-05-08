@@ -31,7 +31,7 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
         mAdapter = new GalleryAdapter(activity, DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
             }
 
             @Override

@@ -2,15 +2,17 @@ package vn.loitp.function.youtubeparser.ui;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -122,12 +124,12 @@ public class FrmYoutubeParser extends BaseFragment {
 
                         @Override
                         public void onError() {
-                            LToast.showShort(getActivity(), "Error while loading data. Please retry later.");
+                            LToast.INSTANCE.showShort(getActivity(), "Error while loading data. Please retry later.");
                         }
                     });
 
                 } else {
-                    LToast.showShort(getActivity(), "Unable to load data. Please retry later.");
+                    LToast.INSTANCE.showShort(getActivity(), "Unable to load data. Please retry later.");
                 }
             }
         });
@@ -197,7 +199,7 @@ public class FrmYoutubeParser extends BaseFragment {
             @Override
             public void onError() {
                 LLog.d(TAG, "onError");
-                LToast.showShort(getActivity(), "Error while loading data. Please retry later.");
+                LToast.INSTANCE.showShort(getActivity(), "Error while loading data. Please retry later.");
                 progressBar.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
             }

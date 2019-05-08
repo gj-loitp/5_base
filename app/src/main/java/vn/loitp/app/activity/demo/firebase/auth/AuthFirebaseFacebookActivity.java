@@ -7,13 +7,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -33,8 +34,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.security.MessageDigest;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.app.LSApplication;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -151,7 +152,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                         } else {
                             // If sign in fails, display a message to the user.
                             LLog.d(TAG, "signInWithCredential:failure " + task.getException());
-                            LToast.show(activity, "Authentication failed " + task.getException());
+                            LToast.INSTANCE.show(activity, "Authentication failed " + task.getException());
                             updateUI(null);
                         }
 

@@ -133,7 +133,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(activity, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.show(activity, "onClick To Edit Data: " + user.getMsg());
+                LToast.INSTANCE.show(activity, "onClick To Edit Data: " + user.getMsg());
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -143,7 +143,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                LToast.show(activity, "onLongClick " + user.getMsg());
+                LToast.INSTANCE.show(activity, "onLongClick " + user.getMsg());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

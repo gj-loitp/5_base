@@ -90,12 +90,12 @@ public class VGViewPager extends RelativeLayout {
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.show(getContext(), "onSwipeOutAtStart");
+                LToast.INSTANCE.show(getContext(), "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.show(getContext(), "onSwipeOutAtEnd");
+                LToast.INSTANCE.show(getContext(), "onSwipeOutAtEnd");
             }
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
@@ -131,7 +131,7 @@ public class VGViewPager extends RelativeLayout {
             viewGroup.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LToast.show(getContext(), "Click " + page.getName());
+                    LToast.INSTANCE.show(getContext(), "Click " + page.getName());
                 }
             });
             collection.addView(viewGroup);

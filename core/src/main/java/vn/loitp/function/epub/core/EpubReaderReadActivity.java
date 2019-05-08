@@ -105,7 +105,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         LUIUtil.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
-            LToast.show(activity, getString(R.string.err_unknow));
+            LToast.INSTANCE.show(activity, getString(R.string.err_unknow));
             onBackPressed();
         }
         setCoverBitmap();
@@ -238,7 +238,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             e.printStackTrace();
             this.pageCount = e.getPageCount();
             if (isSkippedToPage) {
-                LToast.show(activity, "Max page number is: " + this.pageCount);
+                LToast.INSTANCE.show(activity, "Max page number is: " + this.pageCount);
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
         } catch (Exception e) {
@@ -279,7 +279,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
             } catch (ReadingException e) {
                 LLog.e(TAG, "doInBackground " + e.toString());
-                LToast.show(activity, "Error: " + e.getMessage());
+                LToast.INSTANCE.show(activity, "Error: " + e.getMessage());
             }
             return null;
         }
@@ -411,13 +411,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onStop();
         try {
             reader.saveProgress(mViewPager.getCurrentItem());
-            LToast.show(activity, "Saved page: " + mViewPager.getCurrentItem() + "...");
+            LToast.INSTANCE.show(activity, "Saved page: " + mViewPager.getCurrentItem() + "...");
         } catch (ReadingException e) {
             e.printStackTrace();
-            LToast.show(activity, "Progress is not saved: " + e.getMessage());
+            LToast.INSTANCE.show(activity, "Progress is not saved: " + e.getMessage());
         } catch (OutOfPagesException e) {
             e.printStackTrace();
-            LToast.show(activity, "Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount());
+            LToast.INSTANCE.show(activity, "Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount());
         }
     }
 

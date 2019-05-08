@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.demo.film;
 
 import android.os.Bundle;
-import androidx.core.widget.NestedScrollView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.widget.NestedScrollView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.daimajia.androidanimations.library.Techniques;
 
@@ -59,12 +60,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                 }*/
                 if (scrollY == 0) {
                     LLog.d(TAG, "onScrollChange TOP SCROLL");
-                    LToast.show(activity, "TOP SCROLL");
+                    LToast.INSTANCE.show(activity, "TOP SCROLL");
                 }
 
                 if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
                     LLog.d(TAG, "onScrollChange BOTTOM SCROLL");
-                    LToast.show(activity, "BOTTOM SCROLL -> LOAD MORE");
+                    LToast.INSTANCE.show(activity, "BOTTOM SCROLL -> LOAD MORE");
                 }
             }
         });
@@ -111,7 +112,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
             @Override
             public void doAfter(int mls) {
                 swipeRefreshLayout.setRefreshing(false);
-                LToast.show(activity, "Finish refresh -> clear all views");
+                LToast.INSTANCE.show(activity, "Finish refresh -> clear all views");
                 clearAllViews();
             }
         });

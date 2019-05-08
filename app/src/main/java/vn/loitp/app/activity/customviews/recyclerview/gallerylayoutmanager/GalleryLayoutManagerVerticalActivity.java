@@ -33,12 +33,12 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
         mAdapter = new GalleryAdapterVertical(activity, DummyData.getInstance().getMovieList(), new GalleryAdapterVertical.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "onClick " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "onClick " + movie.getTitle());
             }
 
             @Override
             public void onLongClick(Movie movie, int position) {
-                LToast.show(activity, "onLongClick " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "onLongClick " + movie.getTitle());
             }
 
             @Override

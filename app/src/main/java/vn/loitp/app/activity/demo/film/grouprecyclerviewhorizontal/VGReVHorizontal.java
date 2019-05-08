@@ -62,7 +62,7 @@ public class VGReVHorizontal extends RelativeLayout {
         vgReVAdapter.setOnBannerItemClickListener(new BannerLayout.OnBannerItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                LToast.show(getContext(), "Click " + position);
+                LToast.INSTANCE.show(getContext(), "Click " + position);
             }
         });
 

@@ -38,7 +38,7 @@ class LSApplication : MultiDexApplication() {
         Constants.setIsDebug(true)
         Utils.init(this)
         //config admob id
-        AdmobData.getInstance().idAdmobFull = getString(R.string.str_f)
+        AdmobData.instance.idAdmobFull = getString(R.string.str_f)
         //config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
 

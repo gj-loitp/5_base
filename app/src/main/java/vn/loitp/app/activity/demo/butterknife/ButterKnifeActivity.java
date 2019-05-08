@@ -46,6 +46,6 @@ public class ButterKnifeActivity extends BaseFontActivity {
 
     @OnClick(R.id.bt_click)
     void click() {
-        LToast.showShort(activity, "Click", R.drawable.bkg_horizontal);
+        LToast.INSTANCE.showShort(activity, "Click", R.drawable.bkg_horizontal);
     }
 }

@@ -79,7 +79,7 @@ public class VGReVVertical extends RelativeLayout {
         mAdapter = new MoviesAdapter(getContext(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(getContext(), "Click " + movie.getTitle());
+                LToast.INSTANCE.show(getContext(), "Click " + movie.getTitle());
             }
 
             @Override

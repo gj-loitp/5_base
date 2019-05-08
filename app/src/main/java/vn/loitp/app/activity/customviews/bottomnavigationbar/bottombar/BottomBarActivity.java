@@ -1,9 +1,10 @@
 package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar;
 
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.daimajia.androidanimations.library.Techniques;
 
@@ -34,7 +35,7 @@ public class BottomBarActivity extends BaseFontActivity {
         lBottomBar.setOnItemClick(new LBottomBar.Callback() {
             @Override
             public void OnClickItem(int position) {
-                LToast.show(activity, "Touch " + position);
+                LToast.INSTANCE.show(activity, "Touch " + position);
             }
         });
         findViewById(R.id.bt_blur_view_red).setOnClickListener(new View.OnClickListener() {
