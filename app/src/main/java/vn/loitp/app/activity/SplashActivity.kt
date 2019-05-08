@@ -214,15 +214,12 @@ class SplashActivity : BaseFontActivity() {
     private fun getSettingFromGGDrive() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
         LStoreUtil.getSettingFromGGDrive(activity, linkGGDriveConfigSetting, object : GGSettingCallback {
-            override fun onFailure(call: Call, e: IOException) {}
+            override fun onGGFailure(call: Call, e: IOException) {
+            }
 
-            override fun onResponse(app: App?, isNeedToShowMsg: Boolean) {
-                if (app == null) {
-                    LLog.d(TAG, "getSettingFromGGDrive chua co setting cho app nay")
-                } else {
-                    LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson?.toJson(app))
-                    //LPref.setGGAppSetting(activity, app);
-                }
+            override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
+                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson?.toJson(app))
+                //LPref.setGGAppSetting(activity, app);
             }
         })
     }
