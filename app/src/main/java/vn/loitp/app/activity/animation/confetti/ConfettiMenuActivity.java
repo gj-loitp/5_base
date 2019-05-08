@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.app.activity.animation.animationview.AnimationViewActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
@@ -63,7 +62,7 @@ public class ConfettiMenuActivity extends BaseFontActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

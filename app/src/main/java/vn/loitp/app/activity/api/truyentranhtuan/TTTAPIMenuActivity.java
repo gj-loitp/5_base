@@ -18,7 +18,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIComicListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_chap_list).setOnClickListener(new View.OnClickListener() {
@@ -26,7 +26,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIChapListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_page_list).setOnClickListener(new View.OnClickListener() {
@@ -34,7 +34,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIPageListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIFavListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_add_to_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIAddFavListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_remove_to_fav_list).setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TTTAPIRemoveFavListActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
     }

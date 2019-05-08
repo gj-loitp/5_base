@@ -46,7 +46,7 @@ public class AuthFirebaseMenuActivity extends BaseFontActivity implements View.O
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

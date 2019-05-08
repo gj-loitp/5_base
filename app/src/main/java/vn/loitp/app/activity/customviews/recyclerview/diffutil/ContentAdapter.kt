@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_item_diff_util.view.*
 import loitp.basemaster.R
 import vn.loitp.core.utilities.LImageUtil
-import vn.loitp.core.utilities.LLog
 import kotlin.properties.Delegates
 
 class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
@@ -28,7 +27,6 @@ class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), Auto
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
-        LLog.d("suzuki", "onBindViewHolder " + position)
         super.onBindViewHolder(holder, position, payloads)
     }
 

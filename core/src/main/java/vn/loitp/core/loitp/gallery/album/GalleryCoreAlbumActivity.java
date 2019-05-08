@@ -2,12 +2,13 @@ package vn.loitp.core.loitp.gallery.album;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -96,7 +97,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
                 intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
                 intent.putExtra(Constants.SK_PHOTOSET_SIZE, photosetList.get(pos).getPhotos());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
 
             @Override

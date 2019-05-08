@@ -203,7 +203,7 @@ public class MenuCustomViewsActivity extends BaseFontActivity implements OnClick
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

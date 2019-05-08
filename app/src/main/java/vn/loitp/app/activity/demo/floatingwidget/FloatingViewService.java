@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.floatingwidget;
 
-import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -15,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by LENOVO on 3/27/2018.

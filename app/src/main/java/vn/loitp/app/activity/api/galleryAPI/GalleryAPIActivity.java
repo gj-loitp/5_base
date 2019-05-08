@@ -58,7 +58,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
     }

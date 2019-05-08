@@ -9,9 +9,6 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -20,6 +17,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.utils.util.FragmentUtils;
@@ -405,7 +406,7 @@ public class LScreenUtil {
                     intent.setData(Uri.parse("package:" + context.getPackageName()));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-                    LActivityUtil.tranIn(context);
+                    LActivityUtil.INSTANCE.tranIn(context);
                 }
             });
             return;

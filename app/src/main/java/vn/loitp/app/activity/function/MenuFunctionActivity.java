@@ -119,7 +119,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

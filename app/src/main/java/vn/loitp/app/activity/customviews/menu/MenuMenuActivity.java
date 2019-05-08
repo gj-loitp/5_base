@@ -43,7 +43,7 @@ public class MenuMenuActivity extends BaseFontActivity implements OnClickListene
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

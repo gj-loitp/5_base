@@ -61,7 +61,7 @@ public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_rotate:
-                LActivityUtil.toggleScreenOritation(activity);
+                LActivityUtil.INSTANCE.toggleScreenOritation(activity);
                 break;
             case R.id.bt_0:
             case R.id.bt_1:

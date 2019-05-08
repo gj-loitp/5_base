@@ -63,7 +63,7 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

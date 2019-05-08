@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -93,7 +94,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
                 intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
                 finish();
             }
         });

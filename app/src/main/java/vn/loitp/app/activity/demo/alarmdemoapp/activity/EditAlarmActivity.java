@@ -41,10 +41,10 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import vn.loitp.core.base.BaseFontActivity;
+import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
-import loitp.basemaster.R;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class EditAlarmActivity extends BaseFontActivity {
@@ -140,13 +140,13 @@ public class EditAlarmActivity extends BaseFontActivity {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {

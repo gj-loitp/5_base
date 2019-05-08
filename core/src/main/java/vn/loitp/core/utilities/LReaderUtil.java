@@ -58,6 +58,6 @@ public class LReaderUtil {
         BookInfoData.getInstance().setBookInfo(bookInfo);
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner);
         activity.startActivity(intent);
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 }

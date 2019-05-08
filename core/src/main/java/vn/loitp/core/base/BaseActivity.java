@@ -9,16 +9,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -101,10 +102,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
-        if (rootView == null) {
-            LLog.e(TAG, "BE CAREFUL LOITP -> " + TAG + "rootView == null");
-        }
-
         scheduleJob();
     }
 
@@ -196,7 +193,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(activity);
+            LActivityUtil.INSTANCE.tranOut(activity);
         }
         if (isShowAdWhenExit && !Constants.IS_DEBUG) {
             LUIUtil.displayInterstitial(interstitialAd, 70);

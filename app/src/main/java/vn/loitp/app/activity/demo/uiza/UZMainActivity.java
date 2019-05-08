@@ -7,13 +7,14 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
@@ -124,7 +125,7 @@ public class UZMainActivity extends BaseFontActivity {
                         Intent intent = new Intent(activity, AdHelperActivity.class);
                         intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
                         startActivity(intent);
-                        LActivityUtil.tranIn(activity);
+                        LActivityUtil.INSTANCE.tranIn(activity);
                         break;
                     case R.id.action_policy:
                         LSocialUtil.openBrowserPolicy(activity);

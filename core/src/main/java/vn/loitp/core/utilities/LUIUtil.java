@@ -18,18 +18,8 @@ import android.graphics.drawable.shapes.RectShape;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -46,9 +36,16 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -794,7 +791,7 @@ public class LUIUtil {
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
         }
         activity.startActivity(intent);
-        LActivityUtil.slideUp(activity);
+        LActivityUtil.INSTANCE.slideUp(activity);
     }
 
     //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
@@ -803,7 +800,7 @@ public class LUIUtil {
             return;
         }
         activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     public static void playYoutubeWithId(Activity activity, String id) {

@@ -1,6 +1,5 @@
 package vn.loitp.app.app
 
-import android.content.Context
 import androidx.multidex.MultiDexApplication
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
@@ -23,7 +22,6 @@ class LSApplication : MultiDexApplication() {
 
     companion object {
         var gson: Gson? = null
-        var context: Context? = null
     }
 
     //prod
@@ -36,15 +34,13 @@ class LSApplication : MultiDexApplication() {
         if (gson == null) {
             gson = Gson()
         }
-        if (context == null) {
-            context = applicationContext
-        }
+
         Constants.setIsDebug(true)
         Utils.init(this)
         //config admob id
         AdmobData.getInstance().idAdmobFull = getString(R.string.str_f)
         //config activity transition default
-        ActivityData.getInstance().type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
+        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
 
         //config realm
         val realmConfiguration = RealmConfiguration.Builder(this)

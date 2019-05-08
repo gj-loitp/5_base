@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity;
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuProgressLoadingViewsActivity extends BaseFontActivity {
@@ -20,7 +20,7 @@ public class MenuProgressLoadingViewsActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AVLoadingIndicatorActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_circular_progress_bar).setOnClickListener(new View.OnClickListener() {
@@ -28,7 +28,7 @@ public class MenuProgressLoadingViewsActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, CircularProgressBarActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
     }

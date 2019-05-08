@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class BottomNavigationMenuActivity extends BaseFontActivity {
@@ -19,7 +19,7 @@ public class BottomNavigationMenuActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, BottomBarActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
     }

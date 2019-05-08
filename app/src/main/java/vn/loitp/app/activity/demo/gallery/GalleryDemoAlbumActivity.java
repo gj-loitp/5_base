@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
@@ -72,7 +73,7 @@ public class GalleryDemoAlbumActivity extends BaseFontActivity {
                             Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
                             intent.putExtra("photosetID", photoset.getId());
                             startActivity(intent);
-                            LActivityUtil.tranIn(activity);
+                            LActivityUtil.INSTANCE.tranIn(activity);
                         }
                     }));
                 }

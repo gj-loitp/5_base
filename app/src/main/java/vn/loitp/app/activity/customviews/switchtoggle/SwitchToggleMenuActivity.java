@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity;
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class SwitchToggleMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -52,7 +52,7 @@ public class SwitchToggleMenuActivity extends BaseFontActivity implements View.O
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

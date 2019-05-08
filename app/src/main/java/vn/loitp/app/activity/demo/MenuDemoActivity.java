@@ -176,7 +176,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }
