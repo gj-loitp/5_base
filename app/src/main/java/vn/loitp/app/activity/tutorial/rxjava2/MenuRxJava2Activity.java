@@ -15,6 +15,7 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_0).setOnClickListener(this);
+        findViewById(R.id.bt_1).setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +39,9 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.bt_0:
                 intent = new Intent(activity, DisposableExampleActivity.class);
+                break;
+            case R.id.bt_1:
+                intent = new Intent(activity, FlowableExampleActivity.class);
                 break;
         }
         if (intent != null) {
