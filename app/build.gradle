@@ -142,7 +142,7 @@ dependencies {
     //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
 
     //data binding
-    kapt 'com.android.databinding:compiler:3.1.4'
+    //kapt 'com.android.databinding:compiler:3.1.4'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
