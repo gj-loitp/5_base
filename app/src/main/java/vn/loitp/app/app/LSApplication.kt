@@ -15,6 +15,7 @@ import vn.loitp.data.AdmobData
 import vn.loitp.data.UZData
 import vn.loitp.utils.util.Utils
 
+//TODO rxjava1->rxjava2
 //TODO core film plus
 //TODO is debug
 class LSApplication : MultiDexApplication() {
