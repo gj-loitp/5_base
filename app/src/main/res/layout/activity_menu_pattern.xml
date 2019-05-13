@@ -29,6 +29,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Observer Pattern" />
+            <Button
+                android:id="@+id/bt_mvvm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVVM" />
         </LinearLayout>
     </ScrollView>
 

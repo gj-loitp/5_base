@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 buildscript {
@@ -34,6 +35,10 @@ android {
                 includeCompileClasspath true
             }
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     signingConfigs {
@@ -127,13 +132,17 @@ dependencies {
     //for live broadcaster
     //implementation 'com.github.uizaio.uiza-android-sdk-player:uizalivestream:3.0.8'
 
-    implementation 'com.asksira.android:bsimagepicker:1.1.0'//https://github.com/siralam/BSImagePicker
+    //https://github.com/siralam/BSImagePicker
+    implementation 'com.asksira.android:bsimagepicker:1.1.0'
 
     //https://github.com/JakeWharton/butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
+
+    //data binding
+    kapt 'com.android.databinding:compiler:3.1.4'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

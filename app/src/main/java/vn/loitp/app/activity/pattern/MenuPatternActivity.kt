@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import loitp.basemaster.R
+import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity
 import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.core.utilities.LActivityUtil
@@ -13,6 +14,7 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_observer_pattern).setOnClickListener(this)
+        findViewById<View>(R.id.bt_mvvm).setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -31,6 +33,7 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v.id) {
             R.id.bt_observer_pattern -> intent = Intent(activity, ObserverPatternActivity::class.java)
+            R.id.bt_mvvm -> intent = Intent(activity, MVVMActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
