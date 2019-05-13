@@ -35,6 +35,12 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="FlowableExampleActivity" />
+
+			<Button
+				android:id="@+id/bt_2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="IntervalExampleActivity " />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
