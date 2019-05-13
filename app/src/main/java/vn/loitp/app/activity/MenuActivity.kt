@@ -16,6 +16,7 @@ import vn.loitp.app.activity.donation.DonationActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
 import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
+import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.core.common.Constants
 import vn.loitp.core.loitp.adhelper.AdHelperActivity
@@ -49,6 +50,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_fb_fanpage).setOnClickListener(this)
         findViewById<View>(R.id.bt_frm_more).setOnClickListener(this)
         findViewById<View>(R.id.bt_donation).setOnClickListener(this)
+        findViewById<View>(R.id.bt_tutorial).setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -85,6 +87,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_fb_fanpage -> LSocialUtil.likeFacebookFanpage(activity)
             R.id.bt_frm_more -> intent = Intent(activity, MoreActivity::class.java)
             R.id.bt_donation -> intent = Intent(activity, DonationActivity::class.java)
+            R.id.bt_tutorial -> intent = Intent(activity, MenuTutorialActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
