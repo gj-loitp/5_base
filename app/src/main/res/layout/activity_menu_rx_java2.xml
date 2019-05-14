@@ -53,6 +53,12 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="CompletableObserverExampleActivity " />
+
+			<Button
+				android:id="@+id/bt_5"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="MapExampleActivity  " />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>

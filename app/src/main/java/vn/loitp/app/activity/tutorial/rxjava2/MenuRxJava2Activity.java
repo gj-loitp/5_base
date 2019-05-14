@@ -19,6 +19,7 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
         findViewById(R.id.bt_2).setOnClickListener(this);
         findViewById(R.id.bt_3).setOnClickListener(this);
         findViewById(R.id.bt_4).setOnClickListener(this);
+        findViewById(R.id.bt_5).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +55,9 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
                 break;
             case R.id.bt_4:
                 intent = new Intent(activity, CompletableObserverExampleActivity.class);
+                break;
+            case R.id.bt_5:
+                intent = new Intent(activity, MapExampleActivity.class);
                 break;
         }
         if (intent != null) {
