@@ -27,11 +27,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
 import rx.Subscriber;
 import rx.Subscription;
@@ -158,7 +154,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         compositeSubscription.add(subscription);
     }
 
-    public void subscrible(Observable observable, Consumer<? super Object> consumer) {
+    /*public void subscribe(Observable observable, Consumer<? super Object> consumer) {
         if (compositeDisposable == null) {
             return;
         }
@@ -166,7 +162,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(consumer));
-    }
+    }*/
 
     public void startActivity(Class<? extends Activity> clazz) {
         Intent intent = new Intent(this, clazz);

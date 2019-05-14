@@ -42,6 +42,12 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList!!, this)
                     cryptocurrency_list.adapter = retrofit2Adapter
                 }))
+
+        /*subscribe(sampleService!!.getData(), Consumer {
+            retroCryptoArrayList = ArrayList(it)
+            retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList!!, this)
+            cryptocurrency_list.adapter = retrofit2Adapter
+        })*/
     }
 
     override fun onItemClick(retroCrypto: RetroCrypto) {
