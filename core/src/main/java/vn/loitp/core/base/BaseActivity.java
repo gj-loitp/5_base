@@ -27,12 +27,10 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
-import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -47,7 +45,9 @@ import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 public abstract class BaseActivity extends AppCompatActivity {
+    //TODO remove
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
     protected Activity activity;
     protected String TAG;
     private RelativeLayout rootView;
@@ -132,7 +132,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (!compositeSubscription.isUnsubscribed()) {
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+        }
+        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }
         LDialogUtil.clearAll();
@@ -140,17 +143,26 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    public void subscribe(Observable observable, Subscriber subscriber) {
+    public void subscribe(rx.Observable observable, Subscriber subscriber) {
         if (!LConnectivityUtil.isConnected(activity)) {
             subscriber.onError(new NoConnectionException());
             return;
         }
-
-        Subscription subscription = observable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+        Subscription subscription = observable.subscribeOn(rx.schedulers.Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
         compositeSubscription.add(subscription);
     }
+
+    /*public void subscrible(Observable observable, Consumer<? super T> objectConsumer) {
+        if (compositeDisposable == null) {
+            return;
+        }
+        compositeDisposable.add(observable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(objectConsumer));
+    }*/
 
     public void startActivity(Class<? extends Activity> clazz) {
         Intent intent = new Intent(this, clazz);
