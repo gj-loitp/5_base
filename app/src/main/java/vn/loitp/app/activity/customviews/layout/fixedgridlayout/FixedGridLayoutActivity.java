@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.layout.fixedgridlayout;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -17,22 +17,22 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FixedGridLayout fixedGridLayout = (FixedGridLayout) findViewById(R.id.fgl);
-        for (int i = 0; i < 10; i++) {
-            ImageView imageView = new ImageView(activity);
-            imageView.setTag("Item " + i);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        for (int i = 0; i < 20; i++) {
+            TextView textView = new TextView(activity);
+            textView.setText("Item " + i);
+            textView.setTextColor(Color.WHITE);
             if (i % 2 == 0) {
-                imageView.setBackgroundColor(Color.BLUE);
+                textView.setBackgroundColor(Color.BLUE);
             } else {
-                imageView.setBackgroundColor(Color.BLACK);
+                textView.setBackgroundColor(Color.BLACK);
             }
-            imageView.setOnClickListener(new View.OnClickListener() {
+            textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LToast.showShort(activity, "Touch " + imageView.getTag(), R.drawable.bkg_horizontal);
+                    LToast.showShort(activity, "Touch " + textView.getText().toString(), R.drawable.bkg_horizontal);
                 }
             });
-            fixedGridLayout.addView(imageView);
+            fixedGridLayout.addView(textView);
         }
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
