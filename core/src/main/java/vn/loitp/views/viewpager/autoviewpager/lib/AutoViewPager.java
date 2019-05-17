@@ -6,9 +6,10 @@ package vn.loitp.views.viewpager.autoviewpager.lib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.viewpager.widget.ViewPager;
 
 import loitp.core.R;
 
@@ -20,7 +21,7 @@ public class AutoViewPager extends ViewPager {
 
     private static final String TAG = AutoViewPager.class.getSimpleName();
 
-    private static final int DEFAULT_DURATION = 10000;
+    private static final int DEFAULT_DURATION = 1000;
 
     private int duration = DEFAULT_DURATION;
     private float startX;
