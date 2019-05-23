@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.bookview;
 
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class BookViewActivity extends BaseFontActivity {
@@ -46,7 +47,7 @@ public class BookViewActivity extends BaseFontActivity {
         mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
@@ -107,9 +108,9 @@ public class BookViewActivity extends BaseFontActivity {
         String cover;
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
-                cover = Constants.URL_IMG_1;
+                cover = Constants.INSTANCE.getURL_IMG_1();
             } else {
-                cover = Constants.URL_IMG_2;
+                cover = Constants.INSTANCE.getURL_IMG_2();
             }
             Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, cover);
             movieList.add(movie);

@@ -29,10 +29,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import vn.loitp.core.common.Constants;
 import vn.loitp.interfaces.GGSettingCallback;
 import vn.loitp.model.App;
-import vn.loitp.utils.util.AppUtils;
 
 public class LStoreUtil {
     static String TAG = LStoreUtil.class.getSimpleName();
@@ -530,7 +528,7 @@ public class LStoreUtil {
             public void onFailure(Call call, IOException e) {
                 LLog.d(TAG, "getSettingFromGGDrive onFailure " + e.toString());
                 if (ggSettingCallback != null) {
-                    ggSettingCallback.onFailure(call, e);
+                    ggSettingCallback.onGGFailure(call, e);
                 }
             }
 
@@ -549,7 +547,7 @@ public class LStoreUtil {
                     App app = new Gson().fromJson(json, App.class);
                     if (app == null) {
                         if (ggSettingCallback != null) {
-                            ggSettingCallback.onResponse(null, false);
+                            ggSettingCallback.onGGResponse(null, false);
                         }
                     } else {
                         String localMsg = LPref.getGGAppMsg(context);
@@ -566,14 +564,14 @@ public class LStoreUtil {
                             }
                         }
                         if (ggSettingCallback != null) {
-                            ggSettingCallback.onResponse(app, isNeedToShowMsg);
+                            ggSettingCallback.onGGResponse(app, isNeedToShowMsg);
                         }
                     }
 
                 } else {
                     LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
                     if (ggSettingCallback != null) {
-                        ggSettingCallback.onResponse(null, false);
+                        ggSettingCallback.onGGResponse(null, false);
                     }
                 }
             }

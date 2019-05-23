@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.IBinder;
-import androidx.core.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+
+import androidx.core.app.NotificationCompat;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -42,7 +43,7 @@ public class FVChatHeadService extends Service implements FloatingViewListener {
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(getBaseContext(), getString(R.string.chathead_click_message));
+                LToast.INSTANCE.show(getBaseContext(), getString(R.string.chathead_click_message));
             }
         });
         mFloatingViewManager = new FloatingViewManager(this, this);

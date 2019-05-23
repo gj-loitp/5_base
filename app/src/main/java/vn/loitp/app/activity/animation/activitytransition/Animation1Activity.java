@@ -49,46 +49,46 @@ public class Animation1Activity extends BaseFontActivity implements OnClickListe
         startActivity(intent);
         switch (v.getId()) {
             case R.id.bt_no_anim:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT());
                 LActivityUtil.transActivityNoAniamtion(activity);
                 break;
             case R.id.bt_system_default:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT());
                 break;
             case R.id.bt_slide_left:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SLIDELEFT());
                 LActivityUtil.slideLeft(activity);
                 break;
             case R.id.bt_slide_right:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SLIDERIGHT());
                 LActivityUtil.slideRight(activity);
                 break;
             case R.id.bt_slide_down:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SLIDEDOWN());
                 LActivityUtil.slideDown(activity);
                 break;
             case R.id.bt_slide_up:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SLIDEUP());
                 LActivityUtil.slideUp(activity);
                 break;
             case R.id.bt_fade:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_FADE);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_FADE());
                 LActivityUtil.fade(activity);
                 break;
             case R.id.bt_zoom:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_ZOOM);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_ZOOM());
                 LActivityUtil.zoom(activity);
                 break;
             case R.id.bt_windmill:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_WINDMILL());
                 LActivityUtil.windmill(activity);
                 break;
             case R.id.bt_diagonal:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_DIAGONAL());
                 LActivityUtil.diagonal(activity);
                 break;
             case R.id.bt_spin:
-                ActivityData.getInstance().setType(Constants.TYPE_ACTIVITY_TRANSITION_SPIN);
+                ActivityData.Companion.getInstance().setType(Constants.INSTANCE.getTYPE_ACTIVITY_TRANSITION_SPIN());
                 LActivityUtil.spin(activity);
                 break;
         }

@@ -78,14 +78,14 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                 Comics comics = new Comics();
                 comics.setComic(comicList);
                 tttComic.setComics(comics);
-                jsonTTTComic = LSApplication.getInstance().getGson().toJson(tttComic);
+                jsonTTTComic = LSApplication.Companion.getGson().toJson(tttComic);
                 LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
                 LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
                 getComicSuccess = true;
             } else {
                 LLog.d(TAG, "restore readTxtFromFolder jsonTTTComic: " + jsonTTTComic);
                 if (jsonTTTComic != null && !jsonTTTComic.isEmpty()) {
-                    TTTComic tttComic = LSApplication.getInstance().getGson().fromJson(jsonTTTComic, TTTComic.class);
+                    TTTComic tttComic = LSApplication.Companion.getGson().fromJson(jsonTTTComic, TTTComic.class);
                     try {
                         List<Comic> oldComicList = tttComic.getComics().getComic();
                         LLog.d(TAG, ">>>2 oldComicList size: " + oldComicList.size());
@@ -125,7 +125,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                     Comics comics = new Comics();
                     comics.setComic(comicList);
                     tttComic.setComics(comics);
-                    jsonTTTComic = LSApplication.getInstance().getGson().toJson(tttComic);
+                    jsonTTTComic = LSApplication.Companion.getGson().toJson(tttComic);
                     LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
                     LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
                     getComicSuccess = true;

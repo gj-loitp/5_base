@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity;
 import vn.loitp.app.activity.database.realm.RealmActivity;
 import vn.loitp.app.activity.database.sqlite.SqliteActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDatabaseActivity extends BaseFontActivity implements OnClickListener {
@@ -52,7 +52,7 @@ public class MenuDatabaseActivity extends BaseFontActivity implements OnClickLis
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

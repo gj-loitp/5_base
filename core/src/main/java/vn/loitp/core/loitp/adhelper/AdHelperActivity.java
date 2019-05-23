@@ -1,15 +1,16 @@
 package vn.loitp.core.loitp.adhelper;
 
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +103,7 @@ public class AdHelperActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
 
-        isEnglishLanguage = getIntent().getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false);
+        isEnglishLanguage = getIntent().getBooleanExtra(Constants.INSTANCE.getAD_HELPER_IS_ENGLISH_LANGUAGE(), false);
 
         btPrevScreen = (ImageButton) findViewById(R.id.bt_prev_screen);
         btNextScreen = (ImageButton) findViewById(R.id.bt_next_screen);
@@ -115,7 +116,7 @@ public class AdHelperActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                LActivityUtil.tranOut(activity);
+                LActivityUtil.INSTANCE.tranOut(activity);
             }
         });
         btPrevScreen.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +130,7 @@ public class AdHelperActivity extends BaseFontActivity {
             public void onClick(View v) {
                 if (viewPager.getCurrentItem() == (adPageList.size() - 1)) {
                     finish();
-                    LActivityUtil.tranOut(activity);
+                    LActivityUtil.INSTANCE.tranOut(activity);
                 } else {
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                 }
@@ -203,7 +204,7 @@ public class AdHelperActivity extends BaseFontActivity {
                 @Override
                 public void onClick(View v) {
                     finish();
-                    LActivityUtil.tranOut(activity);
+                    LActivityUtil.INSTANCE.tranOut(activity);
                 }
             });
 

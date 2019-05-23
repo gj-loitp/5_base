@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:bind="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="user"
+			type="vn.loitp.app.activity.pattern.mvvm.viewModel.UserViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="@dimen/padding_10">
+
+		<ImageView
+			android:id="@+id/image"
+			android:layout_width="200dp"
+			android:layout_height="200dp"
+			android:layout_marginTop="16dp"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			bind:imageUrl="@{user.imageUrl}" />
+		<!-- Name -->
+		<TextView
+			android:id="@+id/txt_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="name"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/image" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{user.name}"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/image" />
+		<!-- Age -->
+		<TextView
+			android:id="@+id/txt_age"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="age"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txt_name" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{user.age}"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txt_name" />
+		<!-- Gender -->
+		<TextView
+			android:id="@+id/txt_gender"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="gender"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txt_age" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{user.gender}"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txt_age" />
+		<!-- Tagline -->
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginBottom="16dp"
+			android:text="@{user.tagline}"
+			android:textSize="19sp"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txt_gender" />
+
+		<Button
+			android:id="@+id/button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="@{user::onButtonClick}"
+			android:text="Click"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

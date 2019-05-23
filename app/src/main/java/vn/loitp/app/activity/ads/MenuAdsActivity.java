@@ -22,7 +22,7 @@ public class MenuAdsActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobBannerActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
@@ -30,7 +30,7 @@ public class MenuAdsActivity extends BaseFontActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AdmobInterstitialActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
@@ -40,7 +40,7 @@ public class MenuAdsActivity extends BaseFontActivity {
                 intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id));
                 intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward));
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
         });
     }

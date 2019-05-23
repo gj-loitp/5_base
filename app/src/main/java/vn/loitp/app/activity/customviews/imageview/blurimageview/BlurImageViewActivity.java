@@ -22,7 +22,7 @@ public class BlurImageViewActivity extends BaseFontActivity {
                 .Async(true)
                 .into(imageView);
 
-        LImageUtil.load(activity, vn.loitp.core.common.Constants.URL_IMG_5, imageView2);
+        LImageUtil.load(activity, vn.loitp.core.common.Constants.INSTANCE.getURL_IMG_5(), imageView2);
 
         /*
         method (load) :- load(int resource), load(Bitmap bitmap)

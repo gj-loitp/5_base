@@ -8,14 +8,15 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -51,7 +52,7 @@ public class FVCustomUZVideoService extends Service implements FloatingViewListe
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(getBaseContext(), "Click");
+                LToast.INSTANCE.show(getBaseContext(), "Click");
             }
         });
 

@@ -30,7 +30,7 @@ public class ImmersiveDialogFragment extends DialogFragment {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                LToast.show(getActivity(), "Touch OK");
+                LToast.INSTANCE.show(getActivity(), "Touch OK");
             }
         });
         //int color = ContextCompat.getColor(getActivity(), R.color.colorPrimary);

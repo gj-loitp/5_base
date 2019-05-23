@@ -6,15 +6,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -66,10 +67,10 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
 
-        final int resBkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary);
+        final int resBkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), R.color.colorPrimary);
         getRootView().setBackgroundResource(resBkgRootView);
 
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        final String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
@@ -89,13 +90,13 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
         btPage = (FloatingActionButton) findViewById(R.id.bt_page);
 
-        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
+        photosetID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTOSET_ID());
         if (photosetID == null || photosetID.isEmpty()) {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
         LLog.d(TAG, "photosetID " + photosetID);
-        photosSize = getIntent().getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND);
+        photosSize = getIntent().getIntExtra(Constants.INSTANCE.getSK_PHOTOSET_SIZE(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "photosSize " + photosSize);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -194,7 +195,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void goToHome() {
-        if (photosSize == Constants.NOT_FOUND) {
+        if (photosSize == Constants.INSTANCE.getNOT_FOUND()) {
             photosetsGetList();
         } else {
             init();

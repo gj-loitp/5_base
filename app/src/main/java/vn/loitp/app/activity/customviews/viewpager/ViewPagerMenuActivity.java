@@ -72,7 +72,7 @@ public class ViewPagerMenuActivity extends BaseFontActivity implements View.OnCl
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

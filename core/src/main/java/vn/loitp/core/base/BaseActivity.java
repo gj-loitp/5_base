@@ -9,10 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -20,18 +16,21 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
+
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
-import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
@@ -46,7 +45,9 @@ import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 public abstract class BaseActivity extends AppCompatActivity {
+    //TODO remove
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
     protected Activity activity;
     protected String TAG;
     private RelativeLayout rootView;
@@ -77,7 +78,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         activity = this;
-        TAG = setTag();
+        TAG = "TAG" + setTag();
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -101,10 +102,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
         rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
-        if (rootView == null) {
-            LLog.e(TAG, "BE CAREFUL LOITP -> " + TAG + "rootView == null");
-        }
-
         scheduleJob();
     }
 
@@ -135,7 +132,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (!compositeSubscription.isUnsubscribed()) {
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+        }
+        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
             compositeSubscription.unsubscribe();
         }
         LDialogUtil.clearAll();
@@ -143,17 +143,26 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    public void subscribe(Observable observable, Subscriber subscriber) {
+    public void subscribe(rx.Observable observable, Subscriber subscriber) {
         if (!LConnectivityUtil.isConnected(activity)) {
             subscriber.onError(new NoConnectionException());
             return;
         }
-
-        Subscription subscription = observable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+        Subscription subscription = observable.subscribeOn(rx.schedulers.Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
         compositeSubscription.add(subscription);
     }
+
+    /*public void subscribe(Observable observable, Consumer<? super Object> consumer) {
+        if (compositeDisposable == null) {
+            return;
+        }
+        compositeDisposable.add(observable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(consumer));
+    }*/
 
     public void startActivity(Class<? extends Activity> clazz) {
         Intent intent = new Intent(this, clazz);
@@ -196,9 +205,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(activity);
+            LActivityUtil.INSTANCE.tranOut(activity);
         }
-        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
+        if (isShowAdWhenExit && !Constants.INSTANCE.getIS_DEBUG()) {
             LUIUtil.displayInterstitial(interstitialAd, 70);
         } else {
             //dont use LLog here

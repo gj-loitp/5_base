@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.google.android.material.tabs.TabLayout;
-import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
@@ -30,15 +32,15 @@ public class FrmCoordinator1 extends BaseFragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tabLayout.getSelectedTabPosition() == 0) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 1) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 2) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 3) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 4) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 }
             }
 

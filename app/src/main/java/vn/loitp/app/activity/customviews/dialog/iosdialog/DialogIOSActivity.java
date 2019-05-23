@@ -49,7 +49,7 @@ public class DialogIOSActivity extends BaseFontActivity implements OnClickListen
         LDialogUtil.showIOSDialog1(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Allow", false, new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
-                LToast.show(activity, "onClick1");
+                LToast.INSTANCE.show(activity, "onClick1");
             }
         });
     }
@@ -58,12 +58,12 @@ public class DialogIOSActivity extends BaseFontActivity implements OnClickListen
         LDialogUtil.showIOSDialog2(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Don't Allow", "Allow", true, new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
-                LToast.show(activity, "onClick1");
+                LToast.INSTANCE.show(activity, "onClick1");
             }
 
             @Override
             public void onClick2() {
-                LToast.show(activity, "onClick2");
+                LToast.INSTANCE.show(activity, "onClick2");
             }
         });
     }

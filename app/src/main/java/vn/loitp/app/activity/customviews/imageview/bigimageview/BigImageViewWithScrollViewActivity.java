@@ -25,10 +25,10 @@ public class BigImageViewWithScrollViewActivity extends BaseFontActivity {
         BigImageView biv3 = findViewById(R.id.biv_3);
         biv3.setImageViewFactory(new GlideImageViewFactory());
 
-        biv0.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O));
-        biv1.showImage(Uri.parse(Constants.URL_IMG_LONG));
-        biv2.showImage(Uri.parse(Constants.URL_IMG_GIFT));
-        biv3.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O));
+        biv0.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_LAND_S()), Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_LAND_O()));
+        biv1.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LONG()));
+        biv2.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_GIFT()));
+        biv3.showImage(Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_PORTRAIT_S()), Uri.parse(Constants.INSTANCE.getURL_IMG_LARGE_PORTRAIT_O()));
     }
 
     @Override

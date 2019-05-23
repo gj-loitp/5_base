@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/White">
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/White">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+	<androidx.core.widget.NestedScrollView
+		android:id="@+id/scroll_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_18"
-                android:textStyle="bold" />
+			<TextView
+				android:id="@+id/tv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/padding_5"
+				android:textColor="@color/Black"
+				android:textSize="@dimen/txt_18"
+				android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
-                android:text="@string/i_love_you" />
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/padding_5"
+				android:text="@string/i_love_you" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_10" />
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/rv"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginTop="@dimen/margin_10" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10">
+			<HorizontalScrollView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/margin_10">
 
-                <LinearLayout
-                    android:id="@+id/ll_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
+				<LinearLayout
+					android:id="@+id/ll_horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" />
+			</HorizontalScrollView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                android:padding="@dimen/padding_5"
-                android:text="@string/large_text" />
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/margin_10"
+				android:padding="@dimen/padding_5"
+				android:text="@string/large_text" />
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
 </RelativeLayout>

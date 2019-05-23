@@ -283,7 +283,7 @@ public class Data implements Serializable {
 
     public String getThumbnail() {
         if (thumbnail == null || thumbnail.isEmpty()) {
-            return Constants.URL_IMG_THUMBNAIL;
+            return Constants.INSTANCE.getURL_IMG_THUMBNAIL();
         }
         return thumbnail;
     }

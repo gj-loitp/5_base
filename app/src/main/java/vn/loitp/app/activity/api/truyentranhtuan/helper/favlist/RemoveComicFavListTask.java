@@ -11,7 +11,6 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.app.common.Constants;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
 
@@ -59,15 +58,15 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             LLog.d(TAG, "json == null || json.isEmpty()");
             mResult = RESULT_COMIC_IS_NOT_EXIST;
         } else {
-            comicList = LSApplication.getInstance().getGson().fromJson(json, new TypeToken<List<Comic>>() {
+            comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
             LLog.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
             LLog.d(TAG, "pos " + pos);
-            if (pos != Constants.NOT_FOUND) {
+            if (pos != vn.loitp.core.common.Constants.INSTANCE.getNOT_FOUND()) {
                 comicList.remove(pos);
 
-                String newJson = LSApplication.getInstance().getGson().toJson(comicList);
+                String newJson = LSApplication.Companion.getGson().toJson(comicList);
                 boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
                 if (isSaved) {
                     mResult = RESULT_REMOVE_COMIC_SUCCESS;

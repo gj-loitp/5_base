@@ -2,12 +2,13 @@ package vn.loitp.core.loitp.gallery.album;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -50,13 +51,13 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
-        removeAlbumList = getIntent().getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST);
+        removeAlbumList = getIntent().getStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST());
 
         avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        admobBannerUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
@@ -73,9 +74,9 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.NOT_FOUND) {
+        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
@@ -92,11 +93,11 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             @Override
             public void onClick(int pos) {
                 Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
-                intent.putExtra(Constants.SK_PHOTOSET_ID, photosetList.get(pos).getId());
-                intent.putExtra(Constants.SK_PHOTOSET_SIZE, photosetList.get(pos).getPhotos());
+                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
+                intent.putExtra(Constants.INSTANCE.getSK_PHOTOSET_ID(), photosetList.get(pos).getId());
+                intent.putExtra(Constants.INSTANCE.getSK_PHOTOSET_SIZE(), photosetList.get(pos).getPhotos());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
 
             @Override

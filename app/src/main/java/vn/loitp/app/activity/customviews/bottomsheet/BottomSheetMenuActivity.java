@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.bottomsheet;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -49,7 +51,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
         layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(activity, "Click layoutBottomSheet R.id.bt_payment");
+                LToast.INSTANCE.show(activity, "Click layoutBottomSheet R.id.bt_payment");
             }
         });
 

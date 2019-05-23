@@ -2,13 +2,15 @@ package vn.loitp.core.loitp.gallery.photos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -60,14 +62,14 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
-        final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
+        photosetID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTOSET_ID());
+        final String photosSize = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTOSET_SIZE());
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
 
-        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.NOT_FOUND) {
+        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
@@ -111,10 +113,10 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
                 Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
-                intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
+                intent.putExtra(Constants.INSTANCE.getSK_PHOTO_ID(), photo.getId());
+                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
             }
 
             @Override

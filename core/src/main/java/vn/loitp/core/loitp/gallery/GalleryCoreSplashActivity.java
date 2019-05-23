@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -47,7 +48,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
         RestClient.init(getString(R.string.flickr_URL));
-        admobBannerUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
@@ -62,14 +63,14 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        String urlCoverSplashScreen = getIntent().getStringExtra(Constants.BKG_SPLASH_SCREEN);
+        String urlCoverSplashScreen = getIntent().getStringExtra(Constants.INSTANCE.getBKG_SPLASH_SCREEN());
         if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
-            urlCoverSplashScreen = Constants.URL_IMG_2;
+            urlCoverSplashScreen = Constants.INSTANCE.getURL_IMG_2();
         }
         LImageUtil.load(activity, urlCoverSplashScreen, ivBkg);
-        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.NOT_FOUND) {
+        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
@@ -84,16 +85,16 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     }
 
     private void goToHome() {
-        final ArrayList<String> removeAlbumList = getIntent().getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST);
+        final ArrayList<String> removeAlbumList = getIntent().getStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST());
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId);
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
-                intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
+                intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobBannerUnitId);
+                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
+                intent.putStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
                 finish();
             }
         });

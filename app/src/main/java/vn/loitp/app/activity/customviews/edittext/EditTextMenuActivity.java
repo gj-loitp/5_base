@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity;
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class EditTextMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -57,7 +57,7 @@ public class EditTextMenuActivity extends BaseFontActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

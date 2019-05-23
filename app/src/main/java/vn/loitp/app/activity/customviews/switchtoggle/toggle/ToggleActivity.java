@@ -18,7 +18,7 @@ public class ToggleActivity extends BaseFontActivity {
         labeledSwitch.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                LToast.show(activity, "isOn " + isOn);
+                LToast.INSTANCE.show(activity, "isOn " + isOn);
             }
         });
     }

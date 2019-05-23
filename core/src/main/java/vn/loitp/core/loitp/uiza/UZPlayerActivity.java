@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.tabs.TabLayout;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -49,7 +50,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         isShowAnimWhenExit = false;
         data = (Data) getIntent().getSerializableExtra(UZCons.ENTITY_DATA);
         boolean isShowCover = getIntent().getBooleanExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
-        long contentPosition = getIntent().getLongExtra(Constants.KEY_VIDEO_CURRENT_POSITION, 0);
+        long contentPosition = getIntent().getLongExtra(Constants.INSTANCE.getKEY_VIDEO_CURRENT_POSITION(), 0);
         if (data == null) {
             showDialogError(getString(R.string.video_not_found));
             return;
@@ -59,7 +60,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
             showDialogError(getString(R.string.video_not_found));
             return;
         }
-        final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        final String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         //LLog.d(TAG, "adUnitId " + adUnitId);
         ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         LImageUtil.load(activity, data.getThumbnail(), ivBkg, R.drawable.bkg_black_colorprimary);
@@ -86,7 +87,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
+        LUIUtil.changeTabsFont(tabLayout, Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override
@@ -210,7 +211,7 @@ public class UZPlayerActivity extends BaseFontActivity implements UZVideo.UZCall
                     return frmInformation;
                 case 1:
                     FrmFBComment frmFBComment = new FrmFBComment();
-                    bundle.putString(Constants.FACEBOOK_COMMENT_URL, linkPlay);
+                    bundle.putString(Constants.INSTANCE.getFACEBOOK_COMMENT_URL(), linkPlay);
                     frmFBComment.setArguments(bundle);
                     return frmFBComment;
             }

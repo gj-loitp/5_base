@@ -1,13 +1,14 @@
 package vn.loitp.core.loitp.uiza;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-import android.view.animation.OvershootInterpolator;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,8 @@ public class FrmEntity extends BaseFragment {
         if (bundle == null) {
             return;
         }
-        admobBaner = bundle.getString(Constants.AD_UNIT_ID_BANNER);
-        boolean isHideSpaceView = bundle.getBoolean(Constants.IS_HIDE_SPACE_VIEW);
+        admobBaner = bundle.getString(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
+        boolean isHideSpaceView = bundle.getBoolean(Constants.INSTANCE.getIS_HIDE_SPACE_VIEW());
         //LLog.d(TAG, "admobBaner " + admobBaner);
         metadata = UZD.getInstance().getMetadata();
         if (metadata == null) {

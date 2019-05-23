@@ -103,7 +103,7 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

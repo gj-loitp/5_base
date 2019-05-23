@@ -6,13 +6,14 @@ package vn.loitp.core.loitp.gallery.slide;
 
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
@@ -45,7 +46,7 @@ public class FrmIvSlideCore extends Fragment {
             LLog.d(TAG, "onViewCreated bundle == null -> return");
             return;
         }
-        int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
+        int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
         final AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.avi);

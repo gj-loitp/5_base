@@ -13,8 +13,8 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class ActivityServiceComunicateActivity extends BaseFontActivity {
@@ -56,7 +56,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
         findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(activity, "onClick TestService");
+                LToast.INSTANCE.show(activity, "onClick TestService");
                 tv.setText("");
                 startService(new Intent(activity, TestService.class));
             }
@@ -77,7 +77,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                LToast.show(activity, "Draw over other app permission not available. Closing the application");
+                LToast.INSTANCE.show(activity, "Draw over other app permission not available. Closing the application");
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

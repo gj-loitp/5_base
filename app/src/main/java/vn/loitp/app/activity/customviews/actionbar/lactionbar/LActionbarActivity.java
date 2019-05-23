@@ -45,7 +45,7 @@ public class LActionbarActivity extends BaseFontActivity {
 
             @Override
             public void onClickMenu() {
-                LToast.show(activity, "onClickMenu");
+                LToast.INSTANCE.show(activity, "onClickMenu");
             }
         });
         lActionBar.showMenuIcon();

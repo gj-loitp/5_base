@@ -31,18 +31,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import androidx.core.app.NotificationCompat;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.core.app.NotificationCompat;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 
@@ -126,7 +127,7 @@ public class AlarmNotification extends BaseFontActivity {
 
     public void onDismissClick(View view) {
         finish();
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     private void readPreferences() {
@@ -166,7 +167,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     public void onBackPressed() {
         finish();
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     private class PlayTimerTask extends TimerTask {
@@ -175,7 +176,7 @@ public class AlarmNotification extends BaseFontActivity {
             LLog.d(TAG, "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 

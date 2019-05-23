@@ -1,1 +1,19 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":9,"versionName":"1.0.9","enabled":true,"outputFile":"BaseMaster_release_1.0.9_9.apk","fullName":"release","baseName":"release"},"path":"BaseMaster_release_1.0.9_9.apk","properties":{}}]
+[
+  {
+    "outputType": {
+      "type": "APK"
+    },
+    "apkInfo": {
+      "type": "MAIN",
+      "splits": [],
+      "versionCode": 9,
+      "versionName": "1.0.9",
+      "enabled": true,
+      "outputFile": "BaseMaster_release_1.0.9_9.apk",
+      "fullName": "release",
+      "baseName": "release"
+    },
+    "path": "BaseMaster_release_1.0.9_9.apk",
+    "properties": {}
+  }
+]

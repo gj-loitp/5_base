@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 
 import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -110,10 +109,10 @@ public class LConectifyService extends JobService implements ConnectivityReceive
                 LLog.d(TAG, "isConnectedFast");
                 isConnectedFast = true;
             }
-            EventBusData.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
+            EventBusData.Companion.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
         } else {
             LLog.d(TAG, "!isConnected");
-            EventBusData.getInstance().sendConnectChange(false, false, false, false);
+            EventBusData.Companion.getInstance().sendConnectChange(false, false, false, false);
         }
     }
 }

@@ -2,9 +2,10 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -117,7 +118,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
                             Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
                             intent.putExtra("photoID", photo.getId());
                             startActivity(intent);
-                            LActivityUtil.tranIn(activity);
+                            LActivityUtil.INSTANCE.tranIn(activity);
                         }
                     }));
                 }

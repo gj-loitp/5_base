@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -49,7 +50,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
-        String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
+        String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
@@ -70,15 +71,15 @@ public class FacebookCommentActivity extends BaseFontActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
 
-        if (Constants.IS_DEBUG) {
+        if (Constants.INSTANCE.getIS_DEBUG()) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";
         } else {
-            postUrl = getIntent().getStringExtra(Constants.FACEBOOK_COMMENT_URL);
+            postUrl = getIntent().getStringExtra(Constants.INSTANCE.getFACEBOOK_COMMENT_URL());
         }
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.show(activity, "The web url shouldn't be empty");
+            LToast.INSTANCE.show(activity, "The web url shouldn't be empty");
             onBackPressed();
             return;
         }

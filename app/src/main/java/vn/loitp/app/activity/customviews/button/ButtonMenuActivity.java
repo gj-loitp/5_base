@@ -78,7 +78,7 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

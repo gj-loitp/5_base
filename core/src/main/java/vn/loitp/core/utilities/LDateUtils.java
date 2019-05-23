@@ -126,7 +126,7 @@ public class LDateUtils {
             return date.getTime() / 1000;
         } catch (ParseException e) {
             LLog.d(TAG, "convertDateToTimestamp ParseException " + e.toString());
-            return Constants.NOT_FOUND;
+            return Constants.INSTANCE.getNOT_FOUND();
         }
     }
 

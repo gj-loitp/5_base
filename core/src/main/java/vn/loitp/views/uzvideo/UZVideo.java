@@ -239,7 +239,7 @@ public class UZVideo extends RelativeLayout implements Callback {
     private void getTokenStreaming(final String entityId, final CallbackAPI callbackAPI) {
         UZService service = UZRestClient.createService(UZService.class);
         SendGetTokenStreaming sendGetTokenStreaming = new SendGetTokenStreaming();
-        sendGetTokenStreaming.setAppId(UZData.getInstance().getAppId());
+        sendGetTokenStreaming.setAppId(UZData.Companion.getInstance().getAppId());
         sendGetTokenStreaming.setEntityId(entityId);
         sendGetTokenStreaming.setContentType(SendGetTokenStreaming.STREAM);
         activity.subscribe(service.getTokenStreaming(sendGetTokenStreaming), new ApiSubscriber<ResultGetTokenStreaming>() {
@@ -270,7 +270,7 @@ public class UZVideo extends RelativeLayout implements Callback {
         UZRestClientGetLinkPlay.addAuthorization(tokenStreaming);
         UZService service = UZRestClientGetLinkPlay.createService(UZService.class);
         String typeContent = SendGetTokenStreaming.STREAM;
-        activity.subscribe(service.getLinkPlay(UZData.getInstance().getAppId(), entityId, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
+        activity.subscribe(service.getLinkPlay(UZData.Companion.getInstance().getAppId(), entityId, typeContent), new ApiSubscriber<ResultGetLinkPlay>() {
             @Override
             public void onSuccess(ResultGetLinkPlay resultGetLinkPlay) {
                 //LLog.d(TAG, "getLinkPlay onSuccess: " + LSApplication.getInstance().getGson().toJson(resultGetLinkPlay));
@@ -437,9 +437,9 @@ public class UZVideo extends RelativeLayout implements Callback {
         LPref.setUzvideoHeight(activity, playerManager.getVideoH());
         Intent intent = new Intent(activity, FUZService.class);
         intent.putExtra(UZCons.ENTITY_DATA, data);
-        intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobIDBanner);
-        intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, linkPlay);
-        intent.putExtra(Constants.KEY_VIDEO_CURRENT_POSITION, playerManager.getContentPosition());
+        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobIDBanner);
+        intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), linkPlay);
+        intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_CURRENT_POSITION(), playerManager.getContentPosition());
         activity.startService(intent);
         activity.onBackPressed();
     }

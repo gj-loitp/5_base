@@ -55,8 +55,8 @@ public class Subtitle {
     }
 
     public String getUrl() {
-        if (!url.contains(Constants.PREFIXS)) {
-            return Constants.PREFIXS_SHORT + url;
+        if (!url.contains(Constants.INSTANCE.getPREFIXS())) {
+            return Constants.INSTANCE.getPREFIXS_SHORT() + url;
         }
         return url;
     }

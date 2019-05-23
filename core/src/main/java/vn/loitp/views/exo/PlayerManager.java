@@ -82,7 +82,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     }
 
     public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
-        if (context == null  || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
+        if (context == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
             LLog.e(TAG, "init failed -> return");
             return;
         }
