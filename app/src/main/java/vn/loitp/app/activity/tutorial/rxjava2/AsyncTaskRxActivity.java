@@ -26,7 +26,8 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
-        findViewById(R.id.bt_rx).setOnClickListener(this);
+        findViewById(R.id.bt_rx_1).setOnClickListener(this);
+        findViewById(R.id.bt_rx_2).setOnClickListener(this);
     }
 
     @Override
@@ -54,16 +55,17 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                 test1 = new Test1();
                 test1.execute();
                 break;
-            case R.id.bt_rx:
-                //Test2 test2 = new Test2(6);
-                //test2.apply();
-
-
-                //MyRxTask1 myRxTask1 = new MyRxTask1();
-                //myRxTask1.execute();
-
+            case R.id.bt_rx_1:
+                MyRxTask1 myRxTask1 = new MyRxTask1(tv);
+                myRxTask1.execute();
+                break;
+            case R.id.bt_rx_2:
                 MyRxTask2 myRxTask2 = new MyRxTask2(tv);
                 myRxTask2.execute();
+                break;
+            case R.id.bt_rx_3:
+                Test2 test2 = new Test2(6);
+                test2.apply();
                 break;
         }
     }

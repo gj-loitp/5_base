@@ -16,10 +16,9 @@ class MyRxTask2(val tv: TextView?) {
         publishSubject.observeOn(AndroidSchedulers.mainThread()).subscribe {
             LLog.d(TAG, "onProgressUpdate value = $it")
             tv?.append("onProgressUpdate value = $it\n")
-
         }
         LLog.d(TAG, "onPreExecute")
-        tv?.append("onPreExecute\n")
+        tv?.setText("onPreExecute\n")
         Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
                 .doOnNext {
                     LLog.d(TAG, "doInBackground")

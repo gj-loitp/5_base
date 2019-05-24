@@ -29,14 +29,28 @@
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:text="AsyncTask" />
+			android:text="Async" />
 
 		<Button
-			android:id="@+id/bt_rx"
+			android:id="@+id/bt_rx_1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:text="Rx" />
+			android:text="Rx1" />
+
+		<Button
+			android:id="@+id/bt_rx_2"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx2" />
+
+		<Button
+			android:id="@+id/bt_rx_3"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx3" />
 	</LinearLayout>
 </RelativeLayout>
 
