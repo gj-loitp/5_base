@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/ll"
-        android:fillViewport="true">
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/ll">
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_5"
-            android:textSize="@dimen/txt_22"
-            android:textStyle="bold" />
-    </ScrollView>
+		<TextView
+			android:id="@+id/tv"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/padding_5"
+			android:textSize="@dimen/txt_18" />
+	</ScrollView>
 
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+	<LinearLayout
+		android:id="@+id/ll"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/bt_async_task"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="AsyncTask" />
+		<Button
+			android:id="@+id/bt_async_task"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="AsyncTask" />
 
-        <Button
-            android:id="@+id/bt_rx"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Rx" />
-    </LinearLayout>
+		<Button
+			android:id="@+id/bt_rx"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx" />
+	</LinearLayout>
 </RelativeLayout>
 

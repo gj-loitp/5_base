@@ -8,11 +8,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
-import rx.Observer;
-import rx.Single;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import vn.loitp.core.base.BaseFontActivity;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
@@ -54,8 +55,15 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                 test1.execute();
                 break;
             case R.id.bt_rx:
-                Test2 test2 = new Test2(6);
-                test2.apply();
+                //Test2 test2 = new Test2(6);
+                //test2.apply();
+
+
+                //MyRxTask1 myRxTask1 = new MyRxTask1();
+                //myRxTask1.execute();
+
+                MyRxTask2 myRxTask2 = new MyRxTask2(tv);
+                myRxTask2.execute();
                 break;
         }
     }
@@ -124,6 +132,13 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
         public void apply() {
             tv.setText("Prev\n");
+
+            /*PublishSubject publishSubject = new PublishSubject<>();
+            publishSubject.observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe {
+
+            }*/
             Single.fromCallable(() -> {
                 List<Bike> bikeList = new ArrayList<>();
                 for (int i = 0; i < count; i++) {
@@ -134,25 +149,23 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                     bikeList.add(bike);
                 }
                 return bikeList;
-            }).map(bikes -> {
-                return bikes;
             })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<List<Bike>>() {
+                    .subscribe(new SingleObserver<List<Bike>>() {
                         @Override
-                        public void onCompleted() {
-                            tv.append("Result\n");
+                        public void onSubscribe(Disposable d) {
+                            tv.append("onSubscribe\n");
+                        }
+
+                        @Override
+                        public void onSuccess(List<Bike> bikes) {
+                            tv.append("onSuccess\n");
                         }
 
                         @Override
                         public void onError(Throwable e) {
                             tv.append("onError\n");
-                        }
-
-                        @Override
-                        public void onNext(List<Bike> bikes) {
-                            tv.append("onNext\n");
                         }
                     });
 
