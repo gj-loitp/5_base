@@ -6,9 +6,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import androidx.annotation.Nullable;
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import loitp.basemaster.R;
@@ -41,6 +43,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_0).setOnClickListener(this);
         findViewById(R.id.bt_1).setOnClickListener(this);
+        findViewById(R.id.bt_2).setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +54,9 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 break;
             case R.id.bt_1:
                 test1();
+                break;
+            case R.id.bt_2:
+                test2();
                 break;
         }
     }
@@ -103,6 +109,45 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
             @Override
             public void onNext(List<Bike> bikes) {
                 print("onNext " + bikes.size());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onComplete() {
+                print("onComplete");
+            }
+        });
+    }
+
+    private Bike bike;
+
+    private void test2() {
+        tv.setText("test2\n");
+        bike = new Bike("Suzuki", "GSX R1000");
+
+        //c1
+        //Observable<Bike> bikeObservable = Observable.just(bike);
+
+        //c2
+        Observable<Bike> bikeObservable = Observable.defer(new Callable<ObservableSource<? extends Bike>>() {
+            @Override
+            public ObservableSource<? extends Bike> call() throws Exception {
+                return Observable.just(bike);
+            }
+        });
+        bike = new Bike("Honda", "CBR1000RR");
+        bikeObservable.subscribe(new Observer<Bike>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                print("onSubscribe");
+            }
+
+            @Override
+            public void onNext(Bike bike) {
+                print("onNext " + bike.getName() + " - " + bike.getModel());
             }
 
             @Override
