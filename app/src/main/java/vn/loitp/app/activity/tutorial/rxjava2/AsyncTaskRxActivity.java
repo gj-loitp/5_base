@@ -33,6 +33,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         findViewById(R.id.bt_async_task).setOnClickListener(this);
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
         findViewById(R.id.bt_rx_2).setOnClickListener(this);
+        findViewById(R.id.bt_rx_3).setOnClickListener(this);
     }
 
     @Override
@@ -61,16 +62,20 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                 test1.execute();
                 break;
             case R.id.bt_rx_1:
-                MyRxTask1 myRxTask1 = new MyRxTask1(tv);
                 if (disposable != null) {
                     disposable.dispose();
                 }
+                MyRxTask1 myRxTask1 = new MyRxTask1(tv);
                 disposable = myRxTask1.execute();
                 compositeDisposable.add(disposable);
                 break;
             case R.id.bt_rx_2:
+                if (disposable != null) {
+                    disposable.dispose();
+                }
                 MyRxTask2 myRxTask2 = new MyRxTask2(tv);
-                myRxTask2.execute();
+                disposable = myRxTask2.execute();
+                compositeDisposable.add(disposable);
                 break;
             case R.id.bt_rx_3:
                 Test2 test2 = new Test2(6);
