@@ -16,6 +16,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
+import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
@@ -124,7 +125,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         protected void onProgressUpdate(Bike... values) {
             super.onProgressUpdate(values);
             Bike bike = values[0];
-            tv.append(bike.name + " - " + bike.model + "\n");
+            tv.append(bike.getName() + " - " + bike.getModel() + "\n");
         }
 
         @Override
@@ -186,27 +187,6 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                         }
                     });
 
-        }
-    }
-
-    private class Bike {
-        private String name;
-        private String model;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getModel() {
-            return model;
-        }
-
-        public void setModel(String model) {
-            this.model = model;
         }
     }
 }
