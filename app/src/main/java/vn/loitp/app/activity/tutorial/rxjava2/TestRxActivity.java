@@ -40,6 +40,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_0).setOnClickListener(this);
+        findViewById(R.id.bt_1).setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +48,9 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.bt_0:
                 test0();
+                break;
+            case R.id.bt_1:
+                test1();
                 break;
         }
     }
@@ -65,7 +69,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void test0() {
-        tv.setText("test0");
+        tv.setText("test0\n");
         Observable.fromArray("Suzuki", "Ducati", "BMW", "Honda").subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -75,6 +79,30 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
             @Override
             public void onNext(String string) {
                 print("onNext " + string);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onComplete() {
+                print("onComplete");
+            }
+        });
+    }
+
+    private void test1() {
+        tv.setText("test1\n");
+        Observable.just(getBikeList()).subscribe(new Observer<List<Bike>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                print("onSubscribe");
+            }
+
+            @Override
+            public void onNext(List<Bike> bikes) {
+                print("onNext " + bikes.size());
             }
 
             @Override

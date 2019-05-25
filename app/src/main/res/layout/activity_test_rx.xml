@@ -15,16 +15,22 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_5">
 
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test 0" />
+                android:text="Test From" />
+
+            <Button
+                android:id="@+id/bt_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test Just" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
