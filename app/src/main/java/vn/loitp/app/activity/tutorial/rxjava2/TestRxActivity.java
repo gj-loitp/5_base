@@ -7,12 +7,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.Nullable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
+import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
@@ -44,6 +48,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.bt_0).setOnClickListener(this);
         findViewById(R.id.bt_1).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
+        findViewById(R.id.bt_3).setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +62,9 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 break;
             case R.id.bt_2:
                 test2();
+                break;
+            case R.id.bt_3:
+                test3();
                 break;
         }
     }
@@ -159,5 +167,36 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 print("onComplete");
             }
         });
+    }
+
+    Disposable interValDisposable;
+
+    private void test3() {
+        tv.setText("test3\n");
+        interValDisposable = Observable.interval(0, 1, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(
+                        new DisposableObserver<Long>() {
+                            @Override
+                            public void onNext(Long aLong) {
+                                print("onNext " + aLong);
+                                if (aLong == 5) {
+                                    if (interValDisposable != null) {
+                                        interValDisposable.dispose();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                print("onComplete");
+                            }
+                        }
+                );
     }
 }
