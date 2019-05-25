@@ -8,9 +8,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
@@ -19,6 +21,9 @@ import vn.loitp.core.base.BaseFontActivity;
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
     private Test1 test1;
+    @NonNull
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private Disposable disposable;
 
     @Override
 
@@ -57,7 +62,11 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                 break;
             case R.id.bt_rx_1:
                 MyRxTask1 myRxTask1 = new MyRxTask1(tv);
-                myRxTask1.execute();
+                if (disposable != null) {
+                    disposable.dispose();
+                }
+                disposable = myRxTask1.execute();
+                compositeDisposable.add(disposable);
                 break;
             case R.id.bt_rx_2:
                 MyRxTask2 myRxTask2 = new MyRxTask2(tv);
@@ -76,6 +85,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         if (test1 != null) {
             test1.cancel(true);
         }
+        compositeDisposable.clear();
     }
 
     private class Test1 extends AsyncTask<Void, Bike, List<Bike>> {
