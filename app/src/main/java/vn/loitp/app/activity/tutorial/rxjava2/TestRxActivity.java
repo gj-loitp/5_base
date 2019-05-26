@@ -292,4 +292,6 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 });
     }
     //for test 5
+
+    //hihi
 }
