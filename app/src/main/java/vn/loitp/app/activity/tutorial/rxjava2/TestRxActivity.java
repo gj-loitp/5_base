@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.Nullable;
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -20,6 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.statusbar.LThreadUtil;
 
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
@@ -49,6 +52,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.bt_1).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
         findViewById(R.id.bt_3).setOnClickListener(this);
+        findViewById(R.id.bt_4).setOnClickListener(this);
     }
 
     @Override
@@ -65,6 +69,9 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 break;
             case R.id.bt_3:
                 test3();
+                break;
+            case R.id.bt_4:
+                test4();
                 break;
         }
     }
@@ -198,5 +205,43 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                             }
                         }
                 );
+    }
+
+    private void test4() {
+        tv.setText("test4\n");
+        Observable.create(new ObservableOnSubscribe<Bike>() {
+            @Override
+            public void subscribe(ObservableEmitter<Bike> emitter) throws Exception {
+                LLog.d(TAG, "subscribe " + LThreadUtil.isUIThread());
+                List<Bike> bikeList = getBikeList();
+                for (Bike bike : bikeList) {
+                    emitter.onNext(bike);
+                }
+                emitter.onComplete();
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Bike>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        LLog.d(TAG, "onSubscribe " + LThreadUtil.isUIThread());
+                        print("onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(Bike bike) {
+                        LLog.d(TAG, "onNext " + LThreadUtil.isUIThread());
+                        print("onNext " + bike.getName() + " - " + bike.getModel());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        LLog.d(TAG, "onComplete " + LThreadUtil.isUIThread());
+                        print("onComplete");
+                    }
+                });
     }
 }

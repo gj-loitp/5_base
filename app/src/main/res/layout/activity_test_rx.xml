@@ -39,6 +39,12 @@
                 android:layout_height="wrap_content"
                 android:text="Test Interval" />
 
+            <Button
+                android:id="@+id/bt_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test Create" />
+
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
