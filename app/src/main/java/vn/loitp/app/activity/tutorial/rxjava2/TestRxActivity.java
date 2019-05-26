@@ -209,7 +209,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
 
     private void test4() {
         tv.setText("test4\n");
-        Observable.create(new ObservableOnSubscribe<Bike>() {
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<Bike>() {
             @Override
             public void subscribe(ObservableEmitter<Bike> emitter) throws Exception {
                 LLog.d(TAG, "subscribe " + LThreadUtil.isUIThread());
@@ -220,16 +220,16 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 emitter.onComplete();
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Bike>() {
-                    @Override
+                .subscribeWith(new DisposableObserver<Bike>() {
+                    /*@Override
                     public void onSubscribe(Disposable d) {
                         LLog.d(TAG, "onSubscribe " + LThreadUtil.isUIThread());
                         print("onSubscribe");
-                    }
+                    }*/
 
                     @Override
                     public void onNext(Bike bike) {
-                        LLog.d(TAG, "onNext " + LThreadUtil.isUIThread());
+                        LLog.d(TAG, "subscribeOn onNext " + bike.getName() + " -> " + LThreadUtil.isUIThread());
                         print("onNext " + bike.getName() + " - " + bike.getModel());
                     }
 
@@ -243,5 +243,6 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                         print("onComplete");
                     }
                 });
+        //compositeDisposable.add(disposable);
     }
 }
