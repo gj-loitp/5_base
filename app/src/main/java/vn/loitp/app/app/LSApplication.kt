@@ -22,7 +22,7 @@ class LSApplication : MultiDexApplication() {
     private val TAG = LSApplication::class.java.simpleName
 
     companion object {
-        var gson: Gson? = null
+        val gson: Gson = Gson()
     }
 
     //prod
@@ -32,9 +32,6 @@ class LSApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        if (gson == null) {
-            gson = Gson()
-        }
 
         Constants.setIsDebug(true)
         Utils.init(this)

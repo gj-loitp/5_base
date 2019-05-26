@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -11,15 +13,20 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.Nullable;
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
+import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.statusbar.LThreadUtil;
 
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
@@ -49,6 +56,8 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.bt_1).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
         findViewById(R.id.bt_3).setOnClickListener(this);
+        findViewById(R.id.bt_4).setOnClickListener(this);
+        findViewById(R.id.bt_5).setOnClickListener(this);
     }
 
     @Override
@@ -66,10 +75,17 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
             case R.id.bt_3:
                 test3();
                 break;
+            case R.id.bt_4:
+                test4();
+                break;
+            case R.id.bt_5:
+                test5();
+                break;
         }
     }
 
     private void print(String s) {
+        LLog.d(TAG, s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
         tv.append(s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
     }
 
@@ -169,7 +185,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         });
     }
 
-    Disposable interValDisposable;
+    private Disposable interValDisposable;
 
     private void test3() {
         tv.setText("test3\n");
@@ -199,4 +215,81 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                         }
                 );
     }
+
+    private void test4() {
+        tv.setText("test4\n");
+        Disposable disposable = Observable.create(new ObservableOnSubscribe<Bike>() {
+            @Override
+            public void subscribe(ObservableEmitter<Bike> emitter) throws Exception {
+                List<Bike> bikeList = getBikeList();
+                for (Bike bike : bikeList) {
+                    emitter.onNext(bike);
+                }
+                emitter.onComplete();
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableObserver<Bike>() {
+                    /*@Override
+                    public void onSubscribe(Disposable d) {
+                        print("onSubscribe");
+                    }*/
+
+                    @Override
+                    public void onNext(Bike bike) {
+                        print("onNext " + bike.getName() + " - " + bike.getModel());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        print("onComplete");
+                    }
+                });
+        //compositeDisposable.add(disposable);
+    }
+
+    //for test 5
+    private Observable<String> searchBike(String b) {
+        return Observable.just(LSApplication.Companion.getGson().toJson(getBikeList()));
+    }
+
+    private List<Bike> parse(String json) {
+        return LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Bike>>() {
+        }.getType());
+    }
+
+    private void test5() {
+        tv.setText("test5\n");
+        searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<String, List<Bike>>() {
+                    @Override
+                    public List<Bike> apply(String s) throws Exception {
+                        return parse(s);
+                    }
+                })
+                .subscribe(new Observer<List<Bike>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        print("onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(List<Bike> bike) {
+                        print("onNext " + bike.size());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        print("onComplete");
+                    }
+                });
+    }
+    //for test 5
 }
