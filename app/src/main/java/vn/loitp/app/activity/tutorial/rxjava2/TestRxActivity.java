@@ -263,7 +263,10 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
 
     private void test5() {
         tv.setText("test5\n");
-        searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+
+        //map
+        //ok
+        /*searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .map(new Function<String, List<Bike>>() {
                     @Override
                     public List<Bike> apply(String s) throws Exception {
@@ -279,6 +282,46 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                     @Override
                     public void onNext(List<Bike> bike) {
                         print("onNext " + bike.size());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        print("onComplete");
+                    }
+                });*/
+
+        //flat map
+        searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .flatMap(new Function<String, ObservableSource<List<Bike>>>() {
+                    @Override
+                    public ObservableSource<List<Bike>> apply(String s) throws Exception {
+                        return Observable.defer(new Callable<ObservableSource<? extends List<Bike>>>() {
+                            @Override
+                            public ObservableSource<? extends List<Bike>> call() throws Exception {
+                                return Observable.just(parse(s));
+                            }
+                        });
+                    }
+                })
+                .flatMap(new Function<List<Bike>, ObservableSource<Bike>>() {
+                    @Override
+                    public ObservableSource<Bike> apply(List<Bike> bikes) throws Exception {
+                        return Observable.fromIterable(bikes);
+                    }
+                })
+                .subscribe(new Observer<Bike>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        print("onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(Bike b) {
+                        print("onNext " + b.getName());
                     }
 
                     @Override
