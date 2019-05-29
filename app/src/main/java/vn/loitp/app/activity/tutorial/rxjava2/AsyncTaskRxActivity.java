@@ -33,10 +33,10 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.d(TAG,"1");
-        LLog.d(TAG,"2");
-        LLog.d(TAG,"3");
-        LLog.d(TAG,"4");
-        LLog.d(TAG,"5");
+        //LLog.d(TAG,"2");
+        //LLog.d(TAG,"3");
+        //LLog.d(TAG,"4");
+        //LLog.d(TAG,"5");
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
