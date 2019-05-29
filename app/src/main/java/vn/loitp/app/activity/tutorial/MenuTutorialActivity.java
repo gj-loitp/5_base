@@ -9,6 +9,7 @@ import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity;
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
+import vn.loitp.core.utilities.LLog;
 
 public class MenuTutorialActivity extends BaseFontActivity implements View.OnClickListener {
 
@@ -17,6 +18,7 @@ public class MenuTutorialActivity extends BaseFontActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_rx_java_2).setOnClickListener(this);
         findViewById(R.id.bt_retrofit_2).setOnClickListener(this);
+        LLog.d(TAG, "1");
     }
 
     @Override
