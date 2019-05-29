@@ -35,6 +35,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         LLog.d(TAG,"1");
         LLog.d(TAG,"2");
         LLog.d(TAG,"3");
+        LLog.d(TAG,"4");
 
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
