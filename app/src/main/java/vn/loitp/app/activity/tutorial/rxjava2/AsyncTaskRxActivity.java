@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -18,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
@@ -30,6 +32,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LLog.d(TAG,"1");
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
