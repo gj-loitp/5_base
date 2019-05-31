@@ -16,6 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import kotlin.Unit;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
@@ -32,16 +33,12 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.d(TAG,"1");
-        LLog.d(TAG,"2");
-        LLog.d(TAG,"3");
-        LLog.d(TAG,"4");
-
         tv = (TextView) findViewById(R.id.tv);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
         findViewById(R.id.bt_rx_2).setOnClickListener(this);
         findViewById(R.id.bt_rx_3).setOnClickListener(this);
+        findViewById(R.id.bt_rx_4).setOnClickListener(this);
     }
 
     @Override
@@ -88,6 +85,9 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
             case R.id.bt_rx_3:
                 Test2 test2 = new Test2(6);
                 test2.apply();
+                break;
+            case R.id.bt_rx_4:
+                testWithProgress();
                 break;
         }
     }
@@ -195,5 +195,26 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                     });
 
         }
+    }
+
+    private void testWithProgress() {
+        int count = 10;
+        TestAsyncKotlin testAsyncKotlin = new TestAsyncKotlin(count);
+        Disposable disProgress = testAsyncKotlin.subscribeProgression(integer -> {
+            LLog.d("loitptest", "Home -> subscribeProgression " + integer);
+            return Unit.INSTANCE;
+        });
+        Disposable dis = testAsyncKotlin.apply(aBoolean -> {
+            LLog.d("loitptest", "Home -> 1 aBoolean: " + aBoolean);
+            return Unit.INSTANCE;
+        }, throwable -> {
+            LLog.d("loitptest", "Home -> 2 throwable: " + throwable.toString());
+            return Unit.INSTANCE;
+        }, () -> {
+            LLog.d("loitptest", "Home -> 3 finished");
+            return Unit.INSTANCE;
+        });
+        compositeDisposable.add(disProgress);
+        compositeDisposable.add(dis);
     }
 }
