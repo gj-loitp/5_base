@@ -199,6 +199,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
     private void testWithProgress() {
         tv.setText("prev testWithProgress\n");
+        compositeDisposable.clear();
         int count = 10;
         TestAsyncKotlin testAsyncKotlin = new TestAsyncKotlin(count);
         Disposable disProgress = testAsyncKotlin.subscribeProgression(integer -> {

@@ -16,17 +16,17 @@ class TestAsyncKotlin(private val count: Int) {
             onError: ((throwbale: Throwable) -> Unit),
             onFinished: (() -> Unit)
     ): Disposable {
-        //log("prev")
+        log("prev")
         return Single.create<Boolean> {
             doInBkg(it)
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    //log("post 1 " + it)
+                    log("post 1 " + it)
                     onSuccess.invoke(it)
                     onFinished.invoke()
                 }, {
-                    //log("post 2 " + it.toString())
+                    log("post 2 " + it.toString())
                     onError.invoke(it)
                     onFinished.invoke()
                 })
@@ -44,8 +44,15 @@ class TestAsyncKotlin(private val count: Int) {
             return
         }
         for (i in 0..count) {
-            Thread.sleep(1000)
-            //log("bkg count: " + i)
+            try {
+                Thread.sleep(1000)
+            } catch (e: Exception) {
+                log("Exception " + e.toString())
+                sourceProgression.onComplete()
+                emmiter.tryOnError(IllegalArgumentException("ahihi"))
+                break
+            }
+            log("bkg count: " + i)
             sourceProgression.onNext(i)
         }
         sourceProgression.onComplete()
@@ -53,6 +60,6 @@ class TestAsyncKotlin(private val count: Int) {
     }
 
     private fun log(s: String) {
-        LLog.d("loitptest", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
+        LLog.d("loitptestt", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
     }
 }
