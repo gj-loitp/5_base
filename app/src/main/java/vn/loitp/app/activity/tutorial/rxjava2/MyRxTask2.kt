@@ -6,6 +6,8 @@ import android.widget.TextView
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Action
+import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import vn.loitp.core.utilities.LLog
@@ -24,18 +26,26 @@ class MyRxTask2(val tv: TextView?) {
         tv?.setText("onPreExecute\n")
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
                 .doOnNext {
-                    LLog.d(TAG, "doInBackground")
                     it.forEach {
+                        LLog.d(TAG, "doInBackground " + it)
                         publishSubject.onNext(it)
                         SystemClock.sleep(1000)
                     }
                 }
                 .applySchedulers()
-                .subscribe {
+                /*.subscribe {
                     // onNext
                     LLog.d(TAG, "onPostExecute")
                     tv?.append("onPostExecute\n")
-                }
+                }*/
+                .subscribe(Consumer {
+                    LLog.d(TAG, "onPostExecute onNext")
+                    tv?.append("onPostExecute\n")
+                }, Consumer {
+                    LLog.d(TAG, "onPostExecute onError")
+                }, Action {
+                    LLog.d(TAG, "onPostExecute onComplete")
+                });
     }
 
     private fun <T> Observable<T>.applySchedulers(): Observable<T> {

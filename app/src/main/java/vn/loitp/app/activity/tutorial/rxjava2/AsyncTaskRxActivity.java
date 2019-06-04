@@ -77,6 +77,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
             case R.id.bt_rx_2:
                 if (disposable != null) {
                     disposable.dispose();
+                    return;
                 }
                 MyRxTask2 myRxTask2 = new MyRxTask2(tv);
                 disposable = myRxTask2.execute();
