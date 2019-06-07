@@ -2,16 +2,16 @@ package vn.loitp.app.activity.function.bsimagepicker;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.asksira.bsimagepicker.BSImagePicker;
-import com.bumptech.glide.Glide;
 
+import java.io.File;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LImageUtil;
 
 //https://github.com/siralam/BSImagePicker
 public class BSImagePickerActivity extends BaseFontActivity implements BSImagePicker.OnSingleImageSelectedListener, BSImagePicker.OnMultiImageSelectedListener {
@@ -27,24 +27,18 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
         ivImage4 = findViewById(R.id.iv_image4);
         ivImage5 = findViewById(R.id.iv_image5);
         ivImage6 = findViewById(R.id.iv_image6);
-        findViewById(R.id.tv_single_selection).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority).build();
-                pickerDialog.show(getSupportFragmentManager(), "picker");
-            }
+        findViewById(R.id.tv_single_selection).setOnClickListener(v -> {
+            final BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority).build();
+            pickerDialog.show(getSupportFragmentManager(), "picker");
         });
-        findViewById(R.id.tv_multi_selection).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority)
-                        .setMaximumDisplayingImages(Integer.MAX_VALUE)
-                        .isMultiSelect()
-                        .setMinimumMultiSelectCount(3)
-                        .setMaximumMultiSelectCount(6)
-                        .build();
-                pickerDialog.show(getSupportFragmentManager(), "picker");
-            }
+        findViewById(R.id.tv_multi_selection).setOnClickListener(v -> {
+            final BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority)
+                    .setMaximumDisplayingImages(Integer.MAX_VALUE)
+                    .isMultiSelect()
+                    .setMinimumMultiSelectCount(3)
+                    .setMaximumMultiSelectCount(6)
+                    .build();
+            pickerDialog.show(getSupportFragmentManager(), "picker");
         });
     }
 
@@ -65,14 +59,14 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
 
     @Override
     public void onSingleImageSelected(Uri uri, String tag) {
-        Glide.with(activity).load(uri).into(ivImage2);
+        LImageUtil.load(activity, uri, ivImage2);
     }
 
     @Override
     public void onMultiImageSelected(List<Uri> uriList, String tag) {
         for (int i = 0; i < uriList.size(); i++) {
             if (i >= 6) return;
-            ImageView iv;
+            final ImageView iv;
             switch (i) {
                 case 0:
                     iv = ivImage1;
@@ -93,7 +87,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
                 default:
                     iv = ivImage6;
             }
-            Glide.with(this).load(uriList.get(i)).into(iv);
+            LImageUtil.load(activity, uriList.get(i), iv);
         }
     }
 }
