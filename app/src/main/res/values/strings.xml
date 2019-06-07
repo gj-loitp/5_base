@@ -1,15 +1,14 @@
 <resources>
-    <string name="app_name">App BaseMaster</string>
-    <string name="hello_world">\nCupcake ipsum dolor sit amet. Sugar plum biscuit sweet roll toffee bear claw. Caramels muffin jujubes apple pie cake cake. Croissant topping jelly beans donut macaroon danish dragée chupa chups. Topping tart liquorice powder halvah jelly beans. Cake cheesecake biscuit ice cream muffin. Brownie pudding donut chocolate cake chupa chups liquorice carrot cake lollipop lollipop. Pudding sweet roll jelly-o ice cream. Lollipop chupa chups jelly-o. Caramels jujubes pudding pudding muffin cookie. android love bear claw cheesecake croissant fruitcake gummi bears donut. Danish dessert pastry. Chocolate cake oat cake sugar plum marzipan lollipop gummi bears chupa chups toffee. Ice cream soufflé bear claw carrot cake cheesecake jelly-o gummies jelly-o gummi bears. Dragée cake topping jelly beans. Cake macaroon macaroon pie pie oat cake brownie marshmallow jujubes. Fruitcake cheesecake gummies bonbon. Donut sweet roll donut carrot cake tootsie roll cotton candy macaroon cake. Tiramisu ice cream cookie marzipan lollipop caramels topping dessert brownie. Dragée chocolate sweet roll chocolate cake. Dessert powder dessert cake. Pie gingerbread cake pudding apple pie. Tiramisu biscuit pie croissant carrot cake cookie macaroon. Sesame snaps halvah donut marzipan muffin caramels. Cheesecake ice cream jelly beans powder toffee danish fruitcake. Chocolate bar caramels oat cake. Macaroon sweet donut tootsie roll. Oat cake lemon drops chupa chups tootsie roll liquorice candy canes apple pie pudding. Chocolate cake liquorice sweet croissant. Chupa chups biscuit danish gummies donut. Cake chocolate cake dragée. Toffee apple pie cotton candy brownie. Candy canes caramels danish chocolate bar bear claw. Chupa chups sesame snaps oat cake sesame snaps oat cake chocolate cake caramels. Candy cupcake biscuit cupcake. Tiramisu powder icing cookie cookie gummi bears donut lemon drops. Marshmallow wafer marzipan. Jelly beans sweet sesame snaps.</string>
-    <string name="facebook_app_id">256962811543023</string>
-    <string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
-    <string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
-    <string name="str_reward">ca-app-pub-3165963943681013/4049354711</string>
-    <string name="str_app_id">ca-app-pub-3165963943681013~3973333090</string>
-
-    <string name="open_drawer">open_drawer</string>
-    <string name="close_drawer">close_drawer</string>
-    <string name="i_love_you">I loved you:  yet the love, maybe,\n
+	<string name="app_name">App BaseMaster</string>
+	<string name="hello_world">\nCupcake ipsum dolor sit amet. Sugar plum biscuit sweet roll toffee bear claw. Caramels muffin jujubes apple pie cake cake. Croissant topping jelly beans donut macaroon danish dragée chupa chups. Topping tart liquorice powder halvah jelly beans. Cake cheesecake biscuit ice cream muffin. Brownie pudding donut chocolate cake chupa chups liquorice carrot cake lollipop lollipop. Pudding sweet roll jelly-o ice cream. Lollipop chupa chups jelly-o. Caramels jujubes pudding pudding muffin cookie. android love bear claw cheesecake croissant fruitcake gummi bears donut. Danish dessert pastry. Chocolate cake oat cake sugar plum marzipan lollipop gummi bears chupa chups toffee. Ice cream soufflé bear claw carrot cake cheesecake jelly-o gummies jelly-o gummi bears. Dragée cake topping jelly beans. Cake macaroon macaroon pie pie oat cake brownie marshmallow jujubes. Fruitcake cheesecake gummies bonbon. Donut sweet roll donut carrot cake tootsie roll cotton candy macaroon cake. Tiramisu ice cream cookie marzipan lollipop caramels topping dessert brownie. Dragée chocolate sweet roll chocolate cake. Dessert powder dessert cake. Pie gingerbread cake pudding apple pie. Tiramisu biscuit pie croissant carrot cake cookie macaroon. Sesame snaps halvah donut marzipan muffin caramels. Cheesecake ice cream jelly beans powder toffee danish fruitcake. Chocolate bar caramels oat cake. Macaroon sweet donut tootsie roll. Oat cake lemon drops chupa chups tootsie roll liquorice candy canes apple pie pudding. Chocolate cake liquorice sweet croissant. Chupa chups biscuit danish gummies donut. Cake chocolate cake dragée. Toffee apple pie cotton candy brownie. Candy canes caramels danish chocolate bar bear claw. Chupa chups sesame snaps oat cake sesame snaps oat cake chocolate cake caramels. Candy cupcake biscuit cupcake. Tiramisu powder icing cookie cookie gummi bears donut lemon drops. Marshmallow wafer marzipan. Jelly beans sweet sesame snaps.</string>
+	<string name="facebook_app_id">256962811543023</string>
+	<string name="str_b">ca-app-pub-3165963943681013/2660251425</string>
+	<string name="str_f">ca-app-pub-3165963943681013/7724875845</string>
+	<string name="str_reward">ca-app-pub-3165963943681013/4049354711</string>
+	<string name="str_app_id">ca-app-pub-3165963943681013~3973333090</string>
+	<string name="open_drawer">open_drawer</string>
+	<string name="close_drawer">close_drawer</string>
+	<string name="i_love_you">I loved you:  yet the love, maybe,\n
 Has not extinguished in my heart;\n
 But hence may not it trouble thee;\n
 I do not want to make you sad.\n
@@ -18,31 +17,27 @@ Now with shyness, now with jealousy being vexed;\n
 I loved you so sincerely, so fondly,\n
 Likewise may someone love you next.
     </string>
-
-
-    <string-array name="occurence">
-        <item>Once</item>
-        <item>Weekly</item>
-    </string-array>
-
-    <string-array name="pref_alarm_play_time_entries">
-        <item>10 seconds</item>
-        <item>30 seconds</item>
-        <item>1 minute</item>
-        <item>2 minutes</item>
-        <item>3 minutes</item>
-        <item>5 minutes</item>
-    </string-array>
-
-    <string-array name="pref_alarm_play_time_values">
-        <item>10</item>
-        <item>30</item>
-        <item>60</item>
-        <item>120</item>
-        <item>180</item>
-        <item>300</item>
-    </string-array>
-    <string name="large_text">
+	<string-array name="occurence">
+		<item>Once</item>
+		<item>Weekly</item>
+	</string-array>
+	<string-array name="pref_alarm_play_time_entries">
+		<item>10 seconds</item>
+		<item>30 seconds</item>
+		<item>1 minute</item>
+		<item>2 minutes</item>
+		<item>3 minutes</item>
+		<item>5 minutes</item>
+	</string-array>
+	<string-array name="pref_alarm_play_time_values">
+		<item>10</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>180</item>
+		<item>300</item>
+	</string-array>
+	<string name="large_text">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -131,113 +126,104 @@ Likewise may someone love you next.
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="input_hint">text</string>
-    <string name="label_normal">Normal:</string>
-    <string name="label_autofit">Autofit:</string>
-
-    <string name="example">This is an example</string>
-    <string name="demo_realm_nclick_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
-    <string name="demo_sqlite_nclick_to_edit_long_click_to_delete">Demo SQLite\nClick To Edit, Long Click To Delete</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="text_in_non_scroll_view">VerticalSeekBar in non-ScrollView</string>
-    <string name="text_in_scroll_view">VerticalSeekBar in ScrollView</string>
-
-    <string name="start_updates">START LOCATION UPDATES</string>
-    <string name="stop_updates">STOP LOCATION UPDATES</string>
-    <string name="get_last_location">GET LAST LOCATION</string>
-
-    <string name="google_title_text">Google Sign In</string>
-    <string name="signed_out">Signed Out</string>
-    <string name="sign_out">Sign Out</string>
-    <string name="disconnect">Disconnect</string>
-    <string name="google_status_fmt">Google User: %s</string>
-    <string name="desc_firebase_lockup">Firebase logo and name</string>
-    <string name="facebook_title_text">Facebook Login</string>
-    <string name="facebook_status_fmt">Facebook User: %s</string>
-
-    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="hint_password">password</string>
-    <string name="hint_email">email</string>
-    <string name="sign_in">Sign In</string>
-    <string name="heading_recent">Recent</string>
-    <string name="heading_my_posts">My Posts</string>
-    <string name="heading_my_top_posts">My Top Posts</string>
-    <string name="invite_friends">Invite Friends</string>
-    <string name="invitation_title">Send App Invite Quickstart Invitation</string>
-    <string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>
-    <string name="invitation_deep_link">http://example.com/offer/five_dollar_offer</string>
-    <string name="invitation_custom_image">https://developers.google.com/identity/images/g-logo.png</string>
-    <string name="invitation_cta">Install!</string>
-    <string name="send_failed">Sending invitations failed</string>
-    <string name="google_play_services_error">Google Play Services Error</string>
-    <string name="generate_confetti_once">Once</string>
-    <string name="generate_confetti_stream">Stream</string>
-    <string name="generate_confetti_infinite">Infinite</string>
-    <string name="stop_confetti">Stop</string>
-    <string name="num_confetti_desc">Active confetti count: %1$d</string>
-    <string name="ok">OK</string>
-    <string name="loading">Loading&#8230;</string>
-
-    <!-- Error messages -->
-    <!-- onApplicationConnectionFailed() errors -->
-
-    <!-- Preferences -->
-
-    <!-- Tabs -->
-
-    <!-- ShowCaseView -->
-
-    <!-- Captions -->
-
-    <!-- Queue -->
-    <string name="scene">Scene</string>
-    <string name="scene_1">1</string>
-    <string name="scene_2">2</string>
-    <string name="scene_3">3</string>
-    <string name="scene_4">4</string>
-    <string name="additional_message">This text fades in and out.</string>
-    <string name="image_header">%1$s by %2$s</string>
-    <string-array name="vertical_positions">
-        <item>ABOVE</item>
-        <item>ALIGN_BOTTOM</item>
-        <item>CENTER</item>
-        <item>ALIGN_TOP</item>
-        <item>BELOW</item>
-    </string-array>
-    <string-array name="horizontal_positions">
-        <item>LEFT</item>
-        <item>ALIGN_RIGHT</item>
-        <item>CENTER</item>
-        <item>ALIGN_LEFT</item>
-        <item>RIGHT</item>
-    </string-array>
-    <string-array name="width">
-        <item>WRAP_CONTENT</item>
-        <item>MATCH_PARENT</item>
-        <item>80dp</item>
-        <item>240dp</item>
-        <item>480dp</item>
-    </string-array>
-    <string-array name="height">
-        <item>WRAP_CONTENT</item>
-        <item>MATCH_PARENT</item>
-        <item>80dp</item>
-        <item>240dp</item>
-        <item>480dp</item>
-    </string-array>
-
-    <string name="chathead_content_title">Demo Chat: Active</string>
-    <string name="content_text">Demo running.</string>
-    <string name="mail_content_title">Demo Customize: active</string>
-    <string name="chathead_click_message">Click</string>
-    <string name="delete_demo">Delete Demo</string>
-    <string name="show_demo">Show Simple FloatingView</string>
-    <string name="show_customized_demo">Show Customized FloatingView</string>
-    <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
-    <string name="deleted_soon">FloatingView will be deleted soon.</string>
-    <string name="finish_deleted">FloatingView has been deleted.</string>
-    <string name="default_floatingview_channel_id">default_floatingview_channel</string>
+	<string name="input_hint">text</string>
+	<string name="label_normal">Normal:</string>
+	<string name="label_autofit">Autofit:</string>
+	<string name="example">This is an example</string>
+	<string name="demo_realm_nclick_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
+	<string name="demo_sqlite_nclick_to_edit_long_click_to_delete">Demo SQLite\nClick To Edit, Long Click To Delete</string>
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="text_in_non_scroll_view">VerticalSeekBar in non-ScrollView</string>
+	<string name="text_in_scroll_view">VerticalSeekBar in ScrollView</string>
+	<string name="start_updates">START LOCATION UPDATES</string>
+	<string name="stop_updates">STOP LOCATION UPDATES</string>
+	<string name="get_last_location">GET LAST LOCATION</string>
+	<string name="google_title_text">Google Sign In</string>
+	<string name="signed_out">Signed Out</string>
+	<string name="sign_out">Sign Out</string>
+	<string name="disconnect">Disconnect</string>
+	<string name="google_status_fmt">Google User: %s</string>
+	<string name="desc_firebase_lockup">Firebase logo and name</string>
+	<string name="facebook_title_text">Facebook Login</string>
+	<string name="facebook_status_fmt">Facebook User: %s</string>
+	<string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
+	<string name="sign_up">Sign Up</string>
+	<string name="hint_password">password</string>
+	<string name="hint_email">email</string>
+	<string name="sign_in">Sign In</string>
+	<string name="heading_recent">Recent</string>
+	<string name="heading_my_posts">My Posts</string>
+	<string name="heading_my_top_posts">My Top Posts</string>
+	<string name="invite_friends">Invite Friends</string>
+	<string name="invitation_title">Send App Invite Quickstart Invitation</string>
+	<string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>
+	<string name="invitation_deep_link">http://example.com/offer/five_dollar_offer</string>
+	<string name="invitation_custom_image">https://developers.google.com/identity/images/g-logo.png</string>
+	<string name="invitation_cta">Install!</string>
+	<string name="send_failed">Sending invitations failed</string>
+	<string name="google_play_services_error">Google Play Services Error</string>
+	<string name="generate_confetti_once">Once</string>
+	<string name="generate_confetti_stream">Stream</string>
+	<string name="generate_confetti_infinite">Infinite</string>
+	<string name="stop_confetti">Stop</string>
+	<string name="num_confetti_desc">Active confetti count: %1$d</string>
+	<string name="ok">OK</string>
+	<string name="loading">Loading&#8230;</string>
+	<!-- Error messages -->
+	<!-- onApplicationConnectionFailed() errors -->
+	<!-- Preferences -->
+	<!-- Tabs -->
+	<!-- ShowCaseView -->
+	<!-- Captions -->
+	<!-- Queue -->
+	<string name="scene">Scene</string>
+	<string name="scene_1">1</string>
+	<string name="scene_2">2</string>
+	<string name="scene_3">3</string>
+	<string name="scene_4">4</string>
+	<string name="additional_message">This text fades in and out.</string>
+	<string name="image_header">%1$s by %2$s</string>
+	<string-array name="vertical_positions">
+		<item>ABOVE</item>
+		<item>ALIGN_BOTTOM</item>
+		<item>CENTER</item>
+		<item>ALIGN_TOP</item>
+		<item>BELOW</item>
+	</string-array>
+	<string-array name="horizontal_positions">
+		<item>LEFT</item>
+		<item>ALIGN_RIGHT</item>
+		<item>CENTER</item>
+		<item>ALIGN_LEFT</item>
+		<item>RIGHT</item>
+	</string-array>
+	<string-array name="width">
+		<item>WRAP_CONTENT</item>
+		<item>MATCH_PARENT</item>
+		<item>80dp</item>
+		<item>240dp</item>
+		<item>480dp</item>
+	</string-array>
+	<string-array name="height">
+		<item>WRAP_CONTENT</item>
+		<item>MATCH_PARENT</item>
+		<item>80dp</item>
+		<item>240dp</item>
+		<item>480dp</item>
+	</string-array>
+	<string name="chathead_content_title">Demo Chat: Active</string>
+	<string name="content_text">Demo running.</string>
+	<string name="mail_content_title">Demo Customize: active</string>
+	<string name="chathead_click_message">Click</string>
+	<string name="delete_demo">Delete Demo</string>
+	<string name="show_demo">Show Simple FloatingView</string>
+	<string name="show_customized_demo">Show Customized FloatingView</string>
+	<string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
+	<string name="deleted_soon">FloatingView will be deleted soon.</string>
+	<string name="finish_deleted">FloatingView has been deleted.</string>
+	<string name="default_floatingview_channel_id">default_floatingview_channel</string>
+	<string name="single_selection">Single Selection</string>
+	<string name="single_selection_crop">Single Selection - Crop</string>
+	<string name="multi_selection">Multi Selection</string>
 </resources>
