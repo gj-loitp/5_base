@@ -226,4 +226,7 @@ Likewise may someone love you next.
 	<string name="single_selection">Single Selection</string>
 	<string name="single_selection_crop">Single Selection - Crop</string>
 	<string name="multi_selection">Multi Selection</string>
+	<string name="tutorial_menu">Tutorial Menu</string>
+	<string name="rxjava_2">RxJava 2</string>
+	<string name="retrofit_2">Retrofit 2</string>
 </resources>

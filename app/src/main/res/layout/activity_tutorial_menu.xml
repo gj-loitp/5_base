@@ -13,14 +13,14 @@
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:gravity="center"
-				android:text="Tutorial Menu"
+				android:text="@string/tutorial_menu"
 				android:textColor="@color/Black"
 				android:textSize="@dimen/txt_20" />
 
@@ -28,13 +28,13 @@
 				android:id="@+id/bt_rx_java_2"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="RxJava 2" />
+				android:text="@string/rxjava_2" />
 
 			<Button
 				android:id="@+id/bt_retrofit_2"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="Retrofit 2" />
+				android:text="@string/retrofit_2" />
 		</LinearLayout>
 	</ScrollView>
 </RelativeLayout>
