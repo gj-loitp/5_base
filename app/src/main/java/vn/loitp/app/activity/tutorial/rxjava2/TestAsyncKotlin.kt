@@ -14,6 +14,7 @@ class TestAsyncKotlin(private val count: Int) {
     fun apply(
             onSuccess: ((isResult: Boolean) -> Unit),
             onError: ((throwbale: Throwable) -> Unit),
+            onDispose: (() -> Unit),
             onFinished: (() -> Unit)
     ): Disposable {
         log("prev")
@@ -21,6 +22,9 @@ class TestAsyncKotlin(private val count: Int) {
             doInBkg(it)
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnDispose({
+                    onDispose.invoke()
+                })
                 .subscribe({
                     log("post 1 " + it)
                     onSuccess.invoke(it)
