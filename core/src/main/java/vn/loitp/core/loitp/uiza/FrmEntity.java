@@ -75,7 +75,7 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onLoadMore() {
-                LLog.d(TAG, "onLoadMore");
+                LLog.INSTANCE.d(TAG, "onLoadMore");
                 getListEntity();
             }
 
@@ -110,11 +110,11 @@ public class FrmEntity extends BaseFragment {
             return;
         }
         if (!isCanLoadMore) {
-            LLog.d(TAG, "Cannot loadmore because this is last page!");
+            LLog.INSTANCE.d(TAG, "Cannot loadmore because this is last page!");
             return;
         }
         page++;
-        LLog.d(TAG, "getListEntity page " + page);
+        LLog.INSTANCE.d(TAG, "getListEntity page " + page);
         if (isMetadataHome) {
             listAllEntity();
         } else {
@@ -140,7 +140,7 @@ public class FrmEntity extends BaseFragment {
                     if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
-                        LLog.d(TAG, "listAllEntity last page");
+                        LLog.INSTANCE.d(TAG, "listAllEntity last page");
                     }
                     isCanLoadMore = false;
                 } else {
@@ -150,9 +150,9 @@ public class FrmEntity extends BaseFragment {
                     } else {
                         isCanLoadMore = true;
                     }
-                    LLog.d(TAG, "isCanLoadMore " + isCanLoadMore);
+                    LLog.INSTANCE.d(TAG, "isCanLoadMore " + isCanLoadMore);
                     if (!isCanLoadMore) {
-                        LLog.d(TAG, "isCanLoadMore false -> return -> total page is " + page);
+                        LLog.INSTANCE.d(TAG, "isCanLoadMore false -> return -> total page is " + page);
                         return;
                     }
                     if (dataList.size() > 500) {
@@ -160,7 +160,7 @@ public class FrmEntity extends BaseFragment {
                     }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
-                    LLog.d(TAG, "listAllEntity totalPage " + totalPage);
+                    LLog.INSTANCE.d(TAG, "listAllEntity totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
@@ -168,7 +168,7 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "listAllEntity getListAllEntity onFail " + e.getMessage());
+                LLog.INSTANCE.e(TAG, "listAllEntity getListAllEntity onFail " + e.getMessage());
                 if (page == 0) {
                     tvMsg.setVisibility(View.VISIBLE);
                 }
@@ -203,7 +203,7 @@ public class FrmEntity extends BaseFragment {
                     if (page == 1) {
                         tvMsg.setVisibility(View.VISIBLE);
                     } else {
-                        LLog.d(TAG, "listAllEntityMetadata last page");
+                        LLog.INSTANCE.d(TAG, "listAllEntityMetadata last page");
                     }
                     isCanLoadMore = false;
                 } else {
@@ -213,9 +213,9 @@ public class FrmEntity extends BaseFragment {
                     } else {
                         isCanLoadMore = true;
                     }
-                    LLog.d(TAG, "isCanLoadMore " + isCanLoadMore);
+                    LLog.INSTANCE.d(TAG, "isCanLoadMore " + isCanLoadMore);
                     if (!isCanLoadMore) {
-                        LLog.d(TAG, "!isCanLoadMore true -> return -> total page is " + page);
+                        LLog.INSTANCE.d(TAG, "!isCanLoadMore true -> return -> total page is " + page);
                         return;
                     }
                     if (dataList.size() > 500) {
@@ -223,7 +223,7 @@ public class FrmEntity extends BaseFragment {
                     }
                     dataList.addAll(result.getData());
                     totalPage = result.getMetadata().getTotal();
-                    LLog.d(TAG, "listAllEntityMetadata totalPage " + totalPage);
+                    LLog.INSTANCE.d(TAG, "listAllEntityMetadata totalPage " + totalPage);
                     refreshAllViews();
                 }
                 avl.smoothToHide();
@@ -231,7 +231,7 @@ public class FrmEntity extends BaseFragment {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "listAllEntityMetadata onFail " + e.getMessage());
+                LLog.INSTANCE.e(TAG, "listAllEntityMetadata onFail " + e.getMessage());
                 if (page == 0) {
                     tvMsg.setVisibility(View.VISIBLE);
                 }
@@ -241,7 +241,7 @@ public class FrmEntity extends BaseFragment {
     }
 
     private void refreshAllViews() {
-        LLog.d(TAG, "refreshAllViews size: " + dataList.size());
+        LLog.INSTANCE.d(TAG, "refreshAllViews size: " + dataList.size());
         if (entityAdapter != null) {
             entityAdapter.notifyDataSetChanged();
         }

@@ -45,7 +45,7 @@ public final class FUZPlayerManager {
 
     public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
         if (context == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
-            LLog.e(TAG, "init null or empty");
+            LLog.INSTANCE.e(TAG, "init null or empty");
             return;
         }
         // Create a default track selector.

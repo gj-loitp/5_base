@@ -83,7 +83,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     public void init(Context context, final PlayerView playerView, String linkPlay, long contentPosition) {
         if (context == null || playerView == null || linkPlay == null || linkPlay.isEmpty()) {
-            LLog.e(TAG, "init failed -> return");
+            LLog.INSTANCE.e(TAG, "init failed -> return");
             return;
         }
         isFirstOnVideoSizeChanged = false;
@@ -122,7 +122,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
         }
         player.setPlayWhenReady(true);
         player.seekTo(contentPosition);
-        LLog.d(TAG, "seekTo contentPosition: " + contentPosition);
+        LLog.INSTANCE.d(TAG, "seekTo contentPosition: " + contentPosition);
         player.addListener(new Player.EventListener() {
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
@@ -137,7 +137,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
                     case Player.STATE_BUFFERING:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                        LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
                         if (playerView != null) {
                             if (playerView.getControllerShowTimeoutMs() == 0) {
                                 playerView.setControllerShowTimeoutMs(8000);
@@ -151,19 +151,19 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                         }
                         break;
                     case Player.STATE_IDLE:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                        LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_IDLE");
                         if (uzVideo != null) {
                             uzVideo.showLoading();
                         }
                         break;
                     case Player.STATE_READY:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                        LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_READY");
                         if (uzVideo != null) {
                             uzVideo.hideLoading();
                         }
                         break;
                     case Player.STATE_ENDED:
-                        LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                        LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_ENDED");
                         if (playerView != null) {
                             playerView.showController();
                             playerView.setControllerShowTimeoutMs(0);
@@ -306,9 +306,9 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
 
     //for other sample not UZVideo
     public void updateSizePlayerView(Activity activity, PlayerView playerView, ImageButton exoFullscreen) {
-        LLog.d(TAG, "updateSizePlayerView screenW " + screenW);
+        LLog.INSTANCE.d(TAG, "updateSizePlayerView screenW " + screenW);
         if (activity == null || playerView == null) {
-            LLog.d(TAG, "updateSizePlayerView -> return");
+            LLog.INSTANCE.d(TAG, "updateSizePlayerView -> return");
             return;
         }
         if (LScreenUtil.isLandscape(activity)) {
@@ -324,7 +324,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             }
         }
         playerView.requestLayout();
-        LLog.d(TAG, "requestLayout");
+        LLog.INSTANCE.d(TAG, "requestLayout");
     }
 
     //for UZVideo
@@ -339,7 +339,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             uzVideo.getRlRootView().getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
             uzVideo.getRlRootView().getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_exit);
-            LLog.d(TAG, "updateSizePlayerView landscape");
+            LLog.INSTANCE.d(TAG, "updateSizePlayerView landscape");
         } else {
             //portrait
             if (videoW == 0 || videoH == 0) {
@@ -353,7 +353,7 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
                 uzVideo.getRlRootView().getLayoutParams().height = scaleH;
             }
             uzVideo.getExoFullscreen().setImageResource(R.drawable.exo_controls_fullscreen_enter);
-            LLog.d(TAG, "updateSizePlayerView portrait");
+            LLog.INSTANCE.d(TAG, "updateSizePlayerView portrait");
         }
         uzVideo.getRlRootView().requestLayout();
     }

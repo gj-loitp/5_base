@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimag
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -68,7 +69,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        LLog.d(TAG, "setLoadMoreListener");
+                                        LLog.INSTANCE.d(TAG, "setLoadMoreListener");
                                     }
                                 });
                             }

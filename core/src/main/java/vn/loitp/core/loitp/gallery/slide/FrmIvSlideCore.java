@@ -43,7 +43,7 @@ public class FrmIvSlideCore extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle bundle = getArguments();
         if (bundle == null) {
-            LLog.d(TAG, "onViewCreated bundle == null -> return");
+            LLog.INSTANCE.d(TAG, "onViewCreated bundle == null -> return");
             return;
         }
         int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
@@ -89,7 +89,7 @@ public class FrmIvSlideCore extends Fragment {
 
             @Override
             public void onSuccess(File image) {
-                LLog.d(TAG, "onSuccess");
+                LLog.INSTANCE.d(TAG, "onSuccess");
                 /*SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);

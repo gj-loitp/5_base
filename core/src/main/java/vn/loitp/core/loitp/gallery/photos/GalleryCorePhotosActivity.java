@@ -64,11 +64,11 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         photosetID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTOSET_ID());
         final String photosSize = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTOSET_SIZE());
-        LLog.d(TAG, "photosetID " + photosetID);
-        LLog.d(TAG, "photosSize " + photosSize);
+        LLog.INSTANCE.d(TAG, "photosetID " + photosetID);
+        LLog.INSTANCE.d(TAG, "photosSize " + photosSize);
 
         bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.INSTANCE.d(TAG, "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
@@ -142,7 +142,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         currentPage--;
-                        LLog.d(TAG, "last item ->>> ");
+                        LLog.INSTANCE.d(TAG, "last item ->>> ");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -168,7 +168,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             @Override
             public void onClick(int position) {
                 currentPage = totalPage - position;
-                LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+                LLog.INSTANCE.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
                 PhotosDataCore.getInstance().clearData();
                 updateAllViews();
                 photosetsGetPhotos(photosetID);
@@ -193,10 +193,10 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            LLog.INSTANCE.d(TAG, "isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
+        LLog.INSTANCE.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avLoadingIndicatorView.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
@@ -204,7 +204,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         String apiKey = FlickrConst.API_KEY;
         String userID = FlickrConst.USER_KEY;
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return");
+            LLog.INSTANCE.d(TAG, "currentPage <= 0 -> return");
             currentPage = 0;
             avLoadingIndicatorView.smoothToHide();
             isLoading = false;
@@ -230,7 +230,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "onFail " + e.toString());
+                LLog.INSTANCE.e(TAG, "onFail " + e.toString());
                 handleException(e);
                 avLoadingIndicatorView.smoothToHide();
                 isLoading = true;

@@ -84,7 +84,7 @@ public class LCountDownView extends RelativeLayout {
                             public void onEnd() {
                                 tvCountDown.setVisibility(GONE);
                                 //tvCountDown = null;
-                                LLog.d(TAG, "number == 0 -> STOP");
+                                LLog.INSTANCE.d(TAG, "number == 0 -> STOP");
                                 if (callback != null) {
                                     callback.onEnd();
                                 }

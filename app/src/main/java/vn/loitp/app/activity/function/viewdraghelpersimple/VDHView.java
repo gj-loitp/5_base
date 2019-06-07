@@ -1,17 +1,18 @@
 package vn.loitp.app.activity.function.viewdraghelpersimple;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
+
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LLog;
@@ -150,7 +151,7 @@ public class VDHView extends LinearLayout {
             //int posX = centerX - newSizeWHeaderView / 2;
             //int posY = centerY - newSizeHHeaderView / 2;
             //LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> centerX: " + centerX + ", centerY: " + centerY + ", posX: " + posX + ", posY: " + posY);
-            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> mCenterX: " + mCenterX + ", mCenterY: " + mCenterY);
+            LLog.INSTANCE.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> mCenterX: " + mCenterX + ", mCenterY: " + mCenterY);
 
             if (mDragOffset == 0) {
                 //top_left, top, top_right
@@ -251,7 +252,7 @@ public class VDHView extends LinearLayout {
     private void changeState(State newState) {
         if (state != newState) {
             state = newState;
-            LLog.d(TAG, "changeState: " + newState);
+            LLog.INSTANCE.d(TAG, "changeState: " + newState);
             if (callback != null) {
                 callback.onStateChange(state);
             }
@@ -261,7 +262,7 @@ public class VDHView extends LinearLayout {
     private void changePart(Part newPart) {
         if (part != newPart) {
             part = newPart;
-            LLog.d(TAG, "changePart: " + part);
+            LLog.INSTANCE.d(TAG, "changePart: " + part);
             if (callback != null) {
                 callback.onPartChange(part);
             }
@@ -294,9 +295,9 @@ public class VDHView extends LinearLayout {
                 break;
             }*/
             case MotionEvent.ACTION_UP: {
-                LLog.d(TAG, "onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
+                LLog.INSTANCE.d(TAG, "onTouchEvent ACTION_UP state:" + state.name() + ", mCenterX: " + mCenterX);
                 if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
-                    LLog.d(TAG, "destroy state: " + state.name());
+                    LLog.INSTANCE.d(TAG, "destroy state: " + state.name());
                     if (callback != null) {
                         callback.onOverScroll(state, part);
                     }

@@ -87,9 +87,9 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
-        LLog.d(TAG, "photosetID " + photosetID);
+        LLog.INSTANCE.d(TAG, "photosetID " + photosetID);
         photosSize = bundle.getInt(Constants.INSTANCE.getSK_PHOTOSET_SIZE(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.d(TAG, "photosSize " + photosSize);
+        LLog.INSTANCE.d(TAG, "photosSize " + photosSize);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
@@ -178,7 +178,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
             @Override
             public void onClick(int position) {
                 currentPage = totalPage - position;
-                LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+                LLog.INSTANCE.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
                 PhotosDataCore.getInstance().clearData();
                 updateAllViews();
                 photosetsGetPhotos(photosetID);
@@ -195,7 +195,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
     }
 
     private void init() {
-        LLog.d(TAG, "init photosSize " + photosSize);
+        LLog.INSTANCE.d(TAG, "init photosSize " + photosSize);
 
         if (photosSize % PER_PAGE_SIZE == 0) {
             totalPage = photosSize / PER_PAGE_SIZE;
@@ -225,7 +225,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
             @Override
             public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                LLog.d(TAG, "photosetsGetList onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
+                LLog.INSTANCE.d(TAG, "photosetsGetList onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
                 for (Photoset photoset : wrapperPhotosetGetlist.getPhotosets().getPhotoset()) {
                     if (photoset.getId().equals(photosetID)) {
                         photosSize = Integer.parseInt(photoset.getPhotos());
@@ -237,7 +237,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "photosetsGetList onFail " + e.toString());
+                LLog.INSTANCE.e(TAG, "photosetsGetList onFail " + e.toString());
                 handleException(e);
                 avLoadingIndicatorView.smoothToHide();
             }
@@ -246,10 +246,10 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "photosetsGetList isLoading true -> return");
+            LLog.INSTANCE.d(TAG, "photosetsGetList isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
+        LLog.INSTANCE.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avLoadingIndicatorView.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
@@ -257,7 +257,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         String apiKey = FlickrConst.API_KEY;
         String userID = FlickrConst.USER_KEY;
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return");
+            LLog.INSTANCE.d(TAG, "currentPage <= 0 -> return");
             currentPage = 0;
             avLoadingIndicatorView.smoothToHide();
             return;
@@ -268,7 +268,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
             @Override
             public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
-                LLog.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
+                LLog.INSTANCE.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
                 //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
@@ -285,7 +285,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "photosetsGetPhotos onFail " + e.toString());
+                LLog.INSTANCE.e(TAG, "photosetsGetPhotos onFail " + e.toString());
                 handleException(e);
                 avLoadingIndicatorView.smoothToHide();
                 isLoading = true;
@@ -321,16 +321,16 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now");
+                            LLog.INSTANCE.d(TAG, "onPermissionsChecked do you work now");
                             goToHome();
                         } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted");
+                            LLog.INSTANCE.d(TAG, "!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            LLog.INSTANCE.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -338,7 +338,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown");
+                        LLog.INSTANCE.d(TAG, "onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })

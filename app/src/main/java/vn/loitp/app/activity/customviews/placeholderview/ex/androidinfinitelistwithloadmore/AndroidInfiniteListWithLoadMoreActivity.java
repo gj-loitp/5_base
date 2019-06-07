@@ -41,7 +41,7 @@ public class AndroidInfiniteListWithLoadMoreActivity extends BaseFontActivity {
 
     private void setupView() {
         final List<InfiniteFeedInfo> feedList = Utils.loadInfiniteFeeds(this.getApplicationContext());
-        LLog.d("DEBUG", "LoadMoreView.LOAD_VIEW_SET_COUNT " + LoadMoreView.LOAD_VIEW_SET_COUNT);
+        LLog.INSTANCE.d("DEBUG", "LoadMoreView.LOAD_VIEW_SET_COUNT " + LoadMoreView.LOAD_VIEW_SET_COUNT);
         for (int i = 0; i < LoadMoreView.LOAD_VIEW_SET_COUNT; i++) {
             mLoadMoreView.addView(new ItemView(this.getApplicationContext(), feedList.get(i)));
         }

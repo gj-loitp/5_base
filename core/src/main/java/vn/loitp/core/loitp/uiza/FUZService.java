@@ -179,18 +179,18 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
         switch (playbackState) {
             case Player.STATE_BUFFERING:
-                LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
+                LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
                 showLoading();
                 break;
             case Player.STATE_IDLE:
-                LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
+                LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_IDLE");
                 break;
             case Player.STATE_READY:
-                LLog.d(TAG, "onPlayerStateChanged STATE_READY");
+                LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_READY");
                 hideLoading();
                 break;
             case Player.STATE_ENDED:
-                LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
+                LLog.INSTANCE.d(TAG, "onPlayerStateChanged STATE_ENDED");
                 hideLoading();
                 stopSelf();
                 break;
@@ -516,7 +516,7 @@ public class FUZService extends Service implements FUZPlayerManager.Callback {
         playerManager.release();
         showLoading();
         this.linkPlay = linkPlay;
-        LLog.d(TAG, "playUrl linkPlay: " + linkPlay + ", contentPosition " + contentPosition);
+        LLog.INSTANCE.d(TAG, "playUrl linkPlay: " + linkPlay + ", contentPosition " + contentPosition);
         playerManager.init(getBaseContext(), playerView, linkPlay, contentPosition);
     }
 

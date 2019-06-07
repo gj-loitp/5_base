@@ -96,7 +96,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
-                LLog.d(TAG, "loadPost:onCancelled " + databaseError.toException());
+                LLog.INSTANCE.d(TAG, "loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
                 LToast.INSTANCE.show(activity, "Failed to load post.");
                 // [END_EXCLUDE]
@@ -193,7 +193,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             ChildEventListener childEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
+                    LLog.INSTANCE.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
                     // A new comment has been added, add it to the displayed list
                     Comment comment = dataSnapshot.getValue(Comment.class);
@@ -208,7 +208,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
+                    LLog.INSTANCE.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so displayed the changed comment.
@@ -224,14 +224,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemChanged(commentIndex);
                     } else {
-                        LLog.d(TAG, "onChildChanged:unknown_child:" + commentKey);
+                        LLog.INSTANCE.d(TAG, "onChildChanged:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    LLog.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
+                    LLog.INSTANCE.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so remove it.
@@ -247,14 +247,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemRemoved(commentIndex);
                     } else {
-                        LLog.d(TAG, "onChildRemoved:unknown_child:" + commentKey);
+                        LLog.INSTANCE.d(TAG, "onChildRemoved:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
+                    LLog.INSTANCE.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
 
                     // A comment has changed position, use the key to determine if we are
                     // displaying this comment and if so move it.
@@ -266,7 +266,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    LLog.d(TAG, "postComments:onCancelled " + databaseError.toException());
+                    LLog.INSTANCE.d(TAG, "postComments:onCancelled " + databaseError.toException());
                     LToast.INSTANCE.show(activity, "Failed to load comments.");
                 }
             };

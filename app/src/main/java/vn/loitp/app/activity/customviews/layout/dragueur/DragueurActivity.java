@@ -27,19 +27,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.d(TAG, "onDrag " + percentX + " x " + percentY);
+                LLog.INSTANCE.d(TAG, "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.d(TAG, "onDraggedStarted " + direction.name());
+                LLog.INSTANCE.d(TAG, "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.d(TAG, "onDraggedEnded " + direction.name());
+                LLog.INSTANCE.d(TAG, "onDraggedEnded " + direction.name());
             }
 
             @Override

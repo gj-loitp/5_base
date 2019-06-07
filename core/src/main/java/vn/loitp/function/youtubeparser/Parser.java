@@ -180,7 +180,7 @@ public class Parser extends AsyncTask<String, Void, String> {
                     Item item = itemList.get(i);
                     Snippet snippet = item.getSnippet();
                     Id id = item.getId();
-                    LLog.d("loitp", "parse id: " + id);
+                    LLog.INSTANCE.d("loitp", "parse id: " + id);
                     Thumbnails image = snippet.getThumbnails();
                     High high = image.getHigh();
                     String title = snippet.getTitle();

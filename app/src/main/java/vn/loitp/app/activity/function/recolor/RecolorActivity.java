@@ -2,11 +2,12 @@ package vn.loitp.app.activity.function.recolor;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -71,7 +72,7 @@ public class RecolorActivity extends BaseFontActivity {
 
     private void logAListOfColors() {
         int[] colorList = new ReColor(context).getColorIntArray("E91E63", "1E88E5", 20);
-        for (int i = 0; i < colorList.length; i++) LLog.d("Color #" + i, colorList[i] + "");
+        for (int i = 0; i < colorList.length; i++) LLog.INSTANCE.d("Color #" + i, colorList[i] + "");
     }
 
     private void onClicks() {
@@ -146,7 +147,7 @@ public class RecolorActivity extends BaseFontActivity {
         reColorCardView.setOnReColorFinish(new OnReColorFinish() {
             @Override
             public void onFinish() {
-                LLog.d("onReColorFinishCallBack", "It listens");
+                LLog.INSTANCE.d("onReColorFinishCallBack", "It listens");
             }
         });
         theCardView.setOnClickListener(new View.OnClickListener() {

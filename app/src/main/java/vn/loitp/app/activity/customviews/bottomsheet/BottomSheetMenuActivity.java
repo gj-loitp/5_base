@@ -61,30 +61,30 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED: {
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
                         bt0.setText("Close Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-                        LLog.d(TAG, "STATE_COLLAPSED");
+                        LLog.INSTANCE.d(TAG, "STATE_COLLAPSED");
                         bt0.setText("Expand Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        LLog.d(TAG, "STATE_DRAGGING");
+                        LLog.INSTANCE.d(TAG, "STATE_DRAGGING");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-                        LLog.d(TAG, "STATE_SETTLING");
+                        LLog.INSTANCE.d(TAG, "STATE_SETTLING");
                         break;
                 }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                LLog.d(TAG, "onSlide " + slideOffset);
+                LLog.INSTANCE.d(TAG, "onSlide " + slideOffset);
             }
         });
 

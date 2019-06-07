@@ -58,7 +58,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
         admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
-        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
+        LLog.INSTANCE.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
@@ -75,7 +75,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.INSTANCE.d(TAG, "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {

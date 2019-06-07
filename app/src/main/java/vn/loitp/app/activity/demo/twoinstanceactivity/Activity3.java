@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -24,7 +23,7 @@ public class Activity3 extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.d(TAG, "suzuki onCreate");
+        LLog.INSTANCE.d(TAG, "suzuki onCreate");
         findViewById(R.id.bt_go_to_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

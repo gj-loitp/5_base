@@ -2,18 +2,17 @@ package vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.core.content.ContextCompat;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.navigationview.LTextNavigationView;
 
 public class NavigationViewWithTextActivity extends BaseFontActivity {
@@ -42,7 +41,7 @@ public class NavigationViewWithTextActivity extends BaseFontActivity {
         nv.setNVCallback(new LTextNavigationView.NVCallback() {
             @Override
             public void onIndexChange(int index, String s) {
-                LLog.d(TAG, "onIndexChange " + index + " -> " + s);
+                LLog.INSTANCE.d(TAG, "onIndexChange " + index + " -> " + s);
                 tvMsg.setText(index + " -> " + s);
             }
         });

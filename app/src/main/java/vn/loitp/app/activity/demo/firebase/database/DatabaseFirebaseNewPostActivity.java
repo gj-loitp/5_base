@@ -75,21 +75,21 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // [START single_value_read]
         final String userId = getUid();
-        LLog.d(TAG, "userId " + userId);
+        LLog.INSTANCE.d(TAG, "userId " + userId);
         mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        LLog.d(TAG, "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
+                        LLog.INSTANCE.d(TAG, "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
 
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        LLog.d(TAG, "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
+                        LLog.INSTANCE.d(TAG, "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
-                            LLog.e(TAG, "User " + userId + " is unexpectedly null");
+                            LLog.INSTANCE.e(TAG, "User " + userId + " is unexpectedly null");
                             LToast.INSTANCE.show(activity, "Error: could not fetch user.");
                         } else {
                             // Write new post
@@ -104,7 +104,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        LLog.d(TAG, "getUser:onCancelled " + databaseError.toException());
+                        LLog.INSTANCE.d(TAG, "getUser:onCancelled " + databaseError.toException());
                         // [START_EXCLUDE]
                         setEditingEnabled(true);
                         // [END_EXCLUDE]

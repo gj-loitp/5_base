@@ -97,7 +97,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.d(TAG, "loadMore");
+        LLog.INSTANCE.d(TAG, "loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {

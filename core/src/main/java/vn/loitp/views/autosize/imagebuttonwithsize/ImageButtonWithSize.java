@@ -81,9 +81,9 @@ public class ImageButtonWithSize extends ImageButton {
 
     private void updateSize() {
         boolean isPortrait = ScreenUtils.isPortrait();
-        LLog.d(TAG, "updateSize isPortrait " + isPortrait);
-        LLog.d(TAG, "size portrait: " + portraitSizeW + "x" + portraitSizeH);
-        LLog.d(TAG, "size landscape: " + landscapeSizeW + "x" + landscapeSizeH);
+        LLog.INSTANCE.d(TAG, "updateSize isPortrait " + isPortrait);
+        LLog.INSTANCE.d(TAG, "size portrait: " + portraitSizeW + "x" + portraitSizeH);
+        LLog.INSTANCE.d(TAG, "size landscape: " + landscapeSizeW + "x" + landscapeSizeH);
         if (isPortrait) {
             this.getLayoutParams().width = portraitSizeW;
             this.getLayoutParams().height = portraitSizeH;

@@ -45,7 +45,7 @@ public class SwipeableLayoutActivity extends BaseFontActivity {
             @Override
             public void onLayoutSwiped() {
                 //Do some action, when view was swiped. For example, you can close activity
-                LLog.d(TAG, "setOnSwipedListener");
+                LLog.INSTANCE.d(TAG, "setOnSwipedListener");
                 LAnimationUtil.play(swipeableLayout, Techniques.FadeOut, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {

@@ -50,19 +50,19 @@ public class FlowableExampleActivity extends BaseFontActivity {
         return new SingleObserver<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.d(TAG, " onSubscribe : " + d.isDisposed());
+                LLog.INSTANCE.d(TAG, " onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onSuccess(Integer value) {
                 textView.append(" onSuccess : value : " + value + "\n");
-                LLog.d(TAG, " onSuccess : value : " + value);
+                LLog.INSTANCE.d(TAG, " onSuccess : value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.d(TAG, " onError : " + e.getMessage());
+                LLog.INSTANCE.d(TAG, " onError : " + e.getMessage());
             }
         };
     }

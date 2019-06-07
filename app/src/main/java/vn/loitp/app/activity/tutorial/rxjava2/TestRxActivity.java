@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -11,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.Nullable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -85,7 +86,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void print(String s) {
-        LLog.d(TAG, s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
+        LLog.INSTANCE.d(TAG, s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
         tv.append(s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
     }
 

@@ -197,7 +197,7 @@ public class LUIUtil {
         try {
             view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke));
         } catch (Exception e) {
-            LLog.d(TAG, "setCircleViewWithColor setBkgColor: " + e.toString());
+            LLog.INSTANCE.d(TAG, "setCircleViewWithColor setBkgColor: " + e.toString());
         }
     }
 
@@ -278,14 +278,14 @@ public class LUIUtil {
                     imageView.setImageDrawable(drawable);
                 }
             } catch (Exception ignored) {
-                LLog.d(TAG, "setImageFromAsset: " + ignored.toString());
+                LLog.INSTANCE.d(TAG, "setImageFromAsset: " + ignored.toString());
             } finally {
                 try {
                     if (stream != null) {
                         stream.close();
                     }
                 } catch (Exception ignored) {
-                    LLog.d(TAG, "setImageFromAsset: " + ignored.toString());
+                    LLog.INSTANCE.d(TAG, "setImageFromAsset: " + ignored.toString());
                 }
             }
         }

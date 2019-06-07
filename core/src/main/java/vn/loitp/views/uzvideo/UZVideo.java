@@ -219,19 +219,19 @@ public class UZVideo extends RelativeLayout implements Callback {
                             linkPlay = urlList.get(i).getUrl();
                         }
                     }
-                    LLog.d(TAG, "linkPlay " + linkPlay);
+                    LLog.INSTANCE.d(TAG, "linkPlay " + linkPlay);
                     playerManager.init(activity, playerView, linkPlay, contentPosition);
                     if (uzCallback != null) {
                         uzCallback.onInitSuccess(linkPlay);
                     }
                 } catch (NullPointerException e) {
-                    LLog.e(TAG, "Error NullPointerException " + e.toString());
+                    LLog.INSTANCE.e(TAG, "Error NullPointerException " + e.toString());
                 }
             }
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "onFail play entityId " + entityId);
+                LLog.INSTANCE.e(TAG, "onFail play entityId " + entityId);
             }
         });
     }
@@ -252,7 +252,7 @@ public class UZVideo extends RelativeLayout implements Callback {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "getTokenStreaming onFail " + e.getMessage());
+                LLog.INSTANCE.e(TAG, "getTokenStreaming onFail " + e.getMessage());
                 if (callbackAPI != null) {
                     callbackAPI.onFail(e);
                 }
@@ -281,7 +281,7 @@ public class UZVideo extends RelativeLayout implements Callback {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "getLinkPlay onFail " + e.getMessage());
+                LLog.INSTANCE.e(TAG, "getLinkPlay onFail " + e.getMessage());
                 if (callbackAPI != null) {
                     callbackAPI.onFail(e);
                 }

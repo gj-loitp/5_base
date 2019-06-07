@@ -56,7 +56,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onSliding(float offset) {
-        LLog.d(TAG, "WWL_onSliding offset " + offset);
+        LLog.INSTANCE.d(TAG, "WWL_onSliding offset " + offset);
         float alpha;
         if (offset > 2.0f) {
             alpha = this.mLastAlpha * (3.0f - offset);
@@ -76,7 +76,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onClicked() {
-        LLog.d(TAG, "WWL_onClicked");
+        LLog.INSTANCE.d(TAG, "WWL_onClicked");
         if (this.wwlVideo.mState == WWLVideo.STATE_MINIMIZED) {
             this.wwlVideo.maximize(false);
         }
@@ -87,7 +87,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onHided() {
-        LLog.d(TAG, "WWL_onHided");
+        LLog.INSTANCE.d(TAG, "WWL_onHided");
         this.wwlVideoPlayerFragment.stopPlay();
     }
 

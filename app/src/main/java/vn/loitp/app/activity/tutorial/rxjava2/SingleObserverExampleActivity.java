@@ -42,19 +42,19 @@ public class SingleObserverExampleActivity extends BaseFontActivity {
         return new SingleObserver<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.d(TAG, " onSubscribe : " + d.isDisposed());
+                LLog.INSTANCE.d(TAG, " onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onSuccess(String value) {
                 textView.append(" onNext : value : " + value + "\n");
-                LLog.d(TAG, " onNext value : " + value);
+                LLog.INSTANCE.d(TAG, " onNext value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.d(TAG, " onError : " + e.getMessage());
+                LLog.INSTANCE.d(TAG, " onError : " + e.getMessage());
             }
         };
     }

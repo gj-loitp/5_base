@@ -51,7 +51,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        LLog.d(TAG, "last item");
+                        LLog.INSTANCE.d(TAG, "last item");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -76,10 +76,10 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            LLog.INSTANCE.d(TAG, "isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos");
+        LLog.INSTANCE.d(TAG, "is calling photosetsGetPhotos");
         isLoading = true;
         avi.smoothToShow();
         FlickrService service = RestClient.createService(FlickrService.class);
@@ -88,7 +88,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
         String userID = FlickrConst.USER_KEY;
         currentPage++;
         if (currentPage > totalPage) {
-            LLog.d(TAG, "currentPage > totalPage -> return");
+            LLog.INSTANCE.d(TAG, "currentPage > totalPage -> return");
             currentPage = totalPage;
             avi.smoothToHide();
             return;
@@ -103,7 +103,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
                 //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
 
                 totalPage = wrapperPhotosetGetPhotos.getPhotoset().getPages();
-                LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                LLog.INSTANCE.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                 String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                 tvTitle.setText(s);
@@ -128,7 +128,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.d(TAG, "onFail " + e.toString());
+                LLog.INSTANCE.d(TAG, "onFail " + e.toString());
                 handleException(e);
                 avi.smoothToHide();
                 isLoading = true;

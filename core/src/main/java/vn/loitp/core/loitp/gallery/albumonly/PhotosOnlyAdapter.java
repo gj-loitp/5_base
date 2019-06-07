@@ -2,14 +2,14 @@ package vn.loitp.core.loitp.gallery.albumonly;
 
 import android.content.Context;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
@@ -17,6 +17,7 @@ import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 import com.github.piasy.biv.view.ImageViewFactory;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 
@@ -164,7 +165,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             bigImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    LLog.d(TAG, "setOnClickListener");
+                    LLog.INSTANCE.d(TAG, "setOnClickListener");
                     LAnimationUtil.play(bigImageView, Techniques.Pulse);
                     if (callback != null) {
                         callback.onClick(photo, position);
@@ -174,7 +175,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             bigImageView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    LLog.d(TAG, "onLongClick");
+                    LLog.INSTANCE.d(TAG, "onLongClick");
                     LAnimationUtil.play(bigImageView, Techniques.Pulse);
                     if (callback != null) {
                         callback.onLongClick(photo, position);
