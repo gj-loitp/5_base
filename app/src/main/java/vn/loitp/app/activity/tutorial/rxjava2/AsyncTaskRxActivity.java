@@ -204,20 +204,20 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         int count = 10;
         TestAsyncKotlin testAsyncKotlin = new TestAsyncKotlin(count);
         Disposable disProgress = testAsyncKotlin.subscribeProgression(integer -> {
-            LLog.INSTANCE.d("loitptest", "Home -> subscribeProgression " + integer);
+            LLog.d("loitptest", "Home -> subscribeProgression " + integer);
             tv.append("Home -> subscribeProgression " + integer + "\n");
             return Unit.INSTANCE;
         });
         Disposable dis = testAsyncKotlin.apply(aBoolean -> {
-            LLog.INSTANCE.d("loitptest", "Home -> 1 aBoolean: " + aBoolean);
+            LLog.d("loitptest", "Home -> 1 aBoolean: " + aBoolean);
             tv.append("Home -> 1 aBoolean: " + aBoolean + "\n");
             return Unit.INSTANCE;
         }, throwable -> {
-            LLog.INSTANCE.d("loitptest", "Home -> 2 throwable: " + throwable.toString());
+            LLog.d("loitptest", "Home -> 2 throwable: " + throwable.toString());
             tv.append("Home -> 2 throwable: " + throwable.toString() + "\n");
             return Unit.INSTANCE;
         }, () -> {
-            LLog.INSTANCE.d("loitptest", "Home -> 3 finished");
+            LLog.d("loitptest", "Home -> 3 finished");
             tv.append("Home -> 3 finished\n");
             return Unit.INSTANCE;
         });
