@@ -233,7 +233,6 @@ Likewise may someone love you next.
     <string name="content_text">Demo running.</string>
     <string name="mail_content_title">Demo Customize: active</string>
     <string name="chathead_click_message">Click</string>
-    <string name="delete_demo">Delete Demo</string>
     <string name="show_demo">Show Simple FloatingView</string>
     <string name="show_customized_demo">Show Customized FloatingView</string>
     <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
