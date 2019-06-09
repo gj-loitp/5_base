@@ -240,4 +240,6 @@ Likewise may someone love you next.
     <string name="deleted_soon">FloatingView will be deleted soon.</string>
     <string name="finish_deleted">FloatingView has been deleted.</string>
     <string name="default_floatingview_channel_id">default_floatingview_channel</string>
+    <string name="picker_menu">Picker Menu</string>
+    <string name="bs_image_picker">BS Image Picker</string>
 </resources>
