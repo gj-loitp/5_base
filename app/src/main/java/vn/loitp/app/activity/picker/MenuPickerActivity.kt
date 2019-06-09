@@ -6,6 +6,7 @@ import android.view.View
 
 import loitp.basemaster.R
 import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
+import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
 import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.core.utilities.LActivityUtil
 
@@ -15,6 +16,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false
         findViewById<View>(R.id.bt_bs_image_picker).setOnClickListener(this)
+        findViewById<View>(R.id.bt_image_picker_with_crop).setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -33,6 +35,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v.id) {
             R.id.bt_bs_image_picker -> intent = Intent(activity, BSImagePickerActivity::class.java)
+            R.id.bt_image_picker_with_crop -> intent = Intent(activity, ImageWithCropActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

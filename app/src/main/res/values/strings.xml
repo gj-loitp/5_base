@@ -270,4 +270,7 @@ Likewise may someone love you next.
     <string name="th_m">Thêm</string>
     <string name="donation">Donation</string>
     <string name="github">Github</string>
+    <string name="image_picker_with_crop">Image picker with crop</string>
+    <string name="start_gallery">Start Gallery</string>
+    <string name="start_camera">Start Camera</string>
 </resources>

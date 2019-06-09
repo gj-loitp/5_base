@@ -16,18 +16,17 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
-
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
 import rx.Subscriber;
@@ -93,7 +92,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(setLayoutResourceId());
+        if (setLayoutResourceId() != 0) {
+            setContentView(setLayoutResourceId());
+        }
         //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
         interstitialAd = LUIUtil.createAdFull(activity);
         View view = activity.findViewById(R.id.scroll_view);

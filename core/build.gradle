@@ -120,4 +120,6 @@ dependencies {
 
     //https://github.com/sabujak-sabujak/RoundedButton
     api 'com.github.sabujak-sabujak:RoundedButton:v0.1.1'
+
+    api 'com.yalantis:ucrop:2.2.0'
 }
