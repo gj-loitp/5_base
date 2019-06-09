@@ -49,7 +49,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         setTransparentStatusNavigationBar();
         RestClient.init(getString(R.string.flickr_URL));
         admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
-        LLog.INSTANCE.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
+        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
@@ -69,7 +69,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         }
         LImageUtil.load(activity, urlCoverSplashScreen, ivBkg);
         bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.INSTANCE.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
@@ -94,7 +94,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
                 intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
                 intent.putStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.tranIn(activity);
                 finish();
             }
         });
@@ -156,16 +156,16 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.INSTANCE.d(TAG, "onPermissionsChecked do you work now");
+                            LLog.d(TAG, "onPermissionsChecked do you work now");
                             goToHome();
                         } else {
-                            LLog.INSTANCE.d(TAG, "!areAllPermissionsGranted");
+                            LLog.d(TAG, "!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.INSTANCE.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -173,7 +173,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.INSTANCE.d(TAG, "onPermissionRationaleShouldBeShown");
+                        LLog.d(TAG, "onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })

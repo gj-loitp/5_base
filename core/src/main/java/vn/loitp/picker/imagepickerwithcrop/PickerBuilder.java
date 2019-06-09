@@ -21,7 +21,6 @@ public class PickerBuilder {
     public PickerBuilder(final Activity activity, final int type) {
         this.activity = activity;
         pickerManager = (type == PickerBuilder.SELECT_FROM_GALLERY) ? new ImagePickerManager(activity) : new CameraPickerManager(activity);
-
     }
 
     public interface onPermissionRefusedListener {

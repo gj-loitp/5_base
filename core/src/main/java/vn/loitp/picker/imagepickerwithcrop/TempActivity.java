@@ -16,7 +16,7 @@ public class TempActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
-        this.pickerManager.setActivity(TempActivity.this);
+        this.pickerManager.setActivity(activity);
         this.pickerManager.pickPhotoWithPermission();
     }
 
@@ -56,9 +56,7 @@ public class TempActivity extends BaseFontActivity {
                 break;
             case REQUEST_CROP:
                 if (data != null) {
-                    {
-                        pickerManager.handleCropResult(data);
-                    }
+                    pickerManager.handleCropResult(data);
                 } else {
                     finish();
                 }

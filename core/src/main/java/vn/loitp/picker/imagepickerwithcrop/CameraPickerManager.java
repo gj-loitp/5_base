@@ -11,7 +11,7 @@ import android.provider.MediaStore;
 
 public class CameraPickerManager extends PickerManager {
 
-    public CameraPickerManager(Activity activity) {
+    CameraPickerManager(Activity activity) {
         super(activity);
     }
 
