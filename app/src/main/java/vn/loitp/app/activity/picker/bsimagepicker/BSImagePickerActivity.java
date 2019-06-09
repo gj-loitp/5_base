@@ -78,7 +78,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CROP_PIC_REQUEST_CODE) {
-            LLog.INSTANCE.d(TAG, "onActivityResult CROP_PIC_REQUEST_CODE");
+            LLog.d(TAG, "onActivityResult CROP_PIC_REQUEST_CODE");
             if (data != null) {
                 final Bundle extras = data.getExtras();
                 if (extras == null) {

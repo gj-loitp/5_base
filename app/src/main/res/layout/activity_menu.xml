@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tv_policy"
@@ -14,14 +15,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Main Menu"
+                android:text="@string/main_menu"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -29,85 +30,85 @@
                 android:id="@+id/bt_api"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="API" />
+                android:text="@string/api" />
 
             <Button
                 android:id="@+id/bt_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ads" />
+                android:text="@string/ads" />
 
             <Button
                 android:id="@+id/bt_animation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Animation" />
+                android:text="@string/animation" />
 
             <Button
                 android:id="@+id/bt_custom_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Custom views" />
+                android:text="@string/custom_views" />
 
             <Button
                 android:id="@+id/bt_database"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Database" />
+                android:text="@string/database" />
 
             <Button
                 android:id="@+id/bt_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Database" />
+                android:text="@string/picker" />
 
             <Button
                 android:id="@+id/bt_demo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Demo App" />
+                android:text="@string/demo_app" />
 
             <Button
                 android:id="@+id/bt_function"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Function" />
+                android:text="@string/function" />
 
             <Button
                 android:id="@+id/bt_pattern"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pattern" />
+                android:text="@string/pattern" />
 
             <Button
                 android:id="@+id/bt_tutorial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tutorial" />
+                android:text="@string/tutorial" />
 
             <Button
                 android:id="@+id/bt_rate_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rate App" />
+                android:text="@string/rate_app" />
 
             <Button
                 android:id="@+id/bt_more_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="More App" />
+                android:text="@string/more_app" />
 
             <Button
                 android:id="@+id/bt_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chat with dev" />
+                android:text="@string/chat_with_dev" />
 
             <Button
                 android:id="@+id/bt_fb_fanpage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fb fanpage" />
+                android:text="@string/fb_fanpage" />
 
             <Button
                 android:id="@+id/bt_ad_helper"
@@ -119,19 +120,19 @@
                 android:id="@+id/bt_frm_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm" />
+                android:text="@string/th_m" />
 
             <Button
                 android:id="@+id/bt_donation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Donation" />
+                android:text="@string/donation" />
 
             <Button
                 android:id="@+id/bt_github"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Github" />
+                android:text="@string/github" />
         </LinearLayout>
     </ScrollView>
 
