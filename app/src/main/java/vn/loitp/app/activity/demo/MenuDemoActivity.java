@@ -20,7 +20,6 @@ import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
-import vn.loitp.app.activity.demo.uiza.UZMainActivity;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity;
 import vn.loitp.core.base.BaseFontActivity;
@@ -59,15 +58,11 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
 
             findViewById(R.id.bt_gallery_core_album_frm).setOnClickListener(this);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.VISIBLE);
-
-            findViewById(R.id.bt_uiza).setOnClickListener(this);
-            findViewById(R.id.bt_uiza).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.bt_gallery_core).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_member).setVisibility(View.GONE);
             findViewById(R.id.bt_gallery_core_album_frm).setVisibility(View.GONE);
-            findViewById(R.id.bt_uiza).setVisibility(View.GONE);
         }
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
         findViewById(R.id.bt_2_instance_activity).setOnClickListener(this);
@@ -128,41 +123,38 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_gallery_core:
                 intent = new Intent(activity, GalleryCoreSplashActivity.class);
-                intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
+                intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
                 intent.putExtra(Constants.INSTANCE.getBKG_SPLASH_SCREEN(), "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg");
-                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
+                intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
                 //neu muon remove albumn nao thi cu pass id cua albumn do
                 ArrayList<String> removeAlbumFlickrList = new ArrayList<>();
                 removeAlbumFlickrList.add(Constants.INSTANCE.getFLICKR_ID_STICKER());
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
-                intent.putStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumFlickrList);
+                intent.putStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumFlickrList);
                 break;
             case R.id.bt_gallery_core_album:
                 intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
-                intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
-                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
+                intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
+                intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
-                intent.putExtra(Constants.INSTANCE.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_MANGA());
+                intent.putExtra(Constants.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_MANGA());
                 break;
             case R.id.bt_gallery_core_album_frm:
                 intent = new Intent(activity, FlicrkFrmActivity.class);
                 break;
             case R.id.bt_gallery_member:
                 intent = new Intent(activity, GalleryMemberActivity.class);
-                intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
-                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
+                intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
+                intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
                 break;
             case R.id.bt_epub_reader:
                 intent = new Intent(activity, EpubReaderMenuActivity.class);
-                break;
-            case R.id.bt_uiza:
-                intent = new Intent(activity, UZMainActivity.class);
                 break;
             case R.id.bt_floating_view:
                 intent = new Intent(activity, FloatingViewActivity.class);
@@ -176,7 +168,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

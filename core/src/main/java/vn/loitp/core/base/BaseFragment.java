@@ -3,9 +3,6 @@ package vn.loitp.core.base;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +12,23 @@ import android.view.animation.AnimationUtils;
 
 import java.lang.reflect.Field;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
-import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.exception.NoConnectionException;
 
 /**
  * Created by khanh on 7/31/16.
  */
 public abstract class BaseFragment extends Fragment {
     protected Context context;
-    protected CompositeSubscription compositeSubscription = new CompositeSubscription();
+    @NonNull
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
     protected final String BASE_TAG = BaseFragment.class.getSimpleName();
-
     protected View frmRootView;
 
     @Override
@@ -56,22 +51,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         LDialogUtil.clearAll();
+        compositeDisposable.clear();
         super.onDestroyView();
-        if (!compositeSubscription.isUnsubscribed()) {
-            compositeSubscription.unsubscribe();
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    protected void subscribe(Observable observable, Subscriber subscriber) {
-        if (!LConnectivityUtil.isConnected(getActivity())) {
-            subscriber.onError(new NoConnectionException());
-            return;
-        }
-        Subscription subscription = observable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-        compositeSubscription.add(subscription);
     }
 
     @Override
@@ -80,14 +61,11 @@ public abstract class BaseFragment extends Fragment {
         this.context = context;
     }
 
-    protected void handleException(Throwable throwable) {
-        if (throwable == null) {
-            return;
-        }
+    protected void handleException(@NonNull final Throwable throwable) {
         showDialogError(throwable.getMessage());
     }
 
-    protected void showDialogError(String errMsg) {
+    protected void showDialogError(@NonNull final String errMsg) {
         LDialogUtil.showDialog1(getActivity(), getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
@@ -96,7 +74,7 @@ public abstract class BaseFragment extends Fragment {
         });
     }
 
-    protected void showDialogMsg(String msg) {
+    protected void showDialogMsg(@NonNull final String msg) {
         LDialogUtil.showDialog1(getActivity(), getString(R.string.app_name), msg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
@@ -111,7 +89,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected FragmentCallback fragmentCallback;
 
-    public void setFragmentCallback(FragmentCallback fragmentCallback) {
+    public void setFragmentCallback(@NonNull final FragmentCallback fragmentCallback) {
         this.fragmentCallback = fragmentCallback;
     }
 
@@ -128,7 +106,7 @@ public abstract class BaseFragment extends Fragment {
             // This is a workaround for the bug where child fragments disappear when
             // the parent is removed (as all children are first removed from the parent)
             // See https://code.google.com/p/android/issues/detail?id=55228
-            Animation doNothingAnim = new AlphaAnimation(1, 1);
+            final Animation doNothingAnim = new AlphaAnimation(1, 1);
             doNothingAnim.setDuration(getNextAnimationDuration(parent, DEFAULT_CHILD_ANIMATION_DURATION));
             return doNothingAnim;
         } else {
@@ -136,14 +114,14 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    private static long getNextAnimationDuration(Fragment fragment, long defValue) {
+    private static long getNextAnimationDuration(@NonNull final Fragment fragment, final long defValue) {
         try {
             // Attempt to get the resource ID of the next animation that
             // will be applied to the given fragment.
-            Field nextAnimField = Fragment.class.getDeclaredField("mNextAnim");
+            final Field nextAnimField = Fragment.class.getDeclaredField("mNextAnim");
             nextAnimField.setAccessible(true);
-            int nextAnimResource = nextAnimField.getInt(fragment);
-            Animation nextAnim = AnimationUtils.loadAnimation(fragment.getActivity(), nextAnimResource);
+            final int nextAnimResource = nextAnimField.getInt(fragment);
+            final Animation nextAnim = AnimationUtils.loadAnimation(fragment.getActivity(), nextAnimResource);
 
             // ...and if it can be loaded, return that animation's duration
             return (nextAnim == null) ? defValue : nextAnim.getDuration();
@@ -152,4 +130,15 @@ public abstract class BaseFragment extends Fragment {
             return defValue;
         }
     }
+
+    /*private void s() {
+        compositeDisposable.add(service.photosetsGetList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+
+                }, () -> {
+
+                }));
+    }*/
 }

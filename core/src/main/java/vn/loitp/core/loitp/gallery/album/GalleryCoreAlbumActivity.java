@@ -6,10 +6,6 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
@@ -18,6 +14,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -30,14 +32,12 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class GalleryCoreAlbumActivity extends BaseFontActivity {
-    //private Gson gson = new Gson();
     private AlbumAdapter albumAdapter;
     private List<Photoset> photosetList = new ArrayList<>();
     private ArrayList<String> removeAlbumList;
@@ -51,15 +51,13 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
-        removeAlbumList = getIntent().getStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST());
+        removeAlbumList = getIntent().getStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST());
 
-        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
-        //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
-        //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
+        avLoadingIndicatorView = findViewById(R.id.av);
 
-        admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
-        LLog.INSTANCE.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
-        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        admobBannerUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
+        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
+        final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
@@ -72,17 +70,17 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.INSTANCE.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
+        bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
+        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        if (bkgRootView == Constants.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
 
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        final SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
@@ -92,12 +90,12 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         albumAdapter = new AlbumAdapter(activity, photosetList, new AlbumAdapter.Callback() {
             @Override
             public void onClick(int pos) {
-                Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
-                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
-                intent.putExtra(Constants.INSTANCE.getSK_PHOTOSET_ID(), photosetList.get(pos).getId());
-                intent.putExtra(Constants.INSTANCE.getSK_PHOTOSET_SIZE(), photosetList.get(pos).getPhotos());
+                final Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
+                intent.putExtra(Constants.getBKG_ROOT_VIEW(), bkgRootView);
+                intent.putExtra(Constants.getSK_PHOTOSET_ID(), photosetList.get(pos).getId());
+                intent.putExtra(Constants.getSK_PHOTOSET_SIZE(), photosetList.get(pos).getPhotos());
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.tranIn(activity);
             }
 
             @Override
@@ -108,7 +106,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
             }
         });
         //recyclerView.setAdapter(albumAdapter);
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(albumAdapter);
+        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(albumAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -136,53 +134,58 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
     private void photosetsGetList() {
         avLoadingIndicatorView.smoothToShow();
-        FlickrService service = RestClient.createService(FlickrService.class);
-        String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
-        String apiKey = FlickrConst.API_KEY;
-        String userID = FlickrConst.USER_KEY;
-        int page = 1;
-        int perPage = 500;
-        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
-        String format = FlickrConst.FORMAT;
-        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
-            @Override
-            public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                //LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
-                photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+        final FlickrService service = RestClient.createService(FlickrService.class);
+        final String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
+        final String apiKey = FlickrConst.API_KEY;
+        final String userID = FlickrConst.USER_KEY;
+        final int page = 1;
+        final int perPage = 500;
+        final String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
+        final String format = FlickrConst.FORMAT;
+        final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-                /*String x = "";
-                for (int i = 0; i < photosetList.size(); i++) {
-                    x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
-                }
-                LLog.d(TAG, "" + x);*/
 
-                //LLog.d(TAG, "orginal size: " + photosetList.size());
-                //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
-                for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
-                    for (int j = photosetList.size() - 1; j >= 0; j--) {
-                        if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
-                            photosetList.remove(j);
-                        }
-                    }
-                }
-                //LLog.d(TAG, "after size: " + photosetList.size());
-                Collections.sort(photosetList, new Comparator<Photoset>() {
+        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<WrapperPhotosetGetlist>() {
                     @Override
-                    public int compare(Photoset o1, Photoset o2) {
-                        return Long.valueOf(o2.getDateUpdate()).compareTo(Long.valueOf(o1.getDateUpdate()));
-                    }
-                });
-                updateAllViews();
-                avLoadingIndicatorView.smoothToHide();
-            }
+                    public void accept(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
+                        //LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
+                        photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
 
-            @Override
-            public void onFail(Throwable e) {
-                handleException(e);
-                avLoadingIndicatorView.smoothToHide();
-            }
-        });
+                        /*String x = "";
+                        for (int i = 0; i < photosetList.size(); i++) {
+                            x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
+                        }
+                        LLog.d(TAG, "" + x);*/
+
+                        //LLog.d(TAG, "orginal size: " + photosetList.size());
+                        //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
+                        for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
+                            for (int j = photosetList.size() - 1; j >= 0; j--) {
+                                if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
+                                    photosetList.remove(j);
+                                }
+                            }
+                        }
+                        //LLog.d(TAG, "after size: " + photosetList.size());
+                        Collections.sort(photosetList, new Comparator<Photoset>() {
+                            @Override
+                            public int compare(Photoset o1, Photoset o2) {
+                                return Long.valueOf(o2.getDateUpdate()).compareTo(Long.valueOf(o1.getDateUpdate()));
+                            }
+                        });
+                        updateAllViews();
+                        avLoadingIndicatorView.smoothToHide();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) {
+                        handleException(throwable);
+                        avLoadingIndicatorView.smoothToHide();
+                    }
+                }));
     }
 
     private void updateAllViews() {

@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
 import loitp.basemaster.R
@@ -34,20 +33,16 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     }
 
     private fun loadData() {
-        compositeDisposable?.add(sampleService!!.getData()
-                .observeOn(AndroidSchedulers.mainThread())
+        compositeDisposable.add(sampleService!!.getData()
                 .subscribeOn(Schedulers.io())
-                .subscribe(Consumer {
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
                     retroCryptoArrayList = ArrayList(it)
                     retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList!!, this)
                     cryptocurrency_list.adapter = retrofit2Adapter
+                }, {
+                    LToast.show(activity, it.toString(), R.drawable.bkg_horizontal)
                 }))
-
-        /*subscribe(sampleService!!.getData(), Consumer {
-            retroCryptoArrayList = ArrayList(it)
-            retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList!!, this)
-            cryptocurrency_list.adapter = retrofit2Adapter
-        })*/
     }
 
     override fun onItemClick(retroCrypto: RetroCrypto) {

@@ -30,10 +30,10 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.wwlVideo = (WWLVideo) findViewById(R.id.watch_while_layout);
+        this.wwlVideo = findViewById(R.id.watch_while_layout);
         this.wwlVideo.setListener(this);
 
-        this.mPlayerFragmentContainer = (FrameLayout) findViewById(R.id.player_fragment_container);
+        this.mPlayerFragmentContainer = findViewById(R.id.player_fragment_container);
         this.wwlVideoPlayerFragment = (WWLVideoPlayerFragment) getSupportFragmentManager().findFragmentById(R.id.player_fragment);
         this.wwlVideoUpNextFragment = (WWLVideoUpNextFragment) getSupportFragmentManager().findFragmentById(R.id.up_next_fragment);
         this.wwlVideoMetaInfoFragment = (WWLVideoMetaInfoFragment) getSupportFragmentManager().findFragmentById(R.id.meta_info_fragment);
@@ -56,7 +56,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onSliding(float offset) {
-        LLog.INSTANCE.d(TAG, "WWL_onSliding offset " + offset);
+        LLog.d(TAG, "WWL_onSliding offset " + offset);
         float alpha;
         if (offset > 2.0f) {
             alpha = this.mLastAlpha * (3.0f - offset);
@@ -76,7 +76,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onClicked() {
-        LLog.INSTANCE.d(TAG, "WWL_onClicked");
+        LLog.d(TAG, "WWL_onClicked");
         if (this.wwlVideo.mState == WWLVideo.STATE_MINIMIZED) {
             this.wwlVideo.maximize(false);
         }
@@ -87,7 +87,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onHided() {
-        LLog.INSTANCE.d(TAG, "WWL_onHided");
+        LLog.d(TAG, "WWL_onHided");
         this.wwlVideoPlayerFragment.stopPlay();
     }
 

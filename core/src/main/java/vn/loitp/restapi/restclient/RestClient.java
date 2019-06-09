@@ -9,10 +9,11 @@ import java.security.InvalidParameterException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import vn.loitp.restapi.DateTypeDeserializer;
 
@@ -23,16 +24,16 @@ public class RestClient {
     private static Retrofit retrofit;
     private static RestRequestInterceptor restRequestInterceptor;
 
-    public static void init(String baseApiUrl) {
+    public static void init(@NonNull final String baseApiUrl) {
         init(baseApiUrl, "");
     }
 
-    public static void init(String baseApiUrl, String token) {
+    public static void init(@NonNull final String baseApiUrl, @NonNull final String token) {
         if (TextUtils.isEmpty(baseApiUrl)) {
             throw new InvalidParameterException("baseApiUrl cannot null or empty");
         }
 
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         // set your desired log level
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -45,13 +46,13 @@ public class RestClient {
                 .addInterceptor(logging)  // <-- this is the important line!
                 .build();
 
-        Gson gson = new GsonBuilder()
+        final Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Date.class, new DateTypeDeserializer())
                 .create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseApiUrl)
                 .client(okHttpClient)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //.addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
@@ -73,13 +74,13 @@ public class RestClient {
         return retrofit.create(serviceClass);
     }
 
-    public static void addHeader(String name, String value) {
+    public static void addHeader(@NonNull final String name, @NonNull final String value) {
         if (restRequestInterceptor != null) {
             restRequestInterceptor.addHeader(name, value);
         }
     }
 
-    public static void addAuthorization(String token) {
+    public static void addAuthorization(@NonNull final String token) {
         //addHeader(AUTHORIZATION, "Token token=" + token);
         addHeader(AUTHORIZATION, token);
         //Log.d(AUTHORIZATION, "token: " + token);
@@ -89,13 +90,13 @@ public class RestClient {
         removeHeader(AUTHORIZATION);
     }
 
-    public static void removeHeader(String name) {
+    public static void removeHeader(@NonNull final String name) {
         if (restRequestInterceptor != null) {
             restRequestInterceptor.removeHeader(name);
         }
     }
 
-    public static boolean hasHeader(String name) {
+    public static boolean hasHeader(@NonNull final String name) {
         if (restRequestInterceptor != null) {
             return restRequestInterceptor.hasHeader(name);
         }

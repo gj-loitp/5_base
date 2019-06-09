@@ -12,13 +12,11 @@ import vn.loitp.core.common.Constants
 import vn.loitp.core.utilities.LUIUtil
 import vn.loitp.data.ActivityData
 import vn.loitp.data.AdmobData
-import vn.loitp.data.UZData
 import vn.loitp.utils.util.Utils
 
 //TODO rxjava1->rxjava2
 //TODO core film plus
 //TODO is debug
-
 
 
 //GIT
@@ -37,11 +35,6 @@ class LSApplication : MultiDexApplication() {
     companion object {
         val gson: Gson = Gson()
     }
-
-    //prod
-    private val DF_DOMAIN_API = "loitpdubai.uiza.co"
-    private val DF_TOKEN = "uap-c7ff811da5de41f8816040d13270b48c-555b47cc"
-    private val DF_APP_ID = "c7ff811da5de41f8816040d13270b48c"
 
     override fun onCreate() {
         super.onCreate()
@@ -69,8 +62,5 @@ class LSApplication : MultiDexApplication() {
 
         //big imageview
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
-
-        //uiza rest api
-        UZData.instance.initWorkspace(DF_DOMAIN_API, DF_APP_ID, DF_TOKEN, Constants.URL_GET_LINK_PLAY_PROD)
     }
 }

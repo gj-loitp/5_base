@@ -99,9 +99,7 @@ object LToast {
 
     private fun clear() {
         for (i in toastList.indices) {
-            if (toastList[i] != null) {
-                toastList[i].cancel()
-            }
+            toastList[i].cancel()
         }
     }
 }

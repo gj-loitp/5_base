@@ -16,17 +16,17 @@ class MenuAdsActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false
-        findViewById<View>(R.id.bt_1).setOnClickListener { v ->
+        findViewById<View>(R.id.bt_1).setOnClickListener {
             val intent = Intent(activity, AdmobBannerActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
-        findViewById<View>(R.id.bt_2).setOnClickListener { v ->
+        findViewById<View>(R.id.bt_2).setOnClickListener {
             val intent = Intent(activity, AdmobInterstitialActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
-        findViewById<View>(R.id.bt_3).setOnClickListener { v ->
+        findViewById<View>(R.id.bt_3).setOnClickListener {
             val intent = Intent(activity, AdmobRewardedVideoActivity::class.java)
             intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id))
             intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward))

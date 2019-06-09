@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.api.galleryAPI;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.app.LSApplication;
@@ -22,44 +24,28 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GalleryAPIActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
     private TextView tv;
-    private Button bt1;
     private Button bt2;
-
     private WrapperPhotosetGetlist mWrapperPhotosetGetlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        avi = findViewById(R.id.avi);
         avi.smoothToHide();
-        tv = (TextView) findViewById(R.id.tv);
-        bt1 = (Button) findViewById(R.id.bt_1);
-        bt2 = (Button) findViewById(R.id.bt_2);
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                photosetsGetList();
-            }
-        });
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialogSelectPhotoset();
-            }
-        });
-        findViewById(R.id.bt_demo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
-                startActivity(intent);
-                LActivityUtil.tranIn(activity);
-            }
+        tv = findViewById(R.id.tv);
+        final Button bt1 = findViewById(R.id.bt_1);
+        bt2 = findViewById(R.id.bt_2);
+        bt1.setOnClickListener(v -> photosetsGetList());
+        bt2.setOnClickListener(v -> showDialogSelectPhotoset());
+        findViewById(R.id.bt_demo).setOnClickListener(v -> {
+            final Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(activity);
         });
     }
 
@@ -80,81 +66,74 @@ public class GalleryAPIActivity extends BaseFontActivity {
 
     private void photosetsGetList() {
         avi.smoothToShow();
-        FlickrService service = RestClient.createService(FlickrService.class);
-        String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
-        String apiKey = FlickrConst.API_KEY;
-        String userID = FlickrConst.USER_KEY;
-        int page = 1;
-        int perPage = 500;
-        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
-        String format = FlickrConst.FORMAT;
-        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetlist>() {
-            @Override
-            public void onSuccess(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
-                mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
-                LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
-                avi.smoothToHide();
-                bt2.setVisibility(View.VISIBLE);
-            }
+        final FlickrService service = RestClient.createService(FlickrService.class);
+        final String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
+        final String apiKey = FlickrConst.API_KEY;
+        final String userID = FlickrConst.USER_KEY;
+        final int page = 1;
+        final int perPage = 500;
+        final String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
+        final String format = FlickrConst.FORMAT;
+        final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-            @Override
-            public void onFail(Throwable e) {
-                handleException(e);
-                avi.smoothToHide();
-            }
-        });
+        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(wrapperPhotosetGetlist -> {
+                    LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
+                    LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
+                    avi.smoothToHide();
+                    bt2.setVisibility(View.VISIBLE);
+                }, e -> {
+                    handleException(e);
+                    avi.smoothToHide();
+                }));
     }
 
     private void showDialogSelectPhotoset() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Choose:");
 
-        List<Photoset> photosetList = mWrapperPhotosetGetlist.getPhotosets().getPhotoset();
-        String[] items = new String[photosetList.size()];
+        final List<Photoset> photosetList = mWrapperPhotosetGetlist.getPhotosets().getPhotoset();
+        final String[] items = new String[photosetList.size()];
         for (int i = 0; i < photosetList.size(); i++) {
             //LLog.d(TAG, i + " : " + photosetList.get(i).getTitle().getContent());
             items[i] = photosetList.get(i).getTitle().getContent();
         }
 
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int position) {
-                LLog.d(TAG, "onClick " + position);
-                photosetsGetPhotos(photosetList.get(position).getId());
-            }
+        builder.setItems(items, (dialog, position) -> {
+            LLog.d(TAG, "onClick " + position);
+            photosetsGetPhotos(photosetList.get(position).getId());
         });
-        AlertDialog dialog = builder.create();
+        final AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    private void photosetsGetPhotos(String photosetID) {
+    private void photosetsGetPhotos(@NonNull final String photosetID) {
         tv.setText("");
         avi.smoothToShow();
-        FlickrService service = RestClient.createService(FlickrService.class);
-        String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
-        String apiKey = FlickrConst.API_KEY;
-        String userID = FlickrConst.USER_KEY;
-        int page = 1;
-        int perPage = 500;
-        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
-        String format = FlickrConst.FORMAT;
-        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback), new ApiSubscriber<Object>() {
-            @Override
-            public void onSuccess(Object wrapperPhotosetGetlist) {
-                LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
-                LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
-                avi.smoothToHide();
-                bt2.setVisibility(View.VISIBLE);
-            }
+        final FlickrService service = RestClient.createService(FlickrService.class);
+        final String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
+        final String apiKey = FlickrConst.API_KEY;
+        final String userID = FlickrConst.USER_KEY;
+        final int page = 1;
+        final int perPage = 500;
+        final String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
+        final String format = FlickrConst.FORMAT;
+        final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-            @Override
-            public void onFail(Throwable e) {
-                handleException(e);
-                avi.smoothToHide();
-            }
-        });
+        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(wrapperPhotosetGetlist -> {
+                    LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
+                    avi.smoothToHide();
+                    bt2.setVisibility(View.VISIBLE);
+                }, e -> {
+                    handleException(e);
+                    avi.smoothToHide();
+                }));
     }
 }
