@@ -70,7 +70,7 @@ public class VGViewPager extends RelativeLayout {
         //5<=max<=10
         List<Page> pages = new ArrayList<>();
         int max = LDeviceUtil.getRandomNumber(5) + 5;
-        LLog.d(TAG, "genData max " + max);
+        LLog.INSTANCE.d(TAG, "genData max " + max);
         for (int i = 0; i < max; i++) {
             Page page = new Page();
             page.setColor(LStoreUtil.getRandomColor());

@@ -25,7 +25,7 @@ public class SensorActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.d(TAG, "onCreate");
+        LLog.INSTANCE.d(TAG, "onCreate");
         rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
@@ -81,7 +81,7 @@ public class SensorActivity extends BaseFontActivity {
     }
 
     private void setSizeRelativeLayout(View view, int w, int h) {
-        LLog.d(TAG, "setSizeRelativeLayout " + w + "x" + h);
+        LLog.INSTANCE.d(TAG, "setSizeRelativeLayout " + w + "x" + h);
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.width = w;
         params.height = h;
@@ -116,7 +116,7 @@ public class SensorActivity extends BaseFontActivity {
         public void onOrientationChanged(int orientation) {
             if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
                 rotation = ROTATION_O;
-                LLog.d(TAG, "ROTATION_O");
+                LLog.INSTANCE.d(TAG, "ROTATION_O");
                 rotateLayout.setAngle(0);
                 int w = LScreenUtil.getScreenWidth();
                 int h = w * 9 / 16;
@@ -124,11 +124,11 @@ public class SensorActivity extends BaseFontActivity {
                 LScreenUtil.toggleFullscreen(activity, false);
             } else if (orientation > 145 && orientation < 215 && rotation != ROTATION_180) { // REVERSE PORTRAIT
                 rotation = ROTATION_180;
-                LLog.d(TAG, "ROTATION_180");
+                LLog.INSTANCE.d(TAG, "ROTATION_180");
                 //do nothing in this case
             } else if (orientation > 55 && orientation < 125 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
                 rotation = ROTATION_270;
-                LLog.d(TAG, "ROTATION_270");
+                LLog.INSTANCE.d(TAG, "ROTATION_270");
                 rotateLayout.setAngle(90);
                 int w = LScreenUtil.getScreenWidth();
                 int h = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);
@@ -136,7 +136,7 @@ public class SensorActivity extends BaseFontActivity {
                 LScreenUtil.toggleFullscreen(activity, true);
             } else if (orientation > 235 && orientation < 305 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90;
-                LLog.d(TAG, "ROTATION_90");
+                LLog.INSTANCE.d(TAG, "ROTATION_90");
                 rotateLayout.setAngle(-90);
                 int w = LScreenUtil.getScreenWidth();
                 int h = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);

@@ -7,13 +7,14 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
@@ -144,7 +145,7 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
         }
 
         release();
-        LLog.d(TAG, "openVideo " + mUrl);
+        LLog.INSTANCE.d(TAG, "openVideo " + mUrl);
 
         AudioManager am = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
         am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
@@ -158,7 +159,7 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
             this.mMediaPlayer.setScreenOnWhilePlaying(true);
             this.mMediaPlayer.prepareAsync();
         } catch (Exception e) {
-            LLog.e(TAG, "openVideo " + e.toString());
+            LLog.INSTANCE.e(TAG, "openVideo " + e.toString());
         }
     }
 

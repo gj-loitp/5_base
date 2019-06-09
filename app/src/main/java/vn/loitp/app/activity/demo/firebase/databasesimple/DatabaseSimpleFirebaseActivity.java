@@ -50,7 +50,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.d(TAG, "onDataChange null => return");
+                    LLog.INSTANCE.d(TAG, "onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -66,7 +66,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     }*/
                     userList.add(user);
                 }
-                LLog.d(TAG, "userList.size: " + userList.size());
+                LLog.INSTANCE.d(TAG, "userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
@@ -74,7 +74,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onCancelled(DatabaseError error) {
-                LLog.e(TAG, "Failed to read app title value " + error.toException());
+                LLog.INSTANCE.e(TAG, "Failed to read app title value " + error.toException());
             }
         });
     }

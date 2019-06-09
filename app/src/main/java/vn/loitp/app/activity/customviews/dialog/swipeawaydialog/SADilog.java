@@ -36,7 +36,7 @@ public class SADilog extends SwipeAwayDialogFragment {
         if (bundle != null) {
             key = bundle.getInt(KEY);
         }
-        LLog.d(TAG, "key " + key);
+        LLog.INSTANCE.d(TAG, "key " + key);
         switch (key) {
             case KEY_1:
                 return show1();

@@ -3,12 +3,13 @@ package vn.loitp.function.youtubeparser.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -90,8 +91,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                         LToast.showShort(mContext, "Unable to get statistic for this video. Please try again");
                     }
                 });*/
-                LLog.d(TAG, "id " + videos.get(position).getVideoId());
-                LLog.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
+                LLog.INSTANCE.d(TAG, "id " + videos.get(position).getVideoId());
+                LLog.INSTANCE.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videos.get(position).getLinkYoutube())));
                 LActivityUtil.tranIn(mContext);
             }

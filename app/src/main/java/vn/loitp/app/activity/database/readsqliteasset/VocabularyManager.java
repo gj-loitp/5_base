@@ -76,7 +76,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
         } catch (SQLiteException e) {
-            LLog.d(TAG, "checkDatabase " + e.toString());
+            LLog.INSTANCE.d(TAG, "checkDatabase " + e.toString());
         }
         if (checkDB != null) checkDB.close();
         return checkDB != null;

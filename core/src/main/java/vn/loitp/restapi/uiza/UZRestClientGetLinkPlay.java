@@ -31,7 +31,7 @@ public class UZRestClientGetLinkPlay {
     }
 
     public static void init(String baseApiUrl, String token) {
-        LLog.d(TAG, "init " + baseApiUrl + " - " + token);
+        LLog.INSTANCE.d(TAG, "init " + baseApiUrl + " - " + token);
         if (TextUtils.isEmpty(baseApiUrl)) {
             throw new InvalidParameterException("baseApiUrl cannot null or empty");
         }

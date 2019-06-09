@@ -23,7 +23,7 @@ public class SwipableLayoutActivity extends BaseFontActivity {
         swipeableLayout.setOnLayoutCloseListener(new SwipeableLayout.OnLayoutCloseListener() {
             @Override
             public void OnLayoutClosed() {
-                LLog.d(TAG, "OnLayoutClosed");
+                LLog.INSTANCE.d(TAG, "OnLayoutClosed");
                 finish();
             }
         });

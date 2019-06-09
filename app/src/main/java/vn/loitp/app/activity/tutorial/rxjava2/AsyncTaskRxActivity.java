@@ -5,19 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import kotlin.Unit;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
@@ -35,6 +38,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
         findViewById(R.id.bt_rx_2).setOnClickListener(this);
         findViewById(R.id.bt_rx_3).setOnClickListener(this);
+        findViewById(R.id.bt_rx_4).setOnClickListener(this);
     }
 
     @Override
@@ -66,21 +70,25 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                 if (disposable != null) {
                     disposable.dispose();
                 }
-                MyRxTask1 myRxTask1 = new MyRxTask1(tv);
+                final MyRxTask1 myRxTask1 = new MyRxTask1(tv);
                 disposable = myRxTask1.execute();
                 compositeDisposable.add(disposable);
                 break;
             case R.id.bt_rx_2:
                 if (disposable != null) {
                     disposable.dispose();
+                    return;
                 }
-                MyRxTask2 myRxTask2 = new MyRxTask2(tv);
+                final MyRxTask2 myRxTask2 = new MyRxTask2(tv);
                 disposable = myRxTask2.execute();
                 compositeDisposable.add(disposable);
                 break;
             case R.id.bt_rx_3:
-                Test2 test2 = new Test2(6);
+                final Test2 test2 = new Test2(6);
                 test2.apply();
+                break;
+            case R.id.bt_rx_4:
+                testWithProgress();
                 break;
         }
     }
@@ -104,11 +112,11 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
         @Override
         protected List<Bike> doInBackground(Void... voids) {
-            List<Bike> bikeList = new ArrayList<>();
+            final List<Bike> bikeList = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 try {
                     Thread.sleep(1000);
-                    Bike bike = new Bike();
+                    final Bike bike = new Bike();
                     bike.setModel("Model " + i);
                     bike.setName("Name " + i);
                     bikeList.add(bike);
@@ -124,7 +132,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
         @Override
         protected void onProgressUpdate(Bike... values) {
             super.onProgressUpdate(values);
-            Bike bike = values[0];
+            final Bike bike = values[0];
             tv.append(bike.getName() + " - " + bike.getModel() + "\n");
         }
 
@@ -188,5 +196,37 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
                     });
 
         }
+    }
+
+    private void testWithProgress() {
+        tv.setText("prev testWithProgress\n");
+        compositeDisposable.clear();
+        final int count = 10;
+        final TestAsyncKotlin testAsyncKotlin = new TestAsyncKotlin(count);
+        final Disposable disProgress = testAsyncKotlin.subscribeProgression(integer -> {
+            LLog.d("loitptest", "Home -> subscribeProgression " + integer);
+            tv.append("Home -> subscribeProgression " + integer + "\n");
+            return Unit.INSTANCE;
+        });
+        final Disposable dis = testAsyncKotlin.apply(aBoolean -> {
+                    LLog.d("loitptest", "Home -> 1 aBoolean: " + aBoolean);
+                    tv.append("Home -> 1 aBoolean: " + aBoolean + "\n");
+                    return Unit.INSTANCE;
+                }, throwable -> {
+                    LLog.d("loitptest", "Home -> 2 throwable: " + throwable.toString());
+                    tv.append("Home -> 2 throwable: " + throwable.toString() + "\n");
+                    return Unit.INSTANCE;
+                }, () -> {
+                    LLog.d("loitptest", "Home -> on disposed");
+                    tv.append("Home -> on disposed\n");
+                    return Unit.INSTANCE;
+                },
+                () -> {
+                    LLog.d("loitptest", "Home -> 3 finished");
+                    tv.append("Home -> 3 finished\n");
+                    return Unit.INSTANCE;
+                });
+        compositeDisposable.add(disProgress);
+        compositeDisposable.add(dis);
     }
 }

@@ -5,12 +5,13 @@ package vn.loitp.app.activity.demo.firebase.databasesimple;
  */
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LLog.d(TAG, "onClick");
+                LLog.INSTANCE.d(TAG, "onClick");
                 if (callback != null) {
                     callback.onClick(user, position);
                 }
@@ -80,7 +81,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LLog.d(TAG, "onLongClick");
+                LLog.INSTANCE.d(TAG, "onLongClick");
                 if (callback != null) {
                     callback.onLongClick(user, position);
                 }

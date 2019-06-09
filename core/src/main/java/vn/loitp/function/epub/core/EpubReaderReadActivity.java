@@ -242,7 +242,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
         } catch (Exception e) {
-            LLog.e(TAG, "onFragmentReady " + e.toString());
+            LLog.INSTANCE.e(TAG, "onFragmentReady " + e.toString());
         }
         isSkippedToPage = false;
         if (bookSection != null) {
@@ -278,7 +278,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 }
 
             } catch (ReadingException e) {
-                LLog.e(TAG, "doInBackground " + e.toString());
+                LLog.INSTANCE.e(TAG, "doInBackground " + e.toString());
                 LToast.INSTANCE.show(activity, "Error: " + e.getMessage());
             }
             return null;
@@ -303,7 +303,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 tvPage.setText("0");
             }
             llGuide.setVisibility(View.VISIBLE);
-            LLog.d(TAG, "onPostExecute setCurrentItem " + lastSavedPage);
+            LLog.INSTANCE.d(TAG, "onPostExecute setCurrentItem " + lastSavedPage);
         }
     }
 
@@ -517,7 +517,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         }
         WebView webView = (WebView) pageFragment.getView().findViewById(idWebview);
         if (webView == null) {
-            LLog.d(TAG, "webView null");
+            LLog.INSTANCE.d(TAG, "webView null");
             return;
         }
         WebSettings settings = webView.getSettings();

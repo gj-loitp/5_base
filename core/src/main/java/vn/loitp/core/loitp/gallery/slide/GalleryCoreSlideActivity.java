@@ -44,7 +44,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         }
 
         int bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.INSTANCE.d(TAG, "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {

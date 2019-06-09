@@ -51,7 +51,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         setupActionBar();
         String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        LLog.INSTANCE.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
@@ -218,7 +218,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage cm) {
-            LLog.d(TAG, "onConsoleMessage: " + cm.message());
+            LLog.INSTANCE.d(TAG, "onConsoleMessage: " + cm.message());
             return true;
         }
 

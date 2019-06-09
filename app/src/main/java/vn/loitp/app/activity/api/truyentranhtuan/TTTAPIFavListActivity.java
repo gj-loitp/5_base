@@ -6,9 +6,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
@@ -48,7 +48,7 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
         new GetFavListTask(activity, avi, new GetFavListTask.Callback() {
             @Override
             public void onSuccess(List<Comic> comicList) {
-                LLog.d(TAG, "onSuccess " + comicList.size());
+                LLog.INSTANCE.d(TAG, "onSuccess " + comicList.size());
                 LUIUtil.printBeautyJson(comicList, tv);
                 tvTitle.setText("Danh sách yêu thích: " + comicList.size());
             }

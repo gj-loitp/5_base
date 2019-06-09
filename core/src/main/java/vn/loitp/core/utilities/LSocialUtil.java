@@ -53,7 +53,7 @@ public class LSocialUtil {
             activity.startActivity(Intent.createChooser(intent, "Vui lòng chọn"));
             LActivityUtil.INSTANCE.tranIn(activity);
         } catch (Exception e) {
-            LLog.d(TAG, "shareApp: " + e.toString());
+            LLog.INSTANCE.d(TAG, "shareApp: " + e.toString());
         }
     }
 
@@ -68,7 +68,7 @@ public class LSocialUtil {
             activity.startActivity(Intent.createChooser(intent, "Share via"));
             LActivityUtil.INSTANCE.tranIn(activity);
         } catch (Exception e) {
-            LLog.d(TAG, "shareApp: " + e.toString());
+            LLog.INSTANCE.d(TAG, "shareApp: " + e.toString());
         }
     }
 
@@ -110,7 +110,7 @@ public class LSocialUtil {
             int versionCode = packageManager.getPackageInfo("com.facebook.orca", 0).versionCode;
             if (versionCode >= 0) isFBInstalled = true;
         } catch (PackageManager.NameNotFoundException e) {
-            LLog.d(TAG, "packageManager com.facebook.orca: " + e.toString());
+            LLog.INSTANCE.d(TAG, "packageManager com.facebook.orca: " + e.toString());
         }
         if (!isFBInstalled) {
             LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null);

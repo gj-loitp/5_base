@@ -198,7 +198,7 @@ public class FrmYoutubeParser extends BaseFragment {
 
             @Override
             public void onError() {
-                LLog.d(TAG, "onError");
+                LLog.INSTANCE.d(TAG, "onError");
                 LToast.INSTANCE.showShort(getActivity(), "Error while loading data. Please retry later.");
                 progressBar.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);

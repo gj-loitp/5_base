@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.demo.gallery;
 
 import android.os.Bundle;
-import androidx.viewpager.widget.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -30,7 +31,7 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
 
         String photoID = getIntent().getStringExtra("photoID");
         int position = PhotosData.getInstance().getPosition(photoID);
-        LLog.d(TAG, "position: " + position);
+        LLog.INSTANCE.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
     }
 

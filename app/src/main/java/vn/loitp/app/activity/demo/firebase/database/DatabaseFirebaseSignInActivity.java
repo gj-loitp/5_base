@@ -60,7 +60,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.d(TAG, "signIn");
+        LLog.INSTANCE.d(TAG, "signIn");
         if (!validateForm()) {
             return;
         }
@@ -73,7 +73,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(TAG, "signIn:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(TAG, "signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
@@ -86,7 +86,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signUp() {
-        LLog.d(TAG, "signUp");
+        LLog.INSTANCE.d(TAG, "signUp");
         if (!validateForm()) {
             return;
         }
@@ -99,7 +99,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(TAG, "createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {

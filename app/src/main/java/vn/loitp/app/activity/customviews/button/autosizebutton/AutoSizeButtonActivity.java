@@ -16,7 +16,7 @@ public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LLog.d(TAG, "onCreate");
+        LLog.INSTANCE.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_rotate).setOnClickListener(this);
 

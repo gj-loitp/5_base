@@ -79,7 +79,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.d(TAG, "loadMore");
+        LLog.INSTANCE.d(TAG, "loadMore");
         swipeRefreshLayout.setRefreshing(true);
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override

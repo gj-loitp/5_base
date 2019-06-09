@@ -55,14 +55,14 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
         String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
 
         if (json == null || json.isEmpty()) {
-            LLog.d(TAG, "json == null || json.isEmpty()");
+            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
             mResult = RESULT_COMIC_IS_NOT_EXIST;
         } else {
             comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
-            LLog.d(TAG, "comicList size: " + comicList.size());
+            LLog.INSTANCE.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
-            LLog.d(TAG, "pos " + pos);
+            LLog.INSTANCE.d(TAG, "pos " + pos);
             if (pos != vn.loitp.core.common.Constants.INSTANCE.getNOT_FOUND()) {
                 comicList.remove(pos);
 

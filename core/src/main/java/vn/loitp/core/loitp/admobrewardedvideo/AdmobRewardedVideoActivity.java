@@ -105,7 +105,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     }
 
     private void displayRewardAd() {
-        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
+        LLog.INSTANCE.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
         if (mAd.isLoaded()) {
             mAd.show();
         } else {
@@ -115,35 +115,35 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     @Override
     public void onRewarded(RewardItem reward) {
-        LLog.d(TAG, "onRewarded");
+        LLog.INSTANCE.d(TAG, "onRewarded");
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-        LLog.d(TAG, "onRewardedVideoAdLeftApplication");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoAdLeftApplication");
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
-        LLog.d(TAG, "onRewardedVideoAdClosed");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoAdClosed");
     }
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
-        LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
+        LLog.INSTANCE.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
         //ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoCompleted() {
-        LLog.d(TAG, "onRewardedVideoCompleted");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoCompleted");
     }
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        LLog.d(TAG, "onRewardedVideoAdLoaded");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoAdLoaded");
         //avLoadingIndicatorView.smoothToHide();
         tv.setText(R.string.open_gift);
         LAnimationUtil.play(getRootView(), Techniques.Pulse);
@@ -152,11 +152,11 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     @Override
     public void onRewardedVideoAdOpened() {
-        LLog.d(TAG, "onRewardedVideoAdOpened");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoAdOpened");
     }
 
     @Override
     public void onRewardedVideoStarted() {
-        LLog.d(TAG, "onRewardedVideoStarted");
+        LLog.INSTANCE.d(TAG, "onRewardedVideoStarted");
     }
 }

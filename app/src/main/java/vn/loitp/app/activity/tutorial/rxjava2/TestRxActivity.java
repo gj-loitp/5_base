@@ -4,16 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.Nullable;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
@@ -51,7 +50,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
+        tv = findViewById(R.id.tv);
         findViewById(R.id.bt_0).setOnClickListener(this);
         findViewById(R.id.bt_1).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
@@ -156,12 +155,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         //Observable<Bike> bikeObservable = Observable.just(bike);
 
         //c2
-        Observable<Bike> bikeObservable = Observable.defer(new Callable<ObservableSource<? extends Bike>>() {
-            @Override
-            public ObservableSource<? extends Bike> call() throws Exception {
-                return Observable.just(bike);
-            }
-        });
+        Observable<Bike> bikeObservable = Observable.defer(() -> Observable.just(bike));
         bike = new Bike("Honda", "CBR1000RR");
         bikeObservable.subscribe(new Observer<Bike>() {
             @Override
@@ -218,15 +212,12 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
 
     private void test4() {
         tv.setText("test4\n");
-        Disposable disposable = Observable.create(new ObservableOnSubscribe<Bike>() {
-            @Override
-            public void subscribe(ObservableEmitter<Bike> emitter) throws Exception {
-                List<Bike> bikeList = getBikeList();
-                for (Bike bike : bikeList) {
-                    emitter.onNext(bike);
-                }
-                emitter.onComplete();
+        Disposable disposable = Observable.create((ObservableOnSubscribe<Bike>) emitter -> {
+            List<Bike> bikeList = getBikeList();
+            for (Bike bike : bikeList) {
+                emitter.onNext(bike);
             }
+            emitter.onComplete();
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<Bike>() {
                     /*@Override
@@ -295,24 +286,11 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
                 });*/
 
         //flat map
-        searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .flatMap(new Function<String, ObservableSource<List<Bike>>>() {
-                    @Override
-                    public ObservableSource<List<Bike>> apply(String s) throws Exception {
-                        return Observable.defer(new Callable<ObservableSource<? extends List<Bike>>>() {
-                            @Override
-                            public ObservableSource<? extends List<Bike>> call() throws Exception {
-                                return Observable.just(parse(s));
-                            }
-                        });
-                    }
-                })
-                .flatMap(new Function<List<Bike>, ObservableSource<Bike>>() {
-                    @Override
-                    public ObservableSource<Bike> apply(List<Bike> bikes) throws Exception {
-                        return Observable.fromIterable(bikes);
-                    }
-                })
+        searchBike("Yamaha")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap((Function<String, ObservableSource<List<Bike>>>) s -> Observable.defer(() -> Observable.just(parse(s))))
+                .flatMap((Function<List<Bike>, ObservableSource<Bike>>) Observable::fromIterable)
                 .subscribe(new Observer<Bike>() {
                     @Override
                     public void onSubscribe(Disposable d) {

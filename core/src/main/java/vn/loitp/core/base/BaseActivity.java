@@ -16,17 +16,18 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
+
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
 import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
 import rx.Subscriber;
@@ -172,7 +173,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void handleException(Throwable throwable) {
-        LLog.e("handleException", throwable.toString());
+        LLog.INSTANCE.e("handleException", throwable.toString());
         if (throwable != null) {
             showDialogError("Error: " + throwable.toString());
         }

@@ -6,10 +6,11 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.core.content.ContextCompat;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
@@ -40,7 +41,7 @@ public class NavigationViewActivity extends BaseFontActivity {
         nv.setNVCallback(new LNavigationView.NVCallback() {
             @Override
             public void onIndexChange(int index, String s) {
-                LLog.d(TAG, "onIndexChange " + index + " -> " + s);
+                LLog.INSTANCE.d(TAG, "onIndexChange " + index + " -> " + s);
                 tvMsg.setText(index + " -> " + s);
             }
         });

@@ -191,7 +191,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.d(TAG, "res " + res);
+            LLog.INSTANCE.d(TAG, "res " + res);
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 

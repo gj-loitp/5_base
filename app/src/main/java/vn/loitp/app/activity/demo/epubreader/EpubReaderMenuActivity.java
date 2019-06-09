@@ -57,7 +57,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.d(TAG, "onPostExecute " + bookInfoList.size());
+                        LLog.INSTANCE.d(TAG, "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
                         BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
@@ -76,7 +76,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.d(TAG, "onPostExecute " + bookInfoList.size());
+                        LLog.INSTANCE.d(TAG, "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);

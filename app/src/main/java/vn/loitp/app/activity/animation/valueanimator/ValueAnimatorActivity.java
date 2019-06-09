@@ -56,7 +56,7 @@ public class ValueAnimatorActivity extends BaseFontActivity {
         valueAnimator.setInterpolator(new DecelerateInterpolator());
         float spaceW = (LScreenUtil.getScreenWidth() - view.getWidth()) / range;
         float spaceH = (LScreenUtil.getScreenHeight() - LScreenUtil.getStatusBarHeight(activity) - LScreenUtil.getBottomBarHeight(activity) - view.getHeight()) / range;
-        LLog.d(TAG, "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
+        LLog.INSTANCE.d(TAG, "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

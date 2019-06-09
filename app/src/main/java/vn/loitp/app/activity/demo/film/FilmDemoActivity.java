@@ -59,12 +59,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                     LLog.d(TAG, "onScrollChange Scroll UP");
                 }*/
                 if (scrollY == 0) {
-                    LLog.d(TAG, "onScrollChange TOP SCROLL");
+                    LLog.INSTANCE.d(TAG, "onScrollChange TOP SCROLL");
                     LToast.INSTANCE.show(activity, "TOP SCROLL");
                 }
 
                 if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
-                    LLog.d(TAG, "onScrollChange BOTTOM SCROLL");
+                    LLog.INSTANCE.d(TAG, "onScrollChange BOTTOM SCROLL");
                     LToast.INSTANCE.show(activity, "BOTTOM SCROLL -> LOAD MORE");
                 }
             }

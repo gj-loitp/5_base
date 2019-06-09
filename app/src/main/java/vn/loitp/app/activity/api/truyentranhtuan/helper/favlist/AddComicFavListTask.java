@@ -52,11 +52,11 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.d(TAG, "doInBackground");
+        LLog.INSTANCE.d(TAG, "doInBackground");
         String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
 
         if (json == null || json.isEmpty()) {
-            LLog.d(TAG, "json == null || json.isEmpty()");
+            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
             comicList.add(mComic);
 
             String newJson = LSApplication.Companion.getGson().toJson(comicList);
@@ -69,7 +69,7 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
         } else {
             comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
-            LLog.d(TAG, "comicList size: " + comicList);
+            LLog.INSTANCE.d(TAG, "comicList size: " + comicList);
             boolean isExist = ComicUtils.isComicExistIn(mComic, comicList);
             if (!isExist) {
                 comicList.add(mComic);

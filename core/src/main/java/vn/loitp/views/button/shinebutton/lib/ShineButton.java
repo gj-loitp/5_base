@@ -239,7 +239,7 @@ public class ShineButton extends PorterShapeImageView {
             rootView.addView(shineView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             doShareAnim();
         } else {
-            LLog.e(TAG, "Please init.");
+            LLog.INSTANCE.e(TAG, "Please init.");
         }
     }
 
@@ -248,7 +248,7 @@ public class ShineButton extends PorterShapeImageView {
             final ViewGroup rootView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
             rootView.removeView(view);
         } else {
-            LLog.e(TAG, "Please init.");
+            LLog.INSTANCE.e(TAG, "Please init.");
         }
     }
 
@@ -358,7 +358,7 @@ public class ShineButton extends PorterShapeImageView {
 
         @Override
         public void onClick(View view) {
-            LLog.d(TAG, "onClick");
+            LLog.INSTANCE.d(TAG, "onClick");
             /*if (!isChecked) {
                 isChecked = true;
                 showAnim();

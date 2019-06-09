@@ -3,20 +3,21 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withplacehol
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import android.widget.LinearLayout;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.widget.LinearLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.Image;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeBig;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeSmallList;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.Utils;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
@@ -106,7 +107,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     }
 
     private void loadMore() {
-        LLog.d(TAG, ">>>>loadMore");
+        LLog.INSTANCE.d(TAG, ">>>>loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {

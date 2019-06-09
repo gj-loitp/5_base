@@ -1,97 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+	<ScrollView
+		android:id="@+id/scroll_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true"
+		android:padding="@dimen/padding_5">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_single_selection"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="24dp"
-                    android:text="Single Selection" />
+				<TextView
+					android:id="@+id/tv_single_selection"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:padding="24dp"
+					android:text="@string/single_selection" />
 
-                <TextView
-                    android:id="@+id/tv_multi_selection"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="24dp"
-                    android:text="Multi Selection" />
-            </LinearLayout>
+				<TextView
+					android:id="@+id/tv_single_selection_crop"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:padding="24dp"
+					android:text="@string/single_selection_crop" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+				<TextView
+					android:id="@+id/tv_multi_selection"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:padding="24dp"
+					android:text="@string/multi_selection" />
+			</LinearLayout>
 
-                <ImageView
-                    android:id="@+id/iv_image1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/iv_image2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+				<ImageView
+					android:id="@+id/iv_image1"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
 
-                <ImageView
-                    android:id="@+id/iv_image3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+				<ImageView
+					android:id="@+id/iv_image2"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
 
-            </LinearLayout>
+				<ImageView
+					android:id="@+id/iv_image3"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
+			</LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/iv_image4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+				<ImageView
+					android:id="@+id/iv_image4"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
 
-                <ImageView
-                    android:id="@+id/iv_image5"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+				<ImageView
+					android:id="@+id/iv_image5"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
 
-                <ImageView
-                    android:id="@+id/iv_image6"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+				<ImageView
+					android:id="@+id/iv_image6"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:contentDescription="@string/app_name" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
 </RelativeLayout>
 

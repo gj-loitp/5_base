@@ -80,7 +80,7 @@ public class MapExampleActivity extends BaseFontActivity {
 
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.d(TAG, " onSubscribe : " + d.isDisposed());
+                LLog.INSTANCE.d(TAG, " onSubscribe : " + d.isDisposed());
             }
 
             @Override
@@ -89,19 +89,19 @@ public class MapExampleActivity extends BaseFontActivity {
                 for (User user : userList) {
                     textView.append(" firstname : " + user.firstname + "\n");
                 }
-                LLog.d(TAG, " onNext : " + userList.size());
+                LLog.INSTANCE.d(TAG, " onNext : " + userList.size());
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.d(TAG, " onError : " + e.getMessage());
+                LLog.INSTANCE.d(TAG, " onError : " + e.getMessage());
             }
 
             @Override
             public void onComplete() {
                 textView.append(" onComplete\n");
-                LLog.d(TAG, " onComplete");
+                LLog.INSTANCE.d(TAG, " onComplete");
             }
         };
     }

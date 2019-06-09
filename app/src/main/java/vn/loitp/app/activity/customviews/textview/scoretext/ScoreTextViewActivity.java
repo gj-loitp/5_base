@@ -59,9 +59,9 @@ public class ScoreTextViewActivity extends BaseFontActivity {
             switch (msg.what) {
                 case KEY_UPDATE_SCORE:
                     tv.setText((String) msg.obj);
-                    LLog.d(TAG, msg.obj + "");
+                    LLog.INSTANCE.d(TAG, msg.obj + "");
                     if (((String) msg.obj).equals(String.valueOf(maxScore))) {
-                        LLog.d(TAG, "done");
+                        LLog.INSTANCE.d(TAG, "done");
                         bt.setEnabled(true);
                     }
                     break;

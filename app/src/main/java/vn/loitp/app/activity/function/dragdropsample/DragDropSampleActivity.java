@@ -79,19 +79,19 @@ public class DragDropSampleActivity extends BaseFontActivity {
             final ImageView draggedView = (ImageView) event.getLocalState();
             switch (event.getAction()) {
                 case DragEvent.ACTION_DRAG_STARTED:
-                    LLog.d(TAG, "onDrag: ACTION_DRAG_STARTED");
+                    LLog.INSTANCE.d(TAG, "onDrag: ACTION_DRAG_STARTED");
                     hit = false;
                     return true;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    LLog.d(TAG, "onDrag: ACTION_DRAG_ENTERED");
+                    LLog.INSTANCE.d(TAG, "onDrag: ACTION_DRAG_ENTERED");
                     containerView.setImageResource(enterShape);
                     return true;
                 case DragEvent.ACTION_DRAG_EXITED:
-                    LLog.d(TAG, "onDrag: ACTION_DRAG_EXITED");
+                    LLog.INSTANCE.d(TAG, "onDrag: ACTION_DRAG_EXITED");
                     containerView.setImageResource(normalShape);
                     return true;
                 case DragEvent.ACTION_DROP:
-                    LLog.d(TAG, "onDrag: ACTION_DROP");
+                    LLog.INSTANCE.d(TAG, "onDrag: ACTION_DROP");
                     hit = true;
                     draggedView.post(new Runnable() {
                         @Override
@@ -101,7 +101,7 @@ public class DragDropSampleActivity extends BaseFontActivity {
                     });
                     return true;
                 case DragEvent.ACTION_DRAG_ENDED:
-                    LLog.d(TAG, "onDrag: ACTION_DRAG_ENDED");
+                    LLog.INSTANCE.d(TAG, "onDrag: ACTION_DRAG_ENDED");
                     containerView.setImageResource(normalShape);
                     v.setVisibility(View.VISIBLE);
                     if (!hit) {

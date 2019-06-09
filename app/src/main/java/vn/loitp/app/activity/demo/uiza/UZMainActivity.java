@@ -155,7 +155,7 @@ public class UZMainActivity extends BaseFontActivity {
         subscribe(service.getListMetadata(), new ApiSubscriber<ResultGetListMetadata>() {
             @Override
             public void onSuccess(ResultGetListMetadata resultGetListMetadata) {
-                LLog.d(TAG, "getListMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultGetListMetadata));
+                LLog.INSTANCE.d(TAG, "getListMetadata onSuccess: " + LSApplication.Companion.getGson().toJson(resultGetListMetadata));
                 if (resultGetListMetadata == null) {
                     return;
                 }
@@ -183,7 +183,7 @@ public class UZMainActivity extends BaseFontActivity {
 
             @Override
             public void onFail(Throwable e) {
-                LLog.e(TAG, "getListMetadata onFail " + e.getMessage());
+                LLog.INSTANCE.e(TAG, "getListMetadata onFail " + e.getMessage());
                 avl.smoothToHide();
             }
         });

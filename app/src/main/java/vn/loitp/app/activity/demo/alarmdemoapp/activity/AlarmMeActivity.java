@@ -57,7 +57,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.d(TAG, "AlarmMeActivity.onCreate()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onCreate()");
 
         mAlarmList = (ListView) findViewById(R.id.lv_alarm);
         LUIUtil.setPullLikeIOSVertical(mAlarmList);
@@ -73,7 +73,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(TAG, "AlarmMeActivity.onDestroy()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onDestroy()");
     }
 
     @Override
@@ -94,7 +94,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(TAG, "AlarmMeActivity.onResume()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 

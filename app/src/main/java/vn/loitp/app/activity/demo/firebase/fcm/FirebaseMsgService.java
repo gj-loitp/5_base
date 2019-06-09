@@ -31,8 +31,8 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             if (remoteMessage == null || remoteMessage.getNotification() == null) {
                 return;
             }
-            LLog.d(TAG, "From: " + remoteMessage.getFrom());
-            LLog.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+            LLog.INSTANCE.d(TAG, "From: " + remoteMessage.getFrom());
+            LLog.INSTANCE.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
             //THIS CODE BELOWS SEND A NOTIFICATION
             if (Constants.INSTANCE.getIS_DEBUG()) {
@@ -49,7 +49,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
                         .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));
             }
         } catch (Exception e) {
-            LLog.e(TAG, "onMessageReceived Exception " + e.toString());
+            LLog.INSTANCE.e(TAG, "onMessageReceived Exception " + e.toString());
         }
     }
 

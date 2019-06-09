@@ -50,13 +50,13 @@ public class CollapsingToolbarLayoutActivity extends BaseFontActivity implements
                 //LLog.d(TAG, "toolbarChange: " + toolbarChange);
                 if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
                     //COLLAPSED appBarLayout min
-                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+                    LLog.INSTANCE.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
                 } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
                     //EXPANDED appBarLayout max
-                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+                    LLog.INSTANCE.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
                 } else {
                     //IDLE appBarLayout not min not max
-                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+                    LLog.INSTANCE.d(TAG, "IDLE toolbarChange: " + toolbarChange);
                 }
             }
         });

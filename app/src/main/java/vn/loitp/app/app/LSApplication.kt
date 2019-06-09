@@ -18,6 +18,19 @@ import vn.loitp.utils.util.Utils
 //TODO rxjava1->rxjava2
 //TODO core film plus
 //TODO is debug
+
+
+
+//GIT
+//combine 2 commit gan nhat lam 1, co thay doi tren github
+/*git reset --soft HEAD~2
+git push -f*/
+
+
+
+
+
+
 class LSApplication : MultiDexApplication() {
     private val TAG = LSApplication::class.java.simpleName
 

@@ -1,13 +1,14 @@
 package vn.loitp.core.utilities;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
@@ -18,6 +19,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+
+import java.io.File;
 
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
@@ -31,21 +34,15 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 
 public class LImageUtil {
     //for flide
-    public static void clear(Context context, View target) {
+    public static void clear(@NonNull final Context context, @NonNull final View target) {
         Glide.with(context).clear(target);
     }
 
-    public static void load(Context context, int drawableRes, ImageView imageView) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, final int drawableRes, @NonNull final ImageView imageView) {
         Glide.with(context).load(drawableRes).into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -59,10 +56,7 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView, final RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -77,10 +71,7 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView, final int resPlaceHolder) {
         //Glide.with(activity).load(url).placeholder(resPlaceHolder).into(imageView);
         Glide.with(context)
                 .load(url)
@@ -94,10 +85,15 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void loadRound(String url, ImageView imageView, int roundingRadius, int resPlaceHolder) {
-        if (imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final File imageFile, @NonNull final ImageView imageView) {
+        Glide.with(context).load(imageFile).into(imageView);
+    }
+
+    public static void load(@NonNull final Context context, @NonNull final Uri uri, @NonNull final ImageView imageView) {
+        Glide.with(context).load(uri).into(imageView);
+    }
+
+    public static void loadRound(@NonNull final String url, @NonNull final ImageView imageView, final int roundingRadius, final int resPlaceHolder) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(roundingRadius)).placeholder(resPlaceHolder);
         Glide.with(imageView.getContext())
@@ -107,10 +103,7 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void loadCircle(String url, ImageView imageView) {
-        if (imageView == null) {
-            return;
-        }
+    public static void loadCircle(@NonNull final String url, @NonNull final ImageView imageView) {
         Glide.with(imageView.getContext())
                 .load(url)
                 .transition(withCrossFade())
@@ -118,10 +111,7 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void loadCircle(String url, ImageView imageView, int resPlaceHolder, int resError) {
-        if (imageView == null) {
-            return;
-        }
+    public static void loadCircle(@NonNull final String url, @NonNull final ImageView imageView, final int resPlaceHolder, final int resError) {
         Glide.with(imageView.getContext())
                 .load(url)
                 .transition(withCrossFade())
@@ -164,10 +154,8 @@ public class LImageUtil {
                 .into(imageView);
     }*/
 
-    public static void load(Context context, String url, ImageView imageView, int resPlaceHolder, int resError, RequestListener<Drawable> drawableRequestListener) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                            final int resPlaceHolder, final int resError, final RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -182,10 +170,8 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder, int resError) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                            @Nullable final AVLoadingIndicatorView avLoadingIndicatorView, final int resPlaceHolder, final int resError) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -218,10 +204,8 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, final ProgressBar progressBar, int sizeW, int sizeH) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                            @NonNull final ProgressBar progressBar, final int sizeW, final int sizeH) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -247,10 +231,7 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, final ProgressBar progressBar) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView, @NonNull final ProgressBar progressBar) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -276,18 +257,17 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView, int resPlaceHolder) {
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                            @Nullable final AVLoadingIndicatorView avLoadingIndicatorView, final int resPlaceHolder) {
         load(context, url, imageView, avLoadingIndicatorView, resPlaceHolder, Color.TRANSPARENT);
     }
 
-    public static void load(Context context, String url, ImageView imageView, final AVLoadingIndicatorView avLoadingIndicatorView) {
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView, @Nullable final AVLoadingIndicatorView avLoadingIndicatorView) {
         load(context, url, imageView, avLoadingIndicatorView, Color.TRANSPARENT, Color.TRANSPARENT);
     }
 
-    public static void load(Context context, String url, ImageView imageView, int sizeW, int sizeH) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void load(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                            final int sizeW, final int sizeH) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(new RequestOptions()
@@ -298,22 +278,21 @@ public class LImageUtil {
                 ).into(imageView);
     }
 
-    public static void loadNoAmin(Context context, String url, ImageView imageView) {
+    public static void loadNoAmin(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView) {
         loadNoAmin(context, url, imageView, null);
     }
 
-    public static void loadNoAmin(Context context, String url, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
+    public static void loadNoAmin(@NonNull final Context context, @NonNull final String url, @NonNull final ImageView imageView,
+                                  final RequestListener<Drawable> drawableRequestListener) {
         loadNoAmin(context, url, "", imageView, drawableRequestListener);
     }
 
-    public static void loadNoAmin(Context context, String url, String urlThumbnal, ImageView imageView) {
+    public static void loadNoAmin(@NonNull final Context context, @NonNull final String url, @NonNull final String urlThumbnal, @NonNull final ImageView imageView) {
         loadNoAmin(context, url, urlThumbnal, imageView, null);
     }
 
-    public static void loadNoAmin(Context context, String url, String urlThumbnal, ImageView imageView, RequestListener<Drawable> drawableRequestListener) {
-        if (context == null || imageView == null) {
-            return;
-        }
+    public static void loadNoAmin(@NonNull final Context context, @NonNull final String url, @NonNull final String urlThumbnal, @NonNull final ImageView imageView,
+                                  final RequestListener<Drawable> drawableRequestListener) {
         Glide.with(context).load(url)
                 //.transition(withCrossFade())
                 .thumbnail(Glide.with(context)
@@ -335,12 +314,8 @@ public class LImageUtil {
                 .into(imageView);
     }
 
-    public interface OnLoadCompletedListener {
-        void onLoadCompleted(Bitmap bitmap);
-    }
-
     //for flick api url_m -> url_b
-    public static String getFlickrLink100(String linkUrlM) {
+    public static String getFlickrLink100(@NonNull String linkUrlM) {
         /*
         s	small square 75x75
         q	large square 150x150
@@ -357,7 +332,7 @@ public class LImageUtil {
         */
 
 
-        if (linkUrlM == null || linkUrlM.isEmpty()) {
+        if (linkUrlM.isEmpty()) {
             return null;
         }
         linkUrlM = linkUrlM.toLowerCase();
@@ -370,7 +345,7 @@ public class LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    public static String getFlickrLink640(String linkUrlM) {
+    public static String getFlickrLink640(@NonNull String linkUrlM) {
         /*
         s	small square 75x75
         q	large square 150x150
@@ -387,7 +362,7 @@ public class LImageUtil {
         */
 
 
-        if (linkUrlM == null || linkUrlM.isEmpty()) {
+        if (linkUrlM.isEmpty()) {
             return null;
         }
         linkUrlM = linkUrlM.toLowerCase();
@@ -400,7 +375,7 @@ public class LImageUtil {
     }
 
     //for flick api url_m -> url_n
-    public static String getFlickrLink320(String linkUrlM) {
+    public static String getFlickrLink320(@NonNull String linkUrlM) {
         /*
         s	small square 75x75
         q	large square 150x150
@@ -417,7 +392,7 @@ public class LImageUtil {
         */
 
 
-        if (linkUrlM == null || linkUrlM.isEmpty()) {
+        if (linkUrlM.isEmpty()) {
             return null;
         }
         linkUrlM = linkUrlM.toLowerCase();
@@ -430,7 +405,7 @@ public class LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    public static String getFlickrLink1024(String linkUrlM) {
+    public static String getFlickrLink1024(@NonNull String linkUrlM) {
         /*
         s	small square 75x75
         q	large square 150x150
@@ -447,7 +422,7 @@ public class LImageUtil {
         */
 
 
-        if (linkUrlM == null || linkUrlM.isEmpty()) {
+        if (linkUrlM.isEmpty()) {
             return null;
         }
         linkUrlM = linkUrlM.toLowerCase();
@@ -460,12 +435,12 @@ public class LImageUtil {
     }
 
     public static String getRandomUrlFlickr() {
-        int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_URL_BKG_FLICKR().length);
+        final int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_URL_BKG_FLICKR().length);
         return Constants.INSTANCE.getARR_URL_BKG_FLICKR()[r];
     }
 
     public static int getRandomMiniDrawable() {
-        int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_RANDOM_MINI_DRAWABLE().length);
+        final int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_RANDOM_MINI_DRAWABLE().length);
         return Constants.INSTANCE.getARR_RANDOM_MINI_DRAWABLE()[r];
     }
 }
