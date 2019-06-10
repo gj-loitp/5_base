@@ -40,14 +40,14 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
         lottieAnimationView.setAnimation("lottie/gradient_animated_background.json");
-        lottieAnimationView.useHardwareAcceleration();
+        //lottieAnimationView.useHardwareAcceleration();
         //lottieAnimationView.setScale(0.3f);
         lottieAnimationView.playAnimation();
         lottieAnimationView.loop(true);
 
         lottieAnimationViewGift = (LottieAnimationView) findViewById(R.id.animation_view_gift);
         lottieAnimationViewGift.setAnimation("lottie/happy_gift.json");
-        lottieAnimationViewGift.useHardwareAcceleration();
+        //lottieAnimationViewGift.useHardwareAcceleration();
         //lottieAnimationView.setScale(0.3f);
         //lottieAnimationViewGift.playAnimation();
         lottieAnimationViewGift.loop(true);

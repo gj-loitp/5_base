@@ -127,7 +127,7 @@ public class MenuLottieActivity extends BaseFontActivity {
             LottieAnimationView lottieAnimationView = (LottieAnimationView) layout.findViewById(R.id.animation_view);
 
             lottieAnimationView.setAnimation(lottieItem.getPathAsset());
-            lottieAnimationView.useHardwareAcceleration();
+            //lottieAnimationView.useHardwareAcceleration();
             //lottieAnimationView.setScale(0.3f);
 
             //lottieAnimationView.playAnimation();

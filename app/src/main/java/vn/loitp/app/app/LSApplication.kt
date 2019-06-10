@@ -14,9 +14,14 @@ import vn.loitp.data.ActivityData
 import vn.loitp.data.AdmobData
 import vn.loitp.utils.util.Utils
 
-//TODO rxjava1->rxjava2
+//TODO bug database ->  read sqlite  asset
+//TODO bug demo app -> butter knife
+//TODO bug function -> scrog
+
 //TODO core film plus
 //TODO is debug
+
+
 
 
 //GIT
