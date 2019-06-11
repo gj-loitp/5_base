@@ -76,7 +76,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
         } catch (SQLiteException e) {
-            LLog.INSTANCE.d(TAG, "checkDatabase " + e.toString());
+            LLog.d(TAG, "checkDatabase " + e.toString());
         }
         if (checkDB != null) checkDB.close();
         return checkDB != null;
@@ -96,7 +96,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
         myInput.close();
     }
 
-    public void createDatabase() throws IOException {
+    public void createDatabase() {
         boolean dbExist = checkDatabase();
         if (dbExist) {
             //khong lam gi ca, database da co roi

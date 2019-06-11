@@ -22,16 +22,16 @@ public class ReadSqliteAssetActivity extends BaseFontActivity {
         vocabularyManager = new VocabularyManager(activity);
         try {
             vocabularyManager.createDatabase();
-            LLog.INSTANCE.d(TAG, "init dtb success");
-        } catch (IOException e) {
-            LLog.INSTANCE.d(TAG, "init dtb failed: " + e.toString());
+            LLog.d(TAG, "init dtb success");
+        } catch (Exception e) {
+            LLog.d(TAG, "init dtb failed: " + e.toString());
         }
         List<Vocabulary> vocabularyList = new ArrayList<>();
         vocabularyList.addAll(vocabularyManager.getAllVocabulary());
 
-        LLog.INSTANCE.d(TAG, "size: " + vocabularyList.size());
+        LLog.d(TAG, "size: " + vocabularyList.size());
 
-        tv = (TextView) findViewById(R.id.tv);
+        tv = findViewById(R.id.tv);
         LUIUtil.printBeautyJson(vocabularyList.get(0), tv);
     }
 
