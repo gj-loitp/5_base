@@ -13,7 +13,7 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(cryptoList[position], listener, position)
+        holder.bind(cryptoList[position], listener)
     }
 
     override fun getItemCount(): Int = cryptoList.count()
@@ -24,7 +24,7 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(retroCrypto: RetroCrypto, listener: Listener, position: Int) {
+        fun bind(retroCrypto: RetroCrypto, listener: Listener) {
             itemView.setOnClickListener { listener.onItemClick(retroCrypto) }
             itemView.text_name.text = retroCrypto.currency
             itemView.text_price.text = retroCrypto.price

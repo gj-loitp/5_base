@@ -12,7 +12,7 @@ import kotlin.properties.Delegates
 class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
     val TAG: String = "TAG" + javaClass.simpleName
 
-    var items: List<Content> by Delegates.observable(emptyList()) { prop, old, new ->
+    var items: List<Content> by Delegates.observable(emptyList()) { _, old, new ->
         autoNotify(old, new) { o, n -> o.id == n.id }
     }
 

@@ -15,7 +15,6 @@ import vn.loitp.data.AdmobData
 import vn.loitp.utils.util.Utils
 
 //TODO bug database ->  read sqlite  asset
-//TODO bug function -> scrog
 //TODO bug custom view -> button -> auto size button
 //TODO bug custom view -> button -> loading button
 //TODO bug custom view -> edittext -> auto resize edittext

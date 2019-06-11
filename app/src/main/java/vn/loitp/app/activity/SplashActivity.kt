@@ -218,7 +218,7 @@ class SplashActivity : BaseFontActivity() {
             }
 
             override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
-                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson?.toJson(app))
+                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson.toJson(app))
                 //LPref.setGGAppSetting(activity, app);
             }
         })
