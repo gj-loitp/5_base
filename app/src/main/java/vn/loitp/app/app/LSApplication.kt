@@ -17,8 +17,6 @@ import vn.loitp.utils.util.Utils
 //TODO bug database ->  read sqlite  asset
 //TODO bug custom view -> button -> auto size button
 //TODO bug custom view -> button -> loading button
-//TODO bug custom view -> edittext -> auto resize edittext
-//TODO bug custom view -> layout -> drag layout
 
 //TODO core film plus
 //TODO is debug

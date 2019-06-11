@@ -55,7 +55,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_square_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_relative_popup_window).setOnClickListener(this)
         findViewById<View>(R.id.bt_motion_layout).setOnClickListener(this)
-        findViewById<View>(R.id.bt_drag_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_fixed_grid_layout).setOnClickListener(this)
     }
 
