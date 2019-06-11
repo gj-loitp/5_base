@@ -137,7 +137,7 @@ dependencies {
 
     //https://github.com/JakeWharton/butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
     //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
 
