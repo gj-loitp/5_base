@@ -130,6 +130,12 @@
                 android:text="@string/scroll_view_2d" />
 
             <Button
+                android:id="@+id/bt_scroll_view_2d_advance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scroll_view_2d_advance" />
+
+            <Button
                 android:id="@+id/bt_square_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

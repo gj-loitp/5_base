@@ -298,6 +298,7 @@ Likewise may someone love you next.
     <string name="ripple_layout">Ripple Layout</string>
     <string name="rotate_layout">Rotate Layout</string>
     <string name="scroll_view_2d">Scroll view 2d</string>
+    <string name="scroll_view_2d_advance">Scroll view 2d advance</string>
     <string name="square_layout">Square Layout</string>
     <string name="swipablelayoutactivity">SwipableLayoutActivity</string>
     <string name="swipeablelayout">SwipeableLayout</string>
