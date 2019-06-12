@@ -21,6 +21,7 @@ import vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutAct
 import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity
+import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity
@@ -56,6 +57,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_relative_popup_window).setOnClickListener(this)
         findViewById<View>(R.id.bt_motion_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_fixed_grid_layout).setOnClickListener(this)
+        findViewById<View>(R.id.bt_scroll_view_2d).setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -95,6 +97,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_relative_popup_window -> intent = Intent(activity, RelativePopupWindowActivity::class.java)
             R.id.bt_motion_layout -> intent = Intent(activity, MenuMotionLayoutActivity::class.java)
             R.id.bt_fixed_grid_layout -> intent = Intent(activity, FixedGridLayoutActivity::class.java)
+            R.id.bt_scroll_view_2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
