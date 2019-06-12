@@ -5,11 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
 import vn.loitp.views.scrollablepanel.PanelAdapter;
@@ -40,7 +39,7 @@ public class ScrollablePanelAdapter extends PanelAdapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int row, int column) {
-        int viewType = getItemViewType(row, column);
+        final int viewType = getItemViewType(row, column);
         switch (viewType) {
             case DATE_TYPE:
                 setDateView(column, (DateViewHolder) holder);
@@ -58,7 +57,7 @@ public class ScrollablePanelAdapter extends PanelAdapter {
         }
     }
 
-    public int getItemViewType(int row, int column) {
+    public int getItemViewType(final int row, final int column) {
         if (column == 0 && row == 0) {
             return TITLE_TYPE;
         }
@@ -94,23 +93,23 @@ public class ScrollablePanelAdapter extends PanelAdapter {
     }
 
 
-    private void setDateView(int pos, DateViewHolder viewHolder) {
-        DateInfo dateInfo = dateInfoList.get(pos - 1);
+    private void setDateView(final int pos, final DateViewHolder viewHolder) {
+        final DateInfo dateInfo = dateInfoList.get(pos - 1);
         if (dateInfo != null && pos > 0) {
             viewHolder.dateTextView.setText(dateInfo.getDate());
             viewHolder.weekTextView.setText(dateInfo.getWeek());
         }
     }
 
-    private void setRoomView(int pos, RoomViewHolder viewHolder) {
-        RoomInfo roomInfo = roomInfoList.get(pos - 1);
+    private void setRoomView(final int pos, final RoomViewHolder viewHolder) {
+        final RoomInfo roomInfo = roomInfoList.get(pos - 1);
         if (roomInfo != null && pos > 0) {
             viewHolder.roomTypeTextView.setText(roomInfo.getRoomType());
             viewHolder.roomNameTextView.setText(roomInfo.getRoomName());
         }
     }
 
-    private void setOrderView(final int row, final int column, OrderViewHolder viewHolder) {
+    private void setOrderView(final int row, final int column, final OrderViewHolder viewHolder) {
         final OrderInfo orderInfo = ordersList.get(row - 1).get(column - 1);
         if (orderInfo != null) {
             if (orderInfo.getStatus() == OrderInfo.Status.BLANK) {
@@ -128,19 +127,16 @@ public class ScrollablePanelAdapter extends PanelAdapter {
             }
             if (orderInfo.getStatus() != OrderInfo.Status.BLANK) {
                 viewHolder.itemView.setClickable(true);
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (orderInfo.isBegin()) {
-                            LToast.INSTANCE.show(v.getContext(), "name:" + orderInfo.getGuestName());
-                        } else {
-                            int i = 2;
-                            while (column - i >= 0 && ordersList.get(row - 1).get(column - i).getId() == orderInfo.getId()) {
-                                i++;
-                            }
-                            final OrderInfo info = ordersList.get(row - 1).get(column - i + 1);
-                            LToast.INSTANCE.show(v.getContext(), "name:" + info.getGuestName());
+                viewHolder.itemView.setOnClickListener(v -> {
+                    if (orderInfo.isBegin()) {
+                        LToast.show(v.getContext(), "name:" + orderInfo.getGuestName());
+                    } else {
+                        int i = 2;
+                        while (column - i >= 0 && ordersList.get(row - 1).get(column - i).getId() == orderInfo.getId()) {
+                            i++;
                         }
+                        final OrderInfo info = ordersList.get(row - 1).get(column - i + 1);
+                        LToast.show(v.getContext(), "name:" + info.getGuestName());
                     }
                 });
             } else {
@@ -149,62 +145,61 @@ public class ScrollablePanelAdapter extends PanelAdapter {
         }
     }
 
-
     private static class DateViewHolder extends RecyclerView.ViewHolder {
-        public TextView dateTextView;
-        public TextView weekTextView;
+        TextView dateTextView;
+        TextView weekTextView;
 
-        public DateViewHolder(View itemView) {
+        DateViewHolder(View itemView) {
             super(itemView);
-            this.dateTextView = (TextView) itemView.findViewById(R.id.date);
-            this.weekTextView = (TextView) itemView.findViewById(R.id.week);
+            this.dateTextView = itemView.findViewById(R.id.date);
+            this.weekTextView = itemView.findViewById(R.id.week);
         }
 
     }
 
     private static class RoomViewHolder extends RecyclerView.ViewHolder {
-        public TextView roomTypeTextView;
-        public TextView roomNameTextView;
+        TextView roomTypeTextView;
+        TextView roomNameTextView;
 
-        public RoomViewHolder(View view) {
+        RoomViewHolder(View view) {
             super(view);
-            this.roomTypeTextView = (TextView) view.findViewById(R.id.room_type);
-            this.roomNameTextView = (TextView) view.findViewById(R.id.room_name);
+            this.roomTypeTextView = view.findViewById(R.id.room_type);
+            this.roomNameTextView = view.findViewById(R.id.room_name);
         }
     }
 
     private static class OrderViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView;
-        public TextView statusTextView;
+        TextView nameTextView;
+        TextView statusTextView;
         public View view;
 
-        public OrderViewHolder(View view) {
+        OrderViewHolder(View view) {
             super(view);
             this.view = view;
-            this.statusTextView = (TextView) view.findViewById(R.id.status);
-            this.nameTextView = (TextView) view.findViewById(R.id.guest_name);
+            this.statusTextView = view.findViewById(R.id.status);
+            this.nameTextView = view.findViewById(R.id.guest_name);
         }
     }
 
     private static class TitleViewHolder extends RecyclerView.ViewHolder {
-        public TextView titleTextView;
+        TextView titleTextView;
 
-        public TitleViewHolder(View view) {
+        TitleViewHolder(View view) {
             super(view);
-            this.titleTextView = (TextView) view.findViewById(R.id.title);
+            this.titleTextView = view.findViewById(R.id.title);
         }
     }
 
 
-    public void setRoomInfoList(List<RoomInfo> roomInfoList) {
+    void setRoomInfoList(final List<RoomInfo> roomInfoList) {
         this.roomInfoList = roomInfoList;
     }
 
-    public void setDateInfoList(List<DateInfo> dateInfoList) {
+    void setDateInfoList(final List<DateInfo> dateInfoList) {
         this.dateInfoList = dateInfoList;
     }
 
-    public void setOrdersList(List<List<OrderInfo>> ordersList) {
+    void setOrdersList(final List<List<OrderInfo>> ordersList) {
         this.ordersList = ordersList;
     }
 }
