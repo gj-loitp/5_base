@@ -27,6 +27,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private HorizontalScrollView vg2;
     private LinearLayout ll2;
     private ScrollView vg3;
+    private LinearLayout ll3;
     private TwoDScrollView vg4;
 
     @Override
@@ -35,6 +36,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
 
         ll = findViewById(R.id.ll);
         ll2 = findViewById(R.id.ll_2);
+        ll3 = findViewById(R.id.ll_3);
         tvInfo = findViewById(R.id.tv_info);
         pb = findViewById(R.id.pb);
         vg1 = findViewById(R.id.vg_1);
@@ -80,7 +82,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private void genLine(final int column, final int row) {
         //gen view group 2
         for (int i = 0; i < column; i++) {
-            Button button = new Button(activity);
+            final Button button = new Button(activity);
             button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
             button.setText("Date " + i);
             button.setOnClickListener(view1 -> {
@@ -89,13 +91,24 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
             ll2.addView(button);
         }
 
+        //gen view group 3
+        for (int i = 0; i < row; i++) {
+            final Button button = new Button(activity);
+            button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
+            button.setText(i + ":00:00");
+            button.setOnClickListener(view1 -> {
+                LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+            });
+            ll3.addView(button);
+        }
+
         //gen view group 4
         for (int i = 0; i < row; i++) {
-            LinearLayout linearLayout = new LinearLayout(activity);
+            final LinearLayout linearLayout = new LinearLayout(activity);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
             for (int j = 0; j < column; j++) {
-                Button button = new Button(activity);
+                final Button button = new Button(activity);
                 button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
                 button.setText("Button " + i + " - " + j);
                 button.setOnClickListener(view1 -> {

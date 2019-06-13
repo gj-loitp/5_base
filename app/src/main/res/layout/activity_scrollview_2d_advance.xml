@@ -58,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/vg_1"
-            android:background="@color/LightPink">
+            android:background="@color/LightPink"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/ll_2"
@@ -75,8 +76,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_below="@+id/vg_1"
-            android:background="@color/LightSeaGreen">
+            android:background="@color/LightSeaGreen"
+            android:scrollbars="none">
 
+            <LinearLayout
+                android:id="@+id/ll_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
         </ScrollView>
 
         <vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView
