@@ -54,17 +54,16 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     }
 
     private void genLine(final int column, final int row) {
-        pb.setVisibility(View.VISIBLE);
         for (int i = 0; i < row; i++) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             LinearLayout linearLayout = new LinearLayout(activity);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
             for (int j = 0; j < column; j++) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 Button button = new Button(activity);
                 button.setLayoutParams(new LinearLayout.LayoutParams(500, 300));
                 button.setText("Button " + i + " - " + j);
@@ -74,6 +73,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 linearLayout.addView(button);
             }
             ll.addView(linearLayout);
+            ll.invalidate();
         }
         pb.setVisibility(View.GONE);
     }
