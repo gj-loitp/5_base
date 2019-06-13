@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
-    android:orientation="vertical">
+    android:animateLayoutChanges="true"
+    android:background="@color/White">
+
+    <LinearLayout
+        android:id="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Light_Sky_Blue"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_gen_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_10"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
 
     <vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView
         android:id="@+id/sv"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_control">
 
         <LinearLayout
             android:id="@+id/ll"
@@ -18,15 +44,10 @@
             android:orientation="vertical" />
     </vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/bt_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add" />
-    </LinearLayout>
-</LinearLayout>
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>
