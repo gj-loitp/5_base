@@ -31,18 +31,61 @@
             tools:ignore="SpUsage" />
     </LinearLayout>
 
-    <vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView
-        android:id="@+id/sv"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_control">
 
         <LinearLayout
-            android:id="@+id/ll"
+            android:id="@+id/vg_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView>
+            android:background="@color/LightCyan"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/vg_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/vg_1"
+            android:background="@color/LightPink">
+
+            <LinearLayout
+                android:id="@+id/ll_hsv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/LightCyan"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ScrollView
+            android:id="@+id/vg_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vg_1"
+            android:background="@color/LightSeaGreen">
+
+        </ScrollView>
+
+        <vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView
+            android:id="@+id/vg_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vg_2"
+            android:layout_toEndOf="@+id/vg_3"
+            android:background="@color/LightGrey">
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </vn.loitp.app.activity.customviews.layout.scrollview2d.TwoDScrollView>
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/pb"
