@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -24,7 +23,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private TextView tvInfo;
     private ProgressBar pb;
     private LinearLayout vg1;
-    private HorizontalScrollView vg2;
+    private LHorizontalScrollView vg2;
     private LinearLayout ll2;
     private ScrollView vg3;
     private LinearLayout ll3;
@@ -46,6 +45,10 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
 
         vg4.setScrollChangeListner((view, x, y, oldx, oldy) -> {
             tvInfo.setText("setScrollChangeListner " + x + " - " + y);
+        });
+
+        vg2.setOnScrollListener((view, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            vg4.scrollTo(scrollX, vg4.getScrollY());
         });
 
         final Button btGenLine = findViewById(R.id.bt_gen_line);
