@@ -19,11 +19,13 @@ import vn.loitp.views.LToast;
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;
     private final int HEIGHT_PX = 150;
+    private final int MATCH_PX = -1;
     private LinearLayout ll;
     private TextView tvInfo;
     private ProgressBar pb;
     private LinearLayout vg1;
     private HorizontalScrollView vg2;
+    private LinearLayout ll2;
     private ScrollView vg3;
     private TwoDScrollView vg4;
 
@@ -32,6 +34,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         ll = findViewById(R.id.ll);
+        ll2 = findViewById(R.id.ll_2);
         tvInfo = findViewById(R.id.tv_info);
         pb = findViewById(R.id.pb);
         vg1 = findViewById(R.id.vg_1);
@@ -50,9 +53,9 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 btGenLine.setTextColor(Color.GRAY);
 
                 setSize(vg1, WIDTH_PX, HEIGHT_PX);
-                setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX);
-                setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT);
-                setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                setSize(vg2, MATCH_PX, HEIGHT_PX);
+                setSize(vg3, WIDTH_PX, MATCH_PX);
+                setSize(vg4, MATCH_PX, MATCH_PX);
 
                 genLine(7, 20);
             }
@@ -75,6 +78,18 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     }
 
     private void genLine(final int column, final int row) {
+        //gen view group 2
+        for (int i = 0; i < column; i++) {
+            Button button = new Button(activity);
+            button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
+            button.setText("Date " + i);
+            button.setOnClickListener(view1 -> {
+                LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+            });
+            ll2.addView(button);
+        }
+
+        //gen view group 4
         for (int i = 0; i < row; i++) {
             LinearLayout linearLayout = new LinearLayout(activity);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -89,14 +104,21 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 linearLayout.addView(button);
             }
             ll.addView(linearLayout);
-            ll.invalidate();
         }
         pb.setVisibility(View.GONE);
     }
 
     private void setSize(@NonNull View view, final int w, final int h) {
-        view.getLayoutParams().width = w;
-        view.getLayoutParams().height = h;
+        if (w == MATCH_PX) {
+            view.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else {
+            view.getLayoutParams().width = w;
+        }
+        if (h == MATCH_PX) {
+            view.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else {
+            view.getLayoutParams().height = h;
+        }
         view.requestLayout();
     }
 }
