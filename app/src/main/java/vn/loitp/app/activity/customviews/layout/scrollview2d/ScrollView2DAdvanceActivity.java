@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
+import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
@@ -25,7 +26,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private LinearLayout vg1;
     private LHorizontalScrollView vg2;
     private LinearLayout ll2;
-    private ScrollView vg3;
+    private LScrollView vg3;
     private LinearLayout ll3;
     private TwoDScrollView vg4;
 
@@ -43,12 +44,21 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         vg3 = findViewById(R.id.vg_3);
         vg4 = findViewById(R.id.vg_4);
 
-        vg4.setScrollChangeListner((view, x, y, oldx, oldy) -> {
-            tvInfo.setText("setScrollChangeListner " + x + " - " + y);
+        vg2.setOnScrollListener((view, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            LLog.d(TAG, "vg2 setOnScrollListener " + scrollX);
+            vg4.scrollTo(scrollX, vg4.getScrollY());
         });
 
-        vg2.setOnScrollListener((view, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-            vg4.scrollTo(scrollX, vg4.getScrollY());
+        vg3.setOnScrollListener((view, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            LLog.d(TAG, "vg3 setOnScrollListener " + scrollX);
+            vg4.scrollTo(vg4.getScrollX(), scrollY);
+        });
+
+        vg4.setScrollChangeListner((view, x, y, oldx, oldy) -> {
+            tvInfo.setText("setScrollChangeListner " + x + " - " + y);
+            LLog.d(TAG, "vg4 setOnScrollListener " + x);
+            vg2.scrollTo(x, vg2.getScrollY());
+            vg3.scrollTo(vg3.getScrollX(), y);
         });
 
         final Button btGenLine = findViewById(R.id.bt_gen_line);
@@ -62,7 +72,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 setSize(vg3, WIDTH_PX, MATCH_PX);
                 setSize(vg4, MATCH_PX, MATCH_PX);
 
-                genLine(7, 20);
+                genLine(30, 24);
             }
         });
     }
