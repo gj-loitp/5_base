@@ -14,12 +14,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
+import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.scrollview.LHorizontalScrollView;
 import vn.loitp.views.scrollview.LScrollView;
@@ -28,7 +28,6 @@ import vn.loitp.views.scrollview.TwoDScrollView;
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;
     private final int HEIGHT_PX = 150;
-    private final int MATCH_PX = -1;
     private TextView tvInfo;
     private ProgressBar pb;
     private LinearLayout vg1;
@@ -76,10 +75,10 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 btGenLine.setClickable(false);
                 btGenLine.setTextColor(Color.GRAY);
 
-                setSize(vg1, WIDTH_PX, HEIGHT_PX);
-                setSize(vg2, MATCH_PX, HEIGHT_PX);
-                setSize(vg3, WIDTH_PX, MATCH_PX);
-                setSize(vg4, MATCH_PX, MATCH_PX);
+                LUIUtil.setSize(vg1, WIDTH_PX, HEIGHT_PX);
+                LUIUtil.setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX);
+                LUIUtil.setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT);
+                LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
                 genLine(30, 24);
             }
@@ -151,7 +150,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
         recyclerView.setAdapter(squareAdapter);
 
-        //add sticker
+        //add sticker img
         final ImageView sticker0 = new ImageView(activity);
         sticker0.setImageResource(R.drawable.loitp);
         sticker0.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -169,19 +168,5 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         rl4.addView(sticker1);
 
         pb.setVisibility(View.GONE);
-    }
-
-    private void setSize(@NonNull View view, final int w, final int h) {
-        if (w == MATCH_PX) {
-            view.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-        } else {
-            view.getLayoutParams().width = w;
-        }
-        if (h == MATCH_PX) {
-            view.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-        } else {
-            view.getLayoutParams().height = h;
-        }
-        view.requestLayout();
     }
 }

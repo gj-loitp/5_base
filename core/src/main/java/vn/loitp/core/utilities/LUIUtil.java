@@ -79,36 +79,15 @@ public class LUIUtil {
     }
 
     public static AdView createAdBanner(@NonNull final AdView adView) {
-        adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.getTEST_0())
-                .addTestDevice(Constants.getTEST_1())
-                .addTestDevice(Constants.getTEST_2())
-                .addTestDevice(Constants.getTEST_3())
-                .addTestDevice(Constants.getTEST_4())
-                .addTestDevice(Constants.getTEST_5())
-                .addTestDevice(Constants.getTEST_6())
-                .addTestDevice(Constants.getTEST_7())
-                .addTestDevice(Constants.getTEST_8())
-                .addTestDevice(Constants.getTEST_9())
-                .build());
+        adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(Constants.getTEST_0()).addTestDevice(Constants.getTEST_1()).addTestDevice(Constants.getTEST_2()).addTestDevice(Constants.getTEST_3()).addTestDevice(Constants.getTEST_4()).addTestDevice(Constants.getTEST_5()).addTestDevice(Constants.getTEST_6()).addTestDevice(Constants.getTEST_7()).addTestDevice(Constants.getTEST_8()).addTestDevice(Constants.getTEST_9()).build());
         return adView;
     }
 
     public static InterstitialAd createAdFull(@NonNull final Context context) {
         final InterstitialAd interstitial = new InterstitialAd(context);
         interstitial.setAdUnitId(AdmobData.Companion.getInstance().getIdAdmobFull());
-        final AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.getTEST_0())
-                .addTestDevice(Constants.getTEST_1())
-                .addTestDevice(Constants.getTEST_2())
-                .addTestDevice(Constants.getTEST_3())
-                .addTestDevice(Constants.getTEST_4())
-                .addTestDevice(Constants.getTEST_5())
-                .addTestDevice(Constants.getTEST_6())
-                .addTestDevice(Constants.getTEST_7())
-                .addTestDevice(Constants.getTEST_8())
-                .addTestDevice(Constants.getTEST_9())
-                .build();
+        final AdRequest adRequest =
+                new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(Constants.getTEST_0()).addTestDevice(Constants.getTEST_1()).addTestDevice(Constants.getTEST_2()).addTestDevice(Constants.getTEST_3()).addTestDevice(Constants.getTEST_4()).addTestDevice(Constants.getTEST_5()).addTestDevice(Constants.getTEST_6()).addTestDevice(Constants.getTEST_7()).addTestDevice(Constants.getTEST_8()).addTestDevice(Constants.getTEST_9()).build();
         interstitial.loadAd(adRequest);
         return interstitial;
     }
@@ -213,10 +192,8 @@ public class LUIUtil {
         final ShapeDrawable.ShaderFactory sf = new ShapeDrawable.ShaderFactory() {
             @Override
             public Shader resize(int width, int height) {
-                return new LinearGradient(0, 0, 0, v.getHeight(),
-                        new int[]{LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(),
-                                LStoreUtil.getRandomColor(), LStoreUtil
-                                .getRandomColor()}, new float[]{0, 0.49f, 0.50f, 1}, Shader.TileMode.CLAMP);
+                return new LinearGradient(0, 0, 0, v.getHeight(), new int[]{LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor()},
+                        new float[]{0, 0.49f, 0.50f, 1}, Shader.TileMode.CLAMP);
             }
         };
         final PaintDrawable p = new PaintDrawable();
@@ -330,13 +307,7 @@ public class LUIUtil {
     }
 
     public static void setColorForSwipeRefreshLayout(@NonNull final SwipeRefreshLayout swipeRefreshLayout) {
-        swipeRefreshLayout.setColorSchemeResources(
-                R.color.colorPrimary,
-                R.color.vip1,
-                R.color.vip2,
-                R.color.vip3,
-                R.color.vip4,
-                R.color.vip5);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2, R.color.vip3, R.color.vip4, R.color.vip5);
     }
 
     public static void setTextShadow(@NonNull final TextView textView) {
@@ -344,8 +315,7 @@ public class LUIUtil {
     }
 
     public static void setTextShadow(@NonNull final TextView textView, final int color) {
-        textView.setShadowLayer(
-                1f, // radius
+        textView.setShadowLayer(1f, // radius
                 1f, // dx
                 1f, // dy
                 color // shadow color
@@ -550,21 +520,8 @@ public class LUIUtil {
         OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
     }
 
-    private static int colors[] = {
-            R.color.LightBlue,
-            R.color.LightCoral,
-            R.color.LightCyan,
-            R.color.LightGoldenrodYellow,
-            R.color.LightGreen,
-            R.color.LightGrey,
-            R.color.LightPink,
-            R.color.LightSalmon,
-            R.color.LightSeaGreen,
-            R.color.LightSlateGray,
-            R.color.LightSteelBlue,
-            R.color.LightYellow,
-            R.color.LightSkyBlue
-    };
+    private static int colors[] = {R.color.LightBlue, R.color.LightCoral, R.color.LightCyan, R.color.LightGoldenrodYellow, R.color.LightGreen, R.color.LightGrey, R.color.LightPink,
+            R.color.LightSalmon, R.color.LightSeaGreen, R.color.LightSlateGray, R.color.LightSteelBlue, R.color.LightYellow, R.color.LightSkyBlue};
 
     public static int getColor(@NonNull final Context context) {
         final Random random = new Random();
@@ -651,11 +608,7 @@ public class LUIUtil {
 
     public static void setFontForAll(@NonNull final String fontForAll) {
         mFontForAll = fontForAll;
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath(fontForAll)
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath(fontForAll).setFontAttrId(R.attr.fontPath).build());
     }
 
     public static String getFontForAll() {
@@ -672,40 +625,14 @@ public class LUIUtil {
         //Setting default colors for menu item Text and Icon
 
         //Defining ColorStateList for menu item Text
-        final ColorStateList navMenuTextList = new ColorStateList(
-                new int[][]{
-                        new int[]{android.R.attr.state_checked},
-                        new int[]{android.R.attr.state_enabled},
-                        new int[]{android.R.attr.state_pressed},
-                        new int[]{android.R.attr.state_focused},
-                        new int[]{android.R.attr.state_pressed}
-                },
-                new int[]{
-                        color,
-                        colorDefault,
-                        colorDefault,
-                        colorDefault,
-                        colorDefault
-                }
-        );
+        final ColorStateList navMenuTextList = new ColorStateList(new int[][]{new int[]{android.R.attr.state_checked}, new int[]{android.R.attr.state_enabled},
+                new int[]{android.R.attr.state_pressed}, new int[]{android.R.attr.state_focused}, new int[]{android.R.attr.state_pressed}}, new int[]{color, colorDefault, colorDefault, colorDefault
+                , colorDefault});
 
         //Defining ColorStateList for menu item Icon
-        final ColorStateList navMenuIconList = new ColorStateList(
-                new int[][]{
-                        new int[]{android.R.attr.state_checked},
-                        new int[]{android.R.attr.state_enabled},
-                        new int[]{android.R.attr.state_pressed},
-                        new int[]{android.R.attr.state_focused},
-                        new int[]{android.R.attr.state_pressed}
-                },
-                new int[]{
-                        color,
-                        colorDefault,
-                        colorDefault,
-                        colorDefault,
-                        colorDefault
-                }
-        );
+        final ColorStateList navMenuIconList = new ColorStateList(new int[][]{new int[]{android.R.attr.state_checked}, new int[]{android.R.attr.state_enabled},
+                new int[]{android.R.attr.state_pressed}, new int[]{android.R.attr.state_focused}, new int[]{android.R.attr.state_pressed}}, new int[]{color, colorDefault, colorDefault, colorDefault
+                , colorDefault});
         navigationView.setItemTextColor(navMenuTextList);
         navigationView.setItemIconTintList(navMenuIconList);
     }
@@ -749,5 +676,12 @@ public class LUIUtil {
 
     public static void playYoutubeWithId(@NonNull final Activity activity, @NonNull final String id) {
         playYoutube(activity, "http://www.youtube.com/watch?v=" + id);
+    }
+
+    //ViewGroup.LayoutParams.MATCH_PARENT
+    public static void setSize(@NonNull View view, final int w, final int h) {
+        view.getLayoutParams().width = w;
+        view.getLayoutParams().height = h;
+        view.requestLayout();
     }
 }
