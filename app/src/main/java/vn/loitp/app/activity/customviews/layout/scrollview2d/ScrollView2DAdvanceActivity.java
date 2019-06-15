@@ -11,7 +11,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
@@ -120,7 +125,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         }
 
         //gen view group 4
-        for (int i = 0; i < row; i++) {
+        /*for (int i = 0; i < row; i++) {
             final LinearLayout linearLayout = new LinearLayout(activity);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -134,7 +139,29 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 linearLayout.addView(button);
             }
             rl4.addView(linearLayout);
+        }*/
+
+        List<Square> squareList = new ArrayList<>();
+        for (int i = 0; i < row * column; i++) {
+            final Square square = new Square();
+            square.setName(row + "x" + column);
+            squareList.add(square);
         }
+
+        final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, new SquareAdapter.Callback() {
+            @Override
+            public void onClick(Square square, int position) {
+            }
+
+            @Override
+            public void onLongClick(Square square, int position) {
+            }
+        });
+        final RecyclerView recyclerView = new RecyclerView(activity);
+        rl4.addView(recyclerView);
+
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
+        recyclerView.setAdapter(squareAdapter);
 
         ImageView imageView = new ImageView(activity);
         imageView.setImageResource(R.mipmap.ic_launcher);

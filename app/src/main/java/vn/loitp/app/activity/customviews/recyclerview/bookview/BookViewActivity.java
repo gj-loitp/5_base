@@ -23,7 +23,7 @@ public class BookViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
 
         /*findViewById(R.id.bt_add_3).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class BookViewActivity extends BaseFontActivity {
         mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
+                LToast.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
