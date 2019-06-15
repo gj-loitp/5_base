@@ -15,7 +15,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 
@@ -65,11 +64,6 @@ public class SquareAdapter extends RecyclerView.Adapter<SquareAdapter.SquareView
     @Override
     public void onBindViewHolder(@NonNull SquareViewHolder holder, int position) {
         final Square square = squareList.get(position);
-        if (position % 2 == 0) {
-            holder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.White));
-        } else {
-            holder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.WhiteSmoke));
-        }
         holder.tv.setText(square.getName());
         holder.rootView.setOnClickListener(v -> {
             if (callback != null) {
