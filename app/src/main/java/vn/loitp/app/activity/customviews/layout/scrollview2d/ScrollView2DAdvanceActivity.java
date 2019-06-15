@@ -151,10 +151,22 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
         recyclerView.setAdapter(squareAdapter);
 
-        final ImageView imageView = new ImageView(activity);
-        imageView.setImageResource(R.mipmap.ic_launcher);
-        imageView.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX * 3, HEIGHT_PX * 3));
-        rl4.addView(imageView);
+        //add sticker
+        final ImageView sticker0 = new ImageView(activity);
+        sticker0.setImageResource(R.drawable.loitp);
+        sticker0.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        final RelativeLayout.LayoutParams rl0 = new RelativeLayout.LayoutParams(WIDTH_PX, HEIGHT_PX);
+        rl0.setMargins(WIDTH_PX, HEIGHT_PX * 7, 0, 0);
+        sticker0.setLayoutParams(rl0);
+        rl4.addView(sticker0);
+
+        final ImageView sticker1 = new ImageView(activity);
+        sticker1.setImageResource(R.drawable.loitp);
+        sticker1.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        final RelativeLayout.LayoutParams rl1 = new RelativeLayout.LayoutParams((int) (WIDTH_PX * 2.5), (int) (HEIGHT_PX * 2.5));
+        rl1.setMargins((int) (WIDTH_PX * 1.5), HEIGHT_PX * 2, 0, 0);
+        sticker1.setLayoutParams(rl1);
+        rl4.addView(sticker1);
 
         pb.setVisibility(View.GONE);
     }
