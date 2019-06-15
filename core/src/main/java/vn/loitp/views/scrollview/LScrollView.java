@@ -1,25 +1,25 @@
-package vn.loitp.app.activity.customviews.layout.scrollview2d;
+package vn.loitp.views.scrollview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.HorizontalScrollView;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 
-public class LHorizontalScrollView extends HorizontalScrollView {
+public class LScrollView extends ScrollView {
 
     private ScrollListener mScrollListener;
 
-    public LHorizontalScrollView(Context context) {
+    public LScrollView(Context context) {
         super(context);
     }
 
-    public LHorizontalScrollView(Context context, AttributeSet attrs) {
+    public LScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public LHorizontalScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

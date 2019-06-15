@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.layout.scrollview2d;
+package vn.loitp.views.scrollview;
 
 import android.content.Context;
 import android.graphics.Rect;

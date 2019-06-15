@@ -15,6 +15,9 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
+import vn.loitp.views.scrollview.LHorizontalScrollView;
+import vn.loitp.views.scrollview.LScrollView;
+import vn.loitp.views.scrollview.TwoDScrollView;
 
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;

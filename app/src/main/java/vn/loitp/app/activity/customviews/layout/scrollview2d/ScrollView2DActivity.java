@@ -6,6 +6,7 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
+import vn.loitp.views.scrollview.TwoDScrollView;
 
 public class ScrollView2DActivity extends BaseFontActivity {
 
