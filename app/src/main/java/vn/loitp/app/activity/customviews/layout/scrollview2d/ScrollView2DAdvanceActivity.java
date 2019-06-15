@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
@@ -23,7 +24,6 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;
     private final int HEIGHT_PX = 150;
     private final int MATCH_PX = -1;
-    private LinearLayout ll;
     private TextView tvInfo;
     private ProgressBar pb;
     private LinearLayout vg1;
@@ -32,12 +32,13 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private LScrollView vg3;
     private LinearLayout ll3;
     private TwoDScrollView vg4;
+    private RelativeLayout rl4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ll = findViewById(R.id.ll);
+        rl4 = findViewById(R.id.rl_4);
         ll2 = findViewById(R.id.ll_2);
         ll3 = findViewById(R.id.ll_3);
         tvInfo = findViewById(R.id.tv_info);
@@ -132,8 +133,14 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 });
                 linearLayout.addView(button);
             }
-            ll.addView(linearLayout);
+            rl4.addView(linearLayout);
         }
+
+        ImageView imageView = new ImageView(activity);
+        imageView.setImageResource(R.mipmap.ic_launcher);
+        imageView.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX * 3, HEIGHT_PX * 3));
+        rl4.addView(imageView);
+
         pb.setVisibility(View.GONE);
     }
 
