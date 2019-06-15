@@ -14,11 +14,15 @@ import android.widget.TextView;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 
 public class SquareAdapter extends RecyclerView.Adapter<SquareAdapter.SquareViewHolder> {
     private final String TAG = getClass().getSimpleName();
+    private int sizeWViewHolder;
+    private int sizeHViewHolder;
 
     public interface Callback {
         void onClick(Square square, int position);
@@ -41,9 +45,11 @@ public class SquareAdapter extends RecyclerView.Adapter<SquareAdapter.SquareView
         }
     }
 
-    SquareAdapter(Context context, List<Square> squareList, Callback callback) {
+    SquareAdapter(@NonNull final Context context, @Nullable final List<Square> squareList, final int sizeWViewHolder, final int sizeHViewHolder, @NonNull Callback callback) {
         this.context = context;
         this.squareList = squareList;
+        this.sizeWViewHolder = sizeWViewHolder;
+        this.sizeHViewHolder = sizeHViewHolder;
         this.callback = callback;
     }
 
@@ -51,12 +57,19 @@ public class SquareAdapter extends RecyclerView.Adapter<SquareAdapter.SquareView
     @Override
     public SquareViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_square, parent, false);
+        itemView.getLayoutParams().width = sizeWViewHolder;
+        itemView.getLayoutParams().height = sizeHViewHolder;
         return new SquareViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull SquareViewHolder holder, int position) {
         final Square square = squareList.get(position);
+        if (position % 2 == 0) {
+            holder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.White));
+        } else {
+            holder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.WhiteSmoke));
+        }
         holder.tv.setText(square.getName());
         holder.rootView.setOnClickListener(v -> {
             if (callback != null) {
@@ -73,6 +86,9 @@ public class SquareAdapter extends RecyclerView.Adapter<SquareAdapter.SquareView
 
     @Override
     public int getItemCount() {
+        if (squareList == null) {
+            return 0;
+        }
         return squareList.size();
     }
 }

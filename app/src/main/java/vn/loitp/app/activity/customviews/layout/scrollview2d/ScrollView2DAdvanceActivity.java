@@ -125,36 +125,24 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         }
 
         //gen view group 4
-        /*for (int i = 0; i < row; i++) {
-            final LinearLayout linearLayout = new LinearLayout(activity);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        final List<Square> squareList = new ArrayList<>();
+        for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                final Button button = new Button(activity);
-                button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
-                button.setText("Button " + i + " - " + j);
-                button.setOnClickListener(view1 -> {
-                    LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
-                });
-                linearLayout.addView(button);
+                final Square square = new Square();
+                square.setName(i + "x" + j);
+                squareList.add(square);
             }
-            rl4.addView(linearLayout);
-        }*/
-
-        List<Square> squareList = new ArrayList<>();
-        for (int i = 0; i < row * column; i++) {
-            final Square square = new Square();
-            square.setName(row + "x" + column);
-            squareList.add(square);
         }
 
-        final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, new SquareAdapter.Callback() {
+        final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, WIDTH_PX, HEIGHT_PX, new SquareAdapter.Callback() {
             @Override
             public void onClick(Square square, int position) {
+                LToast.show(activity, "onClick " + square.getName(), R.drawable.bkg_horizontal);
             }
 
             @Override
             public void onLongClick(Square square, int position) {
+                LToast.show(activity, "onLongClick " + square.getName(), R.drawable.bkg_horizontal);
             }
         });
         final RecyclerView recyclerView = new RecyclerView(activity);
@@ -163,7 +151,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
         recyclerView.setAdapter(squareAdapter);
 
-        ImageView imageView = new ImageView(activity);
+        final ImageView imageView = new ImageView(activity);
         imageView.setImageResource(R.mipmap.ic_launcher);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX * 3, HEIGHT_PX * 3));
         rl4.addView(imageView);
