@@ -161,33 +161,6 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
             }
 
             //gen view group 4
-            //C1 dung recycler view
-            /*final List<Square> squareList = new ArrayList<>();
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < column; j++) {
-                    final Square square = new Square();
-                    square.setName(i + "x" + j);
-                    squareList.add(square);
-                }
-            }
-
-            final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, WIDTH_PX, HEIGHT_PX, new SquareAdapter.Callback() {
-                @Override
-                public void onClick(Square square, int position) {
-                    LToast.show(activity, "onClick " + square.getName(), R.drawable.bkg_horizontal);
-                }
-
-                @Override
-                public void onLongClick(Square square, int position) {
-                    LToast.show(activity, "onLongClick " + square.getName(), R.drawable.bkg_horizontal);
-                }
-            });
-            final RecyclerView recyclerView = new RecyclerView(activity);
-            recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
-            recyclerView.setAdapter(squareAdapter);
-            publishProgress(recyclerView, rl4);*/
-
-            //dung view
             for (int i = 0; i < row; i++) {
                 final LinearLayout linearLayout = new LinearLayout(activity);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
