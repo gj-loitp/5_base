@@ -12,11 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
@@ -82,6 +77,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
                 new Render(30, 24).execute();
+                //new Render(7, 12).execute();
             }
         });
     }
@@ -127,10 +123,18 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         @Override
         protected void onProgressUpdate(View... values) {
             super.onProgressUpdate(values);
-            LLog.d(TAG, "onProgressUpdate");
+            LLog.d(TAG, "onProgressUpdate " + System.currentTimeMillis());
             final View child = values[0];
             final ViewGroup parent = (ViewGroup) values[1];
             parent.addView(child);
+        }
+
+        private void sleep(final int mls) {
+            try {
+                Thread.sleep(mls);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         private void genLine(final int column, final int row) {
@@ -142,9 +146,6 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 button.setOnClickListener(view1 -> {
                     LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
                 });
-                /*runOnUiThread(() -> {
-                    ll2.addView(button);
-                });*/
                 publishProgress(button, ll2);
             }
 
@@ -156,14 +157,12 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 button.setOnClickListener(view1 -> {
                     LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
                 });
-                /*runOnUiThread(() -> {
-                    ll3.addView(button);
-                });*/
                 publishProgress(button, ll3);
             }
 
             //gen view group 4
-            final List<Square> squareList = new ArrayList<>();
+            //C1 dung recycler view
+            /*final List<Square> squareList = new ArrayList<>();
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < column; j++) {
                     final Square square = new Square();
@@ -184,13 +183,28 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 }
             });
             final RecyclerView recyclerView = new RecyclerView(activity);
-            /*runOnUiThread(() -> {
-                rl4.addView(recyclerView);
-            });*/
-            publishProgress(recyclerView, rl4);
-
             recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
             recyclerView.setAdapter(squareAdapter);
+            publishProgress(recyclerView, rl4);*/
+
+            //dung view
+            for (int i = 0; i < row; i++) {
+                final LinearLayout linearLayout = new LinearLayout(activity);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                layoutParams.setMargins(0, HEIGHT_PX * i, 0, 0);
+                linearLayout.setLayoutParams(layoutParams);
+                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                for (int j = 0; j < column; j++) {
+                    final Button button = new Button(activity);
+                    button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
+                    button.setText("Button " + i + " - " + j);
+                    button.setOnClickListener(view1 -> {
+                        LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                    });
+                    linearLayout.addView(button);
+                }
+                publishProgress(linearLayout, rl4);
+            }
 
             //add sticker img
             final ImageView sticker0 = new ImageView(activity);
@@ -199,9 +213,6 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
             final RelativeLayout.LayoutParams rl0 = new RelativeLayout.LayoutParams(WIDTH_PX, HEIGHT_PX);
             rl0.setMargins(WIDTH_PX, HEIGHT_PX * 7, 0, 0);
             sticker0.setLayoutParams(rl0);
-            /*runOnUiThread(() -> {
-                rl4.addView(sticker0);
-            });*/
             publishProgress(sticker0, rl4);
 
             final ImageView sticker1 = new ImageView(activity);
@@ -210,9 +221,6 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
             final RelativeLayout.LayoutParams rl1 = new RelativeLayout.LayoutParams((int) (WIDTH_PX * 2.5), (int) (HEIGHT_PX * 2.5));
             rl1.setMargins((int) (WIDTH_PX * 1.5), HEIGHT_PX * 2, 0, 0);
             sticker1.setLayoutParams(rl1);
-            /*runOnUiThread(() -> {
-                rl4.addView(sticker1);
-            });*/
             publishProgress(sticker1, rl4);
         }
 
