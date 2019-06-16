@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.scrollview2d;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,7 +81,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 LUIUtil.setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT);
                 LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-                genLine(30, 24);
+                new Render(30, 24).execute();
             }
         });
     }
@@ -100,73 +101,126 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
         return R.layout.activity_scrollview_2d_advance;
     }
 
-    private void genLine(final int column, final int row) {
-        //gen view group 2
-        for (int i = 0; i < column; i++) {
-            final Button button = new Button(activity);
-            button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
-            button.setText("Date " + i);
-            button.setOnClickListener(view1 -> {
-                LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+    private class Render extends AsyncTask<Void, View, Void> {
+        private int column;
+        private int row;
+
+        Render(final int column, final int row) {
+            this.column = column;
+            this.row = row;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            LLog.d(TAG, "onPreExecute");
+            pb.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            LLog.d(TAG, "doInBackground");
+            genLine(column, row);
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(View... values) {
+            super.onProgressUpdate(values);
+            LLog.d(TAG, "onProgressUpdate");
+            final View child = values[0];
+            final ViewGroup parent = (ViewGroup) values[1];
+            parent.addView(child);
+        }
+
+        private void genLine(final int column, final int row) {
+            //gen view group 2
+            for (int i = 0; i < column; i++) {
+                final Button button = new Button(activity);
+                button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
+                button.setText("Date " + i);
+                button.setOnClickListener(view1 -> {
+                    LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                });
+                /*runOnUiThread(() -> {
+                    ll2.addView(button);
+                });*/
+                publishProgress(button, ll2);
+            }
+
+            //gen view group 3
+            for (int i = 0; i < row; i++) {
+                final Button button = new Button(activity);
+                button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
+                button.setText(i + ":00:00");
+                button.setOnClickListener(view1 -> {
+                    LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                });
+                /*runOnUiThread(() -> {
+                    ll3.addView(button);
+                });*/
+                publishProgress(button, ll3);
+            }
+
+            //gen view group 4
+            final List<Square> squareList = new ArrayList<>();
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    final Square square = new Square();
+                    square.setName(i + "x" + j);
+                    squareList.add(square);
+                }
+            }
+
+            final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, WIDTH_PX, HEIGHT_PX, new SquareAdapter.Callback() {
+                @Override
+                public void onClick(Square square, int position) {
+                    LToast.show(activity, "onClick " + square.getName(), R.drawable.bkg_horizontal);
+                }
+
+                @Override
+                public void onLongClick(Square square, int position) {
+                    LToast.show(activity, "onLongClick " + square.getName(), R.drawable.bkg_horizontal);
+                }
             });
-            ll2.addView(button);
+            final RecyclerView recyclerView = new RecyclerView(activity);
+            /*runOnUiThread(() -> {
+                rl4.addView(recyclerView);
+            });*/
+            publishProgress(recyclerView, rl4);
+
+            recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
+            recyclerView.setAdapter(squareAdapter);
+
+            //add sticker img
+            final ImageView sticker0 = new ImageView(activity);
+            sticker0.setImageResource(R.drawable.loitp);
+            sticker0.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            final RelativeLayout.LayoutParams rl0 = new RelativeLayout.LayoutParams(WIDTH_PX, HEIGHT_PX);
+            rl0.setMargins(WIDTH_PX, HEIGHT_PX * 7, 0, 0);
+            sticker0.setLayoutParams(rl0);
+            /*runOnUiThread(() -> {
+                rl4.addView(sticker0);
+            });*/
+            publishProgress(sticker0, rl4);
+
+            final ImageView sticker1 = new ImageView(activity);
+            sticker1.setImageResource(R.drawable.loitp);
+            sticker1.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            final RelativeLayout.LayoutParams rl1 = new RelativeLayout.LayoutParams((int) (WIDTH_PX * 2.5), (int) (HEIGHT_PX * 2.5));
+            rl1.setMargins((int) (WIDTH_PX * 1.5), HEIGHT_PX * 2, 0, 0);
+            sticker1.setLayoutParams(rl1);
+            /*runOnUiThread(() -> {
+                rl4.addView(sticker1);
+            });*/
+            publishProgress(sticker1, rl4);
         }
 
-        //gen view group 3
-        for (int i = 0; i < row; i++) {
-            final Button button = new Button(activity);
-            button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
-            button.setText(i + ":00:00");
-            button.setOnClickListener(view1 -> {
-                LToast.showShort(activity, "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
-            });
-            ll3.addView(button);
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            LLog.d(TAG, "onPostExecute");
+            pb.setVisibility(View.GONE);
         }
-
-        //gen view group 4
-        final List<Square> squareList = new ArrayList<>();
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                final Square square = new Square();
-                square.setName(i + "x" + j);
-                squareList.add(square);
-            }
-        }
-
-        final SquareAdapter squareAdapter = new SquareAdapter(activity, squareList, WIDTH_PX, HEIGHT_PX, new SquareAdapter.Callback() {
-            @Override
-            public void onClick(Square square, int position) {
-                LToast.show(activity, "onClick " + square.getName(), R.drawable.bkg_horizontal);
-            }
-
-            @Override
-            public void onLongClick(Square square, int position) {
-                LToast.show(activity, "onLongClick " + square.getName(), R.drawable.bkg_horizontal);
-            }
-        });
-        final RecyclerView recyclerView = new RecyclerView(activity);
-        rl4.addView(recyclerView);
-
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
-        recyclerView.setAdapter(squareAdapter);
-
-        //add sticker img
-        final ImageView sticker0 = new ImageView(activity);
-        sticker0.setImageResource(R.drawable.loitp);
-        sticker0.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        final RelativeLayout.LayoutParams rl0 = new RelativeLayout.LayoutParams(WIDTH_PX, HEIGHT_PX);
-        rl0.setMargins(WIDTH_PX, HEIGHT_PX * 7, 0, 0);
-        sticker0.setLayoutParams(rl0);
-        rl4.addView(sticker0);
-
-        final ImageView sticker1 = new ImageView(activity);
-        sticker1.setImageResource(R.drawable.loitp);
-        sticker1.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        final RelativeLayout.LayoutParams rl1 = new RelativeLayout.LayoutParams((int) (WIDTH_PX * 2.5), (int) (HEIGHT_PX * 2.5));
-        rl1.setMargins((int) (WIDTH_PX * 1.5), HEIGHT_PX * 2, 0, 0);
-        sticker1.setLayoutParams(rl1);
-        rl4.addView(sticker1);
-
-        pb.setVisibility(View.GONE);
     }
 }
