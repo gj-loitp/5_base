@@ -169,6 +169,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 linearLayout.setOrientation(LinearLayout.HORIZONTAL);
                 for (int j = 0; j < column; j++) {
                     final Button button = new Button(activity);
+                    button.setBackgroundResource(R.drawable.bg_square);
                     button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
                     button.setText("Pos " + i + " - " + j);
                     button.setOnClickListener(view1 -> {
