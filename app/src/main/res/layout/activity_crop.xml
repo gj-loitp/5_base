@@ -18,10 +18,16 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_crop"
+                android:id="@+id/bt_crop_oval"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Crop" />
+                android:text="Crop oval" />
+
+            <Button
+                android:id="@+id/bt_crop_square"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop square" />
 
             <ImageView
                 android:id="@+id/iv"

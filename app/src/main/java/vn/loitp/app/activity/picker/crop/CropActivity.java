@@ -31,12 +31,18 @@ import vn.loitp.views.LToast;
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
+    private boolean isOvalOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         iv = findViewById(R.id.iv);
-        findViewById(R.id.bt_crop).setOnClickListener(view -> {
+        findViewById(R.id.bt_crop_oval).setOnClickListener(view -> {
+            isOvalOption = true;
+            crop();
+        });
+        findViewById(R.id.bt_crop_square).setOnClickListener(view -> {
+            isOvalOption = false;
             crop();
         });
     }
@@ -107,15 +113,31 @@ public class CropActivity extends BaseFontActivity {
                 LLog.e(TAG, "imageUri == null");
                 return;
             }
-            CropImage.activity(imageUri)
-                    .setGuidelines(CropImageView.Guidelines.ON)
-                    .setBorderLineColor(Color.WHITE)
-                    .setBorderLineThickness(2)
-                    .setCircleSize(30)
-                    .setCropShape(CropImageView.CropShape.OVAL)
-                    .setCircleColor(Color.WHITE)
-                    .setBackgroundColor(Color.argb(200, 0, 0, 0))
-                    .start(activity);
+            if (isOvalOption) {
+                CropImage.activity(imageUri)
+                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .setBorderLineColor(Color.WHITE)
+                        .setBorderLineThickness(2)
+                        .setCircleSize(30)
+                        .setCropShape(CropImageView.CropShape.OVAL)
+                        .setCircleColor(Color.WHITE)
+                        .setBackgroundColor(Color.argb(200, 0, 0, 0))
+                        .start(activity);
+            } else {
+                CropImage.activity(imageUri)
+                        .setGuidelines(CropImageView.Guidelines.OFF)
+                        .setBorderLineColor(Color.RED)
+                        .setBorderLineThickness(2)
+                        .setCircleSize(15)
+                        .setCropShape(CropImageView.CropShape.RECTANGLE)
+                        .setCircleColor(Color.RED)
+                        .setBackgroundColor(Color.argb(200, 0, 0, 0))
+                        .setAspectRatio(1, 1)
+                        .setAutoZoomEnabled(true)
+                        .setBorderCornerColor(Color.BLUE)
+                        .setGuidelinesColor(Color.GREEN)
+                        .start(activity);
+            }
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             final CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (result != null) {
