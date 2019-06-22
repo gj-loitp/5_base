@@ -136,7 +136,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;
