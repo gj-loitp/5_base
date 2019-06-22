@@ -66,7 +66,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
 
     @Override
     protected String setTag() {
-        return getClass().getSimpleName();
+        return "TAG" + getClass().getSimpleName();
     }
 
     @Override
