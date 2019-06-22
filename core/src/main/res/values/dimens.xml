@@ -116,4 +116,5 @@
     <dimen name="default_velocity_normal">100dp</dimen>
     <dimen name="default_velocity_fast">200dp</dimen>
     <dimen name="default_explosion_radius">100dp</dimen>
+    <dimen name="top_toolbar">42dp</dimen>
 </resources>

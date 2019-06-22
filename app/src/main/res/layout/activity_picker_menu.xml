@@ -36,6 +36,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/image_picker_with_crop" />
+
+            <Button
+                android:id="@+id/bt_crop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

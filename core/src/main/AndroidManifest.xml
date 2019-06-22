@@ -91,13 +91,11 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <service
-            android:name="vn.loitp.core.loitp.uiza.FUZService"
-            android:enabled="true"
-            android:exported="false" />
         <activity
-            android:name="vn.loitp.core.loitp.uiza.UZPlayerActivity"
+            android:name="vn.loitp.picker.crop.LCropImageActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
