@@ -48,9 +48,9 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
         RestClient.init(getString(R.string.flickr_URL));
-        admobBannerUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
+        admobBannerUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
-        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
@@ -62,41 +62,38 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
             int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
-        ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
+        final ImageView ivBkg = findViewById(R.id.iv_bkg);
         String urlCoverSplashScreen = getIntent().getStringExtra(Constants.INSTANCE.getBKG_SPLASH_SCREEN());
         if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
             urlCoverSplashScreen = Constants.INSTANCE.getURL_IMG_2();
         }
         LImageUtil.load(activity, urlCoverSplashScreen, ivBkg);
-        bkgRootView = getIntent().getIntExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), Constants.INSTANCE.getNOT_FOUND());
+        bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.INSTANCE.getNOT_FOUND()) {
+        if (bkgRootView == Constants.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
 
-        TextView tvCopyright = (TextView) findViewById(R.id.tv_copyright);
+        final TextView tvCopyright = findViewById(R.id.tv_copyright);
         LUIUtil.setTextShadow(tvCopyright);
 
-        TextView tvName = (TextView) findViewById(R.id.tv_name);
-        tvName.setText(AppUtils.getAppName() + "");
+        final TextView tvName = findViewById(R.id.tv_name);
+        tvName.setText(AppUtils.getAppName());
         LUIUtil.setTextShadow(tvName);
     }
 
     private void goToHome() {
-        final ArrayList<String> removeAlbumList = getIntent().getStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST());
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
-                intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), admobBannerUnitId);
-                intent.putExtra(Constants.INSTANCE.getBKG_ROOT_VIEW(), bkgRootView);
-                intent.putStringArrayListExtra(Constants.INSTANCE.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
-                startActivity(intent);
-                LActivityUtil.tranIn(activity);
-                finish();
-            }
+        final ArrayList<String> removeAlbumList = getIntent().getStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST());
+        LUIUtil.setDelay(3000, mls -> {
+            final Intent intent = new Intent(activity, GalleryCoreAlbumActivity.class);
+            intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), admobBannerUnitId);
+            intent.putExtra(Constants.getBKG_ROOT_VIEW(), bkgRootView);
+            intent.putStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumList == null ? new ArrayList<String>() : removeAlbumList);
+            startActivity(intent);
+            LActivityUtil.tranIn(activity);
+            finish();
         });
     }
 
@@ -182,7 +179,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -197,7 +194,7 @@ public class GalleryCoreSplashActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;

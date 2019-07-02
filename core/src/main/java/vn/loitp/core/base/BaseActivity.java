@@ -145,21 +145,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void showDialogError(@NonNull final String errMsg) {
-        final AlertDialog alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
-            @Override
-            public void onClick1() {
-                onBackPressed();
-            }
-        });
+        final AlertDialog alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), () -> onBackPressed());
         alertDialog.setCancelable(false);
     }
 
     protected void showDialogMsg(@NonNull final String errMsg) {
-        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
-            @Override
-            public void onClick1() {
-                //do nothing
-            }
+        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), () -> {
+            //do nothing
         });
     }
 

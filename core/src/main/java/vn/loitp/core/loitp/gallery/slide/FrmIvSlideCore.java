@@ -1,9 +1,5 @@
 package vn.loitp.core.loitp.gallery.slide;
 
-/**
- * Created by www.muathu@gmail.com on 12/24/2017.
- */
-
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,24 +30,24 @@ public class FrmIvSlideCore extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.item_photo_slide_iv_core, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
         if (bundle == null) {
-            LLog.INSTANCE.d(TAG, "onViewCreated bundle == null -> return");
+            LLog.d(TAG, "onViewCreated bundle == null -> return");
             return;
         }
         int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
-        Photo photo = PhotosDataCore.getInstance().getPhoto(position);
+        final Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
-        final AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
-        final BigImageView bigImageView = (BigImageView) view.findViewById(R.id.biv);
-        final TextView tvProgress = (TextView) view.findViewById(R.id.tv_progress);
+        final AVLoadingIndicatorView avLoadingIndicatorView = view.findViewById(R.id.avi);
+        final BigImageView bigImageView = view.findViewById(R.id.biv);
+        final TextView tvProgress = view.findViewById(R.id.tv_progress);
         LUIUtil.setTextShadow(tvProgress);
 
         bigImageView.setImageViewFactory(new GlideImageViewFactory());
@@ -69,18 +65,14 @@ public class FrmIvSlideCore extends Fragment {
                 if (avLoadingIndicatorView != null) {
                     avLoadingIndicatorView.smoothToShow();
                 }
-                if (tvProgress != null) {
-                    tvProgress.setText("0%");
-                }
+                tvProgress.setText("0%");
             }
 
             @Override
             public void onProgress(int progress) {
                 //LLog.d(TAG, "onProgress " + progress);
-                if (tvProgress != null) {
-                    tvProgress.setVisibility(View.VISIBLE);
-                    tvProgress.setText(progress + "%");
-                }
+                tvProgress.setVisibility(View.VISIBLE);
+                tvProgress.setText(progress + "%");
             }
 
             @Override
@@ -89,7 +81,7 @@ public class FrmIvSlideCore extends Fragment {
 
             @Override
             public void onSuccess(File image) {
-                LLog.INSTANCE.d(TAG, "onSuccess");
+                LLog.d(TAG, "onSuccess");
                 /*SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);
@@ -97,9 +89,7 @@ public class FrmIvSlideCore extends Fragment {
                 if (avLoadingIndicatorView != null) {
                     avLoadingIndicatorView.smoothToHide();
                 }
-                if (tvProgress != null) {
-                    tvProgress.setVisibility(View.GONE);
-                }
+                tvProgress.setVisibility(View.GONE);
             }
 
             @Override
@@ -107,15 +97,12 @@ public class FrmIvSlideCore extends Fragment {
             }
         });
         bigImageView.showImage(Uri.parse(photo.getUrlS()), Uri.parse(photo.getUrlO()));
-        bigImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (getActivity() == null) {
-                    return;
-                }
-                //LDeviceUtil.vibrate(getActivity());
-                ((GalleryCoreSlideActivity) getActivity()).toggleDisplayRlControl();
+        bigImageView.setOnClickListener(view1 -> {
+            if (getActivity() == null) {
+                return;
             }
+            //LDeviceUtil.vibrate(getActivity());
+            ((GalleryCoreSlideActivity) getActivity()).toggleDisplayRlControl();
         });
     }
 }
