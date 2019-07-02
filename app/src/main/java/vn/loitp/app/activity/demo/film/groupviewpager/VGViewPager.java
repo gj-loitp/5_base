@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
@@ -31,12 +32,11 @@ public class VGViewPager extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
     private TextView tv;
     private SwipeOutViewPager viewPager;
-    private ViewPagerAdapter adapter;
 
     private List<Page> pageArrayList = new ArrayList<>();
 
     public interface Callback {
-        public void onClickRemove();
+        void onClickRemove();
     }
 
     private Callback callback;
@@ -62,17 +62,17 @@ public class VGViewPager extends RelativeLayout {
 
     private void findViews() {
         inflate(getContext(), R.layout.vg_view_pager, this);
-        tv = (TextView) findViewById(R.id.tv);
-        viewPager = (SwipeOutViewPager) findViewById(R.id.vp);
+        tv = findViewById(R.id.tv);
+        viewPager = findViewById(R.id.vp);
     }
 
     private List<Page> genData() {
         //5<=max<=10
-        List<Page> pages = new ArrayList<>();
-        int max = LDeviceUtil.getRandomNumber(5) + 5;
-        LLog.INSTANCE.d(TAG, "genData max " + max);
+        final List<Page> pages = new ArrayList<>();
+        final int max = LDeviceUtil.getRandomNumber(5) + 5;
+        LLog.d(TAG, "genData max " + max);
         for (int i = 0; i < max; i++) {
-            Page page = new Page();
+            final Page page = new Page();
             page.setColor(LStoreUtil.getRandomColor());
             page.setName("Loitp " + i + "/" + (max));
             if (i % 2 == 0) {
@@ -90,56 +90,49 @@ public class VGViewPager extends RelativeLayout {
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.INSTANCE.show(getContext(), "onSwipeOutAtStart");
+                LToast.show(getContext(), "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.INSTANCE.show(getContext(), "onSwipeOutAtEnd");
+                LToast.show(getContext(), "onSwipeOutAtEnd");
             }
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
 
-        findViewById(R.id.bt_remove).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClickRemove();
-                }
+        findViewById(R.id.bt_remove).setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClickRemove();
             }
         });
 
         pageArrayList.addAll(genData());
-        adapter = new ViewPagerAdapter();
+        ViewPagerAdapter adapter = new ViewPagerAdapter();
         viewPager.setAdapter(adapter);
     }
 
     private class ViewPagerAdapter extends PagerAdapter {
 
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup collection, int position) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.item_film_page, collection, false);
-            TextView tv = (TextView) viewGroup.findViewById(R.id.tv_film);
-            ImageView iv = (ImageView) viewGroup.findViewById(R.id.iv_film);
+        public Object instantiateItem(@NonNull ViewGroup collection, int position) {
+            final LayoutInflater inflater = LayoutInflater.from(getContext());
+            final ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.item_film_page, collection, false);
+            final TextView tv = viewGroup.findViewById(R.id.tv_film);
+            final ImageView iv = viewGroup.findViewById(R.id.iv_film);
 
-            Page page = pageArrayList.get(position);
+            final Page page = pageArrayList.get(position);
             viewGroup.setBackgroundColor(page.getColor());
             tv.setText(page.getName());
             LImageUtil.load(getContext(), page.getUrlImg(), iv);
             //event click
-            viewGroup.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LToast.INSTANCE.show(getContext(), "Click " + page.getName());
-                }
-            });
+            viewGroup.setOnClickListener(v -> LToast.show(getContext(), "Click " + page.getName()));
             collection.addView(viewGroup);
             return viewGroup;
         }
 
         @Override
-        public void destroyItem(ViewGroup collection, int position, Object view) {
+        public void destroyItem(@NonNull ViewGroup collection, int position, @NonNull Object view) {
             collection.removeView((View) view);
         }
 
@@ -149,7 +142,7 @@ public class VGViewPager extends RelativeLayout {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
             return view == object;
         }
     }

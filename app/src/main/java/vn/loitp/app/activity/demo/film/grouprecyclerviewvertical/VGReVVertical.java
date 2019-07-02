@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.film.grouprecyclerviewvertical;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 
@@ -29,7 +28,7 @@ public class VGReVVertical extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
 
     public interface Callback {
-        public void onClickRemove();
+        void onClickRemove();
     }
 
     private Callback callback;
@@ -60,31 +59,28 @@ public class VGReVVertical extends RelativeLayout {
     private void findViews() {
         inflate(getContext(), R.layout.vg_rv_vertical, this);
 
-        findViewById(R.id.bt_remove).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClickRemove();
-                }
+        findViewById(R.id.bt_remove).setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClickRemove();
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
         ViewCompat.setNestedScrollingEnabled(recyclerView, false);
 
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        final SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
         //recyclerView.getItemAnimator().setAddDuration(1000);
         mAdapter = new MoviesAdapter(getContext(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(getContext(), "Click " + movie.getTitle());
+                LToast.show(getContext(), "Click " + movie.getTitle());
             }
 
             @Override
             public void onLongClick(Movie movie, int position) {
-                boolean isRemoved = movieList.remove(movie);
+                final boolean isRemoved = movieList.remove(movie);
                 if (isRemoved) {
                     mAdapter.notifyItemRemoved(position);
                     mAdapter.notifyItemRangeChanged(position, movieList.size());
@@ -96,7 +92,7 @@ public class VGReVVertical extends RelativeLayout {
 
             }
         });
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        final RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         //recyclerView.setAdapter(mAdapter);
@@ -107,7 +103,7 @@ public class VGReVVertical extends RelativeLayout {
         //alphaAdapter.setFirstOnly(true);
         //recyclerView.setAdapter(alphaAdapter);
 
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
+        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -120,7 +116,7 @@ public class VGReVVertical extends RelativeLayout {
 
     private void prepareMovieData() {
         for (int i = 0; i < 50; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
+            final Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();
