@@ -1,9 +1,10 @@
 package vn.loitp.app.activity.animation.basictransition;
 
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.view.ViewCompat;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -21,7 +22,7 @@ public class BasicTransition1Activity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         iv = (ImageView) findViewById(R.id.imageview_item);
         tv = (TextView) findViewById(R.id.tv);
-        LImageUtil.load(activity, Constants.URL_IMG_2, iv);
+        LImageUtil.load(activity, Constants.INSTANCE.getURL_IMG_2(), iv);
         ViewCompat.setTransitionName(iv, IV);
         ViewCompat.setTransitionName(tv, TV);
     }

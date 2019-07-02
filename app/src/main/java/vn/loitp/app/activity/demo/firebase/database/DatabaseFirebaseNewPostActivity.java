@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.demo.firebase.database;
 
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,26 +71,26 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.show(activity, "Posting...");
+        LToast.INSTANCE.show(activity, "Posting...");
 
         // [START single_value_read]
         final String userId = getUid();
-        LLog.d(TAG, "userId " + userId);
+        LLog.INSTANCE.d(TAG, "userId " + userId);
         mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        LLog.d(TAG, "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
+                        LLog.INSTANCE.d(TAG, "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
 
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        LLog.d(TAG, "onDataChange user: " + LSApplication.getInstance().getGson().toJson(user));
+                        LLog.INSTANCE.d(TAG, "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
-                            LLog.e(TAG, "User " + userId + " is unexpectedly null");
-                            LToast.show(activity, "Error: could not fetch user.");
+                            LLog.INSTANCE.e(TAG, "User " + userId + " is unexpectedly null");
+                            LToast.INSTANCE.show(activity, "Error: could not fetch user.");
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);
@@ -104,7 +104,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        LLog.d(TAG, "getUser:onCancelled " + databaseError.toException());
+                        LLog.INSTANCE.d(TAG, "getUser:onCancelled " + databaseError.toException());
                         // [START_EXCLUDE]
                         setEditingEnabled(true);
                         // [END_EXCLUDE]

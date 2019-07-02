@@ -39,7 +39,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         alarm.toIntent(newIntent);
         newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        LLog.d(TAG, "AlarmReceiver.onReceive('" + alarm.getTitle() + "')");
+        LLog.INSTANCE.d(TAG, "AlarmReceiver.onReceive('" + alarm.getTitle() + "')");
 
         context.startActivity(newIntent);
     }

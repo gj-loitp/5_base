@@ -35,7 +35,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         floatDragLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(activity, "Click on the hover and drag buttons");
+                LToast.INSTANCE.show(activity, "Click on the hover and drag buttons");
             }
         });
 
@@ -93,7 +93,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            LToast.show(activity, "Click on FloatDragPopupWindow");
+                            LToast.INSTANCE.show(activity, "Click on FloatDragPopupWindow");
                         }
                     })
                     .build();

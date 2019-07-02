@@ -225,22 +225,22 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-                LLog.d(TAG, "Listener-onTracksChanged...");
+                LLog.INSTANCE.d(TAG, "Listener-onTracksChanged...");
             }
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                LLog.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
+                LLog.INSTANCE.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                LLog.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
+                LLog.INSTANCE.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
             }
 
             @Override
             public void onRepeatModeChanged(int repeatMode) {
-                LLog.d(TAG, "Listener-onRepeatModeChanged...");
+                LLog.INSTANCE.d(TAG, "Listener-onRepeatModeChanged...");
             }
 
             @Override
@@ -250,7 +250,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                LLog.d(TAG, "Listener-onPlayerError...");
+                LLog.INSTANCE.d(TAG, "Listener-onPlayerError...");
                 player.stop();
                 player.prepare(loopingSource);
                 player.setPlayWhenReady(true);
@@ -263,7 +263,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-                LLog.d(TAG, "Listener-onPlaybackParametersChanged...");
+                LLog.INSTANCE.d(TAG, "Listener-onPlaybackParametersChanged...");
             }
 
             @Override
@@ -293,36 +293,36 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
     @Override
     public void onVideoEnabled(DecoderCounters counters) {
-        LLog.d(TAG, "onVideoEnabled");
+        LLog.INSTANCE.d(TAG, "onVideoEnabled");
     }
 
     @Override
     public void onVideoDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
-        LLog.d(TAG, "onVideoDecoderInitialized");
+        LLog.INSTANCE.d(TAG, "onVideoDecoderInitialized");
     }
 
     @Override
     public void onVideoInputFormatChanged(Format format) {
-        LLog.d(TAG, "onVideoInputFormatChanged");
+        LLog.INSTANCE.d(TAG, "onVideoInputFormatChanged");
     }
 
     @Override
     public void onDroppedFrames(int count, long elapsedMs) {
-        LLog.d(TAG, "onDroppedFrames");
+        LLog.INSTANCE.d(TAG, "onDroppedFrames");
     }
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-        LLog.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
+        LLog.INSTANCE.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
     }
 
     @Override
     public void onRenderedFirstFrame(Surface surface) {
-        LLog.d(TAG, "onRenderedFirstFrame");
+        LLog.INSTANCE.d(TAG, "onRenderedFirstFrame");
     }
 
     @Override
     public void onVideoDisabled(DecoderCounters counters) {
-        LLog.d(TAG, "onVideoDisabled");
+        LLog.INSTANCE.d(TAG, "onVideoDisabled");
     }
 }

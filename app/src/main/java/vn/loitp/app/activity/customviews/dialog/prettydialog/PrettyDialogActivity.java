@@ -74,7 +74,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                 .setIconCallback(new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
-                        LToast.show(activity, "onClick setIconCallback");
+                        LToast.INSTANCE.show(activity, "onClick setIconCallback");
                         prettyDialog.cancel();
                     }
                 })
@@ -90,7 +90,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                 .setIconCallback(new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
-                        LToast.show(activity, "onClick setIconCallback");
+                        LToast.INSTANCE.show(activity, "onClick setIconCallback");
                     }
                 })
                 // OK button
@@ -101,7 +101,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {        // button OnClick listener
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick OK");
+                                LToast.INSTANCE.show(activity, "onClick OK");
                                 prettyDialog.cancel();
                             }
                         }
@@ -114,7 +114,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick Cancel");
+                                LToast.INSTANCE.show(activity, "onClick Cancel");
                                 prettyDialog.cancel();
                             }
                         }
@@ -127,7 +127,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick Option 3");
+                                LToast.INSTANCE.show(activity, "onClick Option 3");
                                 prettyDialog.cancel();
                             }
                         }
@@ -151,7 +151,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                 .setIconCallback(new PrettyDialogCallback() {
                     @Override
                     public void onClick() {
-                        LToast.show(activity, "onClick setIconCallback");
+                        LToast.INSTANCE.show(activity, "onClick setIconCallback");
                     }
                 })
                 // OK button
@@ -162,7 +162,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {        // button OnClick listener
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick OK");
+                                LToast.INSTANCE.show(activity, "onClick OK");
                                 prettyDialog.cancel();
                             }
                         }
@@ -175,7 +175,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick Cancel");
+                                LToast.INSTANCE.show(activity, "onClick Cancel");
                                 prettyDialog.cancel();
                             }
                         }
@@ -188,7 +188,7 @@ public class PrettyDialogActivity extends BaseFontActivity implements OnClickLis
                         new PrettyDialogCallback() {
                             @Override
                             public void onClick() {
-                                LToast.show(activity, "onClick Option 3");
+                                LToast.INSTANCE.show(activity, "onClick Option 3");
                                 prettyDialog.cancel();
                             }
                         }

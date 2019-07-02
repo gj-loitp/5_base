@@ -29,7 +29,7 @@ public class PhotosData {
 
     public void setPhotoList(List<Photo> photoList) {
         this.photoList = photoList;
-        LLog.d(TAG, "size: " + this.photoList.size());
+        LLog.INSTANCE.d(TAG, "size: " + this.photoList.size());
     }
 
     public void addPhoto(List<Photo> photoList) {
@@ -38,12 +38,12 @@ public class PhotosData {
             return;
         }
         this.photoList.addAll(photoList);
-        LLog.d(TAG, "size: " + this.photoList.size());
+        LLog.INSTANCE.d(TAG, "size: " + this.photoList.size());
     }
 
     public void clearData() {
         this.photoList.clear();
-        LLog.d(TAG, "size: " + this.photoList.size());
+        LLog.INSTANCE.d(TAG, "size: " + this.photoList.size());
     }
 
     public int getSize() {

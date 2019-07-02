@@ -90,7 +90,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
                 mLabelPadding = typedArray.getDimensionPixelSize(R.styleable.LabelsView_label_padding, getResources().getDimensionPixelSize(R.dimen.padding_label_view));
 
             } catch (Exception e) {
-                LLog.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
+                LLog.INSTANCE.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
             } finally {
                 typedArray.recycle();
             }

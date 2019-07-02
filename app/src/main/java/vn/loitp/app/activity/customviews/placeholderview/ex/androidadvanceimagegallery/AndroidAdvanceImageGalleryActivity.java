@@ -74,7 +74,7 @@ public class AndroidAdvanceImageGalleryActivity extends BaseFontActivity {
         for (int i = 0; i < imageList.size(); i++) {
             newImageList.add(imageList.get(i));
         }
-        LLog.d(TAG, ">>>loadMore " + newImageList.size());
+        LLog.INSTANCE.d(TAG, ">>>loadMore " + newImageList.size());
         return newImageList;
     }
 }

@@ -18,18 +18,8 @@ import android.graphics.drawable.shapes.RectShape;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -49,6 +39,8 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -56,14 +48,17 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
 import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
 import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.uiza.UZCons;
-import vn.loitp.core.loitp.uiza.UZPlayerActivity;
 import vn.loitp.data.AdmobData;
-import vn.loitp.restapi.uiza.model.v3.metadata.getdetailofmetadata.Data;
 import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
@@ -77,63 +72,34 @@ import vn.loitp.views.overscroll.lib.overscroll.OverScrollDecoratorHelper;
 public class LUIUtil {
     private static String TAG = LUIUtil.class.getSimpleName();
 
-    public static AdView createAdBanner(Activity activity, int adViewId) {
-        AdView adView = (AdView) activity.findViewById(adViewId);
+    public static AdView createAdBanner(@NonNull final Activity activity, final int adViewId) {
+        final AdView adView = activity.findViewById(adViewId);
         createAdBanner(adView);
         return adView;
     }
 
-    public static AdView createAdBanner(AdView adView) {
-        adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.TEST_0)
-                .addTestDevice(Constants.TEST_1)
-                .addTestDevice(Constants.TEST_2)
-                .addTestDevice(Constants.TEST_3)
-                .addTestDevice(Constants.TEST_4)
-                .addTestDevice(Constants.TEST_5)
-                .addTestDevice(Constants.TEST_6)
-                .addTestDevice(Constants.TEST_7)
-                .addTestDevice(Constants.TEST_8)
-                .addTestDevice(Constants.TEST_9)
-                .build());
+    public static AdView createAdBanner(@NonNull final AdView adView) {
+        adView.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(Constants.getTEST_0()).addTestDevice(Constants.getTEST_1()).addTestDevice(Constants.getTEST_2()).addTestDevice(Constants.getTEST_3()).addTestDevice(Constants.getTEST_4()).addTestDevice(Constants.getTEST_5()).addTestDevice(Constants.getTEST_6()).addTestDevice(Constants.getTEST_7()).addTestDevice(Constants.getTEST_8()).addTestDevice(Constants.getTEST_9()).build());
         return adView;
     }
 
-    public static InterstitialAd createAdFull(Context context) {
-        InterstitialAd interstitial = new InterstitialAd(context);
-        interstitial.setAdUnitId(AdmobData.getInstance().getIdAdmobFull());
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(Constants.TEST_0)
-                .addTestDevice(Constants.TEST_1)
-                .addTestDevice(Constants.TEST_2)
-                .addTestDevice(Constants.TEST_3)
-                .addTestDevice(Constants.TEST_4)
-                .addTestDevice(Constants.TEST_5)
-                .addTestDevice(Constants.TEST_6)
-                .addTestDevice(Constants.TEST_7)
-                .addTestDevice(Constants.TEST_8)
-                .addTestDevice(Constants.TEST_9)
-                .build();
+    public static InterstitialAd createAdFull(@NonNull final Context context) {
+        final InterstitialAd interstitial = new InterstitialAd(context);
+        interstitial.setAdUnitId(AdmobData.Companion.getInstance().getIdAdmobFull());
+        final AdRequest adRequest =
+                new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(Constants.getTEST_0()).addTestDevice(Constants.getTEST_1()).addTestDevice(Constants.getTEST_2()).addTestDevice(Constants.getTEST_3()).addTestDevice(Constants.getTEST_4()).addTestDevice(Constants.getTEST_5()).addTestDevice(Constants.getTEST_6()).addTestDevice(Constants.getTEST_7()).addTestDevice(Constants.getTEST_8()).addTestDevice(Constants.getTEST_9()).build();
         interstitial.loadAd(adRequest);
         return interstitial;
     }
 
-    public static void displayInterstitial(InterstitialAd interstitial) {
+    public static void displayInterstitial(@NonNull final InterstitialAd interstitial) {
         displayInterstitial(interstitial, 100);
     }
 
-    public static void displayInterstitial(InterstitialAd interstitial, int maxNumber) {
-        /*if (LPref.getIsShowedGift(activity.getApplicationContext())) {
-            return;
-        }*/
-        if (interstitial == null) {
-            //dont use LLog here
-            Log.d("interstitial", "displayInterstitial err: interstitial == null");
-            return;
-        }
+    public static void displayInterstitial(@NonNull final InterstitialAd interstitial, final int maxNumber) {
         if (interstitial.isLoaded()) {
-            Random r = new Random();
-            int x = r.nextInt(100);
+            final Random r = new Random();
+            final int x = r.nextInt(100);
             if (x < maxNumber) {
                 interstitial.show();
             } else {
@@ -149,12 +115,12 @@ public class LUIUtil {
     /*
      * settext marquee
      */
-    public static void setMarquee(TextView tv, String text) {
+    public static void setMarquee(@NonNull final TextView tv, @NonNull final String text) {
         tv.setText(text);
         setMarquee(tv);
     }
 
-    public static void setMarquee(TextView tv) {
+    public static void setMarquee(@NonNull final TextView tv) {
         tv.setSelected(true);
         tv.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         tv.setSingleLine(true);
@@ -168,16 +134,16 @@ public class LUIUtil {
   }*/
 
     public static GradientDrawable createGradientDrawableWithRandomColor() {
-        int color = LStoreUtil.getRandomColor();
-        GradientDrawable gradientDrawable = new GradientDrawable();
+        final int color = LStoreUtil.getRandomColor();
+        final GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(color);
         gradientDrawable.setCornerRadius(0f);
         gradientDrawable.setStroke(1, color);
         return gradientDrawable;
     }
 
-    public static GradientDrawable createGradientDrawableWithColor(int colorMain, int colorStroke) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
+    public static GradientDrawable createGradientDrawableWithColor(final int colorMain, final int colorStroke) {
+        final GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(colorMain);
         gradientDrawable.setCornerRadius(90f);
         gradientDrawable.setStroke(3, colorStroke);
@@ -196,7 +162,7 @@ public class LUIUtil {
     }*/
 
     @SuppressWarnings("deprecation")
-    public static void setCircleViewWithColor(View view, int colorMain, int colorStroke) {
+    public static void setCircleViewWithColor(@NonNull final View view, final int colorMain, final int colorStroke) {
         try {
             view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke));
         } catch (Exception e) {
@@ -221,28 +187,25 @@ public class LUIUtil {
         return bitmap;
     }*/
 
-    public static void setGradientBackground(View v) {
-        final View view = v;
-        Drawable[] layers = new Drawable[1];
-
-        ShapeDrawable.ShaderFactory sf = new ShapeDrawable.ShaderFactory() {
+    public static void setGradientBackground(@NonNull final View v) {
+        final Drawable[] layers = new Drawable[1];
+        final ShapeDrawable.ShaderFactory sf = new ShapeDrawable.ShaderFactory() {
             @Override
             public Shader resize(int width, int height) {
-                LinearGradient lg = new LinearGradient(0, 0, 0, view.getHeight(), new int[]{LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil
-                        .getRandomColor()}, new float[]{0, 0.49f, 0.50f, 1}, Shader.TileMode.CLAMP);
-                return lg;
+                return new LinearGradient(0, 0, 0, v.getHeight(), new int[]{LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor()},
+                        new float[]{0, 0.49f, 0.50f, 1}, Shader.TileMode.CLAMP);
             }
         };
-        PaintDrawable p = new PaintDrawable();
+        final PaintDrawable p = new PaintDrawable();
         p.setShape(new RectShape());
         p.setShaderFactory(sf);
         p.setCornerRadii(new float[]{5, 5, 5, 5, 0, 0, 0, 0});
-        layers[0] = (Drawable) p;
-        LayerDrawable composite = new LayerDrawable(layers);
-        view.setBackgroundDrawable(composite);
+        layers[0] = p;
+        final LayerDrawable composite = new LayerDrawable(layers);
+        v.setBackgroundDrawable(composite);
     }
 
-    public static void setTextFromHTML(TextView textView, String bodyData) {
+    public static void setTextFromHTML(@NonNull final TextView textView, @NonNull final String bodyData) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             textView.setText(Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY));
         } else {
@@ -270,9 +233,9 @@ public class LUIUtil {
         }
     }*/
 
-    public static void setImageFromAsset(Context context, String fileName, ImageView imageView) {
+    public static void setImageFromAsset(@NonNull final Context context, @NonNull final String fileName, @NonNull final ImageView imageView) {
         {
-            Drawable drawable = null;
+            Drawable drawable;
             InputStream stream = null;
             try {
                 stream = context.getAssets().open("img/" + fileName);
@@ -280,21 +243,21 @@ public class LUIUtil {
                 if (drawable != null) {
                     imageView.setImageDrawable(drawable);
                 }
-            } catch (Exception ignored) {
-                LLog.d(TAG, "setImageFromAsset: " + ignored.toString());
+            } catch (Exception e) {
+                LLog.d(TAG, "setImageFromAsset: " + e.toString());
             } finally {
                 try {
                     if (stream != null) {
                         stream.close();
                     }
-                } catch (Exception ignored) {
-                    LLog.d(TAG, "setImageFromAsset: " + ignored.toString());
+                } catch (Exception e) {
+                    LLog.d(TAG, "setImageFromAsset: " + e.toString());
                 }
             }
         }
     }
 
-    public static void fixSizeTabLayout(Context context, TabLayout tabLayout, String titleList[]) {
+    public static void fixSizeTabLayout(@NonNull final Context context, @NonNull final TabLayout tabLayout, @NonNull final String titleList[]) {
         if (titleList.length > 3) {
             tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         } else {
@@ -309,7 +272,7 @@ public class LUIUtil {
         }*/
     }
 
-    public static void setTextAppearance(Context context, TextView textView, int resId) {
+    public static void setTextAppearance(@NonNull final Context context, @NonNull final TextView textView, final int resId) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             textView.setTextAppearance(context, resId);
         } else {
@@ -318,82 +281,64 @@ public class LUIUtil {
     }
 
     public interface DelayCallback {
-        public void doAfter(int mls);
+        void doAfter(int mls);
     }
 
-    public static void setDelay(final int mls, final DelayCallback delayCallback) {
+    public static void setDelay(final int mls, @NonNull final DelayCallback delayCallback) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (delayCallback != null) {
-                    delayCallback.doAfter(mls);
-                }
+                delayCallback.doAfter(mls);
             }
         }, mls);
     }
 
-    public static void setSoftInputMode(Activity activity, int mode) {
+    public static void setSoftInputMode(@NonNull final Activity activity, final int mode) {
         //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         //activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         activity.getWindow().setSoftInputMode(mode);
     }
 
-    public static void setLastCursorEditText(EditText editText) {
-        if (editText == null) {
-            return;
-        }
+    public static void setLastCursorEditText(@NonNull final EditText editText) {
         if (!editText.getText().toString().isEmpty()) {
             editText.setSelection(editText.getText().length());
         }
     }
 
-    public static void setColorForSwipeRefreshLayout(SwipeRefreshLayout swipeRefreshLayout) {
-        if (swipeRefreshLayout == null) {
-            return;
-        }
-        swipeRefreshLayout.setColorSchemeResources(
-                R.color.colorPrimary,
-                R.color.vip1,
-                R.color.vip2,
-                R.color.vip3,
-                R.color.vip4,
-                R.color.vip5);
+    public static void setColorForSwipeRefreshLayout(@NonNull final SwipeRefreshLayout swipeRefreshLayout) {
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2, R.color.vip3, R.color.vip4, R.color.vip5);
     }
 
-    public static void setTextShadow(TextView textView) {
+    public static void setTextShadow(@NonNull final TextView textView) {
         setTextShadow(textView, Color.BLACK);
     }
 
-    public static void setTextShadow(TextView textView, int color) {
-        if (textView == null) {
-            return;
-        }
-        textView.setShadowLayer(
-                1f, // radius
+    public static void setTextShadow(@NonNull final TextView textView, final int color) {
+        textView.setShadowLayer(1f, // radius
                 1f, // dx
                 1f, // dy
                 color // shadow color
         );
     }
 
-    public static void setTextBold(TextView textBold) {
+    public static void setTextBold(@NonNull final TextView textBold) {
         textBold.setTypeface(null, Typeface.BOLD);
     }
 
-    public static void printBeautyJson(Object o, TextView textView) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(o);
+    public static void printBeautyJson(@NonNull final Object o, @NonNull final TextView textView) {
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        final String json = gson.toJson(o);
         textView.setText(json);
     }
 
-    public static void printBeautyJson(Object o, TextView textView, String tag) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(o);
+    public static void printBeautyJson(@NonNull final Object o, @NonNull final TextView textView, @NonNull final String tag) {
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        final String json = gson.toJson(o);
         textView.setText(tag + " :\n" + json);
     }
 
-    public static void setPullLikeIOSVertical(RecyclerView recyclerView) {
+    public static void setPullLikeIOSVertical(@NonNull final RecyclerView recyclerView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
 
         // Horizontal
@@ -403,16 +348,16 @@ public class LUIUtil {
         OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
     }
 
-    public static void setPullLikeIOSHorizontal(RecyclerView recyclerView) {
+    public static void setPullLikeIOSHorizontal(@NonNull final RecyclerView recyclerView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
 
         // Horizontal
         OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
     }
 
-    public static void setPullLikeIOSHorizontal(final ViewPager viewPager, final Callback callback) {
+    public static void setPullLikeIOSHorizontal(@NonNull final ViewPager viewPager, @Nullable final Callback callback) {
         //guide: https://github.com/EverythingMe/overscroll-decor
-        IOverScrollDecor decor = OverScrollDecoratorHelper.setUpOverScroll(viewPager);
+        final IOverScrollDecor decor = OverScrollDecoratorHelper.setUpOverScroll(viewPager);
         if (callback != null) {
             decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
                 @Override
@@ -459,8 +404,8 @@ public class LUIUtil {
     private static float lastOffset = 0.0f;
     private static boolean isUp = false;
 
-    public static void setPullLikeIOSVertical(final RecyclerView recyclerView, final Callback callback) {
-        IOverScrollDecor decor = OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+    public static void setPullLikeIOSVertical(@NonNull final RecyclerView recyclerView, @Nullable final Callback callback) {
+        final IOverScrollDecor decor = OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
         if (callback != null) {
             /*decor.setOverScrollStateListener(new IOverScrollStateListener() {
                 @Override
@@ -531,41 +476,41 @@ public class LUIUtil {
     }
 
     public interface Callback {
-        public void onUpOrLeft(float offset);
+        void onUpOrLeft(float offset);
 
-        public void onUpOrLeftRefresh(float offset);
+        void onUpOrLeftRefresh(float offset);
 
-        public void onDownOrRight(float offset);
+        void onDownOrRight(float offset);
 
-        public void onDownOrRightRefresh(float offset);
+        void onDownOrRightRefresh(float offset);
     }
 
-    public static void setPullLikeIOSHorizontal(ViewPager viewPager) {
+    public static void setPullLikeIOSHorizontal(@NonNull final ViewPager viewPager) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(viewPager);
     }
 
-    public static void setPullLikeIOSVertical(ScrollView scrollView) {
+    public static void setPullLikeIOSVertical(@NonNull final ScrollView scrollView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
     }
 
-    public static void setPullLikeIOSVertical(ListView listView) {
+    public static void setPullLikeIOSVertical(@NonNull final ListView listView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(listView);
     }
 
-    public static void setPullLikeIOSVertical(GridView gridView) {
+    public static void setPullLikeIOSVertical(@NonNull final GridView gridView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(gridView);
     }
 
-    public static void setPullLikeIOSVertical(HorizontalScrollView scrollView) {
+    public static void setPullLikeIOSVertical(@NonNull final HorizontalScrollView scrollView) {
         //guide: https://github.com/EverythingMe/overscroll-decor
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
     }
 
-    public static void setPullLikeIOSVertical(View view) {
+    public static void setPullLikeIOSVertical(@NonNull final View view) {
         //guide: https://github.com/EverythingMe/overscroll-decor
 
         // Horizontal
@@ -575,36 +520,20 @@ public class LUIUtil {
         OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
     }
 
-    private static int colors[] = {
-            R.color.LightBlue,
-            R.color.LightCoral,
-            R.color.LightCyan,
-            R.color.LightGoldenrodYellow,
-            R.color.LightGreen,
-            R.color.LightGrey,
-            R.color.LightPink,
-            R.color.LightSalmon,
-            R.color.LightSeaGreen,
-            R.color.LightSlateGray,
-            R.color.LightSteelBlue,
-            R.color.LightYellow,
-            R.color.LightSkyBlue
-    };
+    private static int colors[] = {R.color.LightBlue, R.color.LightCoral, R.color.LightCyan, R.color.LightGoldenrodYellow, R.color.LightGreen, R.color.LightGrey, R.color.LightPink,
+            R.color.LightSalmon, R.color.LightSeaGreen, R.color.LightSlateGray, R.color.LightSteelBlue, R.color.LightYellow, R.color.LightSkyBlue};
 
-    public static int getColor(Context context) {
-        Random random = new Random();
-        int c = random.nextInt(colors.length);
+    public static int getColor(@NonNull final Context context) {
+        final Random random = new Random();
+        final int c = random.nextInt(colors.length);
         return ContextCompat.getColor(context, colors[c]);
     }
 
     public interface CallbackSearch {
-        public void onSearch();
+        void onSearch();
     }
 
-    public static void setImeiActionSearch(EditText editText, final CallbackSearch callbackSearch) {
-        if (editText == null) {
-            return;
-        }
+    public static void setImeiActionSearch(@NonNull final EditText editText, @Nullable final CallbackSearch callbackSearch) {
         editText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -620,24 +549,15 @@ public class LUIUtil {
         });
     }
 
-    public static void setColorProgressBar(ProgressBar progressBar, int color) {
-        if (progressBar == null) {
-            return;
-        }
+    public static void setColorProgressBar(@NonNull final ProgressBar progressBar, final int color) {
         progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
-    public static void setProgressBarVisibility(ProgressBar progressBar, int visibility) {
-        if (progressBar == null) {
-            return;
-        }
+    public static void setProgressBarVisibility(@NonNull final ProgressBar progressBar, final int visibility) {
         progressBar.setVisibility(visibility);
     }
 
-    public static void setColorSeekBar(SeekBar seekBar, int color) {
-        if (seekBar == null) {
-            return;
-        }
+    public static void setColorSeekBar(@NonNull final SeekBar seekBar, final int color) {
         seekBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         seekBar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     }
@@ -646,37 +566,37 @@ public class LUIUtil {
     //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
     //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
     //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
-    public static void setTextSize(TextView textView, int typedValue, int size) {
-        if (textView == null || size < 0) {
+    public static void setTextSize(@NonNull final TextView textView, final int typedValue, final int size) {
+        if (size < 0) {
             return;
         }
         textView.setTextSize(typedValue, size);
     }
 
-    public static void setMargins(View view, int leftPx, int topPx, int rightPx, int bottomPx) {
+    public static void setMargins(@NonNull final View view, final int leftPx, final int topPx, final int rightPx, final int bottomPx) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            final ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             p.setMargins(leftPx, topPx, rightPx, bottomPx);
             view.requestLayout();
         }
     }
 
-    public static void setMarginsDp(View view, int leftDp, int topDp, int rightDp, int bottomDp) {
+    public static void setMarginsDp(@NonNull final View view, final int leftDp, final int topDp, final int rightDp, final int bottomDp) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            final ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             p.setMargins(ConvertUtils.dp2px(leftDp), ConvertUtils.dp2px(topDp), ConvertUtils.dp2px(rightDp), ConvertUtils.dp2px(bottomDp));
             view.requestLayout();
         }
     }
 
-    public static void changeTabsFont(TabLayout tabLayout, String fontName) {
-        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
-        int tabsCount = vg.getChildCount();
+    public static void changeTabsFont(@NonNull final TabLayout tabLayout, @NonNull final String fontName) {
+        final ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        final int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {
-            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
-            int tabChildsCount = vgTab.getChildCount();
+            final ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            final int tabChildsCount = vgTab.getChildCount();
             for (int i = 0; i < tabChildsCount; i++) {
-                View tabViewChild = vgTab.getChildAt(i);
+                final View tabViewChild = vgTab.getChildAt(i);
                 if (tabViewChild instanceof TextView) {
                     CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
                 }
@@ -686,83 +606,48 @@ public class LUIUtil {
 
     private static String mFontForAll;
 
-    public static void setFontForAll(String fontForAll) {
+    public static void setFontForAll(@NonNull final String fontForAll) {
         mFontForAll = fontForAll;
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath(fontForAll)
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath(fontForAll).setFontAttrId(R.attr.fontPath).build());
     }
 
     public static String getFontForAll() {
         return mFontForAll;
     }
 
-    public static void setRandomBackground(View view) {
-        if (view == null) {
-            return;
-        }
-        int r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.length);
-        int bkg = Constants.ARR_RANDOM_BKG[r];
+    public static void setRandomBackground(@NonNull final View view) {
+        final int r = LStoreUtil.getRandomNumber(Constants.INSTANCE.getARR_RANDOM_BKG().length);
+        final int bkg = Constants.INSTANCE.getARR_RANDOM_BKG()[r];
         view.setBackgroundResource(bkg);
     }
 
-    public static void setNavMenuItemThemeColors(NavigationView navigationView, int colorDefault, int color) {
+    public static void setNavMenuItemThemeColors(@NonNull final NavigationView navigationView, final int colorDefault, final int color) {
         //Setting default colors for menu item Text and Icon
-        int navDefaultTextColor = colorDefault;
-        int navDefaultIconColor = colorDefault;
 
         //Defining ColorStateList for menu item Text
-        ColorStateList navMenuTextList = new ColorStateList(
-                new int[][]{
-                        new int[]{android.R.attr.state_checked},
-                        new int[]{android.R.attr.state_enabled},
-                        new int[]{android.R.attr.state_pressed},
-                        new int[]{android.R.attr.state_focused},
-                        new int[]{android.R.attr.state_pressed}
-                },
-                new int[]{
-                        color,
-                        navDefaultTextColor,
-                        navDefaultTextColor,
-                        navDefaultTextColor,
-                        navDefaultTextColor
-                }
-        );
+        final ColorStateList navMenuTextList = new ColorStateList(new int[][]{new int[]{android.R.attr.state_checked}, new int[]{android.R.attr.state_enabled},
+                new int[]{android.R.attr.state_pressed}, new int[]{android.R.attr.state_focused}, new int[]{android.R.attr.state_pressed}}, new int[]{color, colorDefault, colorDefault, colorDefault
+                , colorDefault});
 
         //Defining ColorStateList for menu item Icon
-        ColorStateList navMenuIconList = new ColorStateList(
-                new int[][]{
-                        new int[]{android.R.attr.state_checked},
-                        new int[]{android.R.attr.state_enabled},
-                        new int[]{android.R.attr.state_pressed},
-                        new int[]{android.R.attr.state_focused},
-                        new int[]{android.R.attr.state_pressed}
-                },
-                new int[]{
-                        color,
-                        navDefaultIconColor,
-                        navDefaultIconColor,
-                        navDefaultIconColor,
-                        navDefaultIconColor
-                }
-        );
+        final ColorStateList navMenuIconList = new ColorStateList(new int[][]{new int[]{android.R.attr.state_checked}, new int[]{android.R.attr.state_enabled},
+                new int[]{android.R.attr.state_pressed}, new int[]{android.R.attr.state_focused}, new int[]{android.R.attr.state_pressed}}, new int[]{color, colorDefault, colorDefault, colorDefault
+                , colorDefault});
         navigationView.setItemTextColor(navMenuTextList);
         navigationView.setItemIconTintList(navMenuIconList);
     }
 
-    public static ArrayList<View> getAllChildren(View v) {
+    public static ArrayList<View> getAllChildren(@NonNull final View v) {
         if (!(v instanceof ViewGroup)) {
-            ArrayList<View> viewArrayList = new ArrayList<View>();
+            final ArrayList<View> viewArrayList = new ArrayList<View>();
             viewArrayList.add(v);
             return viewArrayList;
         }
-        ArrayList<View> result = new ArrayList<View>();
-        ViewGroup viewGroup = (ViewGroup) v;
+        final ArrayList<View> result = new ArrayList<View>();
+        final ViewGroup viewGroup = (ViewGroup) v;
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            View child = viewGroup.getChildAt(i);
-            ArrayList<View> viewArrayList = new ArrayList<View>();
+            final View child = viewGroup.getChildAt(i);
+            final ArrayList<View> viewArrayList = new ArrayList<View>();
             viewArrayList.add(v);
             viewArrayList.addAll(getAllChildren(child));
             result.addAll(viewArrayList);
@@ -770,43 +655,33 @@ public class LUIUtil {
         return result;
     }
 
-    public static int getWidthOfView(View view) {
-        if (view == null) {
-            return 0;
-        }
+    public static int getWidthOfView(@NonNull final View view) {
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         return view.getMeasuredWidth();
     }
 
-    public static int getHeightOfView(View view) {
-        if (view == null) {
-            return 0;
-        }
+    public static int getHeightOfView(@NonNull final View view) {
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         return view.getMeasuredHeight();
     }
 
-    public static void goToUZPlayerActivity(Activity activity, Data data, String admobBaner) {
-        Intent intent = new Intent(activity, UZPlayerActivity.class);
-        intent.putExtra(UZCons.ENTITY_DATA, data);
-        intent.putExtra(UZCons.ENTITY_SHOULD_SHOW_COVER, true);
-        if (admobBaner != null) {
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBaner);
-        }
-        activity.startActivity(intent);
-        LActivityUtil.slideUp(activity);
-    }
-
     //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-    public static void playYoutube(Activity activity, String url) {
-        if (activity == null || url == null || url.isEmpty()) {
+    public static void playYoutube(@NonNull final Activity activity, @NonNull final String url) {
+        if (url.isEmpty()) {
             return;
         }
         activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         LActivityUtil.tranIn(activity);
     }
 
-    public static void playYoutubeWithId(Activity activity, String id) {
+    public static void playYoutubeWithId(@NonNull final Activity activity, @NonNull final String id) {
         playYoutube(activity, "http://www.youtube.com/watch?v=" + id);
+    }
+
+    //ViewGroup.LayoutParams.MATCH_PARENT
+    public static void setSize(@NonNull View view, final int w, final int h) {
+        view.getLayoutParams().width = w;
+        view.getLayoutParams().height = h;
+        view.requestLayout();
     }
 }

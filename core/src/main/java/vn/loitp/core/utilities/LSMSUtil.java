@@ -37,6 +37,6 @@ public class LSMSUtil {
             sendIntent.putExtra("sms_body", text);
             activity.startActivity(sendIntent);
         }
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 }

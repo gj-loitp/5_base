@@ -7,18 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_item_diff_util.view.*
 import loitp.basemaster.R
 import vn.loitp.core.utilities.LImageUtil
-import vn.loitp.core.utilities.LLog
 import kotlin.properties.Delegates
 
 class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
     val TAG: String = "TAG" + javaClass.simpleName
 
-    var items: List<Content> by Delegates.observable(emptyList()) { prop, old, new ->
+    var items: List<Content> by Delegates.observable(emptyList()) { _, old, new ->
         autoNotify(old, new) { o, n -> o.id == n.id }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.view_item_diff_util, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_item_diff_util, parent, false))
     }
 
     override fun getItemCount() = items.size
@@ -28,7 +27,6 @@ class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), Auto
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
-        LLog.d("suzuki", "onBindViewHolder " + position)
         super.onBindViewHolder(holder, position, payloads)
     }
 

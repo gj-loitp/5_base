@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    android:orientation="horizontal"
-    android:padding="@dimen/padding_5">
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="?android:attr/selectableItemBackground"
+	android:clickable="true"
+	android:focusable="true"
+	android:orientation="horizontal"
+	android:padding="@dimen/padding_5">
 
-    <vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
-        android:id="@+id/avt"
-        android:layout_width="@dimen/w_70"
-        android:layout_height="@dimen/w_70"
-        android:scaleType="centerCrop"
-        android:src="@color/colorPrimary" />
+	<vn.loitp.views.imageview.circleimageview.lib.LCircleImageView
+		android:id="@+id/avt"
+		android:layout_width="@dimen/w_70"
+		android:layout_height="@dimen/w_70"
+		android:scaleType="centerCrop"
+		android:src="@color/colorPrimary" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_5"
-        android:orientation="vertical">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_5"
+		android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/Black"
-            android:textSize="@dimen/txt_20"
-            android:textStyle="bold" />
+		<TextView
+			android:id="@+id/tv_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/Black"
+			android:textSize="@dimen/txt_20"
+			android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/txt_14" />
+		<TextView
+			android:id="@+id/tv_msg"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/colorPrimary"
+			android:textSize="@dimen/txt_14" />
 
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/Gray"
-            android:textSize="@dimen/txt_10" />
-
-    </LinearLayout>
-
+		<TextView
+			android:id="@+id/tv_time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/Gray"
+			android:textSize="@dimen/txt_10" />
+	</LinearLayout>
 </LinearLayout>

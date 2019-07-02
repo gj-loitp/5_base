@@ -2,14 +2,15 @@ package vn.loitp.function.youtubeparser.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
@@ -55,7 +56,7 @@ public class FrmYoutubeChannel extends BaseFragment {
         if (bundle != null) {
             watcherActivity = bundle.getString(KEY_WATCHER_ACTIVITY);
         }
-        LLog.d(TAG, "watcherActivity " + watcherActivity);
+        LLog.INSTANCE.d(TAG, "watcherActivity " + watcherActivity);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         progressBar = (ProgressBar) view.findViewById(R.id.pb);
         tvMsg = (TextView) view.findViewById(R.id.tv_msg);
@@ -74,7 +75,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                     intent.putExtra(FrmYoutubeParser.KEY_CHANNEL_ID, uItem.getId());
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {
-                    LLog.e(TAG, "ClassNotFoundException " + e.toString());
+                    LLog.INSTANCE.e(TAG, "ClassNotFoundException " + e.toString());
                 }
             }
 
@@ -102,18 +103,18 @@ public class FrmYoutubeChannel extends BaseFragment {
 
     private void getListChannel() {
         long lastTime = LPref.getTimeGetYoutubeChannelListSuccess(getActivity());
-        LLog.d(TAG, "lastTime " + lastTime);
+        LLog.INSTANCE.d(TAG, "lastTime " + lastTime);
         if (lastTime == 0) {
-            LLog.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
+            LLog.INSTANCE.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
         } else {
             long currentTime = System.currentTimeMillis();
             long duration = currentTime - lastTime;
             int durationS = (int) (duration / (60 * 1000));
-            int range = Constants.IS_DEBUG ? 1 : 15;
+            int range = Constants.INSTANCE.getIS_DEBUG() ? 1 : 15;
             if (durationS > range) {
-                LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
+                LLog.INSTANCE.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
-                LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
+                LLog.INSTANCE.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
                 UtubeChannel utubeChannel = LPref.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
@@ -125,7 +126,7 @@ public class FrmYoutubeChannel extends BaseFragment {
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                LLog.d(TAG, "onFailure " + e.toString());
+                LLog.INSTANCE.d(TAG, "onFailure " + e.toString());
                 getListYoutubeChannelFailed();
             }
 
@@ -146,7 +147,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                     LPref.setYoutubeChannelList(getActivity(), utubeChannel);
                     getListYoutubeChannelSuccess(utubeChannel);
                 } else {
-                    LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    LLog.INSTANCE.d(TAG, "onResponse !isSuccessful: " + response.toString());
                     getListYoutubeChannelFailed();
                 }
             }

@@ -15,25 +15,25 @@ public class RoundedButtonActivity extends BaseFontActivity {
         findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(activity, "Click");
             }
         });
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(activity, "Click");
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(activity, "Click");
             }
         });
         findViewById(R.id.bt_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(activity, "Click");
             }
         });
     }

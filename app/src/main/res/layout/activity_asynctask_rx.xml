@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/root_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/ll">
+
+		<TextView
+			android:id="@+id/tv"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/padding_5"
+			android:textSize="@dimen/txt_18" />
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/ll"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/bt_rx_4"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/bt_async_task"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Async" />
+
+		<Button
+			android:id="@+id/bt_rx_1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx1" />
+
+		<Button
+			android:id="@+id/bt_rx_2"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx2" />
+
+		<Button
+			android:id="@+id/bt_rx_3"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Rx3" />
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/bt_rx_4"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="Rx with progress" />
+</RelativeLayout>
+

@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.bottomsheet;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -49,7 +51,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
         layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.show(activity, "Click layoutBottomSheet R.id.bt_payment");
+                LToast.INSTANCE.show(activity, "Click layoutBottomSheet R.id.bt_payment");
             }
         });
 
@@ -59,30 +61,30 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED: {
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
                         bt0.setText("Close Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-                        LLog.d(TAG, "STATE_COLLAPSED");
+                        LLog.INSTANCE.d(TAG, "STATE_COLLAPSED");
                         bt0.setText("Expand Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        LLog.d(TAG, "STATE_DRAGGING");
+                        LLog.INSTANCE.d(TAG, "STATE_DRAGGING");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-                        LLog.d(TAG, "STATE_SETTLING");
+                        LLog.INSTANCE.d(TAG, "STATE_SETTLING");
                         break;
                 }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                LLog.d(TAG, "onSlide " + slideOffset);
+                LLog.INSTANCE.d(TAG, "onSlide " + slideOffset);
             }
         });
 

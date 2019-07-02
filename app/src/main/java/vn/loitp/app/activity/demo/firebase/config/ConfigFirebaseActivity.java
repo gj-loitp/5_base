@@ -1,10 +1,11 @@
 package vn.loitp.app.activity.demo.firebase.config;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -103,13 +104,13 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            LToast.show(activity, "Fetch Succeeded");
+                            LToast.INSTANCE.show(activity, "Fetch Succeeded");
 
                             // After config data is successfully fetched, it must be activated before newly fetched
                             // values are returned.
                             mFirebaseRemoteConfig.activateFetched();
                         } else {
-                            LToast.show(activity, "Fetch Failed");
+                            LToast.INSTANCE.show(activity, "Fetch Failed");
                         }
                         displayWelcomeMessage();
                     }

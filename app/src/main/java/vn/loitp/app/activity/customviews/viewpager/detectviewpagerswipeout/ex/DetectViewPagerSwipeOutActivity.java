@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -39,24 +40,24 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
         LUIUtil.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
             @Override
             public void onUpOrLeft(float offset) {
-                LLog.d(TAG, "onUpOrLeft " + offset);
+                LLog.INSTANCE.d(TAG, "onUpOrLeft " + offset);
                 ToastUtils.showShort("Detect Left");
             }
 
             @Override
             public void onUpOrLeftRefresh(float offset) {
-                LLog.d(TAG, "onUpOrLeftRefresh " + offset);
+                LLog.INSTANCE.d(TAG, "onUpOrLeftRefresh " + offset);
             }
 
             @Override
             public void onDownOrRight(float offset) {
-                LLog.d(TAG, "onDownOrRight " + offset);
+                LLog.INSTANCE.d(TAG, "onDownOrRight " + offset);
                 ToastUtils.showShort("Detect Right");
             }
 
             @Override
             public void onDownOrRightRefresh(float offset) {
-                LLog.d(TAG, "onDownOrRightRefresh " + offset);
+                LLog.INSTANCE.d(TAG, "onDownOrRightRefresh " + offset);
             }
         });
 

@@ -1,14 +1,16 @@
 package vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout;
 
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +57,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH);
+        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
 
         findViewById(R.id.bt_anim).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +110,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         LDialogUtil.showDialogList(activity, "Select", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
-                LToast.show(activity, "Click position " + position + ", item: " + arr[position]);
+                LToast.INSTANCE.show(activity, "Click position " + position + ", item: " + arr[position]);
                 switch (stringList.get(position)) {
                     case AccordionTransformer:
                         viewPager.setPageTransformer(true, new AccordionTransformer());
@@ -189,7 +191,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.d(TAG, "res " + res);
+            LLog.INSTANCE.d(TAG, "res " + res);
             LayoutInflater inflater = LayoutInflater.from(activity);
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 

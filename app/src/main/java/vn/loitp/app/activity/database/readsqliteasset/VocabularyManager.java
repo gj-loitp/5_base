@@ -96,7 +96,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
         myInput.close();
     }
 
-    public void createDatabase() throws IOException {
+    public void createDatabase() {
         boolean dbExist = checkDatabase();
         if (dbExist) {
             //khong lam gi ca, database da co roi

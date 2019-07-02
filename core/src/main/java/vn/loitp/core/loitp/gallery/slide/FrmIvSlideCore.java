@@ -6,13 +6,14 @@ package vn.loitp.core.loitp.gallery.slide;
 
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
@@ -42,10 +43,10 @@ public class FrmIvSlideCore extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle bundle = getArguments();
         if (bundle == null) {
-            LLog.d(TAG, "onViewCreated bundle == null -> return");
+            LLog.INSTANCE.d(TAG, "onViewCreated bundle == null -> return");
             return;
         }
-        int position = bundle.getInt(Constants.SK_PHOTO_PISITION);
+        int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
         Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
         final AVLoadingIndicatorView avLoadingIndicatorView = (AVLoadingIndicatorView) view.findViewById(R.id.avi);
@@ -88,7 +89,7 @@ public class FrmIvSlideCore extends Fragment {
 
             @Override
             public void onSuccess(File image) {
-                LLog.d(TAG, "onSuccess");
+                LLog.INSTANCE.d(TAG, "onSuccess");
                 /*SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);

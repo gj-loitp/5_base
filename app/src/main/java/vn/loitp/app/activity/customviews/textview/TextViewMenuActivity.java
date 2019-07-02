@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity;
@@ -20,6 +19,7 @@ import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentVie
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class TextViewMenuActivity extends BaseFontActivity implements OnClickListener {
@@ -103,7 +103,7 @@ public class TextViewMenuActivity extends BaseFontActivity implements OnClickLis
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

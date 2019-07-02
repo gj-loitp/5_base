@@ -7,13 +7,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -33,8 +34,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.security.MessageDigest;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.app.LSApplication;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -74,13 +75,13 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                LLog.d(TAG, "facebook:onSuccess:" + loginResult);
+                LLog.INSTANCE.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
             public void onCancel() {
-                LLog.d(TAG, "facebook:onCancel");
+                LLog.INSTANCE.d(TAG, "facebook:onCancel");
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -88,7 +89,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             @Override
             public void onError(FacebookException error) {
-                LLog.d(TAG, "facebook:onError " + error.toString());
+                LLog.INSTANCE.d(TAG, "facebook:onError " + error.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -133,7 +134,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
     // [START auth_with_facebook]
     private void handleFacebookAccessToken(AccessToken token) {
-        LLog.d(TAG, "handleFacebookAccessToken:" + token);
+        LLog.INSTANCE.d(TAG, "handleFacebookAccessToken:" + token);
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
@@ -145,13 +146,13 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            LLog.d(TAG, "signInWithCredential:success");
+                            LLog.INSTANCE.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            LLog.d(TAG, "signInWithCredential:failure " + task.getException());
-                            LToast.show(activity, "Authentication failed " + task.getException());
+                            LLog.INSTANCE.d(TAG, "signInWithCredential:failure " + task.getException());
+                            LToast.INSTANCE.show(activity, "Authentication failed " + task.getException());
                             updateUI(null);
                         }
 
@@ -178,8 +179,8 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             LUIUtil.printBeautyJson(user, mDetailTextView);
 
-            LLog.d(TAG, "updateUI " + LSApplication.getInstance().getGson().toJson(user));
-            LLog.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
+            LLog.INSTANCE.d(TAG, "updateUI " + LSApplication.Companion.getGson().toJson(user));
+            LLog.INSTANCE.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
                 LImageUtil.load(activity, user.getPhotoUrl() + "?height=500", (ImageView) findViewById(R.id.icon));
             } catch (Exception e) {
@@ -244,10 +245,10 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 String hashKey = new String(Base64.encode(md.digest(), 0));
-                LLog.d(TAG, "printHashKey() Hash Key: " + hashKey);
+                LLog.INSTANCE.d(TAG, "printHashKey() Hash Key: " + hashKey);
             }
         } catch (Exception e) {
-            LLog.e(TAG, "printHashKey() " + e.toString());
+            LLog.INSTANCE.e(TAG, "printHashKey() " + e.toString());
         }
     }
 }

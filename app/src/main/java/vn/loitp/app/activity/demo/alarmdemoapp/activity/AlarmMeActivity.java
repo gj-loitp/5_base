@@ -30,11 +30,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import vn.loitp.core.base.BaseFontActivity;
+import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
-import loitp.basemaster.R;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
@@ -57,7 +57,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.d(TAG, "AlarmMeActivity.onCreate()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onCreate()");
 
         mAlarmList = (ListView) findViewById(R.id.lv_alarm);
         LUIUtil.setPullLikeIOSVertical(mAlarmList);
@@ -73,7 +73,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(TAG, "AlarmMeActivity.onDestroy()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onDestroy()");
     }
 
     @Override
@@ -94,7 +94,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(TAG, "AlarmMeActivity.onResume()");
+        LLog.INSTANCE.d(TAG, "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 
@@ -103,7 +103,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
-        LActivityUtil.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(activity);
     }
 
     @Override
@@ -137,7 +137,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -167,7 +167,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -190,7 +190,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     };
 

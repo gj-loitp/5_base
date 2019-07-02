@@ -6,11 +6,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -34,7 +35,7 @@ public class ExampleCardPopup extends RelativePopupWindow {
         layout.findViewById(R.id.ll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(context, "On Click");
+                LToast.INSTANCE.show(context, "On Click");
             }
         });
     }

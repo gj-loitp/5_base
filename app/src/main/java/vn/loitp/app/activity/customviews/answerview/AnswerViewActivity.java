@@ -26,7 +26,7 @@ public class AnswerViewActivity extends BaseFontActivity {
         answerView1.setOnAnswerChange(new AnswerView.OnAnswerChange() {
             @Override
             public void onAnswerChange(AnswerView view, int index) {
-                LToast.show(activity, "Click: " + index);
+                LToast.INSTANCE.show(activity, "Click: " + index);
             }
         });
         answerView1.setActiveChar('A');
@@ -37,7 +37,7 @@ public class AnswerViewActivity extends BaseFontActivity {
         answerView2.setOnAnswerChange(new AnswerView.OnAnswerChange() {
             @Override
             public void onAnswerChange(AnswerView view, int index) {
-                LToast.show(activity, "Click: " + index);
+                LToast.INSTANCE.show(activity, "Click: " + index);
             }
         });
     }
@@ -50,7 +50,7 @@ public class AnswerViewActivity extends BaseFontActivity {
             answerView.setOnAnswerChange(new AnswerView.OnAnswerChange() {
                 @Override
                 public void onAnswerChange(AnswerView view, int index) {
-                    LToast.show(activity, "Click: " + index);
+                    LToast.INSTANCE.show(activity, "Click: " + index);
                 }
             });
             ll.addView(answerView);

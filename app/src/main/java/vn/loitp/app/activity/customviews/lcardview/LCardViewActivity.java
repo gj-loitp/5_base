@@ -42,13 +42,13 @@ public class LCardViewActivity extends BaseFontActivity {
         lCardView0.setText(System.currentTimeMillis() + "");
         lCardView0.setHeight(300);
         lCardView0.setRadius(10);
-        lCardView0.setImg(Constants.URL_IMG_2);
+        lCardView0.setImg(Constants.INSTANCE.getURL_IMG_2());
 
         LCardView lCardView1 = (LCardView) findViewById(R.id.l_card_view_1);
         lCardView1.setText(System.currentTimeMillis() + "");
         lCardView1.setHeight(600);
         lCardView1.setRadius(50);
-        lCardView1.setImg(Constants.URL_IMG_4);
+        lCardView1.setImg(Constants.INSTANCE.getURL_IMG_4());
     }
 
     @Override

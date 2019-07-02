@@ -6,7 +6,6 @@ import android.view.View;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
-import vn.loitp.app.activity.function.bsimagepicker.BSImagePickerActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
@@ -15,7 +14,6 @@ import vn.loitp.app.activity.function.hashmap.HashMapActivity;
 import vn.loitp.app.activity.function.location.LocationActivity;
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
 import vn.loitp.app.activity.function.recolor.RecolorActivity;
-import vn.loitp.app.activity.function.scrog.ScrogActivity;
 import vn.loitp.app.activity.function.sensor.SensorActivity;
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity;
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
@@ -44,9 +42,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_view_drag_helper_simple).setOnClickListener(this);
         findViewById(R.id.bt_view_drag_helper_simple_1).setOnClickListener(this);
         findViewById(R.id.bt_sensor).setOnClickListener(this);
-        findViewById(R.id.bt_scrog).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
-        findViewById(R.id.bt_bs_image_picker).setOnClickListener(this);
     }
 
     @Override
@@ -107,14 +103,8 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
             case R.id.bt_sensor:
                 intent = new Intent(activity, SensorActivity.class);
                 break;
-            case R.id.bt_scrog:
-                intent = new Intent(activity, ScrogActivity.class);
-                break;
             case R.id.bt_glide:
                 intent = new Intent(activity, GlideActivity.class);
-                break;
-            case R.id.bt_bs_image_picker:
-                intent = new Intent(activity, BSImagePickerActivity.class);
                 break;
         }
         if (intent != null) {

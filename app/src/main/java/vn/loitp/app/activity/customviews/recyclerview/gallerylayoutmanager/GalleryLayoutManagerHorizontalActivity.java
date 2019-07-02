@@ -1,17 +1,18 @@
 package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 
@@ -30,7 +31,7 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
         mAdapter = new GalleryAdapter(activity, DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
@@ -88,7 +89,7 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
     private void prepareMovieData() {
         if (DummyData.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 50; i++) {
-                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.URL_IMG);
+                Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
                 DummyData.getInstance().getMovieList().add(movie);
             }
         }

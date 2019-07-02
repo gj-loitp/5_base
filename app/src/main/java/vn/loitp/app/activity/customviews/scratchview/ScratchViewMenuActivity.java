@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity;
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 
 public class ScratchViewMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -47,7 +47,7 @@ public class ScratchViewMenuActivity extends BaseFontActivity implements View.On
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(activity);
         }
     }
 }

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.transition.Scene;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
@@ -10,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+
+import androidx.fragment.app.Fragment;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -42,7 +43,7 @@ public class BasicTransitionFragment extends Fragment implements RadioGroup.OnCh
         View view = inflater.inflate(R.layout.fragment_basic_transition, container, false);
         assert view != null;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            LToast.show(getActivity(), "requires API level 19 or higher");
+            LToast.INSTANCE.show(getActivity(), "requires API level 19 or higher");
             return view;
         }
         RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.select_scene);

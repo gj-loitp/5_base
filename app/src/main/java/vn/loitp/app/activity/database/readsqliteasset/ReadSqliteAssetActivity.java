@@ -23,7 +23,7 @@ public class ReadSqliteAssetActivity extends BaseFontActivity {
         try {
             vocabularyManager.createDatabase();
             LLog.d(TAG, "init dtb success");
-        } catch (IOException e) {
+        } catch (Exception e) {
             LLog.d(TAG, "init dtb failed: " + e.toString());
         }
         List<Vocabulary> vocabularyList = new ArrayList<>();
@@ -31,7 +31,7 @@ public class ReadSqliteAssetActivity extends BaseFontActivity {
 
         LLog.d(TAG, "size: " + vocabularyList.size());
 
-        tv = (TextView) findViewById(R.id.tv);
+        tv = findViewById(R.id.tv);
         LUIUtil.printBeautyJson(vocabularyList.get(0), tv);
     }
 

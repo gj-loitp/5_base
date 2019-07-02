@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.exoplayer2.ui.PlayerControlView;
@@ -17,9 +16,7 @@ import vn.loitp.views.exo.PlayerManager;
 public class ExoPlayerActivity2 extends BaseFontActivity {
     private PlayerView playerView;
     private PlayerManager playerManager;
-    private String linkPlay = "";
     private ImageButton exoFullscreen;
-    private PlayerControlView controls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +24,17 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
         playerView = findViewById(R.id.player_view);
         playerView.setUseController(false);
 
-        linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
+        final String linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
         playerManager = new PlayerManager(activity);
 
-        controls = findViewById(R.id.controls);
+        final PlayerControlView controls = findViewById(R.id.controls);
         controls.setShowTimeoutMs(0);
         playerManager.init(this, playerView, linkPlay);
         controls.setPlayer(playerManager.getPlayer());
 
-        exoFullscreen = (ImageButton) controls.findViewById(R.id.exo_fullscreen);
+        exoFullscreen = controls.findViewById(R.id.exo_fullscreen);
         playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        exoFullscreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                playerManager.toggleFullscreen(activity);
-            }
-        });
+        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(activity));
     }
 
     @Override

@@ -15,7 +15,8 @@ import vn.loitp.views.LToast;
 public class ButterKnifeActivity extends BaseFontActivity {
     @BindView(R.id.bt)
     Button bt;
-    @BindView(R.id.tv)
+
+    @BindView(R.id.tv123)
     TextView tv;
 
     @BindString(R.string.large_text)

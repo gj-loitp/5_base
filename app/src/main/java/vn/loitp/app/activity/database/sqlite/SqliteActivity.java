@@ -115,7 +115,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.d(TAG, "size: " + size);
+        LLog.INSTANCE.d(TAG, "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -124,7 +124,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.d(TAG, "clearAllContact");
+        LLog.INSTANCE.d(TAG, "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -142,13 +142,13 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.d(TAG, "updateContact result " + result);
+        LLog.INSTANCE.d(TAG, "updateContact result " + result);
         button.setText(contact.getID() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.d(TAG, "deleteContact result " + result);
+        LLog.INSTANCE.d(TAG, "deleteContact result " + result);
         ll.removeView(button);
     }
 }

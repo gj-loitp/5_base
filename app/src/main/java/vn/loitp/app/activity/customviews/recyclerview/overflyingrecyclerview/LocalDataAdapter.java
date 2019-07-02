@@ -1,10 +1,11 @@
 package vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import loitp.basemaster.R;
 import vn.loitp.views.LToast;
@@ -39,7 +40,7 @@ public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.View
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LToast.show(v.getContext(), "Click " + v.getTag());
+                    LToast.INSTANCE.show(v.getContext(), "Click " + v.getTag());
                 }
             });
         }

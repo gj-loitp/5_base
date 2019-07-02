@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import androidx.annotation.NonNull;
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.scrollablepanel.ScrollablePanel;
@@ -21,7 +22,7 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ScrollablePanel scrollablePanel = (ScrollablePanel) findViewById(R.id.scrollable_panel);
+        final ScrollablePanel scrollablePanel = findViewById(R.id.scrollable_panel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();
         generateTestData(scrollablePanelAdapter);
         scrollablePanel.setPanelAdapter(scrollablePanelAdapter);
@@ -42,52 +43,51 @@ public class ScrollablePanelActivity extends BaseFontActivity {
         return R.layout.activity_scrollable_panel;
     }
 
-    private void generateTestData(ScrollablePanelAdapter scrollablePanelAdapter) {
-        List<RoomInfo> roomInfoList = new ArrayList<>();
+    private void generateTestData(@NonNull final ScrollablePanelAdapter scrollablePanelAdapter) {
+        final List<RoomInfo> roomInfoList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            RoomInfo roomInfo = new RoomInfo();
-            roomInfo.setRoomType("SUPK");
+            final RoomInfo roomInfo = new RoomInfo();
+            roomInfo.setRoomType("VIP");
             roomInfo.setRoomId(i);
-            roomInfo.setRoomName("20" + i);
+            roomInfo.setRoomName("Name " + i);
             roomInfoList.add(roomInfo);
         }
         for (int i = 6; i < 30; i++) {
-            RoomInfo roomInfo = new RoomInfo();
+            final RoomInfo roomInfo = new RoomInfo();
             roomInfo.setRoomType("Standard");
             roomInfo.setRoomId(i);
-            roomInfo.setRoomName("30" + i);
+            roomInfo.setRoomName("Name " + i);
             roomInfoList.add(roomInfo);
         }
         scrollablePanelAdapter.setRoomInfoList(roomInfoList);
 
-        List<DateInfo> dateInfoList = new ArrayList<>();
-        Calendar calendar = Calendar.getInstance();
+        final List<DateInfo> dateInfoList = new ArrayList<>();
+        final Calendar calendar = Calendar.getInstance();
         for (int i = 0; i < 14; i++) {
-            DateInfo dateInfo = new DateInfo();
-            String date = DAY_UI_MONTH_DAY_FORMAT.format(calendar.getTime());
-            String week = WEEK_FORMAT.format(calendar.getTime());
+            final DateInfo dateInfo = new DateInfo();
+            final String date = DAY_UI_MONTH_DAY_FORMAT.format(calendar.getTime());
+            final String week = WEEK_FORMAT.format(calendar.getTime());
             dateInfo.setDate(date);
             dateInfo.setWeek(week);
             dateInfoList.add(dateInfo);
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
-
         scrollablePanelAdapter.setDateInfoList(dateInfoList);
 
-        List<List<OrderInfo>> ordersList = new ArrayList<>();
+        final List<List<OrderInfo>> ordersList = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            List<OrderInfo> orderInfoList = new ArrayList<>();
+            final List<OrderInfo> orderInfoList = new ArrayList<>();
             for (int j = 0; j < 14; j++) {
-                OrderInfo orderInfo = new OrderInfo();
+                final OrderInfo orderInfo = new OrderInfo();
                 orderInfo.setGuestName("NO." + i + j);
                 orderInfo.setBegin(true);
                 orderInfo.setStatus(OrderInfo.Status.randomStatus());
                 if (orderInfoList.size() > 0) {
-                    OrderInfo lastOrderInfo = orderInfoList.get(orderInfoList.size() - 1);
+                    final OrderInfo lastOrderInfo = orderInfoList.get(orderInfoList.size() - 1);
                     if (orderInfo.getStatus().ordinal() == lastOrderInfo.getStatus().ordinal()) {
                         orderInfo.setId(lastOrderInfo.getId());
                         orderInfo.setBegin(false);
-                        orderInfo.setGuestName("");
+                        orderInfo.setGuestName("Loitp");
                     } else {
                         if (new Random().nextBoolean()) {
                             orderInfo.setStatus(OrderInfo.Status.BLANK);

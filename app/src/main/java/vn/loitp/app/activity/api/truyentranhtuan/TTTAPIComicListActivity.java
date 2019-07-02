@@ -10,11 +10,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
@@ -76,7 +76,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int position) {
-                LLog.d(TAG, "onClick " + position);
+                LLog.INSTANCE.d(TAG, "onClick " + position);
                 tv.setText("");
                 tvTitle.setText("");
                 new GetComicTask(activity, comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {

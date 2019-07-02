@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,149 +15,161 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Layout Menu"
+                android:text="@string/layout_menu"
                 android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
+                android:textSize="@dimen/txt_20"
+                tools:ignore="SpUsage" />
 
             <Button
                 android:id="@+id/bt_auto_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="AutoLinearLayout" />
+                android:text="@string/autolinearlayout" />
 
             <Button
                 android:id="@+id/bt_circular_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CircularView" />
+                android:text="@string/circularview" />
 
             <Button
                 android:id="@+id/bt_constraint_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="constraint layout" />
+                android:text="@string/constraint_layout" />
 
             <Button
                 android:id="@+id/bt_coordinator_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CoordinatorLayout" />
+                android:text="@string/coordinatorlayout" />
 
             <Button
                 android:id="@+id/bt_draggable_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DraggablePanel" />
+                android:text="@string/draggablepanel" />
 
             <Button
                 android:id="@+id/bt_draggable_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DraggableView" />
-
-            <Button
-                android:id="@+id/bt_drag_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Drag Layout" />
+                android:text="@string/draggableview" />
 
             <Button
                 android:id="@+id/bt_draggable_panel_free"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DraggablePanel Free" />
+                android:text="@string/draggablepanel_free" />
 
             <Button
                 android:id="@+id/bt_dragueur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dragueur" />
+                android:text="@string/dragueur" />
 
             <Button
                 android:id="@+id/bt_elastic_drag_dismiss_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ElasticDragDismissLayout" />
+                android:text="@string/elasticdragdismisslayout" />
+
+            <Button
+                android:id="@+id/bt_fixed_grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fixed_grid_layout" />
 
             <Button
                 android:id="@+id/bt_float_drag_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="FloatDragLayout Activity" />
+                android:text="@string/floatdraglayout_activity" />
 
             <Button
                 android:id="@+id/bt_heart_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart Layout" />
+                android:text="@string/heart_layout" />
 
             <Button
                 android:id="@+id/bt_motion_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Motion layout" />
+                android:text="@string/motion_layout" />
 
             <Button
                 android:id="@+id/bt_relative_popup_window"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="relative popup window" />
+                android:text="@string/relative_popup_window" />
 
             <Button
                 android:id="@+id/bt_ripple_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ripple Layout" />
+                android:text="@string/ripple_layout" />
 
             <Button
                 android:id="@+id/bt_rotate_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rotate Layout" />
+                android:text="@string/rotate_layout" />
+
+            <Button
+                android:id="@+id/bt_scroll_view_2d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scroll_view_2d" />
+
+            <Button
+                android:id="@+id/bt_scroll_view_2d_advance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scroll_view_2d_advance" />
 
             <Button
                 android:id="@+id/bt_square_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Square Layout" />
+                android:text="@string/square_layout" />
 
             <Button
                 android:id="@+id/bt_swipable_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SwipableLayoutActivity" />
+                android:text="@string/swipablelayoutactivity" />
 
             <Button
                 android:id="@+id/bt_swipeable_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SwipeableLayout" />
+                android:text="@string/swipeablelayout" />
 
             <Button
                 android:id="@+id/bt_swipeback_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+++ SwipeBackLayout" />
+                android:text="@string/swipebacklayout" />
 
             <Button
                 android:id="@+id/bt_swipe_refresh_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Swipe Refresh Layout" />
+                android:text="@string/swipe_refresh_layout" />
 
             <Button
                 android:id="@+id/bt_zoom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Zoom Layout" />
-
+                android:text="@string/zoom_layout" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

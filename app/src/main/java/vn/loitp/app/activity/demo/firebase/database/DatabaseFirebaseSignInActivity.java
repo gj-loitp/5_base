@@ -2,11 +2,12 @@ package vn.loitp.app.activity.demo.firebase.database;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -59,7 +60,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.d(TAG, "signIn");
+        LLog.INSTANCE.d(TAG, "signIn");
         if (!validateForm()) {
             return;
         }
@@ -72,20 +73,20 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(TAG, "signIn:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(TAG, "signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.show(activity, "Sign In Failed");
+                            LToast.INSTANCE.show(activity, "Sign In Failed");
                         }
                     }
                 });
     }
 
     private void signUp() {
-        LLog.d(TAG, "signUp");
+        LLog.INSTANCE.d(TAG, "signUp");
         if (!validateForm()) {
             return;
         }
@@ -98,13 +99,13 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(TAG, "createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.show(activity, "Sign Up Failed");
+                            LToast.INSTANCE.show(activity, "Sign Up Failed");
                         }
                     }
                 });

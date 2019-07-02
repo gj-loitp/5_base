@@ -36,7 +36,7 @@ public class Utils {
             }
             return imageList;
         } catch (Exception e) {
-            LLog.d(TAG, "seedGames parseException " + e);
+            LLog.INSTANCE.d(TAG, "seedGames parseException " + e);
             e.printStackTrace();
             return null;
         }

@@ -21,22 +21,22 @@ public class DraggablePanelActivity extends BaseFontActivity {
         draggablePanel.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
-                LLog.d(TAG, "onMaximized");
+                LLog.INSTANCE.d(TAG, "onMaximized");
             }
 
             @Override
             public void onMinimized() {
-                LLog.d(TAG, "onMinimized");
+                LLog.INSTANCE.d(TAG, "onMinimized");
             }
 
             @Override
             public void onClosedToLeft() {
-                LLog.d(TAG, "onClosedToLeft");
+                LLog.INSTANCE.d(TAG, "onClosedToLeft");
             }
 
             @Override
             public void onClosedToRight() {
-                LLog.d(TAG, "onClosedToRight");
+                LLog.INSTANCE.d(TAG, "onClosedToRight");
             }
         });
     }

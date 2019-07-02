@@ -4,9 +4,11 @@
     android:layout_height="fill_parent"
     android:background="@color/colorPrimary">
 
-    <vn.loitp.views.uzvideo.UZVideo
+    <ImageView
         android:id="@+id/uz_video"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loitp" />
 
 </FrameLayout>

@@ -25,7 +25,7 @@ public class LoadMoreView {
     public LoadMoreView(InfinitePlaceHolderView loadMoreView, List<Image> feedList) {
         this.mLoadMoreView = loadMoreView;
         this.mFeedList = feedList;
-        LLog.d("DEBUG", ">>>LoadMoreView " + mFeedList.size());
+        LLog.INSTANCE.d("DEBUG", ">>>LoadMoreView " + mFeedList.size());
     }
 
     @LoadMore
@@ -51,7 +51,7 @@ public class LoadMoreView {
                 @Override
                 public void run() {
                     int count = mLoadMoreView.getViewCount();
-                    LLog.d("DEBUG", ">>>before count " + count);
+                    LLog.INSTANCE.d("DEBUG", ">>>before count " + count);
                     for (int i = count - 1; i < (count - 1 + LoadMoreView.LOAD_VIEW_SET_COUNT) && mFeedList.size() > i; i++) {
                         mLoadMoreView.addView(new ImageTypeBig(mLoadMoreView.getContext(), mLoadMoreView, mFeedList.get(i).getImageUrl()));
                         if (i == mFeedList.size() - 1) {
@@ -60,7 +60,7 @@ public class LoadMoreView {
                         }
                     }
                     mLoadMoreView.loadingDone();
-                    LLog.d("DEBUG", ">>>loadingDone " + mLoadMoreView.getViewCount());
+                    LLog.INSTANCE.d("DEBUG", ">>>loadingDone " + mLoadMoreView.getViewCount());
                 }
             });
         }

@@ -52,14 +52,14 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.d(TAG, "doInBackground");
+        LLog.INSTANCE.d(TAG, "doInBackground");
         String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
 
         if (json == null || json.isEmpty()) {
-            LLog.d(TAG, "json == null || json.isEmpty()");
+            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
             comicList.add(mComic);
 
-            String newJson = LSApplication.getInstance().getGson().toJson(comicList);
+            String newJson = LSApplication.Companion.getGson().toJson(comicList);
             boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
             if (isSaved) {
                 mResult = RESULT_ADD_COMIC_SUCCESS;
@@ -67,14 +67,14 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
                 mResult = RESULT_ADD_COMIC_ERROR;
             }
         } else {
-            comicList = LSApplication.getInstance().getGson().fromJson(json, new TypeToken<List<Comic>>() {
+            comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
-            LLog.d(TAG, "comicList size: " + comicList);
+            LLog.INSTANCE.d(TAG, "comicList size: " + comicList);
             boolean isExist = ComicUtils.isComicExistIn(mComic, comicList);
             if (!isExist) {
                 comicList.add(mComic);
 
-                String newJson = LSApplication.getInstance().getGson().toJson(comicList);
+                String newJson = LSApplication.Companion.getGson().toJson(comicList);
                 boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
                 if (isSaved) {
                     mResult = RESULT_ADD_COMIC_SUCCESS;

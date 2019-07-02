@@ -30,10 +30,10 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.wwlVideo = (WWLVideo) findViewById(R.id.watch_while_layout);
+        this.wwlVideo = findViewById(R.id.watch_while_layout);
         this.wwlVideo.setListener(this);
 
-        this.mPlayerFragmentContainer = (FrameLayout) findViewById(R.id.player_fragment_container);
+        this.mPlayerFragmentContainer = findViewById(R.id.player_fragment_container);
         this.wwlVideoPlayerFragment = (WWLVideoPlayerFragment) getSupportFragmentManager().findFragmentById(R.id.player_fragment);
         this.wwlVideoUpNextFragment = (WWLVideoUpNextFragment) getSupportFragmentManager().findFragmentById(R.id.up_next_fragment);
         this.wwlVideoMetaInfoFragment = (WWLVideoMetaInfoFragment) getSupportFragmentManager().findFragmentById(R.id.meta_info_fragment);

@@ -2,16 +2,20 @@ package vn.loitp.core.loitp.gallery.photos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -23,10 +27,8 @@ import vn.loitp.core.utilities.LSocialUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.rxandroid.ApiSubscriber;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
@@ -52,31 +54,31 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         isShowAdWhenExit = false;
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
-        btPage = (FloatingActionButton) findViewById(R.id.bt_page);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
+        btPage = findViewById(R.id.bt_page);
+        tvTitle = findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
 
-        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.av);
+        avLoadingIndicatorView = findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
-        photosetID = getIntent().getStringExtra(Constants.SK_PHOTOSET_ID);
-        final String photosSize = getIntent().getStringExtra(Constants.SK_PHOTOSET_SIZE);
+        photosetID = getIntent().getStringExtra(Constants.getSK_PHOTOSET_ID());
+        final String photosSize = getIntent().getStringExtra(Constants.getSK_PHOTOSET_SIZE());
         LLog.d(TAG, "photosetID " + photosetID);
         LLog.d(TAG, "photosSize " + photosSize);
 
-        bkgRootView = getIntent().getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND);
+        bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
         LLog.d(TAG, "bkgRootView " + bkgRootView);
-        if (bkgRootView == Constants.NOT_FOUND) {
+        if (bkgRootView == Constants.getNOT_FOUND()) {
             getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
 
-        int totalPhotos = 0;
+        int totalPhotos;
         try {
             totalPhotos = Integer.parseInt(photosSize);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             showDialogError(getString(R.string.err_unknow));
             return;
         }
@@ -96,34 +98,34 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         //LLog.d(TAG, "total page " + totalPage);
         //LLog.d(TAG, "currentPage " + currentPage);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        final SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
-        int column = 2;
+        final int column = 2;
 
         recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
         recyclerView.setHasFixedSize(true);
         photosAdapter = new PhotosAdapter(activity, column, new PhotosAdapter.Callback() {
             @Override
-            public void onClick(Photo photo, int pos) {
+            public void onClick(final Photo photo, final int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
-                intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView);
+                final Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
+                intent.putExtra(Constants.INSTANCE.getSK_PHOTO_ID(), photo.getId());
+                intent.putExtra(Constants.getBKG_ROOT_VIEW(), bkgRootView);
                 startActivity(intent);
                 LActivityUtil.tranIn(activity);
             }
 
             @Override
-            public void onLongClick(Photo photo, int pos) {
+            public void onLongClick(final Photo photo, final int pos) {
                 LSocialUtil.share(activity, photo.getUrlO());
             }
         });
         //recyclerView.setAdapter(albumAdapter);
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosAdapter);
+        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -135,7 +137,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
@@ -147,30 +149,24 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             }
         });
 
-        btPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
-                showListPage();
-            }
+        btPage.setOnClickListener(v -> {
+            //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
+            showListPage();
         });
     }
 
     private void showListPage() {
         int size = totalPage;
-        String arr[] = new String[size];
+        final String arr[] = new String[size];
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(activity, "Select page", arr, new LDialogUtil.CallbackList() {
-            @Override
-            public void onClick(int position) {
-                currentPage = totalPage - position;
-                LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
-                PhotosDataCore.getInstance().clearData();
-                updateAllViews();
-                photosetsGetPhotos(photosetID);
-            }
+        LDialogUtil.showDialogList(activity, "Select page", arr, position -> {
+            currentPage = totalPage - position;
+            LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+            PhotosDataCore.getInstance().clearData();
+            updateAllViews();
+            photosetsGetPhotos(photosetID);
         });
     }
 
@@ -189,7 +185,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         return R.layout.activity_gallery_core_photos;
     }
 
-    private void photosetsGetPhotos(String photosetID) {
+    private void photosetsGetPhotos(@NonNull final String photosetID) {
         if (isLoading) {
             LLog.d(TAG, "isLoading true -> return");
             return;
@@ -197,10 +193,10 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avLoadingIndicatorView.smoothToShow();
-        FlickrService service = RestClient.createService(FlickrService.class);
-        String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
-        String apiKey = FlickrConst.API_KEY;
-        String userID = FlickrConst.USER_KEY;
+        final FlickrService service = RestClient.createService(FlickrService.class);
+        final String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
+        final String apiKey = FlickrConst.API_KEY;
+        final String userID = FlickrConst.USER_KEY;
         if (currentPage <= 0) {
             LLog.d(TAG, "currentPage <= 0 -> return");
             currentPage = 0;
@@ -208,38 +204,29 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
             isLoading = false;
             return;
         }
-        String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
-        String format = FlickrConst.FORMAT;
-        int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
-        subscribe(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback), new ApiSubscriber<WrapperPhotosetGetPhotos>() {
-            @Override
-            public void onSuccess(WrapperPhotosetGetPhotos wrapperPhotosetGetPhotos) {
-                //LLog.d(TAG, "onSuccess " + LSApplication.getInstance().getGson().toJson(wrapperPhotosetGetPhotos));
-                //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
-                String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
-                tvTitle.setText(s);
-                List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
-                PhotosDataCore.getInstance().addPhoto(photoList);
-                updateAllViews();
-                avLoadingIndicatorView.smoothToHide();
-                btPage.setVisibility(View.VISIBLE);
-                isLoading = false;
-            }
+        final String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1;
+        final String format = FlickrConst.FORMAT;
+        final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-            @Override
-            public void onFail(Throwable e) {
-                LLog.e(TAG, "onFail " + e.toString());
-                handleException(e);
-                avLoadingIndicatorView.smoothToHide();
-                isLoading = true;
-            }
-        });
-    }
-
-    @Override
-    public void onBackPressed() {
-        //PhotosDataCore.getInstance().clearData();
-        super.onBackPressed();
+        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(wrapperPhotosetGetPhotos -> {
+                    //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                    final String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
+                    tvTitle.setText(s);
+                    final List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
+                    PhotosDataCore.getInstance().addPhoto(photoList);
+                    updateAllViews();
+                    avLoadingIndicatorView.smoothToHide();
+                    btPage.setVisibility(View.VISIBLE);
+                    isLoading = false;
+                }, e -> {
+                    LLog.e(TAG, "onFail " + e.toString());
+                    handleException(e);
+                    avLoadingIndicatorView.smoothToHide();
+                    isLoading = true;
+                }));
     }
 
     private void updateAllViews() {

@@ -22,7 +22,7 @@ public class GalleryDemoSplashActivity extends BaseFontActivity {
             public void doAfter(int mls) {
                 Intent intent = new Intent(activity, GalleryDemoAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
                 finish();
             }
         });

@@ -181,10 +181,10 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         TextView textView = new TextView(this);
 
         if (msgFromActivity.getObject() == null) {
-            LLog.d(TAG, "msgFromActivity.getObject() == null");
+            LLog.INSTANCE.d(TAG, "msgFromActivity.getObject() == null");
             textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         } else {
-            LLog.d(TAG, "msgFromActivity.getObject() != null");
+            LLog.INSTANCE.d(TAG, "msgFromActivity.getObject() != null");
             LUIUtil.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 

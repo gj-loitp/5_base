@@ -125,8 +125,8 @@ public class LDateUtils {
             date = (Date) formatter.parse(d);
             return date.getTime() / 1000;
         } catch (ParseException e) {
-            LLog.d(TAG, "convertDateToTimestamp ParseException " + e.toString());
-            return Constants.NOT_FOUND;
+            LLog.INSTANCE.d(TAG, "convertDateToTimestamp ParseException " + e.toString());
+            return Constants.INSTANCE.getNOT_FOUND();
         }
     }
 
@@ -164,7 +164,7 @@ public class LDateUtils {
         try {
             date = dateFormat.parse(datetime);
             long time = date.getTime();
-            LLog.d(TAG, "time:" + time);
+            LLog.INSTANCE.d(TAG, "time:" + time);
             return time;
             //new Timestamp(time).getTime();
         } catch (ParseException e) {

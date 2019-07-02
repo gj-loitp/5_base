@@ -9,9 +9,6 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -20,6 +17,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import vn.loitp.core.base.BaseActivity;
 import vn.loitp.utils.util.FragmentUtils;
@@ -395,7 +396,7 @@ public class LScreenUtil {
         }
 
         boolean isCanWriteSystem = checkSystemWritePermission(context);
-        LLog.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
+        LLog.INSTANCE.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
 
         if (!isCanWriteSystem) {
             LDialogUtil.showDialog1(context, "Thông báo", "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình", "Cấp phép", new LDialogUtil.Callback1() {
@@ -405,7 +406,7 @@ public class LScreenUtil {
                     intent.setData(Uri.parse("package:" + context.getPackageName()));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-                    LActivityUtil.tranIn(context);
+                    LActivityUtil.INSTANCE.tranIn(context);
                 }
             });
             return;
@@ -420,7 +421,7 @@ public class LScreenUtil {
         } else {
             brightness = value * 255 / 100;
         }
-        LLog.d(TAG, "setBrightness " + brightness);
+        LLog.INSTANCE.d(TAG, "setBrightness " + brightness);
 
         try {
             //sets manual mode and brightnes 255
@@ -434,7 +435,7 @@ public class LScreenUtil {
             ((Activity) context).getWindow().setAttributes(lp);
 
         } catch (Exception e) {
-            LLog.e(TAG, "setBrightness " + e.toString());
+            LLog.INSTANCE.e(TAG, "setBrightness " + e.toString());
         }
     }
 
@@ -445,7 +446,7 @@ public class LScreenUtil {
         try {
             return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
         } catch (Exception e) {
-            LLog.e(TAG, "getCurrentBrightness" + e.toString());
+            LLog.INSTANCE.e(TAG, "getCurrentBrightness" + e.toString());
             return 0;
         }
     }

@@ -32,11 +32,11 @@ public class SADilog extends SwipeAwayDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle bundle = getArguments();
-        int key = Constants.NOT_FOUND;
+        int key = Constants.INSTANCE.getNOT_FOUND();
         if (bundle != null) {
             key = bundle.getInt(KEY);
         }
-        LLog.d(TAG, "key " + key);
+        LLog.INSTANCE.d(TAG, "key " + key);
         switch (key) {
             case KEY_1:
                 return show1();
@@ -159,7 +159,7 @@ public class SADilog extends SwipeAwayDialogFragment {
         btY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(getActivity(), "Click yes");
+                LToast.INSTANCE.show(getActivity(), "Click yes");
             }
         });
 
@@ -167,7 +167,7 @@ public class SADilog extends SwipeAwayDialogFragment {
         btN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.show(getActivity(), "Click no");
+                LToast.INSTANCE.show(getActivity(), "Click no");
             }
         });
 

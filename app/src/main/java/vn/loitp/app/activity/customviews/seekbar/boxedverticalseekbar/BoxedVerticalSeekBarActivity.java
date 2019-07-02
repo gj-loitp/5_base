@@ -26,21 +26,21 @@ public class BoxedVerticalSeekBarActivity extends BaseFontActivity {
         bv.setOnBoxedPointsChangeListener(new BoxedVertical.OnValuesChangeListener() {
             @Override
             public void onPointsChanged(BoxedVertical boxedPoints, final int value) {
-                LLog.d(TAG, "onPointsChanged " + value);
+                LLog.INSTANCE.d(TAG, "onPointsChanged " + value);
                 stringList.add(0, "onPointsChanged " + value);
                 print();
             }
 
             @Override
             public void onStartTrackingTouch(BoxedVertical boxedPoints) {
-                LLog.d(TAG, "onStartTrackingTouch");
+                LLog.INSTANCE.d(TAG, "onStartTrackingTouch");
                 stringList.add(0, "onStartTrackingTouch");
                 print();
             }
 
             @Override
             public void onStopTrackingTouch(BoxedVertical boxedPoints) {
-                LLog.d(TAG, "onStopTrackingTouch");
+                LLog.INSTANCE.d(TAG, "onStopTrackingTouch");
                 stringList.add(0, "onStopTrackingTouch");
                 print();
                 bv.setBackgroundColor(Color.RED);

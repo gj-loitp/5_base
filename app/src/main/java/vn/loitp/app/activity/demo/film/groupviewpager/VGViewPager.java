@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.film.groupviewpager;
 
 import android.content.Context;
-import androidx.viewpager.widget.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,15 +70,15 @@ public class VGViewPager extends RelativeLayout {
         //5<=max<=10
         List<Page> pages = new ArrayList<>();
         int max = LDeviceUtil.getRandomNumber(5) + 5;
-        LLog.d(TAG, "genData max " + max);
+        LLog.INSTANCE.d(TAG, "genData max " + max);
         for (int i = 0; i < max; i++) {
             Page page = new Page();
             page.setColor(LStoreUtil.getRandomColor());
             page.setName("Loitp " + i + "/" + (max));
             if (i % 2 == 0) {
-                page.setUrlImg(Constants.URL_IMG_1);
+                page.setUrlImg(Constants.INSTANCE.getURL_IMG_1());
             } else {
-                page.setUrlImg(Constants.URL_IMG_2);
+                page.setUrlImg(Constants.INSTANCE.getURL_IMG_2());
             }
             pages.add(page);
         }
@@ -89,12 +90,12 @@ public class VGViewPager extends RelativeLayout {
         viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.show(getContext(), "onSwipeOutAtStart");
+                LToast.INSTANCE.show(getContext(), "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.show(getContext(), "onSwipeOutAtEnd");
+                LToast.INSTANCE.show(getContext(), "onSwipeOutAtEnd");
             }
         });
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
@@ -130,7 +131,7 @@ public class VGViewPager extends RelativeLayout {
             viewGroup.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LToast.show(getContext(), "Click " + page.getName());
+                    LToast.INSTANCE.show(getContext(), "Click " + page.getName());
                 }
             });
             collection.addView(viewGroup);

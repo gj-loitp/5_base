@@ -31,12 +31,6 @@
                 android:text="Activity Service Comunicate" />
 
             <Button
-                android:id="@+id/bt_bs_image_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="BSImage picker" />
-
-            <Button
                 android:id="@+id/bt_drag_drop_sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,12 +77,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Recolor" />
-
-            <Button
-                android:id="@+id/bt_scrog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Scrog" />
 
             <Button
                 android:id="@+id/bt_sensor"

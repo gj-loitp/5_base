@@ -15,7 +15,7 @@ public class Activity2 extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.d(TAG, "suzuki onCreate");
+        LLog.INSTANCE.d(TAG, "suzuki onCreate");
         findViewById(R.id.bt_go_to_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

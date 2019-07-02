@@ -3,17 +3,18 @@ package vn.loitp.views.recyclerview.gallery;
 import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import androidx.recyclerview.widget.LinearSmoothScroller;
-import androidx.recyclerview.widget.LinearSnapHelper;
-import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
 import vn.loitp.core.utilities.LLog;
 
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
@@ -407,7 +408,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     private float calculateToCenterFraction(View child, float pendingOffset) {
         int distance = calculateDistanceCenter(child, pendingOffset);
         int childLength = mOrientation == GalleryLayoutManager.HORIZONTAL ? child.getWidth() : child.getHeight();
-        LLog.d(TAG, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
+        LLog.INSTANCE.d(TAG, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
         return Math.max(-1.f, Math.min(1.f, distance * 1.f / childLength));
     }
 
@@ -433,7 +434,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
      * @param dy
      */
     private void fillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
-        LLog.d(TAG, "fillWithVertical: dy:" + dy);
+        LLog.INSTANCE.d(TAG, "fillWithVertical: dy:" + dy);
         int topEdge = getOrientationHelper().getStartAfterPadding();
         int bottomEdge = getOrientationHelper().getEndAfterPadding();
 

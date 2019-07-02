@@ -39,13 +39,13 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         this.maxBookAsset = maxBookAsset;
         this.extensionEpub = extensionEpub;
         this.callback = callback;
-        LLog.d(TAG, "GetListBookAllAssetTask maxBookAsset " + maxBookAsset + ", extensionEpub: " + extensionEpub);
+        LLog.INSTANCE.d(TAG, "GetListBookAllAssetTask maxBookAsset " + maxBookAsset + ", extensionEpub: " + extensionEpub);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
+        LLog.INSTANCE.d(TAG, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
         if (callback != null) {
             callback.onPreExecute();
         }
@@ -53,7 +53,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
+        LLog.INSTANCE.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
         String jsonBookAsset = LPref.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
             bookInfoList.addAll(searchForFiles());
@@ -66,7 +66,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 bookInfoList.addAll(searchForFiles());
             }
         }
-        LLog.d(TAG, "doInBackground searchForPdfFiles " + bookInfoList.size());
+        LLog.INSTANCE.d(TAG, "doInBackground searchForPdfFiles " + bookInfoList.size());
         Reader reader = new Reader();
         for (int i = 0; i < bookInfoList.size(); i++) {
             try {
@@ -85,7 +85,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 }
                 bookInfo.setCoverImage(reader.getCoverImage());
             } catch (ReadingException e) {
-                LLog.e(TAG, "doInBackground ReadingException " + e.toString());
+                LLog.INSTANCE.e(TAG, "doInBackground ReadingException " + e.toString());
                 e.printStackTrace();
             }
         }
@@ -95,7 +95,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, ">>>>>>>>>>>>>>>>>>onPostExecute asset " + bookInfoList.size());
+        LLog.INSTANCE.d(TAG, ">>>>>>>>>>>>>>>>>>onPostExecute asset " + bookInfoList.size());
         if (callback != null) {
             callback.onPostExecute(bookInfoList);
         }
@@ -104,7 +104,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     private void sortABC() {
         if (bookInfoList == null || bookInfoList.isEmpty()) {
-            LLog.e(TAG, "sortABC bookInfoList==null||isEmpty return");
+            LLog.INSTANCE.e(TAG, "sortABC bookInfoList==null||isEmpty return");
         }
         Collections.sort(bookInfoList, new Comparator<BookInfo>() {
             @Override
@@ -120,7 +120,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         List<BookInfo> infoList = new ArrayList<>();
         File f;
         for (int i = 1; i <= maxBookAsset; i++) {
-            LLog.d(TAG, "searchForFiles " + i);
+            LLog.INSTANCE.d(TAG, "searchForFiles " + i);
             f = getFileFromAssets("a (" + i + ")" + extensionEpub);
             if (f != null) {
                 files.add(f);
@@ -148,11 +148,11 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 fos.write(buffer);
                 fos.close();
             } catch (Exception e) {
-                LLog.e(TAG, "getFileFromAssets " + e.toString());
+                LLog.INSTANCE.e(TAG, "getFileFromAssets " + e.toString());
                 return null;
             }
         }
-        LLog.d(TAG, "getFileFromAssets fileName " + fileName);
+        LLog.INSTANCE.d(TAG, "getFileFromAssets fileName " + fileName);
         return file;
     }
 }

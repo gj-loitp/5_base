@@ -11,8 +11,8 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
 
@@ -56,7 +56,7 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
             case R.id.bt_realm:
                 Intent intent = new Intent(activity, EbookWithRealmActivity.class);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(activity);
                 break;
             case R.id.bt_add:
                 add();
@@ -70,7 +70,7 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
     }
 
     private void add() {
-        LLog.d(TAG, "add " + RealmController.getInstance().getBooks().size());
+        LLog.INSTANCE.d(TAG, "add " + RealmController.getInstance().getBooks().size());
         mRealm.beginTransaction();
 
         MyBook myBook = new MyBook();
@@ -86,14 +86,14 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
     }
 
     private void logMyBook(MyBook myBook) {
-        LLog.d(TAG, "_______________________________________");
-        LLog.d(TAG, ">>> " + myBook.getId() + " - " + myBook.getTitle());
+        LLog.INSTANCE.d(TAG, "_______________________________________");
+        LLog.INSTANCE.d(TAG, ">>> " + myBook.getId() + " - " + myBook.getTitle());
     }
 
     private void logMyBook(List<MyBook> myBookList) {
-        LLog.d(TAG, "_______________________________________");
+        LLog.INSTANCE.d(TAG, "_______________________________________");
         for (MyBook mb : myBookList) {
-            LLog.d(TAG, ">>> " + mb.getId() + " - " + mb.getTitle());
+            LLog.INSTANCE.d(TAG, ">>> " + mb.getId() + " - " + mb.getTitle());
         }
     }
 
@@ -133,13 +133,13 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
 
     private void getAll() {
         List<MyBook> myBookList = RealmController.getInstance().getMyBookListSortByID();
-        LLog.d(TAG, "getAll: " + myBookList.size());
+        LLog.INSTANCE.d(TAG, "getAll: " + myBookList.size());
         //logMyBook(myBookList);
         printUI(myBookList);
     }
 
     private void clickMyBook(MyBook myBook, Button button) {
-        LLog.d(TAG, "clickMyBook");
+        LLog.INSTANCE.d(TAG, "clickMyBook");
         //logMyBook(myBook);
         remove(myBook, button);
     }
@@ -157,7 +157,7 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
     }
 
     private void longClickMyBook(MyBook myBook, Button button) {
-        LLog.d(TAG, "longClickMyBook " + button.getText().toString());
+        LLog.INSTANCE.d(TAG, "longClickMyBook " + button.getText().toString());
 
         mRealm.beginTransaction();
 
@@ -167,6 +167,6 @@ public class RealmActivity extends BaseFontActivity implements View.OnClickListe
         mRealm.commitTransaction();
 
         button.setText(myBook.getTitle() + " - " + myBook.getId());
-        LLog.d(TAG, "longClickMyBook done");
+        LLog.INSTANCE.d(TAG, "longClickMyBook done");
     }
 }

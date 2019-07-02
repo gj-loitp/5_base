@@ -9,7 +9,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3;
-import vn.loitp.app.activity.customviews.videoview.uzvideo.UZActivity;
 import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.common.Constants;
@@ -24,7 +23,6 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         findViewById(R.id.bt_exoplayer2_ima).setOnClickListener(this);
         findViewById(R.id.bt_2).setOnClickListener(this);
         findViewById(R.id.bt_3).setOnClickListener(this);
-        findViewById(R.id.bt_4).setOnClickListener(this);
         findViewById(R.id.bt_youtube).setOnClickListener(this);
     }
 
@@ -49,21 +47,18 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         switch (v.getId()) {
             case R.id.bt_exoplayer2:
                 intent = new Intent(activity, ExoPlayerActivity.class);
-                intent.putExtra(vn.loitp.core.common.Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
                 break;
             case R.id.bt_exoplayer2_ima:
                 intent = new Intent(activity, ExoPlayerActivity.class);
-                intent.putExtra(vn.loitp.core.common.Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
-                intent.putExtra(Constants.KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url));
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
+                intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD(), getString(R.string.ad_tag_url));
                 break;
             case R.id.bt_2:
                 intent = new Intent(activity, ExoPlayerActivity2.class);
                 break;
             case R.id.bt_3:
                 intent = new Intent(activity, ExoPlayerActivity3.class);
-                break;
-            case R.id.bt_4:
-                intent = new Intent(activity, UZActivity.class);
                 break;
             case R.id.bt_youtube:
                 intent = new Intent(activity, YoutubeActivity.class);

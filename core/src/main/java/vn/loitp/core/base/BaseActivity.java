@@ -9,10 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -26,27 +22,26 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
+import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
 import vn.loitp.core.common.Constants;
 import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LDialogUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.core.utilities.connection.LConectifyService;
 import vn.loitp.data.EventBusData;
-import vn.loitp.exception.NoConnectionException;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition
 public abstract class BaseActivity extends AppCompatActivity {
-    protected CompositeSubscription compositeSubscription = new CompositeSubscription();
+    @NonNull
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
     protected Activity activity;
     protected String TAG;
     private RelativeLayout rootView;
@@ -77,7 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         activity = this;
-        TAG = setTag();
+        TAG = "TAG" + setTag();
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -89,26 +84,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(setLayoutResourceId());
+        if (setLayoutResourceId() != 0) {
+            setContentView(setLayoutResourceId());
+        }
         //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
         interstitialAd = LUIUtil.createAdFull(activity);
-        View view = activity.findViewById(R.id.scroll_view);
+        final View view = activity.findViewById(R.id.scroll_view);
         if (view != null) {
             if (view instanceof ScrollView) {
                 LUIUtil.setPullLikeIOSVertical((ScrollView) view);
             } else if (view instanceof NestedScrollView) {
-                LUIUtil.setPullLikeIOSVertical((NestedScrollView) view);
+                LUIUtil.setPullLikeIOSVertical(view);
             }
         }
-        rootView = (RelativeLayout) activity.findViewById(R.id.root_view);
-        if (rootView == null) {
-            LLog.e(TAG, "BE CAREFUL LOITP -> " + TAG + "rootView == null");
-        }
-
+        rootView = activity.findViewById(R.id.root_view);
         scheduleJob();
     }
 
-    protected void setCustomStatusBar(int colorStatusBar, int colorNavigationBar) {
+    protected void setCustomStatusBar(final int colorStatusBar, final int colorNavigationBar) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
             //getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
@@ -135,40 +128,24 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (!compositeSubscription.isUnsubscribed()) {
-            compositeSubscription.unsubscribe();
-        }
+        compositeDisposable.clear();
         LDialogUtil.clearAll();
         super.onDestroy();
     }
 
-    @SuppressWarnings("unchecked")
-    public void subscribe(Observable observable, Subscriber subscriber) {
-        if (!LConnectivityUtil.isConnected(activity)) {
-            subscriber.onError(new NoConnectionException());
-            return;
-        }
-
-        Subscription subscription = observable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-        compositeSubscription.add(subscription);
-    }
-
     public void startActivity(Class<? extends Activity> clazz) {
-        Intent intent = new Intent(this, clazz);
+        final Intent intent = new Intent(this, clazz);
         startActivity(intent);
+        LActivityUtil.tranIn(activity);
     }
 
-    protected void handleException(Throwable throwable) {
+    protected void handleException(@NonNull Throwable throwable) {
         LLog.e("handleException", throwable.toString());
-        if (throwable != null) {
-            showDialogError("Error: " + throwable.toString());
-        }
+        showDialogError("Error: " + throwable.toString());
     }
 
-    protected void showDialogError(String errMsg) {
-        AlertDialog alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
+    protected void showDialogError(@NonNull final String errMsg) {
+        final AlertDialog alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
                 onBackPressed();
@@ -177,7 +154,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         alertDialog.setCancelable(false);
     }
 
-    protected void showDialogMsg(String errMsg) {
+    protected void showDialogMsg(@NonNull final String errMsg) {
         LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), new LDialogUtil.Callback1() {
             @Override
             public void onClick1() {
@@ -198,7 +175,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(activity);
         }
-        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
+        if (isShowAdWhenExit && !Constants.INSTANCE.getIS_DEBUG()) {
             LUIUtil.displayInterstitial(interstitialAd, 70);
         } else {
             //dont use LLog here
@@ -291,7 +268,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }*/
     }
 
-    protected void onNetworkChange(EventBusData.ConnectEvent event) {
+    protected void onNetworkChange(final EventBusData.ConnectEvent event) {
     }
 
     @Override
@@ -323,7 +300,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     private void scheduleJob() {
-        JobInfo myJob = null;
+        final JobInfo myJob;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             myJob = new JobInfo.Builder(0, new ComponentName(this, LConectifyService.class))
                     .setRequiresCharging(true)
@@ -332,8 +309,21 @@ public abstract class BaseActivity extends AppCompatActivity {
                     .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                     .setPersisted(true)
                     .build();
-            JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
-            jobScheduler.schedule(myJob);
+            final JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+            if (jobScheduler != null) {
+                jobScheduler.schedule(myJob);
+            }
         }
     }
+
+    /*private void s() {
+        compositeDisposable.add(service.photosetsGetList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+
+                }, e -> {
+
+                }));
+    }*/
 }
