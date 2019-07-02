@@ -10,13 +10,6 @@ import android.graphics.PathMeasure;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
-
-import com.google.android.material.internal.NavigationMenuView;
-import com.google.android.material.internal.ScrimInsetsFrameLayout;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.ViewCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -24,6 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.view.ViewCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.internal.NavigationMenuView;
+import com.google.android.material.internal.ScrimInsetsFrameLayout;
+import com.google.android.material.navigation.NavigationView;
 
 import java.lang.reflect.Field;
 
@@ -71,11 +72,11 @@ public class ArcNavigationView extends NavigationView {
         THRESHOLD = Math.round(ArcViewSettings.dpToPx(getContext(), 15)); //some threshold for child views while remeasuring them
     }
 
-    private void setInsetsColor(int color) {
+    private void setInsetsColor(final int color) {
         try {
-            Field insetForegroundField = ScrimInsetsFrameLayout.class.getDeclaredField("mInsetForeground");
+            final Field insetForegroundField = ScrimInsetsFrameLayout.class.getDeclaredField("mInsetForeground");
             insetForegroundField.setAccessible(true);
-            ColorDrawable colorDrawable = new ColorDrawable(color);
+            final ColorDrawable colorDrawable = new ColorDrawable(color);
             insetForegroundField.set(this, colorDrawable);
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
@@ -89,8 +90,8 @@ public class ArcNavigationView extends NavigationView {
         final Path path = new Path();
         arcPath = new Path();
 
-        float arcWidth = settings.getArcWidth();
-        DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
+        final float arcWidth = settings.getArcWidth();
+        final DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
         if (settings.isCropInside()) {
             if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
                 arcPath.moveTo(width, 0);
@@ -214,15 +215,15 @@ public class ArcNavigationView extends NavigationView {
     @SuppressLint("RtlHardcoded")
     private void adjustChildViews(ViewGroup container) {
         final int containerChildCount = container.getChildCount();
-        PathMeasure pathMeasure = new PathMeasure(arcPath, false);
-        DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
+        final PathMeasure pathMeasure = new PathMeasure(arcPath, false);
+        final DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
 
         for (int i = 0; i < containerChildCount; i++) {
             View child = container.getChildAt(i);
             if (child instanceof ViewGroup) {
                 adjustChildViews((ViewGroup) child);
             } else {
-                float pathCenterPointForItem[] = {0f, 0f};
+                final float pathCenterPointForItem[] = {0f, 0f};
                 Rect location = locateView(child);
                 int halfHeight = location.height() / 2;
 
@@ -252,8 +253,8 @@ public class ArcNavigationView extends NavigationView {
     }
 
     private Rect locateView(View view) {
-        Rect loc = new Rect();
-        int[] location = new int[2];
+        final Rect loc = new Rect();
+        final int[] location = new int[2];
         if (view == null) {
             return loc;
         }
@@ -269,11 +270,8 @@ public class ArcNavigationView extends NavigationView {
     @Override
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-
         canvas.clipPath(clipPath);
-        ;
         super.dispatchDraw(canvas);
-
         canvas.restore();
     }
 }

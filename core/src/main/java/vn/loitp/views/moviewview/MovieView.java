@@ -437,29 +437,23 @@ public class MovieView extends RelativeLayout {
         try (AssetFileDescriptor fd = getResources().openRawResourceFd(mVideoResourceId)) {
             mMediaPlayer.setDataSource(fd);
             mMediaPlayer.setOnPreparedListener(
-                    new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mediaPlayer) {
-                            // Adjust the aspect ratio of this view
-                            requestLayout();
-                            if (mSavedCurrentPosition > 0) {
-                                mediaPlayer.seekTo(mSavedCurrentPosition);
-                                mSavedCurrentPosition = 0;
-                            } else {
-                                // Start automatically
-                                play();
-                            }
+                    mediaPlayer -> {
+                        // Adjust the aspect ratio of this view
+                        requestLayout();
+                        if (mSavedCurrentPosition > 0) {
+                            mediaPlayer.seekTo(mSavedCurrentPosition);
+                            mSavedCurrentPosition = 0;
+                        } else {
+                            // Start automatically
+                            play();
                         }
                     });
             mMediaPlayer.setOnCompletionListener(
-                    new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mediaPlayer) {
-                            adjustToggleState();
-                            setKeepScreenOn(false);
-                            if (mMovieListener != null) {
-                                mMovieListener.onMovieStopped();
-                            }
+                    mediaPlayer -> {
+                        adjustToggleState();
+                        setKeepScreenOn(false);
+                        if (mMovieListener != null) {
+                            mMovieListener.onMovieStopped();
                         }
                     });
             mMediaPlayer.prepare();

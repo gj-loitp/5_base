@@ -1,9 +1,5 @@
 package vn.loitp.views.realtimeblurview;
 
-/**
- * Created by www.muathu@gmail.com on 12/4/2017.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -12,14 +8,15 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import androidx.renderscript.Allocation;
-import androidx.renderscript.Element;
-import androidx.renderscript.RenderScript;
-import androidx.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
+
+import androidx.renderscript.Allocation;
+import androidx.renderscript.Element;
+import androidx.renderscript.RenderScript;
+import androidx.renderscript.ScriptIntrinsicBlur;
 
 import loitp.core.R;
 
@@ -55,7 +52,7 @@ public class RealtimeBlurView extends View {
     public RealtimeBlurView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RealtimeBlurView);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RealtimeBlurView);
         mBlurRadius = a.getDimension(R.styleable.RealtimeBlurView_realtimeBlurRadius,
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
         mDownsampleFactor = a.getFloat(R.styleable.RealtimeBlurView_realtimeDownsampleFactor, 4);
@@ -63,7 +60,7 @@ public class RealtimeBlurView extends View {
         a.recycle();
     }
 
-    public void setBlurRadius(float radius) {
+    public void setBlurRadius(final float radius) {
         if (mBlurRadius != radius) {
             mBlurRadius = radius;
             mDirty = true;
@@ -71,7 +68,7 @@ public class RealtimeBlurView extends View {
         }
     }
 
-    public void setDownsampleFactor(float factor) {
+    public void setDownsampleFactor(final float factor) {
         if (factor <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
@@ -84,7 +81,7 @@ public class RealtimeBlurView extends View {
         }
     }
 
-    public void setOverlayColor(int color) {
+    public void setOverlayColor(final int color) {
         if (mOverlayColor != color) {
             mOverlayColor = color;
             invalidate();
@@ -132,7 +129,7 @@ public class RealtimeBlurView extends View {
             return false;
         }
 
-        float downsampleFactor = mDownsampleFactor;
+        final float downsampleFactor = mDownsampleFactor;
 
         if (mDirty || mRenderScript == null) {
             if (mRenderScript == null) {
@@ -166,8 +163,8 @@ public class RealtimeBlurView extends View {
         final int width = getWidth();
         final int height = getHeight();
 
-        int scaledWidth = Math.max(1, (int) (width / downsampleFactor));
-        int scaledHeight = Math.max(1, (int) (height / downsampleFactor));
+        final int scaledWidth = Math.max(1, (int) (width / downsampleFactor));
+        final int scaledHeight = Math.max(1, (int) (height / downsampleFactor));
 
         if (mBlurringCanvas == null || mBlurredBitmap == null
                 || mBlurredBitmap.getWidth() != scaledWidth
@@ -205,7 +202,7 @@ public class RealtimeBlurView extends View {
         return true;
     }
 
-    protected void blur(Bitmap bitmapToBlur, Bitmap blurredBitmap) {
+    protected void blur(final Bitmap bitmapToBlur, final Bitmap blurredBitmap) {
         mBlurInput.copyFrom(bitmapToBlur);
         mBlurScript.setInput(mBlurInput);
         mBlurScript.forEach(mBlurOutput);
@@ -217,9 +214,9 @@ public class RealtimeBlurView extends View {
         public boolean onPreDraw() {
             final int[] locations = new int[2];
             Bitmap oldBmp = mBlurredBitmap;
-            View decor = mDecorView;
+            final View decor = mDecorView;
             if (decor != null && isShown() && prepare()) {
-                boolean redrawBitmap = mBlurredBitmap != oldBmp;
+                final boolean redrawBitmap = mBlurredBitmap != oldBmp;
                 oldBmp = null;
                 decor.getLocationOnScreen(locations);
                 int x = -locations[0];
@@ -232,7 +229,7 @@ public class RealtimeBlurView extends View {
                 // just erase transparent
                 mBitmapToBlur.eraseColor(mOverlayColor & 0xffffff);
 
-                int rc = mBlurringCanvas.save();
+                final int rc = mBlurringCanvas.save();
                 mIsRendering = true;
                 RENDERING_COUNT++;
                 try {
@@ -243,6 +240,7 @@ public class RealtimeBlurView extends View {
                     }
                     decor.draw(mBlurringCanvas);
                 } catch (StopException e) {
+                    e.printStackTrace();
                 } finally {
                     mIsRendering = false;
                     RENDERING_COUNT--;

@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
+import androidx.annotation.NonNull;
+
 import loitp.core.R;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.indicators.BallPulseIndicator;
 
@@ -35,25 +37,17 @@ public class AVLoadingIndicatorView extends View {
 
     private boolean mDismissed = false;
 
-    private final Runnable mDelayedHide = new Runnable() {
-
-        @Override
-        public void run() {
-            mPostedHide = false;
-            mStartTime = -1;
-            setVisibility(View.GONE);
-        }
+    private final Runnable mDelayedHide = () -> {
+        mPostedHide = false;
+        mStartTime = -1;
+        setVisibility(View.GONE);
     };
 
-    private final Runnable mDelayedShow = new Runnable() {
-
-        @Override
-        public void run() {
-            mPostedShow = false;
-            if (!mDismissed) {
-                mStartTime = System.currentTimeMillis();
-                setVisibility(View.VISIBLE);
-            }
+    private final Runnable mDelayedShow = () -> {
+        mPostedShow = false;
+        if (!mDismissed) {
+            mStartTime = System.currentTimeMillis();
+            setVisibility(View.VISIBLE);
         }
     };
 
@@ -164,17 +158,17 @@ public class AVLoadingIndicatorView extends View {
         if (TextUtils.isEmpty(indicatorName)) {
             return;
         }
-        StringBuilder drawableClassName = new StringBuilder();
+        final StringBuilder drawableClassName = new StringBuilder();
         if (!indicatorName.contains(".")) {
-            String defaultPackageName = getClass().getPackage().getName();
+            final String defaultPackageName = getClass().getPackage().getName();
             drawableClassName.append(defaultPackageName)
                     .append(".indicators")
                     .append(".");
         }
         drawableClassName.append(indicatorName);
         try {
-            Class<?> drawableClass = Class.forName(drawableClassName.toString());
-            Indicator indicator = (Indicator) drawableClass.newInstance();
+            final Class<?> drawableClass = Class.forName(drawableClassName.toString());
+            final Indicator indicator = (Indicator) drawableClass.newInstance();
             setIndicator(indicator);
         } catch (ClassNotFoundException e) {
             Log.e(TAG, "Didn't find your class , check the name again !");
@@ -198,7 +192,7 @@ public class AVLoadingIndicatorView extends View {
     public void hide() {
         mDismissed = true;
         removeCallbacks(mDelayedShow);
-        long diff = System.currentTimeMillis() - mStartTime;
+        final long diff = System.currentTimeMillis() - mStartTime;
         if (diff >= MIN_SHOW_TIME || mStartTime == -1) {
             // The progress spinner has been shown long enough
             // OR was not shown yet. If it wasn't shown yet,
@@ -264,7 +258,7 @@ public class AVLoadingIndicatorView extends View {
     }
 
     @Override
-    protected void onVisibilityChanged(View changedView, int visibility) {
+    protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
         if (visibility == GONE || visibility == INVISIBLE) {
             stopAnimation();
@@ -274,7 +268,7 @@ public class AVLoadingIndicatorView extends View {
     }
 
     @Override
-    public void invalidateDrawable(Drawable dr) {
+    public void invalidateDrawable(@NonNull Drawable dr) {
         if (verifyDrawable(dr)) {
             final Rect dirty = dr.getBounds();
             final int scrollX = getScrollX() + getPaddingLeft();

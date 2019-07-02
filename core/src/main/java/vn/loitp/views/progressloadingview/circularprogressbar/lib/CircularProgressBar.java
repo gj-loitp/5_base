@@ -14,6 +14,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.MainThread;
@@ -21,11 +27,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.StyleRes;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
 
 import loitp.core.R;
 
@@ -131,7 +132,7 @@ public class CircularProgressBar extends View {
         mProgressAnimator = new ValueAnimator();
         mIndeterminateStartAnimator = new ValueAnimator();
         mIndeterminateSweepAnimator = new ValueAnimator();
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        final DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         if (attributeSet == null) {
             mMaximum = DEFAULT_MAXIMUM;
             mProgress = DEFAULT_PROGRESS;
@@ -308,8 +309,8 @@ public class CircularProgressBar extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
-        int height = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
+        final int width = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
+        final int height = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
         setMeasuredDimension(width, height);
         invalidateDrawRect(width, height);
     }
@@ -384,7 +385,7 @@ public class CircularProgressBar extends View {
         @MainThread
         public void apply() {
             stopProgressAnimation();
-            boolean indeterminateChanged = indeterminate != mIndeterminate;
+            final boolean indeterminateChanged = indeterminate != mIndeterminate;
             if (indeterminateChanged && !indeterminate) {
                 stopIndeterminateAnimations();
             }
@@ -395,8 +396,8 @@ public class CircularProgressBar extends View {
             mIndeterminateStartAnimator.setDuration(indeterminateRotationAnimationDuration);
             mIndeterminateSweepAnimator.setDuration(indeterminateArcAnimationDuration);
             mIndeterminateSweepAnimator.setFloatValues(360f - indeterminateMinimumAngle * 2f);
-            Paint foregroundStrokePaint = mForegroundStrokePaint;
-            Paint backgroundStrokePaint = mBackgroundStrokePaint;
+            final Paint foregroundStrokePaint = mForegroundStrokePaint;
+            final Paint backgroundStrokePaint = mBackgroundStrokePaint;
             foregroundStrokePaint.setColor(foregroundStrokeColor);
             backgroundStrokePaint.setColor(backgroundStrokeColor);
             foregroundStrokePaint.setStrokeWidth(foregroundStrokeWidth);

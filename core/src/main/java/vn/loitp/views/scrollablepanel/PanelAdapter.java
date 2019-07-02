@@ -1,11 +1,8 @@
 package vn.loitp.views.scrollablepanel;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 
-/**
- * Created by kelin on 16-11-18.
- */
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Base class for an Adapter

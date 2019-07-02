@@ -21,8 +21,8 @@ public class ViewUtils {
     private static int height;
 
     public static void init(Context context) {
-        Resources res = context.getResources();
-        DisplayMetrics metrics = res.getDisplayMetrics();
+        final Resources res = context.getResources();
+        final DisplayMetrics metrics = res.getDisplayMetrics();
         width = metrics.widthPixels;
         height = metrics.heightPixels;
     }
@@ -31,13 +31,9 @@ public class ViewUtils {
         return width;
     }
 
-    ;
-
     public static int getScreenHeight() {
         return height;
     }
-
-    ;
 
     /**
      * change dip value to pixel value for certain screen size
@@ -102,10 +98,10 @@ public class ViewUtils {
      * @return
      */
     private static int computeInitialSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
-        double w = options.outWidth;
-        double h = options.outHeight;
-        int lowerBound = (maxNumOfPixels == -1) ? 1 : (int) Math.ceil(Math.sqrt(w * h / maxNumOfPixels));
-        int upperBound = (minSideLength == -1) ? 128 : (int) Math.min(Math.floor(w / minSideLength), Math.floor(h / minSideLength));
+        final double w = options.outWidth;
+        final double h = options.outHeight;
+        final int lowerBound = (maxNumOfPixels == -1) ? 1 : (int) Math.ceil(Math.sqrt(w * h / maxNumOfPixels));
+        final int upperBound = (minSideLength == -1) ? 128 : (int) Math.min(Math.floor(w / minSideLength), Math.floor(h / minSideLength));
         if (upperBound < lowerBound) {
             // return the larger one when there is no overlapping zone.
             return lowerBound;
@@ -120,7 +116,7 @@ public class ViewUtils {
     }
 
     public static int getStatusBarHeight(Activity context) {
-        Rect rect = new Rect();
+        final Rect rect = new Rect();
         context.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         return rect.top;
     }

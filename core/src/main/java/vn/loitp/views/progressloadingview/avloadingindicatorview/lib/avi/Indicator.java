@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -65,7 +67,7 @@ public abstract class Indicator extends Drawable implements Animatable {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         draw(canvas, mPaint);
     }
 
@@ -91,7 +93,7 @@ public abstract class Indicator extends Drawable implements Animatable {
 
     private void startAnimators() {
         for (int i = 0; i < mAnimators.size(); i++) {
-            ValueAnimator animator = mAnimators.get(i);
+            final ValueAnimator animator = mAnimators.get(i);
 
             //when the animator restart , add the updateListener again because they
             // was removed by animator stop .
@@ -106,7 +108,7 @@ public abstract class Indicator extends Drawable implements Animatable {
 
     private void stopAnimators() {
         if (mAnimators != null) {
-            for (ValueAnimator animator : mAnimators) {
+            for (final ValueAnimator animator : mAnimators) {
                 if (animator != null && animator.isStarted()) {
                     animator.removeAllUpdateListeners();
                     animator.end();
@@ -128,7 +130,7 @@ public abstract class Indicator extends Drawable implements Animatable {
     }
 
     private boolean isStarted() {
-        for (ValueAnimator animator : mAnimators) {
+        for (final ValueAnimator animator : mAnimators) {
             return animator.isStarted();
         }
         return false;
@@ -136,7 +138,7 @@ public abstract class Indicator extends Drawable implements Animatable {
 
     @Override
     public boolean isRunning() {
-        for (ValueAnimator animator : mAnimators) {
+        for (final ValueAnimator animator : mAnimators) {
             return animator.isRunning();
         }
         return false;
