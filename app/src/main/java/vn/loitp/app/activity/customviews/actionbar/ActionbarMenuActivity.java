@@ -62,7 +62,7 @@ public class ActionbarMenuActivity extends BaseFontActivity implements View.OnCl
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

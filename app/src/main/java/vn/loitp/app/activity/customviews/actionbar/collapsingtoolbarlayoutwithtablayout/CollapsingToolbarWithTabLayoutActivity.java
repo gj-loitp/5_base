@@ -3,12 +3,12 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwitht
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -27,9 +27,6 @@ import vn.loitp.core.utilities.LPopupMenu;
 import vn.loitp.views.LToast;
 
 public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity implements OnClickListener {
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +34,11 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
 
         setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary));
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material);
-        toolbar.setNavigationOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
         /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
@@ -71,17 +63,17 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
             }
         });*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
 
         //findViewById(R.id.bt_menu).setOnClickListener(this);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager mViewPager = findViewById(R.id.viewpager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        final TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
     }
@@ -109,12 +101,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
                         .setAction("Action", null).show();
                 break;
             case R.id.bt_menu:
-                LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
-                    @Override
-                    public void clickOnItem(MenuItem menuItem) {
-                        LToast.INSTANCE.show(activity, menuItem.getTitle().toString());
-                    }
-                });
+                LPopupMenu.show(activity, v, R.menu.menu_popup, menuItem -> LToast.show(activity, menuItem.getTitle().toString()));
                 break;
         }
     }
@@ -127,17 +114,17 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
         }
 
         public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
+            final PlaceholderFragment fragment = new PlaceholderFragment();
+            final Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.frm_text, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.tv);
+        public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            final View rootView = inflater.inflate(R.layout.frm_text, container, false);
+            final TextView textView = rootView.findViewById(R.id.tv);
             textView.setText(R.string.large_text);
             return rootView;
         }
@@ -145,7 +132,7 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -174,14 +161,13 @@ public class CollapsingToolbarWithTabLayoutActivity extends BaseFontActivity imp
     }
 
     private void changeTabsFont(TabLayout tabLayout, String fontName) {
-
-        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
-        int tabsCount = vg.getChildCount();
+        final ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        final int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {
-            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
-            int tabChildsCount = vgTab.getChildCount();
+            final ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            final int tabChildsCount = vgTab.getChildCount();
             for (int i = 0; i < tabChildsCount; i++) {
-                View tabViewChild = vgTab.getChildAt(i);
+                final View tabViewChild = vgTab.getChildAt(i);
                 if (tabViewChild instanceof TextView) {
                     CalligraphyUtils.applyFontToTextView(tabLayout.getContext(), (TextView) tabViewChild, fontName);
                 }

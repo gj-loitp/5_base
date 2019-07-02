@@ -33,8 +33,8 @@ public class LActionbarActivity extends BaseFontActivity {
     }
 
     private void setupActionBar() {
-        LActionBar lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
-        TextView tv = (TextView) findViewById(R.id.tv);
+        final LActionBar lActionBar = findViewById(R.id.l_action_bar);
+        final TextView tv = findViewById(R.id.tv);
         tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar));
 
         lActionBar.setOnClickBack(new LActionBar.Callback() {
@@ -45,7 +45,7 @@ public class LActionbarActivity extends BaseFontActivity {
 
             @Override
             public void onClickMenu() {
-                LToast.INSTANCE.show(activity, "onClickMenu");
+                LToast.show(activity, "onClickMenu");
             }
         });
         lActionBar.showMenuIcon();

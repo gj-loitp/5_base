@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.actionbar.navigationview;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -24,45 +23,27 @@ public class NavigationViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        nv = (LNavigationView) findViewById(R.id.nv);
-        tvMsg = (TextView) findViewById(R.id.tv_msg);
+        nv = findViewById(R.id.nv);
+        tvMsg = findViewById(R.id.tv_msg);
 
         nv.setColorOn(ContextCompat.getColor(activity, R.color.Red));
         nv.setColorOff(ContextCompat.getColor(activity, R.color.Gray));
         nv.getTv().setTextColor(Color.BLACK);
         LUIUtil.setTextSize(nv.getTv(), TypedValue.COMPLEX_UNIT_DIP, 20);//20dp
 
-        List<String> stringList = new ArrayList<>();
+        final List<String> stringList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             stringList.add("Item " + i);
         }
 
         nv.setStringList(stringList);
-        nv.setNVCallback(new LNavigationView.NVCallback() {
-            @Override
-            public void onIndexChange(int index, String s) {
-                LLog.INSTANCE.d(TAG, "onIndexChange " + index + " -> " + s);
-                tvMsg.setText(index + " -> " + s);
-            }
+        nv.setNVCallback((index, s) -> {
+            LLog.d(TAG, "onIndexChange " + index + " -> " + s);
+            tvMsg.setText(index + " -> " + s);
         });
-        findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nv.setCurrenIndex(0);
-            }
-        });
-        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nv.setCurrenIndex(stringList.size() - 1);
-            }
-        });
-        findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nv.setCurrenIndex(2);
-            }
-        });
+        findViewById(R.id.bt_0).setOnClickListener(view -> nv.setCurrenIndex(0));
+        findViewById(R.id.bt_1).setOnClickListener(view -> nv.setCurrenIndex(stringList.size() - 1));
+        findViewById(R.id.bt_2).setOnClickListener(view -> nv.setCurrenIndex(2));
     }
 
     @Override
