@@ -12,6 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
@@ -23,12 +30,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
@@ -60,7 +61,6 @@ public class GalleryMemberActivity extends BaseFontActivity {
 
     private String photosetID;
     private int photosSize;
-    private int resBkgRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
 
-        resBkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), R.color.colorPrimary);
+        final int resBkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), R.color.colorPrimary);
         getRootView().setBackgroundResource(resBkgRootView);
 
         final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
@@ -93,7 +93,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         avLoadingIndicatorView = findViewById(R.id.av);
 
         photosetID = Constants.INSTANCE.getFLICKR_ID_MEMBERS();
-        if (photosetID == null || photosetID.isEmpty()) {
+        if (photosetID.isEmpty()) {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
@@ -360,8 +360,8 @@ public class GalleryMemberActivity extends BaseFontActivity {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;
-                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                final Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                final Uri uri = Uri.fromParts("package", getPackageName(), null);
                 intent.setData(uri);
                 startActivityForResult(intent, 101);
             }

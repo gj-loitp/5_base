@@ -47,8 +47,9 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
         screenW = LScreenUtil.getScreenWidth();
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
         return new ViewHolder(inflater.inflate(R.layout.item_photos_core_only, viewGroup, false));
     }
 
@@ -60,7 +61,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     @Override
-    public void onViewAttachedToWindow(ViewHolder holder) {
+    public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
         if (holder.hasNoImage()) {
             holder.rebind();
@@ -68,7 +69,7 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int position) {
         final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
         viewHolder.bind(photo, position);
     }
@@ -93,13 +94,13 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
 
         public ViewHolder(View v) {
             super(v);
-            tvTitle = (TextView) v.findViewById(R.id.tv_title);
-            bigImageView = (BigImageView) v.findViewById(R.id.biv);
-            btDownload = (FloatingActionButton) v.findViewById(R.id.bt_download);
-            btShare = (FloatingActionButton) v.findViewById(R.id.bt_share);
-            btReport = (FloatingActionButton) v.findViewById(R.id.bt_report);
-            btCmt = (FloatingActionButton) v.findViewById(R.id.bt_cmt);
-            pb = (ProgressBar) v.findViewById(R.id.pb);
+            tvTitle = v.findViewById(R.id.tv_title);
+            bigImageView = v.findViewById(R.id.biv);
+            btDownload = v.findViewById(R.id.bt_download);
+            btShare = v.findViewById(R.id.bt_share);
+            btReport = v.findViewById(R.id.bt_report);
+            btCmt = v.findViewById(R.id.bt_cmt);
+            pb = v.findViewById(R.id.pb);
             bigImageView.setTapToRetry(false);
             bigImageView.setImageViewFactory(viewFactory);
         }
@@ -162,61 +163,43 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
                 tvTitle.setText(photo.getTitle());
                 LUIUtil.setTextShadow(tvTitle);
             }
-            bigImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    LLog.INSTANCE.d(TAG, "setOnClickListener");
-                    LAnimationUtil.play(bigImageView, Techniques.Pulse);
-                    if (callback != null) {
-                        callback.onClick(photo, position);
-                    }
+            bigImageView.setOnClickListener(view -> {
+                LLog.d(TAG, "setOnClickListener");
+                LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onClick(photo, position);
                 }
             });
-            bigImageView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    LLog.INSTANCE.d(TAG, "onLongClick");
-                    LAnimationUtil.play(bigImageView, Techniques.Pulse);
-                    if (callback != null) {
-                        callback.onLongClick(photo, position);
-                    }
-                    return true;
+            bigImageView.setOnLongClickListener(view -> {
+                LLog.d(TAG, "onLongClick");
+                LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                if (callback != null) {
+                    callback.onLongClick(photo, position);
+                }
+                return true;
+            });
+            btDownload.setOnClickListener(v -> {
+                LAnimationUtil.play(v, Techniques.Flash);
+                if (callback != null) {
+                    callback.onClickDownload(photo, position);
                 }
             });
-            btDownload.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LAnimationUtil.play(v, Techniques.Flash);
-                    if (callback != null) {
-                        callback.onClickDownload(photo, position);
-                    }
+            btShare.setOnClickListener(v -> {
+                LAnimationUtil.play(v, Techniques.Flash);
+                if (callback != null) {
+                    callback.onClickShare(photo, position);
                 }
             });
-            btShare.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LAnimationUtil.play(v, Techniques.Flash);
-                    if (callback != null) {
-                        callback.onClickShare(photo, position);
-                    }
+            btReport.setOnClickListener(v -> {
+                LAnimationUtil.play(v, Techniques.Flash);
+                if (callback != null) {
+                    callback.onClickReport(photo, position);
                 }
             });
-            btReport.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LAnimationUtil.play(v, Techniques.Flash);
-                    if (callback != null) {
-                        callback.onClickReport(photo, position);
-                    }
-                }
-            });
-            btCmt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LAnimationUtil.play(v, Techniques.Flash);
-                    if (callback != null) {
-                        callback.onClickCmt(photo, position);
-                    }
+            btCmt.setOnClickListener(v -> {
+                LAnimationUtil.play(v, Techniques.Flash);
+                if (callback != null) {
+                    callback.onClickCmt(photo, position);
                 }
             });
         }
@@ -239,17 +222,17 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
     }
 
     public interface Callback {
-        public void onClick(Photo photo, int pos);
+        void onClick(Photo photo, int pos);
 
-        public void onLongClick(Photo photo, int pos);
+        void onLongClick(Photo photo, int pos);
 
-        public void onClickDownload(Photo photo, int pos);
+        void onClickDownload(Photo photo, int pos);
 
-        public void onClickShare(Photo photo, int pos);
+        void onClickShare(Photo photo, int pos);
 
-        public void onClickReport(Photo photo, int pos);
+        void onClickReport(Photo photo, int pos);
 
-        public void onClickCmt(Photo photo, int pos);
+        void onClickCmt(Photo photo, int pos);
     }
 
     private Callback callback;

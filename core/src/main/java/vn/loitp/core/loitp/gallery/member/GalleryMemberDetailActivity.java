@@ -1,10 +1,11 @@
 package vn.loitp.core.loitp.gallery.member;
 
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import android.transition.Transition;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.view.ViewCompat;
 
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -23,10 +24,10 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         isShowAdWhenExit = false;
-        imageView = (ImageView) findViewById(R.id.image_view);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
+        imageView = findViewById(R.id.image_view);
+        tvTitle = findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
-        Photo photo = (Photo) getIntent().getSerializableExtra(PHOTO);
+        final Photo photo = (Photo) getIntent().getSerializableExtra(PHOTO);
         if (photo != null) {
             //LImageUtil.loadNoAmin(activity, photo.getUrlO(), imageView);
             //tvTitle.setText(photo.getTitle());

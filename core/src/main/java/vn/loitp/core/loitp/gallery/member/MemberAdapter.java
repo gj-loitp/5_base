@@ -2,13 +2,15 @@ package vn.loitp.core.loitp.gallery.member;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import loitp.core.R;
 import vn.loitp.core.loitp.gallery.photos.PhotosDataCore;
@@ -29,7 +31,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     private int sizeW;
     private int sizeH;
 
-    public MemberAdapter(Context context, int numCount, Callback callback) {
+    public MemberAdapter(final Context context, final int numCount, final Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
@@ -38,13 +40,14 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         this.isTablet = LDeviceUtil.isTablet((Activity) context);
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
         return new ViewHolder(inflater.inflate(R.layout.item_photos_member, viewGroup, false));
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int position) {
         viewHolder.fl.getLayoutParams().width = sizeW;
         viewHolder.fl.getLayoutParams().height = sizeH;
         viewHolder.fl.requestLayout();
@@ -64,22 +67,16 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             viewHolder.tvTitle.setText(photo.getTitle());
             LUIUtil.setTextShadow(viewHolder.tvTitle);
         }
-        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(photo, position, viewHolder.imageView, viewHolder.tvTitle);
-                }
+        viewHolder.imageView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(photo, position, viewHolder.imageView, viewHolder.tvTitle);
             }
         });
-        viewHolder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(photo, position);
-                }
-                return true;
+        viewHolder.imageView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(photo, position);
             }
+            return true;
         });
 
         if (position == 0 || position == 1) {
@@ -114,18 +111,18 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
-            fl = (FrameLayout) v.findViewById(R.id.fl);
-            tvTitle = (TextView) v.findViewById(R.id.tv_title);
-            imageView = (ImageView) v.findViewById(R.id.image_view);
-            viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
-            viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
+            fl = v.findViewById(R.id.fl);
+            tvTitle = v.findViewById(R.id.tv_title);
+            imageView = v.findViewById(R.id.image_view);
+            viewSpaceTop = v.findViewById(R.id.view_space_top);
+            viewSpaceBottom = v.findViewById(R.id.view_space_bottom);
         }
     }
 
     public interface Callback {
-        public void onClick(Photo photo, int pos, ImageView imageView, TextView textView);
+        void onClick(Photo photo, int pos, ImageView imageView, TextView textView);
 
-        public void onLongClick(Photo photo, int pos);
+        void onLongClick(Photo photo, int pos);
     }
 
     private Callback callback;

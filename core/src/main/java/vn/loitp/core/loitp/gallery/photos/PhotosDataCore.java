@@ -26,12 +26,12 @@ public class PhotosDataCore {
         return photoList;
     }
 
-    public void setPhotoList(List<Photo> photoList) {
+    public void setPhotoList(final List<Photo> photoList) {
         this.photoList = photoList;
         //LLog.d(TAG, "size: " + this.photoList.size());
     }
 
-    public void addPhoto(List<Photo> photoList) {
+    public void addPhoto(final List<Photo> photoList) {
         if (this.photoList.isEmpty()) {
             setPhotoList(photoList);
             return;
@@ -55,14 +55,14 @@ public class PhotosDataCore {
         return this.photoList.size();
     }
 
-    public Photo getPhoto(int position) {
+    public Photo getPhoto(final int position) {
         if (this.photoList == null || this.photoList.isEmpty() || position < 0 || position > this.photoList.size()) {
             return null;
         }
         return this.photoList.get(position);
     }
 
-    public int getPosition(String photoID) {
+    public int getPosition(final String photoID) {
         for (int i = 0; i < this.photoList.size(); i++) {
             if (photoID.equals(this.photoList.get(i).getId())) {
                 return i;
