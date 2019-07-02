@@ -10,14 +10,13 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import java.lang.reflect.Field;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import io.reactivex.android.schedulers.AndroidSchedulers;
+
+import java.lang.reflect.Field;
+
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
 import vn.loitp.core.utilities.LDialogUtil;
 
@@ -28,7 +27,7 @@ public abstract class BaseFragment extends Fragment {
     protected Context context;
     @NonNull
     protected CompositeDisposable compositeDisposable = new CompositeDisposable();
-    protected final String BASE_TAG = BaseFragment.class.getSimpleName();
+    protected final String TAG = BaseFragment.class.getSimpleName();
     protected View frmRootView;
 
     @Override

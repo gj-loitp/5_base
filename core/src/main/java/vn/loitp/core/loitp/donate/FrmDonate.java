@@ -2,12 +2,13 @@ package vn.loitp.core.loitp.donate;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +21,18 @@ import vn.loitp.views.animation.confetti.ConfettiManager;
 import vn.loitp.views.textview.textdecorator.lib.TextDecorator;
 
 public class FrmDonate extends BaseFragment {
-    private final String TAG = "TAG" + getClass().getSimpleName();
     protected int goldDark, goldMed, gold, goldLight, colorPrimary;
     protected int[] colors;
     private final List<ConfettiManager> activeConfettiManagers = new ArrayList<>();
     private RelativeLayout rv;
-    private TextView tv;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
+        final ScrollView sv = view.findViewById(R.id.sv);
         LUIUtil.setPullLikeIOSVertical(sv);
-        rv = (RelativeLayout) view.findViewById(R.id.rv);
-        tv = (TextView) view.findViewById(R.id.tv);
+        rv = view.findViewById(R.id.rv);
+        final TextView tv = view.findViewById(R.id.tv);
         final String text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +
                 "\n" +
                 "❤ Vietcombank\n" +
@@ -74,12 +73,7 @@ public class FrmDonate extends BaseFragment {
         goldLight = res.getColor(R.color.gold_light);
         colorPrimary = res.getColor(R.color.colorPrimary);
         colors = new int[]{goldDark, goldMed, gold, goldLight, colorPrimary};
-        LUIUtil.setDelay(500, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                activeConfettiManagers.add(generateOnce());
-            }
-        });
+        LUIUtil.setDelay(500, mls -> activeConfettiManagers.add(generateOnce()));
     }
 
     @Override

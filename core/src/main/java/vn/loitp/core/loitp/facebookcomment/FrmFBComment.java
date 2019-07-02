@@ -31,11 +31,10 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 
 public class FrmFBComment extends BaseFragment {
-    private final String TAG = "TAG" + getClass().getSimpleName();
     private RelativeLayout mContainer;
     private WebView mWebViewComments;
     private ProgressBar progressBar;
-    boolean isLoading;
+    private boolean isLoading;
     private WebView mWebviewPop;
     private String postUrl;
     // the default number of comments should be visible
@@ -45,15 +44,15 @@ public class FrmFBComment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mWebViewComments = (WebView) view.findViewById(R.id.commentsView);
+        mWebViewComments = view.findViewById(R.id.commentsView);
 
         mWebViewComments.setBackgroundColor(Color.TRANSPARENT);
         mWebViewComments.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
-        mContainer = (RelativeLayout) view.findViewById(R.id.webview_frame);
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        mContainer = view.findViewById(R.id.webview_frame);
+        progressBar = view.findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(getActivity(), R.color.colorPrimary));
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
         if (bundle == null) {
             return;
         }
@@ -91,7 +90,7 @@ public class FrmFBComment extends BaseFragment {
         }
 
         // facebook comment widget including the article url
-        String html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
+        final String html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
                 "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
                 "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
                 "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
@@ -106,12 +105,7 @@ public class FrmFBComment extends BaseFragment {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE);
         } else {
-            LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
-                @Override
-                public void doAfter(int mls) {
-                    LUIUtil.setProgressBarVisibility(progressBar, View.GONE);
-                }
-            });
+            LUIUtil.setDelay(1000, mls -> LUIUtil.setProgressBarVisibility(progressBar, View.GONE));
         }
     }
 
@@ -125,7 +119,7 @@ public class FrmFBComment extends BaseFragment {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            String host = Uri.parse(url).getHost();
+            final String host = Uri.parse(url).getHost();
             setLoading(false);
             if (url.contains("/plugins/close_popup.php?reload")) {
                 final Handler handler = new Handler();
@@ -170,7 +164,7 @@ public class FrmFBComment extends BaseFragment {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage cm) {
-            LLog.INSTANCE.d(TAG, "onConsoleMessage: " + cm.message());
+            LLog.d(TAG, "onConsoleMessage: " + cm.message());
             return true;
         }
 

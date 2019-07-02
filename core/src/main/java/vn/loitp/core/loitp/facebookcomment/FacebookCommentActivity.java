@@ -50,9 +50,9 @@ public class FacebookCommentActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
-        String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
-        LLog.INSTANCE.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
+        final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
+        LLog.d(TAG, "adUnitId " + adUnitId);
+        final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
@@ -66,9 +66,9 @@ public class FacebookCommentActivity extends BaseFontActivity {
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
         }
 
-        mWebViewComments = (WebView) findViewById(R.id.commentsView);
-        mContainer = (RelativeLayout) findViewById(R.id.webview_frame);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mWebViewComments = findViewById(R.id.commentsView);
+        mContainer = findViewById(R.id.webview_frame);
+        progressBar = findViewById(R.id.progressBar);
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
 
         if (Constants.INSTANCE.getIS_DEBUG()) {
@@ -79,7 +79,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.INSTANCE.show(activity, "The web url shouldn't be empty");
+            LToast.show(activity, "The web url shouldn't be empty");
             onBackPressed();
             return;
         }
@@ -89,7 +89,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
     }
 
     private void setupActionBar() {
-        LActionBar lActionBar = (LActionBar) findViewById(R.id.l_action_bar);
+        final LActionBar lActionBar = findViewById(R.id.l_action_bar);
         lActionBar.setOnClickBack(new LActionBar.Callback() {
             @Override
             public void onClickBack() {
@@ -138,7 +138,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
         }
 
         // facebook comment widget including the article url
-        String html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
+        final String html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
                 "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
                 "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
                 "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
@@ -166,24 +166,21 @@ public class FacebookCommentActivity extends BaseFontActivity {
     private class UriWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            String host = Uri.parse(url).getHost();
+            final String host = Uri.parse(url).getHost();
             return !host.equals("m.facebook.com");
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            String host = Uri.parse(url).getHost();
+            final String host = Uri.parse(url).getHost();
             setLoading(false);
             if (url.contains("/plugins/close_popup.php?reload")) {
                 final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Do something after 100ms
-                        mContainer.removeView(mWebviewPop);
-                        loadComments();
-                    }
+                handler.postDelayed(() -> {
+                    //Do something after 100ms
+                    mContainer.removeView(mWebviewPop);
+                    loadComments();
                 }, 600);
             }
         }
@@ -210,7 +207,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
             mWebviewPop.getSettings().setSupportMultipleWindows(true);
             mWebviewPop.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             mContainer.addView(mWebviewPop);
-            WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+            final WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
             transport.setWebView(mWebviewPop);
             resultMsg.sendToTarget();
             return true;
@@ -218,7 +215,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage cm) {
-            LLog.INSTANCE.d(TAG, "onConsoleMessage: " + cm.message());
+            LLog.d(TAG, "onConsoleMessage: " + cm.message());
             return true;
         }
 
