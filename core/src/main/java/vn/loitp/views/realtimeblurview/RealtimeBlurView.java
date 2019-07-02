@@ -129,7 +129,7 @@ public class RealtimeBlurView extends View {
             return false;
         }
 
-        final float downsampleFactor = mDownsampleFactor;
+        float downsampleFactor = mDownsampleFactor;
 
         if (mDirty || mRenderScript == null) {
             if (mRenderScript == null) {
