@@ -1,8 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
@@ -34,43 +32,37 @@ public class RecyclerViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
 
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        final SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
         //recyclerView.getItemAnimator().setAddDuration(1000);
 
-        tvType = (TextView) findViewById(R.id.tv_type);
+        tvType = findViewById(R.id.tv_type);
 
-        findViewById(R.id.bt_add_3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Movie movie = new Movie();
-                movie.setTitle("Add TITLE 3");
-                movie.setYear("Add YEAR 3");
-                movie.setGenre("Add GENRE 3");
-                movieList.add(3, movie);
-                mAdapter.notifyItemInserted(3);
-            }
+        findViewById(R.id.bt_add_3).setOnClickListener(v -> {
+            final Movie movie = new Movie();
+            movie.setTitle("Add TITLE 3");
+            movie.setYear("Add YEAR 3");
+            movie.setGenre("Add GENRE 3");
+            movieList.add(3, movie);
+            mAdapter.notifyItemInserted(3);
         });
-        findViewById(R.id.bt_remove_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                movieList.remove(1);
-                mAdapter.notifyItemRemoved(1);
-            }
+        findViewById(R.id.bt_remove_1).setOnClickListener(v -> {
+            movieList.remove(1);
+            mAdapter.notifyItemRemoved(1);
         });
 
         mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
+                LToast.show(activity, "Click " + movie.getTitle());
             }
 
             @Override
             public void onLongClick(Movie movie, int position) {
-                boolean isRemoved = movieList.remove(movie);
+                final boolean isRemoved = movieList.remove(movie);
                 if (isRemoved) {
                     mAdapter.notifyItemRemoved(position);
                     mAdapter.notifyItemRangeChanged(position, movieList.size());
@@ -82,7 +74,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
                 loadMore();
             }
         });
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        final RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         //recyclerView.setAdapter(mAdapter);
@@ -93,7 +85,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
         //alphaAdapter.setFirstOnly(true);
         //recyclerView.setAdapter(alphaAdapter);
 
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
+        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -103,54 +95,45 @@ public class RecyclerViewActivity extends BaseFontActivity {
 
         prepareMovieData();
 
-        findViewById(R.id.bt_setting).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LPopupMenu.show(activity, v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
-                    @Override
-                    public void clickOnItem(MenuItem menuItem) {
-                        tvType.setText(menuItem.getTitle().toString());
-                        switch (menuItem.getItemId()) {
-                            case R.id.menu_linear_vertical:
-                                RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
-                                recyclerView.setLayoutManager(lmVertical);
-                                break;
-                            case R.id.menu_linear_horizontal:
-                                RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                                recyclerView.setLayoutManager(lmHorizontal);
-                                break;
-                            case R.id.menu_gridlayoutmanager_2:
-                                recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
-                                break;
-                            case R.id.menu_gridlayoutmanager_3:
-                                recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
-                                break;
-                            case R.id.menu_staggeredgridlayoutmanager_2:
-                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-                                break;
-                            case R.id.menu_staggeredgridlayoutmanager_4:
-                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
-                                break;
-                        }
+        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.show(activity, v,
+                R.menu.menu_recycler_view,
+                menuItem -> {
+                    tvType.setText(menuItem.getTitle().toString());
+                    switch (menuItem.getItemId()) {
+                        case R.id.menu_linear_vertical:
+                            final RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
+                            recyclerView.setLayoutManager(lmVertical);
+                            break;
+                        case R.id.menu_linear_horizontal:
+                            final RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                            recyclerView.setLayoutManager(lmHorizontal);
+                            break;
+                        case R.id.menu_gridlayoutmanager_2:
+                            recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                            break;
+                        case R.id.menu_gridlayoutmanager_3:
+                            recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
+                            break;
+                        case R.id.menu_staggeredgridlayoutmanager_2:
+                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                            break;
+                        case R.id.menu_staggeredgridlayoutmanager_4:
+                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
+                            break;
                     }
-                });
-            }
-        });
+                }));
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, "loadMore");
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                int newSize = 5;
-                for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
-                    movieList.add(movie);
-                }
-                mAdapter.notifyDataSetChanged();
-                LToast.INSTANCE.show(activity, "Finish loadMore");
+        LLog.d(TAG, "loadMore");
+        LUIUtil.setDelay(2000, mls -> {
+            final int newSize = 5;
+            for (int i = 0; i < newSize; i++) {
+                final Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
+                movieList.add(movie);
             }
+            mAdapter.notifyDataSetChanged();
+            LToast.show(activity, "Finish loadMore");
         });
     }
 
@@ -171,7 +154,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
 
     private void prepareMovieData() {
         for (int i = 0; i < 100; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
+            final Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();
