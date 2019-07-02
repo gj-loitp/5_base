@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -23,10 +24,6 @@ import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.AppUtils;
-
-/**
- * Created by LENOVO on 5/31/2018.
- */
 
 public class AdHelperActivity extends BaseFontActivity {
     private List<AdPage> adPageList = new ArrayList<>();
@@ -52,7 +49,7 @@ public class AdHelperActivity extends BaseFontActivity {
     }
 
     private void setupData() {
-        AdPage adPage0 = new AdPage();
+        final AdPage adPage0 = new AdPage();
         adPage0.setUrlAd("https://c2.staticflickr.com/2/1748/41585991345_1e3d93a5d9_o.png");
         if (isEnglishLanguage) {
             adPage0.setTitle("Advertising is an important part of a free app");
@@ -63,7 +60,7 @@ public class AdHelperActivity extends BaseFontActivity {
         }
         adPageList.add(adPage0);
 
-        AdPage adPage1 = new AdPage();
+        final AdPage adPage1 = new AdPage();
         adPage1.setUrlAd("https://c2.staticflickr.com/2/1732/41766077754_da53b9da82_o.png");
         String appName = AppUtils.getAppName();
         if (isEnglishLanguage) {
@@ -75,7 +72,7 @@ public class AdHelperActivity extends BaseFontActivity {
         }
         adPageList.add(adPage1);
 
-        AdPage adPage2 = new AdPage();
+        final AdPage adPage2 = new AdPage();
         adPage2.setUrlAd("https://c2.staticflickr.com/2/1734/41766077524_09572156d6_o.png");
         if (isEnglishLanguage) {
             adPage2.setTitle("Ads can be annoying.\nWe understand this.");
@@ -86,7 +83,7 @@ public class AdHelperActivity extends BaseFontActivity {
         }
         adPageList.add(adPage2);
 
-        AdPage adPage3 = new AdPage();
+        final AdPage adPage3 = new AdPage();
         adPage3.setUrlAd("https://c2.staticflickr.com/2/1723/41766077684_54c007d2db_o.png");
         if (isEnglishLanguage) {
             adPage3.setTitle("The team " + appName + " is looking forward to receiving your sympathy and support");
@@ -105,39 +102,28 @@ public class AdHelperActivity extends BaseFontActivity {
 
         isEnglishLanguage = getIntent().getBooleanExtra(Constants.INSTANCE.getAD_HELPER_IS_ENGLISH_LANGUAGE(), false);
 
-        btPrevScreen = (ImageButton) findViewById(R.id.bt_prev_screen);
-        btNextScreen = (ImageButton) findViewById(R.id.bt_next_screen);
-        tvPage = (TextView) findViewById(R.id.tv_page);
+        btPrevScreen = findViewById(R.id.bt_prev_screen);
+        btNextScreen = findViewById(R.id.bt_next_screen);
+        tvPage = findViewById(R.id.tv_page);
         //LUIUtil.setTextShadow(tvPage);
 
         setupData();
 
-        findViewById(R.id.bt_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        findViewById(R.id.bt_back).setOnClickListener(v -> {
+            finish();
+            LActivityUtil.tranOut(activity);
+        });
+        btPrevScreen.setOnClickListener(v -> viewPager.setCurrentItem(viewPager.getCurrentItem() - 1));
+        btNextScreen.setOnClickListener(v -> {
+            if (viewPager.getCurrentItem() == (adPageList.size() - 1)) {
                 finish();
-                LActivityUtil.INSTANCE.tranOut(activity);
-            }
-        });
-        btPrevScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-            }
-        });
-        btNextScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (viewPager.getCurrentItem() == (adPageList.size() - 1)) {
-                    finish();
-                    LActivityUtil.INSTANCE.tranOut(activity);
-                } else {
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                }
+                LActivityUtil.tranOut(activity);
+            } else {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             }
         });
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(new SlidePagerAdapter());
 
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
@@ -171,25 +157,26 @@ public class AdHelperActivity extends BaseFontActivity {
 
     private class SlidePagerAdapter extends PagerAdapter {
 
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup collection, int position) {
-            AdPage adPage = adPageList.get(position);
+        public Object instantiateItem(@NonNull ViewGroup collection, int position) {
+            final AdPage adPage = adPageList.get(position);
 
-            LayoutInflater inflater = LayoutInflater.from(activity);
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_ad_helper, collection, false);
+            final LayoutInflater inflater = LayoutInflater.from(activity);
+            final ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_ad_helper, collection, false);
 
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+            final ImageView imageView = layout.findViewById(R.id.imageView);
             LImageUtil.load(activity, adPage.getUrlAd(), imageView);
 
-            TextView tv = (TextView) layout.findViewById(R.id.tv);
+            final TextView tv = layout.findViewById(R.id.tv);
             tv.setText(adPage.getTitle());
             LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.White));
 
-            TextView tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
+            TextView tvMsg = layout.findViewById(R.id.tv_msg);
             tvMsg.setText(adPage.getMsg());
             LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White));
 
-            RoundedButton btOkay = (RoundedButton) layout.findViewById(R.id.bt_okay);
+            final RoundedButton btOkay = layout.findViewById(R.id.bt_okay);
             if (isEnglishLanguage) {
                 btOkay.setText("I understand");
             } else {
@@ -200,12 +187,9 @@ public class AdHelperActivity extends BaseFontActivity {
             } else {
                 btOkay.setVisibility(View.GONE);
             }
-            btOkay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                    LActivityUtil.INSTANCE.tranOut(activity);
-                }
+            btOkay.setOnClickListener(v -> {
+                finish();
+                LActivityUtil.tranOut(activity);
             });
 
             collection.addView(layout);
@@ -213,7 +197,7 @@ public class AdHelperActivity extends BaseFontActivity {
         }
 
         @Override
-        public void destroyItem(ViewGroup collection, int position, Object view) {
+        public void destroyItem(@NonNull ViewGroup collection, int position, @NonNull Object view) {
             collection.removeView((View) view);
         }
 
@@ -223,7 +207,7 @@ public class AdHelperActivity extends BaseFontActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
             return view == object;
         }
     }
