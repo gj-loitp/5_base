@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
@@ -14,11 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
 import vn.loitp.core.base.BaseFontActivity;
@@ -29,7 +29,6 @@ import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.FlickrConst;
 import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
@@ -44,7 +43,6 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     private int bkgRootView;
     private AVLoadingIndicatorView avLoadingIndicatorView;
     private AdView adView;
-    private String admobBannerUnitId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
 
         avLoadingIndicatorView = findViewById(R.id.av);
 
-        admobBannerUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
+        final String admobBannerUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
         LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
         final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
@@ -148,43 +146,37 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<WrapperPhotosetGetlist>() {
-                    @Override
-                    public void accept(WrapperPhotosetGetlist wrapperPhotosetGetlist) {
-                        //LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
-                        photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
+                .subscribe(wrapperPhotosetGetlist -> {
+                    //LLog.d(TAG, "onSuccess " + new Gson().toJson(wrapperPhotosetGetlist));
+                    photosetList.addAll(wrapperPhotosetGetlist.getPhotosets().getPhotoset());
 
-                        /*String x = "";
-                        for (int i = 0; i < photosetList.size(); i++) {
-                            x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
-                        }
-                        LLog.d(TAG, "" + x);*/
+                    /*String x = "";
+                    for (int i = 0; i < photosetList.size(); i++) {
+                        x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
+                    }
+                    LLog.d(TAG, "" + x);*/
 
-                        //LLog.d(TAG, "orginal size: " + photosetList.size());
-                        //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
-                        for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
-                            for (int j = photosetList.size() - 1; j >= 0; j--) {
-                                if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
-                                    photosetList.remove(j);
-                                }
+                    //LLog.d(TAG, "orginal size: " + photosetList.size());
+                    //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
+                    for (int i = removeAlbumList.size() - 1; i >= 0; i--) {
+                        for (int j = photosetList.size() - 1; j >= 0; j--) {
+                            if (removeAlbumList.get(i).equals(photosetList.get(j).getId())) {
+                                photosetList.remove(j);
                             }
                         }
-                        //LLog.d(TAG, "after size: " + photosetList.size());
-                        Collections.sort(photosetList, new Comparator<Photoset>() {
-                            @Override
-                            public int compare(Photoset o1, Photoset o2) {
-                                return Long.valueOf(o2.getDateUpdate()).compareTo(Long.valueOf(o1.getDateUpdate()));
-                            }
-                        });
-                        updateAllViews();
-                        avLoadingIndicatorView.smoothToHide();
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) {
-                        handleException(throwable);
-                        avLoadingIndicatorView.smoothToHide();
-                    }
+                    //LLog.d(TAG, "after size: " + photosetList.size());
+                    Collections.sort(photosetList, new Comparator<Photoset>() {
+                        @Override
+                        public int compare(Photoset o1, Photoset o2) {
+                            return Long.valueOf(o2.getDateUpdate()).compareTo(Long.valueOf(o1.getDateUpdate()));
+                        }
+                    });
+                    updateAllViews();
+                    avLoadingIndicatorView.smoothToHide();
+                }, throwable -> {
+                    handleException(throwable);
+                    avLoadingIndicatorView.smoothToHide();
                 }));
     }
 

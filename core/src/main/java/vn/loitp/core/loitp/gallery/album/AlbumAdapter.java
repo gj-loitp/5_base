@@ -1,14 +1,15 @@
 package vn.loitp.core.loitp.gallery.album;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -39,8 +40,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         sizeH = sizeW;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
         return new ViewHolder(inflater.inflate(R.layout.item_album_core, viewGroup, false));
     }
 
@@ -52,11 +54,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         viewHolder.rootView.getLayoutParams().height = sizeH;
         viewHolder.rootView.requestLayout();
 
-        Photoset photoset = photosetList.get(position);
+        final Photoset photoset = photosetList.get(position);
         //LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
         //LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
@@ -66,33 +68,27 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         //LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
         LImageUtil.loadNoAmin(context, photoset.getFlickrLinkO(), photoset.getFlickrLinkM(), viewHolder.iv);
 
-        viewHolder.tvLabel.setText(photoset.getTitle().getContent() + "");
+        viewHolder.tvLabel.setText(photoset.getTitle().getContent());
 
         String update = LDateUtils.getDateCurrentTimeZone(photoset.getDateUpdate(), "dd-MM-yyyy HH:mm:ss");
         viewHolder.tvUpdate.setText(update);
 
-        viewHolder.tvNumber.setText(photoset.getPhotos() + "");
+        viewHolder.tvNumber.setText(photoset.getPhotos());
 
         LUIUtil.setTextShadow(viewHolder.tvLabel);
         LUIUtil.setTextShadow(viewHolder.tvUpdate);
         LUIUtil.setTextShadow(viewHolder.tvNumber);
 
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(position);
-                }
+        viewHolder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(position);
             }
         });
-        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(position);
-                }
-                return true;
+        viewHolder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(position);
             }
+            return true;
         });
 
         if (position == 0) {
@@ -127,23 +123,23 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
         public ViewHolder(View v) {
             super(v);
-            iv = (ImageView) v.findViewById(R.id.iv);
-            tvLabel = (TextView) v.findViewById(R.id.tv_label);
-            tvUpdate = (TextView) v.findViewById(R.id.tv_update);
-            tvNumber = (TextView) v.findViewById(R.id.tv_number);
+            iv = v.findViewById(R.id.iv);
+            tvLabel = v.findViewById(R.id.tv_label);
+            tvUpdate = v.findViewById(R.id.tv_update);
+            tvNumber = v.findViewById(R.id.tv_number);
             //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
-            rootView = (LinearLayout) v.findViewById(R.id.root_view);
-            viewSpaceTop = (View) v.findViewById(R.id.view_space_top);
-            viewSpaceBottom = (View) v.findViewById(R.id.view_space_bottom);
+            rootView = v.findViewById(R.id.root_view);
+            viewSpaceTop = v.findViewById(R.id.view_space_top);
+            viewSpaceBottom = v.findViewById(R.id.view_space_bottom);
 
             //LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
         }
     }
 
     public interface Callback {
-        public void onClick(int pos);
+        void onClick(int pos);
 
-        public void onLongClick(int pos);
+        void onLongClick(int pos);
     }
 
     private Callback callback;

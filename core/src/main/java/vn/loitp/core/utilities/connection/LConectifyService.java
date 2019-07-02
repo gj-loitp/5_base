@@ -1,9 +1,5 @@
 package vn.loitp.core.utilities.connection;
 
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
-
 import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
@@ -16,44 +12,6 @@ import vn.loitp.core.utilities.LConnectivityUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.data.EventBusData;
 
-/**
- * Created by Loitp on 5/6/2017.
- */
-
-/*
-public class LConectifyService extends BroadcastReceiver {
-    private final String TAG = getClass().getSimpleName();
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if (context == null || intent == null) {
-            return;
-        }
-        if (LConnectivityUtil.isConnected(context)) {
-            boolean isConnectedMobile = false;
-            boolean isConnectedWifi = false;
-            boolean isConnectedFast = false;
-            if (LConnectivityUtil.isConnectedMobile(context)) {
-                //LLog.d(TAG, "isConnectedMobile");
-                isConnectedMobile = true;
-            }
-            if (LConnectivityUtil.isConnectedWifi(context)) {
-                //LLog.d(TAG, "isConnectedWifi");
-                isConnectedWifi = true;
-            }
-            if (LConnectivityUtil.isConnectedFast(context)) {
-                LLog.d(TAG, "isConnectedFast");
-                isConnectedFast = true;
-            }
-            EventBusData.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
-        } else {
-            LLog.d(TAG, "!isConnected");
-            EventBusData.getInstance().sendConnectChange(false, false, false, false);
-        }
-    }
-}*/
-
-
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class LConectifyService extends JobService implements ConnectivityReceiver.ConnectivityReceiverListener {
 
@@ -64,19 +22,19 @@ public class LConectifyService extends JobService implements ConnectivityReceive
     @Override
     public void onCreate() {
         super.onCreate();
-        LLog.INSTANCE.d(TAG, "Service created");
+        LLog.d(TAG, "Service created");
         mConnectivityReceiver = new ConnectivityReceiver(this);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LLog.INSTANCE.d(TAG, "onStartCommand");
+        LLog.d(TAG, "onStartCommand");
         return START_NOT_STICKY;
     }
 
     @Override
     public boolean onStartJob(JobParameters params) {
-        LLog.INSTANCE.d(TAG, "onStartJob" + mConnectivityReceiver);
+        LLog.d(TAG, "onStartJob" + mConnectivityReceiver);
         //registerReceiver(mConnectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         registerReceiver(mConnectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         return true;
@@ -84,7 +42,7 @@ public class LConectifyService extends JobService implements ConnectivityReceive
 
     @Override
     public boolean onStopJob(JobParameters params) {
-        LLog.INSTANCE.d(TAG, "onStopJob");
+        LLog.d(TAG, "onStopJob");
         unregisterReceiver(mConnectivityReceiver);
         return true;
     }
@@ -98,20 +56,20 @@ public class LConectifyService extends JobService implements ConnectivityReceive
             boolean isConnectedWifi = false;
             boolean isConnectedFast = false;
             if (LConnectivityUtil.isConnectedMobile(this)) {
-                LLog.INSTANCE.d(TAG, "isConnectedMobile");
+                LLog.d(TAG, "isConnectedMobile");
                 isConnectedMobile = true;
             }
             if (LConnectivityUtil.isConnectedWifi(this)) {
-                LLog.INSTANCE.d(TAG, "isConnectedWifi");
+                LLog.d(TAG, "isConnectedWifi");
                 isConnectedWifi = true;
             }
             if (LConnectivityUtil.isConnectedFast(this)) {
-                LLog.INSTANCE.d(TAG, "isConnectedFast");
+                LLog.d(TAG, "isConnectedFast");
                 isConnectedFast = true;
             }
             EventBusData.Companion.getInstance().sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile);
         } else {
-            LLog.INSTANCE.d(TAG, "!isConnected");
+            LLog.d(TAG, "!isConnected");
             EventBusData.Companion.getInstance().sendConnectChange(false, false, false, false);
         }
     }
