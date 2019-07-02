@@ -57,7 +57,7 @@ public class EditTextMenuActivity extends BaseFontActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 }

@@ -46,7 +46,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
             changeFragment(new HomeFragment());
     }
 
-    private void setupUIResideMenuItem(ResideMenuItem resideMenuItem) {
+    private void setupUIResideMenuItem(final ResideMenuItem resideMenuItem) {
         resideMenuItem.setTextColor(Color.BLACK);
         resideMenuItem.setTextShadow(Color.WHITE);
         resideMenuItem.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
@@ -89,18 +89,8 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
-        findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
-        findViewById(R.id.title_bar_right_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
-            }
-        });
+        findViewById(R.id.title_bar_left_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
+        findViewById(R.id.title_bar_right_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT));
     }
 
     @Override
@@ -127,16 +117,16 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.INSTANCE.show(activity, "Menu is opened!");
+            LToast.show(activity, "Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.INSTANCE.show(activity, "Menu is closed!");
+            LToast.show(activity, "Menu is closed!");
         }
     };
 
-    private void changeFragment(Fragment targetFragment) {
+    private void changeFragment(final Fragment targetFragment) {
         resideMenu.clearIgnoredViewList();
         getSupportFragmentManager()
                 .beginTransaction()

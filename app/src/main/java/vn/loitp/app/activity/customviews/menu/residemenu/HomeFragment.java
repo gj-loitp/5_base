@@ -1,10 +1,11 @@
 package vn.loitp.app.activity.customviews.menu.residemenu;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFragment;
@@ -31,15 +32,10 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void setUpViews() {
-        ResideMenuActivity parentActivity = (ResideMenuActivity) getActivity();
+        final ResideMenuActivity parentActivity = (ResideMenuActivity) getActivity();
         resideMenu = parentActivity.getResideMenu();
 
-        frmRootView.findViewById(R.id.btn_open_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
+        frmRootView.findViewById(R.id.btn_open_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
 
         // add gesture operation's ignored views
         FrameLayout ignored_view = (FrameLayout) frmRootView.findViewById(R.id.ignored_view);
