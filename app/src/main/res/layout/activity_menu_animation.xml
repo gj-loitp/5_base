@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Animation"
+                android:text="@string/menu_animation"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,73 +29,73 @@
                 android:id="@+id/bt_activity_transition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Activity Transition" />
+                android:text="@string/activity_transition" />
 
             <Button
                 android:id="@+id/bt_animation_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Animation view" />
+                android:text="@string/animation_view" />
 
             <Button
                 android:id="@+id/bt_basic_transition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Basic transition" />
+                android:text="@string/basic_transition" />
 
             <Button
                 android:id="@+id/bt_basic_transition_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Basic transition activity" />
+                android:text="@string/basic_transition_activity" />
 
             <Button
                 android:id="@+id/bt_basic_transition_frm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Basic transition" />
+                android:text="@string/basic_transition" />
 
             <Button
                 android:id="@+id/bt_animation_confetti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Animation Confetti" />
+                android:text="@string/animation_confetti" />
 
             <Button
                 android:id="@+id/bt_expect_anim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Expect anim" />
+                android:text="@string/expect_anim" />
 
             <Button
                 android:id="@+id/bt_fly_school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fly school" />
+                android:text="@string/fly_school" />
 
             <Button
                 android:id="@+id/bt_lottie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lottie" />
+                android:text="@string/lottie" />
 
             <Button
                 android:id="@+id/bt_over_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Over Scroll like iOS" />
+                android:text="@string/over_scroll_like_ios" />
 
             <Button
                 android:id="@+id/bt_shadowview_helper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ShadowView Helper" />
+                android:text="@string/shadowview_helper" />
 
             <Button
                 android:id="@+id/bt_value_animator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Value Animator" />
+                android:text="@string/value_animator" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
