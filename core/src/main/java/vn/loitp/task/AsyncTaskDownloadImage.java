@@ -1,13 +1,11 @@
 package vn.loitp.task;
 
-/**
- * Created by www.muathu@gmail.com on 12/31/2017.
- */
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,10 +20,7 @@ import vn.loitp.core.utilities.LSoundUtil;
 import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
 
-/**
- * Created by HOME on 12/27/2016.
- */
-
+//TODO convert to rx
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private Context mContext;
     private String mURL;
@@ -36,14 +31,13 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
     private String sdCard;
 
-    public AsyncTaskDownloadImage(Context c, String url) {
+    public AsyncTaskDownloadImage(@NonNull final Context c, @NonNull final String url) {
         this.mContext = c;
         this.mURL = url;
         //this.description = des;
         try {
-            String[] arr = url.split("/");
+            final String[] arr = url.split("/");
             fileName = arr[arr.length - 1];
-
         } catch (Exception e) {
             fileName = url;
         }
@@ -60,11 +54,11 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
         return null;
     }
 
-    private void downloadImagesToSdCard(String downloadUrl, String imageName) {
+    private void downloadImagesToSdCard(final String downloadUrl, final String imageName) {
         try {
-            URL url = new URL(downloadUrl);
+            final URL url = new URL(downloadUrl);
             sdCard = LStoreUtil.getFolderPath(mContext);
-            File myDir = new File(sdCard + "/Photo");
+            final File myDir = new File(sdCard + "/Photo");
 
             /* if specified not exist create new */
             if (!myDir.exists()) {
@@ -73,15 +67,14 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
             }
 
             /* checks the file and if it already exist delete */
-            String fname = imageName;
-            File file = new File(myDir, fname);
+            final File file = new File(myDir, imageName);
             if (file.exists())
                 file.delete();
 
             /* Open a connection */
-            URLConnection ucon = url.openConnection();
+            final URLConnection ucon = url.openConnection();
             InputStream inputStream = null;
-            HttpURLConnection httpConn = (HttpURLConnection) ucon;
+            final HttpURLConnection httpConn = (HttpURLConnection) ucon;
             httpConn.setRequestMethod("GET");
             httpConn.connect();
 
@@ -89,8 +82,8 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
                 inputStream = httpConn.getInputStream();
             }
 
-            FileOutputStream fos = new FileOutputStream(file);
-            int totalSize = httpConn.getContentLength();
+            final FileOutputStream fos = new FileOutputStream(file);
+            final int totalSize = httpConn.getContentLength();
             int downloadedSize = 0;
             byte[] buffer = new byte[1024];
             int bufferLength = 0;
