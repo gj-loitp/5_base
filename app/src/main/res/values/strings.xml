@@ -307,7 +307,6 @@ Likewise may someone love you next.
     <string name="zoom_layout">Zoom Layout</string>
     <string name="menu_animation">Menu Animation</string>
     <string name="activity_transition">Activity Transition</string>
-    <string name="basic_transition">Basic transition</string>
     <string name="animation_view">Animation view</string>
     <string name="basic_transition_activity">Basic transition activity</string>
     <string name="basic_transition">Basic transition</string>
@@ -318,4 +317,17 @@ Likewise may someone love you next.
     <string name="over_scroll_like_ios">Over Scroll like iOS</string>
     <string name="shadowview_helper">ShadowView Helper</string>
     <string name="value_animator">Value Animator</string>
+    <string name="menu_activity_transition">Menu Activity Transition</string>
+    <string name="no_animation">No animation</string>
+    <string name="system_default">System default</string>
+    <string name="slide_left">slide Left</string>
+    <string name="slide_right">slide Right</string>
+    <string name="slide_down">slide down</string>
+    <string name="slide_up">slide up</string>
+    <string name="fade">fade</string>
+    <string name="zoom">zoom</string>
+    <string name="windmill">windmill</string>
+    <string name="diagonal">diagonal</string>
+    <string name="spin">spin</string>
+    <string name="screen2">Screen2</string>
 </resources>
