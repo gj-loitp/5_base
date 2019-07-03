@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,7 +25,7 @@ public class VGReVAdapter extends RecyclerView.Adapter<VGReVAdapter.HViewHolder>
     private List<String> urlList;
     private BannerLayout.OnBannerItemClickListener onBannerItemClickListener;
 
-    VGReVAdapter(Context context, List<String> urlList) {
+    VGReVAdapter(@NonNull final Context context, @Nullable final List<String> urlList) {
         this.context = context;
         this.urlList = urlList;
     }
