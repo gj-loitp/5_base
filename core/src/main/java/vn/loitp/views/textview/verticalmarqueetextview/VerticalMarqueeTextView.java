@@ -1,8 +1,4 @@
-package vn.loitp.views.textview.verticalmarqueetextview.lib;
-
-/**
- * Created by www.muathu@gmail.com on 11/1/2017.
- */
+package vn.loitp.views.textview.verticalmarqueetextview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -108,12 +104,7 @@ public class VerticalMarqueeTextView extends ScrollView {
         if (!this.isAnimating) {
             this.isAnimating = true;
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    VerticalMarqueeTextView.this.animateTextView();
-                }
-            }).start();
+            new Thread(() -> VerticalMarqueeTextView.this.animateTextView()).start();
         }
     }
 

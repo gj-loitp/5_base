@@ -1,22 +1,19 @@
 package vn.loitp.views.textview.circletextview;
 
-/**
- * Created by www.muathu@gmail.com on 12/24/2017.
- */
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
-import androidx.annotation.DimenRes;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+
+import androidx.annotation.DimenRes;
 
 /**
  * Created by lisawray on 5/29/15.
@@ -56,8 +53,8 @@ public class CircleTextView extends View {
     }
 
     public int getIndent(int line, int width, int height) {
-        int r = (int) (getSmallestDimension(width, height) / 2f);
-        float y = (r - line * getLineHeight());
+        final int r = (int) (getSmallestDimension(width, height) / 2f);
+        final float y = (r - line * getLineHeight());
         return (int) (width / 2f - Math.sqrt((r * r) - y * y));
     }
 
@@ -66,7 +63,7 @@ public class CircleTextView extends View {
     }
 
     int getPixels(int unit, float size) {
-        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        final DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         return (int) TypedValue.applyDimension(unit, size, metrics);
     }
 
@@ -90,7 +87,7 @@ public class CircleTextView extends View {
     }
 
     private void makeNewLayout() {
-        StaticLayout.Builder builder = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), textPaint, getMeasuredWidth());
+        final StaticLayout.Builder builder = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), textPaint, getMeasuredWidth());
         builder.setIndents(leftIndents, rightIndents);
         builder.setMaxLines(maxLines);
         layout = builder.build();

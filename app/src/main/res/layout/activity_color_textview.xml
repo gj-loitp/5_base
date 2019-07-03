@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <vn.loitp.views.textview.colortextview.lib.ColorTextView
+            <vn.loitp.views.textview.colortextview.ColorTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="You can get 500 credits after connect and share the WIFI"

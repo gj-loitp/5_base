@@ -1,4 +1,4 @@
-package vn.loitp.views.textview.colortextview.lib;
+package vn.loitp.views.textview.colortextview;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -6,22 +6,18 @@ package vn.loitp.views.textview.colortextview.lib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.appcompat.widget.AppCompatTextView;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
 
-
-/**
- *
- */
 public class ColorTextView extends AppCompatTextView {
-
     private List<String> mColorTexts = new ArrayList<>();
     private List<String> mColors = new ArrayList<>();
     private int size;
@@ -42,9 +38,9 @@ public class ColorTextView extends AppCompatTextView {
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray attrsArray = getContext().obtainStyledAttributes(attrs, R.styleable.ColorTextView, 0, 0);
-        String colorTexts = attrsArray.getString(R.styleable.ColorTextView_color_texts);
-        String colors = attrsArray.getString(R.styleable.ColorTextView_color_arrays);
+        final TypedArray attrsArray = getContext().obtainStyledAttributes(attrs, R.styleable.ColorTextView, 0, 0);
+        final String colorTexts = attrsArray.getString(R.styleable.ColorTextView_color_texts);
+        final String colors = attrsArray.getString(R.styleable.ColorTextView_color_arrays);
         attrsArray.recycle();
 
         initData(colorTexts, colors);
@@ -52,7 +48,7 @@ public class ColorTextView extends AppCompatTextView {
         setHtmlText();
     }
 
-    private void initData(String colorTexts, String colors) {
+    private void initData(final String colorTexts, final String colors) {
         try {
             if (!TextUtils.isEmpty(colorTexts)) {
                 String[] texts = colorTexts.split("\\|");
@@ -69,7 +65,7 @@ public class ColorTextView extends AppCompatTextView {
             }
             size = Math.min(mColors.size(), mColorTexts.size());
             mCurrentText = getText().toString();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
@@ -108,6 +104,4 @@ public class ColorTextView extends AppCompatTextView {
     public String color(String colorCode, String str) {
         return "<font color=\"" + colorCode + "\">" + str + "</font>";
     }
-
-
 }

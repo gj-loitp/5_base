@@ -1,9 +1,5 @@
 package vn.loitp.views.textview.autofittextview;
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -29,10 +25,6 @@ import loitp.core.R;
 /**
  * A helper class to enable automatically resizing {@link TextView}`s {@code textSize} to fit
  * within its bounds.
- *
- * @attr ref R.styleable.AutofitTextView_sizeToFit
- * @attr ref R.styleable.AutofitTextView_minTextSize
- * @attr ref R.styleable.AutofitTextView_precision
  */
 public class AutofitHelper {
 
@@ -65,14 +57,14 @@ public class AutofitHelper {
      * automatically sizing the text to fit.
      */
     public static AutofitHelper create(TextView view, AttributeSet attrs, int defStyle) {
-        AutofitHelper helper = new AutofitHelper(view);
+        final AutofitHelper helper = new AutofitHelper(view);
         boolean sizeToFit = true;
         if (attrs != null) {
-            Context context = view.getContext();
+            final Context context = view.getContext();
             int minTextSize = (int) helper.getMinTextSize();
             float precision = helper.getPrecision();
 
-            TypedArray ta = context.obtainStyledAttributes(
+            final TypedArray ta = context.obtainStyledAttributes(
                     attrs,
                     R.styleable.AutofitTextView,
                     defStyle,
@@ -107,17 +99,17 @@ public class AutofitHelper {
         }
 
         CharSequence text = view.getText();
-        TransformationMethod method = view.getTransformationMethod();
+        final TransformationMethod method = view.getTransformationMethod();
         if (method != null) {
             text = method.getTransformation(text, view);
         }
 
-        Context context = view.getContext();
+        final Context context = view.getContext();
         Resources r = Resources.getSystem();
         DisplayMetrics displayMetrics;
 
         float size = maxTextSize;
-        float high = size;
+        final float high = size;
         float low = 0;
 
         if (context != null) {
@@ -147,7 +139,7 @@ public class AutofitHelper {
     private static float getAutofitTextSize(CharSequence text, TextPaint paint,
                                             float targetWidth, int maxLines, float low, float high, float precision,
                                             DisplayMetrics displayMetrics) {
-        float mid = (low + high) / 2.0f;
+        final float mid = (low + high) / 2.0f;
         int lineCount = 1;
         StaticLayout layout = null;
 
@@ -211,7 +203,7 @@ public class AutofitHelper {
     private static int getMaxLines(TextView view) {
         int maxLines = -1; // No limit (Integer.MAX_VALUE also means no limit)
 
-        TransformationMethod method = view.getTransformationMethod();
+        final TransformationMethod method = view.getTransformationMethod();
         if (method != null && method instanceof SingleLineTransformationMethod) {
             maxLines = 1;
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -332,7 +324,7 @@ public class AutofitHelper {
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
     public AutofitHelper setMinTextSize(int unit, float size) {
-        Context context = mTextView.getContext();
+        final Context context = mTextView.getContext();
         Resources r = Resources.getSystem();
 
         if (context != null) {
@@ -378,7 +370,7 @@ public class AutofitHelper {
      * @attr ref android.R.styleable#TextView_textSize
      */
     public AutofitHelper setMaxTextSize(int unit, float size) {
-        Context context = mTextView.getContext();
+        final Context context = mTextView.getContext();
         Resources r = Resources.getSystem();
 
         if (context != null) {
@@ -474,7 +466,7 @@ public class AutofitHelper {
             // since it'd get set to the autofitTextSize
             return;
         }
-        Context context = mTextView.getContext();
+        final Context context = mTextView.getContext();
         Resources r = Resources.getSystem();
 
         if (context != null) {
@@ -491,7 +483,7 @@ public class AutofitHelper {
     }
 
     private void autofit() {
-        float oldTextSize = mTextView.getTextSize();
+        final float oldTextSize = mTextView.getTextSize();
         float textSize;
 
         mIsAutofitting = true;

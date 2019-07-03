@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <vn.loitp.views.textview.verticalmarqueetextview.lib.VerticalMarqueeTextView
+        <vn.loitp.views.textview.verticalmarqueetextview.VerticalMarqueeTextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
@@ -22,7 +22,7 @@
             example:textSize="15sp"
             example:textStyle="bold" />
 
-        <vn.loitp.views.textview.verticalmarqueetextview.lib.VerticalMarqueeTextView
+        <vn.loitp.views.textview.verticalmarqueetextview.VerticalMarqueeTextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"

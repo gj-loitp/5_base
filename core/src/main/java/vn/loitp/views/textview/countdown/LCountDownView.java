@@ -31,7 +31,7 @@ public class LCountDownView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_l_count_down, this);
-        this.tvCountDown = (TextView) findViewById(R.id.tv_count_down);
+        this.tvCountDown = findViewById(R.id.tv_count_down);
     }
 
     public void start(int number) {
@@ -48,9 +48,9 @@ public class LCountDownView extends RelativeLayout {
     private int number;
 
     public interface Callback {
-        public void onTick();
+        void onTick();
 
-        public void onEnd();
+        void onEnd();
     }
 
     private Callback callback;
@@ -61,7 +61,7 @@ public class LCountDownView extends RelativeLayout {
 
     private void doPerSec() {
         if (tvCountDown != null) {
-            tvCountDown.setText(number + "");
+            tvCountDown.setText(String.valueOf(number));
             LAnimationUtil.playDuration(tvCountDown, Techniques.FlipInX, 1000, new LAnimationUtil.Callback() {
                 @Override
                 public void onCancel() {
@@ -84,7 +84,7 @@ public class LCountDownView extends RelativeLayout {
                             public void onEnd() {
                                 tvCountDown.setVisibility(GONE);
                                 //tvCountDown = null;
-                                LLog.INSTANCE.d(TAG, "number == 0 -> STOP");
+                                LLog.d(TAG, "number == 0 -> STOP");
                                 if (callback != null) {
                                     callback.onEnd();
                                 }

@@ -1,9 +1,5 @@
 package vn.loitp.views.textview.justifiedtextview;
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -45,7 +41,7 @@ public class JustifiedTextView extends View {
         }
         textPaint.setColor(textColor);
 
-        int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+        final int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
         w = resolveSizeAndState(minw, widthMeasureSpec, 1);
         h = MeasureSpec.getSize(widthMeasureSpec);
 
@@ -59,14 +55,14 @@ public class JustifiedTextView extends View {
         wordSpacing = 15f;
         Line lineBuffer = new Line();
         this.linesCollection.clear();
-        String[] lines = text.split("\n");
-        for (String line : lines) {
-            String[] words = line.split(" ");
+        final String[] lines = text.split("\n");
+        for (final String line : lines) {
+            final String[] words = line.split(" ");
             lineBuffer = new Line();
             float lineWidth = leftPadding + rightPadding;
             float totalWordWidth = 0;
-            for (String word : words) {
-                float ww = textPaint.measureText(word) + wordSpacing;
+            for (final String word : words) {
+                final float ww = textPaint.measureText(word) + wordSpacing;
                 if (lineWidth + ww + (lineBuffer.getWords().size() * wordSpacing) > w) {// is
                     lineBuffer.addWord(word);
                     totalWordWidth += textPaint.measureText(word);
@@ -92,7 +88,7 @@ public class JustifiedTextView extends View {
         super.onDraw(canvas);
         canvas.drawLine(0f, 10f, getMeasuredWidth(), 10f, textPaint);
         float x, y = lineHeight + onBirim;
-        for (Line line : linesCollection) {
+        for (final Line line : linesCollection) {
             x = leftPadding;
             for (String s : line.getWords()) {
                 canvas.drawText(s, x, y, textPaint);
