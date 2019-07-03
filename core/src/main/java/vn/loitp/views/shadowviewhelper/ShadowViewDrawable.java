@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
+import androidx.annotation.NonNull;
+
 /**
  * <code>
  * if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
@@ -23,17 +25,12 @@ import android.graphics.drawable.Drawable;
  */
 public class ShadowViewDrawable extends Drawable {
     private Paint paint;
-
     private RectF bounds = new RectF();
-
     private int width;
     private int height;
-
     private ShadowProperty shadowProperty;
     private int shadowOffset;
-
     private RectF drawRect;
-
     private float rx;
     private float ry;
 
@@ -46,16 +43,10 @@ public class ShadowViewDrawable extends Drawable {
 
         paint = new Paint();
         paint.setAntiAlias(true);
-        /**
-         * 解决旋转时的锯齿问题
-         */
         paint.setFilterBitmap(true);
         paint.setDither(true);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(color);
-        /**
-         * 设置阴影
-         */
         paint.setShadowLayer(shadowProperty.getShadowRadius(), shadowProperty.getShadowDx(), shadowProperty.getShadowDy(), shadowProperty.getShadowColor());
 
         drawRect = new RectF();
@@ -75,24 +66,22 @@ public class ShadowViewDrawable extends Drawable {
 //            drawRect = new RectF(shadowOffset, shadowOffset, width - shadowOffset, height - shadowOffset);
 //            drawRect = new RectF(0, 0, width, height - shadowOffset);
 
-            int shadowSide = shadowProperty.getShadowSide();
-            int left = (shadowSide & ShadowProperty.LEFT) == ShadowProperty.LEFT ? shadowOffset : 0;
-            int top = (shadowSide & ShadowProperty.TOP) == ShadowProperty.TOP ? shadowOffset : 0;
-            int right = width - ((shadowSide & ShadowProperty.RIGHT) == ShadowProperty.RIGHT ? shadowOffset : 0);
-            int bottom = height - ((shadowSide & ShadowProperty.BOTTOM) == ShadowProperty.BOTTOM ? shadowOffset : 0);
+            final int shadowSide = shadowProperty.getShadowSide();
+            final int left = (shadowSide & ShadowProperty.Companion.getLEFT()) == ShadowProperty.Companion.getLEFT() ? shadowOffset : 0;
+            final int top = (shadowSide & ShadowProperty.Companion.getTOP()) == ShadowProperty.Companion.getTOP() ? shadowOffset : 0;
+            final int right = width - ((shadowSide & ShadowProperty.Companion.getRIGHT()) == ShadowProperty.Companion.getRIGHT() ? shadowOffset : 0);
+            final int bottom = height - ((shadowSide & ShadowProperty.Companion.getBOTTOM()) == ShadowProperty.Companion.getBOTTOM() ? shadowOffset : 0);
 
             drawRect = new RectF(left, top, right, bottom);
 
-
             invalidateSelf();
-
         }
     }
 
     private PorterDuffXfermode srcOut = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         paint.setXfermode(null);
 
         canvas.drawRoundRect(

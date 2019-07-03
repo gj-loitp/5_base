@@ -30,7 +30,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowColor(0x77000000)
                 .setShadowDy(dip2px(this, 0.5f))
                 .setShadowRadius(dip2px(this, 3))
-                .setShadowSide(ShadowProperty.ALL);
+                .setShadowSide(ShadowProperty.Companion.getALL());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.WHITE, 0, 0);
         LinearLayout ll0 = (LinearLayout) findViewById(R.id.ll_0);
         ViewCompat.setBackground(ll0, sd);
@@ -43,7 +43,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowColor(0x77ff0000)
                 .setShadowDy(dip2px(this, 0.5f))
                 .setShadowRadius(dip2px(this, 3))
-                .setShadowSide(ShadowProperty.LEFT | ShadowProperty.RIGHT | ShadowProperty.BOTTOM);
+                .setShadowSide(ShadowProperty.Companion.getLEFT() | ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
         LinearLayout ll1 = (LinearLayout) findViewById(R.id.ll_1);
         ViewCompat.setBackground(ll1, sd);
@@ -56,7 +56,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowColor(0x7700ff00)
                 .setShadowDy(dip2px(this, 0.5f))
                 .setShadowRadius(dip2px(this, 3))
-                .setShadowSide(ShadowProperty.RIGHT | ShadowProperty.BOTTOM);
+                .setShadowSide(ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
         ImageView iv = (ImageView) findViewById(R.id.iv);
         ViewCompat.setBackground(iv, sd);
