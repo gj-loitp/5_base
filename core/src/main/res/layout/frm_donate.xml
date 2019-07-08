@@ -23,6 +23,7 @@
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/donation" />
 
