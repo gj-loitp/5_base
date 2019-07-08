@@ -1,8 +1,4 @@
-package vn.loitp.views.viewpager.autoviewpager.lib;
-
-/**
- * Created by www.muathu@gmail.com on 12/24/2017.
- */
+package vn.loitp.views.viewpager.autoviewpager;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,10 +8,6 @@ import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
 
 import loitp.core.R;
-
-/**
- * Created by santalu on 09/08/2017.
- */
 
 public class AutoViewPager extends ViewPager {
 
@@ -32,6 +24,9 @@ public class AutoViewPager extends ViewPager {
         @Override
         public void run() {
             if (!isShown()) {
+                return;
+            }
+            if (getAdapter() == null) {
                 return;
             }
             if (getCurrentItem() == getAdapter().getCount() - 1) {
@@ -53,7 +48,7 @@ public class AutoViewPager extends ViewPager {
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.AutoViewPager);
+        final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.AutoViewPager);
         try {
             setAutoScrollEnabled(a.getBoolean(R.styleable.AutoViewPager_avp_autoScroll, false));
             setIndeterminate(a.getBoolean(R.styleable.AutoViewPager_avp_indeterminate, false));
@@ -93,7 +88,7 @@ public class AutoViewPager extends ViewPager {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
         try {
-            int action = event.getActionMasked();
+            final int action = event.getActionMasked();
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
                     startX = event.getX();
@@ -112,7 +107,7 @@ public class AutoViewPager extends ViewPager {
             if (indeterminate) {
                 if (getCurrentItem() == 0 || getCurrentItem() == getAdapter().getCount() - 1) {
                     final int action = event.getAction();
-                    float x = event.getX();
+                    final float x = event.getX();
                     switch (action & MotionEvent.ACTION_MASK) {
                         case MotionEvent.ACTION_UP:
                             if (getCurrentItem() == getAdapter().getCount() - 1 && x < startX) {

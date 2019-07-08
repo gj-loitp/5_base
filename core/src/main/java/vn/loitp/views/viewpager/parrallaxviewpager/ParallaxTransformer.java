@@ -1,4 +1,4 @@
-package vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager;
+package vn.loitp.views.viewpager.parrallaxviewpager;
 
 /**
  * Created by www.muathu@gmail.com on 9/9/2017.
@@ -6,11 +6,12 @@ package vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager;
 
 import android.animation.FloatEvaluator;
 import android.os.Build;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+
+import androidx.viewpager.widget.ViewPager;
 
 public class ParallaxTransformer implements ViewPager.PageTransformer {
 

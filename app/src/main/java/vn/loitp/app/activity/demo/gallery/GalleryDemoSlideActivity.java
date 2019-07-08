@@ -15,8 +15,8 @@ import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.views.viewpager.parrallaxviewpager.Mode;
+import vn.loitp.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 
 public class GalleryDemoSlideActivity extends BaseFontActivity {
 

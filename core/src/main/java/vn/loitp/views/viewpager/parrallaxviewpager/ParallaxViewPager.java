@@ -1,4 +1,4 @@
-package vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager;
+package vn.loitp.views.viewpager.parrallaxviewpager;
 
 /**
  * Created by www.muathu@gmail.com on 9/9/2017.
@@ -10,13 +10,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 
 import loitp.core.R;
 

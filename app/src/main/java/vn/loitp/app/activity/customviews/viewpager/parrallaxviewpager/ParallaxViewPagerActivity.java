@@ -16,8 +16,8 @@ import loitp.basemaster.R;
 import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
+import vn.loitp.views.viewpager.parrallaxviewpager.Mode;
+import vn.loitp.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 
 public class ParallaxViewPagerActivity extends BaseFontActivity {
 
