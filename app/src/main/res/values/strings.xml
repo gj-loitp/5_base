@@ -342,4 +342,21 @@ Likewise may someone love you next.
     <string name="autoresizeedittext">AutoResizeEditText</string>
     <string name="materialtextfield">MaterialTextField</string>
     <string name="biuedittext">BiuEditText</string>
+    <string name="show">Show</string>
+    <string name="ios_dialog">iOS Dialog</string>
+    <string name="dialog_1">Dialog 1</string>
+    <string name="dialog_2">Dialog 2</string>
+    <string name="original_dialog">Original Dialog</string>
+    <string name="dialog_3">Dialog 3</string>
+    <string name="dialog_list">Dialog List</string>
+    <string name="progress_dialog">Progress Dialog</string>
+    <string name="simple_dialog_no_customization">Simple Dialog, No Customization</string>
+    <string name="change_icon">Change Icon</string>
+    <string name="add_unlimited_customized_buttons">add unlimited customized buttons</string>
+    <string name="fully_customize">Fully customize</string>
+    <string name="swipe_away_dialog">Swipe away Dialog</string>
+    <string name="custom_dialog">Custom Dialog</string>
+    <string name="menu_dialog">Menu Dialog</string>
+    <string name="custom_progress_dialog">Custom progress dialog</string>
+    <string name="pretty_dialog">Pretty dialog</string>
 </resources>

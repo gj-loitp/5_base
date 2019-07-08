@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Original Dialog"
+                android:text="@string/original_dialog"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,25 +29,25 @@
                 android:id="@+id/bt_show_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Simple Dialog, No Customization" />
+                android:text="@string/simple_dialog_no_customization" />
 
             <Button
                 android:id="@+id/bt_show_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Icon" />
+                android:text="@string/change_icon" />
 
             <Button
                 android:id="@+id/bt_show_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="add unlimited customized buttons" />
+                android:text="@string/add_unlimited_customized_buttons" />
 
             <Button
                 android:id="@+id/bt_show_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fully customize" />
+                android:text="@string/fully_customize" />
 
         </LinearLayout>
     </ScrollView>
