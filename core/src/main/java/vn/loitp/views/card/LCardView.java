@@ -1,12 +1,13 @@
 package vn.loitp.views.card;
 
 import android.content.Context;
-import androidx.cardview.widget.CardView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import loitp.core.R;
 import vn.loitp.core.utilities.LImageUtil;
@@ -50,45 +51,33 @@ public class LCardView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_l_card_view, this);
-        cardView = (CardView) findViewById(R.id.card_view);
-        tv = (TextView) findViewById(R.id.tv);
-        iv = (ImageView) findViewById(R.id.iv);
+        cardView = findViewById(R.id.card_view);
+        tv = findViewById(R.id.tv);
+        iv = findViewById(R.id.iv);
 
-        cardView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClickRoot(v);
-                }
+        cardView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClickRoot(v);
             }
         });
 
-        cardView.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClickRoot(v);
-                }
-                return true;
+        cardView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClickRoot(v);
             }
+            return true;
         });
-        tv.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClickText(v);
-                }
+        tv.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClickText(v);
             }
         });
 
-        tv.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClickText(v);
-                }
-                return true;
+        tv.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClickText(v);
             }
+            return true;
         });
     }
 
@@ -131,13 +120,13 @@ public class LCardView extends RelativeLayout {
     }
 
     public interface Callback {
-        public void onClickRoot(View v);
+        void onClickRoot(View v);
 
-        public void onLongClickRoot(View v);
+        void onLongClickRoot(View v);
 
-        public void onClickText(View v);
+        void onClickText(View v);
 
-        public void onLongClickText(View v);
+        void onLongClickText(View v);
     }
 
     private Callback callback;

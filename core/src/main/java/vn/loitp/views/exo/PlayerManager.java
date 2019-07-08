@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -32,7 +34,6 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 
-import androidx.annotation.NonNull;
 import loitp.core.R;
 import vn.loitp.core.utilities.LActivityUtil;
 import vn.loitp.core.utilities.LLog;
@@ -272,5 +273,18 @@ public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
             return player.getContentPosition();
         }
         return 0;
+    }
+
+    public void seekTo(final long mls) {
+        if (player != null) {
+            player.seekTo(mls);
+        }
+    }
+
+    public long getDuration() {
+        if (player == null) {
+            return 0;
+        }
+        return player.getDuration();
     }
 }
