@@ -362,4 +362,10 @@ Likewise may someone love you next.
     <string name="scroll_to_first">Scroll to first</string>
     <string name="scroll_to_last">Scroll to last</string>
     <string name="scroll_to_2">Scroll to 2</string>
+    <string name="menu_action_bar">Menu Action Bar</string>
+    <string name="collapsing_toolbar_layout">Collapsing Toolbar Layout</string>
+    <string name="collapsing_toolbar_with_tablayout">Collapsing Toolbar With TabLayout</string>
+    <string name="lactionbar">LActionBar</string>
+    <string name="navigation_view">Navigation View</string>
+    <string name="navigation_view_with_text">Navigation View With Text</string>
 </resources>
