@@ -33,5 +33,5 @@
 #
 ##for loading view
 #-keep class vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.** { *; }
-#-keep class vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.indicators.** { *; }
+#-keep class vn.loitp.views.progressloadingview.avloadingindicatorview.indicators.** { *; }
 ##for loading view

@@ -12,7 +12,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
 import vn.loitp.core.utilities.LLog;
 import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

@@ -3,9 +3,10 @@ package vn.loitp.app.activity.demo.gallery;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import java.util.List;
 
-import androidx.recyclerview.widget.GridLayoutManager;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
@@ -17,7 +18,7 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class GalleryDemoAlbumActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;

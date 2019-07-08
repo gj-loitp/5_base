@@ -368,4 +368,7 @@ Likewise may someone love you next.
     <string name="lactionbar">LActionBar</string>
     <string name="navigation_view">Navigation View</string>
     <string name="navigation_view_with_text">Navigation View With Text</string>
+    <string name="get_photoset_list">Get Photoset List</string>
+    <string name="get_photo_list_in_photoset">Get Photo List In Photoset</string>
+    <string name="run_demo">Run Demo</string>
 </resources>

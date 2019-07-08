@@ -7,12 +7,12 @@ import android.widget.TextView;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.AddComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
+import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIAddFavListActivity extends BaseFontActivity {
     private TextView tv;

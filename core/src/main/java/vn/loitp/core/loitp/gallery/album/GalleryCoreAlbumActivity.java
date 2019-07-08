@@ -32,7 +32,7 @@ import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.restapi.flickr.service.FlickrService;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 

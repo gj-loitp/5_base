@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import loitp.basemaster.R;
 import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
+import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class FrmRefresh extends Fragment {
     public static final String KEY_POSITION = "KEY_POSITION";
