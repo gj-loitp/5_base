@@ -16,17 +16,18 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
+
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
 import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
 import vn.loitp.core.common.Constants;
@@ -307,15 +308,4 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
     }
-
-    /*private void s() {
-        compositeDisposable.add(service.photosetsGetList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(() -> {
-
-                }, e -> {
-
-                }));
-    }*/
 }

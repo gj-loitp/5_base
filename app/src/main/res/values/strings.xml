@@ -330,4 +330,8 @@ Likewise may someone love you next.
     <string name="diagonal">diagonal</string>
     <string name="spin">spin</string>
     <string name="screen2">Screen2</string>
+    <string name="about_you">About you</string>
+    <string name="cpf">CPF</string>
+    <string name="e_mail">E-mail</string>
+    <string name="data_de_nascimento">Data de nascimento</string>
 </resources>
