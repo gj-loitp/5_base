@@ -21,7 +21,7 @@ import loitp.core.R;
 import vn.loitp.core.utilities.LDialogUtil;
 
 /**
- * Created by khanh on 7/31/16.
+ * Created by loitp on 7/31/16.
  */
 public abstract class BaseFragment extends Fragment {
     protected Context context;
