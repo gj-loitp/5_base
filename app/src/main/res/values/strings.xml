@@ -359,4 +359,7 @@ Likewise may someone love you next.
     <string name="menu_dialog">Menu Dialog</string>
     <string name="custom_progress_dialog">Custom progress dialog</string>
     <string name="pretty_dialog">Pretty dialog</string>
+    <string name="scroll_to_first">Scroll to first</string>
+    <string name="scroll_to_last">Scroll to last</string>
+    <string name="scroll_to_2">Scroll to 2</string>
 </resources>
