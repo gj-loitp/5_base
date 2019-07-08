@@ -37,7 +37,6 @@ import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 public class FrmYoutubeChannel extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private List<UItem> uItemList = new ArrayList<>();
-    private RecyclerView recyclerView;
     private TextView tvMsg;
     private UtubeChannelAdapter utubeChannelAdapter;
     private ProgressBar progressBar;
@@ -52,15 +51,15 @@ public class FrmYoutubeChannel extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
         if (bundle != null) {
             watcherActivity = bundle.getString(KEY_WATCHER_ACTIVITY);
         }
-        LLog.INSTANCE.d(TAG, "watcherActivity " + watcherActivity);
-        recyclerView = (RecyclerView) view.findViewById(R.id.rv);
-        progressBar = (ProgressBar) view.findViewById(R.id.pb);
-        tvMsg = (TextView) view.findViewById(R.id.tv_msg);
-        SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
+        LLog.d(TAG, "watcherActivity " + watcherActivity);
+        RecyclerView recyclerView = view.findViewById(R.id.rv);
+        progressBar = view.findViewById(R.id.pb);
+        tvMsg = view.findViewById(R.id.tv_msg);
+        final SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
         recyclerView.setItemAnimator(animator);
         utubeChannelAdapter = new UtubeChannelAdapter(getActivity(), uItemList, new UtubeChannelAdapter.Callback() {
@@ -70,12 +69,12 @@ public class FrmYoutubeChannel extends BaseFragment {
                     return;
                 }
                 try {
-                    Class aClass = Class.forName(watcherActivity);
-                    Intent intent = new Intent(getActivity(), aClass);
+                    final Class aClass = Class.forName(watcherActivity);
+                    final Intent intent = new Intent(getActivity(), aClass);
                     intent.putExtra(FrmYoutubeParser.KEY_CHANNEL_ID, uItem.getId());
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {
-                    LLog.INSTANCE.e(TAG, "ClassNotFoundException " + e.toString());
+                    LLog.e(TAG, "ClassNotFoundException " + e.toString());
                 }
             }
 
@@ -87,11 +86,11 @@ public class FrmYoutubeChannel extends BaseFragment {
             public void onLoadMore() {
             }
         });
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        final RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         //recyclerView.setAdapter(mAdapter);
 
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(utubeChannelAdapter);
+        final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(utubeChannelAdapter);
         scaleAdapter.setDuration(1000);
         scaleAdapter.setInterpolator(new OvershootInterpolator());
         scaleAdapter.setFirstOnly(true);
@@ -102,42 +101,42 @@ public class FrmYoutubeChannel extends BaseFragment {
     }
 
     private void getListChannel() {
-        long lastTime = LPref.getTimeGetYoutubeChannelListSuccess(getActivity());
-        LLog.INSTANCE.d(TAG, "lastTime " + lastTime);
+        final long lastTime = LPref.getTimeGetYoutubeChannelListSuccess(getActivity());
+        LLog.d(TAG, "lastTime " + lastTime);
         if (lastTime == 0) {
-            LLog.INSTANCE.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
+            LLog.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
         } else {
-            long currentTime = System.currentTimeMillis();
-            long duration = currentTime - lastTime;
-            int durationS = (int) (duration / (60 * 1000));
-            int range = Constants.INSTANCE.getIS_DEBUG() ? 1 : 15;
+            final long currentTime = System.currentTimeMillis();
+            final long duration = currentTime - lastTime;
+            final int durationS = (int) (duration / (60 * 1000));
+            final int range = Constants.INSTANCE.getIS_DEBUG() ? 1 : 15;
             if (durationS > range) {
-                LLog.INSTANCE.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
+                LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
-                LLog.INSTANCE.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
-                UtubeChannel utubeChannel = LPref.getYoutubeChannelList(getActivity());
+                LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
+                final UtubeChannel utubeChannel = LPref.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
             }
         }
         final String LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1gLzUZcd3GjV3M5Aw2ynx-7hNpg-gAuUB";
-        Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
+        final Request request = new Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                LLog.INSTANCE.d(TAG, "onFailure " + e.toString());
+                LLog.d(TAG, "onFailure " + e.toString());
                 getListYoutubeChannelFailed();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    if (response == null || response.body() == null || getActivity() == null) {
+                    if (response.body() == null || getActivity() == null) {
                         getListYoutubeChannelFailed();
                         return;
                     }
-                    UtubeChannel utubeChannel = new Gson().fromJson(response.body().string(), UtubeChannel.class);
+                    final UtubeChannel utubeChannel = new Gson().fromJson(response.body().string(), UtubeChannel.class);
                     //LLog.d(TAG, "onResponse " + new Gson().toJson(utubeChannel));
                     if (utubeChannel == null) {
                         getListYoutubeChannelFailed();
@@ -147,7 +146,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                     LPref.setYoutubeChannelList(getActivity(), utubeChannel);
                     getListYoutubeChannelSuccess(utubeChannel);
                 } else {
-                    LLog.INSTANCE.d(TAG, "onResponse !isSuccessful: " + response.toString());
+                    LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
                     getListYoutubeChannelFailed();
                 }
             }
@@ -158,14 +157,11 @@ public class FrmYoutubeChannel extends BaseFragment {
         if (getActivity() == null) {
             return;
         }
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (tvMsg != null && tvMsg.getVisibility() != View.VISIBLE) {
-                    tvMsg.setVisibility(View.VISIBLE);
-                }
-                progressBar.setVisibility(View.GONE);
+        getActivity().runOnUiThread(() -> {
+            if (tvMsg != null && tvMsg.getVisibility() != View.VISIBLE) {
+                tvMsg.setVisibility(View.VISIBLE);
             }
+            progressBar.setVisibility(View.GONE);
         });
     }
 
@@ -175,15 +171,12 @@ public class FrmYoutubeChannel extends BaseFragment {
         }
         //LLog.d(TAG, "getListYoutubeChannelSuccess " + new Gson().toJson(utubeChannel));
         uItemList.addAll(utubeChannel.getList());
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (tvMsg != null && tvMsg.getVisibility() != View.GONE) {
-                    tvMsg.setVisibility(View.GONE);
-                }
-                utubeChannelAdapter.notifyDataSetChanged();
-                progressBar.setVisibility(View.GONE);
+        getActivity().runOnUiThread(() -> {
+            if (tvMsg != null && tvMsg.getVisibility() != View.GONE) {
+                tvMsg.setVisibility(View.GONE);
             }
+            utubeChannelAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(View.GONE);
         });
     }
 }

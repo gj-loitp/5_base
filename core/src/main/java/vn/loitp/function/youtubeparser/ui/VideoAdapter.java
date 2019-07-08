@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import loitp.core.R;
@@ -41,61 +43,59 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         }
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(rowLayout, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NotNull ViewHolder viewHolder, final int position) {
         final Video currentVideo = videos.get(position);
         String pubDateString = currentVideo.getDate();
         //retrieve video link
         viewHolder.tvTitle.setText(currentVideo.getTitle());
         viewHolder.tvDate.setText(pubDateString);
         LImageUtil.load(mContext, currentVideo.getCoverLink(), viewHolder.iv);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //work lay thong tin video
-                /*VideoStats videoStats = new VideoStats();
-                String url = videoStats.generateStatsRequest(videoId, YoutubeParserActivity.API_KEY);
-                LLog.d(TAG, "url:" + url);
-                videoStats.execute(url);
-                videoStats.onFinish(new VideoStats.OnTaskCompleted() {
-                    @Override
-                    public void onTaskCompleted(Statistics stats) {
-                        LLog.d(TAG, "onTaskCompleted: " + new Gson().toJson(stats));
-                        String body = "Views: " + stats.getViewCount() + "\n" +
-                                "Like: " + stats.getLikeCount() + "\n" +
-                                "Dislike: " + stats.getDislikeCount() + "\n" +
-                                "Number of comment: " + stats.getCommentCount() + "\n" +
-                                "Number of favourite: " + stats.getFavoriteCount();
+        viewHolder.itemView.setOnClickListener(view -> {
+            //work lay thong tin video
+            /*VideoStats videoStats = new VideoStats();
+            String url = videoStats.generateStatsRequest(videoId, YoutubeParserActivity.API_KEY);
+            LLog.d(TAG, "url:" + url);
+            videoStats.execute(url);
+            videoStats.onFinish(new VideoStats.OnTaskCompleted() {
+                @Override
+                public void onTaskCompleted(Statistics stats) {
+                    LLog.d(TAG, "onTaskCompleted: " + new Gson().toJson(stats));
+                    String body = "Views: " + stats.getViewCount() + "\n" +
+                            "Like: " + stats.getLikeCount() + "\n" +
+                            "Dislike: " + stats.getDislikeCount() + "\n" +
+                            "Number of comment: " + stats.getCommentCount() + "\n" +
+                            "Number of favourite: " + stats.getFavoriteCount();
 
-                        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
-                        dialogBuilder.setTitle("Stats for: \"" + videoTitle + "\"");
-                        dialogBuilder.setMessage(body);
-                        dialogBuilder.setCancelable(false);
-                        dialogBuilder.setNegativeButton(android.R.string.ok,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
-                        dialogBuilder.show();
-                    }
+                    final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+                    dialogBuilder.setTitle("Stats for: \"" + videoTitle + "\"");
+                    dialogBuilder.setMessage(body);
+                    dialogBuilder.setCancelable(false);
+                    dialogBuilder.setNegativeButton(android.R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    dialogBuilder.show();
+                }
 
-                    @Override
-                    public void onError() {
-                        LToast.showShort(mContext, "Unable to get statistic for this video. Please try again");
-                    }
-                });*/
-                LLog.INSTANCE.d(TAG, "id " + videos.get(position).getVideoId());
-                LLog.INSTANCE.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videos.get(position).getLinkYoutube())));
-                LActivityUtil.tranIn(mContext);
-            }
+                @Override
+                public void onError() {
+                    LToast.showShort(mContext, "Unable to get statistic for this video. Please try again");
+                }
+            });*/
+            LLog.d(TAG, "id " + videos.get(position).getVideoId());
+            LLog.d(TAG, "getLinkYoutube " + videos.get(position).getLinkYoutube());
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videos.get(position).getLinkYoutube())));
+            LActivityUtil.tranIn(mContext);
         });
     }
 
@@ -115,9 +115,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
-            tvDate = (TextView) itemView.findViewById(R.id.tv_date);
-            iv = (ImageView) itemView.findViewById(R.id.iv);
+            tvTitle = itemView.findViewById(R.id.tv_title);
+            tvDate = itemView.findViewById(R.id.tv_date);
+            iv = itemView.findViewById(R.id.iv);
             if (ivHeight != 0) {
                 iv.getLayoutParams().height = ivHeight;
                 iv.requestLayout();

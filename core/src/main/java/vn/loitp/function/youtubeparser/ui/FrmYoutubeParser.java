@@ -14,6 +14,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import loitp.core.R;
@@ -52,7 +54,7 @@ public class FrmYoutubeParser extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Bundle bundle = getArguments();
+        final Bundle bundle = getArguments();
         if (bundle != null) {
             isEnglishMsg = bundle.getBoolean(KEY_IS_ENGLISH_MSG, false);
             channelId = bundle.getString(KEY_CHANNEL_ID);
@@ -63,22 +65,17 @@ public class FrmYoutubeParser extends BaseFragment {
         //recyclerView.setHasFixedSize(true);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark);
         swipeRefreshLayout.canChildScrollUp();
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-
-            @Override
-            public void onRefresh() {
-                videoAdapter.clearData();
-                videoAdapter.notifyDataSetChanged();
-                swipeRefreshLayout.setRefreshing(true);
-                loadVideo();
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            videoAdapter.clearData();
+            videoAdapter.notifyDataSetChanged();
+            swipeRefreshLayout.setRefreshing(true);
+            loadVideo();
         });
         if (LConnectivityUtil.isConnected(getActivity())) {
             loadVideo();
         } else {
-            AlertDialog alertDialog = LDialogUtil.showDialog1(getActivity(), getString(R.string.app_name), getString(R.string.check_ur_connection), "Close", new LDialogUtil.Callback1() {
-                @Override
-                public void onClick1() {
+            final AlertDialog alertDialog = LDialogUtil.showDialog1(getActivity(), getString(R.string.app_name), getString(R.string.check_ur_connection), "Close", () -> {
+                if (getActivity() != null) {
                     getActivity().onBackPressed();
                 }
             });
@@ -88,8 +85,11 @@ public class FrmYoutubeParser extends BaseFragment {
         //show the fab on the bottom of recycler view
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                LinearLayoutManager layoutManager = LinearLayoutManager.class.cast(recyclerView.getLayoutManager());
+            public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
+                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                if (layoutManager == null) {
+                    return;
+                }
                 int lastVisible = layoutManager.findLastVisibleItemPosition();
                 if (lastVisible == totalElement - 1) {
                     fab.setVisibility(View.VISIBLE);
@@ -101,35 +101,36 @@ public class FrmYoutubeParser extends BaseFragment {
         });
 
         //load more data
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Parser parser = new Parser();
-                if (nextToken != null) {
-                    String url = parser.generateMoreDataRequest(channelId, 50, Parser.ORDER_DATE, API_KEY, nextToken);
-                    parser.execute(url);
-                    parser.onFinish(new Parser.OnTaskCompleted() {
-                        @Override
-                        public void onTaskCompleted(ArrayList<Video> list, String nextPageToken) {
-                            //update the adapter with the new data
-                            int indexScroll = videoAdapter.getList().size() + 1;
-                            videoAdapter.getList().addAll(list);
-                            totalElement = videoAdapter.getItemCount();
-                            nextToken = nextPageToken;
-                            videoAdapter.notifyDataSetChanged();
-                            fab.setVisibility(View.GONE);
-                            //recyclerView.scrollToPosition(indexScroll);
-                            recyclerView.smoothScrollToPosition(indexScroll);
-                        }
+        fab.setOnClickListener(v -> {
+            final Parser parser = new Parser();
+            if (nextToken != null) {
+                final String url = parser.generateMoreDataRequest(channelId, 50, Parser.ORDER_DATE, API_KEY, nextToken);
+                parser.execute(url);
+                parser.onFinish(new Parser.OnTaskCompleted() {
+                    @Override
+                    public void onTaskCompleted(ArrayList<Video> list, String nextPageToken) {
+                        //update the adapter with the new data
+                        final int indexScroll = videoAdapter.getList().size() + 1;
+                        videoAdapter.getList().addAll(list);
+                        totalElement = videoAdapter.getItemCount();
+                        nextToken = nextPageToken;
+                        videoAdapter.notifyDataSetChanged();
+                        fab.setVisibility(View.GONE);
+                        //recyclerView.scrollToPosition(indexScroll);
+                        recyclerView.smoothScrollToPosition(indexScroll);
+                    }
 
-                        @Override
-                        public void onError() {
-                            LToast.INSTANCE.showShort(getActivity(), "Error while loading data. Please retry later.");
+                    @Override
+                    public void onError() {
+                        if (getActivity() != null) {
+                            LToast.showShort(getActivity(), "Error while loading data. Please retry later.");
                         }
-                    });
+                    }
+                });
 
-                } else {
-                    LToast.INSTANCE.showShort(getActivity(), "Unable to load data. Please retry later.");
+            } else {
+                if (getActivity() != null) {
+                    LToast.showShort(getActivity(), "Unable to load data. Please retry later.");
                 }
             }
         });
@@ -144,7 +145,10 @@ public class FrmYoutubeParser extends BaseFragment {
     }
 
     private void checkToShowWarningDialog() {
-        boolean isShowed = LPref.getIsShowedDlgWarningYoutubeParser(getActivity());
+        if (getActivity() == null) {
+            return;
+        }
+        final boolean isShowed = LPref.getIsShowedDlgWarningYoutubeParser(getActivity());
         if (!isShowed) {
             String tit;
             String msg;
@@ -155,12 +159,8 @@ public class FrmYoutubeParser extends BaseFragment {
                 tit = "Thông báo";
                 msg = "Tất cả những video dưới đây đều có bản quyền từ Youtube, chúng tôi chỉ cung cấp link để các bạn xem dễ dàng hơn. Nếu có bất cứ vấn đề gì về bản quyền, xin vui lòng liên hệ với chủ sở hữu video đó trên Youtube. Trân trọng cảm ơn.";
             }
-            LDialogUtil.showDialog1(getActivity(), tit, msg, "Okay", new LDialogUtil.Callback1() {
-                @Override
-                public void onClick1() {
-                    LPref.setIsShowedDlgWarningYoutubeParser(getActivity(), true);
-                }
-            });
+            LDialogUtil.showDialog1(getActivity(), tit, msg, "Okay",
+                    () -> LPref.setIsShowedDlgWarningYoutubeParser(getActivity(), true));
         }
     }
 
@@ -168,8 +168,8 @@ public class FrmYoutubeParser extends BaseFragment {
         if (!swipeRefreshLayout.isRefreshing()) {
             progressBar.setVisibility(View.VISIBLE);
         }
-        Parser parser = new Parser();
-        String url = parser.generateRequest(channelId, 50, Parser.ORDER_DATE, API_KEY);
+        final Parser parser = new Parser();
+        final String url = parser.generateRequest(channelId, 50, Parser.ORDER_DATE, API_KEY);
         parser.execute(url);
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
@@ -182,7 +182,7 @@ public class FrmYoutubeParser extends BaseFragment {
                 videoAdapter = new VideoAdapter(list, R.layout.yt_row, getActivity());
                 //recyclerView.setAdapter(videoAdapter);
 
-                ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(videoAdapter);
+                final ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(videoAdapter);
                 scaleAdapter.setDuration(1000);
                 scaleAdapter.setInterpolator(new OvershootInterpolator());
                 scaleAdapter.setFirstOnly(true);
@@ -198,8 +198,11 @@ public class FrmYoutubeParser extends BaseFragment {
 
             @Override
             public void onError() {
-                LLog.INSTANCE.d(TAG, "onError");
-                LToast.INSTANCE.showShort(getActivity(), "Error while loading data. Please retry later.");
+                LLog.d(TAG, "onError");
+                if (getActivity() == null) {
+                    return;
+                }
+                LToast.showShort(getActivity(), "Error while loading data. Please retry later.");
                 progressBar.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
             }

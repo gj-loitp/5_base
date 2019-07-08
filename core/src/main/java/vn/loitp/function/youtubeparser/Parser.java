@@ -35,7 +35,6 @@ import java.util.TimeZone;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.youtubeparser.models.videos.High;
 import vn.loitp.function.youtubeparser.models.videos.Id;
 import vn.loitp.function.youtubeparser.models.videos.Item;
@@ -68,7 +67,6 @@ public class Parser extends AsyncTask<String, Void, String> {
      */
     @Deprecated
     public String generateRequest(String channelID, int maxResult, String key) {
-
         String urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=";
         urlString = urlString + channelID + "&maxResults=" + maxResult + "&order=date&key=" + key;
         return urlString;
@@ -170,33 +168,32 @@ public class Parser extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         if (result != null) {
             try {
-                ArrayList<Video> videos = new ArrayList<>();
-                Gson gson = new GsonBuilder().create();
-                Main data = gson.fromJson(result, Main.class);
+                final ArrayList<Video> videos = new ArrayList<>();
+                final Gson gson = new GsonBuilder().create();
+                final Main data = gson.fromJson(result, Main.class);
                 //Begin parsing Json data
-                List<Item> itemList = data.getItems();
-                String nextToken = data.getNextPageToken();
+                final List<Item> itemList = data.getItems();
+                final String nextToken = data.getNextPageToken();
                 for (int i = 0; i < itemList.size(); i++) {
-                    Item item = itemList.get(i);
-                    Snippet snippet = item.getSnippet();
-                    Id id = item.getId();
-                    LLog.INSTANCE.d("loitp", "parse id: " + id);
-                    Thumbnails image = snippet.getThumbnails();
-                    High high = image.getHigh();
-                    String title = snippet.getTitle();
-                    String videoId = id.getVideoId();
-                    String imageLink = high.getUrl();
-                    String sDate = snippet.getPublishedAt();
+                    final Item item = itemList.get(i);
+                    final Snippet snippet = item.getSnippet();
+                    final Id id = item.getId();
+                    final Thumbnails image = snippet.getThumbnails();
+                    final High high = image.getHigh();
+                    final String title = snippet.getTitle();
+                    final String videoId = id.getVideoId();
+                    final String imageLink = high.getUrl();
+                    final String sDate = snippet.getPublishedAt();
                     Locale.setDefault(Locale.getDefault());
-                    TimeZone tz = TimeZone.getDefault();
-                    Calendar cal = Calendar.getInstance(tz);
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                    final TimeZone tz = TimeZone.getDefault();
+                    final Calendar cal = Calendar.getInstance(tz);
+                    final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
                     sdf.setCalendar(cal);
                     cal.setTime(sdf.parse(sDate));
-                    Date date = cal.getTime();
-                    SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy");
-                    String pubDateString = sdf2.format(date);
-                    Video tempVideo = new Video(title, videoId, imageLink, pubDateString);
+                    final Date date = cal.getTime();
+                    final SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMMM yyyy");
+                    final String pubDateString = sdf2.format(date);
+                    final Video tempVideo = new Video(title, videoId, imageLink, pubDateString);
                     if (videoId != null) {
                         videos.add(tempVideo);
                     }

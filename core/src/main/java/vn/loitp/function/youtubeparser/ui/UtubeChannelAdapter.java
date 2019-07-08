@@ -1,17 +1,16 @@
 package vn.loitp.function.youtubeparser.ui;
 
-/**
- * Created by www.muathu@gmail.com on 12/8/2017.
- */
-
 import android.content.Context;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -27,11 +26,11 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
     private int holderHeight;
 
     public interface Callback {
-        public void onClick(UItem uItem, int position);
+        void onClick(UItem uItem, int position);
 
-        public void onLongClick(UItem uItem, int position);
+        void onLongClick(UItem uItem, int position);
 
-        public void onLoadMore();
+        void onLoadMore();
     }
 
     private Context context;
@@ -45,9 +44,9 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
 
         public UItemViewHolder(View view) {
             super(view);
-            tvName = (TextView) view.findViewById(R.id.tv_name);
-            iv = (ImageView) view.findViewById(R.id.iv);
-            cv = (CardView) view.findViewById(R.id.cv);
+            tvName = view.findViewById(R.id.tv_name);
+            iv = view.findViewById(R.id.iv);
+            cv = view.findViewById(R.id.cv);
             if (holderHeight != 0) {
                 cv.getLayoutParams().height = holderHeight;
                 cv.requestLayout();
@@ -63,14 +62,15 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
         holderHeight = screenW / 2;
     }
 
+    @NotNull
     @Override
-    public UItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public UItemViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_uitem, parent, false);
         return new UItemViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(UItemViewHolder holder, final int position) {
+    public void onBindViewHolder(@NotNull UItemViewHolder holder, final int position) {
         if (position % 2 == 0) {
             LUIUtil.setMarginsDp(holder.cv, 10, 5, 5, 5);
         } else {
@@ -79,22 +79,16 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
         final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());
         LImageUtil.load(context, uItem.getImg(), holder.iv);
-        holder.cv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(uItem, position);
-                }
+        holder.cv.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(uItem, position);
             }
         });
-        holder.cv.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(uItem, position);
-                }
-                return true;
+        holder.cv.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(uItem, position);
             }
+            return true;
         });
         if (position == uItemList.size() - 1) {
             if (callback != null) {
