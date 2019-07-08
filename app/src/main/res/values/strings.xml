@@ -334,4 +334,12 @@ Likewise may someone love you next.
     <string name="cpf">CPF</string>
     <string name="e_mail">E-mail</string>
     <string name="data_de_nascimento">Data de nascimento</string>
+    <string name="type">Type...</string>
+    <string name="type_something">Type something</string>
+    <string name="password">Password</string>
+    <string name="menu_edittext">Menu EditText</string>
+    <string name="animatedexpandableedittextactivity">AnimatedExpandableEditTextActivity</string>
+    <string name="autoresizeedittext">AutoResizeEditText</string>
+    <string name="materialtextfield">MaterialTextField</string>
+    <string name="biuedittext">BiuEditText</string>
 </resources>
