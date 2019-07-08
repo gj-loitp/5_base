@@ -1,4 +1,4 @@
-package vn.loitp.views.button.shinebutton.lib;
+package vn.loitp.views.button.shinebutton;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -19,14 +19,6 @@ import android.view.animation.LinearInterpolator;
 import loitp.core.R;
 import vn.loitp.core.utilities.LLog;
 
-/**
- * @author Chad
- * @title com.sackcentury.shinebuttonlib
- * @description
- * @modifier
- * @date
- * @since 16/7/5 下午2:27
- **/
 public class ShineButton extends PorterShapeImageView {
     private static final String TAG = ShineButton.class.getSimpleName();
     //private boolean isChecked = false;
@@ -68,7 +60,6 @@ public class ShineButton extends PorterShapeImageView {
     }
 
     private void initButton(Context context, AttributeSet attrs) {
-
         if (context instanceof Activity) {
             init((Activity) context);
         }
@@ -234,21 +225,21 @@ public class ShineButton extends PorterShapeImageView {
 
     public void showAnim() {
         if (activity != null) {
-            final ViewGroup rootView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
+            final ViewGroup rootView = activity.findViewById(Window.ID_ANDROID_CONTENT);
             shineView = new ShineView(activity, this, shineParams);
             rootView.addView(shineView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             doShareAnim();
         } else {
-            LLog.INSTANCE.e(TAG, "Please init.");
+            LLog.e(TAG, "Please init.");
         }
     }
 
     public void removeView(View view) {
         if (activity != null) {
-            final ViewGroup rootView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
+            final ViewGroup rootView = activity.findViewById(Window.ID_ANDROID_CONTENT);
             rootView.removeView(view);
         } else {
-            LLog.INSTANCE.e(TAG, "Please init.");
+            LLog.e(TAG, "Please init.");
         }
     }
 
@@ -310,13 +301,13 @@ public class ShineButton extends PorterShapeImageView {
     }
 
     public interface AnimCallback {
-        public void onAnimationStart();
+        void onAnimationStart();
 
-        public void onAnimationEnd();
+        void onAnimationEnd();
 
-        public void onAnimationCancel();
+        void onAnimationCancel();
 
-        public void onAnimationRepeat();
+        void onAnimationRepeat();
     }
 
     private AnimCallback animCallback;
@@ -333,9 +324,9 @@ public class ShineButton extends PorterShapeImageView {
     private void calPixels() {
         if (activity != null && metrics != null) {
             activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            int[] location = new int[2];
+            final int[] location = new int[2];
             getLocationInWindow(location);
-            Rect visibleFrame = new Rect();
+            final Rect visibleFrame = new Rect();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(visibleFrame);
             realBottomHeight = visibleFrame.height() - location[1];
             bottomHeight = metrics.heightPixels - location[1];
@@ -358,7 +349,7 @@ public class ShineButton extends PorterShapeImageView {
 
         @Override
         public void onClick(View view) {
-            LLog.INSTANCE.d(TAG, "onClick");
+            LLog.d(TAG, "onClick");
             /*if (!isChecked) {
                 isChecked = true;
                 showAnim();

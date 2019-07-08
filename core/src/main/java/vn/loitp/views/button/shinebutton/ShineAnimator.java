@@ -1,4 +1,4 @@
-package vn.loitp.views.button.shinebutton.lib;
+package vn.loitp.views.button.shinebutton;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
@@ -26,15 +26,15 @@ public class ShineAnimator extends ValueAnimator {
         setStartDelay(200);
         setInterpolator(new EasingInterpolator(Ease.QUART_OUT));
     }
-    ShineAnimator(long duration,float max_value,long delay) {
-        setFloatValues(1f, max_value);
+
+    ShineAnimator(long duration, float maxValue, long delay) {
+        setFloatValues(1f, maxValue);
         setDuration(duration);
         setStartDelay(delay);
         setInterpolator(new EasingInterpolator(Ease.QUART_OUT));
     }
 
     public void startAnim(final ShineView shineView, final int centerAnimX, final int centerAnimY) {
-
         start();
     }
 

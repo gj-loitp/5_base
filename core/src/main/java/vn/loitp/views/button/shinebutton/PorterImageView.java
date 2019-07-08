@@ -1,4 +1,4 @@
-package vn.loitp.views.button.shinebutton.lib;
+package vn.loitp.views.button.shinebutton;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -75,8 +75,8 @@ public abstract class PorterImageView extends androidx.appcompat.widget.AppCompa
     }
 
     private void createMaskCanvas(int width, int height, int oldw, int oldh) {
-        boolean sizeChanged = width != oldw || height != oldh;
-        boolean isValid = width > 0 && height > 0;
+        final boolean sizeChanged = width != oldw || height != oldh;
+        final boolean isValid = width > 0 && height > 0;
         if (isValid && (maskCanvas == null || sizeChanged)) {
             maskCanvas = new Canvas();
             maskBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -99,13 +99,13 @@ public abstract class PorterImageView extends androidx.appcompat.widget.AppCompa
     @Override
     protected void onDraw(Canvas canvas) {
         if (!isInEditMode()) {
-            int saveCount = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
+            final int saveCount = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
             try {
                 if (invalidated) {
-                    Drawable drawable = getDrawable();
+                    final Drawable drawable = getDrawable();
                     if (drawable != null) {
                         invalidated = false;
-                        Matrix imageMatrix = getImageMatrix();
+                        final Matrix imageMatrix = getImageMatrix();
                         if (imageMatrix == null) {// && mPaddingTop == 0 && mPaddingLeft == 0) {
                             drawable.draw(drawableCanvas);
                         } else {
@@ -128,7 +128,7 @@ public abstract class PorterImageView extends androidx.appcompat.widget.AppCompa
                     canvas.drawBitmap(drawableBitmap, 0.0f, 0.0f, drawablePaint);
                 }
             } catch (Exception e) {
-                String log = "Exception occured while drawing " + getId();
+                final String log = "Exception occured while drawing " + getId();
                 Log.e(TAG, log, e);
             } finally {
                 canvas.restoreToCount(saveCount);

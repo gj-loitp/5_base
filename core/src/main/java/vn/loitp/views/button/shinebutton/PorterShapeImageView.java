@@ -1,4 +1,4 @@
-package vn.loitp.views.button.shinebutton.lib;
+package vn.loitp.views.button.shinebutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -33,7 +33,7 @@ public class PorterShapeImageView extends PorterImageView {
 
     private void setup(Context context, AttributeSet attrs, int defStyle) {
         if (attrs != null) {
-            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PorterImageView, defStyle, 0);
+            final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PorterImageView, defStyle, 0);
             shape = typedArray.getDrawable(R.styleable.PorterImageView_siShape);
             typedArray.recycle();
         }
@@ -51,7 +51,7 @@ public class PorterShapeImageView extends PorterImageView {
             if (shape instanceof BitmapDrawable) {
                 configureBitmapBounds(getWidth(), getHeight());
                 if (drawMatrix != null) {
-                    int drawableSaveCount = maskCanvas.getSaveCount();
+                    final int drawableSaveCount = maskCanvas.getSaveCount();
                     maskCanvas.save();
                     maskCanvas.concat(matrix);
                     shape.draw(maskCanvas);
@@ -65,19 +65,19 @@ public class PorterShapeImageView extends PorterImageView {
         }
     }
 
-    private void configureBitmapBounds(int viewWidth, int viewHeight) {
+    private void configureBitmapBounds(final int viewWidth, final int viewHeight) {
         drawMatrix = null;
-        int drawableWidth = shape.getIntrinsicWidth();
-        int drawableHeight = shape.getIntrinsicHeight();
-        boolean fits = viewWidth == drawableWidth && viewHeight == drawableHeight;
+        final int drawableWidth = shape.getIntrinsicWidth();
+        final int drawableHeight = shape.getIntrinsicHeight();
+        final boolean fits = viewWidth == drawableWidth && viewHeight == drawableHeight;
 
         if (drawableWidth > 0 && drawableHeight > 0 && !fits) {
             shape.setBounds(0, 0, drawableWidth, drawableHeight);
-            float widthRatio = (float) viewWidth / (float) drawableWidth;
-            float heightRatio = (float) viewHeight / (float) drawableHeight;
-            float scale = Math.min(widthRatio, heightRatio);
-            float dx = (int) ((viewWidth - drawableWidth * scale) * 0.5f + 0.5f);
-            float dy = (int) ((viewHeight - drawableHeight * scale) * 0.5f + 0.5f);
+            final float widthRatio = (float) viewWidth / (float) drawableWidth;
+            final float heightRatio = (float) viewHeight / (float) drawableHeight;
+            final float scale = Math.min(widthRatio, heightRatio);
+            final float dx = (int) ((viewWidth - drawableWidth * scale) * 0.5f + 0.5f);
+            final float dy = (int) ((viewHeight - drawableHeight * scale) * 0.5f + 0.5f);
 
             matrix.setScale(scale, scale);
             matrix.postTranslate(dx, dy);
