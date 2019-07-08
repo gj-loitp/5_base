@@ -57,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_55"
+                        android:layout_marginEnd="@dimen/margin_55"
                         android:orientation="vertical">
 
                         <EditText
@@ -69,9 +69,9 @@
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_5"
+                        android:layout_marginEnd="@dimen/margin_5"
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
