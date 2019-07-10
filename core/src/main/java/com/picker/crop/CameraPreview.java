@@ -1,8 +1,7 @@
-package vn.loitp.picker.crop;
+package com.picker.crop;
 
 import android.content.Context;
 import android.hardware.Camera;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 

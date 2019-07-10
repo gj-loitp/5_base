@@ -19,14 +19,14 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.picker.crop.CropImage;
+import com.picker.crop.CropImageView;
+import com.picker.crop.LGalleryActivity;
 import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
 
 import loitp.basemaster.R;
-import vn.loitp.picker.crop.CropImage;
-import vn.loitp.picker.crop.CropImageView;
-import vn.loitp.picker.crop.LGalleryActivity;
 import vn.loitp.views.LToast;
 
 public class CropActivity extends BaseFontActivity {

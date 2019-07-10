@@ -10,7 +10,7 @@
 // - Sun Tsu;
 // "The Art of War"
 
-package vn.loitp.picker.crop;
+package com.picker.crop;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

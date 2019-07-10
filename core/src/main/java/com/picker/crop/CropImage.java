@@ -10,7 +10,7 @@
 // - Sun Tsu,
 // "The Art of War"
 
-package vn.loitp.picker.crop;
+package com.picker.crop;
 
 import android.Manifest;
 import android.app.Activity;
@@ -34,14 +34,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 /**
  * Helper to simplify crop image work like starting pick-image acitvity and handling camera/gallery intents.<br>

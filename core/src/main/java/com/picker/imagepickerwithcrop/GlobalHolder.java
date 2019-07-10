@@ -1,4 +1,4 @@
-package vn.loitp.picker.imagepickerwithcrop;
+package com.picker.imagepickerwithcrop;
 
 /**
  * Created by Mickael on 18/10/2016.

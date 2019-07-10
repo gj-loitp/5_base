@@ -36,7 +36,7 @@
 
     </RelativeLayout>
 
-    <vn.loitp.picker.crop.CropImageView
+    <com.picker.crop.CropImageView
         android:id="@+id/cropImageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -18,11 +18,11 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.picker.imagepickerwithcrop.PickerBuilder;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.picker.imagepickerwithcrop.PickerBuilder;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.LToast;
 

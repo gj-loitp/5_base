@@ -1,4 +1,4 @@
-package vn.loitp.picker.imagepickerwithcrop;
+package com.picker.imagepickerwithcrop;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -8,6 +8,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
@@ -15,8 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import loitp.core.R;
 
 /**

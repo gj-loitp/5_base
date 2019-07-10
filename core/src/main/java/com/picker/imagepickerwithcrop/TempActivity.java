@@ -1,4 +1,4 @@
-package vn.loitp.picker.imagepickerwithcrop;
+package com.picker.imagepickerwithcrop;
 
 import android.content.Intent;
 import android.net.Uri;
