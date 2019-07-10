@@ -6,9 +6,9 @@ import android.os.Bundle;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LUIUtil;
+import com.restapi.restclient.RestClient;
 
 import loitp.basemaster.R;
-import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class GalleryDemoSplashActivity extends BaseFontActivity {

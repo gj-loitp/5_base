@@ -17,9 +17,9 @@ import com.core.utilities.LDeviceUtil;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
 
 import loitp.core.R;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 /**
  * Created by loitp on 14/04/15.

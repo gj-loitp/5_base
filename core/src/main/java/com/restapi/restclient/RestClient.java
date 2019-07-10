@@ -1,21 +1,22 @@
-package vn.loitp.restapi.restclient;
+package com.restapi.restclient;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.restapi.DateTypeDeserializer;
 
 import java.security.InvalidParameterException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.NonNull;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import vn.loitp.restapi.DateTypeDeserializer;
 
 public class RestClient {
     private static final int TIMEOUT_TIME = 1;

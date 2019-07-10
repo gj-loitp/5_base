@@ -1,4 +1,4 @@
-package vn.loitp.restapi.flickr;
+package com.restapi.flickr;
 
 /**
  * Created by www.muathu@gmail.com on 10/7/2017.

@@ -1,4 +1,4 @@
-package vn.loitp.restapi;
+package com.restapi;
 
 import android.util.Log;
 

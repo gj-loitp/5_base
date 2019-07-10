@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.restapi.restclient.RestClient
 import loitp.basemaster.R
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
-import vn.loitp.restapi.restclient.RestClient
 
 class MenuAPIActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

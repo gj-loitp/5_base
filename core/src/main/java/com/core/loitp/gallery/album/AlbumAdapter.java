@@ -15,11 +15,11 @@ import com.core.utilities.LDateUtils;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
+import com.restapi.flickr.model.photosetgetlist.Photoset;
 
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 
 /**
  * Created by loitp on 14/04/15.

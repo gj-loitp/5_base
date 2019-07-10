@@ -1,24 +1,24 @@
 
-package vn.loitp.restapi.flickr.model.photosetgetlist;
+package com.restapi.flickr.model.photosetgetphotos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WrapperPhotosetGetlist {
+public class WrapperPhotosetGetPhotos {
 
-    @SerializedName("photosets")
+    @SerializedName("photoset")
     @Expose
-    private Photosets photosets;
+    private Photoset photoset;
     @SerializedName("stat")
     @Expose
     private String stat;
 
-    public Photosets getPhotosets() {
-        return photosets;
+    public Photoset getPhotoset() {
+        return photoset;
     }
 
-    public void setPhotosets(Photosets photosets) {
-        this.photosets = photosets;
+    public void setPhotoset(Photoset photoset) {
+        this.photoset = photoset;
     }
 
     public String getStat() {

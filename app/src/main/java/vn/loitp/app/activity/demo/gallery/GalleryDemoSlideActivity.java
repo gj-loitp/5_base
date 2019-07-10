@@ -13,9 +13,9 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
 
 import loitp.basemaster.R;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 import vn.loitp.views.viewpager.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 

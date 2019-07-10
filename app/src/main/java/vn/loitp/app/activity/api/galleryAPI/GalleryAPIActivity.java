@@ -13,6 +13,11 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.restapi.flickr.FlickrConst;
+import com.restapi.flickr.model.photosetgetlist.Photoset;
+import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
+import com.restapi.flickr.service.FlickrService;
+import com.restapi.restclient.RestClient;
 
 import java.util.List;
 
@@ -21,11 +26,6 @@ import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.restapi.flickr.FlickrConst;
-import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
-import vn.loitp.restapi.flickr.service.FlickrService;
-import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class GalleryAPIActivity extends BaseFontActivity {

@@ -1,5 +1,5 @@
 
-package vn.loitp.restapi.flickr.model.photosetgetphotos;
+package com.restapi.flickr.model.photosetgetphotos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -20,16 +20,16 @@ import com.core.utilities.LLog;
 import com.core.utilities.LSocialUtil;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.restapi.flickr.FlickrConst;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
+import com.restapi.flickr.service.FlickrService;
+import com.restapi.restclient.RestClient;
 
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
-import vn.loitp.restapi.flickr.FlickrConst;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.restapi.flickr.service.FlickrService;
-import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;

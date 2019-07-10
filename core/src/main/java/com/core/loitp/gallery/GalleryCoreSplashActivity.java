@@ -28,12 +28,12 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.restapi.restclient.RestClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 

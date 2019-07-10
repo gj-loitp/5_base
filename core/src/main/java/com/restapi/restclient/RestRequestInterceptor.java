@@ -1,4 +1,4 @@
-package vn.loitp.restapi.restclient;
+package com.restapi.restclient;
 
 import java.io.IOException;
 import java.util.Enumeration;

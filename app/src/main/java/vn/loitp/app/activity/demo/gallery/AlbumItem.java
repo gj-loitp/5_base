@@ -5,9 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.core.utilities.LImageUtil;
+import com.restapi.flickr.model.photosetgetlist.Photoset;
 
 import loitp.basemaster.R;
-import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;

@@ -23,11 +23,11 @@ import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 import com.github.piasy.biv.view.ImageViewFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
 
 import java.io.File;
 
 import loitp.core.R;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 /**
  * Created by loitp on 14/04/15.

@@ -30,6 +30,11 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.restapi.flickr.FlickrConst;
+import com.restapi.flickr.model.photosetgetlist.Photoset;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
+import com.restapi.flickr.service.FlickrService;
+import com.restapi.restclient.RestClient;
 import com.task.AsyncTaskDownloadImage;
 
 import java.util.List;
@@ -37,11 +42,6 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
-import vn.loitp.restapi.flickr.FlickrConst;
-import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.restapi.flickr.service.FlickrService;
-import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 

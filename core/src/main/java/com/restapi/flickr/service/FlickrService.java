@@ -1,10 +1,11 @@
-package vn.loitp.restapi.flickr.service;
+package com.restapi.flickr.service;
+
+import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
+import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import vn.loitp.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos;
 
 /**
  * @author loitp
