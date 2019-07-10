@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.views.animation.confetti.CommonConfetti;
-import com.views.animation.confetti.ConfettiManager;
-import com.views.animation.confetti.ConfettiSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
+import vn.loitp.views.animation.confetti.CommonConfetti;
+import vn.loitp.views.animation.confetti.ConfettiManager;
+import vn.loitp.views.animation.confetti.ConfettiSource;
 
 //https://github.com/jinatonic/confetti
 public class FallingConfettiFromPointActivity extends BaseFontActivity implements View.OnClickListener {
