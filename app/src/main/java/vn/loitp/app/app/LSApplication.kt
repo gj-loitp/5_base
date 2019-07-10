@@ -21,17 +21,10 @@ import loitp.basemaster.R
 //TODO is debug
 
 
-
-
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2
 git push -f*/
-
-
-
-
-
 
 class LSApplication : MultiDexApplication() {
     private val TAG = LSApplication::class.java.simpleName
