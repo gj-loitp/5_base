@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.film.FilmDemoActivity;
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity;
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity;
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity;
+import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity;
 import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.activity.demo.sound.SoundActivity;
@@ -68,6 +69,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_epub_reader).setOnClickListener(this);
         findViewById(R.id.bt_2_instance_activity).setOnClickListener(this);
         findViewById(R.id.bt_youtube_parser).setOnClickListener(this);
+        findViewById(R.id.bt_fragment_navigation).setOnClickListener(this);
     }
 
     @Override
@@ -165,6 +167,9 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 break;
             case R.id.bt_youtube_parser:
                 intent = new Intent(activity, YoutubeParserChannelActivity.class);
+                break;
+            case R.id.bt_fragment_navigation:
+                intent = new Intent(activity, FragmentNavigationActivity.class);
                 break;
         }
         if (intent != null) {
