@@ -6,11 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.core.common.Constants;
+import com.function.epub.core.EpubReaderReadActivity;
+import com.function.epub.model.BookInfo;
+import com.function.epub.model.BookInfoData;
 
 import loitp.core.R;
-import vn.loitp.function.epub.core.EpubReaderReadActivity;
-import vn.loitp.function.epub.model.BookInfo;
-import vn.loitp.function.epub.model.BookInfoData;
 
 public class LReaderUtil {
     public static Bitmap decodeBitmapFromByteArray(byte[] coverImage, int reqWidth, int reqHeight) {

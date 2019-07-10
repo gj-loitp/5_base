@@ -11,13 +11,13 @@ import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LReaderUtil;
 import com.core.utilities.LUIUtil;
+import com.function.epub.model.BookInfo;
+import com.function.epub.task.GetListBookAllAssetTask;
+import com.function.epub.task.GetListBookFromDeviceAndAssetTask;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.function.epub.model.BookInfo;
-import vn.loitp.function.epub.task.GetListBookAllAssetTask;
-import vn.loitp.function.epub.task.GetListBookFromDeviceAndAssetTask;
 
 public class EpubReaderMenuActivity extends BaseFontActivity {
     private ProgressBar progressBar;

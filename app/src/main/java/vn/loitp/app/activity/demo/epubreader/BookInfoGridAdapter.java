@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.core.utilities.LReaderUtil;
+import com.function.epub.model.BookInfo;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.function.epub.model.BookInfo;
 
 /**
  * Created by loitp on 08.09.2016.

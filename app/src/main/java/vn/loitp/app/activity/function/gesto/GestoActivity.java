@@ -5,9 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
+import com.function.gesto.OnGestureListener;
 
 import loitp.basemaster.R;
-import vn.loitp.function.gesto.OnGestureListener;
 
 public class GestoActivity extends BaseFontActivity {
 

@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LScreenUtil;
+import com.function.youtubeparser.ui.FrmYoutubeParser;
 
 import loitp.basemaster.R;
-import vn.loitp.function.youtubeparser.ui.FrmYoutubeParser;
 
 public class YoutubeParserActivity extends BaseFontActivity {
 

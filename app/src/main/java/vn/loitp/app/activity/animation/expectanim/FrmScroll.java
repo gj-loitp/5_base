@@ -13,19 +13,19 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 
 import com.core.base.BaseFragment;
+import com.function.expectanim.ExpectAnim;
 
 import loitp.basemaster.R;
-import vn.loitp.function.expectanim.ExpectAnim;
 import vn.loitp.utils.util.ConvertUtils;
 
-import static vn.loitp.function.expectanim.core.Expectations.alpha;
-import static vn.loitp.function.expectanim.core.Expectations.height;
-import static vn.loitp.function.expectanim.core.Expectations.leftOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.rightOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.sameCenterVerticalAs;
-import static vn.loitp.function.expectanim.core.Expectations.scale;
-import static vn.loitp.function.expectanim.core.Expectations.toRightOf;
-import static vn.loitp.function.expectanim.core.Expectations.topOfParent;
+import static com.function.expectanim.core.Expectations.alpha;
+import static com.function.expectanim.core.Expectations.height;
+import static com.function.expectanim.core.Expectations.leftOfParent;
+import static com.function.expectanim.core.Expectations.rightOfParent;
+import static com.function.expectanim.core.Expectations.sameCenterVerticalAs;
+import static com.function.expectanim.core.Expectations.scale;
+import static com.function.expectanim.core.Expectations.toRightOf;
+import static com.function.expectanim.core.Expectations.topOfParent;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

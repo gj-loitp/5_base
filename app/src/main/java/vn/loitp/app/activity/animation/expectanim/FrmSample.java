@@ -13,23 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.core.base.BaseFragment;
+import com.function.expectanim.ExpectAnim;
 
 import loitp.basemaster.R;
-import vn.loitp.function.expectanim.ExpectAnim;
 
-import static vn.loitp.function.expectanim.core.Expectations.aboveOf;
-import static vn.loitp.function.expectanim.core.Expectations.atItsOriginalPosition;
-import static vn.loitp.function.expectanim.core.Expectations.bottomOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.invisible;
-import static vn.loitp.function.expectanim.core.Expectations.leftOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.outOfScreen;
-import static vn.loitp.function.expectanim.core.Expectations.rightOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.sameCenterVerticalAs;
-import static vn.loitp.function.expectanim.core.Expectations.toHaveBackgroundAlpha;
-import static vn.loitp.function.expectanim.core.Expectations.toHaveTextColor;
-import static vn.loitp.function.expectanim.core.Expectations.toRightOf;
-import static vn.loitp.function.expectanim.core.Expectations.visible;
-import static vn.loitp.function.expectanim.core.Expectations.width;
+import static com.function.expectanim.core.Expectations.aboveOf;
+import static com.function.expectanim.core.Expectations.atItsOriginalPosition;
+import static com.function.expectanim.core.Expectations.bottomOfParent;
+import static com.function.expectanim.core.Expectations.invisible;
+import static com.function.expectanim.core.Expectations.leftOfParent;
+import static com.function.expectanim.core.Expectations.outOfScreen;
+import static com.function.expectanim.core.Expectations.rightOfParent;
+import static com.function.expectanim.core.Expectations.sameCenterVerticalAs;
+import static com.function.expectanim.core.Expectations.toHaveBackgroundAlpha;
+import static com.function.expectanim.core.Expectations.toHaveTextColor;
+import static com.function.expectanim.core.Expectations.toRightOf;
+import static com.function.expectanim.core.Expectations.visible;
+import static com.function.expectanim.core.Expectations.width;
 
 public class FrmSample extends BaseFragment {
     private View name;
