@@ -1,7 +1,7 @@
-package vn.loitp.interfaces
+package com.interfaces
 
+import com.model.App
 import okhttp3.Call
-import vn.loitp.model.App
 import java.io.IOException
 
 interface GGSettingCallback {

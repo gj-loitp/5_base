@@ -1,4 +1,4 @@
-package vn.loitp.task;
+package com.task;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -8,17 +8,17 @@ import android.provider.Settings
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
+import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.model.App
 import loitp.basemaster.BuildConfig
 import loitp.basemaster.R
 import okhttp3.*
 import vn.loitp.app.app.LSApplication
-import vn.loitp.interfaces.GGSettingCallback
-import vn.loitp.model.App
 import java.io.IOException
 
 class SplashActivity : BaseFontActivity() {

@@ -20,9 +20,9 @@ import com.core.utilities.LLog;
 import com.core.utilities.LSocialUtil;
 import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
+import com.task.AsyncTaskDownloadImage;
 
 import loitp.core.R;
-import vn.loitp.task.AsyncTaskDownloadImage;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 

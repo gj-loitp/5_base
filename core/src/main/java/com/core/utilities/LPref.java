@@ -6,8 +6,8 @@ import android.content.SharedPreferences;
 import com.core.common.Constants;
 import com.function.youtubeparser.models.utubechannel.UtubeChannel;
 import com.google.gson.Gson;
+import com.model.App;
 
-import vn.loitp.model.App;
 import vn.loitp.utils.util.AppUtils;
 
 /**

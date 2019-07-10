@@ -9,6 +9,8 @@ import android.os.StatFs;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.interfaces.GGSettingCallback;
+import com.model.App;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -29,8 +31,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import vn.loitp.interfaces.GGSettingCallback;
-import vn.loitp.model.App;
 
 public class LStoreUtil {
     static String TAG = LStoreUtil.class.getSimpleName();
