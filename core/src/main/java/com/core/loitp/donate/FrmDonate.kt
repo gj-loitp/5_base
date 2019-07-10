@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
@@ -62,12 +63,11 @@ class FrmDonate : BaseFragment() {
                 //}, false, "porta", "commodo", "tempor venenatis nulla")
                 //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
-        val res = resources
-        goldDark = res.getColor(R.color.gold_dark)
-        goldMed = res.getColor(R.color.gold_med)
-        gold = res.getColor(R.color.gold)
-        goldLight = res.getColor(R.color.gold_light)
-        colorPrimary = res.getColor(R.color.colorPrimary)
+        goldDark = ContextCompat.getColor(context, R.color.gold_dark)
+        goldMed = ContextCompat.getColor(context, R.color.gold_med)
+        gold = ContextCompat.getColor(context, R.color.gold)
+        goldLight = ContextCompat.getColor(context, R.color.gold_light)
+        colorPrimary = ContextCompat.getColor(context, R.color.colorPrimary)
         colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
         LUIUtil.setDelay(500) { mls -> activeConfettiManagers.add(generateOnce()) }
     }

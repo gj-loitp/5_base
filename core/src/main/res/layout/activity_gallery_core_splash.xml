@@ -59,7 +59,7 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:padding="@dimen/padding_5"
-                android:text="LGallery"
+                android:text="@string/lgallery"
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_50" />
         </RelativeLayout>
