@@ -15,9 +15,9 @@ import com.core.common.Constants
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
+import com.utils.util.AppUtils
 import life.sabujak.roundedbutton.RoundedButton
 import loitp.core.R
-import vn.loitp.utils.util.AppUtils
 import java.util.*
 
 class AdHelperActivity : BaseFontActivity() {

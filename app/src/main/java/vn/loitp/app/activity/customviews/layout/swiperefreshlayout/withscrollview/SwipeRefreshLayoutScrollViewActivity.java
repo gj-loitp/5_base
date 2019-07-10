@@ -8,9 +8,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;

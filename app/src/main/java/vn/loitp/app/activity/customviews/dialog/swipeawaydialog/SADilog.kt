@@ -12,8 +12,8 @@ import android.widget.Button
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
+import com.utils.util.ToastUtils
 import loitp.basemaster.R
-import vn.loitp.utils.util.ToastUtils
 import vn.loitp.views.LToast
 import vn.loitp.views.dialog.swipeawaydialog.support.v4.SwipeAwayDialogFragment
 

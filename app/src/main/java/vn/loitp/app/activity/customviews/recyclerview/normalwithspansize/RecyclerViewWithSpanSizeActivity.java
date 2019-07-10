@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.utils.util.ToastUtils;
 
 public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();

@@ -52,6 +52,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.utils.util.ConvertUtils;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -60,7 +61,6 @@ import java.util.Random;
 import loitp.core.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils;
-import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollDecor;
 import vn.loitp.views.overscroll.lib.overscroll.IOverScrollUpdateListener;
 import vn.loitp.views.overscroll.lib.overscroll.OverScrollDecoratorHelper;

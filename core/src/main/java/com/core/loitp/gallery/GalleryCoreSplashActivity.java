@@ -29,12 +29,12 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.restapi.restclient.RestClient;
+import com.utils.util.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 public class GalleryCoreSplashActivity extends BaseFontActivity {

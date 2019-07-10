@@ -7,12 +7,12 @@ import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;

@@ -23,8 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.core.base.BaseActivity;
-
-import vn.loitp.utils.util.FragmentUtils;
+import com.utils.util.FragmentUtils;
 
 /**
  * File created on 8/31/2017.

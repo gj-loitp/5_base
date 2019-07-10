@@ -8,8 +8,8 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
+import com.utils.util.ToastUtils
 import loitp.basemaster.R
-import vn.loitp.utils.util.ToastUtils
 
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null

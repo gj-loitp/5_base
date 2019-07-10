@@ -4,8 +4,9 @@ import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.utils.util.ToastUtils;
+
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Position;

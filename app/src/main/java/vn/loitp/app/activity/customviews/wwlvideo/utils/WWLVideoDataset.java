@@ -1,7 +1,8 @@
 package vn.loitp.app.activity.customviews.wwlvideo.utils;
 
+import com.utils.util.AppUtils;
+
 import loitp.basemaster.R;
-import vn.loitp.utils.util.AppUtils;
 
 /**
  * Created by thangn on 2/27/17.

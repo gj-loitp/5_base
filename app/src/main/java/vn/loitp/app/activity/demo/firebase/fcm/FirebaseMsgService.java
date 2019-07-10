@@ -17,10 +17,10 @@ import com.function.notification.config.NottiConf;
 import com.function.notification.config.VibrationSettings;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.utils.util.AppUtils;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.SplashActivity;
-import vn.loitp.utils.util.AppUtils;
 
 public class FirebaseMsgService extends FirebaseMessagingService {
     private final String TAG = getClass().getSimpleName();

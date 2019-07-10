@@ -11,11 +11,10 @@ import com.function.notification.config.LightSettings;
 import com.function.notification.config.NottiConf;
 import com.function.notification.config.VibrationSettings;
 import com.function.notification.notifications.CustomNotification;
+import com.utils.util.AppUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import vn.loitp.utils.util.AppUtils;
 
 public class Notti {
 

@@ -36,9 +36,9 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
+import com.utils.util.AppUtils;
 
 import loitp.core.R;
-import vn.loitp.utils.util.AppUtils;
 
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {
     private final String TAG = getClass().getSimpleName();

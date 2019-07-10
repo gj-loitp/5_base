@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.core.utilities.LUIUtil;
+import com.utils.util.ConvertUtils;
 
 import loitp.core.R;
-import vn.loitp.utils.util.ConvertUtils;
 
 /**
  * User: loitp

@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIChapListActivity extends BaseFontActivity {

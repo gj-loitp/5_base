@@ -4,9 +4,9 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.utils.util.ToastUtils;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.placeholderview.lib.placeholderview.Animation;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Animate;

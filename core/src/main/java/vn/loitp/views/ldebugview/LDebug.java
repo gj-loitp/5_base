@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 
-import vn.loitp.utils.util.ServiceUtils;
+import com.utils.util.ServiceUtils;
 
 /**
  * Created by LENOVO on 7/5/2018.

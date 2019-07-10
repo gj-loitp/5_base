@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class KeywordHotagsActivity extends BaseFontActivity {

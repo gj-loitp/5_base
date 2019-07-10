@@ -6,9 +6,8 @@ import android.util.AttributeSet;
 import android.widget.ImageButton;
 
 import com.core.utilities.LLog;
-
-import vn.loitp.utils.util.ConvertUtils;
-import vn.loitp.utils.util.ScreenUtils;
+import com.utils.util.ConvertUtils;
+import com.utils.util.ScreenUtils;
 
 /**
  * Created by LENOVO on 4/19/2018.

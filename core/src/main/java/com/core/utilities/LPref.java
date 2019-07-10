@@ -7,8 +7,7 @@ import com.core.common.Constants;
 import com.function.youtubeparser.models.utubechannel.UtubeChannel;
 import com.google.gson.Gson;
 import com.model.App;
-
-import vn.loitp.utils.util.AppUtils;
+import com.utils.util.AppUtils;
 
 /**
  * File created on 11/15/2016.

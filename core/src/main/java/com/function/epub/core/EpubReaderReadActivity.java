@@ -44,9 +44,9 @@ import com.function.epub.model.BookInfo;
 import com.function.epub.model.BookInfoData;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.utils.util.ConvertUtils;
 
 import loitp.core.R;
-import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 

@@ -12,12 +12,12 @@ import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
 
 public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
     private ViewPager viewPager;

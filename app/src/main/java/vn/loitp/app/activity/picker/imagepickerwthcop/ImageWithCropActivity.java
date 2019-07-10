@@ -19,11 +19,11 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.picker.imagepickerwithcrop.PickerBuilder;
+import com.utils.util.AppUtils;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.LToast;
 
 public class ImageWithCropActivity extends BaseFontActivity {

@@ -20,13 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
+import com.utils.util.ConvertUtils;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import loitp.core.R;
-import vn.loitp.utils.util.ConvertUtils;
 
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
     private ArrayList<String> thumbsDataList = new ArrayList<>();
