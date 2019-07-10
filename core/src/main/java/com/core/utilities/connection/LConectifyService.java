@@ -10,8 +10,7 @@ import android.os.Build;
 
 import com.core.utilities.LConnectivityUtil;
 import com.core.utilities.LLog;
-
-import vn.loitp.data.EventBusData;
+import com.data.EventBusData;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class LConectifyService extends JobService implements ConnectivityReceiver.ConnectivityReceiverListener {

@@ -3,6 +3,8 @@ package vn.loitp.app.app
 import androidx.multidex.MultiDexApplication
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
+import com.data.ActivityData
+import com.data.AdmobData
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.firebase.messaging.FirebaseMessaging
@@ -10,8 +12,6 @@ import com.google.gson.Gson
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
-import vn.loitp.data.ActivityData
-import vn.loitp.data.AdmobData
 import vn.loitp.utils.util.Utils
 
 //TODO bug database ->  read sqlite  asset

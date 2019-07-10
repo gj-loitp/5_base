@@ -7,8 +7,8 @@ import android.content.res.Configuration
 import android.view.View
 import android.view.WindowManager
 import com.core.common.Constants
+import com.data.ActivityData
 import loitp.core.R
-import vn.loitp.data.ActivityData
 
 /**
  * Created by www.muathu@gmail.com on 1/3/2018.

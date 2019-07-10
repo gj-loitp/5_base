@@ -28,6 +28,7 @@ import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.core.utilities.connection.LConectifyService;
+import com.data.EventBusData;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.greenrobot.eventbus.EventBus;
@@ -36,7 +37,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import io.reactivex.disposables.CompositeDisposable;
 import loitp.core.R;
-import vn.loitp.data.EventBusData;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 
 //animation https://github.com/dkmeteor/SmoothTransition

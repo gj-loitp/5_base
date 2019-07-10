@@ -1,4 +1,4 @@
-package vn.loitp.data
+package com.data
 
 import com.core.utilities.LLog
 
