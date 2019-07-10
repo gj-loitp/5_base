@@ -3,15 +3,14 @@ package vn.loitp.app.activity.customviews.dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
 import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
 

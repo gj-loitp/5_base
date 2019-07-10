@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
@@ -13,8 +15,6 @@ import java.io.File;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 //https://github.com/Piasy/BigImageViewer

@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.core.utilities.LImageUtil;
+
 import loitp.core.R;
-import vn.loitp.core.utilities.LImageUtil;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

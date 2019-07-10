@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.exo.PlayerManager;
 
 public class ExoPlayerActivity3 extends BaseFontActivity {

@@ -4,17 +4,14 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LLog
+import com.core.utilities.LPopupMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LLog
-import vn.loitp.core.utilities.LPopupMenu
 import vn.loitp.views.LAppBarLayout
 import vn.loitp.views.LToast
 

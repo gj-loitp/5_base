@@ -4,10 +4,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.core.utilities.LLog;
+
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.infinite.LoadMore;

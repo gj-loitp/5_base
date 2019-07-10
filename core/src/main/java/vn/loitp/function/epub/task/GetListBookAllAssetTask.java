@@ -3,6 +3,8 @@ package vn.loitp.function.epub.task;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LPref;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -14,8 +16,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.epub.Reader;
 import vn.loitp.function.epub.exception.ReadingException;
 import vn.loitp.function.epub.model.BookInfo;

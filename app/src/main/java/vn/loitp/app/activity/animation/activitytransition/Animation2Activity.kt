@@ -3,9 +3,8 @@ package vn.loitp.app.activity.animation.activitytransition
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.core.base.BaseFontActivity
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class Animation2Activity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

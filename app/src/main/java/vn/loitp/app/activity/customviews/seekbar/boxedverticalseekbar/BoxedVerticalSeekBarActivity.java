@@ -4,12 +4,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.seekbar.boxedverticalseekbar.BoxedVertical;
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291

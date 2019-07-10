@@ -2,16 +2,18 @@ package vn.loitp.app.activity.animation.shadowviewhelper;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.core.view.ViewCompat;
+
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.shadowviewhelper.ShadowProperty;
 import vn.loitp.views.shadowviewhelper.ShadowViewDrawable;
 
-import static vn.loitp.core.utilities.LDisplayUtils.dip2px;
+import static com.core.utilities.LDisplayUtils.dip2px;
 
 //https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 public class ShadowViewHelperActivity extends BaseFontActivity {

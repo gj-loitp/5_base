@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.core.base.BaseFontActivity
+import com.core.utilities.LLog
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LLog
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoMotionLayoutActivity : BaseFontActivity() {

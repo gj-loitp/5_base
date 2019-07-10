@@ -5,8 +5,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.core.base.BaseActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.layout.floatdraglayout.FloatDragLayout;

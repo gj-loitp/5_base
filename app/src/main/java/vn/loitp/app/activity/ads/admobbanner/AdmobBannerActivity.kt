@@ -2,13 +2,11 @@ package vn.loitp.app.activity.ads.admobbanner
 
 import android.os.Bundle
 import android.widget.TextView
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LStoreUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdView
-
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LStoreUtil
-import vn.loitp.core.utilities.LUIUtil
 
 class AdmobBannerActivity : BaseFontActivity() {
     private var adView: AdView? = null

@@ -3,12 +3,12 @@ package vn.loitp.app.activity.customviews.lcardview;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LAnimationUtil;
 import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LAnimationUtil;
 import vn.loitp.views.card.LCardView;
 
 public class LCardViewActivity extends BaseFontActivity {

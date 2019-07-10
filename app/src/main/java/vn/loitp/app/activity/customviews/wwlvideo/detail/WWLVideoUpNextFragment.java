@@ -3,19 +3,21 @@ package vn.loitp.app.activity.customviews.wwlvideo.detail;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.core.base.BaseFragment;
 import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 
 /**

@@ -2,8 +2,9 @@ package vn.loitp.app.activity.customviews.textview.zoomtextview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class ZoomTextViewActivity extends BaseFontActivity {
     @Override

@@ -3,9 +3,10 @@ package vn.loitp.app.activity.animation.overscroll;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
 
 public class OverScrollActivity extends BaseFontActivity {
 

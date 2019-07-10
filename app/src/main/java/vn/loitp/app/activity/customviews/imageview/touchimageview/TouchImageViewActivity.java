@@ -2,10 +2,11 @@ package vn.loitp.app.activity.customviews.imageview.touchimageview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
 //note when use with glide, must have placeholder

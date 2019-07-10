@@ -3,10 +3,11 @@ package vn.loitp.app.activity.customviews.button.buttonloading;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.button.buttonloading.ButtonLoading;
 
 //https://github.com/rasoulmiri/ButtonLoading

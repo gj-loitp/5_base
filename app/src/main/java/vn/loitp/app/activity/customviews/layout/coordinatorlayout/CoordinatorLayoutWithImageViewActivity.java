@@ -2,12 +2,13 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.graphics.Matrix;
 import android.os.Bundle;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 

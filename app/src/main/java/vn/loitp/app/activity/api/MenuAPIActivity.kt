@@ -3,12 +3,12 @@ package vn.loitp.app.activity.api
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 import vn.loitp.restapi.restclient.RestClient
 
 class MenuAPIActivity : BaseFontActivity() {

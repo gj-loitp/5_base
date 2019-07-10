@@ -16,8 +16,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
 
+import com.core.utilities.LLog;
+
 import loitp.core.R;
-import vn.loitp.core.utilities.LLog;
 
 public class ShineButton extends PorterShapeImageView {
     private static final String TAG = ShineButton.class.getSimpleName();

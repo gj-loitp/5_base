@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 

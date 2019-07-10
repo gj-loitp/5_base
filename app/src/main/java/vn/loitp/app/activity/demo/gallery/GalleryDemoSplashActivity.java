@@ -3,10 +3,11 @@ package vn.loitp.app.activity.demo.gallery;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.restapi.restclient.RestClient;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 

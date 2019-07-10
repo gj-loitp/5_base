@@ -3,12 +3,11 @@ package vn.loitp.app.activity.tutorial
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 

@@ -9,17 +9,17 @@ import android.widget.TextView;
 import androidx.core.widget.NestedScrollView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LAnimationUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal.VGReVHorizontal;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewvertical.VGReVVertical;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 
 public class FilmDemoActivity extends BaseFontActivity implements View.OnClickListener {

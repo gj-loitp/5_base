@@ -8,14 +8,14 @@ import android.os.StrictMode;
 import android.widget.ImageView;
 
 import com.asksira.bsimagepicker.BSImagePicker;
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LPickerUtil;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPickerUtil;
 
 //https://github.com/siralam/BSImagePicker
 public class BSImagePickerActivity extends BaseFontActivity implements BSImagePicker.OnSingleImageSelectedListener, BSImagePicker.OnMultiImageSelectedListener {

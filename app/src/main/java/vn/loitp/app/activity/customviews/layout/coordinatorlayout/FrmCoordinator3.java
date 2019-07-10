@@ -1,14 +1,14 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
 
 public class FrmCoordinator3 extends BaseFragment {
     @Override

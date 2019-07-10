@@ -9,13 +9,14 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.viewpager.parrallaxviewpager.Mode;
 import vn.loitp.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 

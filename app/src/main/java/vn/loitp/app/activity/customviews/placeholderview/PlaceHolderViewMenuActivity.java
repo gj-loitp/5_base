@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
@@ -11,8 +14,6 @@ import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenew
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.AndroidNavigationDrawerActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe.AndroidTinderSwipeActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class PlaceHolderViewMenuActivity extends BaseFontActivity {
 

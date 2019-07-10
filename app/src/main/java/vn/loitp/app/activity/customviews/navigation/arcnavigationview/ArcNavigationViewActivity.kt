@@ -7,13 +7,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-
+import com.core.base.BaseFontActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var drawerLayout: DrawerLayout? = null

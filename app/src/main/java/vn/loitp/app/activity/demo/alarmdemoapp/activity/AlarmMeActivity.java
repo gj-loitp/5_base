@@ -30,14 +30,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class AlarmMeActivity extends BaseFontActivity {
     private ListView mAlarmList;

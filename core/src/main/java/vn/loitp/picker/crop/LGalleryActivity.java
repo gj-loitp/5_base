@@ -12,18 +12,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LImageUtil;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import loitp.core.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LImageUtil;
 import vn.loitp.utils.util.ConvertUtils;
 
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {

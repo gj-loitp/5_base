@@ -8,12 +8,13 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
+import com.core.utilities.LLog;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

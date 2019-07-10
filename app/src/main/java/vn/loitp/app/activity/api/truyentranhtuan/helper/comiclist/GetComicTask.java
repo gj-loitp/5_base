@@ -3,6 +3,9 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,8 +19,6 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 /**

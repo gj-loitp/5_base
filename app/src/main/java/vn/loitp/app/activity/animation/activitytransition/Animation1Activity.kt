@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.core.base.BaseFontActivity
+import com.core.common.Constants
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.common.Constants
-import vn.loitp.core.utilities.LActivityUtil
 import vn.loitp.data.ActivityData
 
 class Animation1Activity : BaseFontActivity(), OnClickListener {

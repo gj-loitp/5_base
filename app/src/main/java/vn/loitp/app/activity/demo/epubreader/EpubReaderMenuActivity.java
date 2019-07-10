@@ -6,14 +6,15 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LReaderUtil;
+import com.core.utilities.LUIUtil;
+
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LReaderUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.model.BookInfo;
 import vn.loitp.function.epub.task.GetListBookAllAssetTask;
 import vn.loitp.function.epub.task.GetListBookFromDeviceAndAssetTask;

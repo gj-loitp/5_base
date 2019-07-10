@@ -3,11 +3,11 @@ package vn.loitp.app.activity.tutorial.retrofit2
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.core.base.BaseFontActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 import vn.loitp.restapi.restclient.RestClient2
 import vn.loitp.views.LToast
 import java.util.*

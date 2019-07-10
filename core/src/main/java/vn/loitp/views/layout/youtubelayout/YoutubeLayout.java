@@ -10,8 +10,9 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
+import com.core.utilities.LLog;
+
 import loitp.core.R;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by loitp on 4/22/2018.

@@ -3,7 +3,8 @@ package vn.loitp.app.activity.animation
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
@@ -17,8 +18,6 @@ import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity
 import vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 

@@ -1,13 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar;
 
 import android.os.Bundle;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.core.base.BaseFontActivity;
+import com.google.android.material.snackbar.Snackbar;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class FabAndSnackbarActivity extends BaseFontActivity {
     private Button mShowSnackbarButton;

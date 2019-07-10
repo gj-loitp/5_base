@@ -3,6 +3,8 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.favlist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -10,8 +12,6 @@ import java.util.List;
 
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 /**

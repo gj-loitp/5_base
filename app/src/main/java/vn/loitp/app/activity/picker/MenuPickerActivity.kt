@@ -3,13 +3,12 @@ package vn.loitp.app.activity.picker
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 

@@ -7,8 +7,9 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
 import vn.loitp.views.menu.residemenu.ResideMenu;
 
 /**

@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity;
@@ -19,8 +22,6 @@ import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.Scrol
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class ImageViewMenuActivity extends BaseFontActivity implements OnClickListener {
 

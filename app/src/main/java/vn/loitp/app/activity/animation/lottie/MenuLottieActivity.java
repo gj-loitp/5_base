@@ -11,6 +11,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
@@ -18,8 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 
 //https://www.lottiefiles.com/?page=1
 public class MenuLottieActivity extends BaseFontActivity {
@@ -37,7 +37,7 @@ public class MenuLottieActivity extends BaseFontActivity {
         viewPager.setAdapter(slidePagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {

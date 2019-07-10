@@ -3,9 +3,6 @@ package vn.loitp.app.activity.animation.basictransitionactivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,9 +11,14 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class SceneTransitionBasicActivity extends BaseFontActivity implements AdapterView.OnItemClickListener {
     private GridView mGridView;

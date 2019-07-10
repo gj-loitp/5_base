@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LAnimationUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
 
 import java.util.ArrayList;
@@ -14,10 +18,6 @@ import java.util.EnumSet;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class AnimationViewActivity extends BaseFontActivity {
     private TextView tvAnim;

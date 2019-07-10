@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 

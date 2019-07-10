@@ -5,13 +5,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import io.reactivex.Flowable;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class FlowableExampleActivity extends BaseFontActivity {

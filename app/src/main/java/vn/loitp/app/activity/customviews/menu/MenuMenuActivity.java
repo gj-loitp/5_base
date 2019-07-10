@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuMenuActivity extends BaseFontActivity implements OnClickListener {
 

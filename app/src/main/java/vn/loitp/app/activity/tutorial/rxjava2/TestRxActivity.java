@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.statusbar.LThreadUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -24,9 +27,6 @@ import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.statusbar.LThreadUtil;
 
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
 public class TestRxActivity extends BaseFontActivity implements View.OnClickListener {

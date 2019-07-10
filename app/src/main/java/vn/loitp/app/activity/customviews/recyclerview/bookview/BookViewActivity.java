@@ -5,13 +5,14 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class BookViewActivity extends BaseFontActivity {

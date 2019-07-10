@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.widget.ImageView;
 
-import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LStoreUtil;
+import com.core.utilities.LDeviceUtil;
+import com.core.utilities.LStoreUtil;
 
 /**
  * Utility class with simple utility functions

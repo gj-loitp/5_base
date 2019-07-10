@@ -9,9 +9,10 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.recolor.OnReColorFinish;
 import vn.loitp.function.recolor.ReColor;
 

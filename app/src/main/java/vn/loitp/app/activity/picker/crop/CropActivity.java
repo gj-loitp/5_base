@@ -7,6 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -17,12 +23,7 @@ import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
 
-import androidx.annotation.Nullable;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.picker.crop.CropImage;
 import vn.loitp.picker.crop.CropImageView;
 import vn.loitp.picker.crop.LGalleryActivity;

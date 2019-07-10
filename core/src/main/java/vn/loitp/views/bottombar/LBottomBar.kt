@@ -8,9 +8,9 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.core.utilities.LAnimationUtil
 import com.daimajia.androidanimations.library.Techniques
 import loitp.core.R
-import vn.loitp.core.utilities.LAnimationUtil
 import vn.loitp.views.realtimeblurview.RealtimeBlurView
 
 /**

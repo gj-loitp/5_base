@@ -12,6 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.core.base.BaseFragment;
+import com.core.utilities.LConnectivityUtil;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LPref;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,11 +24,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LConnectivityUtil;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPref;
 import vn.loitp.function.youtubeparser.Parser;
 import vn.loitp.function.youtubeparser.models.videos.Video;
 import vn.loitp.views.LToast;

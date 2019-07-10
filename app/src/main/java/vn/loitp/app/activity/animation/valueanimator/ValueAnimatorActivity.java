@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 public class ValueAnimatorActivity extends BaseFontActivity {

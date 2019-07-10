@@ -4,9 +4,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.Ariana;
 import vn.loitp.views.ariana.GradientAngle;
 

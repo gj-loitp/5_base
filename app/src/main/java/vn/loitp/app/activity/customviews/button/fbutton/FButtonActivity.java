@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.button.fbutton;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
 //guide https://github.com/hoang8f/android-flat-button

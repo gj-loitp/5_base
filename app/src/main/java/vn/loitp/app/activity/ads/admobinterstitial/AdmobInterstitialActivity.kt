@@ -2,13 +2,11 @@ package vn.loitp.app.activity.ads.admobinterstitial
 
 import android.os.Bundle
 import android.widget.TextView
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LStoreUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.InterstitialAd
-
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LStoreUtil
-import vn.loitp.core.utilities.LUIUtil
 
 class AdmobInterstitialActivity : BaseFontActivity() {
     private var interstitialAd: InterstitialAd? = null

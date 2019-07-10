@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Surface;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -32,8 +34,6 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class VideoActivity extends BaseFontActivity implements VideoRendererEventListener {
     private SimpleExoPlayerView simpleExoPlayerView;

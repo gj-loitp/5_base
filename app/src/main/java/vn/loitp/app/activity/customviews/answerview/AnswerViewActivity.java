@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.answerview;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.answerview.AnswerView;
 

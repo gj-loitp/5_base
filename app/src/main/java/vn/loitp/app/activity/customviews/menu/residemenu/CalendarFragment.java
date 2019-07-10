@@ -9,10 +9,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+
 import java.util.ArrayList;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
 
 /**
  * User: special

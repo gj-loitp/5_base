@@ -21,13 +21,13 @@ package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
 
+import com.core.utilities.LLog;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import vn.loitp.core.utilities.LLog;
 
 public class DataSource {
     private static final String TAG = "AlarmMeActivity";

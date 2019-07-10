@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class ButterKnifeActivity extends BaseFontActivity {

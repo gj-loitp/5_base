@@ -8,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -21,9 +24,6 @@ import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;

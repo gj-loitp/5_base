@@ -38,14 +38,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class EditAlarmActivity extends BaseFontActivity {
     private EditText mTitle;

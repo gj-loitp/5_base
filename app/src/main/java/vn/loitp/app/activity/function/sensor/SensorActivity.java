@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class SensorActivity extends BaseFontActivity {

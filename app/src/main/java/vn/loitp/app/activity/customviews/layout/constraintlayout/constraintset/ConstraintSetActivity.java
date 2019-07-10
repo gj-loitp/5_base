@@ -2,13 +2,15 @@ package vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import android.transition.TransitionManager;
 import android.view.View;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class ConstraintSetActivity extends BaseFontActivity {
     private static final String SHOW_BIG_IMAGE = "showBigImage";

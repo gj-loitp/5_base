@@ -3,14 +3,14 @@ package vn.loitp.app.activity.database.readsqliteasset;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.io.IOException;
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class ReadSqliteAssetActivity extends BaseFontActivity {
     private VocabularyManager vocabularyManager;

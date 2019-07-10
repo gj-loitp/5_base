@@ -2,17 +2,17 @@ package vn.loitp.app.activity.customviews.layout.motionlayout
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CompoundButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.CompoundButton
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_motion_layout.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExample2Activity
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExampleActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity2
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class MenuMotionLayoutActivity : BaseFontActivity(), CompoundButton.OnCheckedChangeListener {
     override fun setFullScreen(): Boolean {

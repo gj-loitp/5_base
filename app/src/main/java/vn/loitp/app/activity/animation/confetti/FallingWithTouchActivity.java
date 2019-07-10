@@ -6,12 +6,13 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.animation.confetti.ConfettiManager;
 import vn.loitp.views.animation.confetti.ConfettiSource;
 import vn.loitp.views.animation.confetti.ConfettoGenerator;

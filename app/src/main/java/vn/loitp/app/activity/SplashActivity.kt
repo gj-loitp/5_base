@@ -6,6 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.TextView
+import com.core.base.BaseFontActivity
+import com.core.utilities.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -15,8 +17,6 @@ import loitp.basemaster.BuildConfig
 import loitp.basemaster.R
 import okhttp3.*
 import vn.loitp.app.app.LSApplication
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.*
 import vn.loitp.interfaces.GGSettingCallback
 import vn.loitp.model.App
 import java.io.IOException

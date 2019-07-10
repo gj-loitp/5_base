@@ -5,17 +5,14 @@ package vn.loitp.app.activity.animation.expectanim;
  */
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
-
 import android.view.View;
 
-import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import static vn.loitp.function.expectanim.core.Expectations.height;
-import static vn.loitp.function.expectanim.core.Expectations.scale;
+import com.core.base.BaseFragment;
+
+import loitp.basemaster.R;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

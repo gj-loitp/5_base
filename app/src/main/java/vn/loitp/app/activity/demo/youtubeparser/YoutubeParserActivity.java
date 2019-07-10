@@ -2,9 +2,10 @@ package vn.loitp.app.activity.demo.youtubeparser;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.function.youtubeparser.ui.FrmYoutubeParser;
 
 public class YoutubeParserActivity extends BaseFontActivity {

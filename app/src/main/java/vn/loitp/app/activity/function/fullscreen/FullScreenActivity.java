@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.dialog.imersivedialog.ImmersiveDialogFragment;
 
 public class FullScreenActivity extends BaseFontActivity implements View.OnClickListener {

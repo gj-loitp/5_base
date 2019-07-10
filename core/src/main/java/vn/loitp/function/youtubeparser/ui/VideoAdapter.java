@@ -11,15 +11,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.function.youtubeparser.models.videos.Video;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {

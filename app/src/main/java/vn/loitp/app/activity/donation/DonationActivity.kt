@@ -1,11 +1,10 @@
 package vn.loitp.app.activity.donation
 
 import android.os.Bundle
-
+import com.core.base.BaseFontActivity
+import com.core.loitp.donate.FrmDonate
+import com.core.utilities.LScreenUtil
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.loitp.donate.FrmDonate
-import vn.loitp.core.utilities.LScreenUtil
 
 class DonationActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

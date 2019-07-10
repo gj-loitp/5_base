@@ -6,8 +6,9 @@ import android.view.Display;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.function.simplefingergestures.SimpleFingerGestures;
 
 public class SimpleFingerGesturesActivity extends BaseFontActivity {

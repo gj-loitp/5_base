@@ -12,15 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.core.common.Constants;
+import com.core.utilities.LDeviceUtil;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 

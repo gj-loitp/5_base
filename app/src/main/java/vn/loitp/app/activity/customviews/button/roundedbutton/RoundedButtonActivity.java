@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.button.roundedbutton;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class RoundedButtonActivity extends BaseFontActivity {

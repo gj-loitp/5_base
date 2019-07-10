@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity;
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
@@ -12,8 +15,6 @@ import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivi
 import vn.loitp.app.activity.demo.firebase.databasesimple.DatabaseSimpleFirebaseActivity;
 import vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity;
 import vn.loitp.app.activity.demo.firebase.invite.InviteFirebaseActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 //https://github.com/firebase/quickstart-android
 public class MenuFirebaseActivity extends BaseFontActivity implements View.OnClickListener {

@@ -37,15 +37,16 @@ import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LLog;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
 
 public class AlarmNotification extends BaseFontActivity {
     private Ringtone mRingtone;

@@ -2,9 +2,10 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 public class CoordinatorLayoutSampleActivity extends BaseFontActivity {

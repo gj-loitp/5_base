@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.core.base.BaseFontActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
@@ -14,7 +15,6 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 //https://github.com/firebase/quickstart-android

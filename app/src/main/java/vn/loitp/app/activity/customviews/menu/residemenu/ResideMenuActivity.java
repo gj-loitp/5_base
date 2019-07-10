@@ -10,8 +10,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.menu.residemenu.ResideMenu;
 import vn.loitp.views.menu.residemenu.ResideMenuItem;

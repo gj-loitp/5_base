@@ -16,12 +16,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by thangn on 3/1/17.

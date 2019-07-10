@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LSoundUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LSoundUtil;
 
 public class SoundActivity extends BaseFontActivity implements OnClickListener {
     @Override

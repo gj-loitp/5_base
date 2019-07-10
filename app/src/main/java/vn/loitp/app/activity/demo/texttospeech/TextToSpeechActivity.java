@@ -8,9 +8,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LTextToSpeechUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LTextToSpeechUtil;
 
 public class TextToSpeechActivity extends BaseFontActivity implements OnClickListener {
     private EditText etType;

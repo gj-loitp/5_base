@@ -1,13 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
 
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {

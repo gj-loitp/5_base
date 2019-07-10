@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -13,8 +16,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class IntervalExampleActivity extends BaseFontActivity {

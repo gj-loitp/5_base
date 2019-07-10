@@ -6,9 +6,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.ldebugview.ComunicateDebug;
 import vn.loitp.views.ldebugview.LDebug;
 

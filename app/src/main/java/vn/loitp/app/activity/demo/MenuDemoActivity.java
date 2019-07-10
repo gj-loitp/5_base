@@ -4,6 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.loitp.gallery.GalleryCoreSplashActivity;
+import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity;
+import com.core.loitp.gallery.member.GalleryMemberActivity;
+import com.core.utilities.LActivityUtil;
+
 import java.util.ArrayList;
 
 import loitp.basemaster.R;
@@ -22,12 +29,6 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity;
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1;
 import vn.loitp.app.activity.demo.video.VideoActivity;
 import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity;
-import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity;
-import vn.loitp.core.loitp.gallery.member.GalleryMemberActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDemoActivity extends BaseFontActivity implements View.OnClickListener {
 

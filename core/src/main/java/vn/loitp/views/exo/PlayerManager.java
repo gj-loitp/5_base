@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -35,9 +38,6 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.utils.util.AppUtils;
 
 public final class PlayerManager implements AdsMediaSource.MediaSourceFactory {

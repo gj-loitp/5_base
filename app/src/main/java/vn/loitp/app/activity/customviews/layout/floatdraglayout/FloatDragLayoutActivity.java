@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
 import vn.loitp.views.layout.floatdraglayout.FloatDragLayout;

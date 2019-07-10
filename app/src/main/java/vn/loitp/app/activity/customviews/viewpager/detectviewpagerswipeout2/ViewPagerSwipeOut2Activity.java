@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
@@ -40,7 +40,7 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override

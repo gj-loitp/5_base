@@ -6,13 +6,15 @@ package vn.loitp.app.activity.animation.expectanim;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
 import vn.loitp.function.expectanim.ExpectAnim;
 
 import static vn.loitp.function.expectanim.core.Expectations.aboveOf;

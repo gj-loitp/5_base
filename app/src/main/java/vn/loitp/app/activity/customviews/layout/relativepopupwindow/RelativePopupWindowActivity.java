@@ -2,14 +2,14 @@ package vn.loitp.app.activity.customviews.layout.relativepopupwindow;
 
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.layout.relativepopupwindow.RelativePopupWindow;
 
 public class RelativePopupWindowActivity extends BaseFontActivity {

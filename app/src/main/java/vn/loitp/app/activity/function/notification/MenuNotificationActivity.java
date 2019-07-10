@@ -7,11 +7,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+
 import java.util.Arrays;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.function.notification.Notti;
 import vn.loitp.function.notification.NottiFactory;
 import vn.loitp.function.notification.actions.ContentAction;

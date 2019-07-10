@@ -7,13 +7,13 @@ package vn.loitp.app.activity.demo.firebase.fcm;
 import android.content.Intent;
 import android.graphics.Color;
 
+import com.core.common.Constants;
+import com.core.utilities.LLog;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.SplashActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.function.notification.Notti;
 import vn.loitp.function.notification.NottiFactory;
 import vn.loitp.function.notification.actions.ContentAction;

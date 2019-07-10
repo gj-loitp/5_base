@@ -2,7 +2,8 @@ package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton;
 
 import android.os.Bundle;
 
-import vn.loitp.core.base.BaseFontActivity;
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
 import vn.loitp.utils.util.ToastUtils;
 import vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle;

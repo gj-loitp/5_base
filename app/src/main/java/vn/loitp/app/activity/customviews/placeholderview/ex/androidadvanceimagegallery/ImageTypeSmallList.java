@@ -1,11 +1,14 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery;
 
 import android.content.Context;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.core.utilities.LUIUtil;
+
 import java.util.List;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.placeholderview.lib.placeholderview.Animation;
 import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Animate;

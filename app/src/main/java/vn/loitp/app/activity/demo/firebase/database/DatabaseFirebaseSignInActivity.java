@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
+import com.core.utilities.LLog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {

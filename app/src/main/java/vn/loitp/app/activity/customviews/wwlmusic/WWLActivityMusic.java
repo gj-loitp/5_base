@@ -2,14 +2,15 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
-import vn.loitp.views.wwlmusic.layout.WWLMusic;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
+import vn.loitp.views.wwlmusic.layout.WWLMusic;
 import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
-import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 

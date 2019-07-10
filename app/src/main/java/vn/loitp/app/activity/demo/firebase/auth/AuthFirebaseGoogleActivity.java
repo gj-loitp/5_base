@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,10 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 //https://github.com/firebase/quickstart-android
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {

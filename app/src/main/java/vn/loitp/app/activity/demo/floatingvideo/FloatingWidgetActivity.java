@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class FloatingWidgetActivity extends BaseFontActivity {

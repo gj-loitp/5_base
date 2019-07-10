@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity;
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class SeekbarMenuActivity extends BaseFontActivity implements View.OnClickListener {
 

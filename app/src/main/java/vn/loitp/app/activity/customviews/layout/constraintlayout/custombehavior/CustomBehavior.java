@@ -7,7 +7,8 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import vn.loitp.core.utilities.LLog;
+import com.core.utilities.LLog;
+
 import vn.loitp.views.imageview.circleimageview.lib.LCircleImageView;
 
 /**

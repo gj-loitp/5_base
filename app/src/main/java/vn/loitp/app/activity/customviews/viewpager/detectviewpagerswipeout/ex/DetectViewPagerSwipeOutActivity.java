@@ -7,15 +7,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.core.base.BaseFontActivity;
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.utils.util.ToastUtils;
 
 public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {

@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.more
 
 import android.os.Bundle
+import com.core.base.BaseFontActivity
+import com.core.loitp.more.FrmMore
+import com.core.utilities.LScreenUtil
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.loitp.more.FrmMore
-import vn.loitp.core.utilities.LScreenUtil
 
 class MoreActivity : BaseFontActivity() {
 

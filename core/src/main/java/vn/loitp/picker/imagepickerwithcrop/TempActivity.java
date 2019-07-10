@@ -5,7 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import vn.loitp.core.base.BaseFontActivity;
+
+import com.core.base.BaseFontActivity;
 
 import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 

@@ -1,6 +1,6 @@
 package vn.loitp.data
 
-import vn.loitp.core.common.Constants
+import com.core.common.Constants
 
 /**
  * Created by www.muathu@gmail.com on 1/4/2018.

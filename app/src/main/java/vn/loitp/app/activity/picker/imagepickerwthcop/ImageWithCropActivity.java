@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LLog;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -16,11 +21,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
-import androidx.core.content.ContextCompat;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.picker.imagepickerwithcrop.PickerBuilder;
 import vn.loitp.utils.util.AppUtils;
 import vn.loitp.views.LToast;

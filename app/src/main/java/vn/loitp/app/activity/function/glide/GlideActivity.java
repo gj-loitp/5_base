@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class GlideActivity extends BaseFontActivity implements View.OnClickListener {
     private ImageView iv;

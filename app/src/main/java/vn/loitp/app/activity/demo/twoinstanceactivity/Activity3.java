@@ -10,12 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class Activity3 extends BaseFontActivity {
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 2084;

@@ -16,8 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.core.utilities.LUIUtil;
+
 import loitp.core.R;
-import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by mJafarinejad on 8/15/2017.

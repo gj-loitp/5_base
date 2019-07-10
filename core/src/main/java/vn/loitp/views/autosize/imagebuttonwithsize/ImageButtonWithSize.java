@@ -5,7 +5,8 @@ import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 
-import vn.loitp.core.utilities.LLog;
+import com.core.utilities.LLog;
+
 import vn.loitp.utils.util.ConvertUtils;
 import vn.loitp.utils.util.ScreenUtils;
 

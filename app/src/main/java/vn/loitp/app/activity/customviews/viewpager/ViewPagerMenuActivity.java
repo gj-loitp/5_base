@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
@@ -12,8 +15,6 @@ import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableVie
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class ViewPagerMenuActivity extends BaseFontActivity implements View.OnClickListener {
 

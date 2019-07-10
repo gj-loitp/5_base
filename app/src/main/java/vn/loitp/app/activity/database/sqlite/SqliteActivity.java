@@ -5,12 +5,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.utils.util.ToastUtils;
 
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {

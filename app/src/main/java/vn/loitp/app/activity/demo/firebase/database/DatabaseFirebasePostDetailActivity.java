@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.utilities.LLog;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +27,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Comment;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {

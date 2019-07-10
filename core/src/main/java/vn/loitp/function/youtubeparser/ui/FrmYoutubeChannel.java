@@ -12,6 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFragment;
+import com.core.common.Constants;
+import com.core.utilities.LLog;
+import com.core.utilities.LPref;
+import com.core.utilities.LUIUtil;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -24,11 +29,6 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPref;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.youtubeparser.models.utubechannel.UItem;
 import vn.loitp.function.youtubeparser.models.utubechannel.UtubeChannel;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;

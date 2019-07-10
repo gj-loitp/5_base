@@ -8,9 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

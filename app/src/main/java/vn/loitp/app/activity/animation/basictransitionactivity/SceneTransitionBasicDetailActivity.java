@@ -2,14 +2,16 @@ package vn.loitp.app.activity.animation.basictransitionactivity;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import android.transition.Transition;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.view.ViewCompat;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class SceneTransitionBasicDetailActivity extends BaseFontActivity {
 

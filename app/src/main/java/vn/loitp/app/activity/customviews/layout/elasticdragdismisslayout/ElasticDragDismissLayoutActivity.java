@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback;
 import vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout;
 

@@ -6,8 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.button.goodview.GoodView;
 
 //https://github.com/venshine/GoodView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3854

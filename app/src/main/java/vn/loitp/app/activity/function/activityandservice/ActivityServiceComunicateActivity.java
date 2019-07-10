@@ -9,12 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.LToast;
 
 public class ActivityServiceComunicateActivity extends BaseFontActivity {

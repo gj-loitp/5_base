@@ -6,8 +6,9 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class AutoFitTextViewActivity extends BaseFontActivity {
     private TextView mOutput, mAutofitOutput;

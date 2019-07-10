@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.textview.circletextview;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.textview.circletextview.CircleTextView;
 
 public class CircleTextViewActivity extends BaseFontActivity {

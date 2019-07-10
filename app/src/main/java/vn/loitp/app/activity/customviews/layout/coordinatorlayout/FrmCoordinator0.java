@@ -1,7 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
 
 public class FrmCoordinator0 extends BaseFragment {
     @Override

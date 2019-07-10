@@ -1,15 +1,17 @@
 package vn.loitp.app.activity.customviews.ariana.vp;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import android.widget.ImageView;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.ArianaBackgroundListener;
 
 //https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235

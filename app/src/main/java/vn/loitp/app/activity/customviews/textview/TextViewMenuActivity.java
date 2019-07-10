@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity;
@@ -19,8 +22,6 @@ import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentVie
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity;
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class TextViewMenuActivity extends BaseFontActivity implements OnClickListener {
 

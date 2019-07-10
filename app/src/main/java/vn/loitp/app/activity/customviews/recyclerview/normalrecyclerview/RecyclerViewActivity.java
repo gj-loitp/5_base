@@ -9,15 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LPopupMenu;
+import com.core.utilities.LUIUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPopupMenu;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;

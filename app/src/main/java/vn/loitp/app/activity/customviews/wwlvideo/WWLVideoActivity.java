@@ -5,14 +5,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.core.base.BaseActivity;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 import vn.loitp.views.wwlmusic.utils.WWLMusicViewHelper;
 import vn.loitp.views.wwlvideo.layout.WWLVideo;

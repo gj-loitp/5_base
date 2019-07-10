@@ -2,8 +2,9 @@ package vn.loitp.app.activity.customviews.layout.ripplelayout;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class RippleLayoutActivity extends BaseFontActivity {
 

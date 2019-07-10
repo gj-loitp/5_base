@@ -3,15 +3,12 @@ package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-
 import androidx.core.content.ContextCompat
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LStoreUtil
+import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LStoreUtil
-import vn.loitp.core.utilities.LUIUtil
 import vn.loitp.views.LToast
 import vn.loitp.views.bottombar.LBottomBar
 

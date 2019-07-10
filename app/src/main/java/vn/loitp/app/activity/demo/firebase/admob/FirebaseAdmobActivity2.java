@@ -2,8 +2,9 @@ package vn.loitp.app.activity.demo.firebase.admob;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class FirebaseAdmobActivity2 extends BaseFontActivity {
 

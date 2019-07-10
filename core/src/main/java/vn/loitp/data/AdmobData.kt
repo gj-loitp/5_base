@@ -1,6 +1,6 @@
 package vn.loitp.data
 
-import vn.loitp.core.utilities.LLog
+import com.core.utilities.LLog
 
 /**
  * Created by www.muathu@gmail.com on 12/26/2017.

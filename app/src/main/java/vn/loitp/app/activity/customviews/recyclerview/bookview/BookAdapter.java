@@ -5,7 +5,6 @@ package vn.loitp.app.activity.customviews.recyclerview.bookview;
  */
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LScreenUtil;
+import com.core.utilities.LUIUtil;
+
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolder> {
     private final String TAG = getClass().getSimpleName();

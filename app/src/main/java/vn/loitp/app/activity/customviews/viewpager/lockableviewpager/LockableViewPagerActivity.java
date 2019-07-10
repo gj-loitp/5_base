@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.viewpager.lockableviewpager.LockableViewPager;
 
 public class LockableViewPagerActivity extends BaseFontActivity {
@@ -26,7 +26,7 @@ public class LockableViewPagerActivity extends BaseFontActivity {
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 
         findViewById(R.id.bt_enable).setOnClickListener(new View.OnClickListener() {
             @Override

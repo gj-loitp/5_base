@@ -18,6 +18,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
+import com.core.base.BaseActivity;
+import com.core.utilities.LLog;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -45,8 +47,6 @@ import java.util.Date;
 
 import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class LocationActivity extends BaseActivity {

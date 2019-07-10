@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.treeview;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.treeview.BaseTreeAdapter;
 import vn.loitp.views.treeview.TreeNode;
 import vn.loitp.views.treeview.TreeView;

@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -19,8 +22,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.ApiUser;
 import vn.loitp.app.activity.tutorial.rxjava2.model.User;
 import vn.loitp.app.activity.tutorial.rxjava2.util.Utils;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class MapExampleActivity extends BaseFontActivity {

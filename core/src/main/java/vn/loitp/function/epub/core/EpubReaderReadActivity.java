@@ -26,19 +26,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LAnimationUtil;
+import com.core.utilities.LConnectivityUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LPref;
+import com.core.utilities.LReaderUtil;
+import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
 import loitp.core.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LConnectivityUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LPref;
-import vn.loitp.core.utilities.LReaderUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.function.epub.BookSection;
 import vn.loitp.function.epub.CssStatus;
 import vn.loitp.function.epub.Reader;

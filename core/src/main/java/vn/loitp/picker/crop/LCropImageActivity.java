@@ -28,12 +28,14 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import androidx.annotation.RequiresApi;
+
+import com.core.base.BaseFontActivity;
+
 import java.io.File;
 import java.io.IOException;
 
-import androidx.annotation.RequiresApi;
 import loitp.core.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 /**
  * Built-in activity for image cropping.<br>

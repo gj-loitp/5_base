@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.layout.dragueur;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.layout.dragueur.Direction;
 import vn.loitp.views.layout.dragueur.DraggableView;
 

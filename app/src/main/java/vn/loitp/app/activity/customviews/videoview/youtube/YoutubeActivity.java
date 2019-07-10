@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.videoview.youtube;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class YoutubeActivity extends BaseFontActivity {
 

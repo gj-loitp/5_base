@@ -2,9 +2,10 @@ package vn.loitp.app.activity.customviews.layout.rotatelayout;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDeviceUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class RotateLayoutActivity extends BaseFontActivity {

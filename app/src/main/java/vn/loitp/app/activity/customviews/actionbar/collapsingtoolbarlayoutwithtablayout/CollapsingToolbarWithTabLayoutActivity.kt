@@ -13,15 +13,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LPopupMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
-
 import loitp.basemaster.R
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LPopupMenu
 import vn.loitp.views.LToast
 
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
@@ -72,7 +70,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
         val tabLayout = findViewById<TabLayout>(R.id.tabs)
         tabLayout.setupWithViewPager(mViewPager)
-        changeTabsFont(tabLayout, vn.loitp.core.common.Constants.FONT_PATH)
+        changeTabsFont(tabLayout, com.core.common.Constants.FONT_PATH)
     }
 
     override fun setFullScreen(): Boolean {

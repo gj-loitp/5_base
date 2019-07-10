@@ -3,14 +3,15 @@ package vn.loitp.app.activity.api.truyentranhtuan;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIFavListActivity extends BaseFontActivity {

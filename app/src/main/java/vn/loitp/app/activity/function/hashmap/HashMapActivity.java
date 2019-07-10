@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.utils.util.ToastUtils;
 
 public class HashMapActivity extends BaseFontActivity implements View.OnClickListener {

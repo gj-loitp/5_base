@@ -1,12 +1,17 @@
 package vn.loitp.app.activity.api.retrofit2;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 
 import java.util.ArrayList;
 
@@ -14,9 +19,6 @@ import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class TestAPIRetrofit2Activity extends BaseFontActivity {
     private RecyclerView mRecyclerView;

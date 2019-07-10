@@ -3,12 +3,11 @@ package vn.loitp.app.activity.customviews.scratchview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
@@ -19,8 +22,6 @@ import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesA
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuFunctionActivity extends BaseFontActivity implements View.OnClickListener {
 

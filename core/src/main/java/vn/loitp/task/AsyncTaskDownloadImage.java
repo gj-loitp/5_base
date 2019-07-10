@@ -7,6 +7,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.core.utilities.LSoundUtil;
+import com.core.utilities.LStoreUtil;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,8 +19,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LSoundUtil;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.LToast;
 
 //TODO convert to rx

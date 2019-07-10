@@ -6,10 +6,9 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LDialogUtil
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LDialogUtil
 import vn.loitp.utils.util.ToastUtils
 
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {

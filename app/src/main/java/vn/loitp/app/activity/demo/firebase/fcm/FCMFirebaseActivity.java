@@ -3,11 +3,12 @@ package vn.loitp.app.activity.demo.firebase.fcm;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LFCMUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LFCMUtil;
 
 //https://docs.google.com/document/d/1LIkZgTWQB7FWVHUrc-ZrQaMVJkm6lbuMwirr1XCPwcA/edit
 public class FCMFirebaseActivity extends BaseFontActivity {

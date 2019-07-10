@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDeviceUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDeviceUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.layout.fixedgridlayout.FixedGridLayout;
 

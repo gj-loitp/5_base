@@ -3,8 +3,9 @@ package vn.loitp.app.activity.customviews.imageview.scrollparallaximageview;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalScaleStyle;
 import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.VerticalMovingStyle;

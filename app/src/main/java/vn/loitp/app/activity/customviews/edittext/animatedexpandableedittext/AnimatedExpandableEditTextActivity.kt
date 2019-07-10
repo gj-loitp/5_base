@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext
 
+import com.core.base.BaseFontActivity
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class AnimatedExpandableEditTextActivity : BaseFontActivity() {
 

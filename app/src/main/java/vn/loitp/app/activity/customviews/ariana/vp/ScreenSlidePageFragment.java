@@ -5,14 +5,16 @@ package vn.loitp.app.activity.customviews.ariana.vp;
  */
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
+import com.core.utilities.LStoreUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LStoreUtil;
 import vn.loitp.views.ariana.ArianaTextListener;
 import vn.loitp.views.ariana.GradientAngle;
 

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
+import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_motion_layout_fragment_example.*
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class MotionLayoutFragmentExample2Activity : BaseFontActivity(), View.OnClickListener, MotionLayout.TransitionListener {
     override fun setFullScreen(): Boolean {

@@ -14,9 +14,10 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();

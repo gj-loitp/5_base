@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.core.base.BaseFontActivity
+import com.core.utilities.LLog
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LLog
 import vn.loitp.views.navigationview.LTextNavigationView
 import java.util.*
 

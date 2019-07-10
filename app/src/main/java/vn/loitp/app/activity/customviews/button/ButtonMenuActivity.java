@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
@@ -14,8 +17,6 @@ import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
 import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity;
 import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity;
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class ButtonMenuActivity extends BaseFontActivity implements OnClickListener {
 

@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.core.utilities.LLog
 import loitp.core.R
-import vn.loitp.core.utilities.LLog
 import java.util.*
 
 object LToast {

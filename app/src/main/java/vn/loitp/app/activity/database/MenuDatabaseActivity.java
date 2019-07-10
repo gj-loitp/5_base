@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity;
 import vn.loitp.app.activity.database.realm.RealmActivity;
 import vn.loitp.app.activity.database.sqlite.SqliteActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDatabaseActivity extends BaseFontActivity implements OnClickListener {
     @Override

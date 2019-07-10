@@ -3,10 +3,11 @@ package vn.loitp.app.activity.customviews.imageview.circleimageview;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class CircleImageViewActivity extends BaseFontActivity {
 

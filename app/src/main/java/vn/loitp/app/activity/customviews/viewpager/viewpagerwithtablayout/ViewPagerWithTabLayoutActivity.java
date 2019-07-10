@@ -10,17 +10,17 @@ import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
 import vn.loitp.views.LToast;
 import vn.loitp.views.viewpager.viewpagertransformers.AccordionTransformer;
 import vn.loitp.views.viewpager.viewpagertransformers.BackgroundToForegroundTransformer;
@@ -57,7 +57,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 
         findViewById(R.id.bt_anim).setOnClickListener(new View.OnClickListener() {
             @Override

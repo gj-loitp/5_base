@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.animation.basictransitionfrm;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/googlesamples/android-BasicTransition/#readme
 public class BasicTransitionActivity extends BaseFontActivity {

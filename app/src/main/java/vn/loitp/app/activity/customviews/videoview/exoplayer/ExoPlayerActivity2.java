@@ -4,12 +4,12 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 import vn.loitp.views.exo.PlayerManager;
 
 //custom UI exo_playback_control_view.xml

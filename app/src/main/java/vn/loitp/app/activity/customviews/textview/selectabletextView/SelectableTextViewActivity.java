@@ -5,8 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.views.textview.selectabletextview.SelectableListener;
 import vn.loitp.views.textview.selectabletextview.SelectableView;
 

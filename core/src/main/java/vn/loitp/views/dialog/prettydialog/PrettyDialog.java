@@ -10,8 +10,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatDialog;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,11 +23,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatDialog;
+import androidx.core.content.ContextCompat;
+
+import com.core.utilities.LUIUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.core.utilities.LUIUtil;
 
 /**
  * Created by mJafarinejad on 8/15/2017.

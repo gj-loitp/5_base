@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 import vn.loitp.views.LToast;
 
 public class BottomSheetMenuActivity extends BaseFontActivity {

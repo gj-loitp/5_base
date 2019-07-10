@@ -2,10 +2,10 @@ package vn.loitp.app.activity.customviews.dialog.customprogressdialog
 
 import android.os.Bundle
 import android.view.View
+import com.core.base.BaseFontActivity
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LUIUtil
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LDialogUtil
-import vn.loitp.core.utilities.LUIUtil
 
 class CustomProgressDialoglActivity : BaseFontActivity() {
 

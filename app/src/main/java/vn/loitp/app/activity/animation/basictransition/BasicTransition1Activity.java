@@ -6,10 +6,11 @@ import android.widget.TextView;
 
 import androidx.core.view.ViewCompat;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class BasicTransition1Activity extends BaseFontActivity {
     public static final String IV = "iv";

@@ -1,13 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior;
 
 import android.os.Bundle;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.core.base.BaseFontActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class CustomBehaviorActivity extends BaseFontActivity {
     private FloatingActionButton mShowFabButton;

@@ -2,11 +2,12 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyFrm;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyFrm;
-import vn.loitp.core.utilities.LScreenUtil;
 
 public class FlicrkFrmActivity extends BaseFontActivity {
 

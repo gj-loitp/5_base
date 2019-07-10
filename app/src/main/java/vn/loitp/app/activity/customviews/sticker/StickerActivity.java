@@ -3,7 +3,8 @@ package vn.loitp.app.activity.customviews.sticker;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import vn.loitp.core.base.BaseFontActivity;
+import com.core.base.BaseFontActivity;
+
 import loitp.basemaster.R;
 import vn.loitp.views.sticker.lib.StickerImageView;
 import vn.loitp.views.sticker.lib.StickerTextView;
