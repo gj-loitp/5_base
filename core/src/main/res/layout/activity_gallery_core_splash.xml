@@ -12,7 +12,7 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
-    <!--<vn.loitp.views.realtimeblurview.RealtimeBlurView
+    <!--<com.views.realtimeblurview.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_5"
@@ -40,7 +40,7 @@
                 android:textColor="@color/White"
                 android:textSize="@dimen/txt_14" />
 
-            <vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+            <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
                 android:id="@+id/avi"
                 style="@style/AVLoadingIndicatorView"
                 android:layout_width="@dimen/w_40"

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
+import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
+import com.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalScaleStyle;
+import com.views.imageview.scrollparallaximageview.parallaxstyle.VerticalMovingStyle;
 
 import loitp.basemaster.R;
-import vn.loitp.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
-import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.HorizontalScaleStyle;
-import vn.loitp.views.imageview.scrollparallaximageview.parallaxstyle.VerticalMovingStyle;
 
 //https://github.com/gjiazhe/ScrollParallaxImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4759
 public class ScrollParallaxImageViewActivity extends BaseFontActivity {

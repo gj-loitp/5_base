@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.views.LToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Comment;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.views.LToast;
 
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 

@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.button.lbutton.LButton;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.button.lbutton.LButton;
 
 public class LButtonActivity extends BaseFontActivity implements OnClickListener {
 

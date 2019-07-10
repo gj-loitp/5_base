@@ -52,7 +52,7 @@
                 android:text="Viewgroup 1" />
         </LinearLayout>
 
-        <vn.loitp.views.scrollview.LHorizontalScrollView
+        <com.views.scrollview.LHorizontalScrollView
             android:id="@+id/vg_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,9 +67,9 @@
                 android:layout_height="match_parent"
                 android:background="@color/LightCyan"
                 android:orientation="horizontal" />
-        </vn.loitp.views.scrollview.LHorizontalScrollView>
+        </com.views.scrollview.LHorizontalScrollView>
 
-        <vn.loitp.views.scrollview.LScrollView
+        <com.views.scrollview.LScrollView
             android:id="@+id/vg_3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -83,9 +83,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
-        </vn.loitp.views.scrollview.LScrollView>
+        </com.views.scrollview.LScrollView>
 
-        <vn.loitp.views.scrollview.TwoDScrollView
+        <com.views.scrollview.TwoDScrollView
             android:id="@+id/vg_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -97,7 +97,7 @@
                 android:id="@+id/rl_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-        </vn.loitp.views.scrollview.TwoDScrollView>
+        </com.views.scrollview.TwoDScrollView>
     </RelativeLayout>
 
     <ProgressBar

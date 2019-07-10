@@ -4,10 +4,10 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.views.layout.draggablepanel.DraggableListener;
+import com.views.layout.draggablepanel.DraggableView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.draggablepanel.DraggableListener;
-import vn.loitp.views.layout.draggablepanel.DraggableView;
 
 public class DraggableViewActivity extends BaseFontActivity {
     private DraggableView draggableView;

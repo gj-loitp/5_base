@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.core.utilities.LSoundUtil;
 import com.core.utilities.LStoreUtil;
+import com.views.LToast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,7 +20,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import loitp.core.R;
-import vn.loitp.views.LToast;
 
 //TODO convert to rx
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {

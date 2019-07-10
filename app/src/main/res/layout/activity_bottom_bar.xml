@@ -117,7 +117,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <vn.loitp.views.bottombar.LBottomBar
+    <com.views.bottombar.LBottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

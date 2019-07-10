@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 
 import com.core.base.BaseFontActivity;
+import com.views.textview.circletextview.CircleTextView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.textview.circletextview.CircleTextView;
 
 public class CircleTextViewActivity extends BaseFontActivity {
     @Override

@@ -13,10 +13,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.core.utilities.LStoreUtil;
+import com.views.ariana.ArianaTextListener;
+import com.views.ariana.GradientAngle;
 
 import loitp.basemaster.R;
-import vn.loitp.views.ariana.ArianaTextListener;
-import vn.loitp.views.ariana.GradientAngle;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -11,9 +11,9 @@ import com.core.utilities.LLog
 import com.core.utilities.LPopupMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.views.LAppBarLayout
+import com.views.LToast
 import loitp.basemaster.R
-import vn.loitp.views.LAppBarLayout
-import vn.loitp.views.LToast
 
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 

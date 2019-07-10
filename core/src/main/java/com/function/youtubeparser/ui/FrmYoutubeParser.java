@@ -20,14 +20,14 @@ import com.core.utilities.LPref;
 import com.function.youtubeparser.Parser;
 import com.function.youtubeparser.models.videos.Video;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.views.LToast;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 import loitp.core.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 
 //https://www.slickremix.com/docs/get-api-key-for-youtube/
 public class FrmYoutubeParser extends BaseFragment {

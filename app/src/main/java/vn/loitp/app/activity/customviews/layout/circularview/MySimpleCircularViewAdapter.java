@@ -1,8 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.circularview;
 
+import com.views.layout.circularview.Marker;
+import com.views.layout.circularview.SimpleCircularViewAdapter;
+
 import loitp.basemaster.R;
-import vn.loitp.views.layout.circularview.Marker;
-import vn.loitp.views.layout.circularview.SimpleCircularViewAdapter;
 
 /**
  * Created by LENOVO on 2/28/2018.

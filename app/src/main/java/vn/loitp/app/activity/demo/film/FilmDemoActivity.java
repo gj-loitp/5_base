@@ -15,12 +15,12 @@ import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal.VGReVHorizontal;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewvertical.VGReVVertical;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
-import vn.loitp.views.LToast;
 
 public class FilmDemoActivity extends BaseFontActivity implements View.OnClickListener {
     private SwipeRefreshLayout swipeRefreshLayout;

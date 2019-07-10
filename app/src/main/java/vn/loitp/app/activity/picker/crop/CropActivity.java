@@ -22,12 +22,12 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.picker.crop.CropImage;
 import com.picker.crop.CropImageView;
 import com.picker.crop.LGalleryActivity;
+import com.views.LToast;
 import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;

@@ -7,11 +7,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
+import com.views.ldebugview.ComunicateDebug;
+import com.views.ldebugview.LDebug;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.ldebugview.ComunicateDebug;
-import vn.loitp.views.ldebugview.LDebug;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;

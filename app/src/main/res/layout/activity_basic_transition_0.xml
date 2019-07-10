@@ -11,7 +11,7 @@
         android:text="Activity 0"
         android:textSize="@dimen/txt_32" />
 
-    <vn.loitp.views.layout.squarelayout.SquareFrameLayout
+    <com.views.layout.squarelayout.SquareFrameLayout
         android:layout_width="@dimen/w_150"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_dummy">
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />
 
-    </vn.loitp.views.layout.squarelayout.SquareFrameLayout>
+    </com.views.layout.squarelayout.SquareFrameLayout>
 
     <TextView
         android:id="@+id/tv"

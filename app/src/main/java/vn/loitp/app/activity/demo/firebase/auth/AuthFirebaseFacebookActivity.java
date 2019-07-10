@@ -34,12 +34,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.views.LToast;
 
 import java.security.MessageDigest;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.views.LToast;
 
 //https://github.com/firebase/quickstart-android
 public class AuthFirebaseFacebookActivity extends BaseFontActivity implements View.OnClickListener {

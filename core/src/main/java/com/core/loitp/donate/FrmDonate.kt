@@ -7,10 +7,10 @@ import android.widget.ScrollView
 import android.widget.TextView
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
+import com.views.animation.confetti.CommonConfetti
+import com.views.animation.confetti.ConfettiManager
+import com.views.textview.textdecorator.lib.TextDecorator
 import loitp.core.R
-import vn.loitp.views.animation.confetti.CommonConfetti
-import vn.loitp.views.animation.confetti.ConfettiManager
-import vn.loitp.views.textview.textdecorator.lib.TextDecorator
 import java.util.*
 
 class FrmDonate : BaseFragment() {

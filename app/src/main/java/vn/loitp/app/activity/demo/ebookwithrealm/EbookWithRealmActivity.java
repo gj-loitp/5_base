@@ -16,6 +16,7 @@ import com.core.utilities.LPref;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.utils.util.ToastUtils;
+import com.views.LToast;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,6 @@ import vn.loitp.app.activity.demo.ebookwithrealm.adapters.BooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
-import vn.loitp.views.LToast;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 public class EbookWithRealmActivity extends BaseFontActivity {

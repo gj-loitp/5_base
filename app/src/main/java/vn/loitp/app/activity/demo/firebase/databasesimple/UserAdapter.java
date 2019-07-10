@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
+import com.views.imageview.circleimageview.lib.LCircleImageView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.imageview.circleimageview.lib.LCircleImageView;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private final String TAG = getClass().getSimpleName();

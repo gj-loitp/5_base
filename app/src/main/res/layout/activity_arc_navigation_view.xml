@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <vn.loitp.views.navigation.arcnavigationview.ArcNavigationView
+    <com.views.navigation.arcnavigationview.ArcNavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
         app:itemBackground="@android:color/white"
         app:menu="@menu/activity_main_drawer" />
 
-    <vn.loitp.views.navigation.arcnavigationview.ArcNavigationView
+    <com.views.navigation.arcnavigationview.ArcNavigationView
         android:id="@+id/nav_view_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

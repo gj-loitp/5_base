@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIFavListActivity extends BaseFontActivity {
     private TextView tv;

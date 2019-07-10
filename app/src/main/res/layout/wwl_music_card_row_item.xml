@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <vn.loitp.views.wwlmusic.layout.WWLMusicFixedAspectRatioRelativeLayout
+    <com.views.wwlmusic.layout.WWLMusicFixedAspectRatioRelativeLayout
         android:id="@+id/thumbnail_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -40,7 +40,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_22" />
 
-    </vn.loitp.views.wwlmusic.layout.WWLMusicFixedAspectRatioRelativeLayout>
+    </com.views.wwlmusic.layout.WWLMusicFixedAspectRatioRelativeLayout>
 
     <FrameLayout
         android:id="@+id/avatar_container"

@@ -15,12 +15,12 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LPopupMenu;
 import com.core.utilities.LUIUtil;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
 
 public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     private RecyclerView recyclerView;

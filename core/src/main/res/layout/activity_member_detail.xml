@@ -13,13 +13,13 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />-->
 
-    <!--<vn.loitp.views.realtimeblurview.RealtimeBlurView
+    <!--<com.views.realtimeblurview.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_50"
         app:realtimeOverlayColor="@color/black_65" />-->
 
-    <vn.loitp.views.imageview.touchimageview.lib.LTouchImageView
+    <com.views.imageview.touchimageview.lib.LTouchImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

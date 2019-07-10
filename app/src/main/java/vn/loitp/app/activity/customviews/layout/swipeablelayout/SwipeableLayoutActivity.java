@@ -8,12 +8,12 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LAnimationUtil;
 import com.core.utilities.LLog;
 import com.daimajia.androidanimations.library.Techniques;
+import com.views.layout.swipeablelayout.frame.SwipeableLayout;
+import com.views.layout.swipeablelayout.listener.LayoutShiftListener;
+import com.views.layout.swipeablelayout.listener.OnLayoutPercentageChangeListener;
+import com.views.layout.swipeablelayout.listener.OnLayoutSwipedListener;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.swipeablelayout.frame.SwipeableLayout;
-import vn.loitp.views.layout.swipeablelayout.listener.LayoutShiftListener;
-import vn.loitp.views.layout.swipeablelayout.listener.OnLayoutPercentageChangeListener;
-import vn.loitp.views.layout.swipeablelayout.listener.OnLayoutSwipedListener;
 
 //read more
 //https://github.com/ReginFell/SwipeableLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2729

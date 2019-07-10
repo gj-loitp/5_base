@@ -24,15 +24,15 @@ import com.restapi.flickr.FlickrConst;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.core.R;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
     private TextView tvTitle;

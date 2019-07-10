@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.answerview.AnswerView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.answerview.AnswerView;
 
 public class AnswerViewActivity extends BaseFontActivity {
 

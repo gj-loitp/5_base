@@ -23,7 +23,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+        <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
             android:id="@+id/avi"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"

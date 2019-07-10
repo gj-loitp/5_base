@@ -19,11 +19,11 @@ import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.io.File;
 
 import loitp.core.R;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();

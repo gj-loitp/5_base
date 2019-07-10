@@ -8,9 +8,9 @@ import android.provider.Settings;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;

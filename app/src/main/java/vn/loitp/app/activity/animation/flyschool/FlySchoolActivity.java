@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
+import com.views.animation.flyschool.ImgObject;
+import com.views.animation.flyschool.PATHS;
+import com.views.animation.flyschool.ShapeFlyer;
 
 import loitp.basemaster.R;
-import vn.loitp.views.animation.flyschool.ImgObject;
-import vn.loitp.views.animation.flyschool.PATHS;
-import vn.loitp.views.animation.flyschool.ShapeFlyer;
 
 //https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 public class FlySchoolActivity extends BaseFontActivity {

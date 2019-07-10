@@ -5,9 +5,9 @@ import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.utils.util.ToastUtils;
+import com.views.button.circularimageclick.CircularClickImageButton;
 
 import loitp.basemaster.R;
-import vn.loitp.views.button.circularimageclick.CircularClickImageButton;
 
 //guide https://github.com/hoang8f/android-flat-button
 public class CircularImageClickActivity extends BaseFontActivity {

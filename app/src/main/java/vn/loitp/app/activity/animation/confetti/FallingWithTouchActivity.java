@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
+import com.views.animation.confetti.ConfettiManager;
+import com.views.animation.confetti.ConfettiSource;
+import com.views.animation.confetti.ConfettoGenerator;
+import com.views.animation.confetti.confetto.BitmapConfetto;
+import com.views.animation.confetti.confetto.Confetto;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import loitp.basemaster.R;
-import vn.loitp.views.animation.confetti.ConfettiManager;
-import vn.loitp.views.animation.confetti.ConfettiSource;
-import vn.loitp.views.animation.confetti.ConfettoGenerator;
-import vn.loitp.views.animation.confetti.confetto.BitmapConfetto;
-import vn.loitp.views.animation.confetti.confetto.Confetto;
 
 //https://github.com/jinatonic/confetti
 public class FallingWithTouchActivity extends BaseFontActivity implements View.OnClickListener, ConfettoGenerator {

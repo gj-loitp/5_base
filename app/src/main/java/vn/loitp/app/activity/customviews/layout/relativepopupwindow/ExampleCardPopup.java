@@ -13,9 +13,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.views.LToast;
+import com.views.layout.relativepopupwindow.RelativePopupWindow;
+
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.relativepopupwindow.RelativePopupWindow;
 
 public class ExampleCardPopup extends RelativePopupWindow {
 

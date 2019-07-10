@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDeviceUtil;
+import com.views.layout.rotatelayout.RotateLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class RotateLayoutActivity extends BaseFontActivity {
 

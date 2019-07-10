@@ -4,10 +4,10 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
+import com.views.imageview.strectchyimageview.lib.LStretchyImageView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView;
 
 public class StrectchyImageViewActivity extends BaseFontActivity {
 

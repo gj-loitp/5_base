@@ -41,13 +41,13 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.views.LToast;
 
 import java.text.DateFormat;
 import java.util.Date;
 
 import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class LocationActivity extends BaseActivity {
     private TextView txtLocationResult;

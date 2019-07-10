@@ -1,4 +1,4 @@
-<vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draggable_frame"
     android:layout_width="match_parent"
@@ -44,4 +44,4 @@
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
-</vn.loitp.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout>
+</com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout>

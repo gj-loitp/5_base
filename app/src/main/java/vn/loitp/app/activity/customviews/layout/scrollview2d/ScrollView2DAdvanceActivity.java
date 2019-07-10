@@ -15,12 +15,12 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.views.LToast;
+import com.views.scrollview.LHorizontalScrollView;
+import com.views.scrollview.LScrollView;
+import com.views.scrollview.TwoDScrollView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.scrollview.LHorizontalScrollView;
-import vn.loitp.views.scrollview.LScrollView;
-import vn.loitp.views.scrollview.TwoDScrollView;
 
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;

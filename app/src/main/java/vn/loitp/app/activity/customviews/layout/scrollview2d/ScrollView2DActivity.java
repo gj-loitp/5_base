@@ -5,9 +5,9 @@ import android.os.Bundle;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.views.scrollview.TwoDScrollView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.scrollview.TwoDScrollView;
 
 public class ScrollView2DActivity extends BaseFontActivity {
 

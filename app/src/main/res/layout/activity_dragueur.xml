@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.layout.dragueur.DraggableView
+    <com.views.layout.dragueur.DraggableView
         android:id="@+id/dragueur"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_200">
@@ -15,9 +15,9 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
-    </vn.loitp.views.layout.dragueur.DraggableView>
+    </com.views.layout.dragueur.DraggableView>
 
-    <vn.loitp.views.layout.dragueur.DraggableView
+    <com.views.layout.dragueur.DraggableView
         android:layout_width="@dimen/w_100"
         android:layout_height="@dimen/w_100"
         android:layout_alignParentRight="true"
@@ -30,7 +30,7 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/logo" />
-    </vn.loitp.views.layout.dragueur.DraggableView>
+    </com.views.layout.dragueur.DraggableView>
 
     <TextView
         android:id="@+id/tv"

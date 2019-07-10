@@ -6,10 +6,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
+import com.views.textview.selectabletextview.SelectableListener;
+import com.views.textview.selectabletextview.SelectableView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.textview.selectabletextview.SelectableListener;
-import vn.loitp.views.textview.selectabletextview.SelectableView;
 
 public class SelectableTextViewActivity extends BaseFontActivity {
     private TextView emptyBoxBtn;

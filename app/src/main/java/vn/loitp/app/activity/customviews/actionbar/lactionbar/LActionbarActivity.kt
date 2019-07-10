@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
+import com.views.LToast
+import com.views.actionbar.LActionBar
 import loitp.basemaster.R
-import vn.loitp.views.LToast
-import vn.loitp.views.actionbar.LActionBar
 
 class LActionbarActivity : BaseFontActivity() {
 

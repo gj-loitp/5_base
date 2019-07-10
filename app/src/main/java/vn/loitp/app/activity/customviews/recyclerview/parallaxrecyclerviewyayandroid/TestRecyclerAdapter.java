@@ -15,9 +15,9 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
+import com.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
 import loitp.basemaster.R;
-import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.

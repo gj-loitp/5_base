@@ -6,12 +6,12 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ToastUtils;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIPageListActivity extends BaseFontActivity {
     private TextView tv;

@@ -6,9 +6,9 @@ import android.util.TypedValue
 import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
+import com.views.LToast
+import com.views.dialog.prettydialog.PrettyDialog
 import loitp.basemaster.R
-import vn.loitp.views.LToast
-import vn.loitp.views.dialog.prettydialog.PrettyDialog
 
 //https://github.com/mjn1369/PrettyDialog
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {

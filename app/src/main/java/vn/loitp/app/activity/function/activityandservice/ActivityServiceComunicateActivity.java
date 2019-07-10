@@ -10,13 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
-import vn.loitp.views.LToast;
 
 public class ActivityServiceComunicateActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;

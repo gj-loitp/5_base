@@ -9,6 +9,10 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.views.LToast;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import com.views.recyclerview.animator.animators.SlideInRightAnimator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +20,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

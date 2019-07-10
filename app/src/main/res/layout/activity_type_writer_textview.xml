@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
 
-            <vn.loitp.views.textview.typewritertextview.lib.TypeWriterTextView
+            <com.views.textview.typewritertextview.lib.TypeWriterTextView
                 android:id="@+id/tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

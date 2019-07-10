@@ -6,9 +6,9 @@ import android.widget.TextView;
 import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.views.button.buttonloading.ButtonLoading;
 
 import loitp.basemaster.R;
-import vn.loitp.views.button.buttonloading.ButtonLoading;
 
 //https://github.com/rasoulmiri/ButtonLoading
 //Note: Do not use the button in LinearLayout.

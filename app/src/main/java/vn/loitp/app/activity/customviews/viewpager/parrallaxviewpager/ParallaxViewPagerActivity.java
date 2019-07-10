@@ -12,13 +12,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
+import com.views.viewpager.parrallaxviewpager.Mode;
+import com.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.viewpager.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.ParallaxViewPager;
 
 public class ParallaxViewPagerActivity extends BaseFontActivity {
 

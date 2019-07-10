@@ -8,9 +8,9 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.core.base.BaseFontActivity;
+import com.views.layout.relativepopupwindow.RelativePopupWindow;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.relativepopupwindow.RelativePopupWindow;
 
 public class RelativePopupWindowActivity extends BaseFontActivity {
 

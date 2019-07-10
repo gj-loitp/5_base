@@ -6,9 +6,9 @@ import android.view.Window;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.views.layout.swipablelayout.SwipeableLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.swipablelayout.SwipeableLayout;
 
 //https://github.com/SerhatSurguvec/SwipableLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2666
 public class SwipableLayoutActivity extends BaseFontActivity {

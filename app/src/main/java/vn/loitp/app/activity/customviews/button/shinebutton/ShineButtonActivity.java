@@ -5,9 +5,9 @@ import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.utils.util.ToastUtils;
+import com.views.button.shinebutton.LShineView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.button.shinebutton.LShineView;
 
 public class ShineButtonActivity extends BaseFontActivity {
     private LShineView bt0;

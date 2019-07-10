@@ -12,9 +12,9 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class BottomSheetMenuActivity extends BaseFontActivity {
     private BottomSheetBehavior sheetBehavior;

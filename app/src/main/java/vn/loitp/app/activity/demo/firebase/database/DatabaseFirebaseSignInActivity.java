@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.views.LToast;
 
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;

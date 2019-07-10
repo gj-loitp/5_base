@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.treeview.TreeView
+    <com.views.treeview.TreeView
         android:id="@+id/treeview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,6 +13,6 @@
         app:line_color="@color/DeepPink"
         app:line_thickness="10dp">
 
-    </vn.loitp.views.treeview.TreeView>
+    </com.views.treeview.TreeView>
 </RelativeLayout>
 

@@ -9,11 +9,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
+import com.views.LToast;
+import com.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.views.LToast;
-import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
     private SwipeOutViewPager viewPager;

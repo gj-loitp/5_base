@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <vn.loitp.views.LAppBarLayout
+    <com.views.LAppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <vn.loitp.views.button.circularimageclick.CircularClickImageButton
+                    <com.views.button.circularimageclick.CircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
@@ -90,7 +90,7 @@
             android:background="@color/colorPrimary"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="bottom" />
-    </vn.loitp.views.LAppBarLayout>
+    </com.views.LAppBarLayout>
 
     <RelativeLayout
         android:id="@+id/root_view"

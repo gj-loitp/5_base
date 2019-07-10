@@ -5,13 +5,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.utils.util.ToastUtils;
+import com.views.placeholderview.lib.placeholderview.annotations.Click;
+import com.views.placeholderview.lib.placeholderview.annotations.Layout;
+import com.views.placeholderview.lib.placeholderview.annotations.Position;
+import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import com.views.placeholderview.lib.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Position;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by janisharali on 19/08/16.

@@ -6,10 +6,10 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.views.compass.Compass;
+import com.views.compass.CompassListener;
 
 import loitp.basemaster.R;
-import vn.loitp.views.compass.Compass;
-import vn.loitp.views.compass.CompassListener;
 
 //https://github.com/arbelkilani/Compass-View?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6973
 public class CompasActivity extends BaseFontActivity {

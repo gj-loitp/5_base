@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_autofit" />
 
-            <vn.loitp.views.textview.autofittextview.AutofitTextView
+            <com.views.textview.autofittextview.AutofitTextView
                 android:id="@+id/output_autofit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

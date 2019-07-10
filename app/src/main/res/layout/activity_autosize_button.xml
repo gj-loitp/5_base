@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rotate screen" />
 
-            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            <com.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/bt_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_heart" />
 
-            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            <com.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/bt_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_gift" />
 
-            <vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize
+            <com.views.autosize.imagebuttonwithsize.ImageButtonWithSize
                 android:id="@+id/bt_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

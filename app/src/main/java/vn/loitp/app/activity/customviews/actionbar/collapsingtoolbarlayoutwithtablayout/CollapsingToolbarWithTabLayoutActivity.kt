@@ -18,9 +18,9 @@ import com.core.utilities.LPopupMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
+import com.views.LToast
 import loitp.basemaster.R
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
-import vn.loitp.views.LToast
 
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
 

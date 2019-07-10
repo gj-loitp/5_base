@@ -29,10 +29,10 @@ import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.views.LToast;
+import com.views.actionbar.LActionBar;
 
 import loitp.core.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.actionbar.LActionBar;
 
 public class FacebookCommentActivity extends BaseFontActivity {
     private WebView mWebViewComments;

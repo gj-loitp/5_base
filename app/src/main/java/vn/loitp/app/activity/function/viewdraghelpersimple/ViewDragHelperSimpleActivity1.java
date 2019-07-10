@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements VDHView.Callback {
     private VDHView vdhv;

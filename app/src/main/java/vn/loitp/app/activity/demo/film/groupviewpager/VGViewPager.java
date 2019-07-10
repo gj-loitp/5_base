@@ -17,13 +17,13 @@ import com.core.utilities.LDeviceUtil;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
+import com.views.LToast;
+import com.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

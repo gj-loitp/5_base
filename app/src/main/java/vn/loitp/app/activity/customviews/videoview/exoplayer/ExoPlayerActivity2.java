@@ -8,9 +8,9 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.views.exo.PlayerManager;
 
 import loitp.basemaster.R;
-import vn.loitp.views.exo.PlayerManager;
 
 //custom UI exo_playback_control_view.xml
 public class ExoPlayerActivity2 extends BaseFontActivity {

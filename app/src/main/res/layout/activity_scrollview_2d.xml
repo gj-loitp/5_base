@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/White">
 
-    <vn.loitp.views.scrollview.TwoDScrollView
+    <com.views.scrollview.TwoDScrollView
         android:layout_width="match_parent"
         android:id="@+id/sv"
         android:layout_height="match_parent">
@@ -28,6 +28,6 @@
                 android:textSize="@dimen/txt_22"
                 tools:ignore="SpUsage" />
         </LinearLayout>
-    </vn.loitp.views.scrollview.TwoDScrollView>
+    </com.views.scrollview.TwoDScrollView>
 
 </RelativeLayout>

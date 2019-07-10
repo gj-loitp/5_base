@@ -7,10 +7,10 @@ import android.view.View.OnClickListener;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LScreenUtil;
+import com.views.LToast;
+import com.views.autosize.imagebuttonwithsize.ImageButtonWithSize;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize;
 
 public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickListener {
 

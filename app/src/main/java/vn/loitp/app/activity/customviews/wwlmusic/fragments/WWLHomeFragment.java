@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.base.BaseFragment;
+import com.views.wwlmusic.utils.WWLMusicUiUtil;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 
 /**
  * Created by thangn on 2/26/17.

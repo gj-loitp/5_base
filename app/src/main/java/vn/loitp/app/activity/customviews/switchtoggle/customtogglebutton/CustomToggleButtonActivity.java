@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.utils.util.ToastUtils;
+import com.views.switchtoggle.customtogglebutton.lib.CustomToggle;
 
 import loitp.basemaster.R;
-import vn.loitp.views.switchtoggle.customtogglebutton.lib.CustomToggle;
 
 public class CustomToggleButtonActivity extends BaseFontActivity {
 

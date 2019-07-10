@@ -7,11 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.core.base.BaseFontActivity;
+import com.views.treeview.BaseTreeAdapter;
+import com.views.treeview.TreeNode;
+import com.views.treeview.TreeView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.treeview.BaseTreeAdapter;
-import vn.loitp.views.treeview.TreeNode;
-import vn.loitp.views.treeview.TreeView;
 
 //https://github.com/Team-Blox/TreeView
 public class TreeViewActivity extends BaseFontActivity {

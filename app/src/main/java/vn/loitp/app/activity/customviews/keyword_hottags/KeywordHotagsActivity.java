@@ -5,9 +5,9 @@ import android.os.Bundle;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ToastUtils;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class KeywordHotagsActivity extends BaseFontActivity {
     private PlaceHolderView placeHolderView;

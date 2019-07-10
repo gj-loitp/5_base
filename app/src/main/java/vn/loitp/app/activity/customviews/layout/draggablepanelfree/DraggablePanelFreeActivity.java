@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
+import com.views.layout.draggablepanelfree.DraggablePanelFreeLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.draggablepanelfree.DraggablePanelFreeLayout;
 
 public class DraggablePanelFreeActivity extends BaseFontActivity {
     private DraggablePanelFreeLayout dpfl;

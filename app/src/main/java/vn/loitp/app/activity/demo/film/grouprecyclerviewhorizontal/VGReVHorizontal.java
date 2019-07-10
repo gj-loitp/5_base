@@ -4,13 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
+import com.views.LToast;
+import com.views.recyclerview.banner.BannerLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.banner.BannerLayout;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

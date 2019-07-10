@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vn.loitp.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,7 +46,7 @@
             android:textColor="@color/White"
             android:textSize="@dimen/txt_20" />
 
-        <vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+        <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
             android:id="@+id/av"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"
@@ -72,4 +72,4 @@
             app:elevation="@dimen/w_1"
             app:fabSize="normal" />
     </RelativeLayout>
-</vn.loitp.views.layout.swipeback.SwipeBackLayout>
+</com.views.layout.swipeback.SwipeBackLayout>

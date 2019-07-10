@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.scratchview.scratchviewtext
 import android.os.Bundle
 import android.widget.TextView
 import com.core.base.BaseFontActivity
+import com.views.scratchview.ScratchTextView
 import loitp.basemaster.R
-import vn.loitp.views.scratchview.ScratchTextView
 
 class ScratchViewTextActivity : BaseFontActivity() {
 

@@ -5,8 +5,8 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
+import com.views.LToast
 import loitp.basemaster.R
-import vn.loitp.views.LToast
 
 class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 

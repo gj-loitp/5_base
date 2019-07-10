@@ -6,9 +6,9 @@ import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LPopupMenu;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class PopupMenuActivity extends BaseFontActivity implements View.OnClickListener {
 

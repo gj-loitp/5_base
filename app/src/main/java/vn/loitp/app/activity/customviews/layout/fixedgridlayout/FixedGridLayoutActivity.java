@@ -7,10 +7,10 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDeviceUtil;
+import com.views.LToast;
+import com.views.layout.fixedgridlayout.FixedGridLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.fixedgridlayout.FixedGridLayout;
 
 public class FixedGridLayoutActivity extends BaseFontActivity {
 

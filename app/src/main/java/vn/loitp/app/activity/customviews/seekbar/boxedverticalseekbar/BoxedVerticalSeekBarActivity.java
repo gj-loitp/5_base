@@ -6,12 +6,12 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.views.seekbar.boxedverticalseekbar.BoxedVertical;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.seekbar.boxedverticalseekbar.BoxedVertical;
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 public class BoxedVerticalSeekBarActivity extends BaseFontActivity {

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
 
-    <vn.loitp.views.viewpager.lockableviewpager.LockableViewPager
+    <com.views.viewpager.lockableviewpager.LockableViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

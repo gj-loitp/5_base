@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
+import com.views.textview.typewritertextview.lib.TypeWriterTextView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.textview.typewritertextview.lib.TypeWriterTextView;
 
 public class TypeWriterTextViewActivity extends BaseFontActivity {
     @Override

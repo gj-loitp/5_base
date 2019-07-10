@@ -12,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,6 @@ import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimageg
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeBig;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.ImageTypeSmallList;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.Utils;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;

@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.views.recyclerview.banner.BannerLayout;
 
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.recyclerview.banner.BannerLayout;
 
 /**
  * Created by test on 2017/11/22.

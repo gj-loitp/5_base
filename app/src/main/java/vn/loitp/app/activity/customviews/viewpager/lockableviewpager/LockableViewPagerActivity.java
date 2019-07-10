@@ -10,10 +10,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
+import com.views.viewpager.lockableviewpager.LockableViewPager;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
-import vn.loitp.views.viewpager.lockableviewpager.LockableViewPager;
 
 public class LockableViewPagerActivity extends BaseFontActivity {
     private LockableViewPager viewPager;

@@ -8,9 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.core.base.BaseFragment;
+import com.views.menu.residemenu.ResideMenu;
 
 import loitp.basemaster.R;
-import vn.loitp.views.menu.residemenu.ResideMenu;
 
 /**
  * User: special

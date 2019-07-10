@@ -5,13 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.views.LToast;
+import com.views.scrollablepanel.PanelAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.scrollablepanel.PanelAdapter;
 
 /**
  * Created by kelin on 16-11-18.

@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,7 +20,6 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

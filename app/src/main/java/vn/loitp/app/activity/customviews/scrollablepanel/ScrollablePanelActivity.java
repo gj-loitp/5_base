@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.core.base.BaseFontActivity;
+import com.views.scrollablepanel.ScrollablePanel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,7 +15,6 @@ import java.util.Locale;
 import java.util.Random;
 
 import loitp.basemaster.R;
-import vn.loitp.views.scrollablepanel.ScrollablePanel;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
 public class ScrollablePanelActivity extends BaseFontActivity {

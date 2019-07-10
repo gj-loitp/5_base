@@ -13,15 +13,15 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LPopupMenu;
 import com.core.utilities.LUIUtil;
+import com.views.LToast;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 //https://github.com/wasabeef/recyclerview-animators
 public class RecyclerViewActivity extends BaseFontActivity {

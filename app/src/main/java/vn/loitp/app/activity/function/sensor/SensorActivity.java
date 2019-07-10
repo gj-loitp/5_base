@@ -12,10 +12,10 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
+import com.views.layout.rotatelayout.RotateLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class SensorActivity extends BaseFontActivity {
     private RotateLayout rotateLayout;

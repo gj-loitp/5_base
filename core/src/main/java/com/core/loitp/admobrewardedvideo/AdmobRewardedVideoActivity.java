@@ -14,9 +14,9 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.views.LToast;
 
 import loitp.core.R;
-import vn.loitp.views.LToast;
 
 public class AdmobRewardedVideoActivity extends BaseFontActivity implements RewardedVideoAdListener {
     private RewardedVideoAd mAd;

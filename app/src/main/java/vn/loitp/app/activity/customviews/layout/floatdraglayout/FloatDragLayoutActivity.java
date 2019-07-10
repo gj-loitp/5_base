@@ -9,12 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.layout.floatdraglayout.DisplayUtil;
+import com.views.layout.floatdraglayout.FloatDragLayout;
+import com.views.layout.floatdraglayout.FloatDragPopupWindow;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.layout.floatdraglayout.FloatDragLayout;
-import vn.loitp.views.layout.floatdraglayout.FloatDragPopupWindow;
 
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
 

@@ -7,13 +7,13 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ToastUtils;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.RemoveComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     private TextView tv;

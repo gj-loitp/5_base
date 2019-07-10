@@ -7,6 +7,9 @@ import android.widget.FrameLayout;
 
 import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
+import com.views.wwlmusic.utils.WWLMusicUiUtil;
+import com.views.wwlmusic.utils.WWLMusicViewHelper;
+import com.views.wwlvideo.layout.WWLVideo;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
@@ -14,9 +17,6 @@ import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
-import vn.loitp.views.wwlmusic.utils.WWLMusicViewHelper;
-import vn.loitp.views.wwlvideo.layout.WWLVideo;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener, FragmentHost {

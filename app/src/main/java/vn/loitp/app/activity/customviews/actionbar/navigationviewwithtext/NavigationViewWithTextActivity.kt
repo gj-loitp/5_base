@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.views.navigationview.LTextNavigationView
 import loitp.basemaster.R
-import vn.loitp.views.navigationview.LTextNavigationView
 import java.util.*
 
 class NavigationViewWithTextActivity : BaseFontActivity() {

@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
+import com.views.viewpager.autoviewpager.AutoViewPager;
 
 import loitp.basemaster.R;
-import vn.loitp.views.viewpager.autoviewpager.AutoViewPager;
 
 public class AutoViewPagerActivity extends BaseFontActivity {
 

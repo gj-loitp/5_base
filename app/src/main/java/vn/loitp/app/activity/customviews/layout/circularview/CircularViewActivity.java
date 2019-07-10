@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.layout.circularview;
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.layout.circularview.CircularView;
+import com.views.layout.circularview.Marker;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.circularview.CircularView;
-import vn.loitp.views.layout.circularview.Marker;
 
 //https://github.com/sababado/CircularView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=238
 public class CircularViewActivity extends BaseFontActivity {

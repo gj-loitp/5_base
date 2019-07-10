@@ -45,10 +45,10 @@ import com.function.epub.model.BookInfoData;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.utils.util.ConvertUtils;
+import com.views.LToast;
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 import loitp.core.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     private Reader reader = new Reader();

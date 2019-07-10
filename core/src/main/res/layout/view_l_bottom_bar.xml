@@ -5,7 +5,7 @@
 	android:layout_height="@dimen/w_60"
 	android:animateLayoutChanges="true">
 
-	<vn.loitp.views.realtimeblurview.RealtimeBlurView
+	<com.views.realtimeblurview.RealtimeBlurView
 		android:id="@+id/real_time_blur_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

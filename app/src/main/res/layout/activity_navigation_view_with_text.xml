@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <vn.loitp.views.navigationview.LTextNavigationView
+    <com.views.navigationview.LTextNavigationView
         android:id="@+id/nv"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />

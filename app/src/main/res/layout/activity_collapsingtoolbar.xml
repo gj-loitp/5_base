@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity">
 
-    <vn.loitp.views.LAppBarLayout
+    <com.views.LAppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_300"
@@ -68,7 +68,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <vn.loitp.views.button.circularimageclick.CircularClickImageButton
+                    <com.views.button.circularimageclick.CircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
@@ -84,7 +84,7 @@
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </vn.loitp.views.LAppBarLayout>
+    </com.views.LAppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

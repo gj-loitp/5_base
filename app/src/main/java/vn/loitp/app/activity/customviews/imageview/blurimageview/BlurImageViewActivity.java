@@ -5,9 +5,9 @@ import android.widget.ImageView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
+import com.views.imageview.blurimageview.lib.BlurImage;
 
 import loitp.basemaster.R;
-import vn.loitp.views.imageview.blurimageview.lib.BlurImage;
 
 public class BlurImageViewActivity extends BaseFontActivity {
 

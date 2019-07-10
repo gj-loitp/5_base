@@ -6,9 +6,9 @@ import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LScreenUtil;
+import com.views.dialog.imersivedialog.ImmersiveDialogFragment;
 
 import loitp.basemaster.R;
-import vn.loitp.views.dialog.imersivedialog.ImmersiveDialogFragment;
 
 public class FullScreenActivity extends BaseFontActivity implements View.OnClickListener {
 

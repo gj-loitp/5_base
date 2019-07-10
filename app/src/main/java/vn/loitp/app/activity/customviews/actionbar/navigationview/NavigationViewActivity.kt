@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import com.views.navigationview.LNavigationView
 import loitp.basemaster.R
-import vn.loitp.views.navigationview.LNavigationView
 import java.util.*
 
 class NavigationViewActivity : BaseFontActivity() {

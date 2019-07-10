@@ -16,29 +16,29 @@ import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
+import com.views.LToast;
+import com.views.viewpager.viewpagertransformers.AccordionTransformer;
+import com.views.viewpager.viewpagertransformers.BackgroundToForegroundTransformer;
+import com.views.viewpager.viewpagertransformers.CubeInTransformer;
+import com.views.viewpager.viewpagertransformers.CubeOutTransformer;
+import com.views.viewpager.viewpagertransformers.DefaultTransformer;
+import com.views.viewpager.viewpagertransformers.DepthPageTransformer;
+import com.views.viewpager.viewpagertransformers.DrawFromBackTransformer;
+import com.views.viewpager.viewpagertransformers.FlipHorizontalTransformer;
+import com.views.viewpager.viewpagertransformers.FlipVerticalTransformer;
+import com.views.viewpager.viewpagertransformers.ForegroundToBackgroundTransformer;
+import com.views.viewpager.viewpagertransformers.RotateDownTransformer;
+import com.views.viewpager.viewpagertransformers.RotateUpTransformer;
+import com.views.viewpager.viewpagertransformers.StackTransformer;
+import com.views.viewpager.viewpagertransformers.TabletTransformer;
+import com.views.viewpager.viewpagertransformers.ZoomInTransformer;
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
+import com.views.viewpager.viewpagertransformers.ZoomOutTranformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.viewpager.viewpagertransformers.AccordionTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.BackgroundToForegroundTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.CubeInTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.CubeOutTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.DefaultTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.DepthPageTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.DrawFromBackTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.FlipHorizontalTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.FlipVerticalTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.ForegroundToBackgroundTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.RotateDownTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.RotateUpTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.StackTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.TabletTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.ZoomInTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
-import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutTranformer;
 
 //https://github.com/geftimov/android-viewpager-transformers
 public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {

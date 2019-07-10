@@ -21,10 +21,10 @@ import com.core.utilities.LSocialUtil;
 import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
 import com.task.AsyncTaskDownloadImage;
+import com.views.layout.floatdraglayout.DisplayUtil;
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 import loitp.core.R;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private LinearLayout rlControl;

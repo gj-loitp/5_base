@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import androidx.core.view.ViewCompat;
 
 import com.core.base.BaseFontActivity;
+import com.views.shadowviewhelper.ShadowProperty;
+import com.views.shadowviewhelper.ShadowViewDrawable;
 
 import loitp.basemaster.R;
-import vn.loitp.views.shadowviewhelper.ShadowProperty;
-import vn.loitp.views.shadowviewhelper.ShadowViewDrawable;
 
 import static com.core.utilities.LDisplayUtils.dip2px;
 

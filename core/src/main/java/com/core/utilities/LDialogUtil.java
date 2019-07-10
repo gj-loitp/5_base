@@ -14,11 +14,12 @@ import android.widget.ProgressBar;
 
 import androidx.core.content.ContextCompat;
 
+import com.views.dialog.iosdialog.iOSDialog;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.core.R;
-import vn.loitp.views.dialog.iosdialog.iOSDialog;
 
 /**
  * Created by www.muathu@gmail.com on 12/29/2017.

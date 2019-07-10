@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.recyclerview.gallery.GalleryLayoutManager;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 
 //https://github.com/BCsl/GalleryLayoutManager
 public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {

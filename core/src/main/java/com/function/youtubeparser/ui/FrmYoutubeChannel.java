@@ -20,6 +20,8 @@ import com.core.utilities.LUIUtil;
 import com.function.youtubeparser.models.utubechannel.UItem;
 import com.function.youtubeparser.models.utubechannel.UtubeChannel;
 import com.google.gson.Gson;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,8 +33,6 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class FrmYoutubeChannel extends BaseFragment {
     private final String TAG = getClass().getSimpleName();

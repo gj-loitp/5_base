@@ -18,15 +18,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.views.LToast;
+import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
+import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import vn.loitp.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";

@@ -6,10 +6,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
+import com.views.textview.textdecorator.lib.OnTextClickListener;
+import com.views.textview.textdecorator.lib.TextDecorator;
 
 import loitp.basemaster.R;
-import vn.loitp.views.textview.textdecorator.lib.OnTextClickListener;
-import vn.loitp.views.textview.textdecorator.lib.TextDecorator;
 
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 public class TextDecoratorActivity extends BaseFontActivity {

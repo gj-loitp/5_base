@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.views.placeholderview.lib.placeholderview.annotations.Layout;
+import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import com.views.placeholderview.lib.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

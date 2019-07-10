@@ -18,7 +18,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <vn.loitp.views.imageview.circularroundrectimageview.lib.RoundedImage
+            <com.views.imageview.circularroundrectimageview.lib.RoundedImage
                 android:layout_width="270dp"
                 android:layout_height="270dp"
                 android:src="@drawable/iv"
@@ -28,7 +28,7 @@
                 app:shadow_color="#a10909"
                 app:shadow_radius="20" />
 
-            <vn.loitp.views.imageview.circularroundrectimageview.lib.RoundedImage
+            <com.views.imageview.circularroundrectimageview.lib.RoundedImage
                 android:layout_width="320dp"
                 android:layout_height="220dp"
                 android:layout_marginTop="@dimen/margin_30"

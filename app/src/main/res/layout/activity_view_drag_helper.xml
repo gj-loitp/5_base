@@ -18,7 +18,7 @@
                 android:text="@string/large_text" />
         </ScrollView>
 
-        <vn.loitp.views.layout.youtubelayout.YoutubeLayout
+        <com.views.layout.youtubelayout.YoutubeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -54,7 +54,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="35sp" />-->
 
-        </vn.loitp.views.layout.youtubelayout.YoutubeLayout>
+        </com.views.layout.youtubelayout.YoutubeLayout>
     </FrameLayout>
 </RelativeLayout>
 

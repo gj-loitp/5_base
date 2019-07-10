@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.core.base.BaseFontActivity;
+import com.views.sticker.lib.StickerImageView;
+import com.views.sticker.lib.StickerTextView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.sticker.lib.StickerImageView;
-import vn.loitp.views.sticker.lib.StickerTextView;
 
 public class StickerActivity extends BaseFontActivity {
 

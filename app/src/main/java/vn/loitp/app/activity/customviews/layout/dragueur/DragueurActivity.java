@@ -5,10 +5,10 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
+import com.views.layout.dragueur.Direction;
+import com.views.layout.dragueur.DraggableView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.dragueur.Direction;
-import vn.loitp.views.layout.dragueur.DraggableView;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
 public class DragueurActivity extends BaseFontActivity {

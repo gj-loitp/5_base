@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <vn.loitp.views.recyclerview.banner.BannerLayout
+            <com.views.recyclerview.banner.BannerLayout
                 android:id="@+id/recycler"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -32,7 +32,7 @@
                 android:layout_height="@dimen/w_1"
                 android:background="@color/LightGrey" />
 
-            <vn.loitp.views.recyclerview.banner.BannerLayout
+            <com.views.recyclerview.banner.BannerLayout
                 android:id="@+id/rv_banner_2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -49,7 +49,7 @@
                 android:layout_height="@dimen/w_1"
                 android:background="@color/LightGrey" />
 
-            <vn.loitp.views.recyclerview.banner.BannerLayout
+            <com.views.recyclerview.banner.BannerLayout
                 android:id="@+id/recycler_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"

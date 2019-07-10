@@ -7,9 +7,9 @@ import android.widget.RadioGroup;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
+import com.views.layout.swipeback.SwipeBackLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.views.layout.swipeback.SwipeBackLayout;
 
 //https://github.com/gongwen/SwipeBackLayout
 public class SwipeBackLayoutActivity extends BaseFontActivity {

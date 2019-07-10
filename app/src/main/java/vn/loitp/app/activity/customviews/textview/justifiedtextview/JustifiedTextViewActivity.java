@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
+import com.views.textview.justifiedtextview.JustifiedTextView;
 
 import loitp.basemaster.R;
-import vn.loitp.views.textview.justifiedtextview.JustifiedTextView;
 
 public class JustifiedTextViewActivity extends BaseFontActivity {
 
