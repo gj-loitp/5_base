@@ -1,3 +1,3 @@
-package vn.loitp.exception
+package com.exception
 
 class NoConnectionException : Exception("NoConnectionException")
