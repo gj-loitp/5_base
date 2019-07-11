@@ -375,6 +375,7 @@ Likewise may someone love you next.
     <string name="go_to_fn2">Go to FN2</string>
     <string name="fn2">FN2</string>
     <string name="go_to_fn3">Go to FN3</string>
+    <string name="go_to_fn4">Go to FN4</string>
     <string name="fn3">FN3</string>
     <string name="back_to_fn1">Back to FN1</string>
 </resources>

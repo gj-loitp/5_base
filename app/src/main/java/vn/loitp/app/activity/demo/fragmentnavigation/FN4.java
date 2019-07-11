@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.fragmentnavigation;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +11,11 @@ import com.core.utilities.LLog;
 
 import loitp.basemaster.R;
 
-public class FN1 extends BaseFragment implements OnBackPressedListener {
+
+public class FN4 extends BaseFragment implements OnBackPressedListener {
     private FragmentNavigationActivity fragmentNavigationActivity;
 
-    public FN1() {
-
+    public FN4() {
     }
 
     @Override
@@ -27,29 +26,22 @@ public class FN1 extends BaseFragment implements OnBackPressedListener {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.fn_1;
+        return R.layout.fn_4;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        final Button button = view.findViewById(R.id.button);
-        button.setOnClickListener(v -> {
-            fragmentNavigationActivity.getNavController().navigate(R.id.action_fn1_to_fn2);
-        });
-        view.findViewById(R.id.button_4).setOnClickListener(view1 -> {
-            fragmentNavigationActivity.getNavController().navigate(R.id.action_fn1_to_fn4);
-        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(fragmentNavigationActivity.T, "onResume FN1");
+        LLog.d(fragmentNavigationActivity.T, "onResume FN4");
     }
 
     @Override
     public void onBackPressed() {
-        LLog.d(fragmentNavigationActivity.T, "onBackPressed FN1");
+        LLog.d(fragmentNavigationActivity.T, "onBackPressed FN4");
         fragmentNavigationActivity.popThisFragment();
     }
 }
