@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-	<com.views.layout.squarelayout.SquareFrameLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+    <com.views.layout.squarelayout.SquareFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-		<ImageView
-			android:id="@+id/imageview_item"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:scaleType="centerCrop" />
-	</com.views.layout.squarelayout.SquareFrameLayout>
+        <ImageView
+            android:id="@+id/imageview_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+    </com.views.layout.squarelayout.SquareFrameLayout>
 
-	<TextView
-		android:id="@+id/textview_name"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:maxLines="1"
-		android:padding="16dp" />
+    <TextView
+        android:id="@+id/textview_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:padding="16dp" />
 </LinearLayout>
