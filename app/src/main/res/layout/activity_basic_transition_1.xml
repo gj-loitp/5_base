@@ -5,18 +5,19 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Activity 1"
+                android:text="@string/activity_1"
                 android:textSize="@dimen/txt_32" />
 
             <com.views.layout.squarelayout.SquareFrameLayout
@@ -27,6 +28,7 @@
                     android:id="@+id/imageview_item"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop" />
 
             </com.views.layout.squarelayout.SquareFrameLayout>
@@ -35,7 +37,7 @@
                 android:id="@+id/tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loitp"
+                android:text="@string/loitp"
                 android:textSize="@dimen/txt_32" />
 
             <TextView

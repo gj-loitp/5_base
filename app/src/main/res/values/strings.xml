@@ -381,4 +381,7 @@ Likewise may someone love you next.
     <string name="animation_will_appear_after_1s">Animation will appear after 1s</string>
     <string name="animation_none">Animation: None</string>
     <string name="select_animation">Select Animation</string>
+    <string name="activity_0">Activity 0</string>
+    <string name="loitp">Loitp</string>
+    <string name="activity_1">Activity 1</string>
 </resources>
