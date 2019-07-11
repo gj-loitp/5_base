@@ -47,4 +47,29 @@ public class FragmentNavigationActivity extends BaseFontActivity
     public NavController getNavController() {
         return Navigation.findNavController(activity, R.id.my_nav_host_fragment);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getNavController().getCurrentDestination() == null) {
+            LLog.d(T, "onBackPressed null");
+            super.onBackPressed();
+            return;
+        }
+        switch (getNavController().getCurrentDestination().getId()) {
+            case R.id.fn_1:
+                LLog.d(T, "onBackPressed fn_1");
+                super.onBackPressed();
+                break;
+            case R.id.fn_2:
+                LLog.d(T, "onBackPressed fn_2");
+                super.onBackPressed();
+                break;
+            case R.id.fn_3:
+                LLog.d(T, "onBackPressed fn_3");
+                super.onBackPressed();
+                break;
+            default:
+                super.onBackPressed();
+        }
+    }
 }
