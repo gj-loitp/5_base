@@ -384,4 +384,11 @@ Likewise may someone love you next.
     <string name="activity_0">Activity 0</string>
     <string name="loitp">Loitp</string>
     <string name="activity_1">Activity 1</string>
+    <string name="menu_confetti">Menu Confetti</string>
+    <string name="falling_confetti_from_top">Falling confetti from top</string>
+    <string name="falling_confetti_from_point">Falling confetti from point</string>
+    <string name="explosion">Explosion</string>
+    <string name="shimmering_confetti">Shimmering confetti</string>
+    <string name="falling_ice_flakes_with_touch">Falling ice flakes with touch</string>
+    <string name="falling_ice_flakes_with_listener">Falling ice flakes with listener</string>
 </resources>
