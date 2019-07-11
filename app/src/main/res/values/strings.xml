@@ -378,4 +378,7 @@ Likewise may someone love you next.
     <string name="go_to_fn4">Go to FN4</string>
     <string name="fn3">FN3</string>
     <string name="back_to_fn1">Back to FN1</string>
+    <string name="animation_will_appear_after_1s">Animation will appear after 1s</string>
+    <string name="animation_none">Animation: None</string>
+    <string name="select_animation">Select Animation</string>
 </resources>
