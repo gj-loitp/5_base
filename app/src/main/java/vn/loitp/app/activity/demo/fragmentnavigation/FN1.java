@@ -12,7 +12,7 @@ import com.core.utilities.LLog;
 
 import loitp.basemaster.R;
 
-public class FN1 extends BaseFragment {
+public class FN1 extends BaseFragment implements OnBackPressedListener {
     private FragmentNavigationActivity fragmentNavigationActivity;
 
     public FN1() {
@@ -42,5 +42,11 @@ public class FN1 extends BaseFragment {
     public void onResume() {
         super.onResume();
         LLog.d(fragmentNavigationActivity.T, "onResume FN1");
+    }
+
+    @Override
+    public void onBackPressed() {
+        LLog.d(fragmentNavigationActivity.T, "onBackPressed FN1");
+        fragmentNavigationActivity.popThisFragment();
     }
 }

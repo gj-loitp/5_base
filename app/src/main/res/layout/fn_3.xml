@@ -11,11 +11,17 @@
         android:layout_height="wrap_content"
         android:text="@string/fn3" />
 
-
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back_to_fn1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loitp" />
 
 </LinearLayout>

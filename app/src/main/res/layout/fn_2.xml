@@ -18,4 +18,16 @@
         android:layout_height="wrap_content"
         android:text="@string/go_to_fn3" />
 
+    <ScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_10"
+            android:text="@string/large_text" />
+    </ScrollView>
+
 </LinearLayout>

@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
@@ -41,14 +43,14 @@ public class FragmentNavigationActivity extends BaseFontActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         LLog.d(T, "onNavigationItemSelected " + menuItem.getTitle());
-        return false;
+        return true;
     }
 
     public NavController getNavController() {
         return Navigation.findNavController(activity, R.id.my_nav_host_fragment);
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         if (getNavController().getCurrentDestination() == null) {
             LLog.d(T, "onBackPressed null");
@@ -70,6 +72,28 @@ public class FragmentNavigationActivity extends BaseFontActivity
                 break;
             default:
                 super.onBackPressed();
+        }
+    }*/
+
+    @Override
+    public void onBackPressed() {
+        final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
+        if (navHostFragment == null) {
+            super.onBackPressed();
+            return;
+        }
+        final Fragment currentFragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
+        if (currentFragment instanceof OnBackPressedListener) {
+            ((OnBackPressedListener) currentFragment).onBackPressed();
+        }
+        /*else if (!getNavController().popBackStack()) {
+            super.onBackPressed();
+        }*/
+    }
+
+    public void popThisFragment() {
+        if (!getNavController().popBackStack()) {
+            super.onBackPressed();
         }
     }
 }
