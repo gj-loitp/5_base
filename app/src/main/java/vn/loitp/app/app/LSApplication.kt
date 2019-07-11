@@ -41,7 +41,7 @@ class LSApplication : MultiDexApplication() {
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)
         //config activity transition default
-        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
+        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
 
         //config realm
         val realmConfiguration = RealmConfiguration.Builder(this)
@@ -52,7 +52,7 @@ class LSApplication : MultiDexApplication() {
         Realm.setDefaultConfiguration(realmConfiguration)
 
         //config font
-        LUIUtil.setFontForAll(com.core.common.Constants.FONT_PATH)
+        LUIUtil.setFontForAll(Constants.FONT_PATH)
 
         //fcm
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC)

@@ -371,4 +371,10 @@ Likewise may someone love you next.
     <string name="get_photoset_list">Get Photoset List</string>
     <string name="get_photo_list_in_photoset">Get Photo List In Photoset</string>
     <string name="run_demo">Run Demo</string>
+    <string name="fn1">FN1</string>
+    <string name="go_to_fn2">Go to FN2</string>
+    <string name="fn2">FN2</string>
+    <string name="go_to_fn3">Go to FN3</string>
+    <string name="fn3">FN3</string>
+    <string name="back_to_fn1">Back to FN1</string>
 </resources>
