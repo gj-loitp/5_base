@@ -63,13 +63,16 @@ class FrmDonate : BaseFragment() {
                 //}, false, "porta", "commodo", "tempor venenatis nulla")
                 //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
-        goldDark = ContextCompat.getColor(context, R.color.gold_dark)
-        goldMed = ContextCompat.getColor(context, R.color.gold_med)
-        gold = ContextCompat.getColor(context, R.color.gold)
-        goldLight = ContextCompat.getColor(context, R.color.gold_light)
-        colorPrimary = ContextCompat.getColor(context, R.color.colorPrimary)
-        colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
-        LUIUtil.setDelay(500) { mls -> activeConfettiManagers.add(generateOnce()) }
+
+        context?.let {
+            goldDark = ContextCompat.getColor(it, R.color.gold_dark)
+            goldMed = ContextCompat.getColor(it, R.color.gold_med)
+            gold = ContextCompat.getColor(it, R.color.gold)
+            goldLight = ContextCompat.getColor(it, R.color.gold_light)
+            colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
+            colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
+        }
+        LUIUtil.setDelay(500) { activeConfettiManagers.add(generateOnce()) }
     }
 
     override fun setLayoutResourceId(): Int {

@@ -138,10 +138,10 @@ public class FrmYoutubeParser extends BaseFragment {
     }
 
     private void findViews() {
-        progressBar = frmRootView.findViewById(R.id.pb);
-        fab = frmRootView.findViewById(R.id.fab);
-        recyclerView = frmRootView.findViewById(R.id.rv);
-        swipeRefreshLayout = frmRootView.findViewById(R.id.swipe_refresh_layout);
+        progressBar = getFrmRootView().findViewById(R.id.pb);
+        fab = getFrmRootView().findViewById(R.id.fab);
+        recyclerView = getFrmRootView().findViewById(R.id.rv);
+        swipeRefreshLayout = getFrmRootView().findViewById(R.id.swipe_refresh_layout);
     }
 
     private void checkToShowWarningDialog() {

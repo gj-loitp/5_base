@@ -23,13 +23,13 @@ public class FrmMenu extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        frmRootView.findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
+        getFrmRootView().findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((ExpectAnimActivity) getActivity()).addFrm(new FrmScroll(), true);
             }
         });
-        frmRootView.findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+        getFrmRootView().findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((ExpectAnimActivity) getActivity()).addFrm(new FrmSample(), true);

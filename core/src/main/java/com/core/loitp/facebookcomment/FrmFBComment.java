@@ -165,7 +165,7 @@ public class FrmFBComment extends BaseFragment {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage cm) {
-            LLog.d(TAG, "onConsoleMessage: " + cm.message());
+            LLog.d(getTAG(), "onConsoleMessage: " + cm.message());
             return true;
         }
 

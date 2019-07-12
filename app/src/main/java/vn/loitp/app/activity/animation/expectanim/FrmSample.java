@@ -44,13 +44,13 @@ public class FrmSample extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        name = (View) frmRootView.findViewById(R.id.name);
-        avatar = (View) frmRootView.findViewById(R.id.avatar);
-        subname = (View) frmRootView.findViewById(R.id.subname);
-        follow = (View) frmRootView.findViewById(R.id.follow);
-        message = (View) frmRootView.findViewById(R.id.message);
-        bottomLayout = (View) frmRootView.findViewById(R.id.bottomLayout);
-        content = (View) frmRootView.findViewById(R.id.content);
+        name = (View) getFrmRootView().findViewById(R.id.name);
+        avatar = (View) getFrmRootView().findViewById(R.id.avatar);
+        subname = (View) getFrmRootView().findViewById(R.id.subname);
+        follow = (View) getFrmRootView().findViewById(R.id.follow);
+        message = (View) getFrmRootView().findViewById(R.id.message);
+        bottomLayout = (View) getFrmRootView().findViewById(R.id.bottomLayout);
+        content = (View) getFrmRootView().findViewById(R.id.content);
 
         new ExpectAnim()
                 .expect(bottomLayout)

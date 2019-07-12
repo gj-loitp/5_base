@@ -34,8 +34,8 @@ public class FrmPhoto extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         LLog.INSTANCE.d(TAG, "onViewCreated");
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) frmRootView.findViewById(R.id.tv);
-        RelativeLayout bkg = (RelativeLayout) frmRootView.findViewById(R.id.bkg);
+        TextView tv = (TextView) getFrmRootView().findViewById(R.id.tv);
+        RelativeLayout bkg = (RelativeLayout) getFrmRootView().findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
             VPPhoto vpPhoto = (VPPhoto) bundle.getSerializable("vpphoto");

@@ -33,9 +33,9 @@ public class WWLPlaylistFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
-        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
+        this.mTitleView = (TextView) getFrmRootView().findViewById(R.id.li_title);
+        this.mSubTitleView = (TextView) getFrmRootView().findViewById(R.id.li_subtitle);
+        this.mRecyclerView = (RecyclerView) getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new LinearLayoutManager(getActivity());
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         this.mRecyclerView.scrollToPosition(0);

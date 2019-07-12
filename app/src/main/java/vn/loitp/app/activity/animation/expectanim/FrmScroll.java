@@ -44,11 +44,11 @@ public class FrmScroll extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        username = (View) frmRootView.findViewById(R.id.username);
-        avatar = (View) frmRootView.findViewById(R.id.avatar);
-        follow = (View) frmRootView.findViewById(R.id.follow);
-        backbground = (View) frmRootView.findViewById(R.id.background);
-        scrollView = (NestedScrollView) frmRootView.findViewById(R.id.scrollview);
+        username = (View) getFrmRootView().findViewById(R.id.username);
+        avatar = (View) getFrmRootView().findViewById(R.id.avatar);
+        follow = (View) getFrmRootView().findViewById(R.id.follow);
+        backbground = (View) getFrmRootView().findViewById(R.id.background);
+        scrollView = (NestedScrollView) getFrmRootView().findViewById(R.id.scrollview);
 
         this.expectAnimMove = new ExpectAnim()
                 .expect(avatar)

@@ -9,8 +9,6 @@ import com.core.base.BaseFragment
 import loitp.basemaster.R
 
 class FrmDummy : BaseFragment() {
-    private val TAG = javaClass.simpleName
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val tv = frmRootView.findViewById<TextView>(R.id.tv)
         tv.text = "DUMMYYYYYYYYYYYYYYYYYYY"
