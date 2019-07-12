@@ -47,7 +47,7 @@ public class BigImageViewActivity extends BaseFontActivity {
 
             @Override
             public void onProgress(int progress) {
-                LLog.INSTANCE.d(TAG, "onProgress " + progress);
+                LLog.INSTANCE.d(getTAG(), "onProgress " + progress);
             }
 
             @Override
@@ -56,7 +56,7 @@ public class BigImageViewActivity extends BaseFontActivity {
 
             @Override
             public void onSuccess(File image) {
-                LLog.INSTANCE.d(TAG, "onSuccess");
+                LLog.INSTANCE.d(getTAG(), "onSuccess");
                 SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);

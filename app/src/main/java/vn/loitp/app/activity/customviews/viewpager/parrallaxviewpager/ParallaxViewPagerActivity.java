@@ -57,8 +57,8 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.INSTANCE.d(TAG, "res " + res);
-            LayoutInflater inflater = LayoutInflater.from(activity);
+            LLog.INSTANCE.d(getTAG(), "res " + res);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);

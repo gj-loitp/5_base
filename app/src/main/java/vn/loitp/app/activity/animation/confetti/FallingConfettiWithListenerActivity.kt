@@ -36,14 +36,14 @@ class FallingConfettiWithListenerActivity : BaseFontActivity(), View.OnClickList
 
     private val commonConfetti: CommonConfetti
         get() {
-            val centerX = rootView.width / 2
-            val centerY = rootView.height / 5 * 2
+            val centerX = rootView?.width ?: 0 / 2
+            val centerY = rootView?.height ?: 0 / 5 * 2
             return CommonConfetti.explosion(rootView, centerX, centerY, colors)
         }
 
     private val confettiManager: ConfettiManager
         get() {
-            val source = ConfettiSource(0, -size, rootView.width, -size)
+            val source = ConfettiSource(0, -size, rootView?.width ?: 0, -size)
             return ConfettiManager(this, this, source, rootView)
                     .setVelocityX(0f, velocitySlow.toFloat())
                     .setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())

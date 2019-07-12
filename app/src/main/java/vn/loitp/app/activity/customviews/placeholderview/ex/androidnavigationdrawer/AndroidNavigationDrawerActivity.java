@@ -32,7 +32,7 @@ public class AndroidNavigationDrawerActivity extends BaseFontActivity {
         setupDrawer();
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
+        tv.setText(LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp));
     }
 
     private void setupDrawer() {

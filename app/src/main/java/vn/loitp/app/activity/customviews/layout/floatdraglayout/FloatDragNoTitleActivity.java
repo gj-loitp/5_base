@@ -35,7 +35,7 @@ public class FloatDragNoTitleActivity extends BaseActivity {
         floatDragLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.INSTANCE.show(activity, "Click on the hover and drag buttons");
+                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
             }
         });
     }

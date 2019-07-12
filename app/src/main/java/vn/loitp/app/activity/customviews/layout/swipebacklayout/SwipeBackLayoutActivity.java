@@ -31,14 +31,14 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
         mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
             @Override
             public void onViewPositionChanged(View mView, float swipeBackFraction, float SWIPE_BACK_FACTOR) {
-                LLog.INSTANCE.d(TAG, "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
+                LLog.INSTANCE.d(getTAG(), "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
                 float newY = screenH * swipeBackFraction;
                 view.setTranslationY(newY);
             }
 
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
-                LLog.INSTANCE.d(TAG, "onViewSwipeFinished");
+                LLog.INSTANCE.d(getTAG(), "onViewSwipeFinished");
             }
         });
 
@@ -81,7 +81,7 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onDestroy() {
-        LLog.INSTANCE.d(TAG, "onDestroy");
+        LLog.INSTANCE.d(getTAG(), "onDestroy");
         super.onDestroy();
     }
 }

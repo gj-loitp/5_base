@@ -30,7 +30,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
 
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         for (int i = 0; i < 100; i++) {
-            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(activity, R.drawable.logo), i, new GalleryItem.Callback() {
+            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(getActivity(), R.drawable.logo), i, new GalleryItem.Callback() {
                 @Override
                 public void onClick(int position) {
                     ToastUtils.showShort("Click " + position);
@@ -70,7 +70,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        LLog.INSTANCE.d(TAG, "setLoadMoreListener");
+                                        LLog.INSTANCE.d(getTAG(), "setLoadMoreListener");
                                     }
                                 });
                             }

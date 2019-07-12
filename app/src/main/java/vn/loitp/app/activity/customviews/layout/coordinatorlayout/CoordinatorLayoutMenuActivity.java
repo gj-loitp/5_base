@@ -43,28 +43,28 @@ public class CoordinatorLayoutMenuActivity extends BaseFontActivity implements V
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_0:
-                intent = new Intent(activity, CoordinatorLayoutWithImageViewActivity.class);
+                intent = new Intent(getActivity(), CoordinatorLayoutWithImageViewActivity.class);
                 break;
             case R.id.bt_1:
-                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent = new Intent(getActivity(), CoordinatorLayoutSampleActivity.class);
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_0);
                 break;
             case R.id.bt_2:
-                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent = new Intent(getActivity(), CoordinatorLayoutSampleActivity.class);
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_1);
                 break;
             case R.id.bt_3:
-                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent = new Intent(getActivity(), CoordinatorLayoutSampleActivity.class);
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_2);
                 break;
             case R.id.bt_4:
-                intent = new Intent(activity, CoordinatorLayoutSampleActivity.class);
+                intent = new Intent(getActivity(), CoordinatorLayoutSampleActivity.class);
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_3);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

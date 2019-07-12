@@ -26,7 +26,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        toolbar.setNavigationOnClickListener { view -> onBackPressed() }
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getString(R.string.list_comic));

@@ -16,13 +16,13 @@ public class YoutubeActivity extends BaseFontActivity {
         findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LUIUtil.playYoutube(activity, "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender");
+                LUIUtil.playYoutube(getActivity(), "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender");
             }
         });
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LUIUtil.playYoutubeWithId(activity, "YE7VzlLtp-4");
+                LUIUtil.playYoutubeWithId(getActivity(), "YE7VzlLtp-4");
             }
         });
     }

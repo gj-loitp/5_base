@@ -50,7 +50,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.INSTANCE.d(TAG, "onDataChange null => return");
+                    LLog.INSTANCE.d(getTAG(), "onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -66,7 +66,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     }*/
                     userList.add(user);
                 }
-                LLog.INSTANCE.d(TAG, "userList.size: " + userList.size());
+                LLog.INSTANCE.d(getTAG(), "userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
@@ -74,7 +74,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onCancelled(DatabaseError error) {
-                LLog.INSTANCE.e(TAG, "Failed to read app title value " + error.toException());
+                LLog.INSTANCE.e(getTAG(), "Failed to read app title value " + error.toException());
             }
         });
     }
@@ -130,10 +130,10 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         recyclerView.setItemAnimator(animator);
         //recyclerView.getItemAnimator().setAddDuration(1000);
 
-        mAdapter = new UserAdapter(activity, userList, new UserAdapter.Callback() {
+        mAdapter = new UserAdapter(getActivity(), userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.INSTANCE.show(activity, "onClick To Edit Data: " + user.getMsg());
+                LToast.INSTANCE.show(getActivity(), "onClick To Edit Data: " + user.getMsg());
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -143,7 +143,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                LToast.INSTANCE.show(activity, "onLongClick " + user.getMsg());
+                LToast.INSTANCE.show(getActivity(), "onLongClick " + user.getMsg());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

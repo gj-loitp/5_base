@@ -80,19 +80,19 @@ public class IntervalExampleActivity extends BaseFontActivity {
             @Override
             public void onNext(Long value) {
                 textView.append(" onNext : value : " + value + "\n");
-                LLog.INSTANCE.d(TAG, " onNext : value : " + value);
+                LLog.INSTANCE.d(getTAG(), " onNext : value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(TAG, " onError : " + e.getMessage());
+                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
             }
 
             @Override
             public void onComplete() {
                 textView.append(" onComplete\n");
-                LLog.INSTANCE.d(TAG, " onComplete");
+                LLog.INSTANCE.d(getTAG(), " onComplete");
             }
         };
     }

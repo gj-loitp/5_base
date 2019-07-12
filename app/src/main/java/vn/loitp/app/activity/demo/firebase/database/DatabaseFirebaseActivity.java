@@ -65,8 +65,8 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(activity, DatabaseFirebaseNewPostActivity.class));
-                LActivityUtil.INSTANCE.tranIn(activity);
+                startActivity(new Intent(getActivity(), DatabaseFirebaseNewPostActivity.class));
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
     }

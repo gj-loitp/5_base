@@ -33,7 +33,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 BookInfo bookInfo = (BookInfo) adapterView.getAdapter().getItem(i);
-                LReaderUtil.readEpub(activity, bookInfo, getString(R.string.str_b));
+                LReaderUtil.readEpub(getActivity(), bookInfo, getString(R.string.str_b));
             }
         });
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -46,11 +46,11 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
     }
 
     private void ask() {
-        LDialogUtil.showDialog2(activity, "Chọn", "Có 2 option", "Load tất cả epub có trong device và 1 file ở asset", "Load tất cả epub trong asset", new LDialogUtil.Callback2() {
+        LDialogUtil.showDialog2(getActivity(), "Chọn", "Có 2 option", "Load tất cả epub có trong device và 1 file ở asset", "Load tất cả epub trong asset", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
-                getListBookFromDeviceAndAssetTask = new GetListBookFromDeviceAndAssetTask(activity, new GetListBookFromDeviceAndAssetTask.Callback() {
+                getListBookFromDeviceAndAssetTask = new GetListBookFromDeviceAndAssetTask(getActivity(), new GetListBookFromDeviceAndAssetTask.Callback() {
                     @Override
                     public void onPreExecute() {
                         LDialogUtil.showProgress(progressBar);
@@ -58,9 +58,9 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.INSTANCE.d(TAG, "onPostExecute " + bookInfoList.size());
+                        LLog.INSTANCE.d(getTAG(), "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
-                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
+                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(getActivity(), bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }
                 });
@@ -77,7 +77,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.INSTANCE.d(TAG, "onPostExecute " + bookInfoList.size());
+                        LLog.INSTANCE.d(getTAG(), "onPostExecute " + bookInfoList.size());
                         LDialogUtil.hideProgress(progressBar);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
@@ -89,7 +89,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
-                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(activity, bookInfoList);
+                        BookInfoGridAdapter adapter = new BookInfoGridAdapter(getActivity(), bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }
                 });

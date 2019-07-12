@@ -48,7 +48,7 @@ public class LButtonActivity extends BaseFontActivity implements OnClickListener
             case R.id.bt_0:
             case R.id.bt_1:
             case R.id.bt_2:
-                LToast.INSTANCE.show(activity, "Click");
+                LToast.INSTANCE.show(getActivity(), "Click");
                 break;
         }
     }

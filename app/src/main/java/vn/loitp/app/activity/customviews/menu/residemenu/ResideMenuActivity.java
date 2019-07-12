@@ -58,7 +58,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.getRealtimeBlurView().setBlurRadius(50);
-        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(activity, R.color.black_65));
+        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(getActivity(), R.color.black_65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);
@@ -118,12 +118,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.show(activity, "Menu is opened!");
+            LToast.show(getActivity(), "Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.show(activity, "Menu is closed!");
+            LToast.show(getActivity(), "Menu is closed!");
         }
     };
 

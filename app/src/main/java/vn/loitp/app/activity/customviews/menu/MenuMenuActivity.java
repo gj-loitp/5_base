@@ -39,12 +39,12 @@ public class MenuMenuActivity extends BaseFontActivity implements OnClickListene
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_reside_menu:
-                intent = new Intent(activity, ResideMenuActivity.class);
+                intent = new Intent(getActivity(), ResideMenuActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

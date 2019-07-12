@@ -121,7 +121,7 @@ public class MenuLottieActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             LottieItem lottieItem = lottieItemList.get(position);
-            LayoutInflater inflater = LayoutInflater.from(activity);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_lottie_view, collection, false);
             RelativeLayout rl = (RelativeLayout) layout.findViewById(R.id.rl);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) layout.findViewById(R.id.animation_view);

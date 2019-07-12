@@ -31,7 +31,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExit = false;
+        setShowAdWhenExit(false);
         tv = findViewById(R.id.tv);
         tv.setText(R.string.loading);
         LUIUtil.setTextShadow(tv);
@@ -54,7 +54,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
         strAppId = getIntent().getStringExtra(APP_ID);
         strReward = getIntent().getStringExtra(ID_REWARD);
         if (strAppId == null || strAppId.isEmpty() || strReward == null || strReward.isEmpty()) {
-            LToast.show(activity, getString(R.string.err_unknow));
+            LToast.show(getActivity(), getString(R.string.err_unknow));
             onBackPressed();
             return;
         }
@@ -99,7 +99,7 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
     }
 
     private void displayRewardAd() {
-        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd.isLoaded());
+        LLog.d(getTAG(), "displayRewardAd isLoaded: " + mAd.isLoaded());
         if (mAd.isLoaded()) {
             mAd.show();
         } else {
@@ -109,35 +109,35 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     @Override
     public void onRewarded(RewardItem reward) {
-        LLog.d(TAG, "onRewarded");
+        LLog.d(getTAG(), "onRewarded");
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-        LLog.d(TAG, "onRewardedVideoAdLeftApplication");
+        LLog.d(getTAG(), "onRewardedVideoAdLeftApplication");
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
-        LLog.d(TAG, "onRewardedVideoAdClosed");
+        LLog.d(getTAG(), "onRewardedVideoAdClosed");
     }
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int errorCode) {
-        LLog.d(TAG, "onRewardedVideoAdFailedToLoad " + errorCode);
+        LLog.d(getTAG(), "onRewardedVideoAdFailedToLoad " + errorCode);
         //ToastUtils.showShort("onRewardedVideoAdFailedToLoad code: " + errorCode);
         onBackPressed();
     }
 
     @Override
     public void onRewardedVideoCompleted() {
-        LLog.d(TAG, "onRewardedVideoCompleted");
+        LLog.d(getTAG(), "onRewardedVideoCompleted");
     }
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        LLog.d(TAG, "onRewardedVideoAdLoaded");
+        LLog.d(getTAG(), "onRewardedVideoAdLoaded");
         //avLoadingIndicatorView.smoothToHide();
         tv.setText(R.string.open_gift);
         LAnimationUtil.play(getRootView(), Techniques.Pulse);
@@ -146,11 +146,11 @@ public class AdmobRewardedVideoActivity extends BaseFontActivity implements Rewa
 
     @Override
     public void onRewardedVideoAdOpened() {
-        LLog.d(TAG, "onRewardedVideoAdOpened");
+        LLog.d(getTAG(), "onRewardedVideoAdOpened");
     }
 
     @Override
     public void onRewardedVideoStarted() {
-        LLog.d(TAG, "onRewardedVideoStarted");
+        LLog.d(getTAG(), "onRewardedVideoStarted");
     }
 }

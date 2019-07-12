@@ -69,49 +69,49 @@ public class CropActivity extends BaseFontActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
-                        startActivityForResult(new Intent(activity, LGalleryActivity.class), REQUEST_CODE_GET_FILE);
-                        LActivityUtil.tranIn(activity);
+                        startActivityForResult(new Intent(getActivity(), LGalleryActivity.class), REQUEST_CODE_GET_FILE);
+                        LActivityUtil.tranIn(getActivity());
                     }
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
-                        LToast.showShort(activity, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.bkg_horizontal);
+                        LToast.showShort(getActivity(), "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.bkg_horizontal);
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        LToast.showShort(activity, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.bkg_horizontal);
+                        LToast.showShort(getActivity(), "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.bkg_horizontal);
                     }
                 }).check();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        LLog.d(TAG, "onActivityResult requestCode " + requestCode);
+        LLog.d(getTAG(), "onActivityResult requestCode " + requestCode);
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) {
-            LLog.e(TAG, "data == null return");
+            LLog.e(getTAG(), "data == null return");
             return;
         }
         if (requestCode == REQUEST_CODE_GET_FILE) {
             if (data.getExtras() == null) {
-                LLog.e(TAG, "data.getExtras() == null return");
+                LLog.e(getTAG(), "data.getExtras() == null return");
                 return;
             }
             final String filePath = data.getExtras().getString(LGalleryActivity.RETURN_VALUE);
             if (filePath == null) {
-                LLog.e(TAG, "filePath == null return");
+                LLog.e(getTAG(), "filePath == null return");
                 return;
             }
-            LLog.d(TAG, "filePath " + filePath);
+            LLog.d(getTAG(), "filePath " + filePath);
             final File file = new File(filePath);
             if (!file.exists()) {
-                LLog.e(TAG, "file is not exists");
+                LLog.e(getTAG(), "file is not exists");
                 return;
             }
             final Uri imageUri = Uri.fromFile(file);
             if (imageUri == null) {
-                LLog.e(TAG, "imageUri == null");
+                LLog.e(getTAG(), "imageUri == null");
                 return;
             }
             if (isOvalOption) {
@@ -123,7 +123,7 @@ public class CropActivity extends BaseFontActivity {
                         .setCropShape(CropImageView.CropShape.OVAL)
                         .setCircleColor(Color.WHITE)
                         .setBackgroundColor(Color.argb(200, 0, 0, 0))
-                        .start(activity);
+                        .start(getActivity());
             } else {
                 CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.OFF)
@@ -137,7 +137,7 @@ public class CropActivity extends BaseFontActivity {
                         .setAutoZoomEnabled(true)
                         .setBorderCornerColor(Color.BLUE)
                         .setGuidelinesColor(Color.GREEN)
-                        .start(activity);
+                        .start(getActivity());
             }
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             final CropImage.ActivityResult result = CropImage.getActivityResult(data);
@@ -147,8 +147,8 @@ public class CropActivity extends BaseFontActivity {
                     return;
                 }
                 final File file = new File(realPath);
-                LLog.d(TAG, "onActivityResult file " + file.getPath());
-                LImageUtil.load(activity, file, iv);
+                LLog.d(getTAG(), "onActivityResult file " + file.getPath());
+                LImageUtil.load(getActivity(), file, iv);
             }
         }
     }

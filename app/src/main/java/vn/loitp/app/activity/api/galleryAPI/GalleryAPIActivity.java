@@ -45,9 +45,9 @@ public class GalleryAPIActivity extends BaseFontActivity {
         bt1.setOnClickListener(v -> photosetsGetList());
         bt2.setOnClickListener(v -> showDialogSelectPhotoset());
         findViewById(R.id.bt_demo).setOnClickListener(v -> {
-            final Intent intent = new Intent(activity, GalleryDemoSplashActivity.class);
+            final Intent intent = new Intent(getActivity(), GalleryDemoSplashActivity.class);
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         });
     }
 
@@ -78,11 +78,11 @@ public class GalleryAPIActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
-                    LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    LLog.d(getTAG(), "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
                     LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avi.smoothToHide();
@@ -94,7 +94,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
     }
 
     private void showDialogSelectPhotoset() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Choose:");
 
         final List<Photoset> photosetList = mWrapperPhotosetGetlist.getPhotosets().getPhotoset();
@@ -105,7 +105,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         }
 
         builder.setItems(items, (dialog, position) -> {
-            LLog.d(TAG, "onClick " + position);
+            LLog.d(getTAG(), "onClick " + position);
             photosetsGetPhotos(photosetList.get(position).getId());
         });
         final AlertDialog dialog = builder.create();
@@ -125,11 +125,11 @@ public class GalleryAPIActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
-                    LLog.d(TAG, "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    LLog.d(getTAG(), "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     LUIUtil.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avi.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);

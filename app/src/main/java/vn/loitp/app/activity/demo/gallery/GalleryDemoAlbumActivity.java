@@ -63,19 +63,19 @@ public class GalleryDemoAlbumActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
                     final List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
                     for (int i = 0; i < photosetList.size(); i++) {
-                        mGalleryView.addView(new AlbumItem(activity, photosetList.get(i), i, new AlbumItem.Callback() {
+                        mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
                             @Override
                             public void onClick(Photoset photoset, int position) {
-                                final Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
+                                final Intent intent = new Intent(getActivity(), GalleryDemoPhotosActivity.class);
                                 intent.putExtra("photosetID", photoset.getId());
                                 startActivity(intent);
-                                LActivityUtil.tranIn(activity);
+                                LActivityUtil.tranIn(getActivity());
                             }
                         }));
                     }

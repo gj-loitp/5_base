@@ -63,48 +63,48 @@ public class TextViewMenuActivity extends BaseFontActivity implements OnClickLis
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_autofit_textview:
-                intent = new Intent(activity, AutoFitTextViewActivity.class);
+                intent = new Intent(getActivity(), AutoFitTextViewActivity.class);
                 break;
             case R.id.bt_circle_textview:
-                intent = new Intent(activity, CircleTextViewActivity.class);
+                intent = new Intent(getActivity(), CircleTextViewActivity.class);
                 break;
             case R.id.bt_score_text:
-                intent = new Intent(activity, ScoreTextViewActivity.class);
+                intent = new Intent(getActivity(), ScoreTextViewActivity.class);
                 break;
             case R.id.bt_countdown:
-                intent = new Intent(activity, CountDownActivity.class);
+                intent = new Intent(getActivity(), CountDownActivity.class);
                 break;
             case R.id.bt_color_textview:
-                intent = new Intent(activity, ColorTextViewActivity.class);
+                intent = new Intent(getActivity(), ColorTextViewActivity.class);
                 break;
             case R.id.bt_scroll_number:
-                intent = new Intent(activity, ScrollNumberActivity.class);
+                intent = new Intent(getActivity(), ScrollNumberActivity.class);
                 break;
             case R.id.bt_selectable_textview:
-                intent = new Intent(activity, SelectableTextViewActivity.class);
+                intent = new Intent(getActivity(), SelectableTextViewActivity.class);
                 break;
             case R.id.bt_zoom_textview:
-                intent = new Intent(activity, ZoomTextViewActivity.class);
+                intent = new Intent(getActivity(), ZoomTextViewActivity.class);
                 break;
             case R.id.bt_vertical_marquee_textview:
-                intent = new Intent(activity, VerticalMarqueeTextViewActivity.class);
+                intent = new Intent(getActivity(), VerticalMarqueeTextViewActivity.class);
                 break;
             case R.id.bt_translucent_view:
-                intent = new Intent(activity, TranslucentViewActivity.class);
+                intent = new Intent(getActivity(), TranslucentViewActivity.class);
                 break;
             case R.id.bt_type_writer_textview:
-                intent = new Intent(activity, TypeWriterTextViewActivity.class);
+                intent = new Intent(getActivity(), TypeWriterTextViewActivity.class);
                 break;
             case R.id.bt_text_decorator:
-                intent = new Intent(activity, TextDecoratorActivity.class);
+                intent = new Intent(getActivity(), TextDecoratorActivity.class);
                 break;
             case R.id.bt_justifield_textview:
-                intent = new Intent(activity, JustifiedTextViewActivity.class);
+                intent = new Intent(getActivity(), JustifiedTextViewActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

@@ -31,8 +31,7 @@ class ShimmeringActivity : BaseFontActivity(), View.OnClickListener, ConfettoGen
 
     private val confettiManager: ConfettiManager
         get() {
-            val confettiSource = ConfettiSource(0, -size, rootView.width,
-                    -size)
+            val confettiSource = ConfettiSource(0, -size, rootView?.width ?: 0, -size)
             return ConfettiManager(this, this, confettiSource, rootView)
                     .setVelocityX(0f, velocitySlow.toFloat())
                     .setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())

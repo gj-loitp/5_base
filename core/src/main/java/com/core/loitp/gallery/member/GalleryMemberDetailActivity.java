@@ -24,7 +24,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExit = false;
+        setShowAdWhenExit(false);
         imageView = findViewById(R.id.image_view);
         tvTitle = findViewById(R.id.tv_title);
         LUIUtil.setTextShadow(tvTitle);
@@ -55,21 +55,21 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
 
     private void loadItem(Photo photo) {
         tvTitle.setText(photo.getTitle());
-        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlS(), imageView);
+        LImageUtil.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlS(), imageView);
     }
 
     /**
      * Load the item's thumbnail image into our {@link ImageView}.
      */
     private void loadThumbnail(Photo photo) {
-        LImageUtil.loadNoAmin(activity, photo.getUrlM(), imageView);
+        LImageUtil.loadNoAmin(getActivity(), photo.getUrlM(), imageView);
     }
 
     /**
      * Load the item's full-size image into our {@link ImageView}.
      */
     private void loadFullSizeImage(Photo photo) {
-        LImageUtil.loadNoAmin(activity, photo.getUrlO(), photo.getUrlM(), imageView, null);
+        LImageUtil.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlM(), imageView, null);
     }
 
     /**

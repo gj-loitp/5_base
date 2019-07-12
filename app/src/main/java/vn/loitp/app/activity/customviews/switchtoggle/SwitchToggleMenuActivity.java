@@ -42,18 +42,18 @@ public class SwitchToggleMenuActivity extends BaseFontActivity implements View.O
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_appcompat_switch:
-                intent = new Intent(activity, AppcompatSwitchActivity.class);
+                intent = new Intent(getActivity(), AppcompatSwitchActivity.class);
                 break;
             case R.id.bt_custom_toggle_button:
-                intent = new Intent(activity, CustomToggleButtonActivity.class);
+                intent = new Intent(getActivity(), CustomToggleButtonActivity.class);
                 break;
             case R.id.bt_toggle:
-                intent = new Intent(activity, ToggleActivity.class);
+                intent = new Intent(getActivity(), ToggleActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

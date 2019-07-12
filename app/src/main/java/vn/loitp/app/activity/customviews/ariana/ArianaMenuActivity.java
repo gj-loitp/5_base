@@ -42,18 +42,18 @@ public class ArianaMenuActivity extends BaseFontActivity implements View.OnClick
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_ariana_imageview:
-                intent = new Intent(activity, ArianaImageViewActivity.class);
+                intent = new Intent(getActivity(), ArianaImageViewActivity.class);
                 break;
             case R.id.bt_ariana_textview:
-                intent = new Intent(activity, ArianaTextViewActivity.class);
+                intent = new Intent(getActivity(), ArianaTextViewActivity.class);
                 break;
             case R.id.bt_ariana_viewpager:
-                intent = new Intent(activity, ArianaViewPagerActivity.class);
+                intent = new Intent(getActivity(), ArianaViewPagerActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

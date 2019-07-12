@@ -18,7 +18,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LSocialUtil.openFacebookComment(activity, "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b));
+                LSocialUtil.openFacebookComment(getActivity(), "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b));
             }
         });
     }

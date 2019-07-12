@@ -61,9 +61,9 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
         LLog.d(TAG, "bkgRootView $bkgRootView")
         if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
+            rootView?.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         } else {
-            rootView.setBackgroundResource(bkgRootView)
+            rootView?.setBackgroundResource(bkgRootView)
         }
 
         val tvCopyright = findViewById<TextView>(R.id.tv_copyright)

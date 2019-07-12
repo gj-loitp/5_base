@@ -46,7 +46,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPref.getPreLoad(activity)) {
+        if (!LPref.getPreLoad(getActivity())) {
             setRealmData();
         }
 
@@ -57,7 +57,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        LToast.showLong(activity, "Press card item for edit, long press to remove item", R.drawable.bkg_horizontal);
+        LToast.showLong(getActivity(), "Press card item for edit, long press to remove item", R.drawable.bkg_horizontal);
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
@@ -150,7 +150,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPref.setPreLoad(activity, true);
+        LPref.setPreLoad(getActivity(), true);
     }
 
     private void addItem() {
@@ -162,7 +162,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         editThumbnail.setText("https://kenh14cdn.com/2016/photo-4-1470640589710.jpg");
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Add book")
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
@@ -194,7 +194,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     }
 
     private void updateItem(final Book book, final int position) {
-        layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View content = layoutInflater.inflate(R.layout.real_edit_item, null);
         final EditText editTitle = content.findViewById(R.id.title);
         final EditText editAuthor = content.findViewById(R.id.author);
@@ -204,7 +204,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         editAuthor.setText(book.getAuthor());
         editThumbnail.setText(book.getImageUrl());
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(content)
                 .setTitle("Edit Book")
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
@@ -239,7 +239,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPref.setPreLoad(activity, false);
+            LPref.setPreLoad(getActivity(), false);
         }
 
         booksAdapter.notifyItemRemoved(position);

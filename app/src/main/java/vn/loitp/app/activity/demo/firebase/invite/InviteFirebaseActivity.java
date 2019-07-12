@@ -42,7 +42,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
                     @Override
                     public void onSuccess(PendingDynamicLinkData data) {
                         if (data == null) {
-                            Log.d(TAG, "getInvitation: no data");
+                            Log.d(getTAG(), "getInvitation: no data");
                             return;
                         }
 
@@ -57,7 +57,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
 
                         // Handle the deep link
                         // [START_EXCLUDE]
-                        Log.d(TAG, "deepLink:" + deepLink);
+                        Log.d(getTAG(), "deepLink:" + deepLink);
                         if (deepLink != null) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setPackage(getPackageName());
@@ -71,7 +71,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "getDynamicLink:onFailure", e);
+                        Log.w(getTAG(), "getDynamicLink:onFailure", e);
                     }
                 });
     }
@@ -93,7 +93,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Log.d(getTAG(), "onConnectionFailed:" + connectionResult);
         showMessage(getString(R.string.google_play_services_error));
     }
 
@@ -117,14 +117,14 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
+        Log.d(getTAG(), "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
 
         if (requestCode == REQUEST_INVITE) {
             if (resultCode == RESULT_OK) {
                 // Get the invitation IDs of all sent messages
                 String[] ids = AppInviteInvitation.getInvitationIds(resultCode, data);
                 for (String id : ids) {
-                    Log.d(TAG, "onActivityResult: sent invitation " + id);
+                    Log.d(getTAG(), "onActivityResult: sent invitation " + id);
                 }
             } else {
                 // Sending failed or it was canceled, show failure message to the user

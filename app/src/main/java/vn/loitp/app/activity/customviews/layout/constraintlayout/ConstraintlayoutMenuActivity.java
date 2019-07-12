@@ -47,24 +47,24 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_demo:
-                intent = new Intent(activity, ConstraintlayoutDemoActivity.class);
+                intent = new Intent(getActivity(), ConstraintlayoutDemoActivity.class);
                 break;
             case R.id.bt_fab_n_snackbar:
-                intent = new Intent(activity, FabAndSnackbarActivity.class);
+                intent = new Intent(getActivity(), FabAndSnackbarActivity.class);
                 break;
             case R.id.bt_fab_follow_widget:
-                intent = new Intent(activity, FabFollowWidgetActivity.class);
+                intent = new Intent(getActivity(), FabFollowWidgetActivity.class);
                 break;
             case R.id.bt_custom_behavior:
-                intent = new Intent(activity, CustomBehaviorActivity.class);
+                intent = new Intent(getActivity(), CustomBehaviorActivity.class);
                 break;
             case R.id.bt_constraint_set:
-                intent = new Intent(activity, ConstraintSetActivity.class);
+                intent = new Intent(getActivity(), ConstraintSetActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

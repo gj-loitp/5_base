@@ -30,7 +30,7 @@ class FallingWithTouchActivity : BaseFontActivity(), View.OnClickListener, Confe
 
     private val confettiManager: ConfettiManager
         get() {
-            val source = ConfettiSource(0, -size, rootView.width, -size)
+            val source = ConfettiSource(0, -size, rootView?.width ?: 0, -size)
             return ConfettiManager(this, this, source, rootView)
                     .setVelocityX(0f, velocitySlow.toFloat())
                     .setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())

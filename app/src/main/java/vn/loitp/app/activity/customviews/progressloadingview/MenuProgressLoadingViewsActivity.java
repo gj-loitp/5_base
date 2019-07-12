@@ -19,17 +19,17 @@ public class MenuProgressLoadingViewsActivity extends BaseFontActivity {
         findViewById(R.id.bt_avloading_indicator_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AVLoadingIndicatorActivity.class);
+                Intent intent = new Intent(getActivity(), AVLoadingIndicatorActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_circular_progress_bar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, CircularProgressBarActivity.class);
+                Intent intent = new Intent(getActivity(), CircularProgressBarActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
     }

@@ -36,15 +36,15 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         rlControl = findViewById(R.id.rl_control);
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransparentStatusNavigationBar();
-            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getNavigationBarHeight(activity));
+            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getNavigationBarHeight(getActivity()));
         } else {
-            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(activity));
+            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(getActivity()));
         }
 
         int bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.d(getTAG(), "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
@@ -131,11 +131,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         });
         findViewById(R.id.bt_share).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            LSocialUtil.share(activity, PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+            LSocialUtil.share(getActivity(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
         });
         findViewById(R.id.bt_report).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            LSocialUtil.sendEmail(activity);
+            LSocialUtil.sendEmail(getActivity());
         });
     }
 

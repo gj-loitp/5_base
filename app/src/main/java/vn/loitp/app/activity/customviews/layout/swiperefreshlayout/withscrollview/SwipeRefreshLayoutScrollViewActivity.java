@@ -28,7 +28,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        String poem = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp);
+        String poem = LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp);
         tv.setText(poem);
     }
 

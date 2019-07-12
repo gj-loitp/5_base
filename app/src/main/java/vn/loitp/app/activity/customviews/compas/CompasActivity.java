@@ -21,13 +21,13 @@ public class CompasActivity extends BaseFontActivity {
         compass.setListener(new CompassListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                LLog.INSTANCE.d(TAG, "onSensorChanged : " + event);
+                LLog.INSTANCE.d(getTAG(), "onSensorChanged : " + event);
             }
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
-                LLog.INSTANCE.d(TAG, "onAccuracyChanged : sensor : " + sensor);
-                LLog.INSTANCE.d(TAG, "onAccuracyChanged : accuracy : " + accuracy);
+                LLog.INSTANCE.d(getTAG(), "onAccuracyChanged : sensor : " + sensor);
+                LLog.INSTANCE.d(getTAG(), "onAccuracyChanged : accuracy : " + accuracy);
             }
         });
     }

@@ -72,7 +72,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void addButton(Contact contact) {
-        Button button = new Button(activity);
+        Button button = new Button(getActivity());
         button.setText(contact.getID() + " " + contact.getName());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void addButton() {
-        Button button = new Button(activity);
+        Button button = new Button(getActivity());
         Contact contact = db.getContact(db.getContactsCount());
         if (contact != null) {
             button.setText(contact.getID() + " - " + contact.getName());
@@ -116,7 +116,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.INSTANCE.d(TAG, "size: " + size);
+        LLog.INSTANCE.d(getTAG(), "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -125,7 +125,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.INSTANCE.d(TAG, "clearAllContact");
+        LLog.INSTANCE.d(getTAG(), "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -143,13 +143,13 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.INSTANCE.d(TAG, "updateContact result " + result);
+        LLog.INSTANCE.d(getTAG(), "updateContact result " + result);
         button.setText(contact.getID() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.INSTANCE.d(TAG, "deleteContact result " + result);
+        LLog.INSTANCE.d(getTAG(), "deleteContact result " + result);
         ll.removeView(button);
     }
 }

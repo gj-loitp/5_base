@@ -60,7 +60,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.INSTANCE.d(TAG, "signIn");
+        LLog.INSTANCE.d(getTAG(), "signIn");
         if (!validateForm()) {
             return;
         }
@@ -73,20 +73,20 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.INSTANCE.d(TAG, "signIn:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(getTAG(), "signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.INSTANCE.show(activity, "Sign In Failed");
+                            LToast.INSTANCE.show(getActivity(), "Sign In Failed");
                         }
                     }
                 });
     }
 
     private void signUp() {
-        LLog.INSTANCE.d(TAG, "signUp");
+        LLog.INSTANCE.d(getTAG(), "signUp");
         if (!validateForm()) {
             return;
         }
@@ -99,13 +99,13 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.INSTANCE.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(getTAG(), "createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.INSTANCE.show(activity, "Sign Up Failed");
+                            LToast.INSTANCE.show(getActivity(), "Sign Up Failed");
                         }
                     }
                 });
@@ -118,7 +118,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MenuMotionLayoutActivity
-        startActivity(new Intent(activity, DatabaseFirebaseActivity.class));
+        startActivity(new Intent(getActivity(), DatabaseFirebaseActivity.class));
         finish();
     }
 

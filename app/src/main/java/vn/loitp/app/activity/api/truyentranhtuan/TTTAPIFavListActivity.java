@@ -46,10 +46,10 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
     }
 
     private void getFavList() {
-        new GetFavListTask(activity, avi, new GetFavListTask.Callback() {
+        new GetFavListTask(getActivity(), avi, new GetFavListTask.Callback() {
             @Override
             public void onSuccess(List<Comic> comicList) {
-                LLog.INSTANCE.d(TAG, "onSuccess " + comicList.size());
+                LLog.INSTANCE.d(getTAG(), "onSuccess " + comicList.size());
                 LUIUtil.printBeautyJson(comicList, tv);
                 tvTitle.setText("Danh sách yêu thích: " + comicList.size());
             }

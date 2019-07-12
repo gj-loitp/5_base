@@ -45,10 +45,10 @@ public class PopupMenuActivity extends BaseFontActivity implements View.OnClickL
             case R.id.bt_show_3:
             case R.id.bt_show_4:
             case R.id.bt_show_5:
-                LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
+                LPopupMenu.show(getActivity(), v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
-                        LToast.INSTANCE.show(activity, menuItem.getTitle().toString());
+                        LToast.INSTANCE.show(getActivity(), menuItem.getTitle().toString());
                     }
                 });
                 break;

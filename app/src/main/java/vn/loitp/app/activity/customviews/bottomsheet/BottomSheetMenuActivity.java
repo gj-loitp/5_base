@@ -46,7 +46,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
     private void click0() {
         bt0 = findViewById(R.id.bt_0);
         LinearLayout layoutBottomSheet = findViewById(R.id.bottom_sheet);
-        layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(v -> LToast.show(activity, "Click layoutBottomSheet R.id.bt_payment"));
+        layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(v -> LToast.show(getActivity(), "Click layoutBottomSheet R.id.bt_payment"));
 
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -54,30 +54,30 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.d(getTAG(), "STATE_HIDDEN");
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED: {
-                        LLog.d(TAG, "STATE_HIDDEN");
+                        LLog.d(getTAG(), "STATE_HIDDEN");
                         bt0.setText("Close Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-                        LLog.d(TAG, "STATE_COLLAPSED");
+                        LLog.d(getTAG(), "STATE_COLLAPSED");
                         bt0.setText("Expand Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        LLog.d(TAG, "STATE_DRAGGING");
+                        LLog.d(getTAG(), "STATE_DRAGGING");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-                        LLog.d(TAG, "STATE_SETTLING");
+                        LLog.d(getTAG(), "STATE_SETTLING");
                         break;
                 }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                LLog.d(TAG, "onSlide " + slideOffset);
+                LLog.d(getTAG(), "onSlide " + slideOffset);
             }
         });
 
@@ -96,7 +96,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
         final Button bt1 = findViewById(R.id.bt_1);
         bt1.setOnClickListener(v -> {
             @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_dialog, null);
-            BottomSheetDialog dialog = new BottomSheetDialog(activity);
+            BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
             dialog.setContentView(view);
             dialog.show();
         });

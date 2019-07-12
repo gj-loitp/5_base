@@ -27,7 +27,7 @@ public class AnswerViewActivity extends BaseFontActivity {
         answerView1.setOnAnswerChange(new AnswerView.OnAnswerChange() {
             @Override
             public void onAnswerChange(AnswerView view, int index) {
-                LToast.INSTANCE.show(activity, "Click: " + index);
+                LToast.INSTANCE.show(getActivity(), "Click: " + index);
             }
         });
         answerView1.setActiveChar('A');
@@ -38,7 +38,7 @@ public class AnswerViewActivity extends BaseFontActivity {
         answerView2.setOnAnswerChange(new AnswerView.OnAnswerChange() {
             @Override
             public void onAnswerChange(AnswerView view, int index) {
-                LToast.INSTANCE.show(activity, "Click: " + index);
+                LToast.INSTANCE.show(getActivity(), "Click: " + index);
             }
         });
     }
@@ -46,12 +46,12 @@ public class AnswerViewActivity extends BaseFontActivity {
     private void useJava() {
         LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
         for (int i = 0; i < 10; i++) {
-            AnswerView answerView = new AnswerView(activity);
+            AnswerView answerView = new AnswerView(getActivity());
             answerView.init(i + 3, 6, true, true, true, true);
             answerView.setOnAnswerChange(new AnswerView.OnAnswerChange() {
                 @Override
                 public void onAnswerChange(AnswerView view, int index) {
-                    LToast.INSTANCE.show(activity, "Click: " + index);
+                    LToast.INSTANCE.show(getActivity(), "Click: " + index);
                 }
             });
             ll.addView(answerView);

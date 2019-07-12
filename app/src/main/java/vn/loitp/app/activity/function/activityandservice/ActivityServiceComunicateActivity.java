@@ -57,9 +57,9 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
         findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(activity, "onClick TestService");
+                LToast.INSTANCE.show(getActivity(), "onClick TestService");
                 tv.setText("");
-                startService(new Intent(activity, TestService.class));
+                startService(new Intent(getActivity(), TestService.class));
             }
         });
         Button button0 = (Button) findViewById(R.id.bt_0);
@@ -78,7 +78,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                LToast.INSTANCE.show(activity, "Draw over other app permission not available. Closing the application");
+                LToast.INSTANCE.show(getActivity(), "Draw over other app permission not available. Closing the application");
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

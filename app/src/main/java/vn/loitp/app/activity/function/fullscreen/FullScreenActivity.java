@@ -42,7 +42,7 @@ public class FullScreenActivity extends BaseFontActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.bt_toggle_fullscreen:
                 isFullScreen = !isFullScreen;
-                LScreenUtil.toggleFullscreen(activity, isFullScreen);
+                LScreenUtil.toggleFullscreen(getActivity(), isFullScreen);
                 break;
             case R.id.bt_show_dialog:
                 showDialog();

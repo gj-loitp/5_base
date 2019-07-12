@@ -92,40 +92,40 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_alarm:
-                intent = new Intent(activity, AlarmMeActivity.class);
+                intent = new Intent(getActivity(), AlarmMeActivity.class);
                 break;
             case R.id.bt_butter_knife:
-                intent = new Intent(activity, ButterKnifeActivity.class);
+                intent = new Intent(getActivity(), ButterKnifeActivity.class);
                 break;
             case R.id.bt_ebook_with_realm:
-                intent = new Intent(activity, EbookWithRealmActivity.class);
+                intent = new Intent(getActivity(), EbookWithRealmActivity.class);
                 break;
             case R.id.bt_gallery:
-                intent = new Intent(activity, GalleryDemoSplashActivity.class);
+                intent = new Intent(getActivity(), GalleryDemoSplashActivity.class);
                 break;
             case R.id.bt_video:
-                intent = new Intent(activity, VideoActivity.class);
+                intent = new Intent(getActivity(), VideoActivity.class);
                 break;
             case R.id.bt_sound:
-                intent = new Intent(activity, SoundActivity.class);
+                intent = new Intent(getActivity(), SoundActivity.class);
                 break;
             case R.id.bt_text_to_speech:
-                intent = new Intent(activity, TextToSpeechActivity.class);
+                intent = new Intent(getActivity(), TextToSpeechActivity.class);
                 break;
             case R.id.bt_floating_widget:
-                intent = new Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity.class);
+                intent = new Intent(getActivity(), vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity.class);
                 break;
             case R.id.bt_floating_video:
-                intent = new Intent(activity, FloatingWidgetActivity.class);
+                intent = new Intent(getActivity(), FloatingWidgetActivity.class);
                 break;
             case R.id.bt_firebase:
-                intent = new Intent(activity, MenuFirebaseActivity.class);
+                intent = new Intent(getActivity(), MenuFirebaseActivity.class);
                 break;
             case R.id.bt_film:
-                intent = new Intent(activity, FilmDemoActivity.class);
+                intent = new Intent(getActivity(), FilmDemoActivity.class);
                 break;
             case R.id.bt_gallery_core:
-                intent = new Intent(activity, GalleryCoreSplashActivity.class);
+                intent = new Intent(getActivity(), GalleryCoreSplashActivity.class);
                 intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
                 intent.putExtra(Constants.INSTANCE.getBKG_SPLASH_SCREEN(), "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg");
                 intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
@@ -138,7 +138,7 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent.putStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST(), removeAlbumFlickrList);
                 break;
             case R.id.bt_gallery_core_album:
-                intent = new Intent(activity, GalleryCorePhotosOnlyActivity.class);
+                intent = new Intent(getActivity(), GalleryCorePhotosOnlyActivity.class);
                 intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
                 intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
@@ -149,32 +149,32 @@ public class MenuDemoActivity extends BaseFontActivity implements View.OnClickLi
                 intent.putExtra(Constants.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_MANGA());
                 break;
             case R.id.bt_gallery_core_album_frm:
-                intent = new Intent(activity, FlicrkFrmActivity.class);
+                intent = new Intent(getActivity(), FlicrkFrmActivity.class);
                 break;
             case R.id.bt_gallery_member:
-                intent = new Intent(activity, GalleryMemberActivity.class);
+                intent = new Intent(getActivity(), GalleryMemberActivity.class);
                 intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), getString(R.string.str_b));
                 intent.putExtra(Constants.getBKG_ROOT_VIEW(), R.drawable.bkg_gradient_man_of_steel);
                 break;
             case R.id.bt_epub_reader:
-                intent = new Intent(activity, EpubReaderMenuActivity.class);
+                intent = new Intent(getActivity(), EpubReaderMenuActivity.class);
                 break;
             case R.id.bt_floating_view:
-                intent = new Intent(activity, FloatingViewActivity.class);
+                intent = new Intent(getActivity(), FloatingViewActivity.class);
                 break;
             case R.id.bt_2_instance_activity:
-                intent = new Intent(activity, Activity1.class);
+                intent = new Intent(getActivity(), Activity1.class);
                 break;
             case R.id.bt_youtube_parser:
-                intent = new Intent(activity, YoutubeParserChannelActivity.class);
+                intent = new Intent(getActivity(), YoutubeParserChannelActivity.class);
                 break;
             case R.id.bt_fragment_navigation:
-                intent = new Intent(activity, FragmentNavigationActivity.class);
+                intent = new Intent(getActivity(), FragmentNavigationActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

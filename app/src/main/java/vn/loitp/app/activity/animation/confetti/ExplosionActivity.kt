@@ -21,8 +21,8 @@ class ExplosionActivity : BaseFontActivity(), View.OnClickListener {
 
     private val commonConfetti: CommonConfetti
         get() {
-            val centerX = rootView.width / 2
-            val centerY = rootView.height / 5 * 2
+            val centerX = rootView?.width ?: 0 / 2
+            val centerY = rootView?.height ?: 0 / 5 * 2
             return CommonConfetti.explosion(rootView, centerX, centerY, colors)
         }
 

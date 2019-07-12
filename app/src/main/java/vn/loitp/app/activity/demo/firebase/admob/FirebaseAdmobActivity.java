@@ -64,7 +64,7 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
             @Override
             public void onAdFailedToLoad(int i) {
                 // See https://goo.gl/sCZj0H for possible error codes.
-                Log.w(TAG, "onAdFailedToLoad:" + i);
+                Log.w(getTAG(), "onAdFailedToLoad:" + i);
             }
         });
         // [END create_interstitial_ad_listener]

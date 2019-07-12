@@ -14,7 +14,7 @@ public class AppcompatSwitchActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.lswitch));
+        tv.setText(LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.lswitch));
     }
 
     @Override

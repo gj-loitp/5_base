@@ -141,13 +141,13 @@ public class EditAlarmActivity extends BaseFontActivity {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();
-        LActivityUtil.INSTANCE.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(getActivity());
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
-        LActivityUtil.INSTANCE.tranIn(activity);
+        LActivityUtil.INSTANCE.tranIn(getActivity());
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {

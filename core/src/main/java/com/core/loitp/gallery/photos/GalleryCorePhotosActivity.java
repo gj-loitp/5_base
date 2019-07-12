@@ -52,7 +52,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExit = false;
+        setShowAdWhenExit(false);
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
         btPage = findViewById(R.id.bt_page);
@@ -65,13 +65,13 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         photosetID = getIntent().getStringExtra(Constants.getSK_PHOTOSET_ID());
         final String photosSize = getIntent().getStringExtra(Constants.getSK_PHOTOSET_SIZE());
-        LLog.d(TAG, "photosetID " + photosetID);
-        LLog.d(TAG, "photosSize " + photosSize);
+        LLog.d(getTAG(), "photosetID " + photosetID);
+        LLog.d(getTAG(), "photosSize " + photosSize);
 
         bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.d(getTAG(), "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
@@ -107,22 +107,22 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         final int column = 2;
 
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, column));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), column));
         recyclerView.setHasFixedSize(true);
-        photosAdapter = new PhotosAdapter(activity, column, new PhotosAdapter.Callback() {
+        photosAdapter = new PhotosAdapter(getActivity(), column, new PhotosAdapter.Callback() {
             @Override
             public void onClick(final Photo photo, final int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                final Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
+                final Intent intent = new Intent(getActivity(), GalleryCoreSlideActivity.class);
                 intent.putExtra(Constants.INSTANCE.getSK_PHOTO_ID(), photo.getId());
                 intent.putExtra(Constants.getBKG_ROOT_VIEW(), bkgRootView);
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(getActivity());
             }
 
             @Override
             public void onLongClick(final Photo photo, final int pos) {
-                LSocialUtil.share(activity, photo.getUrlO());
+                LSocialUtil.share(getActivity(), photo.getUrlO());
             }
         });
         //recyclerView.setAdapter(albumAdapter);
@@ -143,7 +143,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         currentPage--;
-                        LLog.d(TAG, "last item ->>> ");
+                        LLog.d(getTAG(), "last item ->>> ");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -162,9 +162,9 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(activity, "Select page", arr, position -> {
+        LDialogUtil.showDialogList(getActivity(), "Select page", arr, position -> {
             currentPage = totalPage - position;
-            LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+            LLog.d(getTAG(), "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
             PhotosDataCore.getInstance().clearData();
             updateAllViews();
             photosetsGetPhotos(photosetID);
@@ -188,10 +188,10 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(@NonNull final String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            LLog.d(getTAG(), "isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
+        LLog.d(getTAG(), "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
@@ -199,7 +199,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         final String apiKey = FlickrConst.API_KEY;
         final String userID = FlickrConst.USER_KEY;
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return");
+            LLog.d(getTAG(), "currentPage <= 0 -> return");
             currentPage = 0;
             avLoadingIndicatorView.smoothToHide();
             isLoading = false;
@@ -209,7 +209,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetPhotos -> {
@@ -223,7 +223,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                     btPage.setVisibility(View.VISIBLE);
                     isLoading = false;
                 }, e -> {
-                    LLog.e(TAG, "onFail " + e.toString());
+                    LLog.e(getTAG(), "onFail " + e.toString());
                     handleException(e);
                     avLoadingIndicatorView.smoothToHide();
                     isLoading = true;

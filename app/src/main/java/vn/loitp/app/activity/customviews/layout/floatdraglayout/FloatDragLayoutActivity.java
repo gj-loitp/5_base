@@ -36,7 +36,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         floatDragLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.INSTANCE.show(activity, "Click on the hover and drag buttons");
+                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
             }
         });
 
@@ -65,13 +65,13 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_change_to_fullscreen:
-                startActivity(new Intent(activity, FloatDragFullScreenActivity.class));
+                startActivity(new Intent(getActivity(), FloatDragFullScreenActivity.class));
                 break;
             case R.id.bt_change_to_no_title:
-                startActivity(new Intent(activity, FloatDragNoTitleActivity.class));
+                startActivity(new Intent(getActivity(), FloatDragNoTitleActivity.class));
                 break;
             case R.id.bt_change_to_windows:
-                startActivity(new Intent(activity, FloatDragWindowModeActivity.class));
+                startActivity(new Intent(getActivity(), FloatDragWindowModeActivity.class));
                 break;
             case R.id.bt_show_floatDragPopupWindow:
                 showFloatDragPopupWindow();
@@ -94,7 +94,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            LToast.INSTANCE.show(activity, "Click on FloatDragPopupWindow");
+                            LToast.INSTANCE.show(getActivity(), "Click on FloatDragPopupWindow");
                         }
                     })
                     .build();

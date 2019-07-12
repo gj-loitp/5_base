@@ -20,11 +20,11 @@ public class CircularViewActivity extends BaseFontActivity {
         circularView.setAdapter(mAdapter);
         circularView.setOnCircularViewObjectClickListener(new CircularView.OnClickListener() {
             public void onClick(final CircularView view, boolean isLongClick) {
-                LToast.INSTANCE.show(activity, "onClick");
+                LToast.INSTANCE.show(getActivity(), "onClick");
             }
 
             public void onMarkerClick(CircularView view, Marker marker, int position, boolean isLongClick) {
-                LToast.INSTANCE.show(activity, "onClick " + position);
+                LToast.INSTANCE.show(getActivity(), "onClick " + position);
             }
         });
     }

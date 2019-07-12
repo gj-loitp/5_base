@@ -58,7 +58,7 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
                 alpha = 1.0f;
             }
             if (offset >= 0.0f && offset <= 1.0f) {
-                WWLMusicUiUtil.updateStatusBarAlpha(activity, 1.0f - offset);
+                WWLMusicUiUtil.updateStatusBarAlpha(getActivity(), 1.0f - offset);
             }
         }
         this.mLastAlpha = alpha;
@@ -116,7 +116,7 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
 
     @Override
     public void onVideoCollapse() {
-        WWLMusicUiUtil.showSystemUI(activity);
+        WWLMusicUiUtil.showSystemUI(getActivity());
         this.wwlMusic.exitFullscreenToMinimize();
         this.watchFragment.switchFullscreen(false);
         this.wwlMusic.minimize(false);
@@ -125,10 +125,10 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            WWLMusicUiUtil.hideSystemUI(activity);
+            WWLMusicUiUtil.hideSystemUI(getActivity());
             this.wwlMusic.enterFullscreen();
         } else {
-            WWLMusicUiUtil.showSystemUI(activity);
+            WWLMusicUiUtil.showSystemUI(getActivity());
             this.wwlMusic.exitFullscreen();
         }
         this.watchFragment.switchFullscreen(selected);

@@ -25,7 +25,7 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
         playerView.setUseController(false);
 
         final String linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
-        playerManager = new PlayerManager(activity);
+        playerManager = new PlayerManager(getActivity());
 
         final PlayerControlView controls = findViewById(R.id.controls);
         controls.setShowTimeoutMs(0);
@@ -33,8 +33,8 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
         controls.setPlayer(playerManager.getPlayer());
 
         exoFullscreen = controls.findViewById(R.id.exo_fullscreen);
-        playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(activity));
+        playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
+        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(getActivity()));
     }
 
     @Override
@@ -72,8 +72,8 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isLandscape(activity)) {
-            playerManager.toggleFullscreen(activity);
+        if (LScreenUtil.isLandscape(getActivity())) {
+            playerManager.toggleFullscreen(getActivity());
         } else {
             super.onBackPressed();
         }
@@ -83,9 +83,9 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         } else {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         }
     }
 }

@@ -63,48 +63,48 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_blur_imageview:
-                intent = new Intent(activity, BlurImageViewActivity.class);
+                intent = new Intent(getActivity(), BlurImageViewActivity.class);
                 break;
             case R.id.bt_cirle_imageview:
-                intent = new Intent(activity, CircleImageViewActivity.class);
+                intent = new Intent(getActivity(), CircleImageViewActivity.class);
                 break;
             case R.id.bt_stretchy_imageview:
-                intent = new Intent(activity, StrectchyImageViewActivity.class);
+                intent = new Intent(getActivity(), StrectchyImageViewActivity.class);
                 break;
             case R.id.bt_touch_imageview:
-                intent = new Intent(activity, TouchImageViewActivity.class);
+                intent = new Intent(getActivity(), TouchImageViewActivity.class);
                 break;
             case R.id.bt_zoom_imageview:
-                intent = new Intent(activity, ZoomImageViewActivity.class);
+                intent = new Intent(getActivity(), ZoomImageViewActivity.class);
                 break;
             case R.id.bt_fidgetspinner:
-                intent = new Intent(activity, FidgetSpinnerImageViewActivity.class);
+                intent = new Intent(getActivity(), FidgetSpinnerImageViewActivity.class);
                 break;
             case R.id.bt_cirlularroundrect_imageview:
-                intent = new Intent(activity, CircularRoundRectImageViewActivity.class);
+                intent = new Intent(getActivity(), CircularRoundRectImageViewActivity.class);
                 break;
             case R.id.bt_img2ascii:
-                intent = new Intent(activity, Img2AsciiActivity.class);
+                intent = new Intent(getActivity(), Img2AsciiActivity.class);
                 break;
             case R.id.bt_continuous_scrollable_imageview:
-                intent = new Intent(activity, ContinuousScrollableImageViewActivity.class);
+                intent = new Intent(getActivity(), ContinuousScrollableImageViewActivity.class);
                 break;
             case R.id.bt_scroll_parallax_imageview:
-                intent = new Intent(activity, ScrollParallaxImageViewActivity.class);
+                intent = new Intent(getActivity(), ScrollParallaxImageViewActivity.class);
                 break;
             case R.id.bt_panorama_imageview:
-                intent = new Intent(activity, PanoramaImageViewActivity.class);
+                intent = new Intent(getActivity(), PanoramaImageViewActivity.class);
                 break;
             case R.id.bt_big_imageview:
-                intent = new Intent(activity, BigImageViewActivity.class);
+                intent = new Intent(getActivity(), BigImageViewActivity.class);
                 break;
             case R.id.bt_big_imageview_with_scroll_view:
-                intent = new Intent(activity, BigImageViewWithScrollViewActivity.class);
+                intent = new Intent(getActivity(), BigImageViewWithScrollViewActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

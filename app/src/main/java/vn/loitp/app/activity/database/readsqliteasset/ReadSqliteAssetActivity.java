@@ -19,17 +19,17 @@ public class ReadSqliteAssetActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        vocabularyManager = new VocabularyManager(activity);
+        vocabularyManager = new VocabularyManager(getActivity());
         try {
             vocabularyManager.createDatabase();
-            LLog.d(TAG, "init dtb success");
+            LLog.d(getTAG(), "init dtb success");
         } catch (Exception e) {
-            LLog.d(TAG, "init dtb failed: " + e.toString());
+            LLog.d(getTAG(), "init dtb failed: " + e.toString());
         }
         List<Vocabulary> vocabularyList = new ArrayList<>();
         vocabularyList.addAll(vocabularyManager.getAllVocabulary());
 
-        LLog.d(TAG, "size: " + vocabularyList.size());
+        LLog.d(getTAG(), "size: " + vocabularyList.size());
 
         tv = findViewById(R.id.tv);
         LUIUtil.printBeautyJson(vocabularyList.get(0), tv);

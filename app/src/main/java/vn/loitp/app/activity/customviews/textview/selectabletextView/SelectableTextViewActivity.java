@@ -25,7 +25,7 @@ public class SelectableTextViewActivity extends BaseFontActivity {
         selectableView.addOnSaveClickListener(new SelectableListener() {
             @Override
             public void selectedText(String text) {
-                Toast.makeText(activity, text, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
             }
         });
 

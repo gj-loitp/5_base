@@ -55,10 +55,10 @@ public class RecyclerViewActivity extends BaseFontActivity {
             mAdapter.notifyItemRemoved(1);
         });
 
-        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override
@@ -96,7 +96,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
 
         prepareMovieData();
 
-        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.show(activity, v,
+        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.show(getActivity(), v,
                 R.menu.menu_recycler_view,
                 menuItem -> {
                     tvType.setText(menuItem.getTitle().toString());
@@ -110,10 +110,10 @@ public class RecyclerViewActivity extends BaseFontActivity {
                             recyclerView.setLayoutManager(lmHorizontal);
                             break;
                         case R.id.menu_gridlayoutmanager_2:
-                            recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                             break;
                         case R.id.menu_gridlayoutmanager_3:
-                            recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
+                            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                             break;
                         case R.id.menu_staggeredgridlayoutmanager_2:
                             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -126,7 +126,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.d(TAG, "loadMore");
+        LLog.d(getTAG(), "loadMore");
         LUIUtil.setDelay(2000, mls -> {
             final int newSize = 5;
             for (int i = 0; i < newSize; i++) {
@@ -134,7 +134,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
                 movieList.add(movie);
             }
             mAdapter.notifyDataSetChanged();
-            LToast.show(activity, "Finish loadMore");
+            LToast.show(getActivity(), "Finish loadMore");
         });
     }
 

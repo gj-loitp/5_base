@@ -51,30 +51,30 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_admob:
-                intent = new Intent(activity, FirebaseAdmobActivity.class);
+                intent = new Intent(getActivity(), FirebaseAdmobActivity.class);
                 break;
             case R.id.bt_auth:
-                intent = new Intent(activity, AuthFirebaseMenuActivity.class);
+                intent = new Intent(getActivity(), AuthFirebaseMenuActivity.class);
                 break;
             case R.id.bt_config:
-                intent = new Intent(activity, ConfigFirebaseActivity.class);
+                intent = new Intent(getActivity(), ConfigFirebaseActivity.class);
                 break;
             case R.id.bt_database:
-                intent = new Intent(activity, DatabaseFirebaseSignInActivity.class);
+                intent = new Intent(getActivity(), DatabaseFirebaseSignInActivity.class);
                 break;
             case R.id.bt_invite:
-                intent = new Intent(activity, InviteFirebaseActivity.class);
+                intent = new Intent(getActivity(), InviteFirebaseActivity.class);
                 break;
             case R.id.bt_database_simple:
-                intent = new Intent(activity, DatabaseSimpleFirebaseActivity.class);
+                intent = new Intent(getActivity(), DatabaseSimpleFirebaseActivity.class);
                 break;
             case R.id.bt_fcm:
-                intent = new Intent(activity, FCMFirebaseActivity.class);
+                intent = new Intent(getActivity(), FCMFirebaseActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

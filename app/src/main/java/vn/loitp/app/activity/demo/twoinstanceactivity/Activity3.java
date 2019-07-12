@@ -24,7 +24,7 @@ public class Activity3 extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.INSTANCE.d(TAG, "suzuki onCreate");
+        LLog.INSTANCE.d(getTAG(), "suzuki onCreate");
         findViewById(R.id.bt_go_to_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class Activity3 extends BaseFontActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.d(TAG, "onNewIntent");
+        Log.d(getTAG(), "onNewIntent");
         if ((intent.getFlags() | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) > 0) {
             mIsRestoredToTop  = true;
         }
@@ -91,7 +91,7 @@ public class Activity3 extends BaseFontActivity {
 
     @Override
     protected void onDestroy() {
-        Log.d(TAG, "onDestroy");
+        Log.d(getTAG(), "onDestroy");
         super.onDestroy();
     }
 
@@ -112,7 +112,7 @@ public class Activity3 extends BaseFontActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(FloatingViewService.MessageEvent event) {
-        Log.d(TAG, "onMessageEvent");
+        Log.d(getTAG(), "onMessageEvent");
         Intent intent = new Intent(Activity3.this, Activity2.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);

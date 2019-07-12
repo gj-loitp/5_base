@@ -71,17 +71,17 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         getRootView().setBackgroundResource(resBkgRootView);
 
         final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        LLog.d(getTAG(), "adUnitId " + adUnitId);
         final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
-            adView = new AdView(activity);
+            adView = new AdView(getActivity());
             adView.setAdSize(AdSize.BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
-            final int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            final int navigationHeight = DisplayUtil.getNavigationBarHeight(getActivity());
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
 
@@ -95,9 +95,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
             handleException(new Exception(getString(R.string.err_unknow)));
             return;
         }
-        LLog.d(TAG, "photosetID " + photosetID);
+        LLog.d(getTAG(), "photosetID " + photosetID);
         photosSize = getIntent().getIntExtra(Constants.getSK_PHOTOSET_SIZE(), Constants.getNOT_FOUND());
-        LLog.d(TAG, "photosSize " + photosSize);
+        LLog.d(getTAG(), "photosSize " + photosSize);
 
         final RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
@@ -105,11 +105,11 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
         recyclerView.setHasFixedSize(true);
-        photosOnlyAdapter = new PhotosOnlyAdapter(activity, new PhotosOnlyAdapter.Callback() {
+        photosOnlyAdapter = new PhotosOnlyAdapter(getActivity(), new PhotosOnlyAdapter.Callback() {
             @Override
             public void onClick(Photo photo, int pos) {
                 //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
@@ -132,17 +132,17 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
             @Override
             public void onClickShare(Photo photo, int pos) {
-                LSocialUtil.share(activity, photo.getUrlO());
+                LSocialUtil.share(getActivity(), photo.getUrlO());
             }
 
             @Override
             public void onClickReport(Photo photo, int pos) {
-                LSocialUtil.sendEmail(activity);
+                LSocialUtil.sendEmail(getActivity());
             }
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(activity, photo.getUrlO(), adUnitId);
+                LSocialUtil.openFacebookComment(getActivity(), photo.getUrlO(), adUnitId);
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);
@@ -179,9 +179,9 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(activity, "Select page", arr, position -> {
+        LDialogUtil.showDialogList(getActivity(), "Select page", arr, position -> {
             currentPage = totalPage - position;
-            LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
+            LLog.d(getTAG(), "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
             PhotosDataCore.getInstance().clearData();
             updateAllViews();
             photosetsGetPhotos(photosetID);
@@ -212,7 +212,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void init() {
-        LLog.d(TAG, "init photosSize " + photosSize);
+        LLog.d(getTAG(), "init photosSize " + photosSize);
 
         if (photosSize % PER_PAGE_SIZE == 0) {
             totalPage = photosSize / PER_PAGE_SIZE;
@@ -240,7 +240,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
@@ -252,7 +252,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                         }
                     }
                 }, e -> {
-                    LLog.e(TAG, "photosetsGetList onFail " + e.toString());
+                    LLog.e(getTAG(), "photosetsGetList onFail " + e.toString());
                     handleException(e);
                     avLoadingIndicatorView.smoothToHide();
                 }));
@@ -260,10 +260,10 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(@NonNull final String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "photosetsGetList isLoading true -> return");
+            LLog.d(getTAG(), "photosetsGetList isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
+        LLog.d(getTAG(), "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
         avLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
@@ -271,7 +271,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         final String apiKey = FlickrConst.API_KEY;
         final String userID = FlickrConst.USER_KEY;
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return");
+            LLog.d(getTAG(), "currentPage <= 0 -> return");
             currentPage = 0;
             avLoadingIndicatorView.smoothToHide();
             return;
@@ -280,11 +280,11 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetPhotos -> {
-                    LLog.d(TAG, "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
+                    LLog.d(getTAG(), "photosetsGetPhotos onSuccess " + new Gson().toJson(wrapperPhotosetGetPhotos));
                     //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                     final String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
@@ -298,7 +298,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                     isLoading = false;
                     currentPage--;
                 }, e -> {
-                    LLog.e(TAG, "photosetsGetPhotos onFail " + e.toString());
+                    LLog.e(getTAG(), "photosetsGetPhotos onFail " + e.toString());
                     handleException(e);
                     avLoadingIndicatorView.smoothToHide();
                     isLoading = true;
@@ -352,16 +352,16 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now");
+                            LLog.d(getTAG(), "onPermissionsChecked do you work now");
                             goToHome();
                         } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted");
+                            LLog.d(getTAG(), "!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            LLog.d(getTAG(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -369,7 +369,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown");
+                        LLog.d(getTAG(), "onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })
@@ -378,7 +378,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -393,7 +393,7 @@ public class GalleryCorePhotosOnlyActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;

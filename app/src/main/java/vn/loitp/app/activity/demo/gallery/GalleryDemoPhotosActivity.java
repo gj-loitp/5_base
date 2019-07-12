@@ -53,7 +53,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        LLog.d(TAG, "last item");
+                        LLog.d(getTAG(), "last item");
                         photosetsGetPhotos(photosetID);
                     }
                 }
@@ -78,10 +78,10 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(String photosetID) {
         if (isLoading) {
-            LLog.d(TAG, "isLoading true -> return");
+            LLog.d(getTAG(), "isLoading true -> return");
             return;
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos");
+        LLog.d(getTAG(), "is calling photosetsGetPhotos");
         isLoading = true;
         avi.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
@@ -90,7 +90,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
         final String userID = FlickrConst.USER_KEY;
         currentPage++;
         if (currentPage > totalPage) {
-            LLog.d(TAG, "currentPage > totalPage -> return");
+            LLog.d(getTAG(), "currentPage > totalPage -> return");
             currentPage = totalPage;
             avi.smoothToHide();
             return;
@@ -100,12 +100,12 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, currentPage, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetPhotos -> {
                     totalPage = wrapperPhotosetGetPhotos.getPhotoset().getPages();
-                    LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                    LLog.d(getTAG(), "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                     final String s = wrapperPhotosetGetPhotos.getPhotoset().getTitle() + " (" + currentPage + "/" + totalPage + ")";
                     tvTitle.setText(s);
@@ -113,18 +113,18 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
                     final List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                     PhotosData.getInstance().addPhoto(photoList);
                     for (int i = 0; i < photoList.size(); i++) {
-                        mGalleryView.addView(new PhotosItem(activity, photoList.get(i), i, (photo, position) -> {
+                        mGalleryView.addView(new PhotosItem(getActivity(), photoList.get(i), i, (photo, position) -> {
                             //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                            final Intent intent = new Intent(activity, GalleryDemoSlideActivity.class);
+                            final Intent intent = new Intent(getActivity(), GalleryDemoSlideActivity.class);
                             intent.putExtra("photoID", photo.getId());
                             startActivity(intent);
-                            LActivityUtil.tranIn(activity);
+                            LActivityUtil.tranIn(getActivity());
                         }));
                     }
                     avi.smoothToHide();
                     isLoading = false;
                 }, e -> {
-                    LLog.d(TAG, "onFail " + e.toString());
+                    LLog.d(getTAG(), "onFail " + e.toString());
                     handleException(e);
                     avi.smoothToHide();
                     isLoading = true;

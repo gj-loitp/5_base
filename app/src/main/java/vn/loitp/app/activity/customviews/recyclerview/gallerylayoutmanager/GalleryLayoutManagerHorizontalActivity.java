@@ -29,10 +29,10 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         tv = (TextView) findViewById(R.id.tv);
 
-        mAdapter = new GalleryAdapter(activity, DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
+        mAdapter = new GalleryAdapter(getActivity(), DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override

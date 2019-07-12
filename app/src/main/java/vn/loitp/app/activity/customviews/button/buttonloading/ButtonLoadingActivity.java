@@ -24,7 +24,7 @@ public class ButtonLoadingActivity extends BaseActivity {
         buttonLoading.setOnButtonLoadingListener(new ButtonLoading.OnButtonLoadingListener() {
             @Override
             public void onClick() {
-                LLog.INSTANCE.d(TAG, "onClick");
+                LLog.INSTANCE.d(getTAG(), "onClick");
                 tv.setText("onClick");
                 LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
                     @Override
@@ -36,13 +36,13 @@ public class ButtonLoadingActivity extends BaseActivity {
 
             @Override
             public void onStart() {
-                LLog.INSTANCE.d(TAG, "onStart");
+                LLog.INSTANCE.d(getTAG(), "onStart");
                 tv.setText("onStart");
             }
 
             @Override
             public void onFinish() {
-                LLog.INSTANCE.d(TAG, "onFinish");
+                LLog.INSTANCE.d(getTAG(), "onFinish");
                 tv.setText("onFinish");
             }
         });

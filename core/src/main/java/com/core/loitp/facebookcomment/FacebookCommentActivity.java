@@ -51,12 +51,12 @@ public class FacebookCommentActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         setupActionBar();
         final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
-        LLog.d(TAG, "adUnitId " + adUnitId);
+        LLog.d(getTAG(), "adUnitId " + adUnitId);
         final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (adUnitId == null || adUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
-            adView = new AdView(activity);
+            adView = new AdView(getActivity());
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.createAdBanner(adView);
@@ -69,7 +69,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
         mWebViewComments = findViewById(R.id.commentsView);
         mContainer = findViewById(R.id.webview_frame);
         progressBar = findViewById(R.id.progressBar);
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary));
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(getActivity(), R.color.colorPrimary));
 
         if (Constants.INSTANCE.getIS_DEBUG()) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/";
@@ -79,7 +79,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.show(activity, "The web url shouldn't be empty");
+            LToast.show(getActivity(), "The web url shouldn't be empty");
             onBackPressed();
             return;
         }
@@ -215,7 +215,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage cm) {
-            LLog.d(TAG, "onConsoleMessage: " + cm.message());
+            LLog.d(getTAG(), "onConsoleMessage: " + cm.message());
             return true;
         }
 

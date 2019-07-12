@@ -19,7 +19,7 @@ public class GoodViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //for button
-        goodView = new GoodView(activity);
+        goodView = new GoodView(getActivity());
         Button button = (Button) findViewById(R.id.bt);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +30,7 @@ public class GoodViewActivity extends BaseFontActivity {
         });
 
         //for imageview
-        goodView = new GoodView(activity);
+        goodView = new GoodView(getActivity());
         ImageView iv = (ImageView) findViewById(R.id.iv);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override

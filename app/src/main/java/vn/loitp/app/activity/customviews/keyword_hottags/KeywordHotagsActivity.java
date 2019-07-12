@@ -24,7 +24,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
             strings[i] = i + " loitp";
         }
 
-        placeHolderView.addView(new PVKeywordList(activity, strings, new PVKeywordList.Callback() {
+        placeHolderView.addView(new PVKeywordList(getActivity(), strings, new PVKeywordList.Callback() {
             @Override
             public void onClick(String keyword) {
                 //LLog.d(TAG, "onClick " + keyword);

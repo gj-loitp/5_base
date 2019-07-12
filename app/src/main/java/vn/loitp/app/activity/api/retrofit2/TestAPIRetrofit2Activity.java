@@ -35,7 +35,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0), new AnswersAdapter.PostItemListener() {
             @Override
             public void onPostClick(long id) {
-                Toast.makeText(activity, "Post id is" + id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Post id is" + id, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -72,7 +72,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
             public void onResponse(Call<SOAnswersResponse> call, Response<SOAnswersResponse> response) {
                 if (response.isSuccessful()) {
                     mAdapter.updateAnswers(response.body().getItems());
-                    LLog.d(TAG, "posts loaded from API");
+                    LLog.d(getTAG(), "posts loaded from API");
                 } else {
                     int statusCode = response.code();
                     // handle request errors depending on status code
@@ -85,7 +85,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
                 if (t == null) {
                     return;
                 }
-                LLog.d(TAG, "error loading from API");
+                LLog.d(getTAG(), "error loading from API");
                 tv.setText(t.getMessage());
             }
         });

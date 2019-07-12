@@ -45,10 +45,10 @@ public class BookViewActivity extends BaseFontActivity {
             }
         });*/
 
-        mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
+        mAdapter = new BookAdapter(getActivity(), COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override
@@ -66,7 +66,7 @@ public class BookViewActivity extends BaseFontActivity {
                 //loadMore();
             }
         });
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, COLUMN));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), COLUMN));
         recyclerView.setAdapter(mAdapter);
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);

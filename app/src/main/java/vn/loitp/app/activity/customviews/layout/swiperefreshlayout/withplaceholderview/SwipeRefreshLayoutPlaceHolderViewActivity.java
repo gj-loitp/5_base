@@ -33,7 +33,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        imageList = Utils.loadImages(activity);
+        imageList = Utils.loadImages(getActivity());
 
         llMain = (LinearLayout) findViewById(R.id.ll_main);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
@@ -56,7 +56,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
         if (mGalleryView != null) {
             return;
         }
-        mGalleryView = new PlaceHolderView(activity);
+        mGalleryView = new PlaceHolderView(getActivity());
         llMain.addView(mGalleryView);
         setLoadMoreListener();
     }
@@ -87,11 +87,11 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     private List<Image> imageList = new ArrayList<>();
 
     private void setupGallery() {
-        mGalleryView.addView(new ImageTypeSmallList(activity, imageList));
+        mGalleryView.addView(new ImageTypeSmallList(getActivity(), imageList));
         for (int i = 0; i < imageList.size(); i++) {
-            mGalleryView.addView(new ImageTypeBig(activity, mGalleryView, imageList.get(i).getImageUrl()));
+            mGalleryView.addView(new ImageTypeBig(getActivity(), mGalleryView, imageList.get(i).getImageUrl()));
         }
-        mGalleryView.addView(new ImageTypeSmallList(activity, imageList));
+        mGalleryView.addView(new ImageTypeSmallList(getActivity(), imageList));
     }
 
     private void refresh() {
@@ -108,7 +108,7 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, ">>>>loadMore");
+        LLog.INSTANCE.d(getTAG(), ">>>>loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {

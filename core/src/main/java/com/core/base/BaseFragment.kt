@@ -27,9 +27,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (fragmentCallback != null) {
-            fragmentCallback!!.onViewCreated()
-        }
+        fragmentCallback?.onViewCreated()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -72,7 +70,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     //https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
-    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation {
+    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
         val parent = parentFragment
 
         // Apply the workaround only if this is a child fragment, and the parent

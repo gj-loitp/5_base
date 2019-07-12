@@ -36,7 +36,7 @@ public class RecyclerBannerActivity extends BaseFontActivity {
         webBannerAdapter.setOnBannerItemClickListener(new BannerLayout.OnBannerItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                LToast.INSTANCE.show(activity, "Click " + position);
+                LToast.INSTANCE.show(getActivity(), "Click " + position);
             }
         });
 

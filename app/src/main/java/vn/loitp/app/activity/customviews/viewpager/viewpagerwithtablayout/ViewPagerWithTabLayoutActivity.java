@@ -107,10 +107,10 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         stringList.add(ZoomOutSlideTransformer);
         stringList.add(ZoomOutTranformer);
         String[] arr = stringList.toArray(new String[stringList.size()]);
-        LDialogUtil.showDialogList(activity, "Select", arr, new LDialogUtil.CallbackList() {
+        LDialogUtil.showDialogList(getActivity(), "Select", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
-                LToast.INSTANCE.show(activity, "Click position " + position + ", item: " + arr[position]);
+                LToast.INSTANCE.show(getActivity(), "Click position " + position + ", item: " + arr[position]);
                 switch (stringList.get(position)) {
                     case AccordionTransformer:
                         viewPager.setPageTransformer(true, new AccordionTransformer());
@@ -191,8 +191,8 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.INSTANCE.d(TAG, "res " + res);
-            LayoutInflater inflater = LayoutInflater.from(activity);
+            LLog.INSTANCE.d(getTAG(), "res " + res);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);

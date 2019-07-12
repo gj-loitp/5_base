@@ -27,12 +27,12 @@ public class ExoPlayerActivity extends BaseFontActivity {
         linkPlay = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY());
         final String linkIMAAd = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD());
         if (linkIMAAd == null) {
-            playerManager = new PlayerManager(activity);
+            playerManager = new PlayerManager(getActivity());
         } else {
-            playerManager = new PlayerManager(activity, linkIMAAd);
+            playerManager = new PlayerManager(getActivity(), linkIMAAd);
         }
-        playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(activity));
+        playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
+        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(getActivity()));
     }
 
     @Override
@@ -70,8 +70,8 @@ public class ExoPlayerActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isLandscape(activity)) {
-            playerManager.toggleFullscreen(activity);
+        if (LScreenUtil.isLandscape(getActivity())) {
+            playerManager.toggleFullscreen(getActivity());
         } else {
             super.onBackPressed();
         }
@@ -81,9 +81,9 @@ public class ExoPlayerActivity extends BaseFontActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         } else {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         }
     }
 }

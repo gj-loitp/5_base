@@ -42,18 +42,18 @@ public class MenuDatabaseActivity extends BaseFontActivity implements OnClickLis
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_sqlite:
-                intent = new Intent(activity, SqliteActivity.class);
+                intent = new Intent(getActivity(), SqliteActivity.class);
                 break;
             case R.id.bt_realm:
-                intent = new Intent(activity, RealmActivity.class);
+                intent = new Intent(getActivity(), RealmActivity.class);
                 break;
             case R.id.bt_sqlite_asset:
-                intent = new Intent(activity, ReadSqliteAssetActivity.class);
+                intent = new Intent(getActivity(), ReadSqliteAssetActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

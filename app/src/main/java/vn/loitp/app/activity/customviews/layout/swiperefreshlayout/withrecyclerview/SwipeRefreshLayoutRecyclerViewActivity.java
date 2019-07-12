@@ -40,7 +40,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
@@ -80,7 +80,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, "loadMore");
+        LLog.INSTANCE.d(getTAG(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override

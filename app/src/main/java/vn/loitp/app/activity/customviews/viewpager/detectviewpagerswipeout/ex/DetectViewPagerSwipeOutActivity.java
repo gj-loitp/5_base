@@ -41,24 +41,24 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
         LUIUtil.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
             @Override
             public void onUpOrLeft(float offset) {
-                LLog.INSTANCE.d(TAG, "onUpOrLeft " + offset);
+                LLog.INSTANCE.d(getTAG(), "onUpOrLeft " + offset);
                 ToastUtils.showShort("Detect Left");
             }
 
             @Override
             public void onUpOrLeftRefresh(float offset) {
-                LLog.INSTANCE.d(TAG, "onUpOrLeftRefresh " + offset);
+                LLog.INSTANCE.d(getTAG(), "onUpOrLeftRefresh " + offset);
             }
 
             @Override
             public void onDownOrRight(float offset) {
-                LLog.INSTANCE.d(TAG, "onDownOrRight " + offset);
+                LLog.INSTANCE.d(getTAG(), "onDownOrRight " + offset);
                 ToastUtils.showShort("Detect Right");
             }
 
             @Override
             public void onDownOrRightRefresh(float offset) {
-                LLog.INSTANCE.d(TAG, "onDownOrRightRefresh " + offset);
+                LLog.INSTANCE.d(getTAG(), "onDownOrRightRefresh " + offset);
             }
         });
 

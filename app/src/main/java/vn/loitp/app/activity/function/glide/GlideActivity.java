@@ -44,13 +44,13 @@ public class GlideActivity extends BaseFontActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_0:
-                LImageUtil.loadNoAmin(activity, urlLow, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlLow, urlLow, iv, null);
                 break;
             case R.id.bt_1:
-                LImageUtil.loadNoAmin(activity, urlMedium, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlMedium, urlLow, iv, null);
                 break;
             case R.id.bt_2:
-                LImageUtil.loadNoAmin(activity, urlHigh, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlHigh, urlLow, iv, null);
                 break;
         }
     }

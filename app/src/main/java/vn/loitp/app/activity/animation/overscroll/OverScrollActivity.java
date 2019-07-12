@@ -15,7 +15,7 @@ public class OverScrollActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.overscroll));
+        tv.setText(LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.overscroll));
     }
 
     @Override

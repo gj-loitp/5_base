@@ -35,7 +35,7 @@ public class SoundActivity extends BaseFontActivity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_play:
-                LSoundUtil.startMusicFromAsset(activity, "ting.ogg");
+                LSoundUtil.startMusicFromAsset(getActivity(), "ting.ogg");
                 break;
         }
     }

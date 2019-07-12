@@ -29,7 +29,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
@@ -45,7 +45,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
                 loadMore();
             }
         });
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
@@ -66,7 +66,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, "loadMore");
+        LLog.INSTANCE.d(getTAG(), "loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {

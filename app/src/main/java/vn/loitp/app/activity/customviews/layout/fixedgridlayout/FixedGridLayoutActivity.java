@@ -19,7 +19,7 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         FixedGridLayout fixedGridLayout = (FixedGridLayout) findViewById(R.id.fgl);
         for (int i = 0; i < 20; i++) {
-            TextView textView = new TextView(activity);
+            TextView textView = new TextView(getActivity());
             textView.setText("Item " + i);
             textView.setTextColor(Color.WHITE);
             if (i % 2 == 0) {
@@ -30,7 +30,7 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LToast.showShort(activity, "Touch " + textView.getText().toString(), R.drawable.bkg_horizontal);
+                    LToast.showShort(getActivity(), "Touch " + textView.getText().toString(), R.drawable.bkg_horizontal);
                 }
             });
             fixedGridLayout.addView(textView);
@@ -41,7 +41,7 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
                 int row = LDeviceUtil.getRandomNumber(7) + 1;//+1 make sure value != 0
                 int col = LDeviceUtil.getRandomNumber(10) + 1;//+1 make sure value != 0
                 fixedGridLayout.setGridSize(row, col);
-                LToast.showShort(activity, row + "x" + col, R.drawable.bkg_horizontal);
+                LToast.showShort(getActivity(), row + "x" + col, R.drawable.bkg_horizontal);
             }
         });
     }

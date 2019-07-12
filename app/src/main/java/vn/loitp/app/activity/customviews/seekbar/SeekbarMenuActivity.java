@@ -44,21 +44,21 @@ public class SeekbarMenuActivity extends BaseFontActivity implements View.OnClic
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_boxed_vertical_seekbar:
-                intent = new Intent(activity, BoxedVerticalSeekBarActivity.class);
+                intent = new Intent(getActivity(), BoxedVerticalSeekBarActivity.class);
                 break;
             case R.id.bt_circularseekbar_seekbar:
-                intent = new Intent(activity, CircularSeekbarActivity.class);
+                intent = new Intent(getActivity(), CircularSeekbarActivity.class);
                 break;
             case R.id.bt_vertical_seekbar:
-                intent = new Intent(activity, VerticalSeekbarActivity.class);
+                intent = new Intent(getActivity(), VerticalSeekbarActivity.class);
                 break;
             case R.id.bt_seekbar:
-                intent = new Intent(activity, SeekbarActivity.class);
+                intent = new Intent(getActivity(), SeekbarActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

@@ -65,7 +65,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
     }
 
     private void showDialogSelect() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Chọn thể loại:");
 
         String[] items = new String[comicTypeList.size()];
@@ -77,10 +77,10 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int position) {
-                LLog.INSTANCE.d(TAG, "onClick " + position);
+                LLog.INSTANCE.d(getTAG(), "onClick " + position);
                 tv.setText("");
                 tvTitle.setText("");
-                new GetComicTask(activity, comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+                new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
                     @Override
                     public void onSuccess(List<Comic> comicList) {
                         LUIUtil.printBeautyJson(comicList, tv);

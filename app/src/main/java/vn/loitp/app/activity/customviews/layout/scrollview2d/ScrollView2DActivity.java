@@ -16,7 +16,7 @@ public class ScrollView2DActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         final TwoDScrollView twoDScrollView = findViewById(R.id.sv);
         twoDScrollView.setScrollChangeListner((view, x, y, oldx, oldy) -> {
-            LLog.d(TAG, "setScrollChangeListner " + x + " - " + y);
+            LLog.d(getTAG(), "setScrollChangeListner " + x + " - " + y);
         });
         LUIUtil.setDelay(2000, mls -> twoDScrollView.smoothScrollTo(300, 300));
     }

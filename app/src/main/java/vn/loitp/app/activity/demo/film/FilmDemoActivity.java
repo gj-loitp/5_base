@@ -52,13 +52,13 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                 LLog.d(TAG, "onScrollChange Scroll UP");
             }*/
             if (scrollY == 0) {
-                LLog.d(TAG, "onScrollChange TOP SCROLL");
-                LToast.show(activity, "TOP SCROLL");
+                LLog.d(getTAG(), "onScrollChange TOP SCROLL");
+                LToast.show(getActivity(), "TOP SCROLL");
             }
 
             if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
-                LLog.d(TAG, "onScrollChange BOTTOM SCROLL");
-                LToast.show(activity, "BOTTOM SCROLL -> LOAD MORE");
+                LLog.d(getTAG(), "onScrollChange BOTTOM SCROLL");
+                LToast.show(getActivity(), "BOTTOM SCROLL -> LOAD MORE");
             }
         });
     }
@@ -102,20 +102,20 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     private void refresh() {
         LUIUtil.setDelay(3000, mls -> {
             swipeRefreshLayout.setRefreshing(false);
-            LToast.show(activity, "Finish refresh -> clear all views");
+            LToast.show(getActivity(), "Finish refresh -> clear all views");
             clearAllViews();
         });
     }
 
     private void addVGViewPager() {
-        final VGViewPager vgViewPager = new VGViewPager(activity);
+        final VGViewPager vgViewPager = new VGViewPager(getActivity());
         vgViewPager.init();
         vgViewPager.setCallback(() -> removeView(vgViewPager));
         addView(vgViewPager);
     }
 
     private void addDummyTextView() {
-        final TextView textView = new TextView(activity);
+        final TextView textView = new TextView(getActivity());
         textView.setText("Dummy " + System.currentTimeMillis());
         textView.setTextColor(LStoreUtil.getRandomColor());
         LUIUtil.setTextShadow(textView);
@@ -126,13 +126,13 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void addVGReVHorizontal() {
-        final VGReVHorizontal vgReVHorizontal = new VGReVHorizontal(activity);
+        final VGReVHorizontal vgReVHorizontal = new VGReVHorizontal(getActivity());
         vgReVHorizontal.setCallback(() -> removeView(vgReVHorizontal));
         addView(vgReVHorizontal);
     }
 
     private void addVGReVvertical() {
-        final VGReVVertical vgReVVertical = new VGReVVertical(activity);
+        final VGReVVertical vgReVVertical = new VGReVVertical(getActivity());
         vgReVVertical.setCallback(() -> removeView(vgReVVertical));
         addView(vgReVVertical);
     }

@@ -47,33 +47,33 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExit = false;
+        setShowAdWhenExit(false);
         setTransparentStatusNavigationBar();
         removeAlbumList = getIntent().getStringArrayListExtra(Constants.getKEY_REMOVE_ALBUM_FLICKR_LIST());
 
         avLoadingIndicatorView = findViewById(R.id.av);
 
         final String admobBannerUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
-        LLog.d(TAG, "admobBannerUnitId " + admobBannerUnitId);
+        LLog.d(getTAG(), "admobBannerUnitId " + admobBannerUnitId);
         final LinearLayout lnAdview = findViewById(R.id.ln_adview);
         if (admobBannerUnitId == null || admobBannerUnitId.isEmpty()) {
             lnAdview.setVisibility(View.GONE);
         } else {
-            adView = new AdView(activity);
+            adView = new AdView(getActivity());
             adView.setAdSize(AdSize.BANNER);
             adView.setAdUnitId(admobBannerUnitId);
             LUIUtil.createAdBanner(adView);
             lnAdview.addView(adView);
-            int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
+            int navigationHeight = DisplayUtil.getNavigationBarHeight(getActivity());
             LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
 
         final RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
-        LLog.d(TAG, "bkgRootView " + bkgRootView);
+        LLog.d(getTAG(), "bkgRootView " + bkgRootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
             getRootView().setBackgroundResource(bkgRootView);
         }
@@ -82,18 +82,18 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 
-        albumAdapter = new AlbumAdapter(activity, photosetList, new AlbumAdapter.Callback() {
+        albumAdapter = new AlbumAdapter(getActivity(), photosetList, new AlbumAdapter.Callback() {
             @Override
             public void onClick(int pos) {
-                final Intent intent = new Intent(activity, GalleryCorePhotosActivity.class);
+                final Intent intent = new Intent(getActivity(), GalleryCorePhotosActivity.class);
                 intent.putExtra(Constants.getBKG_ROOT_VIEW(), bkgRootView);
                 intent.putExtra(Constants.getSK_PHOTOSET_ID(), photosetList.get(pos).getId());
                 intent.putExtra(Constants.getSK_PHOTOSET_SIZE(), photosetList.get(pos).getPhotos());
                 startActivity(intent);
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(getActivity());
             }
 
             @Override
@@ -143,7 +143,7 @@ public class GalleryCoreAlbumActivity extends BaseFontActivity {
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {

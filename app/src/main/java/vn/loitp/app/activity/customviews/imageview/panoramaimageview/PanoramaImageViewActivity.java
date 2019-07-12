@@ -34,7 +34,7 @@ public class PanoramaImageViewActivity extends BaseFontActivity {
         panoramaImageView.setOnPanoramaScrollListener(new PanoramaImageView.OnPanoramaScrollListener() {
             @Override
             public void onScrolled(PanoramaImageView view, float offsetProgress) {
-                LLog.INSTANCE.d(TAG, "onScrolled offsetProgress " + offsetProgress);
+                LLog.INSTANCE.d(getTAG(), "onScrolled offsetProgress " + offsetProgress);
             }
         });
     }

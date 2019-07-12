@@ -20,25 +20,25 @@ public class SwipeRefreshLayoutMenuActivity extends BaseFontActivity {
         findViewById(R.id.bt_with_scroll_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, SwipeRefreshLayoutScrollViewActivity.class);
+                Intent intent = new Intent(getActivity(), SwipeRefreshLayoutScrollViewActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_with_recycler_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, SwipeRefreshLayoutRecyclerViewActivity.class);
+                Intent intent = new Intent(getActivity(), SwipeRefreshLayoutRecyclerViewActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_with_place_holder_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, SwipeRefreshLayoutPlaceHolderViewActivity.class);
+                Intent intent = new Intent(getActivity(), SwipeRefreshLayoutPlaceHolderViewActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
     }

@@ -71,26 +71,26 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.INSTANCE.show(activity, "Posting...");
+        LToast.INSTANCE.show(getActivity(), "Posting...");
 
         // [START single_value_read]
         final String userId = getUid();
-        LLog.INSTANCE.d(TAG, "userId " + userId);
+        LLog.INSTANCE.d(getTAG(), "userId " + userId);
         mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        LLog.INSTANCE.d(TAG, "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
+                        LLog.INSTANCE.d(getTAG(), "dataSnapshot.hasChild(userId) " + dataSnapshot.hasChild(userId));
 
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        LLog.INSTANCE.d(TAG, "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
+                        LLog.INSTANCE.d(getTAG(), "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
-                            LLog.INSTANCE.e(TAG, "User " + userId + " is unexpectedly null");
-                            LToast.INSTANCE.show(activity, "Error: could not fetch user.");
+                            LLog.INSTANCE.e(getTAG(), "User " + userId + " is unexpectedly null");
+                            LToast.INSTANCE.show(getActivity(), "Error: could not fetch user.");
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);
@@ -104,7 +104,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        LLog.INSTANCE.d(TAG, "getUser:onCancelled " + databaseError.toException());
+                        LLog.INSTANCE.d(getTAG(), "getUser:onCancelled " + databaseError.toException());
                         // [START_EXCLUDE]
                         setEditingEnabled(true);
                         // [END_EXCLUDE]

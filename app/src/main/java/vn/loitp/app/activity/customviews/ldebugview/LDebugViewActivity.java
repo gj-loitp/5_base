@@ -40,7 +40,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LDebug.checkPermission(activity, requestCode, resultCode);
+        LDebug.checkPermission(getActivity(), requestCode, resultCode);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -63,7 +63,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_start:
-                LDebug.init(activity);
+                LDebug.init(getActivity());
                 btStop.setEnabled(true);
                 btSendD.setEnabled(true);
                 btSendI.setEnabled(true);

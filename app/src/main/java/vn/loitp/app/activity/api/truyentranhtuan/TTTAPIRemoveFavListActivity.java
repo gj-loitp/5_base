@@ -75,7 +75,7 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
 
     private void removeComic(Comic comic) {
         avi.smoothToShow();
-        new RemoveComicFavListTask(activity, comic, new RemoveComicFavListTask.Callback() {
+        new RemoveComicFavListTask(getActivity(), comic, new RemoveComicFavListTask.Callback() {
             @Override
             public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList) {
                 ToastUtils.showShort("onRemoveComicSuccess");

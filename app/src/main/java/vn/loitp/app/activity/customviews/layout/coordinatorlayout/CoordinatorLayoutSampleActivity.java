@@ -21,16 +21,16 @@ public class CoordinatorLayoutSampleActivity extends BaseFontActivity {
         String value = getIntent().getStringExtra(KEY);
         switch (value) {
             case VALUE_0:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator0(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator0(), false);
                 break;
             case VALUE_1:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator1(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator1(), false);
                 break;
             case VALUE_2:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator2(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator2(), false);
                 break;
             case VALUE_3:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator3(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator3(), false);
                 break;
         }
     }

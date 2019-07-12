@@ -21,17 +21,17 @@ public class VerticalSeekbarActivity extends BaseFontActivity {
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LLog.INSTANCE.d(TAG, "onProgressChanged " + progress);
+                LLog.INSTANCE.d(getTAG(), "onProgressChanged " + progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                LLog.INSTANCE.d(TAG, "onStartTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStartTrackingTouch");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                LLog.INSTANCE.d(TAG, "onStopTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStopTrackingTouch");
             }
         });
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {

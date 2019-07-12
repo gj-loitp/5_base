@@ -78,7 +78,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CROP_PIC_REQUEST_CODE) {
-            LLog.d(TAG, "onActivityResult CROP_PIC_REQUEST_CODE");
+            LLog.d(getTAG(), "onActivityResult CROP_PIC_REQUEST_CODE");
             if (data != null) {
                 final Bundle extras = data.getExtras();
                 if (extras == null) {
@@ -97,9 +97,9 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
             final int aspectY = 1;
             final int outputX = 500;
             final int outputY = 500;
-            LPickerUtil.INSTANCE.cropImage(activity, uri, CROP_PIC_REQUEST_CODE, aspectX, aspectY, outputX, outputY);
+            LPickerUtil.INSTANCE.cropImage(getActivity(), uri, CROP_PIC_REQUEST_CODE, aspectX, aspectY, outputX, outputY);
         } else {
-            LImageUtil.load(activity, uri, ivImage2);
+            LImageUtil.load(getActivity(), uri, ivImage2);
         }
     }
 
@@ -128,7 +128,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
                 default:
                     iv = ivImage6;
             }
-            LImageUtil.load(activity, uriList.get(i), iv);
+            LImageUtil.load(getActivity(), uriList.get(i), iv);
         }
     }
 }

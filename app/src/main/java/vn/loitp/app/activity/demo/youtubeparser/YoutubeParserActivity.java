@@ -20,7 +20,7 @@ public class YoutubeParserActivity extends BaseFontActivity {
         //bundle.putString(FrmYoutubeParser.KEY_CHANNEL_ID, "UCdDnufSiFrEvS7jqcKOkN0Q");//loitp channel
         bundle.putString(FrmYoutubeParser.KEY_CHANNEL_ID, channelId);
         frmYoutubeParser.setArguments(bundle);
-        LScreenUtil.addFragment(activity, R.id.fl_container, frmYoutubeParser, false);
+        LScreenUtil.addFragment(getActivity(), R.id.fl_container, frmYoutubeParser, false);
     }
 
     @Override

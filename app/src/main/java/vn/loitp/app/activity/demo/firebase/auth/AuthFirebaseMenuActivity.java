@@ -39,15 +39,15 @@ public class AuthFirebaseMenuActivity extends BaseFontActivity implements View.O
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_gg:
-                intent = new Intent(activity, AuthFirebaseGoogleActivity.class);
+                intent = new Intent(getActivity(), AuthFirebaseGoogleActivity.class);
                 break;
             case R.id.bt_fb:
-                intent = new Intent(activity, AuthFirebaseFacebookActivity.class);
+                intent = new Intent(getActivity(), AuthFirebaseFacebookActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

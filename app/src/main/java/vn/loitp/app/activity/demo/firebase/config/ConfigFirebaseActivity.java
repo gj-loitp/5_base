@@ -104,13 +104,13 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            LToast.INSTANCE.show(activity, "Fetch Succeeded");
+                            LToast.INSTANCE.show(getActivity(), "Fetch Succeeded");
 
                             // After config data is successfully fetched, it must be activated before newly fetched
                             // values are returned.
                             mFirebaseRemoteConfig.activateFetched();
                         } else {
-                            LToast.INSTANCE.show(activity, "Fetch Failed");
+                            LToast.INSTANCE.show(getActivity(), "Fetch Failed");
                         }
                         displayWelcomeMessage();
                     }

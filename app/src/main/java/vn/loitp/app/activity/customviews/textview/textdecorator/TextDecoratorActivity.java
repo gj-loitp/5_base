@@ -30,7 +30,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
                 .makeTextClickable(new OnTextClickListener() {
                     @Override
                     public void onClick(View view, String text) {
-                        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
                     }
                 }, false, "porta", "commodo", "tempor venenatis nulla")
                 .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")

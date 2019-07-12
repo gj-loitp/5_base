@@ -28,7 +28,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";
-        new GetChapTask(activity, urlComic, new GetChapTask.Callback() {
+        new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {
                 LUIUtil.printBeautyJson(tttChap, tv);

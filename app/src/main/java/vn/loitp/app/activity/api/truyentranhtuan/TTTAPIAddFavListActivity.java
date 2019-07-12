@@ -75,7 +75,7 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
 
     private void addComic(Comic comic) {
         avi.smoothToShow();
-        new AddComicFavListTask(activity, comic, new AddComicFavListTask.Callback() {
+        new AddComicFavListTask(getActivity(), comic, new AddComicFavListTask.Callback() {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
                 LUIUtil.printBeautyJson(comicList, tv);
