@@ -7,8 +7,6 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-    `
-
     <RelativeLayout
         android:id="@+id/root_view"
         android:layout_width="match_parent"

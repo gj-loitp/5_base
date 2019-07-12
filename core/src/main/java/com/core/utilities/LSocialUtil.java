@@ -28,10 +28,10 @@ public class LSocialUtil {
     public static void rateApp(Activity activity, String packageName) {
         try {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         } catch (android.content.ActivityNotFoundException anfe) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)));
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         }
     }
 
@@ -40,7 +40,7 @@ public class LSocialUtil {
         String uri = "https://play.google.com/store/apps/developer?id=" + nameOfDeveloper;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         activity.startActivity(intent);
-        LActivityUtil.INSTANCE.tranIn(activity);
+        LActivityUtil.tranIn(activity);
     }
 
     public static void shareApp(Activity activity) {
@@ -52,9 +52,9 @@ public class LSocialUtil {
             sAux = sAux + "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
             intent.putExtra(Intent.EXTRA_TEXT, sAux);
             activity.startActivity(Intent.createChooser(intent, "Vui lòng chọn"));
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         } catch (Exception e) {
-            LLog.INSTANCE.d(TAG, "shareApp: " + e.toString());
+            LLog.d(TAG, "shareApp: " + e.toString());
         }
     }
 
@@ -67,9 +67,9 @@ public class LSocialUtil {
             //sAux = sAux + "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
             intent.putExtra(Intent.EXTRA_TEXT, msg);
             activity.startActivity(Intent.createChooser(intent, "Share via"));
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(activity);
         } catch (Exception e) {
-            LLog.INSTANCE.d(TAG, "shareApp: " + e.toString());
+            LLog.d(TAG, "shareApp: " + e.toString());
         }
     }
 
@@ -79,7 +79,7 @@ public class LSocialUtil {
         String facebookUrl = getFacebookPageURL(activity);
         facebookIntent.setData(Uri.parse(facebookUrl));
         activity.startActivity(facebookIntent);
-        LActivityUtil.INSTANCE.tranIn(activity);
+        LActivityUtil.tranIn(activity);
     }
 
     /*
@@ -111,7 +111,7 @@ public class LSocialUtil {
             int versionCode = packageManager.getPackageInfo("com.facebook.orca", 0).versionCode;
             if (versionCode >= 0) isFBInstalled = true;
         } catch (PackageManager.NameNotFoundException e) {
-            LLog.INSTANCE.d(TAG, "packageManager com.facebook.orca: " + e.toString());
+            LLog.d(TAG, "packageManager com.facebook.orca: " + e.toString());
         }
         if (!isFBInstalled) {
             LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null);
@@ -121,7 +121,7 @@ public class LSocialUtil {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             try {
                 activity.startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.tranIn(activity);
             } catch (Exception e) {
                 LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null);
 
@@ -147,7 +147,7 @@ public class LSocialUtil {
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(context);
+            LActivityUtil.tranIn(context);
         }
     }
 
@@ -155,14 +155,14 @@ public class LSocialUtil {
         Intent intent = new Intent(context, FacebookCommentActivity.class);
         intent.putExtra(Constants.INSTANCE.getFACEBOOK_COMMENT_URL(), url);
         context.startActivity(intent);
-        LActivityUtil.INSTANCE.tranIn(context);
+        LActivityUtil.tranIn(context);
     }
 
     public static void openFacebookComment(Context context, String url, String adUnitId) {
         Intent intent = new Intent(context, FacebookCommentActivity.class);
         intent.putExtra(Constants.INSTANCE.getFACEBOOK_COMMENT_URL(), url);
-        intent.putExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER(), adUnitId);
+        intent.putExtra(Constants.getAD_UNIT_ID_BANNER(), adUnitId);
         context.startActivity(intent);
-        LActivityUtil.INSTANCE.tranIn(context);
+        LActivityUtil.tranIn(context);
     }
 }
