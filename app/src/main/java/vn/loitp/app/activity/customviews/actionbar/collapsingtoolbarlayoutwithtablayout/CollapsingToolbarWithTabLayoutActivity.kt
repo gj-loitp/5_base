@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwitht
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -89,7 +90,11 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         when (v.id) {
             R.id.fab -> Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            R.id.bt_menu -> LPopupMenu.show(activity, v, R.menu.menu_popup) { menuItem -> LToast.show(activity, menuItem.title.toString()) }
+            R.id.bt_menu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+                override fun clickOnItem(menuItem: MenuItem) {
+                    LToast.show(activity, menuItem.title.toString())
+                }
+            })
         }
     }
 

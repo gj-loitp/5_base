@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.widget.Toolbar
@@ -71,7 +72,11 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.bt_menu -> LPopupMenu.show(activity, v, R.menu.menu_popup) { menuItem -> LToast.show(activity, menuItem.title.toString()) }
+            R.id.bt_menu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+                override fun clickOnItem(menuItem: MenuItem) {
+                    LToast.show(activity, menuItem.title.toString())
+                }
+            })
         }
     }
 }

@@ -122,7 +122,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
             @Override
             public void onLongClick(final Photo photo, final int pos) {
-                LSocialUtil.share(getActivity(), photo.getUrlO());
+                LSocialUtil.INSTANCE.share(getActivity(), photo.getUrlO());
             }
         });
         //recyclerView.setAdapter(albumAdapter);
@@ -162,7 +162,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(getActivity(), "Select page", arr, position -> {
+        LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select page", arr, position -> {
             currentPage = totalPage - position;
             LLog.d(getTAG(), "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
             PhotosDataCore.getInstance().clearData();

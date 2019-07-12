@@ -382,7 +382,7 @@ public class LUIUtil {
                             //LLog.d(TAG, "________________ up " + lastOffset);
                             if (lastOffset > 1.8f) {
                                 callback.onUpOrLeftRefresh(lastOffset);
-                                LSoundUtil.startMusicFromAsset(viewPager.getContext(), "ting.ogg");
+                                LSoundUtil.INSTANCE.startMusicFromAsset(viewPager.getContext(), "ting.ogg");
                             } else {
                                 callback.onUpOrLeft(lastOffset);
                             }
@@ -456,7 +456,7 @@ public class LUIUtil {
                             //LLog.d(TAG, "________________ up " + lastOffset);
                             if (lastOffset > 1.8f) {
                                 callback.onUpOrLeftRefresh(lastOffset);
-                                LSoundUtil.startMusicFromAsset(recyclerView.getContext(), "ting.ogg");
+                                LSoundUtil.INSTANCE.startMusicFromAsset(recyclerView.getContext(), "ting.ogg");
                             } else {
                                 callback.onUpOrLeft(lastOffset);
                             }

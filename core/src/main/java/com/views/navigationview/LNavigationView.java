@@ -97,7 +97,7 @@ public class LNavigationView extends RelativeLayout implements View.OnClickListe
         String s = stringList.get(currenIndex);
         tv.setText(s);
         if (isEnableAnimation) {
-            LAnimationUtil.play(tv, Techniques.FlipInX);
+            LAnimationUtil.INSTANCE.play(tv, Techniques.FlipInX);
         }
         int size = stringList.size();
         if (size == 1) {
@@ -124,13 +124,13 @@ public class LNavigationView extends RelativeLayout implements View.OnClickListe
     public void onClick(View view) {
         if (view == ivPrev) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
             }
             currenIndex--;
             updateUI();
         } else if (view == ivNext) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
             }
             currenIndex++;
             updateUI();

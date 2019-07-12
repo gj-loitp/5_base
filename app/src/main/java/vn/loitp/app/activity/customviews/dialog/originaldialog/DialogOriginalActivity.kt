@@ -9,6 +9,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.utils.util.ToastUtils
+import com.views.LToast
 import loitp.basemaster.R
 
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
@@ -51,7 +52,12 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1") { ToastUtils.showShort("Click 1") }
+        LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1"
+                , object : LDialogUtil.Callback1 {
+            override fun onClick1() {
+                LToast.show(activity, "Click 1", R.drawable.bkg_horizontal)
+            }
+        })
     }
 
     private fun show2() {
@@ -84,11 +90,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
     private fun showList() {
         val size = 50
-        val arr = arrayOfNulls<String>(size)
+        val arr = arrayOfNulls<String?>(size)
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(activity, "Title", arr) { position -> ToastUtils.showShort("Click position " + position + ", item: " + arr[position]) }
+        LDialogUtil.showDialogList(activity, "Title", arr, object : LDialogUtil.CallbackList {
+            override fun onClick(position: Int) {
+                LToast.show(activity, "Click position " + position + ", item: " + arr[position], R.drawable.bkg_horizontal)
+            }
+        })
     }
 
     private fun showProgress() {

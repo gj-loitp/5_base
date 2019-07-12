@@ -40,7 +40,7 @@ class LShineView : RelativeLayout {
         this.shineButton = findViewById(R.id.shine_button)
         iv?.setOnClickListener { v ->
             shineButton?.performClick()
-            LAnimationUtil.play(iv, Techniques.Pulse)
+            LAnimationUtil.play(v, Techniques.Pulse)
             if (callback != null) {
                 if (isDelay) {
                     LUIUtil.setDelay(750) { callback?.onClick(v) }

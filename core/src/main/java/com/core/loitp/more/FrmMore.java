@@ -45,15 +45,15 @@ public class FrmMore extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.bt_rate_app) {
-            LSocialUtil.rateApp(getActivity(), getActivity().getPackageName());
+            LSocialUtil.INSTANCE.rateApp(getActivity(), getActivity().getPackageName());
         } else if (id == R.id.bt_more_app) {
-            LSocialUtil.moreApp(getActivity());
+            LSocialUtil.INSTANCE.moreApp(getActivity());
         } else if (id == R.id.bt_share_app) {
-            LSocialUtil.shareApp(getActivity());
+            LSocialUtil.INSTANCE.shareApp(getActivity());
         } else if (id == R.id.bt_like_fb_fanpage) {
-            LSocialUtil.likeFacebookFanpage(getActivity());
+            LSocialUtil.INSTANCE.likeFacebookFanpage(getActivity());
         } else if (id == R.id.bt_support) {
-            LSocialUtil.chatMessenger(getActivity());
+            LSocialUtil.INSTANCE.chatMessenger(getActivity());
         } else if (id == R.id.bt_ad_helper) {
             Intent intent = new Intent(getActivity(), AdHelperActivity.class);
             startActivity(intent);

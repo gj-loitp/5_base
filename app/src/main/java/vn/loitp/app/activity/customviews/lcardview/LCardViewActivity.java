@@ -21,22 +21,22 @@ public class LCardViewActivity extends BaseFontActivity {
         lCardView0.setCallback(new LCardView.Callback() {
             @Override
             public void onClickRoot(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Pulse);
             }
 
             @Override
             public void onLongClickRoot(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Pulse);
             }
 
             @Override
             public void onClickText(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Pulse);
             }
 
             @Override
             public void onLongClickText(View v) {
-                LAnimationUtil.play(v, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Pulse);
             }
         });
         lCardView0.setText(System.currentTimeMillis() + "");

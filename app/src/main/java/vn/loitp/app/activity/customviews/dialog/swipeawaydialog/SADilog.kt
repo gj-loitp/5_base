@@ -39,11 +39,16 @@ class SADilog : SwipeAwayDialogFragment() {
     }
 
     private fun show1(): AlertDialog {
-        return LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1") { ToastUtils.showShort("Click 1") }
+        return LDialogUtil.showDialog1(context!!, "Title", "Msg", "Button 1",
+                object : LDialogUtil.Callback1 {
+                    override fun onClick1() {
+                        LToast.show(context!!, "Click 1", R.drawable.bkg_horizontal)
+                    }
+                })
     }
 
     private fun show2(): AlertDialog {
-        return LDialogUtil.showDialog2(activity, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
+        return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
             override fun onClick1() {
                 ToastUtils.showShort("Click 1")
             }
@@ -55,7 +60,7 @@ class SADilog : SwipeAwayDialogFragment() {
     }
 
     private fun show3(): AlertDialog {
-        return LDialogUtil.showDialog3(activity, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
+        return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
             override fun onClick1() {
                 ToastUtils.showShort("Click 1")
             }
@@ -76,11 +81,15 @@ class SADilog : SwipeAwayDialogFragment() {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        return LDialogUtil.showDialogList(activity, "Title", arr) { position -> ToastUtils.showShort("Click position " + position + ", item: " + arr[position]) }
+        return LDialogUtil.showDialogList(context!!, "Title", arr, object : LDialogUtil.CallbackList {
+            override fun onClick(position: Int) {
+                LToast.show(context!!, "Click position " + position + ", item: " + arr[position], R.drawable.bkg_horizontal)
+            }
+        })
     }
 
     private fun showProgress(): AlertDialog {
-        val progressDialog = LDialogUtil.showProgressDialog(activity, 100, "Title", "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null)
+        val progressDialog = LDialogUtil.showProgressDialog(activity!!, 100, "Title", "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null)
         object : AsyncTask<Void, Int, Void>() {
             var i = 0
 

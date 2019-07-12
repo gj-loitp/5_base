@@ -29,7 +29,7 @@ public class Utils {
     }
 
     public static void setHeart(ImageView imageView) {
-        int size = LDeviceUtil.getRandomNumber(150) + 80;
+        int size = LDeviceUtil.Companion.getRandomNumber(150) + 80;
         imageView.getLayoutParams().height = size;
         imageView.getLayoutParams().width = size;
         imageView.requestLayout();

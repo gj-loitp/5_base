@@ -70,7 +70,7 @@ public class VGViewPager extends RelativeLayout {
     private List<Page> genData() {
         //5<=max<=10
         final List<Page> pages = new ArrayList<>();
-        final int max = LDeviceUtil.getRandomNumber(5) + 5;
+        final int max = LDeviceUtil.Companion.getRandomNumber(5) + 5;
         LLog.d(TAG, "genData max " + max);
         for (int i = 0; i < max; i++) {
             final Page page = new Page();

@@ -78,19 +78,19 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             } else {
                 byte[] coverImageAsBytes = bookInfo.getCoverImage();
                 if (coverImageAsBytes != null) {
-                    Bitmap bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
+                    Bitmap bitmap = LReaderUtil.INSTANCE.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
                     bookInfo.setCoverImageBitmap(bitmap);
                     bookInfo.setCoverImage(null);
                     ivCover.setImageBitmap(bitmap);
                 } else {
                     // Searched and not found.
                     bookInfo.setCoverImageNotExists(true);
-                    ivCover.setImageResource(LReaderUtil.getDefaultCover());
+                    ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
                 }
             }
         } else {
             // Searched before and not found.
-            ivCover.setImageResource(LReaderUtil.getDefaultCover());
+            ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
         }
     }
 
@@ -138,7 +138,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         final String adUnitId = getIntent().getStringExtra(Constants.INSTANCE.getAD_UNIT_ID_BANNER());
         //LLog.d(TAG, "adUnitId " + adUnitId);
         LinearLayout lnAdview = (LinearLayout) findViewById(R.id.ln_adview);
-        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.isConnected(getActivity())) {
+        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.INSTANCE.isConnected(getActivity())) {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(getActivity());
@@ -162,7 +162,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_in).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.play(view, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomIn(pageFragment);
@@ -180,7 +180,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.play(view, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomOut(pageFragment);
@@ -198,7 +198,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         llGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
+                LAnimationUtil.INSTANCE.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                     }

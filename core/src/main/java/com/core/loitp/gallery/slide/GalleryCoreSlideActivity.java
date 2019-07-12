@@ -131,11 +131,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         });
         findViewById(R.id.bt_share).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            LSocialUtil.share(getActivity(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+            LSocialUtil.INSTANCE.share(getActivity(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
         });
         findViewById(R.id.bt_report).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            LSocialUtil.sendEmail(getActivity());
+            LSocialUtil.INSTANCE.sendEmail(getActivity());
         });
     }
 
@@ -192,14 +192,14 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         }
         rlControl.setVisibility(View.VISIBLE);
         isRlControlShowing = true;
-        LAnimationUtil.play(rlControl, Techniques.SlideInUp);
+        LAnimationUtil.INSTANCE.play(rlControl, Techniques.SlideInUp);
     }
 
     private void hideRlControl() {
         if (rlControl == null) {
             return;
         }
-        LAnimationUtil.play(rlControl, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
+        LAnimationUtil.INSTANCE.play(rlControl, Techniques.SlideOutDown, new LAnimationUtil.Callback() {
             @Override
             public void onCancel() {
             }

@@ -36,7 +36,12 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showIOSDialog1(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Allow", false) { LToast.show(activity, "onClick1") }
+        LDialogUtil.showIOSDialog1(activity, "Allow \"Calendar\" to access your location while you use the app?",
+                "This is a subtitle", "Allow", false, object : LDialogUtil.Callback1 {
+            override fun onClick1() {
+                LToast.show(activity, "onClick1", R.drawable.bkg_horizontal)
+            }
+        })
     }
 
     private fun show2() {

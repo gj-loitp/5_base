@@ -165,39 +165,39 @@ public class PhotosOnlyAdapter extends RecyclerView.Adapter<PhotosOnlyAdapter.Vi
             }
             bigImageView.setOnClickListener(view -> {
                 LLog.d(TAG, "setOnClickListener");
-                LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(bigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onClick(photo, position);
                 }
             });
             bigImageView.setOnLongClickListener(view -> {
                 LLog.d(TAG, "onLongClick");
-                LAnimationUtil.play(bigImageView, Techniques.Pulse);
+                LAnimationUtil.INSTANCE.play(bigImageView, Techniques.Pulse);
                 if (callback != null) {
                     callback.onLongClick(photo, position);
                 }
                 return true;
             });
             btDownload.setOnClickListener(v -> {
-                LAnimationUtil.play(v, Techniques.Flash);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickDownload(photo, position);
                 }
             });
             btShare.setOnClickListener(v -> {
-                LAnimationUtil.play(v, Techniques.Flash);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickShare(photo, position);
                 }
             });
             btReport.setOnClickListener(v -> {
-                LAnimationUtil.play(v, Techniques.Flash);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickReport(photo, position);
                 }
             });
             btCmt.setOnClickListener(v -> {
-                LAnimationUtil.play(v, Techniques.Flash);
+                LAnimationUtil.INSTANCE.play(v, Techniques.Flash);
                 if (callback != null) {
                     callback.onClickCmt(photo, position);
                 }

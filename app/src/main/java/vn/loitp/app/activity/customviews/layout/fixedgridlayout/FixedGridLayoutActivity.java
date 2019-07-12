@@ -38,8 +38,8 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int row = LDeviceUtil.getRandomNumber(7) + 1;//+1 make sure value != 0
-                int col = LDeviceUtil.getRandomNumber(10) + 1;//+1 make sure value != 0
+                int row = LDeviceUtil.Companion.getRandomNumber(7) + 1;//+1 make sure value != 0
+                int col = LDeviceUtil.Companion.getRandomNumber(10) + 1;//+1 make sure value != 0
                 fixedGridLayout.setGridSize(row, col);
                 LToast.showShort(getActivity(), row + "x" + col, R.drawable.bkg_horizontal);
             }

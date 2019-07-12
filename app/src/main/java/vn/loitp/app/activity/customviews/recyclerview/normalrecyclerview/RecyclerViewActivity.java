@@ -96,7 +96,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
 
         prepareMovieData();
 
-        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.show(getActivity(), v,
+        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.INSTANCE.show(getActivity(), v,
                 R.menu.menu_recycler_view,
                 menuItem -> {
                     tvType.setText(menuItem.getTitle().toString());

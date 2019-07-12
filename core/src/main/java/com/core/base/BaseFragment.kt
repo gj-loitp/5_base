@@ -54,14 +54,23 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun showDialogError(errMsg: String) {
-        LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm)) {
-            //getActivity().onBackPressed();
+        context?.let {
+            LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
+                    object : LDialogUtil.Callback1 {
+                        override fun onClick1() {
+                        }
+                    })
         }
     }
 
     protected fun showDialogMsg(msg: String) {
-        LDialogUtil.showDialog1(activity, getString(R.string.app_name), msg, getString(R.string.confirm)) {
-            //getActivity().onBackPressed();
+        context?.let {
+            LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
+                    object : LDialogUtil.Callback1 {
+                        override fun onClick1() {
+                        }
+                    }
+            )
         }
     }
 

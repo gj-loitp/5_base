@@ -126,7 +126,7 @@ public class LPref {
     /////////////////////////////////INT
     public static int getIndex(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        return prefs.getInt(INDEX, Constants.INSTANCE.getNOT_FOUND());
+        return prefs.getInt(INDEX, Constants.getNOT_FOUND());
     }
 
     public static void setIndex(Context context, int value) {
@@ -184,7 +184,7 @@ public class LPref {
         SharedPreferences sharedPref = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(PASS_CODE, str);
-        editor.commit();
+        editor.apply();
     }
 
     public static String getPassCode(Context context) {

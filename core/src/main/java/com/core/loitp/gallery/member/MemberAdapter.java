@@ -38,7 +38,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         this.callback = callback;
         this.sizeW = LScreenUtil.getScreenWidth() / numCount;
         this.sizeH = LScreenUtil.getScreenHeight() / numCount;
-        this.isTablet = LDeviceUtil.isTablet((Activity) context);
+        this.isTablet = LDeviceUtil.Companion.isTablet((Activity) context);
     }
 
     @NonNull

@@ -20,7 +20,7 @@ public class TextToSpeechActivity extends BaseFontActivity implements OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LTextToSpeechUtil.getInstance().setupTTS(this);
+        LTextToSpeechUtil.Companion.getInstance().setupTTS(this);
         findViewById(R.id.bt_i_love_you).setOnClickListener(this);
         findViewById(R.id.bt_i_you_love_me).setOnClickListener(this);
 
@@ -69,20 +69,20 @@ public class TextToSpeechActivity extends BaseFontActivity implements OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_i_love_you:
-                LTextToSpeechUtil.getInstance().speakOut("I love you");
+                LTextToSpeechUtil.Companion.getInstance().speakOut("I love you");
                 break;
             case R.id.bt_i_you_love_me:
-                LTextToSpeechUtil.getInstance().speakOut("You love me");
+                LTextToSpeechUtil.Companion.getInstance().speakOut("You love me");
                 break;
             case R.id.bt_speak:
-                LTextToSpeechUtil.getInstance().speakOut(etType.getText().toString());
+                LTextToSpeechUtil.Companion.getInstance().speakOut(etType.getText().toString());
                 break;
         }
     }
 
     @Override
     protected void onDestroy() {
-        LTextToSpeechUtil.getInstance().destroy();
+        LTextToSpeechUtil.Companion.getInstance().destroy();
         super.onDestroy();
     }
 }

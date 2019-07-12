@@ -107,7 +107,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         stringList.add(ZoomOutSlideTransformer);
         stringList.add(ZoomOutTranformer);
         String[] arr = stringList.toArray(new String[stringList.size()]);
-        LDialogUtil.showDialogList(getActivity(), "Select", arr, new LDialogUtil.CallbackList() {
+        LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
                 LToast.INSTANCE.show(getActivity(), "Click position " + position + ", item: " + arr[position]);

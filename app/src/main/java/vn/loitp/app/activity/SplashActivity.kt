@@ -127,7 +127,12 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok") { onBackPressed() }
+            val alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok",
+                    object : LDialogUtil.Callback1 {
+                        override fun onClick1() {
+                            onBackPressed()
+                        }
+                    })
             alertDial.setCancelable(false)
         }
     }

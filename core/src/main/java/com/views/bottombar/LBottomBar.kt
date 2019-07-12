@@ -262,9 +262,9 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     private fun updateView(imageView: ImageView?, textView: TextView?) {
-        if (techniques != null) {
-            LAnimationUtil.play(imageView, techniques)
-            LAnimationUtil.play(textView, techniques)
+        techniques?.let {
+            LAnimationUtil.play(imageView, it)
+            LAnimationUtil.play(textView, it)
         }
         ivIcon0!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
         ivIcon1!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))

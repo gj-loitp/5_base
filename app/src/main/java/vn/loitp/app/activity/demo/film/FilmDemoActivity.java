@@ -139,7 +139,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
     //for utils
     private void clearAllViews() {
-        LAnimationUtil.play(llBaseView, Techniques.FadeOut, new LAnimationUtil.Callback() {
+        LAnimationUtil.INSTANCE.play(llBaseView, Techniques.FadeOut, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                     }
@@ -147,7 +147,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                     @Override
                     public void onEnd() {
                         llBaseView.removeAllViews();
-                        LAnimationUtil.play(llBaseView, Techniques.FadeIn);
+                        LAnimationUtil.INSTANCE.play(llBaseView, Techniques.FadeIn);
                     }
 
                     @Override
@@ -163,12 +163,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
     private void addView(View view) {
         llBaseView.addView(view);
-        LAnimationUtil.play(view, Techniques.FadeIn);
+        LAnimationUtil.INSTANCE.play(view, Techniques.FadeIn);
         nsv.post(() -> nsv.fullScroll(View.FOCUS_DOWN));
     }
 
     private void removeView(View view) {
-        LAnimationUtil.play(view, Techniques.FadeOut, new LAnimationUtil.Callback() {
+        LAnimationUtil.INSTANCE.play(view, Techniques.FadeOut, new LAnimationUtil.Callback() {
             @Override
             public void onCancel() {
             }

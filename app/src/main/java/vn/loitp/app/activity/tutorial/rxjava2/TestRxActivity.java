@@ -84,8 +84,8 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void print(String s) {
-        LLog.d(getTAG(), s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
-        tv.append(s + " -> isUIThread: " + LThreadUtil.isUIThread() + "\n");
+        LLog.d(getTAG(), s + " -> isUIThread: " + LThreadUtil.INSTANCE.isUIThread() + "\n");
+        tv.append(s + " -> isUIThread: " + LThreadUtil.INSTANCE.isUIThread() + "\n");
     }
 
     private List<Bike> getBikeList() {

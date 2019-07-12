@@ -71,10 +71,10 @@ public class FrmYoutubeParser extends BaseFragment {
             swipeRefreshLayout.setRefreshing(true);
             loadVideo();
         });
-        if (LConnectivityUtil.isConnected(getActivity())) {
+        if (LConnectivityUtil.INSTANCE.isConnected(getActivity())) {
             loadVideo();
         } else {
-            final AlertDialog alertDialog = LDialogUtil.showDialog1(getActivity(), getString(R.string.app_name), getString(R.string.check_ur_connection), "Close", () -> {
+            final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog1(getActivity(), getString(R.string.app_name), getString(R.string.check_ur_connection), "Close", () -> {
                 if (getActivity() != null) {
                     getActivity().onBackPressed();
                 }
@@ -159,7 +159,7 @@ public class FrmYoutubeParser extends BaseFragment {
                 tit = "Thông báo";
                 msg = "Tất cả những video dưới đây đều có bản quyền từ Youtube, chúng tôi chỉ cung cấp link để các bạn xem dễ dàng hơn. Nếu có bất cứ vấn đề gì về bản quyền, xin vui lòng liên hệ với chủ sở hữu video đó trên Youtube. Trân trọng cảm ơn.";
             }
-            LDialogUtil.showDialog1(getActivity(), tit, msg, "Okay",
+            LDialogUtil.INSTANCE.showDialog1(getActivity(), tit, msg, "Okay",
                     () -> LPref.setIsShowedDlgWarningYoutubeParser(getActivity(), true));
         }
     }

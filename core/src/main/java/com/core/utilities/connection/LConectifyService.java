@@ -55,15 +55,15 @@ public class LConectifyService extends JobService implements ConnectivityReceive
             boolean isConnectedMobile = false;
             boolean isConnectedWifi = false;
             boolean isConnectedFast = false;
-            if (LConnectivityUtil.isConnectedMobile(this)) {
+            if (LConnectivityUtil.INSTANCE.isConnectedMobile(this)) {
                 LLog.d(TAG, "isConnectedMobile");
                 isConnectedMobile = true;
             }
-            if (LConnectivityUtil.isConnectedWifi(this)) {
+            if (LConnectivityUtil.INSTANCE.isConnectedWifi(this)) {
                 LLog.d(TAG, "isConnectedWifi");
                 isConnectedWifi = true;
             }
-            if (LConnectivityUtil.isConnectedFast(this)) {
+            if (LConnectivityUtil.INSTANCE.isConnectedFast(this)) {
                 LLog.d(TAG, "isConnectedFast");
                 isConnectedFast = true;
             }

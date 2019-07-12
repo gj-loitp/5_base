@@ -116,7 +116,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
         //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
             LToast.show(mContext, "Download successful " + sdCard + fileName, Toast.LENGTH_LONG);
-            LSoundUtil.startMusicFromAsset(mContext, "ting.ogg");
+            LSoundUtil.INSTANCE.startMusicFromAsset(mContext, "ting.ogg");
         } else {
             LToast.show(mContext, R.string.download_failed, Toast.LENGTH_LONG);
         }

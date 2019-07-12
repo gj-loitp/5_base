@@ -124,17 +124,17 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
 
             @Override
             public void onClickShare(Photo photo, int pos) {
-                LSocialUtil.share(getActivity(), photo.getUrlO());
+                LSocialUtil.INSTANCE.share(getActivity(), photo.getUrlO());
             }
 
             @Override
             public void onClickReport(Photo photo, int pos) {
-                LSocialUtil.sendEmail(getActivity());
+                LSocialUtil.INSTANCE.sendEmail(getActivity());
             }
 
             @Override
             public void onClickCmt(Photo photo, int pos) {
-                LSocialUtil.openFacebookComment(getActivity(), photo.getUrlO());
+                LSocialUtil.INSTANCE.openFacebookComment(getActivity(), photo.getUrlO());
             }
         });
         recyclerView.setAdapter(photosOnlyAdapter);
@@ -171,7 +171,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
-        LDialogUtil.showDialogList(getActivity(), "Select page", arr, position -> {
+        LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select page", arr, position -> {
             currentPage = totalPage - position;
             LLog.d(TAG, "showDialogList onClick position " + position + ", -> currentPage: " + currentPage);
             PhotosDataCore.getInstance().clearData();
@@ -337,7 +337,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
     }
 
     private void showShouldAcceptPermission() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -354,7 +354,7 @@ public class GalleryCorePhotosOnlyFrm extends BaseFragment {
     }
 
     private void showSettingsDialog() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;

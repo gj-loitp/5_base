@@ -65,7 +65,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
         findViewById(R.id.bt_setting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LPopupMenu.show(getActivity(), v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
+                LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
                         tvType.setText(menuItem.getTitle().toString());

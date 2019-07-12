@@ -17,7 +17,7 @@ public class RotateLayoutActivity extends BaseFontActivity {
         final RotateLayout rotateLayout = findViewById(R.id.rotate_layout);
 
         findViewById(R.id.bt).setOnClickListener(v -> {
-            final int angle = LDeviceUtil.getRandomNumber(360);
+            final int angle = LDeviceUtil.Companion.getRandomNumber(360);
             rotateLayout.setAngle(angle);
         });
     }

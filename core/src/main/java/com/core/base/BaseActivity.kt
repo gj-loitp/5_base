@@ -135,15 +135,20 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogError(errMsg: String) {
-        val alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm)
-        ) { onBackPressed() }
+        val alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm),
+                object : LDialogUtil.Callback1 {
+                    override fun onClick1() {
+                        onBackPressed()
+                    }
+                })
         alertDialog.setCancelable(false)
     }
 
     protected fun showDialogMsg(errMsg: String) {
-        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm)) {
-            //do nothing
-        }
+        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), object : LDialogUtil.Callback1 {
+            override fun onClick1() {
+            }
+        })
     }
 
     protected abstract fun setFullScreen(): Boolean

@@ -122,7 +122,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -137,7 +137,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        final AlertDialog alertDialog = LDialogUtil.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;
