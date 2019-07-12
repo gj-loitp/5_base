@@ -550,11 +550,17 @@ public class LUIUtil {
         });
     }
 
-    public static void setColorProgressBar(@NonNull final ProgressBar progressBar, final int color) {
+    public static void setColorProgressBar(@Nullable final ProgressBar progressBar, final int color) {
+        if (progressBar == null) {
+            return;
+        }
         progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
-    public static void setProgressBarVisibility(@NonNull final ProgressBar progressBar, final int visibility) {
+    public static void setProgressBarVisibility(@Nullable final ProgressBar progressBar, final int visibility) {
+        if (progressBar == null) {
+            return;
+        }
         progressBar.setVisibility(visibility);
     }
 
