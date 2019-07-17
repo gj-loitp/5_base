@@ -396,7 +396,7 @@ public class LScreenUtil {
         }
 
         boolean isCanWriteSystem = checkSystemWritePermission(context);
-        LLog.INSTANCE.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
+        LLog.d(TAG, "isCanWriteSystem " + isCanWriteSystem);
 
         if (!isCanWriteSystem) {
             LDialogUtil.INSTANCE.showDialog1(context, "Thông báo", "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình", "Cấp phép", new LDialogUtil.Callback1() {
@@ -406,7 +406,7 @@ public class LScreenUtil {
                     intent.setData(Uri.parse("package:" + context.getPackageName()));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-                    LActivityUtil.INSTANCE.tranIn(context);
+                    LActivityUtil.tranIn(context);
                 }
             });
             return;
@@ -421,7 +421,7 @@ public class LScreenUtil {
         } else {
             brightness = value * 255 / 100;
         }
-        LLog.INSTANCE.d(TAG, "setBrightness " + brightness);
+        LLog.d(TAG, "setBrightness " + brightness);
 
         try {
             //sets manual mode and brightnes 255
@@ -435,7 +435,7 @@ public class LScreenUtil {
             ((Activity) context).getWindow().setAttributes(lp);
 
         } catch (Exception e) {
-            LLog.INSTANCE.e(TAG, "setBrightness " + e.toString());
+            LLog.e(TAG, "setBrightness " + e.toString());
         }
     }
 
@@ -446,7 +446,7 @@ public class LScreenUtil {
         try {
             return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
         } catch (Exception e) {
-            LLog.INSTANCE.e(TAG, "getCurrentBrightness" + e.toString());
+            LLog.e(TAG, "getCurrentBrightness" + e.toString());
             return 0;
         }
     }
