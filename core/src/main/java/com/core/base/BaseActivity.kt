@@ -257,7 +257,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }*/
     }
 
-    protected fun onNetworkChange(event: EventBusData.ConnectEvent) {}
+    open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     public override fun onStart() {
         EventBus.getDefault().register(this)
