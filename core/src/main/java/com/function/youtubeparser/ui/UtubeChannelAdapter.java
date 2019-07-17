@@ -79,7 +79,7 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
         }
         final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());
-        LImageUtil.load(context, uItem.getImg(), holder.iv);
+        LImageUtil.INSTANCE.load(context, uItem.getImg(), holder.iv);
         holder.cv.setOnClickListener(v -> {
             if (callback != null) {
                 callback.onClick(uItem, position);

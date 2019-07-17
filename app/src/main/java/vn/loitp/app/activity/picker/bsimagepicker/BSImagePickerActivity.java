@@ -99,7 +99,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
             final int outputY = 500;
             LPickerUtil.INSTANCE.cropImage(getActivity(), uri, CROP_PIC_REQUEST_CODE, aspectX, aspectY, outputX, outputY);
         } else {
-            LImageUtil.load(getActivity(), uri, ivImage2);
+            LImageUtil.INSTANCE.load(getActivity(), uri, ivImage2);
         }
     }
 
@@ -128,7 +128,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
                 default:
                     iv = ivImage6;
             }
-            LImageUtil.load(getActivity(), uriList.get(i), iv);
+            LImageUtil.INSTANCE.load(getActivity(), uriList.get(i), iv);
         }
     }
 }

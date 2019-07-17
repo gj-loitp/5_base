@@ -30,7 +30,7 @@ public class SensorActivity extends BaseFontActivity {
         rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
-        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);
+        LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);
 
         /*iv.setOnClickListener(new View.OnClickListener() {
             @Override

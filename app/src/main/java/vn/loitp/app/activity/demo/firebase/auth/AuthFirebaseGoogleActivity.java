@@ -199,7 +199,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.load(getActivity(), url, (ImageView) findViewById(R.id.google_icon));
+                LImageUtil.INSTANCE.load(getActivity(), url, (ImageView) findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

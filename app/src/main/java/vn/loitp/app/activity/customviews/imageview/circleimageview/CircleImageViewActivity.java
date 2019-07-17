@@ -18,9 +18,9 @@ public class CircleImageViewActivity extends BaseFontActivity {
         ImageView iv1 = (ImageView) findViewById(R.id.iv1);
         ImageView iv2 = (ImageView) findViewById(R.id.iv2);
         int resPlaceHolder = R.color.Light_Cyan;
-        LImageUtil.loadRound("https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", iv, 45, resPlaceHolder);
-        LImageUtil.loadCircle("https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", iv1);
-        LImageUtil.loadCircle(Constants.INSTANCE.getURL_IMG_LARGE(), iv2, R.color.Red, R.drawable.l_error_404);
+        LImageUtil.INSTANCE.loadRound("https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", iv, 45, resPlaceHolder);
+        LImageUtil.INSTANCE.loadCircle("https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", iv1);
+        LImageUtil.INSTANCE.loadCircle(Constants.INSTANCE.getURL_IMG_LARGE(), iv2, R.color.Red, R.drawable.l_error_404);
     }
 
     @Override

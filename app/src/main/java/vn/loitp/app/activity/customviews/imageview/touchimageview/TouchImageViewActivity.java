@@ -17,7 +17,7 @@ public class TouchImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LTouchImageView lTouchImageView = (LTouchImageView) findViewById(R.id.iv);
-        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
+        LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
     }
 
     @Override

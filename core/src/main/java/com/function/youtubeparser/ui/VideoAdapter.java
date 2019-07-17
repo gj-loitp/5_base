@@ -58,7 +58,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         //retrieve video link
         viewHolder.tvTitle.setText(currentVideo.getTitle());
         viewHolder.tvDate.setText(pubDateString);
-        LImageUtil.load(mContext, currentVideo.getCoverLink(), viewHolder.iv);
+        LImageUtil.INSTANCE.load(mContext, currentVideo.getCoverLink(), viewHolder.iv);
         viewHolder.itemView.setOnClickListener(view -> {
             //work lay thong tin video
             /*VideoStats videoStats = new VideoStats();

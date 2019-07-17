@@ -46,7 +46,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     public void onViewRecycled(@NonNull PhotosAdapter.ViewHolder holder) {
         super.onViewRecycled(holder);
         //LLog.d(TAG, "onViewRecycled");
-        LImageUtil.clear(context, holder.iv);
+        LImageUtil.INSTANCE.clear(context, holder.iv);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
         //LImageUtil.load(context, photo.getFlickrLink640(), viewHolder.iv, viewHolder.progressBar, sizeW, sizeH);
-        LImageUtil.loadNoAmin(context, photo.getFlickrLink1024(), photo.getUrlS(), viewHolder.iv);
+        LImageUtil.INSTANCE.loadNoAmin(context, photo.getFlickrLink1024(), photo.getUrlS(), viewHolder.iv);
 
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
         LUIUtil.setTextShadow(viewHolder.tvSize);

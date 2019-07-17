@@ -59,7 +59,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
 
         //LImageUtil.load(context, photo.getUrlM(), viewHolder.imageView);
-        LImageUtil.loadNoAmin(context, photo.getUrlO(), photo.getUrlS(), viewHolder.imageView);
+        LImageUtil.INSTANCE.loadNoAmin(context, photo.getUrlO(), photo.getUrlS(), viewHolder.imageView);
 
         if (photo.getTitle() == null || photo.getTitle().toLowerCase().startsWith("null")) {
             viewHolder.tvTitle.setVisibility(View.INVISIBLE);

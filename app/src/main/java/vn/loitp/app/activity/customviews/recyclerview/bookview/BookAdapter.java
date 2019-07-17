@@ -112,7 +112,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         }
 
         LUIUtil.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
-        LImageUtil.load(context, movie.getCover(), holder.iv);
+        LImageUtil.INSTANCE.load(context, movie.getCover(), holder.iv);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

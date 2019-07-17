@@ -55,21 +55,21 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
 
     private void loadItem(Photo photo) {
         tvTitle.setText(photo.getTitle());
-        LImageUtil.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlS(), imageView);
+        LImageUtil.INSTANCE.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlS(), imageView);
     }
 
     /**
      * Load the item's thumbnail image into our {@link ImageView}.
      */
     private void loadThumbnail(Photo photo) {
-        LImageUtil.loadNoAmin(getActivity(), photo.getUrlM(), imageView);
+        LImageUtil.INSTANCE.loadNoAmin(getActivity(), photo.getUrlM(), imageView);
     }
 
     /**
      * Load the item's full-size image into our {@link ImageView}.
      */
     private void loadFullSizeImage(Photo photo) {
-        LImageUtil.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlM(), imageView, null);
+        LImageUtil.INSTANCE.loadNoAmin(getActivity(), photo.getUrlO(), photo.getUrlM(), imageView, null);
     }
 
     /**

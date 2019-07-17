@@ -55,7 +55,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         // viewHolder.getBackgroundImage().setImageResource(imageIds[position % imageIds.length]);
-        LImageUtil.load((Activity) context, FakeData.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
+        LImageUtil.INSTANCE.load((Activity) context, FakeData.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
         viewHolder.getTextView().setText("Row " + position);
 
         viewHolder.rootView.setOnClickListener(new View.OnClickListener() {

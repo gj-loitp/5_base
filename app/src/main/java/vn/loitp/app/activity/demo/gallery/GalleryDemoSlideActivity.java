@@ -60,7 +60,7 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, 50, 80);
+            LImageUtil.INSTANCE.load(getActivity(), photo.getUrlO(), imageView, 50, 80);
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
             LUIUtil.printBeautyJson(photo, tv);

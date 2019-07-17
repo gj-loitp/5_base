@@ -200,7 +200,7 @@ public class Photoset {
             //gif extension have no link large
             return getPrimaryPhotoExtras().getUrlO();
         } else {
-            return LImageUtil.getFlickrLink640(getPrimaryPhotoExtras().getUrlM());
+            return LImageUtil.INSTANCE.getFlickrLink640(getPrimaryPhotoExtras().getUrlM());
         }
     }
 
@@ -209,7 +209,7 @@ public class Photoset {
             //gif extension have no link large
             return getPrimaryPhotoExtras().getUrlO();
         } else {
-            return LImageUtil.getFlickrLink1024(getPrimaryPhotoExtras().getUrlM());
+            return LImageUtil.INSTANCE.getFlickrLink1024(getPrimaryPhotoExtras().getUrlM());
         }
     }
 }

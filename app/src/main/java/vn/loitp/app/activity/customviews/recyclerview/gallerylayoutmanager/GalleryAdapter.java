@@ -62,7 +62,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieVie
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         Movie movie = moviesList.get(position);
-        LImageUtil.load(context, movie.getCover(), holder.imageView);
+        LImageUtil.INSTANCE.load(context, movie.getCover(), holder.imageView);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

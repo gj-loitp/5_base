@@ -16,7 +16,7 @@ public class StrectchyImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LStretchyImageView lStretchyImageView = (LStretchyImageView) findViewById(R.id.iv);
-        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG_LONG(), lStretchyImageView);
+        LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG_LONG(), lStretchyImageView);
     }
 
     @Override
