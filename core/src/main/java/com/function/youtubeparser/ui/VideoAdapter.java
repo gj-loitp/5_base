@@ -34,7 +34,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         this.videos = list;
         this.rowLayout = rowLayout;
         this.mContext = context;
-        int screenWidth = LScreenUtil.getScreenWidth();
+        int screenWidth = LScreenUtil.INSTANCE.getScreenWidth();
         ivHeight = screenWidth * 9 / 16;
     }
 

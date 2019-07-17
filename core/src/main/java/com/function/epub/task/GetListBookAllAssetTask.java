@@ -53,7 +53,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         LLog.INSTANCE.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
-        String jsonBookAsset = LPref.getJsonBookAsset(context);
+        String jsonBookAsset = LPref.Companion.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
             bookInfoList.addAll(searchForFiles());
         } else {

@@ -36,6 +36,6 @@ public class ExpectAnimActivity extends BaseFontActivity {
         if (baseFragment == null) {
             return;
         }
-        LScreenUtil.addFragment(getActivity(), R.id.fl_container, baseFragment, isAddToBackStack);
+        LScreenUtil.INSTANCE.addFragment(getActivity(), R.id.fl_container, baseFragment, isAddToBackStack);
     }
 }

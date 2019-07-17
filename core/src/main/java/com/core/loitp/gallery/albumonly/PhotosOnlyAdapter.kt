@@ -34,7 +34,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
 
     init {
         this.inflater = LayoutInflater.from(context)
-        screenW = LScreenUtil.getScreenWidth()
+        screenW = LScreenUtil.screenWidth
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {

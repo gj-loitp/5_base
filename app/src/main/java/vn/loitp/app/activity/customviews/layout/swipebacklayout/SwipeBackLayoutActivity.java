@@ -23,8 +23,8 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mSwipeBackLayout = (SwipeBackLayout) findViewById(R.id.swipeBackLayout);
         view = (View) findViewById(R.id.view);
-        screenW = LScreenUtil.getScreenWidth();
-        screenH = LScreenUtil.getScreenHeight();
+        screenW = LScreenUtil.INSTANCE.getScreenWidth();
+        screenH = LScreenUtil.INSTANCE.getScreenHeight();
         mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
         mSwipeBackLayout.setMaskAlpha(125);
         mSwipeBackLayout.setSwipeBackFactor(0.5f);

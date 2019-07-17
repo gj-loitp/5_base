@@ -59,7 +59,7 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
         this.context = context;
         this.uItemList = uItemList;
         this.callback = callback;
-        int screenW = LScreenUtil.getScreenWidth();
+        int screenW = LScreenUtil.INSTANCE.getScreenWidth();
         holderHeight = screenW / 2;
     }
 

@@ -81,7 +81,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         this.column = column;
         this.moviesList = moviesList;
         this.callback = callback;
-        this.sizeW = LScreenUtil.getScreenWidth() / column;
+        this.sizeW = LScreenUtil.INSTANCE.getScreenWidth() / column;
         this.sizeH = sizeW * 15 / 9;
         this.sizeMarginTopBottom = sizeW / 5;
         this.sizeMarginTopLeftRight = sizeW / 10;

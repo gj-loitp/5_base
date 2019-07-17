@@ -46,7 +46,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPref.getPreLoad(getActivity())) {
+        if (!LPref.Companion.getPreLoad(getActivity())) {
             setRealmData();
         }
 
@@ -150,7 +150,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPref.setPreLoad(getActivity(), true);
+        LPref.Companion.setPreLoad(getActivity(), true);
     }
 
     private void addItem() {
@@ -239,7 +239,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPref.setPreLoad(getActivity(), false);
+            LPref.Companion.setPreLoad(getActivity(), false);
         }
 
         booksAdapter.notifyItemRemoved(position);

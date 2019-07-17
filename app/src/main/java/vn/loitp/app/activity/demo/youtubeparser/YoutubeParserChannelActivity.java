@@ -17,7 +17,7 @@ public class YoutubeParserChannelActivity extends BaseFontActivity {
         Bundle bundle = new Bundle();
         bundle.putString(FrmYoutubeChannel.KEY_WATCHER_ACTIVITY, YoutubeParserActivity.class.getName());
         frm.setArguments(bundle);
-        LScreenUtil.addFragment(getActivity(), R.id.fl_container, frm, false);
+        LScreenUtil.INSTANCE.addFragment(getActivity(), R.id.fl_container, frm, false);
     }
 
     @Override

@@ -70,7 +70,7 @@ public class ExoPlayerActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isLandscape(getActivity())) {
+        if (LScreenUtil.INSTANCE.isLandscape(getActivity())) {
             playerManager.toggleFullscreen(getActivity());
         } else {
             super.onBackPressed();

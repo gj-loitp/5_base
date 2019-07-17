@@ -37,6 +37,6 @@ public class FlicrkFrmActivity extends BaseFontActivity {
         Bundle bundle = new Bundle();
         bundle.putString(Constants.INSTANCE.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_ENGLISH());
         frmPhoto.setArguments(bundle);
-        LScreenUtil.replaceFragment(getActivity(), R.id.fl_container_photo, frmPhoto, false);
+        LScreenUtil.INSTANCE.replaceFragment(getActivity(), R.id.fl_container_photo, frmPhoto, false);
     }
 }

@@ -36,8 +36,8 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
-        this.sizeW = LScreenUtil.getScreenWidth() / numCount;
-        this.sizeH = LScreenUtil.getScreenHeight() / numCount;
+        this.sizeW = LScreenUtil.INSTANCE.getScreenWidth() / numCount;
+        this.sizeH = LScreenUtil.INSTANCE.getScreenHeight() / numCount;
         this.isTablet = LDeviceUtil.Companion.isTablet((Activity) context);
     }
 
