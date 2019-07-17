@@ -22,19 +22,19 @@ public class LConectifyService extends JobService implements ConnectivityReceive
     @Override
     public void onCreate() {
         super.onCreate();
-        LLog.d(TAG, "Service created");
+        //LLog.d(TAG, "Service created");
         mConnectivityReceiver = new ConnectivityReceiver(this);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LLog.d(TAG, "onStartCommand");
+        //LLog.d(TAG, "onStartCommand");
         return START_NOT_STICKY;
     }
 
     @Override
     public boolean onStartJob(JobParameters params) {
-        LLog.d(TAG, "onStartJob" + mConnectivityReceiver);
+        //LLog.d(TAG, "onStartJob" + mConnectivityReceiver);
         //registerReceiver(mConnectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         registerReceiver(mConnectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         return true;
@@ -42,7 +42,7 @@ public class LConectifyService extends JobService implements ConnectivityReceive
 
     @Override
     public boolean onStopJob(JobParameters params) {
-        LLog.d(TAG, "onStopJob");
+        //LLog.d(TAG, "onStopJob");
         unregisterReceiver(mConnectivityReceiver);
         return true;
     }
