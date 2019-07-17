@@ -21,7 +21,7 @@ public class FCMFirebaseActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 if (Constants.INSTANCE.getIS_DEBUG()) {
-                    LFCMUtil.INSTANCE.sendNotification(fcmKey, "Hello! This is a notification!");
+                    LFCMUtil.INSTANCE.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis());
                 } else {
                     LDialogUtil.INSTANCE.showDialog1(getActivity(), "Message", "This feature is disabled by Loitp", "Okay", new LDialogUtil.Callback1() {
                         @Override
