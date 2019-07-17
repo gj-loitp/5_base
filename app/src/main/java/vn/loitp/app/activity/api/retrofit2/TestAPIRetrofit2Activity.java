@@ -1,12 +1,17 @@
 package vn.loitp.app.activity.api.retrofit2;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 
 import java.util.ArrayList;
 
@@ -14,9 +19,6 @@ import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class TestAPIRetrofit2Activity extends BaseFontActivity {
     private RecyclerView mRecyclerView;
@@ -33,7 +35,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0), new AnswersAdapter.PostItemListener() {
             @Override
             public void onPostClick(long id) {
-                Toast.makeText(activity, "Post id is" + id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Post id is" + id, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -70,7 +72,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
             public void onResponse(Call<SOAnswersResponse> call, Response<SOAnswersResponse> response) {
                 if (response.isSuccessful()) {
                     mAdapter.updateAnswers(response.body().getItems());
-                    LLog.d(TAG, "posts loaded from API");
+                    LLog.d(getTAG(), "posts loaded from API");
                 } else {
                     int statusCode = response.code();
                     // handle request errors depending on status code
@@ -83,7 +85,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
                 if (t == null) {
                     return;
                 }
-                LLog.d(TAG, "error loading from API");
+                LLog.d(getTAG(), "error loading from API");
                 tv.setText(t.getMessage());
             }
         });

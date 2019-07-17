@@ -10,7 +10,7 @@
         android:layout_height="@dimen/w_80"
         android:src="@drawable/iv" />
 
-    <!--<vn.loitp.views.uzvideo.UZVideo
+    <!--<com.views.uzvideo.UZVideo
         android:id="@+id/uz_video"
         android:layout_width="160dp"
         android:layout_height="90dp"

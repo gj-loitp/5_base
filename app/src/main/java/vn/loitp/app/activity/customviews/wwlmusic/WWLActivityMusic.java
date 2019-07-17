@@ -2,14 +2,15 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.views.wwlmusic.layout.WWLMusic;
+import com.views.wwlmusic.utils.WWLMusicUiUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
-import vn.loitp.views.wwlmusic.layout.WWLMusic;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
-import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
@@ -57,7 +58,7 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
                 alpha = 1.0f;
             }
             if (offset >= 0.0f && offset <= 1.0f) {
-                WWLMusicUiUtil.updateStatusBarAlpha(activity, 1.0f - offset);
+                WWLMusicUiUtil.updateStatusBarAlpha(getActivity(), 1.0f - offset);
             }
         }
         this.mLastAlpha = alpha;
@@ -115,7 +116,7 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
 
     @Override
     public void onVideoCollapse() {
-        WWLMusicUiUtil.showSystemUI(activity);
+        WWLMusicUiUtil.showSystemUI(getActivity());
         this.wwlMusic.exitFullscreenToMinimize();
         this.watchFragment.switchFullscreen(false);
         this.wwlMusic.minimize(false);
@@ -124,10 +125,10 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            WWLMusicUiUtil.hideSystemUI(activity);
+            WWLMusicUiUtil.hideSystemUI(getActivity());
             this.wwlMusic.enterFullscreen();
         } else {
-            WWLMusicUiUtil.showSystemUI(activity);
+            WWLMusicUiUtil.showSystemUI(getActivity());
             this.wwlMusic.exitFullscreen();
         }
         this.watchFragment.switchFullscreen(selected);

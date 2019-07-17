@@ -1,8 +1,8 @@
 package vn.loitp.app.activity
 
 import android.os.Bundle
+import com.core.base.BaseFontActivity
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class EmptyActivity : BaseFontActivity() {
 

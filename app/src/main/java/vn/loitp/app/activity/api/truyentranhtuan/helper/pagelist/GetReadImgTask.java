@@ -2,6 +2,9 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist;
 
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.DataNode;
 import org.jsoup.nodes.Document;
@@ -14,8 +17,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

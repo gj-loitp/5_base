@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.layout.circularview.CircularView
+    <com.views.layout.circularview.CircularView
         android:id="@+id/circular_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

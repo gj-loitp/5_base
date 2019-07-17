@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+import com.views.layout.rotatelayout.RotateLayout;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class SensorActivity extends BaseFontActivity {
     private RotateLayout rotateLayout;
@@ -25,11 +26,11 @@ public class SensorActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.INSTANCE.d(TAG, "onCreate");
+        LLog.INSTANCE.d(getTAG(), "onCreate");
         rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
-        LImageUtil.load(activity, Constants.INSTANCE.getURL_IMG(), iv);
+        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);
 
         /*iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,7 @@ public class SensorActivity extends BaseFontActivity {
     }
 
     private void setSizeRelativeLayout(View view, int w, int h) {
-        LLog.INSTANCE.d(TAG, "setSizeRelativeLayout " + w + "x" + h);
+        LLog.INSTANCE.d(getTAG(), "setSizeRelativeLayout " + w + "x" + h);
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.width = w;
         params.height = h;
@@ -116,32 +117,32 @@ public class SensorActivity extends BaseFontActivity {
         public void onOrientationChanged(int orientation) {
             if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
                 rotation = ROTATION_O;
-                LLog.INSTANCE.d(TAG, "ROTATION_O");
+                LLog.INSTANCE.d(getTAG(), "ROTATION_O");
                 rotateLayout.setAngle(0);
                 int w = LScreenUtil.getScreenWidth();
                 int h = w * 9 / 16;
                 setSizeRelativeLayout(rotateLayout, w, h);
-                LScreenUtil.toggleFullscreen(activity, false);
+                LScreenUtil.toggleFullscreen(getActivity(), false);
             } else if (orientation > 145 && orientation < 215 && rotation != ROTATION_180) { // REVERSE PORTRAIT
                 rotation = ROTATION_180;
-                LLog.INSTANCE.d(TAG, "ROTATION_180");
+                LLog.INSTANCE.d(getTAG(), "ROTATION_180");
                 //do nothing in this case
             } else if (orientation > 55 && orientation < 125 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
                 rotation = ROTATION_270;
-                LLog.INSTANCE.d(TAG, "ROTATION_270");
+                LLog.INSTANCE.d(getTAG(), "ROTATION_270");
                 rotateLayout.setAngle(90);
                 int w = LScreenUtil.getScreenWidth();
-                int h = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);
+                int h = LScreenUtil.getScreenHeightIncludeNavigationBar(getActivity());
                 setSizeRelativeLayout(rotateLayout, w, h);
-                LScreenUtil.toggleFullscreen(activity, true);
+                LScreenUtil.toggleFullscreen(getActivity(), true);
             } else if (orientation > 235 && orientation < 305 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90;
-                LLog.INSTANCE.d(TAG, "ROTATION_90");
+                LLog.INSTANCE.d(getTAG(), "ROTATION_90");
                 rotateLayout.setAngle(-90);
                 int w = LScreenUtil.getScreenWidth();
-                int h = LScreenUtil.getScreenHeightIncludeNavigationBar(activity);
+                int h = LScreenUtil.getScreenHeightIncludeNavigationBar(getActivity());
                 setSizeRelativeLayout(rotateLayout, w, h);
-                LScreenUtil.toggleFullscreen(activity, true);
+                LScreenUtil.toggleFullscreen(getActivity(), true);
             }
         }
     }

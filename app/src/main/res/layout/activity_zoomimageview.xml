@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.layout.zoomlayout.lib.ZoomImageView
+    <com.views.layout.zoomlayout.lib.ZoomImageView
         android:id="@+id/zoom_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

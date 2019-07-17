@@ -3,10 +3,9 @@ package vn.loitp.app.activity.pattern.observerpattern
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-
+import com.core.base.BaseFontActivity
+import com.views.LToast
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.views.LToast
 
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, RepositoryObserver {

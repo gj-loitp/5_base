@@ -1,14 +1,16 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
 
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.widget.TextView;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -26,7 +28,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        String poem = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp);
+        String poem = LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp);
         tv.setText(poem);
     }
 

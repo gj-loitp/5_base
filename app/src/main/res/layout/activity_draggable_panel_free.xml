@@ -41,7 +41,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <vn.loitp.views.layout.draggablepanelfree.DraggablePanelFreeLayout
+    <com.views.layout.draggablepanelfree.DraggablePanelFreeLayout
         android:id="@+id/dpfl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -71,5 +71,5 @@
                 android:textColor="@color/Black" />
         </ScrollView>
 
-    </vn.loitp.views.layout.draggablepanelfree.DraggablePanelFreeLayout>
+    </com.views.layout.draggablepanelfree.DraggablePanelFreeLayout>
 </RelativeLayout>

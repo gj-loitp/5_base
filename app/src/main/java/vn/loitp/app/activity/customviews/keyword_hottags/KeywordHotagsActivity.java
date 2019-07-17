@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.keyword_hottags;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class KeywordHotagsActivity extends BaseFontActivity {
     private PlaceHolderView placeHolderView;
@@ -23,7 +24,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
             strings[i] = i + " loitp";
         }
 
-        placeHolderView.addView(new PVKeywordList(activity, strings, new PVKeywordList.Callback() {
+        placeHolderView.addView(new PVKeywordList(getActivity(), strings, new PVKeywordList.Callback() {
             @Override
             public void onClick(String keyword) {
                 //LLog.d(TAG, "onClick " + keyword);

@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/logo" />
 
-    <vn.loitp.views.layout.swipeablelayout.frame.SwipeableLayout
+    <com.views.layout.swipeablelayout.frame.SwipeableLayout
         android:id="@+id/swipeableLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,7 +35,7 @@
             android:text="@string/i_love_you"
             android:textColor="@color/White"
             android:textSize="@dimen/txt_18" />
-    </vn.loitp.views.layout.swipeablelayout.frame.SwipeableLayout>
+    </com.views.layout.swipeablelayout.frame.SwipeableLayout>
 </RelativeLayout>
 
 

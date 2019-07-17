@@ -10,11 +10,12 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.menu.residemenu.ResideMenu;
+import com.views.menu.residemenu.ResideMenuItem;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.menu.residemenu.ResideMenu;
-import vn.loitp.views.menu.residemenu.ResideMenuItem;
 
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;
@@ -46,7 +47,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
             changeFragment(new HomeFragment());
     }
 
-    private void setupUIResideMenuItem(ResideMenuItem resideMenuItem) {
+    private void setupUIResideMenuItem(final ResideMenuItem resideMenuItem) {
         resideMenuItem.setTextColor(Color.BLACK);
         resideMenuItem.setTextShadow(Color.WHITE);
         resideMenuItem.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
@@ -57,7 +58,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.getRealtimeBlurView().setBlurRadius(50);
-        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(activity, R.color.black_65));
+        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(getActivity(), R.color.black_65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);
@@ -89,18 +90,8 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
-        findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
-        findViewById(R.id.title_bar_right_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
-            }
-        });
+        findViewById(R.id.title_bar_left_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
+        findViewById(R.id.title_bar_right_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT));
     }
 
     @Override
@@ -127,16 +118,16 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.INSTANCE.show(activity, "Menu is opened!");
+            LToast.show(getActivity(), "Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.INSTANCE.show(activity, "Menu is closed!");
+            LToast.show(getActivity(), "Menu is closed!");
         }
     };
 
-    private void changeFragment(Fragment targetFragment) {
+    private void changeFragment(final Fragment targetFragment) {
         resideMenu.clearIgnoredViewList();
         getSupportFragmentManager()
                 .beginTransaction()

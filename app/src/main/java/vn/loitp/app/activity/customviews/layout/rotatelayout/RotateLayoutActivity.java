@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.customviews.layout.rotatelayout;
 
 import android.os.Bundle;
-import android.view.View;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LDeviceUtil;
+import com.views.layout.rotatelayout.RotateLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.views.layout.rotatelayout.RotateLayout;
 
 public class RotateLayoutActivity extends BaseFontActivity {
 
@@ -14,14 +14,11 @@ public class RotateLayoutActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        RotateLayout rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
+        final RotateLayout rotateLayout = findViewById(R.id.rotate_layout);
 
-        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int angle = LDeviceUtil.getRandomNumber(360);
-                rotateLayout.setAngle(angle);
-            }
+        findViewById(R.id.bt).setOnClickListener(v -> {
+            final int angle = LDeviceUtil.Companion.getRandomNumber(360);
+            rotateLayout.setAngle(angle);
         });
     }
 

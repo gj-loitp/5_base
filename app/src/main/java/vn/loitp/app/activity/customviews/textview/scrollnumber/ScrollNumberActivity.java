@@ -2,9 +2,10 @@ package vn.loitp.app.activity.customviews.textview.scrollnumber;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.views.textview.scrollnumber.lib.MultiScrollNumber;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.textview.scrollnumber.lib.MultiScrollNumber;
 
 public class ScrollNumberActivity extends BaseFontActivity {
     @Override

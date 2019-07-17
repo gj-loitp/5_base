@@ -3,14 +3,15 @@ package vn.loitp.app.activity.api.truyentranhtuan;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class TTTAPIPageListActivity extends BaseFontActivity {
     private TextView tv;

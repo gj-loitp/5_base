@@ -6,11 +6,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
 import com.google.android.material.tabs.TabLayout;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.views.LToast;
 
 public class FrmCoordinator1 extends BaseFragment {
     @Override

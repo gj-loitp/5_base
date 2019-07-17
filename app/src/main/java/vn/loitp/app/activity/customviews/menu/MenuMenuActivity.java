@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuMenuActivity extends BaseFontActivity implements OnClickListener {
 
@@ -38,12 +39,12 @@ public class MenuMenuActivity extends BaseFontActivity implements OnClickListene
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_reside_menu:
-                intent = new Intent(activity, ResideMenuActivity.class);
+                intent = new Intent(getActivity(), ResideMenuActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

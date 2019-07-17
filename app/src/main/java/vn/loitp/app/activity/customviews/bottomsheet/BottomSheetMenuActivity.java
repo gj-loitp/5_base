@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.bottomsheet;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,20 +8,17 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.views.LToast;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.LToast;
 
 public class BottomSheetMenuActivity extends BaseFontActivity {
     private BottomSheetBehavior sheetBehavior;
-    private LinearLayout layoutBottomSheet;
     private Button bt0;
-    private Button bt1;
-    private Button bt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +44,9 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
     }
 
     private void click0() {
-        bt0 = (Button) findViewById(R.id.bt_0);
-        layoutBottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.INSTANCE.show(activity, "Click layoutBottomSheet R.id.bt_payment");
-            }
-        });
+        bt0 = findViewById(R.id.bt_0);
+        LinearLayout layoutBottomSheet = findViewById(R.id.bottom_sheet);
+        layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(v -> LToast.show(getActivity(), "Click layoutBottomSheet R.id.bt_payment"));
 
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -61,68 +54,59 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
+                        LLog.d(getTAG(), "STATE_HIDDEN");
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED: {
-                        LLog.INSTANCE.d(TAG, "STATE_HIDDEN");
+                        LLog.d(getTAG(), "STATE_HIDDEN");
                         bt0.setText("Close Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-                        LLog.INSTANCE.d(TAG, "STATE_COLLAPSED");
+                        LLog.d(getTAG(), "STATE_COLLAPSED");
                         bt0.setText("Expand Sheet");
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        LLog.INSTANCE.d(TAG, "STATE_DRAGGING");
+                        LLog.d(getTAG(), "STATE_DRAGGING");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-                        LLog.INSTANCE.d(TAG, "STATE_SETTLING");
+                        LLog.d(getTAG(), "STATE_SETTLING");
                         break;
                 }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                LLog.INSTANCE.d(TAG, "onSlide " + slideOffset);
+                LLog.d(getTAG(), "onSlide " + slideOffset);
             }
         });
 
-        bt0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                    bt0.setText("Close sheet");
-                } else {
-                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                    bt0.setText("Expand sheet");
-                }
+        bt0.setOnClickListener(v -> {
+            if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bt0.setText("Close sheet");
+            } else {
+                sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bt0.setText("Expand sheet");
             }
         });
     }
 
     private void click1() {
-        bt1 = (Button) findViewById(R.id.bt_1);
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_dialog, null);
-                BottomSheetDialog dialog = new BottomSheetDialog(activity);
-                dialog.setContentView(view);
-                dialog.show();
-            }
+        final Button bt1 = findViewById(R.id.bt_1);
+        bt1.setOnClickListener(v -> {
+            @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_dialog, null);
+            BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
+            dialog.setContentView(view);
+            dialog.show();
         });
     }
 
     private void click2() {
-        bt2 = (Button) findViewById(R.id.bt_2);
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
-                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
-            }
+        final Button bt2 = findViewById(R.id.bt_2);
+        bt2.setOnClickListener(v -> {
+            BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+            bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
         });
     }
 }

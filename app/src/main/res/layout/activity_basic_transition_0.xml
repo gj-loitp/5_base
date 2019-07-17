@@ -8,10 +8,10 @@
         android:id="@+id/tv_dummy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Activity 0"
+        android:text="@string/activity_0"
         android:textSize="@dimen/txt_32" />
 
-    <vn.loitp.views.layout.squarelayout.SquareFrameLayout
+    <com.views.layout.squarelayout.SquareFrameLayout
         android:layout_width="@dimen/w_150"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_dummy">
@@ -20,17 +20,18 @@
             android:id="@+id/imageview_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
-    </vn.loitp.views.layout.squarelayout.SquareFrameLayout>
+    </com.views.layout.squarelayout.SquareFrameLayout>
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Loitp"
+        android:text="@string/loitp"
         android:textSize="@dimen/txt_32" />
 </RelativeLayout>
 

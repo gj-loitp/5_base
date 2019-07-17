@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.layout.scrollview2d;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.views.scrollview.TwoDScrollView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.scrollview.TwoDScrollView;
 
 public class ScrollView2DActivity extends BaseFontActivity {
 
@@ -15,7 +16,7 @@ public class ScrollView2DActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         final TwoDScrollView twoDScrollView = findViewById(R.id.sv);
         twoDScrollView.setScrollChangeListner((view, x, y, oldx, oldy) -> {
-            LLog.d(TAG, "setScrollChangeListner " + x + " - " + y);
+            LLog.d(getTAG(), "setScrollChangeListner " + x + " - " + y);
         });
         LUIUtil.setDelay(2000, mls -> twoDScrollView.smoothScrollTo(300, 300));
     }

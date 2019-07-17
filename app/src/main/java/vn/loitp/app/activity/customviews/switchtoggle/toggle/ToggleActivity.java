@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.switchtoggle.toggle;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.switchtoggle.toggle.LabeledSwitch;
+import com.views.switchtoggle.toggle.interfaces.OnToggledListener;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.switchtoggle.toggle.LabeledSwitch;
-import vn.loitp.views.switchtoggle.toggle.interfaces.OnToggledListener;
 
 //https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
 public class ToggleActivity extends BaseFontActivity {
@@ -18,7 +19,7 @@ public class ToggleActivity extends BaseFontActivity {
         labeledSwitch.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                LToast.INSTANCE.show(activity, "isOn " + isOn);
+                LToast.INSTANCE.show(getActivity(), "isOn " + isOn);
             }
         });
     }

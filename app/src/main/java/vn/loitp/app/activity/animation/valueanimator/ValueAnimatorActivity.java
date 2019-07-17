@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 public class ValueAnimatorActivity extends BaseFontActivity {
@@ -55,8 +56,8 @@ public class ValueAnimatorActivity extends BaseFontActivity {
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
         float spaceW = (LScreenUtil.getScreenWidth() - view.getWidth()) / range;
-        float spaceH = (LScreenUtil.getScreenHeight() - LScreenUtil.getStatusBarHeight(activity) - LScreenUtil.getBottomBarHeight(activity) - view.getHeight()) / range;
-        LLog.INSTANCE.d(TAG, "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
+        float spaceH = (LScreenUtil.getScreenHeight() - LScreenUtil.getStatusBarHeight(getActivity()) - LScreenUtil.getBottomBarHeight(getActivity()) - view.getHeight()) / range;
+        LLog.INSTANCE.d(getTAG(), "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

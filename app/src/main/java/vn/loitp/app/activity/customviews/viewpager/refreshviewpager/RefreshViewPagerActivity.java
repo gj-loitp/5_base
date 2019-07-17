@@ -7,11 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class RefreshViewPagerActivity extends BaseFontActivity {
     private ViewPager viewPager;
@@ -24,7 +24,7 @@ public class RefreshViewPagerActivity extends BaseFontActivity {
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override

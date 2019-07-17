@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.demo.floatingview;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
+
+import com.core.base.BaseFontActivity;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingview.fragment.FVControlFragment;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class FloatingViewActivity extends BaseFontActivity {
 

@@ -65,7 +65,7 @@ dependencies {
     //support
     api 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     api 'androidx.dynamicanimation:dynamicanimation:1.0.0-beta01'
-    //for vn.loitp.views.floatingview.FloatingView
+    //for com.views.floatingview.FloatingView
     api 'com.android.support:appcompat-v7:28.0.0'
     api 'androidx.appcompat:appcompat:1.0.0-beta01'
     api 'com.google.android.material:material:1.0.0-beta01'
@@ -77,6 +77,9 @@ dependencies {
     api 'org.jsoup:jsoup:1.10.2'
     api 'androidx.multidex:multidex:2.0.1'
     api 'org.greenrobot:eventbus:3.1.1'
+
+    api "android.arch.navigation:navigation-fragment:1.0.0-alpha07"
+    api "android.arch.navigation:navigation-ui:1.0.0-alpha07"
 
     //animation
     api 'com.daimajia.easing:library:2.0@aar'

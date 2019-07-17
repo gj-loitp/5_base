@@ -7,9 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class ScoreTextViewActivity extends BaseFontActivity {
     private TextView tv;
@@ -59,9 +60,9 @@ public class ScoreTextViewActivity extends BaseFontActivity {
             switch (msg.what) {
                 case KEY_UPDATE_SCORE:
                     tv.setText((String) msg.obj);
-                    LLog.INSTANCE.d(TAG, msg.obj + "");
+                    LLog.INSTANCE.d(getTAG(), msg.obj + "");
                     if (((String) msg.obj).equals(String.valueOf(maxScore))) {
-                        LLog.INSTANCE.d(TAG, "done");
+                        LLog.INSTANCE.d(getTAG(), "done");
                         bt.setEnabled(true);
                     }
                     break;

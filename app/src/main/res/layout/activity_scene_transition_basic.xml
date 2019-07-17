@@ -6,6 +6,7 @@
 
     <GridView
         android:id="@+id/gv"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"

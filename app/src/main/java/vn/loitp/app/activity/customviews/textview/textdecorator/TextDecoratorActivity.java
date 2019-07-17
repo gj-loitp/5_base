@@ -5,10 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.core.base.BaseFontActivity;
+import com.views.textview.textdecorator.lib.OnTextClickListener;
+import com.views.textview.textdecorator.lib.TextDecorator;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.textview.textdecorator.lib.OnTextClickListener;
-import vn.loitp.views.textview.textdecorator.lib.TextDecorator;
 
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 public class TextDecoratorActivity extends BaseFontActivity {
@@ -29,7 +30,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
                 .makeTextClickable(new OnTextClickListener() {
                     @Override
                     public void onClick(View view, String text) {
-                        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
                     }
                 }, false, "porta", "commodo", "tempor venenatis nulla")
                 .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")

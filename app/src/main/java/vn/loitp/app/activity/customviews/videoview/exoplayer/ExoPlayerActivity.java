@@ -2,16 +2,15 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.views.exo.PlayerManager;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.exo.PlayerManager;
 
 //custom UI exo_playback_control_view.xml
 public class ExoPlayerActivity extends BaseFontActivity {
@@ -28,12 +27,12 @@ public class ExoPlayerActivity extends BaseFontActivity {
         linkPlay = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY());
         final String linkIMAAd = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD());
         if (linkIMAAd == null) {
-            playerManager = new PlayerManager(activity);
+            playerManager = new PlayerManager(getActivity());
         } else {
-            playerManager = new PlayerManager(activity, linkIMAAd);
+            playerManager = new PlayerManager(getActivity(), linkIMAAd);
         }
-        playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
-        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(activity));
+        playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
+        exoFullscreen.setOnClickListener(view -> playerManager.toggleFullscreen(getActivity()));
     }
 
     @Override
@@ -71,8 +70,8 @@ public class ExoPlayerActivity extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        if (LScreenUtil.isLandscape(activity)) {
-            playerManager.toggleFullscreen(activity);
+        if (LScreenUtil.isLandscape(getActivity())) {
+            playerManager.toggleFullscreen(getActivity());
         } else {
             super.onBackPressed();
         }
@@ -82,9 +81,9 @@ public class ExoPlayerActivity extends BaseFontActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         } else {
-            playerManager.updateSizePlayerView(activity, playerView, exoFullscreen);
+            playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
         }
     }
 }

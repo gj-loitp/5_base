@@ -18,7 +18,7 @@
             android:text="Remove" />
     </RelativeLayout>
 
-    <vn.loitp.views.recyclerview.banner.BannerLayout
+    <com.views.recyclerview.banner.BannerLayout
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="200dp"

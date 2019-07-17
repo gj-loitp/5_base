@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <vn.loitp.views.navigationview.LNavigationView
+    <com.views.navigationview.LNavigationView
         android:id="@+id/nv"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />
@@ -22,18 +22,18 @@
         android:id="@+id/bt_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scroll to first" />
+        android:text="@string/scroll_to_first" />
 
     <Button
         android:id="@+id/bt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scroll to last" />
+        android:text="@string/scroll_to_last" />
 
     <Button
         android:id="@+id/bt_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scroll to 2" />
+        android:text="@string/scroll_to_2" />
 </LinearLayout>
 

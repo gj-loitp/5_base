@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.panoramaimageview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.views.imageview.panoramaimageview.GyroscopeObserver;
+import com.views.imageview.panoramaimageview.PanoramaImageView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.imageview.panoramaimageview.GyroscopeObserver;
-import vn.loitp.views.imageview.panoramaimageview.PanoramaImageView;
 
 //https://github.com/gjiazhe/PanoramaImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5041
 public class PanoramaImageViewActivity extends BaseFontActivity {
@@ -33,7 +34,7 @@ public class PanoramaImageViewActivity extends BaseFontActivity {
         panoramaImageView.setOnPanoramaScrollListener(new PanoramaImageView.OnPanoramaScrollListener() {
             @Override
             public void onScrolled(PanoramaImageView view, float offsetProgress) {
-                LLog.INSTANCE.d(TAG, "onScrolled offsetProgress " + offsetProgress);
+                LLog.INSTANCE.d(getTAG(), "onScrolled offsetProgress " + offsetProgress);
             }
         });
     }

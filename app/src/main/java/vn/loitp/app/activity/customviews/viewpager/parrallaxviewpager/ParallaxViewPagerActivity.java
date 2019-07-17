@@ -9,15 +9,16 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.views.viewpager.parrallaxviewpager.Mode;
+import com.views.viewpager.parrallaxviewpager.ParallaxViewPager;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class ParallaxViewPagerActivity extends BaseFontActivity {
 
@@ -56,8 +57,8 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.INSTANCE.d(TAG, "res " + res);
-            LayoutInflater inflater = LayoutInflater.from(activity);
+            LLog.INSTANCE.d(getTAG(), "res " + res);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);

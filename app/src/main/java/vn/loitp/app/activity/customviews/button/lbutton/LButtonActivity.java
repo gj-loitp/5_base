@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.button.lbutton.LButton;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.button.lbutton.LButton;
 
 public class LButtonActivity extends BaseFontActivity implements OnClickListener {
 
@@ -47,7 +48,7 @@ public class LButtonActivity extends BaseFontActivity implements OnClickListener
             case R.id.bt_0:
             case R.id.bt_1:
             case R.id.bt_2:
-                LToast.INSTANCE.show(activity, "Click");
+                LToast.INSTANCE.show(getActivity(), "Click");
                 break;
         }
     }

@@ -23,9 +23,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.core.utilities.LLog;
+
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
-import vn.loitp.core.utilities.LLog;
 
 public class AlarmReceiver extends BroadcastReceiver {
     private final String TAG = "AlarmMeActivity";

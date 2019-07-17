@@ -6,19 +6,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.TextView
+import com.core.base.BaseFontActivity
+import com.core.utilities.*
+import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.model.App
 import loitp.basemaster.BuildConfig
 import loitp.basemaster.R
 import okhttp3.*
 import vn.loitp.app.app.LSApplication
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.*
-import vn.loitp.interfaces.GGSettingCallback
-import vn.loitp.model.App
 import java.io.IOException
 
 class SplashActivity : BaseFontActivity() {
@@ -127,7 +127,12 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok") { onBackPressed() }
+            val alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok",
+                    object : LDialogUtil.Callback1 {
+                        override fun onClick1() {
+                            onBackPressed()
+                        }
+                    })
             alertDial.setCancelable(false)
         }
     }

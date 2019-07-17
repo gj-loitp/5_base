@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LScreenUtil;
+import com.views.LToast;
+import com.views.autosize.imagebuttonwithsize.ImageButtonWithSize;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.LToast;
-import vn.loitp.views.autosize.imagebuttonwithsize.ImageButtonWithSize;
 
 public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickListener {
 
@@ -60,12 +60,12 @@ public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_rotate:
-                LActivityUtil.toggleScreenOritation(activity);
+                LActivityUtil.toggleScreenOritation(getActivity());
                 break;
             case R.id.bt_0:
             case R.id.bt_1:
             case R.id.bt_2:
-                LToast.show(activity, "Click");
+                LToast.show(getActivity(), "Click");
                 break;
         }
     }

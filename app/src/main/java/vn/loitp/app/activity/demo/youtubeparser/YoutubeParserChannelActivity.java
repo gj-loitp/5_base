@@ -2,10 +2,11 @@ package vn.loitp.app.activity.demo.youtubeparser;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
+import com.function.youtubeparser.ui.FrmYoutubeChannel;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.function.youtubeparser.ui.FrmYoutubeChannel;
 
 public class YoutubeParserChannelActivity extends BaseFontActivity {
 
@@ -16,7 +17,7 @@ public class YoutubeParserChannelActivity extends BaseFontActivity {
         Bundle bundle = new Bundle();
         bundle.putString(FrmYoutubeChannel.KEY_WATCHER_ACTIVITY, YoutubeParserActivity.class.getName());
         frm.setArguments(bundle);
-        LScreenUtil.addFragment(activity, R.id.fl_container, frm, false);
+        LScreenUtil.addFragment(getActivity(), R.id.fl_container, frm, false);
     }
 
     @Override

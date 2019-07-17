@@ -5,17 +5,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.core.base.BaseActivity;
+import com.core.utilities.LLog;
+import com.views.wwlmusic.utils.WWLMusicUiUtil;
+import com.views.wwlmusic.utils.WWLMusicViewHelper;
+import com.views.wwlvideo.layout.WWLVideo;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
-import vn.loitp.views.wwlmusic.utils.WWLMusicViewHelper;
-import vn.loitp.views.wwlvideo.layout.WWLVideo;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener, FragmentHost {
@@ -56,7 +57,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onSliding(float offset) {
-        LLog.d(TAG, "WWL_onSliding offset " + offset);
+        LLog.d(getTAG(), "WWL_onSliding offset " + offset);
         float alpha;
         if (offset > 2.0f) {
             alpha = this.mLastAlpha * (3.0f - offset);
@@ -76,7 +77,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onClicked() {
-        LLog.d(TAG, "WWL_onClicked");
+        LLog.d(getTAG(), "WWL_onClicked");
         if (this.wwlVideo.mState == WWLVideo.STATE_MINIMIZED) {
             this.wwlVideo.maximize(false);
         }
@@ -87,7 +88,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void WWL_onHided() {
-        LLog.d(TAG, "WWL_onHided");
+        LLog.d(getTAG(), "WWL_onHided");
         this.wwlVideoPlayerFragment.stopPlay();
     }
 
@@ -131,7 +132,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void onVideoCollapse() {
-        WWLMusicUiUtil.showSystemUI(activity);
+        WWLMusicUiUtil.showSystemUI(getActivity());
         this.wwlVideo.exitFullscreenToMinimize();
         this.wwlVideoPlayerFragment.switchFullscreen(false);
         this.wwlVideo.minimize(false);
@@ -140,10 +141,10 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            WWLMusicUiUtil.hideSystemUI(activity);
+            WWLMusicUiUtil.hideSystemUI(getActivity());
             this.wwlVideo.enterFullscreen();
         } else {
-            WWLMusicUiUtil.showSystemUI(activity);
+            WWLMusicUiUtil.showSystemUI(getActivity());
             this.wwlVideo.exitFullscreen();
         }
         this.wwlVideoPlayerFragment.switchFullscreen(selected);

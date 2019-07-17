@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +18,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
@@ -28,7 +29,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
@@ -44,7 +45,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
                 loadMore();
             }
         });
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
@@ -65,7 +66,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, "loadMore");
+        LLog.INSTANCE.d(getTAG(), "loadMore");
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {

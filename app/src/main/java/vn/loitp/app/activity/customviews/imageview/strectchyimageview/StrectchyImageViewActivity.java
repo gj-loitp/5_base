@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.strectchyimageview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.views.imageview.strectchyimageview.lib.LStretchyImageView;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.views.imageview.strectchyimageview.lib.LStretchyImageView;
 
 public class StrectchyImageViewActivity extends BaseFontActivity {
 
@@ -15,7 +16,7 @@ public class StrectchyImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LStretchyImageView lStretchyImageView = (LStretchyImageView) findViewById(R.id.iv);
-        LImageUtil.load(activity, Constants.INSTANCE.getURL_IMG_LONG(), lStretchyImageView);
+        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG_LONG(), lStretchyImageView);
     }
 
     @Override

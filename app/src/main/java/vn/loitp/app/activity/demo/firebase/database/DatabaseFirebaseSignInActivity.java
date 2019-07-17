@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
+import com.core.utilities.LLog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -16,11 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.LToast;
 
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
@@ -60,7 +60,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.INSTANCE.d(TAG, "signIn");
+        LLog.INSTANCE.d(getTAG(), "signIn");
         if (!validateForm()) {
             return;
         }
@@ -73,20 +73,20 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.INSTANCE.d(TAG, "signIn:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(getTAG(), "signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.INSTANCE.show(activity, "Sign In Failed");
+                            LToast.INSTANCE.show(getActivity(), "Sign In Failed");
                         }
                     }
                 });
     }
 
     private void signUp() {
-        LLog.INSTANCE.d(TAG, "signUp");
+        LLog.INSTANCE.d(getTAG(), "signUp");
         if (!validateForm()) {
             return;
         }
@@ -99,13 +99,13 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.INSTANCE.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        LLog.INSTANCE.d(getTAG(), "createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.INSTANCE.show(activity, "Sign Up Failed");
+                            LToast.INSTANCE.show(getActivity(), "Sign Up Failed");
                         }
                     }
                 });
@@ -118,7 +118,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MenuMotionLayoutActivity
-        startActivity(new Intent(activity, DatabaseFirebaseActivity.class));
+        startActivity(new Intent(getActivity(), DatabaseFirebaseActivity.class));
         finish();
     }
 

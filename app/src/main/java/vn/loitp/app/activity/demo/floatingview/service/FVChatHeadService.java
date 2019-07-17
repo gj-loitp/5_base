@@ -15,10 +15,11 @@ import android.widget.RelativeLayout;
 
 import androidx.core.app.NotificationCompat;
 
+import com.views.LToast;
+import com.views.floatingview.FloatingViewListener;
+import com.views.floatingview.FloatingViewManager;
+
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.floatingview.FloatingViewListener;
-import vn.loitp.views.floatingview.FloatingViewManager;
 
 /**
  * ChatHead Service

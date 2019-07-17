@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.layout.zoomlayout;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.utils.util.ToastUtils;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.utils.util.ToastUtils;
 
 //read more
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282

@@ -1,50 +1,52 @@
 package vn.loitp.app.activity.demo.ebookwithrealm;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LPref;
+import com.core.utilities.LUIUtil;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.utils.util.ToastUtils;
+import com.views.LToast;
 
 import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.BooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
-import vn.loitp.core.utilities.LPref;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 public class EbookWithRealmActivity extends BaseFontActivity {
     private BooksAdapter booksAdapter;
     private Realm realm;
     private LayoutInflater layoutInflater;
-    private FloatingActionButton floatingActionButton;
     private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        recyclerView = findViewById(R.id.recycler);
 
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
 
         setupRecycler();
 
-        if (!LPref.getPreLoad(activity)) {
+        if (!LPref.getPreLoad(getActivity())) {
             setRealmData();
         }
 
@@ -55,15 +57,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        ToastUtils.showShort("Press card item for edit, long press to remove item");
+        LToast.showLong(getActivity(), "Press card item for edit, long press to remove item", R.drawable.bkg_horizontal);
 
         //add new item
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addItem();
-            }
-        });
+        floatingActionButton.setOnClickListener(v -> addItem());
     }
 
     @Override
@@ -82,7 +79,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     }
 
     private void setRealmAdapter(RealmResults<Book> books) {
-        RealmBooksAdapter realmBooksAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
+        final RealmBooksAdapter realmBooksAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
         // Set the data and tell the RecyclerView to draw
         booksAdapter.setRealmAdapter(realmBooksAdapter);
         booksAdapter.notifyDataSetChanged();
@@ -91,7 +88,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     private void setupRecycler() {
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         booksAdapter = new BooksAdapter(this, new BooksAdapter.OnClick() {
             @Override
@@ -109,7 +106,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     }
 
     private void setRealmData() {
-        ArrayList<Book> books = new ArrayList<>();
+        final ArrayList<Book> books = new ArrayList<>();
 
         Book book = new Book();
         book.setId(1 + System.currentTimeMillis());
@@ -146,109 +143,93 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         book.setImageUrl("http://api.androidhive.info/images/realm/5.png");
         books.add(book);
 
-        for (Book b : books) {
+        for (final Book b : books) {
             // Persist your data easily
             realm.beginTransaction();
             realm.copyToRealm(b);
             realm.commitTransaction();
         }
 
-        LPref.setPreLoad(activity, true);
+        LPref.setPreLoad(getActivity(), true);
     }
 
     private void addItem() {
         layoutInflater = getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.real_edit_item, null);
-        final EditText editTitle = (EditText) view.findViewById(R.id.title);
-        final EditText editAuthor = (EditText) view.findViewById(R.id.author);
-        final EditText editThumbnail = (EditText) view.findViewById(R.id.thumbnail);
+        @SuppressLint("InflateParams") final View view = layoutInflater.inflate(R.layout.real_edit_item, null);
+        final EditText editTitle = view.findViewById(R.id.title);
+        final EditText editAuthor = view.findViewById(R.id.author);
+        final EditText editThumbnail = view.findViewById(R.id.thumbnail);
 
         editThumbnail.setText("https://kenh14cdn.com/2016/photo-4-1470640589710.jpg");
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Add book")
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Book book = new Book();
-                        book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
-                        book.setTitle(editTitle.getText().toString());
-                        book.setAuthor(editAuthor.getText().toString());
-                        book.setImageUrl(editThumbnail.getText().toString());
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    final Book book = new Book();
+                    book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
+                    book.setTitle(editTitle.getText().toString());
+                    book.setAuthor(editAuthor.getText().toString());
+                    book.setImageUrl(editThumbnail.getText().toString());
 
-                        if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                            ToastUtils.showShort("Entry not saved, missing title");
-                        } else {
-                            // Persist your data easily
-                            realm.beginTransaction();
-                            realm.copyToRealm(book);
-                            realm.commitTransaction();
+                    if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
+                        ToastUtils.showShort("Entry not saved, missing title");
+                    } else {
+                        // Persist your data easily
+                        realm.beginTransaction();
+                        realm.copyToRealm(book);
+                        realm.commitTransaction();
 
-                            booksAdapter.notifyDataSetChanged();
-                            recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
+                        booksAdapter.notifyDataSetChanged();
+                        recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
 
-                            /*booksAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
-                            booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
-                            recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*/
-                        }
+                        /*booksAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
+                        booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
+                        recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*/
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        AlertDialog dialog = builder.create();
+                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
+        final AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    private void updateItem(Book book, int position) {
-        layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View content = layoutInflater.inflate(R.layout.real_edit_item, null);
-        final EditText editTitle = (EditText) content.findViewById(R.id.title);
-        final EditText editAuthor = (EditText) content.findViewById(R.id.author);
-        final EditText editThumbnail = (EditText) content.findViewById(R.id.thumbnail);
+    private void updateItem(final Book book, final int position) {
+        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View content = layoutInflater.inflate(R.layout.real_edit_item, null);
+        final EditText editTitle = content.findViewById(R.id.title);
+        final EditText editAuthor = content.findViewById(R.id.author);
+        final EditText editThumbnail = content.findViewById(R.id.thumbnail);
 
         editTitle.setText(book.getTitle());
         editAuthor.setText(book.getAuthor());
         editThumbnail.setText(book.getImageUrl());
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(content)
                 .setTitle("Edit Book")
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        RealmResults<Book> results = realm.where(Book.class).findAll();
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    final RealmResults<Book> results = realm.where(Book.class).findAll();
 
-                        realm.beginTransaction();
-                        results.get(position).setAuthor(editAuthor.getText().toString());
-                        results.get(position).setTitle(editTitle.getText().toString());
-                        results.get(position).setImageUrl(editThumbnail.getText().toString());
+                    realm.beginTransaction();
+                    results.get(position).setAuthor(editAuthor.getText().toString());
+                    results.get(position).setTitle(editTitle.getText().toString());
+                    results.get(position).setImageUrl(editThumbnail.getText().toString());
 
-                        realm.commitTransaction();
+                    realm.commitTransaction();
 
-                        booksAdapter.notifyItemChanged(position);
-                    }
+                    booksAdapter.notifyItemChanged(position);
                 })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
     private void deleteItem(int position) {
-        RealmResults<Book> results = realm.where(Book.class).findAll();
+        final RealmResults<Book> results = realm.where(Book.class).findAll();
 
         // Get the book title to show it in toast message
-        Book book = results.get(position);
-        String title = book.getTitle();
+        final Book book = results.get(position);
+        final String title = book.getTitle();
 
         // All changes to data must happen in a transaction
         realm.beginTransaction();
@@ -258,7 +239,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPref.setPreLoad(activity, false);
+            LPref.setPreLoad(getActivity(), false);
         }
 
         booksAdapter.notifyItemRemoved(position);

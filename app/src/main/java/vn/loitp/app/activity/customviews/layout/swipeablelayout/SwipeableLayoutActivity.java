@@ -4,16 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LAnimationUtil;
+import com.core.utilities.LLog;
 import com.daimajia.androidanimations.library.Techniques;
+import com.views.layout.swipeablelayout.frame.SwipeableLayout;
+import com.views.layout.swipeablelayout.listener.LayoutShiftListener;
+import com.views.layout.swipeablelayout.listener.OnLayoutPercentageChangeListener;
+import com.views.layout.swipeablelayout.listener.OnLayoutSwipedListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.layout.swipeablelayout.frame.SwipeableLayout;
-import vn.loitp.views.layout.swipeablelayout.listener.LayoutShiftListener;
-import vn.loitp.views.layout.swipeablelayout.listener.OnLayoutPercentageChangeListener;
-import vn.loitp.views.layout.swipeablelayout.listener.OnLayoutSwipedListener;
 
 //read more
 //https://github.com/ReginFell/SwipeableLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2729
@@ -45,8 +45,8 @@ public class SwipeableLayoutActivity extends BaseFontActivity {
             @Override
             public void onLayoutSwiped() {
                 //Do some action, when view was swiped. For example, you can close activity
-                LLog.INSTANCE.d(TAG, "setOnSwipedListener");
-                LAnimationUtil.play(swipeableLayout, Techniques.FadeOut, new LAnimationUtil.Callback() {
+                LLog.INSTANCE.d(getTAG(), "setOnSwipedListener");
+                LAnimationUtil.INSTANCE.play(swipeableLayout, Techniques.FadeOut, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                         //do nothing
@@ -81,7 +81,7 @@ public class SwipeableLayoutActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 swipeableLayout.setVisibility(View.VISIBLE);
-                LAnimationUtil.play(swipeableLayout, Techniques.FadeIn);
+                LAnimationUtil.INSTANCE.play(swipeableLayout, Techniques.FadeIn);
             }
         });
     }

@@ -2,13 +2,15 @@ package vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview;
 
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.recyclerview.widget.RecyclerView;
 import android.widget.SeekBar;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFontActivity;
+import com.views.recyclerview.banner.layoutmanager.CenterScrollListener;
+import com.views.recyclerview.banner.layoutmanager.OverFlyingLayoutManager;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.recyclerview.banner.layoutmanager.CenterScrollListener;
-import vn.loitp.views.recyclerview.banner.layoutmanager.OverFlyingLayoutManager;
 
 public class OverFlyingRecyclerViewActivity extends BaseFontActivity {
     private RecyclerView recyclerView;

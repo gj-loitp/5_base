@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="iOS Dialog"
+                android:text="@string/ios_dialog"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,13 +29,13 @@
                 android:id="@+id/bt_show_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dialog 1" />
+                android:text="@string/dialog_1" />
 
             <Button
                 android:id="@+id/bt_show_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dialog 2" />
+                android:text="@string/dialog_2" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

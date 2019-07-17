@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Surface;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -32,8 +34,6 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class VideoActivity extends BaseFontActivity implements VideoRendererEventListener {
     private SimpleExoPlayerView simpleExoPlayerView;
@@ -105,22 +105,22 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-                LLog.INSTANCE.d(TAG, "Listener-onTracksChanged...");
+                LLog.INSTANCE.d(getTAG(), "Listener-onTracksChanged...");
             }
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                LLog.INSTANCE.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
+                LLog.INSTANCE.d(getTAG(), "Listener-onLoadingChanged...isLoading:" + isLoading);
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
+                LLog.INSTANCE.d(getTAG(), "Listener-onPlayerStateChanged..." + playbackState);
             }
 
             @Override
             public void onRepeatModeChanged(int repeatMode) {
-                LLog.INSTANCE.d(TAG, "Listener-onRepeatModeChanged...");
+                LLog.INSTANCE.d(getTAG(), "Listener-onRepeatModeChanged...");
             }
 
             @Override
@@ -130,7 +130,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlayerError...");
+                LLog.INSTANCE.d(getTAG(), "Listener-onPlayerError...");
                 player.stop();
                 player.prepare(loopingSource);
                 player.setPlayWhenReady(true);
@@ -143,7 +143,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlaybackParametersChanged...");
+                LLog.INSTANCE.d(getTAG(), "Listener-onPlaybackParametersChanged...");
             }
 
             @Override
@@ -188,44 +188,44 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
 
     @Override
     public void onVideoEnabled(DecoderCounters counters) {
-        LLog.INSTANCE.d(TAG, "onVideoEnabled");
+        LLog.INSTANCE.d(getTAG(), "onVideoEnabled");
     }
 
     @Override
     public void onVideoDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
-        LLog.INSTANCE.d(TAG, "onVideoDecoderInitialized");
+        LLog.INSTANCE.d(getTAG(), "onVideoDecoderInitialized");
     }
 
     @Override
     public void onVideoInputFormatChanged(Format format) {
-        LLog.INSTANCE.d(TAG, "onVideoInputFormatChanged");
+        LLog.INSTANCE.d(getTAG(), "onVideoInputFormatChanged");
     }
 
     @Override
     public void onDroppedFrames(int count, long elapsedMs) {
-        LLog.INSTANCE.d(TAG, "onDroppedFrames");
+        LLog.INSTANCE.d(getTAG(), "onDroppedFrames");
     }
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-        LLog.INSTANCE.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
+        LLog.INSTANCE.d(getTAG(), "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
         resolutionTextView.setText("RES:(WxH):" + width + "X" + height + "\n           " + height + "p");
     }
 
     @Override
     public void onRenderedFirstFrame(Surface surface) {
-        LLog.INSTANCE.d(TAG, "onRenderedFirstFrame");
+        LLog.INSTANCE.d(getTAG(), "onRenderedFirstFrame");
     }
 
     @Override
     public void onVideoDisabled(DecoderCounters counters) {
-        LLog.INSTANCE.d(TAG, "onVideoDisabled");
+        LLog.INSTANCE.d(getTAG(), "onVideoDisabled");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LLog.INSTANCE.d(TAG, "onDestroy()...");
+        LLog.INSTANCE.d(getTAG(), "onDestroy()...");
         player.release();
     }
 }

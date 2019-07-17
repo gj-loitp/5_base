@@ -8,9 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -33,8 +34,8 @@ public class FrmPhoto extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         LLog.INSTANCE.d(TAG, "onViewCreated");
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) frmRootView.findViewById(R.id.tv);
-        RelativeLayout bkg = (RelativeLayout) frmRootView.findViewById(R.id.bkg);
+        TextView tv = (TextView) getFrmRootView().findViewById(R.id.tv);
+        RelativeLayout bkg = (RelativeLayout) getFrmRootView().findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
             VPPhoto vpPhoto = (VPPhoto) bundle.getSerializable("vpphoto");

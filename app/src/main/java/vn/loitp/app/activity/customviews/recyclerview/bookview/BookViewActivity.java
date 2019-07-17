@@ -5,14 +5,15 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 public class BookViewActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
@@ -44,10 +45,10 @@ public class BookViewActivity extends BaseFontActivity {
             }
         });*/
 
-        mAdapter = new BookAdapter(activity, COLUMN, movieList, new BookAdapter.Callback() {
+        mAdapter = new BookAdapter(getActivity(), COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.show(activity, "Click " + movie.getTitle());
+                LToast.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override
@@ -65,7 +66,7 @@ public class BookViewActivity extends BaseFontActivity {
                 //loadMore();
             }
         });
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, COLUMN));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), COLUMN));
         recyclerView.setAdapter(mAdapter);
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView);

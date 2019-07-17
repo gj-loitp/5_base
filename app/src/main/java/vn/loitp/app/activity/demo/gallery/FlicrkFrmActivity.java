@@ -2,11 +2,12 @@ package vn.loitp.app.activity.demo.gallery;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyFrm;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyFrm;
-import vn.loitp.core.utilities.LScreenUtil;
 
 public class FlicrkFrmActivity extends BaseFontActivity {
 
@@ -36,6 +37,6 @@ public class FlicrkFrmActivity extends BaseFontActivity {
         Bundle bundle = new Bundle();
         bundle.putString(Constants.INSTANCE.getSK_PHOTOSET_ID(), Constants.INSTANCE.getFLICKR_ID_ENGLISH());
         frmPhoto.setArguments(bundle);
-        LScreenUtil.replaceFragment(activity, R.id.fl_container_photo, frmPhoto, false);
+        LScreenUtil.replaceFragment(getActivity(), R.id.fl_container_photo, frmPhoto, false);
     }
 }

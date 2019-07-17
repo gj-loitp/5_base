@@ -5,9 +5,10 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.views.imageview.img2ascii.Img2Ascii;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.imageview.img2ascii.Img2Ascii;
 
 public class Img2AsciiActivity extends BaseFontActivity {
 

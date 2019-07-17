@@ -17,10 +17,11 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import com.views.LToast;
+import com.views.floatingview.FloatingViewListener;
+import com.views.floatingview.FloatingViewManager;
+
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
-import vn.loitp.views.floatingview.FloatingViewListener;
-import vn.loitp.views.floatingview.FloatingViewManager;
 
 public class FVCustomFloatingViewService extends Service implements FloatingViewListener {
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";

@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
+import com.views.viewpager.autoviewpager.AutoViewPager;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.viewpager.autoviewpager.lib.AutoViewPager;
 
 public class AutoViewPagerActivity extends BaseFontActivity {
 
@@ -25,7 +25,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, vn.loitp.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override

@@ -4,13 +4,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.views.seekbar.boxedverticalseekbar.BoxedVertical;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.seekbar.boxedverticalseekbar.BoxedVertical;
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 public class BoxedVerticalSeekBarActivity extends BaseFontActivity {
@@ -26,21 +27,21 @@ public class BoxedVerticalSeekBarActivity extends BaseFontActivity {
         bv.setOnBoxedPointsChangeListener(new BoxedVertical.OnValuesChangeListener() {
             @Override
             public void onPointsChanged(BoxedVertical boxedPoints, final int value) {
-                LLog.INSTANCE.d(TAG, "onPointsChanged " + value);
+                LLog.INSTANCE.d(getTAG(), "onPointsChanged " + value);
                 stringList.add(0, "onPointsChanged " + value);
                 print();
             }
 
             @Override
             public void onStartTrackingTouch(BoxedVertical boxedPoints) {
-                LLog.INSTANCE.d(TAG, "onStartTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStartTrackingTouch");
                 stringList.add(0, "onStartTrackingTouch");
                 print();
             }
 
             @Override
             public void onStopTrackingTouch(BoxedVertical boxedPoints) {
-                LLog.INSTANCE.d(TAG, "onStopTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStopTrackingTouch");
                 stringList.add(0, "onStopTrackingTouch");
                 print();
                 bv.setBackgroundColor(Color.RED);

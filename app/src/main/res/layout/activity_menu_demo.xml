@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -77,6 +78,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Floating view" />
+
+            <Button
+                android:id="@+id/bt_fragment_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment navigation" />
 
             <Button
                 android:id="@+id/bt_gallery"

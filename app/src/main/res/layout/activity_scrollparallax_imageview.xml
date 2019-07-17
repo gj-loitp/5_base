@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <vn.loitp.views.imageview.scrollparallaximageview.ScrollParallaxImageView
+            <com.views.imageview.scrollparallaximageview.ScrollParallaxImageView
                 android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"

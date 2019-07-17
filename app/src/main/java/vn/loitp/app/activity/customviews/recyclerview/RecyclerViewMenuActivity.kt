@@ -3,6 +3,8 @@ package vn.loitp.app.activity.customviews.recyclerview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
@@ -15,8 +17,6 @@ import vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.Ove
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 

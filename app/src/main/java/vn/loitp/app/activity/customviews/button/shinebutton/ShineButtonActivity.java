@@ -3,10 +3,11 @@ package vn.loitp.app.activity.customviews.button.shinebutton;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.utils.util.ToastUtils;
+import com.views.button.shinebutton.LShineView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.button.shinebutton.lib.LShineView;
 
 public class ShineButtonActivity extends BaseFontActivity {
     private LShineView bt0;

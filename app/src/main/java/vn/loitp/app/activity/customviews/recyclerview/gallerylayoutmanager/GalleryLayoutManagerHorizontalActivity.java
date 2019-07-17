@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.recyclerview.gallery.GalleryLayoutManager;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.gallery.GalleryLayoutManager;
 
 //https://github.com/BCsl/GalleryLayoutManager
 public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
@@ -28,10 +29,10 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         tv = (TextView) findViewById(R.id.tv);
 
-        mAdapter = new GalleryAdapter(activity, DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
+        mAdapter = new GalleryAdapter(getActivity(), DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(activity, "Click " + movie.getTitle());
+                LToast.INSTANCE.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override

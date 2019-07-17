@@ -1,17 +1,19 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer;
 
 import android.os.Bundle;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class AndroidNavigationDrawerActivity extends BaseFontActivity {
     private PlaceHolderView mDrawerView;
@@ -30,7 +32,7 @@ public class AndroidNavigationDrawerActivity extends BaseFontActivity {
         setupDrawer();
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText(LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp));
+        tv.setText(LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp));
     }
 
     private void setupDrawer() {

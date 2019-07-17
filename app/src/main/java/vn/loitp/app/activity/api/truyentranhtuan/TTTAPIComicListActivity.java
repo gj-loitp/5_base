@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -14,11 +20,6 @@ import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class TTTAPIComicListActivity extends BaseFontActivity {
     private TextView tvTitle;
@@ -64,7 +65,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
     }
 
     private void showDialogSelect() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Chọn thể loại:");
 
         String[] items = new String[comicTypeList.size()];
@@ -76,10 +77,10 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int position) {
-                LLog.INSTANCE.d(TAG, "onClick " + position);
+                LLog.INSTANCE.d(getTAG(), "onClick " + position);
                 tv.setText("");
                 tvTitle.setText("");
-                new GetComicTask(activity, comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+                new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
                     @Override
                     public void onSuccess(List<Comic> comicList) {
                         LUIUtil.printBeautyJson(comicList, tv);

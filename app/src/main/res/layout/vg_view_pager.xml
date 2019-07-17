@@ -27,7 +27,7 @@
 			android:text="Remove" />
 	</RelativeLayout>
 
-	<vn.loitp.views.viewpager.swipeoutviewpager.SwipeOutViewPager
+	<com.views.viewpager.swipeoutviewpager.SwipeOutViewPager
 		android:id="@+id/vp"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/w_200"

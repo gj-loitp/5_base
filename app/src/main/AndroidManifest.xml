@@ -33,9 +33,6 @@
             android:name="vn.loitp.app.activity.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name="vn.loitp.app.activity.api.test.TestAPIActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
@@ -742,9 +739,6 @@
             android:name="vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.function.scrog.ScrogActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
@@ -811,9 +805,6 @@
             android:name="vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.videoview.uzvideo.UZActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name="vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -833,9 +824,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.animation.lottie.MenuLottieActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name="vn.loitp.app.activity.demo.uiza.UZMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--start floating view-->
         <activity
@@ -988,6 +976,12 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.picker.crop.CropActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.network.NetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

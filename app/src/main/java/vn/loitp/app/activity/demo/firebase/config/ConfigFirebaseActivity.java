@@ -7,15 +7,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.core.base.BaseFontActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.views.LToast;
 
 import loitp.basemaster.BuildConfig;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 //https://github.com/firebase/quickstart-android
 public class ConfigFirebaseActivity extends BaseFontActivity {
@@ -104,13 +104,13 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            LToast.INSTANCE.show(activity, "Fetch Succeeded");
+                            LToast.INSTANCE.show(getActivity(), "Fetch Succeeded");
 
                             // After config data is successfully fetched, it must be activated before newly fetched
                             // values are returned.
                             mFirebaseRemoteConfig.activateFetched();
                         } else {
-                            LToast.INSTANCE.show(activity, "Fetch Failed");
+                            LToast.INSTANCE.show(getActivity(), "Fetch Failed");
                         }
                         displayWelcomeMessage();
                     }

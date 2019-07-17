@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.utilities.LActivityUtil;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +28,6 @@ import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
 import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailActivity;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 

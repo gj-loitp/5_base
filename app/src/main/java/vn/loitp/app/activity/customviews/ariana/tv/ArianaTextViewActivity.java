@@ -3,11 +3,12 @@ package vn.loitp.app.activity.customviews.ariana.tv;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LStoreUtil;
+import com.views.ariana.Ariana;
+import com.views.ariana.GradientAngle;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.views.ariana.Ariana;
-import vn.loitp.views.ariana.GradientAngle;
 
 //https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235
 public class ArianaTextViewActivity extends BaseFontActivity {

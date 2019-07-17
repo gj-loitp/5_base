@@ -6,28 +6,30 @@ package vn.loitp.app.activity.animation.expectanim;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 
-import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.function.expectanim.ExpectAnim;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import static vn.loitp.function.expectanim.core.Expectations.aboveOf;
-import static vn.loitp.function.expectanim.core.Expectations.atItsOriginalPosition;
-import static vn.loitp.function.expectanim.core.Expectations.bottomOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.invisible;
-import static vn.loitp.function.expectanim.core.Expectations.leftOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.outOfScreen;
-import static vn.loitp.function.expectanim.core.Expectations.rightOfParent;
-import static vn.loitp.function.expectanim.core.Expectations.sameCenterVerticalAs;
-import static vn.loitp.function.expectanim.core.Expectations.toHaveBackgroundAlpha;
-import static vn.loitp.function.expectanim.core.Expectations.toHaveTextColor;
-import static vn.loitp.function.expectanim.core.Expectations.toRightOf;
-import static vn.loitp.function.expectanim.core.Expectations.visible;
-import static vn.loitp.function.expectanim.core.Expectations.width;
+import com.core.base.BaseFragment;
+import com.function.expectanim.ExpectAnim;
+
+import loitp.basemaster.R;
+
+import static com.function.expectanim.core.Expectations.aboveOf;
+import static com.function.expectanim.core.Expectations.atItsOriginalPosition;
+import static com.function.expectanim.core.Expectations.bottomOfParent;
+import static com.function.expectanim.core.Expectations.invisible;
+import static com.function.expectanim.core.Expectations.leftOfParent;
+import static com.function.expectanim.core.Expectations.outOfScreen;
+import static com.function.expectanim.core.Expectations.rightOfParent;
+import static com.function.expectanim.core.Expectations.sameCenterVerticalAs;
+import static com.function.expectanim.core.Expectations.toHaveBackgroundAlpha;
+import static com.function.expectanim.core.Expectations.toHaveTextColor;
+import static com.function.expectanim.core.Expectations.toRightOf;
+import static com.function.expectanim.core.Expectations.visible;
+import static com.function.expectanim.core.Expectations.width;
 
 public class FrmSample extends BaseFragment {
     private View name;
@@ -42,13 +44,13 @@ public class FrmSample extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        name = (View) frmRootView.findViewById(R.id.name);
-        avatar = (View) frmRootView.findViewById(R.id.avatar);
-        subname = (View) frmRootView.findViewById(R.id.subname);
-        follow = (View) frmRootView.findViewById(R.id.follow);
-        message = (View) frmRootView.findViewById(R.id.message);
-        bottomLayout = (View) frmRootView.findViewById(R.id.bottomLayout);
-        content = (View) frmRootView.findViewById(R.id.content);
+        name = (View) getFrmRootView().findViewById(R.id.name);
+        avatar = (View) getFrmRootView().findViewById(R.id.avatar);
+        subname = (View) getFrmRootView().findViewById(R.id.subname);
+        follow = (View) getFrmRootView().findViewById(R.id.follow);
+        message = (View) getFrmRootView().findViewById(R.id.message);
+        bottomLayout = (View) getFrmRootView().findViewById(R.id.bottomLayout);
+        content = (View) getFrmRootView().findViewById(R.id.content);
 
         new ExpectAnim()
                 .expect(bottomLayout)

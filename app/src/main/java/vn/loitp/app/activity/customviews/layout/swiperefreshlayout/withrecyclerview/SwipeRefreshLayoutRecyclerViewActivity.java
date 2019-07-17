@@ -7,6 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +19,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -39,7 +40,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(activity, movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 ToastUtils.showShort("Click " + movie.getTitle());
@@ -79,7 +80,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(TAG, "loadMore");
+        LLog.INSTANCE.d(getTAG(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
         LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
             @Override

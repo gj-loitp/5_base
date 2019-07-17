@@ -5,18 +5,20 @@ package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager;
  */
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.utilities.LImageUtil;
+
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieViewHolder> {
     // Allows to remember the last item shown on screen

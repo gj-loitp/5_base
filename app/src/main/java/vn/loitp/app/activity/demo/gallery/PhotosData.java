@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.demo.gallery;
 
+import com.core.utilities.LLog;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
 
 /**
  * Created by www.muathu@gmail.com on 10/8/2017.

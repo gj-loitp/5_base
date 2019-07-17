@@ -9,18 +9,18 @@ import android.widget.TextView;
 import androidx.core.widget.NestedScrollView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LAnimationUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal.VGReVHorizontal;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewvertical.VGReVVertical;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LAnimationUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.LToast;
 
 public class FilmDemoActivity extends BaseFontActivity implements View.OnClickListener {
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -30,17 +30,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        llBaseView = (LinearLayout) findViewById(R.id.ll_base_view);
-        nsv = (NestedScrollView) findViewById(R.id.nsv);
+        llBaseView = findViewById(R.id.ll_base_view);
+        nsv = findViewById(R.id.nsv);
         //nsv.setNestedScrollingEnabled(false);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this::refresh);
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         findViewById(R.id.bt_clear_all).setOnClickListener(this);
@@ -49,24 +44,21 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         findViewById(R.id.bt_add_vgrev_horizontal).setOnClickListener(this);
         findViewById(R.id.bt_add_vgrev_vertical).setOnClickListener(this);
 
-        nsv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                /*if (scrollY > oldScrollY) {
-                    LLog.d(TAG, "onScrollChange Scroll DOWN");
-                }
-                if (scrollY < oldScrollY) {
-                    LLog.d(TAG, "onScrollChange Scroll UP");
-                }*/
-                if (scrollY == 0) {
-                    LLog.INSTANCE.d(TAG, "onScrollChange TOP SCROLL");
-                    LToast.INSTANCE.show(activity, "TOP SCROLL");
-                }
+        nsv.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            /*if (scrollY > oldScrollY) {
+                LLog.d(TAG, "onScrollChange Scroll DOWN");
+            }
+            if (scrollY < oldScrollY) {
+                LLog.d(TAG, "onScrollChange Scroll UP");
+            }*/
+            if (scrollY == 0) {
+                LLog.d(getTAG(), "onScrollChange TOP SCROLL");
+                LToast.show(getActivity(), "TOP SCROLL");
+            }
 
-                if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
-                    LLog.INSTANCE.d(TAG, "onScrollChange BOTTOM SCROLL");
-                    LToast.INSTANCE.show(activity, "BOTTOM SCROLL -> LOAD MORE");
-                }
+            if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
+                LLog.d(getTAG(), "onScrollChange BOTTOM SCROLL");
+                LToast.show(getActivity(), "BOTTOM SCROLL -> LOAD MORE");
             }
         });
     }
@@ -108,70 +100,46 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void refresh() {
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                swipeRefreshLayout.setRefreshing(false);
-                LToast.INSTANCE.show(activity, "Finish refresh -> clear all views");
-                clearAllViews();
-            }
+        LUIUtil.setDelay(3000, mls -> {
+            swipeRefreshLayout.setRefreshing(false);
+            LToast.show(getActivity(), "Finish refresh -> clear all views");
+            clearAllViews();
         });
     }
 
     private void addVGViewPager() {
-        VGViewPager vgViewPager = new VGViewPager(activity);
+        final VGViewPager vgViewPager = new VGViewPager(getActivity());
         vgViewPager.init();
-        vgViewPager.setCallback(new VGViewPager.Callback() {
-            @Override
-            public void onClickRemove() {
-                removeView(vgViewPager);
-            }
-        });
+        vgViewPager.setCallback(() -> removeView(vgViewPager));
         addView(vgViewPager);
     }
 
     private void addDummyTextView() {
-        TextView textView = new TextView(activity);
+        final TextView textView = new TextView(getActivity());
         textView.setText("Dummy " + System.currentTimeMillis());
         textView.setTextColor(LStoreUtil.getRandomColor());
         LUIUtil.setTextShadow(textView);
         LUIUtil.setMarginsDp(textView, 10, 3, 3, 10);
         LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeView(textView);
-            }
-        });
+        textView.setOnClickListener(v -> removeView(textView));
         addView(textView);
     }
 
     private void addVGReVHorizontal() {
-        VGReVHorizontal vgReVHorizontal = new VGReVHorizontal(activity);
-        vgReVHorizontal.setCallback(new VGReVHorizontal.Callback() {
-            @Override
-            public void onClickRemove() {
-                removeView(vgReVHorizontal);
-            }
-        });
+        final VGReVHorizontal vgReVHorizontal = new VGReVHorizontal(getActivity());
+        vgReVHorizontal.setCallback(() -> removeView(vgReVHorizontal));
         addView(vgReVHorizontal);
     }
 
     private void addVGReVvertical() {
-        VGReVVertical vgReVVertical = new VGReVVertical(activity);
-        vgReVVertical.setCallback(new VGReVVertical.Callback() {
-            @Override
-            public void onClickRemove() {
-                removeView(vgReVVertical);
-            }
-        });
+        final VGReVVertical vgReVVertical = new VGReVVertical(getActivity());
+        vgReVVertical.setCallback(() -> removeView(vgReVVertical));
         addView(vgReVVertical);
     }
 
-
     //for utils
     private void clearAllViews() {
-        LAnimationUtil.play(llBaseView, Techniques.FadeOut, new LAnimationUtil.Callback() {
+        LAnimationUtil.INSTANCE.play(llBaseView, Techniques.FadeOut, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                     }
@@ -179,7 +147,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
                     @Override
                     public void onEnd() {
                         llBaseView.removeAllViews();
-                        LAnimationUtil.play(llBaseView, Techniques.FadeIn);
+                        LAnimationUtil.INSTANCE.play(llBaseView, Techniques.FadeIn);
                     }
 
                     @Override
@@ -195,17 +163,12 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
     private void addView(View view) {
         llBaseView.addView(view);
-        LAnimationUtil.play(view, Techniques.FadeIn);
-        nsv.post(new Runnable() {
-            @Override
-            public void run() {
-                nsv.fullScroll(View.FOCUS_DOWN);
-            }
-        });
+        LAnimationUtil.INSTANCE.play(view, Techniques.FadeIn);
+        nsv.post(() -> nsv.fullScroll(View.FOCUS_DOWN));
     }
 
     private void removeView(View view) {
-        LAnimationUtil.play(view, Techniques.FadeOut, new LAnimationUtil.Callback() {
+        LAnimationUtil.INSTANCE.play(view, Techniques.FadeOut, new LAnimationUtil.Callback() {
             @Override
             public void onCancel() {
             }

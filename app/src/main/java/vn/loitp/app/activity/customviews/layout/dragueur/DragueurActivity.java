@@ -3,11 +3,12 @@ package vn.loitp.app.activity.customviews.layout.dragueur;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.views.layout.dragueur.Direction;
+import com.views.layout.dragueur.DraggableView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.layout.dragueur.Direction;
-import vn.loitp.views.layout.dragueur.DraggableView;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
 public class DragueurActivity extends BaseFontActivity {
@@ -27,19 +28,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.INSTANCE.d(TAG, "onDrag " + percentX + " x " + percentY);
+                LLog.INSTANCE.d(getTAG(), "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.INSTANCE.d(TAG, "onDraggedStarted " + direction.name());
+                LLog.INSTANCE.d(getTAG(), "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.INSTANCE.d(TAG, "onDraggedEnded " + direction.name());
+                LLog.INSTANCE.d(getTAG(), "onDraggedEnded " + direction.name());
             }
 
             @Override

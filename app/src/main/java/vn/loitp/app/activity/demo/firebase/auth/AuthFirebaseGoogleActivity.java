@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,10 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import loitp.basemaster.R;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
 
 //https://github.com/firebase/quickstart-android
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {
@@ -108,7 +108,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                LLog.INSTANCE.d(TAG, "Google sign in failed" + e.toString());
+                LLog.INSTANCE.d(getTAG(), "Google sign in failed" + e.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -119,7 +119,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        LLog.INSTANCE.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        LLog.INSTANCE.d(getTAG(), "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
@@ -131,12 +131,12 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            LLog.INSTANCE.d(TAG, "signInWithCredential:success");
+                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            LLog.INSTANCE.d(TAG, "signInWithCredential:failure " + task.getException());
+                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:failure " + task.getException());
                             Snackbar.make(findViewById(R.id.root_view), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -192,14 +192,14 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
             //mDetailTextView.setText(LSApplication.getInstance().getGson().toJson(user));
             LUIUtil.printBeautyJson(user, mDetailTextView);
 
-            LLog.INSTANCE.d(TAG, "updateUI " + LSApplication.Companion.getGson().toJson(user));
-            LLog.INSTANCE.d(TAG, "user.getPhotoUrl() " + user.getPhotoUrl());
+            LLog.INSTANCE.d(getTAG(), "updateUI " + LSApplication.Companion.getGson().toJson(user));
+            LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
 
             try {
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.load(activity, url, (ImageView) findViewById(R.id.google_icon));
+                LImageUtil.load(getActivity(), url, (ImageView) findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

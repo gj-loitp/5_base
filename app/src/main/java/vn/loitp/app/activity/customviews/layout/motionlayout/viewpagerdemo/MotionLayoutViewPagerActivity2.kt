@@ -3,9 +3,9 @@ package vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo
 import android.os.Bundle
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.viewpager.widget.ViewPager
+import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 import loitp.basemaster.R
-import vn.loitp.core.base.BaseFontActivity
 
 class MotionLayoutViewPagerActivity2 : BaseFontActivity() {
     override fun setTag(): String {

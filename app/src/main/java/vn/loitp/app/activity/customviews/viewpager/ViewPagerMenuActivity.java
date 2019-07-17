@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
@@ -12,8 +15,6 @@ import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableVie
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class ViewPagerMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
@@ -49,30 +50,30 @@ public class ViewPagerMenuActivity extends BaseFontActivity implements View.OnCl
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_auto_viewpager:
-                intent = new Intent(activity, AutoViewPagerActivity.class);
+                intent = new Intent(getActivity(), AutoViewPagerActivity.class);
                 break;
             case R.id.bt_parallax_viewpager:
-                intent = new Intent(activity, ParallaxViewPagerActivity.class);
+                intent = new Intent(getActivity(), ParallaxViewPagerActivity.class);
                 break;
             case R.id.bt_detect_viewpager_swipe_out:
-                intent = new Intent(activity, DetectViewPagerSwipeOutActivity.class);
+                intent = new Intent(getActivity(), DetectViewPagerSwipeOutActivity.class);
                 break;
             case R.id.bt_view_pager_tablayout:
-                intent = new Intent(activity, ViewPagerWithTabLayoutActivity.class);
+                intent = new Intent(getActivity(), ViewPagerWithTabLayoutActivity.class);
                 break;
             case R.id.bt_detect_viewpager_swipe_out_2:
-                intent = new Intent(activity, ViewPagerSwipeOut2Activity.class);
+                intent = new Intent(getActivity(), ViewPagerSwipeOut2Activity.class);
                 break;
             case R.id.bt_lockable_viewpager:
-                intent = new Intent(activity, LockableViewPagerActivity.class);
+                intent = new Intent(getActivity(), LockableViewPagerActivity.class);
                 break;
             case R.id.bt_refresh_viewpager:
-                intent = new Intent(activity, RefreshViewPagerActivity.class);
+                intent = new Intent(getActivity(), RefreshViewPagerActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

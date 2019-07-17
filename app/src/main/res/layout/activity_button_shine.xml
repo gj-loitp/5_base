@@ -12,7 +12,7 @@
         android:text="You can custom more effect"
         android:textSize="@dimen/txt_14" />
 
-    <vn.loitp.views.button.shinebutton.lib.LShineView
+    <com.views.button.shinebutton.LShineView
         android:id="@+id/bt_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

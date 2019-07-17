@@ -2,18 +2,19 @@ package vn.loitp.app.activity.demo.firebase.admob;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.VisibleForTesting;
+
+import com.core.base.BaseFontActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 
 public class FirebaseAdmobActivity extends BaseFontActivity {
     private AdView mAdView;
@@ -63,7 +64,7 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
             @Override
             public void onAdFailedToLoad(int i) {
                 // See https://goo.gl/sCZj0H for possible error codes.
-                Log.w(TAG, "onAdFailedToLoad:" + i);
+                Log.w(getTAG(), "onAdFailedToLoad:" + i);
             }
         });
         // [END create_interstitial_ad_listener]

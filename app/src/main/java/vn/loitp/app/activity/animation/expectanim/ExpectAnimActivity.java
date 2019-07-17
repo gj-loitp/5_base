@@ -2,10 +2,11 @@ package vn.loitp.app.activity.animation.expectanim;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.base.BaseFragment;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LScreenUtil;
 
 //https://github.com/florent37/ExpectAnim/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5335
 public class ExpectAnimActivity extends BaseFontActivity {
@@ -35,6 +36,6 @@ public class ExpectAnimActivity extends BaseFontActivity {
         if (baseFragment == null) {
             return;
         }
-        LScreenUtil.addFragment(activity, R.id.fl_container, baseFragment, isAddToBackStack);
+        LScreenUtil.addFragment(getActivity(), R.id.fl_container, baseFragment, isAddToBackStack);
     }
 }

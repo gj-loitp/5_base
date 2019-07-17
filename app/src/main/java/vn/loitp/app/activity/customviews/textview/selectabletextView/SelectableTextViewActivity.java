@@ -5,10 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.core.base.BaseFontActivity;
+import com.views.textview.selectabletextview.SelectableListener;
+import com.views.textview.selectabletextview.SelectableView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.textview.selectabletextview.SelectableListener;
-import vn.loitp.views.textview.selectabletextview.SelectableView;
 
 public class SelectableTextViewActivity extends BaseFontActivity {
     private TextView emptyBoxBtn;
@@ -24,7 +25,7 @@ public class SelectableTextViewActivity extends BaseFontActivity {
         selectableView.addOnSaveClickListener(new SelectableListener() {
             @Override
             public void selectedText(String text) {
-                Toast.makeText(activity, text, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
             }
         });
 

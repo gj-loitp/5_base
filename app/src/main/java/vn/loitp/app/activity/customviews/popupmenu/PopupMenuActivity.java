@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LPopupMenu;
+import com.views.LToast;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LPopupMenu;
-import vn.loitp.views.LToast;
 
 public class PopupMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
@@ -44,10 +45,10 @@ public class PopupMenuActivity extends BaseFontActivity implements View.OnClickL
             case R.id.bt_show_3:
             case R.id.bt_show_4:
             case R.id.bt_show_5:
-                LPopupMenu.show(activity, v, R.menu.menu_popup, new LPopupMenu.CallBack() {
+                LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_popup, new LPopupMenu.CallBack() {
                     @Override
                     public void clickOnItem(MenuItem menuItem) {
-                        LToast.INSTANCE.show(activity, menuItem.getTitle().toString());
+                        LToast.INSTANCE.show(getActivity(), menuItem.getTitle().toString());
                     }
                 });
                 break;

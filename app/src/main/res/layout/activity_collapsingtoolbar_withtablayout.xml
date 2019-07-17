@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <vn.loitp.views.LAppBarLayout
+    <com.views.LAppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_55"
+                        android:layout_marginEnd="@dimen/margin_55"
                         android:orientation="vertical">
 
                         <EditText
@@ -65,13 +65,13 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <vn.loitp.views.button.circularimageclick.CircularClickImageButton
+                    <com.views.button.circularimageclick.CircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/margin_5"
+                        android:layout_marginEnd="@dimen/margin_5"
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
@@ -90,7 +90,7 @@
             android:background="@color/colorPrimary"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="bottom" />
-    </vn.loitp.views.LAppBarLayout>
+    </com.views.LAppBarLayout>
 
     <RelativeLayout
         android:id="@+id/root_view"

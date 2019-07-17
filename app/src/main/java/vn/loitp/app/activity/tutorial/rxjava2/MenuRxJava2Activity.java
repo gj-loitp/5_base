@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClickListener {
@@ -44,33 +45,33 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_0:
-                intent = new Intent(activity, DisposableExampleActivity.class);
+                intent = new Intent(getActivity(), DisposableExampleActivity.class);
                 break;
             case R.id.bt_1:
-                intent = new Intent(activity, FlowableExampleActivity.class);
+                intent = new Intent(getActivity(), FlowableExampleActivity.class);
                 break;
             case R.id.bt_2:
-                intent = new Intent(activity, IntervalExampleActivity.class);
+                intent = new Intent(getActivity(), IntervalExampleActivity.class);
                 break;
             case R.id.bt_3:
-                intent = new Intent(activity, SingleObserverExampleActivity.class);
+                intent = new Intent(getActivity(), SingleObserverExampleActivity.class);
                 break;
             case R.id.bt_4:
-                intent = new Intent(activity, CompletableObserverExampleActivity.class);
+                intent = new Intent(getActivity(), CompletableObserverExampleActivity.class);
                 break;
             case R.id.bt_5:
-                intent = new Intent(activity, MapExampleActivity.class);
+                intent = new Intent(getActivity(), MapExampleActivity.class);
                 break;
             case R.id.bt_00:
-                intent = new Intent(activity, AsyncTaskRxActivity.class);
+                intent = new Intent(getActivity(), AsyncTaskRxActivity.class);
                 break;
             case R.id.bt_test_rx:
-                intent = new Intent(activity, TestRxActivity.class);
+                intent = new Intent(getActivity(), TestRxActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

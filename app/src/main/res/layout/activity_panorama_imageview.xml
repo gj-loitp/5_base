@@ -7,7 +7,7 @@
     android:background="@color/White"
     android:orientation="vertical">
 
-    <vn.loitp.views.imageview.panoramaimageview.PanoramaImageView
+    <com.views.imageview.panoramaimageview.PanoramaImageView
         android:id="@+id/panorama_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

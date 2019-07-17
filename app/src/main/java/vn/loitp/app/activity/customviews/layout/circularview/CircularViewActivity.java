@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.layout.circularview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.layout.circularview.CircularView;
+import com.views.layout.circularview.Marker;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.circularview.CircularView;
-import vn.loitp.views.layout.circularview.Marker;
 
 //https://github.com/sababado/CircularView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=238
 public class CircularViewActivity extends BaseFontActivity {
@@ -19,11 +20,11 @@ public class CircularViewActivity extends BaseFontActivity {
         circularView.setAdapter(mAdapter);
         circularView.setOnCircularViewObjectClickListener(new CircularView.OnClickListener() {
             public void onClick(final CircularView view, boolean isLongClick) {
-                LToast.INSTANCE.show(activity, "onClick");
+                LToast.INSTANCE.show(getActivity(), "onClick");
             }
 
             public void onMarkerClick(CircularView view, Marker marker, int position, boolean isLongClick) {
-                LToast.INSTANCE.show(activity, "onClick " + position);
+                LToast.INSTANCE.show(getActivity(), "onClick " + position);
             }
         });
     }

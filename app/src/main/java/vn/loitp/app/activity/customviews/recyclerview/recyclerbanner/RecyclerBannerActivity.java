@@ -4,14 +4,15 @@ import android.os.Bundle;
 
 import androidx.core.widget.NestedScrollView;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+import com.views.recyclerview.banner.BannerLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.recyclerview.banner.BannerLayout;
 
 public class RecyclerBannerActivity extends BaseFontActivity {
 
@@ -35,7 +36,7 @@ public class RecyclerBannerActivity extends BaseFontActivity {
         webBannerAdapter.setOnBannerItemClickListener(new BannerLayout.OnBannerItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                LToast.INSTANCE.show(activity, "Click " + position);
+                LToast.INSTANCE.show(getActivity(), "Click " + position);
             }
         });
 

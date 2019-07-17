@@ -7,18 +7,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.function.notification.Notti;
+import com.function.notification.NottiFactory;
+import com.function.notification.actions.ContentAction;
+import com.function.notification.actions.NotificationAction;
+import com.function.notification.config.LightSettings;
+import com.function.notification.config.NottiConf;
+import com.function.notification.config.VibrationSettings;
+
 import java.util.Arrays;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.function.notification.Notti;
-import vn.loitp.function.notification.NottiFactory;
-import vn.loitp.function.notification.actions.ContentAction;
-import vn.loitp.function.notification.actions.NotificationAction;
-import vn.loitp.function.notification.config.LightSettings;
-import vn.loitp.function.notification.config.NottiConf;
-import vn.loitp.function.notification.config.VibrationSettings;
 
 public class MenuNotificationActivity extends BaseFontActivity implements View.OnClickListener {
     private Notti notti;

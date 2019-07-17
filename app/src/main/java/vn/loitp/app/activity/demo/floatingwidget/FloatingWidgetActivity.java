@@ -8,9 +8,10 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
@@ -50,8 +51,8 @@ public class FloatingWidgetActivity extends BaseFontActivity {
         findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(activity, "onClick");
-                startService(new Intent(activity, FloatingViewService.class));
+                LToast.INSTANCE.show(getActivity(), "onClick");
+                startService(new Intent(getActivity(), FloatingViewService.class));
                 onBackPressed();
             }
         });

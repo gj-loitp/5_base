@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/LightGrey">
 
-    <vn.loitp.views.draggableflipview.DraggableFlipView
+    <com.views.draggableflipview.DraggableFlipView
         android:layout_width="@dimen/w_350"
         android:layout_height="@dimen/w_250"
         android:layout_centerInParent="true"

@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.textview.justifiedtextview;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.core.base.BaseFontActivity;
+import com.views.textview.justifiedtextview.JustifiedTextView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.textview.justifiedtextview.JustifiedTextView;
 
 public class JustifiedTextViewActivity extends BaseFontActivity {
 

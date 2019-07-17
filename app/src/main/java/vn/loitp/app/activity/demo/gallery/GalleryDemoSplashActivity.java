@@ -3,12 +3,13 @@ package vn.loitp.app.activity.demo.gallery;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LUIUtil;
+import com.restapi.restclient.RestClient;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GalleryDemoSplashActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
@@ -20,9 +21,9 @@ public class GalleryDemoSplashActivity extends BaseFontActivity {
         LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
             @Override
             public void doAfter(int mls) {
-                Intent intent = new Intent(activity, GalleryDemoAlbumActivity.class);
+                Intent intent = new Intent(getActivity(), GalleryDemoAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
                 finish();
             }
         });

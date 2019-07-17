@@ -3,6 +3,8 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.favlist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -11,8 +13,6 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -63,7 +63,7 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
             LLog.INSTANCE.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
             LLog.INSTANCE.d(TAG, "pos " + pos);
-            if (pos != vn.loitp.core.common.Constants.INSTANCE.getNOT_FOUND()) {
+            if (pos != com.core.common.Constants.INSTANCE.getNOT_FOUND()) {
                 comicList.remove(pos);
 
                 String newJson = LSApplication.Companion.getGson().toJson(comicList);

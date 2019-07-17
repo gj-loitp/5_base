@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset.ConstraintSetActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity;
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class ConstraintlayoutMenuActivity extends BaseFontActivity implements OnClickListener {
 
@@ -46,24 +47,24 @@ public class ConstraintlayoutMenuActivity extends BaseFontActivity implements On
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_demo:
-                intent = new Intent(activity, ConstraintlayoutDemoActivity.class);
+                intent = new Intent(getActivity(), ConstraintlayoutDemoActivity.class);
                 break;
             case R.id.bt_fab_n_snackbar:
-                intent = new Intent(activity, FabAndSnackbarActivity.class);
+                intent = new Intent(getActivity(), FabAndSnackbarActivity.class);
                 break;
             case R.id.bt_fab_follow_widget:
-                intent = new Intent(activity, FabFollowWidgetActivity.class);
+                intent = new Intent(getActivity(), FabFollowWidgetActivity.class);
                 break;
             case R.id.bt_custom_behavior:
-                intent = new Intent(activity, CustomBehaviorActivity.class);
+                intent = new Intent(getActivity(), CustomBehaviorActivity.class);
                 break;
             case R.id.bt_constraint_set:
-                intent = new Intent(activity, ConstraintSetActivity.class);
+                intent = new Intent(getActivity(), ConstraintSetActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

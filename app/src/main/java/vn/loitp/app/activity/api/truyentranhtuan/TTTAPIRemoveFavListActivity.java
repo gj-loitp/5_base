@@ -4,15 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.RemoveComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     private TextView tv;
@@ -74,7 +75,7 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
 
     private void removeComic(Comic comic) {
         avi.smoothToShow();
-        new RemoveComicFavListTask(activity, comic, new RemoveComicFavListTask.Callback() {
+        new RemoveComicFavListTask(getActivity(), comic, new RemoveComicFavListTask.Callback() {
             @Override
             public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList) {
                 ToastUtils.showShort("onRemoveComicSuccess");

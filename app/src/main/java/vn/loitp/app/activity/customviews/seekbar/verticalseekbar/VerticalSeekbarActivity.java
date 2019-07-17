@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.views.seekbar.verticalseekbar.VerticalSeekBar;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar;
 
 //https://github.com/h6ah4i/android-verticalseekbar
 public class VerticalSeekbarActivity extends BaseFontActivity {
@@ -20,17 +21,17 @@ public class VerticalSeekbarActivity extends BaseFontActivity {
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LLog.INSTANCE.d(TAG, "onProgressChanged " + progress);
+                LLog.INSTANCE.d(getTAG(), "onProgressChanged " + progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                LLog.INSTANCE.d(TAG, "onStartTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStartTrackingTouch");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                LLog.INSTANCE.d(TAG, "onStopTrackingTouch");
+                LLog.INSTANCE.d(getTAG(), "onStopTrackingTouch");
             }
         });
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {

@@ -4,7 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
@@ -39,8 +40,6 @@ import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity
 import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.utilities.LActivityUtil
 
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 

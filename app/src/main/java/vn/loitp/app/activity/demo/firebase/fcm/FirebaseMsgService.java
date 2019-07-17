@@ -7,20 +7,20 @@ package vn.loitp.app.activity.demo.firebase.fcm;
 import android.content.Intent;
 import android.graphics.Color;
 
+import com.core.common.Constants;
+import com.core.utilities.LLog;
+import com.function.notification.Notti;
+import com.function.notification.NottiFactory;
+import com.function.notification.actions.ContentAction;
+import com.function.notification.config.LightSettings;
+import com.function.notification.config.NottiConf;
+import com.function.notification.config.VibrationSettings;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.utils.util.AppUtils;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.SplashActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.function.notification.Notti;
-import vn.loitp.function.notification.NottiFactory;
-import vn.loitp.function.notification.actions.ContentAction;
-import vn.loitp.function.notification.config.LightSettings;
-import vn.loitp.function.notification.config.NottiConf;
-import vn.loitp.function.notification.config.VibrationSettings;
-import vn.loitp.utils.util.AppUtils;
 
 public class FirebaseMsgService extends FirebaseMessagingService {
     private final String TAG = getClass().getSimpleName();

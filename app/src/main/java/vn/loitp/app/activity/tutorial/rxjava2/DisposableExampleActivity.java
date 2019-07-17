@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.concurrent.Callable;
 
 import io.reactivex.Observable;
@@ -15,8 +18,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 //https://www.vogella.com/tutorials/RxJava/article.html
 public class DisposableExampleActivity extends BaseFontActivity {
@@ -58,19 +59,19 @@ public class DisposableExampleActivity extends BaseFontActivity {
                     @Override
                     public void onComplete() {
                         textView.append(" onComplete\n");
-                        LLog.INSTANCE.d(TAG, " onComplete");
+                        LLog.INSTANCE.d(getTAG(), " onComplete");
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         textView.append(" onError : " + e.getMessage() + "\n");
-                        LLog.INSTANCE.d(TAG, " onError : " + e.getMessage());
+                        LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String value) {
                         textView.append(" onNext : value : " + value + "\n");
-                        LLog.INSTANCE.d(TAG, " onNext value : " + value);
+                        LLog.INSTANCE.d(getTAG(), " onNext value : " + value);
                     }
                 }));
     }

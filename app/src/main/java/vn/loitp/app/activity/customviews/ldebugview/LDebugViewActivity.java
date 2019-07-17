@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.core.base.BaseFontActivity;
+import com.views.ldebugview.ComunicateDebug;
+import com.views.ldebugview.LDebug;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.ldebugview.ComunicateDebug;
-import vn.loitp.views.ldebugview.LDebug;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
@@ -39,7 +40,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LDebug.checkPermission(activity, requestCode, resultCode);
+        LDebug.checkPermission(getActivity(), requestCode, resultCode);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -62,7 +63,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_start:
-                LDebug.init(activity);
+                LDebug.init(getActivity());
                 btStop.setEnabled(true);
                 btSendD.setEnabled(true);
                 btSendI.setEnabled(true);

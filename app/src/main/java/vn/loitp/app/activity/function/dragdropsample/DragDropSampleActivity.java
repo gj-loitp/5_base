@@ -6,9 +6,10 @@ import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class DragDropSampleActivity extends BaseFontActivity {
     private ImageView paper;

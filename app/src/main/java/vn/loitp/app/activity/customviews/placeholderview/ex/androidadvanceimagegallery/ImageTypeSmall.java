@@ -4,18 +4,18 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.utils.util.ToastUtils;
+import com.views.placeholderview.lib.placeholderview.Animation;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.lib.placeholderview.annotations.Animate;
+import com.views.placeholderview.lib.placeholderview.annotations.Click;
+import com.views.placeholderview.lib.placeholderview.annotations.Layout;
+import com.views.placeholderview.lib.placeholderview.annotations.LongClick;
+import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import com.views.placeholderview.lib.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.placeholderview.lib.placeholderview.Animation;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Animate;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Click;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.LongClick;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

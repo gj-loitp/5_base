@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
 
-    <vn.loitp.views.viewpager.autoviewpager.lib.AutoViewPager
+    <com.views.viewpager.autoviewpager.AutoViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

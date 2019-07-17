@@ -3,9 +3,10 @@ package vn.loitp.app.activity.customviews.facebookcomment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LSocialUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LSocialUtil;
 
 public class FacebookCommentActivity extends BaseFontActivity {
 
@@ -17,7 +18,7 @@ public class FacebookCommentActivity extends BaseFontActivity {
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LSocialUtil.openFacebookComment(activity, "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b));
+                LSocialUtil.INSTANCE.openFacebookComment(getActivity(), "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b));
             }
         });
     }

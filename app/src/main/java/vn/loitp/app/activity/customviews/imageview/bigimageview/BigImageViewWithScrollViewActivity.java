@@ -3,12 +3,12 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
 
 //https://github.com/Piasy/BigImageViewer
 public class BigImageViewWithScrollViewActivity extends BaseFontActivity {

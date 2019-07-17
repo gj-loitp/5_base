@@ -7,7 +7,7 @@
     android:animateLayoutChanges="true"
     android:background="@color/White">
 
-    <vn.loitp.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
+    <com.views.imageview.continuousscrollableimageview.ContinuousScrollableImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -59,7 +59,7 @@
             android:id="@+id/bt_next_screen"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/margin_5"
             android:background="?selectableItemBackgroundBorderless"

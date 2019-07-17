@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.views.button.goodview.GoodView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.button.goodview.GoodView;
 
 //https://github.com/venshine/GoodView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3854
 public class GoodViewActivity extends BaseFontActivity {
@@ -18,7 +19,7 @@ public class GoodViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //for button
-        goodView = new GoodView(activity);
+        goodView = new GoodView(getActivity());
         Button button = (Button) findViewById(R.id.bt);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +30,7 @@ public class GoodViewActivity extends BaseFontActivity {
         });
 
         //for imageview
-        goodView = new GoodView(activity);
+        goodView = new GoodView(getActivity());
         ImageView iv = (ImageView) findViewById(R.id.iv);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override

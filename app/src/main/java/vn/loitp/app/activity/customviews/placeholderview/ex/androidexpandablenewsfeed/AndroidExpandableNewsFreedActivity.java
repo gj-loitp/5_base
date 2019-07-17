@@ -4,14 +4,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+import com.views.placeholderview.lib.placeholderview.ExpandablePlaceHolderView;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.placeholderview.lib.placeholderview.ExpandablePlaceHolderView;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class AndroidExpandableNewsFreedActivity extends BaseFontActivity {
     private ExpandablePlaceHolderView mExpandableView;

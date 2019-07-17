@@ -16,12 +16,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
 
 /**
  * Created by thangn on 3/1/17.
@@ -47,14 +48,14 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mPlayerView = (TextureView) frmRootView.findViewById(R.id.player_view);
+        this.mPlayerView = (TextureView) getFrmRootView().findViewById(R.id.player_view);
         this.mPlayerView.requestFocus();
         this.mPlayerView.setSurfaceTextureListener(this);
         this.mPlayerWWLMusicControlsOverlay = new WWLMusicControlsOverlay(getContext());
         this.mPlayerWWLMusicControlsOverlay.setListener(this);
-        ((ViewGroup) frmRootView).addView(this.mPlayerWWLMusicControlsOverlay);
-        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
+        ((ViewGroup) getFrmRootView()).addView(this.mPlayerWWLMusicControlsOverlay);
+        this.mTitleView = (TextView) getFrmRootView().findViewById(R.id.li_title);
+        this.mSubTitleView = (TextView) getFrmRootView().findViewById(R.id.li_subtitle);
     }
 
     @Override

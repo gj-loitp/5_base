@@ -4,7 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-
+import com.core.base.BaseFontActivity
+import com.core.common.Constants
+import com.core.loitp.adhelper.AdHelperActivity
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_menu.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.ads.MenuAdsActivity
 import vn.loitp.app.activity.animation.MenuAnimationActivity
@@ -15,15 +21,10 @@ import vn.loitp.app.activity.demo.MenuDemoActivity
 import vn.loitp.app.activity.donation.DonationActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
 import vn.loitp.app.activity.more.MoreActivity
+import vn.loitp.app.activity.network.NetworkActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
 import vn.loitp.app.activity.picker.MenuPickerActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
-import vn.loitp.core.base.BaseFontActivity
-import vn.loitp.core.common.Constants
-import vn.loitp.core.loitp.adhelper.AdHelperActivity
-import vn.loitp.core.utilities.LActivityUtil
-import vn.loitp.core.utilities.LSocialUtil
-import vn.loitp.core.utilities.LUIUtil
 
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -53,6 +54,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_donation).setOnClickListener(this)
         findViewById<View>(R.id.bt_tutorial).setOnClickListener(this)
         findViewById<View>(R.id.bt_picker).setOnClickListener(this)
+        btNetwork.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -91,6 +93,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_donation -> intent = Intent(activity, DonationActivity::class.java)
             R.id.bt_tutorial -> intent = Intent(activity, MenuTutorialActivity::class.java)
             R.id.bt_picker -> intent = Intent(activity, MenuPickerActivity::class.java)
+            R.id.btNetwork -> intent = Intent(activity, NetworkActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

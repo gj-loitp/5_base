@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.touchimageview;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.views.imageview.touchimageview.lib.LTouchImageView;
+
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.views.imageview.touchimageview.lib.LTouchImageView;
 
 //note when use with glide, must have placeholder
 public class TouchImageViewActivity extends BaseFontActivity {
@@ -16,7 +17,7 @@ public class TouchImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LTouchImageView lTouchImageView = (LTouchImageView) findViewById(R.id.iv);
-        LImageUtil.load(activity, Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
+        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
     }
 
     @Override

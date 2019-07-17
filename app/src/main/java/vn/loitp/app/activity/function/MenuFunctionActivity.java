@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity;
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity;
@@ -19,15 +22,13 @@ import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesA
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity;
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuFunctionActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isShowAdWhenExit = false;
+        setShowAdWhenExit(false);
 
         findViewById(R.id.bt_gesto).setOnClickListener(this);
         findViewById(R.id.bt_simple_finger_gesture).setOnClickListener(this);
@@ -65,51 +66,51 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_gesto:
-                intent = new Intent(activity, GestoActivity.class);
+                intent = new Intent(getActivity(), GestoActivity.class);
                 break;
             case R.id.bt_simple_finger_gesture:
-                intent = new Intent(activity, SimpleFingerGesturesActivity.class);
+                intent = new Intent(getActivity(), SimpleFingerGesturesActivity.class);
                 break;
             case R.id.bt_hashmap:
-                intent = new Intent(activity, HashMapActivity.class);
+                intent = new Intent(getActivity(), HashMapActivity.class);
                 break;
             case R.id.bt_drag_drop_sample:
-                intent = new Intent(activity, DragDropSampleActivity.class);
+                intent = new Intent(getActivity(), DragDropSampleActivity.class);
                 break;
             case R.id.bt_toggle_fullscreen:
-                intent = new Intent(activity, FullScreenActivity.class);
+                intent = new Intent(getActivity(), FullScreenActivity.class);
                 break;
             case R.id.bt_view_drag_helper:
-                intent = new Intent(activity, ViewDragHelperActivity.class);
+                intent = new Intent(getActivity(), ViewDragHelperActivity.class);
                 break;
             case R.id.bt_recolor:
-                intent = new Intent(activity, RecolorActivity.class);
+                intent = new Intent(getActivity(), RecolorActivity.class);
                 break;
             case R.id.bt_activity_service_comunicate:
-                intent = new Intent(activity, ActivityServiceComunicateActivity.class);
+                intent = new Intent(getActivity(), ActivityServiceComunicateActivity.class);
                 break;
             case R.id.bt_location:
-                intent = new Intent(activity, LocationActivity.class);
+                intent = new Intent(getActivity(), LocationActivity.class);
                 break;
             case R.id.bt_notification:
-                intent = new Intent(activity, MenuNotificationActivity.class);
+                intent = new Intent(getActivity(), MenuNotificationActivity.class);
                 break;
             case R.id.bt_view_drag_helper_simple:
-                intent = new Intent(activity, ViewDragHelperSimpleActivity.class);
+                intent = new Intent(getActivity(), ViewDragHelperSimpleActivity.class);
                 break;
             case R.id.bt_view_drag_helper_simple_1:
-                intent = new Intent(activity, ViewDragHelperSimpleActivity1.class);
+                intent = new Intent(getActivity(), ViewDragHelperSimpleActivity1.class);
                 break;
             case R.id.bt_sensor:
-                intent = new Intent(activity, SensorActivity.class);
+                intent = new Intent(getActivity(), SensorActivity.class);
                 break;
             case R.id.bt_glide:
-                intent = new Intent(activity, GlideActivity.class);
+                intent = new Intent(getActivity(), GlideActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.tranIn(activity);
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

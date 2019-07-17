@@ -4,18 +4,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.io.File;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 //https://github.com/Piasy/BigImageViewer
 public class BigImageViewActivity extends BaseFontActivity {
@@ -47,7 +47,7 @@ public class BigImageViewActivity extends BaseFontActivity {
 
             @Override
             public void onProgress(int progress) {
-                LLog.INSTANCE.d(TAG, "onProgress " + progress);
+                LLog.INSTANCE.d(getTAG(), "onProgress " + progress);
             }
 
             @Override
@@ -56,7 +56,7 @@ public class BigImageViewActivity extends BaseFontActivity {
 
             @Override
             public void onSuccess(File image) {
-                LLog.INSTANCE.d(TAG, "onSuccess");
+                LLog.INSTANCE.d(getTAG(), "onSuccess");
                 SubsamplingScaleImageView ssiv = bigImageView.getSSIV();
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);

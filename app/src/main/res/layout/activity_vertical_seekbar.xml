@@ -38,21 +38,21 @@
             android:paddingTop="10dp">
 
             <!-- Clock wise - 90 -->
-            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
+            <com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                 android:id="@+id/seekBarContainer1"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp">
 
-                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                <com.views.seekbar.verticalseekbar.VerticalSeekBar
                     android:id="@+id/seekBar1"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
                     app:VSseekBarRotation="CW90" />
-            </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
+            </com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
             <!-- Clock wise - 270 -->
-            <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
+            <com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_marginLeft="50dp"
@@ -61,12 +61,12 @@
                 android:layout_toRightOf="@+id/seekBarContainer1"
                 android:minWidth="10dp">
 
-                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                <com.views.seekbar.verticalseekbar.VerticalSeekBar
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
                     app:VSseekBarRotation="CW270" />
-            </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
+            </com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
         </RelativeLayout>
 
@@ -93,20 +93,20 @@
                 android:paddingTop="100dp">
 
                 <!-- Clock wise - 90 -->
-                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
+                <com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                     android:id="@+id/seekBarContainer3"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp">
 
-                    <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                    <com.views.seekbar.verticalseekbar.VerticalSeekBar
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
                         app:VSseekBarRotation="CW90" />
-                </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
+                </com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
                 <!-- Clock wise - 270 -->
-                <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
+                <com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_marginLeft="50dp"
@@ -114,12 +114,12 @@
                     android:layout_toEndOf="@+id/seekBarContainer3"
                     android:layout_toRightOf="@+id/seekBarContainer3">
 
-                    <vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBar
+                    <com.views.seekbar.verticalseekbar.VerticalSeekBar
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
                         app:VSseekBarRotation="CW270" />
-                </vn.loitp.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
+                </com.views.seekbar.verticalseekbar.VerticalSeekBarWrapper>
 
             </RelativeLayout>
         </ScrollView>

@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <vn.loitp.views.layout.autolinearlayout.AutoLinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.views.layout.autolinearlayout.AutoLinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="child25" />
 
-        </vn.loitp.views.layout.autolinearlayout.AutoLinearLayout>
+        </com.views.layout.autolinearlayout.AutoLinearLayout>
     </ScrollView>
 </RelativeLayout>
 

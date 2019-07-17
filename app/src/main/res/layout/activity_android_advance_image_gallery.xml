@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Remove All" />
 
-    <vn.loitp.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView
+    <com.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

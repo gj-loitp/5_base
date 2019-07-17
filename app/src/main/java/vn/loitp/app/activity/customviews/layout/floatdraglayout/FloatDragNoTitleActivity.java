@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.core.base.BaseActivity;
+import com.views.LToast;
+import com.views.layout.floatdraglayout.DisplayUtil;
+import com.views.layout.floatdraglayout.FloatDragLayout;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseActivity;
-import vn.loitp.views.LToast;
-import vn.loitp.views.layout.floatdraglayout.DisplayUtil;
-import vn.loitp.views.layout.floatdraglayout.FloatDragLayout;
 
 public class FloatDragNoTitleActivity extends BaseActivity {
     private View mDecorView;
@@ -34,7 +35,7 @@ public class FloatDragNoTitleActivity extends BaseActivity {
         floatDragLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.INSTANCE.show(activity, "Click on the hover and drag buttons");
+                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
             }
         });
     }

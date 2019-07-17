@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity;
 import vn.loitp.app.activity.database.realm.RealmActivity;
 import vn.loitp.app.activity.database.sqlite.SqliteActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class MenuDatabaseActivity extends BaseFontActivity implements OnClickListener {
     @Override
@@ -41,18 +42,18 @@ public class MenuDatabaseActivity extends BaseFontActivity implements OnClickLis
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_sqlite:
-                intent = new Intent(activity, SqliteActivity.class);
+                intent = new Intent(getActivity(), SqliteActivity.class);
                 break;
             case R.id.bt_realm:
-                intent = new Intent(activity, RealmActivity.class);
+                intent = new Intent(getActivity(), RealmActivity.class);
                 break;
             case R.id.bt_sqlite_asset:
-                intent = new Intent(activity, ReadSqliteAssetActivity.class);
+                intent = new Intent(getActivity(), ReadSqliteAssetActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

@@ -26,12 +26,12 @@
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <vn.loitp.views.card.LCardView
+            <com.views.card.LCardView
                 android:id="@+id/l_card_view_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <vn.loitp.views.card.LCardView
+            <com.views.card.LCardView
                 android:id="@+id/l_card_view_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,11 +1,10 @@
 package vn.loitp.app.activity.function.viewdraghelpersimple;
 
 import android.os.Bundle;
-import android.view.View;
+
+import com.core.base.BaseFontActivity;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 public class ViewDragHelperSimpleActivity extends BaseFontActivity {
 

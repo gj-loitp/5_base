@@ -26,7 +26,7 @@
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
 
-            <vn.loitp.views.button.lbutton.LButton
+            <com.views.button.lbutton.LButton
                 android:id="@+id/bt_0"
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
@@ -34,7 +34,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_heart" />
 
-            <vn.loitp.views.button.lbutton.LButton
+            <com.views.button.lbutton.LButton
                 android:id="@+id/bt_1"
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
@@ -42,7 +42,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_hearing_black_48dp" />
 
-            <vn.loitp.views.button.lbutton.LButton
+            <com.views.button.lbutton.LButton
                 android:id="@+id/bt_2"
                 android:layout_width="@dimen/w_80"
                 android:layout_height="@dimen/w_80"

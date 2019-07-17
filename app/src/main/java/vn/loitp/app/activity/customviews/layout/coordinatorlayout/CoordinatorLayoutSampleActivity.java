@@ -2,9 +2,10 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout;
 
 import android.os.Bundle;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LScreenUtil;
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 public class CoordinatorLayoutSampleActivity extends BaseFontActivity {
@@ -20,16 +21,16 @@ public class CoordinatorLayoutSampleActivity extends BaseFontActivity {
         String value = getIntent().getStringExtra(KEY);
         switch (value) {
             case VALUE_0:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator0(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator0(), false);
                 break;
             case VALUE_1:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator1(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator1(), false);
                 break;
             case VALUE_2:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator2(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator2(), false);
                 break;
             case VALUE_3:
-                LScreenUtil.addFragment(activity, R.id.fl_container, new FrmCoordinator3(), false);
+                LScreenUtil.addFragment(getActivity(), R.id.fl_container, new FrmCoordinator3(), false);
                 break;
         }
     }

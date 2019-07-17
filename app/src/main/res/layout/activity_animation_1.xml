@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Activity Transition"
+                android:text="@string/menu_activity_transition"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,67 +29,67 @@
                 android:id="@+id/bt_no_anim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No animation" />
+                android:text="@string/no_animation" />
 
             <Button
                 android:id="@+id/bt_system_default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="System default" />
+                android:text="@string/system_default" />
 
             <Button
                 android:id="@+id/bt_slide_left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="slide Left" />
+                android:text="@string/slide_left" />
 
             <Button
                 android:id="@+id/bt_slide_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="slide Right" />
+                android:text="@string/slide_right" />
 
             <Button
                 android:id="@+id/bt_slide_down"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="slide down" />
+                android:text="@string/slide_down" />
 
             <Button
                 android:id="@+id/bt_slide_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="slide up" />
+                android:text="@string/slide_up" />
 
             <Button
                 android:id="@+id/bt_fade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="fade" />
+                android:text="@string/fade" />
 
             <Button
                 android:id="@+id/bt_zoom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="zoom" />
+                android:text="@string/zoom" />
 
             <Button
                 android:id="@+id/bt_windmill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="windmill" />
+                android:text="@string/windmill" />
 
             <Button
                 android:id="@+id/bt_diagonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="diagonal" />
+                android:text="@string/diagonal" />
 
             <Button
                 android:id="@+id/bt_spin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="spin" />
+                android:text="@string/spin" />
 
         </LinearLayout>
     </ScrollView>

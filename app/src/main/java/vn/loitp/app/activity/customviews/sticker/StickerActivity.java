@@ -3,10 +3,11 @@ package vn.loitp.app.activity.customviews.sticker;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import vn.loitp.core.base.BaseFontActivity;
+import com.core.base.BaseFontActivity;
+import com.views.sticker.lib.StickerImageView;
+import com.views.sticker.lib.StickerTextView;
+
 import loitp.basemaster.R;
-import vn.loitp.views.sticker.lib.StickerImageView;
-import vn.loitp.views.sticker.lib.StickerTextView;
 
 public class StickerActivity extends BaseFontActivity {
 
@@ -16,13 +17,13 @@ public class StickerActivity extends BaseFontActivity {
 
         FrameLayout canvas = (FrameLayout) findViewById(R.id.vg_canvas);
         // add a stickerImage to canvas
-        StickerImageView iv_sticker = new StickerImageView(activity);
+        StickerImageView iv_sticker = new StickerImageView(getActivity());
         //iv_sticker.setImageDrawable(((ImageView) view.findViewById(R.id.iv_sticker)).getDrawable());
         iv_sticker.setBackgroundResource(R.drawable.logo);
         canvas.addView(iv_sticker);
 
         // add a stickerText to canvas
-        StickerTextView tv_sticker = new StickerTextView(activity);
+        StickerTextView tv_sticker = new StickerTextView(getActivity());
         tv_sticker.setText("Demo StickerText");
         canvas.addView(tv_sticker);
 

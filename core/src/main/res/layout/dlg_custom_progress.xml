@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView
+    <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
         android:id="@+id/avi"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"

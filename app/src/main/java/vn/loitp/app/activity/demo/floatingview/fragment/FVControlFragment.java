@@ -11,19 +11,21 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.views.floatingview.FloatingViewManager;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService;
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService;
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService;
-import vn.loitp.views.floatingview.FloatingViewManager;
 
 public class FVControlFragment extends Fragment {
     private final String TAG = "FloatingViewControl";

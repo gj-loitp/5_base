@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LScreenUtil;
+import com.views.layout.swipeback.SwipeBackLayout;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.layout.swipeback.SwipeBackLayout;
 
 //https://github.com/gongwen/SwipeBackLayout
 public class SwipeBackLayoutActivity extends BaseFontActivity {
@@ -30,14 +31,14 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
         mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
             @Override
             public void onViewPositionChanged(View mView, float swipeBackFraction, float SWIPE_BACK_FACTOR) {
-                LLog.INSTANCE.d(TAG, "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
+                LLog.INSTANCE.d(getTAG(), "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
                 float newY = screenH * swipeBackFraction;
                 view.setTranslationY(newY);
             }
 
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
-                LLog.INSTANCE.d(TAG, "onViewSwipeFinished");
+                LLog.INSTANCE.d(getTAG(), "onViewSwipeFinished");
             }
         });
 
@@ -80,7 +81,7 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onDestroy() {
-        LLog.INSTANCE.d(TAG, "onDestroy");
+        LLog.INSTANCE.d(getTAG(), "onDestroy");
         super.onDestroy();
     }
 }

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery.AndroidAdvanceImageGalleryActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimagegallery.AndroidBeginnerImageGalleryActivity;
@@ -11,8 +14,6 @@ import vn.loitp.app.activity.customviews.placeholderview.ex.androidexpandablenew
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidinfinitelistwithloadmore.AndroidInfiniteListWithLoadMoreActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidnavigationdrawer.AndroidNavigationDrawerActivity;
 import vn.loitp.app.activity.customviews.placeholderview.ex.androidtinderswipe.AndroidTinderSwipeActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class PlaceHolderViewMenuActivity extends BaseFontActivity {
 
@@ -22,49 +23,49 @@ public class PlaceHolderViewMenuActivity extends BaseFontActivity {
         findViewById(R.id.bt_android_navigation_drawer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidNavigationDrawerActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidNavigationDrawerActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_android_beginner_image_gallery).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidBeginnerImageGalleryActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidBeginnerImageGalleryActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_android_advance_image_gallery).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidAdvanceImageGalleryActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidAdvanceImageGalleryActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_android_expandable_news_feed).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidExpandableNewsFreedActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidExpandableNewsFreedActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_android_tinder_swipe).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidTinderSwipeActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidTinderSwipeActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
         findViewById(R.id.bt_android_infinite_list_with_load_more).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, AndroidInfiniteListWithLoadMoreActivity.class);
+                Intent intent = new Intent(getActivity(), AndroidInfiniteListWithLoadMoreActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(activity);
+                LActivityUtil.INSTANCE.tranIn(getActivity());
             }
         });
     }

@@ -3,21 +3,23 @@ package vn.loitp.app.activity.demo.gallery;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+import com.core.utilities.LUIUtil;
+import com.restapi.flickr.FlickrConst;
+import com.restapi.flickr.model.photosetgetlist.Photoset;
+import com.restapi.flickr.service.FlickrService;
+import com.restapi.restclient.RestClient;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import java.util.List;
 
-import androidx.recyclerview.widget.GridLayoutManager;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.flickr.FlickrConst;
-import vn.loitp.restapi.flickr.model.photosetgetlist.Photoset;
-import vn.loitp.restapi.flickr.service.FlickrService;
-import vn.loitp.restapi.restclient.RestClient;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class GalleryDemoAlbumActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
@@ -61,19 +63,19 @@ public class GalleryDemoAlbumActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
                     final List<Photoset> photosetList = wrapperPhotosetGetlist.getPhotosets().getPhotoset();
                     for (int i = 0; i < photosetList.size(); i++) {
-                        mGalleryView.addView(new AlbumItem(activity, photosetList.get(i), i, new AlbumItem.Callback() {
+                        mGalleryView.addView(new AlbumItem(getActivity(), photosetList.get(i), i, new AlbumItem.Callback() {
                             @Override
                             public void onClick(Photoset photoset, int position) {
-                                final Intent intent = new Intent(activity, GalleryDemoPhotosActivity.class);
+                                final Intent intent = new Intent(getActivity(), GalleryDemoPhotosActivity.class);
                                 intent.putExtra("photosetID", photoset.getId());
                                 startActivity(intent);
-                                LActivityUtil.tranIn(activity);
+                                LActivityUtil.tranIn(getActivity());
                             }
                         }));
                     }

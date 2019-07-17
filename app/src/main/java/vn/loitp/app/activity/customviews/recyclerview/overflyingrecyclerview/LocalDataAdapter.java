@@ -7,8 +7,9 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.views.LToast;
+
 import loitp.basemaster.R;
-import vn.loitp.views.LToast;
 
 public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.ViewHolder> {
     private int[] images = {R.drawable.iv, R.drawable.buildings, R.drawable.bus,

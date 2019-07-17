@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
@@ -49,16 +50,16 @@ public class FloatingWidgetActivity extends BaseFontActivity {
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(activity, "onClick");
-                startService(new Intent(activity, FloatingViewVideoService.class));
+                LToast.INSTANCE.show(getActivity(), "onClick");
+                startService(new Intent(getActivity(), FloatingViewVideoService.class));
                 onBackPressed();
             }
         });
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(activity, "onClick");
-                startService(new Intent(activity, FloatingViewEdgeService.class));
+                LToast.INSTANCE.show(getActivity(), "onClick");
+                startService(new Intent(getActivity(), FloatingViewEdgeService.class));
                 onBackPressed();
             }
         });
@@ -71,7 +72,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                LToast.INSTANCE.show(activity, "Draw over other app permission not available. Closing the application");
+                LToast.INSTANCE.show(getActivity(), "Draw over other app permission not available. Closing the application");
                 onBackPressed();
             }
         } else {

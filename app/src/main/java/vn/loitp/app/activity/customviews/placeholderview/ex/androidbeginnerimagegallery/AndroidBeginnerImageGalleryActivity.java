@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
 
 public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
     private PlaceHolderView mGalleryView;
@@ -29,7 +30,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
 
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         for (int i = 0; i < 100; i++) {
-            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(activity, R.drawable.logo), i, new GalleryItem.Callback() {
+            mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(getActivity(), R.drawable.logo), i, new GalleryItem.Callback() {
                 @Override
                 public void onClick(int position) {
                     ToastUtils.showShort("Click " + position);
@@ -69,7 +70,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        LLog.INSTANCE.d(TAG, "setLoadMoreListener");
+                                        LLog.INSTANCE.d(getTAG(), "setLoadMoreListener");
                                     }
                                 });
                             }

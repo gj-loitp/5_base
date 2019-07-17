@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.widget.TextView
+import com.core.utilities.LLog
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -10,7 +11,6 @@ import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
-import vn.loitp.core.utilities.LLog
 
 class MyRxTask2(val tv: TextView?) {
     val TAG = javaClass.simpleName

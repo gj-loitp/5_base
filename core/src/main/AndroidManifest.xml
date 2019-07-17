@@ -33,58 +33,58 @@
             android:value="2.1" />
 
         <service
-            android:name="vn.loitp.core.utilities.connection.LConectifyService"
+            android:name="com.core.utilities.connection.LConectifyService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
-            android:name="vn.loitp.core.loitp.adhelper.AdHelperActivity"
+            android:name="com.core.loitp.adhelper.AdHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.GalleryCoreSplashActivity"
+            android:name="com.core.loitp.gallery.GalleryCoreSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.album.GalleryCoreAlbumActivity"
+            android:name="com.core.loitp.gallery.album.GalleryCoreAlbumActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.photos.GalleryCorePhotosActivity"
+            android:name="com.core.loitp.gallery.photos.GalleryCorePhotosActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.slide.GalleryCoreSlideActivity"
+            android:name="com.core.loitp.gallery.slide.GalleryCoreSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.core.loitp.facebookcomment.FacebookCommentActivity"
+            android:name="com.core.loitp.facebookcomment.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
 
-        <service android:name="vn.loitp.views.scrog.ScrogService" />
+        <service android:name="com.views.scrog.ScrogService" />
         <service
-            android:name="vn.loitp.views.ldebugview.LDebugViewService"
+            android:name="com.views.ldebugview.LDebugViewService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name="vn.loitp.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity"
+            android:name="com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.member.GalleryMemberActivity"
+            android:name="com.core.loitp.gallery.member.GalleryMemberActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
-            android:name="vn.loitp.core.loitp.gallery.member.GalleryMemberDetailActivity"
+            android:name="com.core.loitp.gallery.member.GalleryMemberDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
         <activity
-            android:name="vn.loitp.function.epub.core.EpubReaderReadActivity"
+            android:name="com.function.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.core.loitp.admobrewardedvideo.AdmobRewardedVideoActivity"
+            android:name="com.core.loitp.admobrewardedvideo.AdmobRewardedVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.picker.imagepickerwithcrop.TempActivity"
+            android:name="com.picker.imagepickerwithcrop.TempActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
@@ -92,10 +92,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="vn.loitp.picker.crop.LCropImageActivity"
+            android:name="com.picker.crop.LCropImageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.picker.crop.LGalleryActivity"
+            android:name="com.picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

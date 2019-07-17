@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity;
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity;
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LActivityUtil;
 
 public class SeekbarMenuActivity extends BaseFontActivity implements View.OnClickListener {
 
@@ -43,21 +44,21 @@ public class SeekbarMenuActivity extends BaseFontActivity implements View.OnClic
         Intent intent = null;
         switch (v.getId()) {
             case R.id.bt_boxed_vertical_seekbar:
-                intent = new Intent(activity, BoxedVerticalSeekBarActivity.class);
+                intent = new Intent(getActivity(), BoxedVerticalSeekBarActivity.class);
                 break;
             case R.id.bt_circularseekbar_seekbar:
-                intent = new Intent(activity, CircularSeekbarActivity.class);
+                intent = new Intent(getActivity(), CircularSeekbarActivity.class);
                 break;
             case R.id.bt_vertical_seekbar:
-                intent = new Intent(activity, VerticalSeekbarActivity.class);
+                intent = new Intent(getActivity(), VerticalSeekbarActivity.class);
                 break;
             case R.id.bt_seekbar:
-                intent = new Intent(activity, SeekbarActivity.class);
+                intent = new Intent(getActivity(), SeekbarActivity.class);
                 break;
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(activity);
+            LActivityUtil.INSTANCE.tranIn(getActivity());
         }
     }
 }

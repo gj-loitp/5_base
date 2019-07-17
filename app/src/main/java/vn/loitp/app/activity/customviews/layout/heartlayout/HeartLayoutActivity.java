@@ -4,11 +4,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.views.layout.heartlayout.HeartLayout;
+
 import java.util.Random;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.layout.heartlayout.HeartLayout;
 
 public class HeartLayoutActivity extends BaseFontActivity {
     private Random mRandom = new Random();

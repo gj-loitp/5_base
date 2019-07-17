@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.function.gesto.OnGestureListener;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.function.gesto.OnGestureListener;
 
 public class GestoActivity extends BaseFontActivity {
 

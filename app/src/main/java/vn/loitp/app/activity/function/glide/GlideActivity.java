@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
 
 public class GlideActivity extends BaseFontActivity implements View.OnClickListener {
     private ImageView iv;
@@ -43,13 +44,13 @@ public class GlideActivity extends BaseFontActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_0:
-                LImageUtil.loadNoAmin(activity, urlLow, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlLow, urlLow, iv, null);
                 break;
             case R.id.bt_1:
-                LImageUtil.loadNoAmin(activity, urlMedium, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlMedium, urlLow, iv, null);
                 break;
             case R.id.bt_2:
-                LImageUtil.loadNoAmin(activity, urlHigh, urlLow, iv, null);
+                LImageUtil.loadNoAmin(getActivity(), urlHigh, urlLow, iv, null);
                 break;
         }
     }

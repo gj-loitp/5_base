@@ -2,19 +2,21 @@ package vn.loitp.app.activity.customviews.wwlmusic.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFragment;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
-import vn.loitp.core.base.BaseFragment;
 
 /**
  * Created by thangn on 3/1/17.
@@ -31,9 +33,9 @@ public class WWLPlaylistFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mTitleView = (TextView) frmRootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) frmRootView.findViewById(R.id.li_subtitle);
-        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
+        this.mTitleView = (TextView) getFrmRootView().findViewById(R.id.li_title);
+        this.mSubTitleView = (TextView) getFrmRootView().findViewById(R.id.li_subtitle);
+        this.mRecyclerView = (RecyclerView) getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new LinearLayoutManager(getActivity());
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         this.mRecyclerView.scrollToPosition(0);

@@ -3,11 +3,12 @@ package vn.loitp.app.activity.demo.firebase.fcm;
 import android.os.Bundle;
 import android.view.View;
 
+import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
+import com.core.utilities.LDialogUtil;
+import com.core.utilities.LFCMUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.common.Constants;
-import vn.loitp.core.utilities.LDialogUtil;
-import vn.loitp.core.utilities.LFCMUtil;
 
 //https://docs.google.com/document/d/1LIkZgTWQB7FWVHUrc-ZrQaMVJkm6lbuMwirr1XCPwcA/edit
 public class FCMFirebaseActivity extends BaseFontActivity {
@@ -22,7 +23,7 @@ public class FCMFirebaseActivity extends BaseFontActivity {
                 if (Constants.INSTANCE.getIS_DEBUG()) {
                     LFCMUtil.sendNotification(fcmKey, "Hello! This is a notification!");
                 } else {
-                    LDialogUtil.showDialog1(activity, "Message", "This feature is disabled by Loitp", "Okay", new LDialogUtil.Callback1() {
+                    LDialogUtil.INSTANCE.showDialog1(getActivity(), "Message", "This feature is disabled by Loitp", "Okay", new LDialogUtil.Callback1() {
                         @Override
                         public void onClick1() {
                             //do nothing

@@ -1,18 +1,21 @@
 package vn.loitp.app.activity.customviews.placeholderview.ex.androidadvanceimagegallery;
 
 import android.content.Context;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.core.utilities.LUIUtil;
+import com.views.placeholderview.lib.placeholderview.Animation;
+import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.lib.placeholderview.annotations.Animate;
+import com.views.placeholderview.lib.placeholderview.annotations.Layout;
+import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import com.views.placeholderview.lib.placeholderview.annotations.View;
+
 import java.util.List;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.placeholderview.lib.placeholderview.Animation;
-import vn.loitp.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Animate;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

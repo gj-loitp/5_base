@@ -6,16 +6,18 @@ package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayan
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.utilities.LImageUtil;
+import com.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.views.recyclerview.parallaxrecyclerviewyayandroid.ParallaxViewHolder;
 
 /**
  * Created by yahyabayramoglu on 14/04/15.

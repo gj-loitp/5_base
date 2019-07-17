@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="false">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <vn.loitp.views.layout.squarelayout.SquareFrameLayout
+            <com.views.layout.squarelayout.SquareFrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -22,9 +23,10 @@
                     android:id="@+id/imageview_header"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop" />
 
-            </vn.loitp.views.layout.squarelayout.SquareFrameLayout>
+            </com.views.layout.squarelayout.SquareFrameLayout>
 
             <TextView
                 android:id="@+id/textview_title"

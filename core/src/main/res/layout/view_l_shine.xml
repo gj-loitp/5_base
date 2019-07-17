@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <vn.loitp.views.button.shinebutton.lib.ShineButton
+    <com.views.button.shinebutton.ShineButton
         android:id="@+id/shine_button"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"

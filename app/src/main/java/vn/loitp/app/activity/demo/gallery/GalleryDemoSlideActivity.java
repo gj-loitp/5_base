@@ -9,14 +9,15 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LImageUtil;
+import com.core.utilities.LLog;
+import com.core.utilities.LUIUtil;
+import com.restapi.flickr.model.photosetgetphotos.Photo;
+import com.views.viewpager.parrallaxviewpager.Mode;
+import com.views.viewpager.parrallaxviewpager.ParallaxViewPager;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LImageUtil;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.restapi.flickr.model.photosetgetphotos.Photo;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.Mode;
-import vn.loitp.views.viewpager.parrallaxviewpager.lib.parrallaxviewpager.ParallaxViewPager;
 
 public class GalleryDemoSlideActivity extends BaseFontActivity {
 
@@ -31,7 +32,7 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
 
         String photoID = getIntent().getStringExtra("photoID");
         int position = PhotosData.getInstance().getPosition(photoID);
-        LLog.INSTANCE.d(TAG, "position: " + position);
+        LLog.INSTANCE.d(getTAG(), "position: " + position);
         viewPager.setCurrentItem(position);
     }
 
@@ -55,11 +56,11 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Photo photo = PhotosData.getInstance().getPhoto(position);
-            LayoutInflater inflater = LayoutInflater.from(activity);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
             ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
-            LImageUtil.load(activity, photo.getUrlO(), imageView, 50, 80);
+            LImageUtil.load(getActivity(), photo.getUrlO(), imageView, 50, 80);
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
             LUIUtil.printBeautyJson(photo, tv);

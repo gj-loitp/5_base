@@ -3,20 +3,22 @@ package vn.loitp.app.activity.customviews.wwlvideo;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.core.base.BaseFragment;
+import com.views.wwlmusic.utils.WWLMusicUiUtil;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.views.wwlmusic.utils.WWLMusicUiUtil;
 
 /**
  * Created by thangn on 2/26/17.
@@ -36,7 +38,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = (RecyclerView) frmRootView.findViewById(R.id.recyclerView);
+        this.mRecyclerView = (RecyclerView) getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), WWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));

@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview;
 
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-import vn.loitp.core.base.BaseFontActivity;
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LUIUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LUIUtil;
 
 public class ParallaxRecyclerViewActivity extends BaseFontActivity {
 

@@ -2,9 +2,8 @@ package vn.loitp.app.activity.demo.firebase.database;
 
 import android.app.ProgressDialog;
 
+import com.core.base.BaseFontActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
-import vn.loitp.core.base.BaseFontActivity;
 
 public abstract class BaseFirebaseActivity extends BaseFontActivity {
     private ProgressDialog mProgressDialog;

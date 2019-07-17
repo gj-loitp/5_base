@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.core.utilities.LDeviceUtil;
+import com.core.utilities.LScreenUtil;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LDeviceUtil;
-import vn.loitp.core.utilities.LScreenUtil;
-import vn.loitp.views.LToast;
 
 /**
  * Created by loitp on 3/27/2018.

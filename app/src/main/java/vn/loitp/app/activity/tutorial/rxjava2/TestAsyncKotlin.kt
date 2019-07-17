@@ -1,13 +1,13 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Looper
+import com.core.utilities.LLog
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
-import vn.loitp.core.utilities.LLog
 
 class TestAsyncKotlin(private val count: Int) {
     private val sourceProgression = PublishSubject.create<Int>()

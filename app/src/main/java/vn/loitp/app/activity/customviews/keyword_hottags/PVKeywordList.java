@@ -1,16 +1,18 @@
 package vn.loitp.app.activity.customviews.keyword_hottags;
 
 import android.app.Activity;
+
 import androidx.core.content.ContextCompat;
 
+import com.views.hottagkeywords.lib.AutoLabelUI;
+import com.views.hottagkeywords.lib.AutoLabelUISettings;
+import com.views.hottagkeywords.lib.Label;
+import com.views.placeholderview.lib.placeholderview.annotations.Layout;
+import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
+import com.views.placeholderview.lib.placeholderview.annotations.View;
+
 import loitp.basemaster.R;
-import vn.loitp.views.hottagkeywords.lib.AutoLabelUI;
-import vn.loitp.views.hottagkeywords.lib.AutoLabelUISettings;
-import vn.loitp.views.hottagkeywords.lib.Label;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Layout;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import vn.loitp.views.placeholderview.lib.placeholderview.annotations.View;
 
 /**
  * Created by www.muathu@gmail.com on 9/16/2017.

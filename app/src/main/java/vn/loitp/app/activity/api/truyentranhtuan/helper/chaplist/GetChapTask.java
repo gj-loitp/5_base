@@ -3,6 +3,9 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,8 +19,6 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 import vn.loitp.app.app.LSApplication;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.

@@ -9,11 +9,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.core.utilities.LReaderUtil;
+import com.function.epub.model.BookInfo;
+
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LReaderUtil;
-import vn.loitp.function.epub.model.BookInfo;
 
 /**
  * Created by loitp on 08.09.2016.
@@ -77,19 +78,19 @@ public class BookInfoGridAdapter extends BaseAdapter {
             } else {
                 byte[] coverImageAsBytes = bookInfoList.get(position).getCoverImage();
                 if (coverImageAsBytes != null) {
-                    Bitmap bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
+                    Bitmap bitmap = LReaderUtil.INSTANCE.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
                     bookInfoList.get(position).setCoverImageBitmap(bitmap);
                     bookInfoList.get(position).setCoverImage(null);
                     viewHolder.coverImage.setImageBitmap(bitmap);
                 } else {
                     // Searched and not found.
                     bookInfoList.get(position).setCoverImageNotExists(true);
-                    viewHolder.coverImage.setImageResource(LReaderUtil.getDefaultCover());
+                    viewHolder.coverImage.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
                 }
             }
         } else {
             // Searched before and not found.
-            viewHolder.coverImage.setImageResource(LReaderUtil.getDefaultCover());
+            viewHolder.coverImage.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
         }
         return convertView;
     }

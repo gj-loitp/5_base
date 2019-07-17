@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.core.base.BaseFontActivity;
+import com.views.LToast;
+
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.views.LToast;
 
 public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements VDHView.Callback {
     private VDHView vdhv;
@@ -25,7 +26,7 @@ public class ViewDragHelperSimpleActivity1 extends BaseFontActivity implements V
         findViewById(R.id.bt_toast).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.showShort(activity, "Click");
+                LToast.INSTANCE.showShort(getActivity(), "Click");
             }
         });
         findViewById(R.id.bt_maximize).setOnClickListener(new View.OnClickListener() {

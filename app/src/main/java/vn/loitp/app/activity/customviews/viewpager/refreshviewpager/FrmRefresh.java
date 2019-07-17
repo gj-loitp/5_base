@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.core.utilities.LUIUtil;
+import com.views.LToast;
+import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+
 import loitp.basemaster.R;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.views.LToast;
-import vn.loitp.views.progressloadingview.avloadingindicatorview.lib.avi.AVLoadingIndicatorView;
 
 public class FrmRefresh extends Fragment {
     public static final String KEY_POSITION = "KEY_POSITION";

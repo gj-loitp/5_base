@@ -7,6 +7,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -14,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -24,11 +25,11 @@
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
-                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
-                    android:hint="CPF"
+                    android:hint="@string/cpf"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -41,11 +42,11 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
 
-                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
-                    android:hint="E-mail"
+                    android:hint="@string/e_mail"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLines="1"
@@ -58,11 +59,11 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
 
-                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
-                    android:hint="Data de nascimento"
+                    android:hint="@string/data_de_nascimento"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -80,11 +81,11 @@
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
-                <vn.loitp.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
-                    android:hint="About you"
+                    android:hint="@string/about_you"
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:maxLines="1"

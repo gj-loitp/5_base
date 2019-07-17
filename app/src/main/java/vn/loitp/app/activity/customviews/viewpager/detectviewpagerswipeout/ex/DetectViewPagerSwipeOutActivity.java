@@ -7,16 +7,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.core.base.BaseFontActivity;
+import com.core.base.BaseFragment;
+import com.core.utilities.LLog;
+import com.core.utilities.LStoreUtil;
+import com.core.utilities.LUIUtil;
+import com.utils.util.ToastUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.base.BaseFragment;
-import vn.loitp.core.utilities.LLog;
-import vn.loitp.core.utilities.LStoreUtil;
-import vn.loitp.core.utilities.LUIUtil;
-import vn.loitp.utils.util.ToastUtils;
 
 public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
     private ViewPager viewPager;
@@ -40,24 +41,24 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
         LUIUtil.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
             @Override
             public void onUpOrLeft(float offset) {
-                LLog.INSTANCE.d(TAG, "onUpOrLeft " + offset);
+                LLog.INSTANCE.d(getTAG(), "onUpOrLeft " + offset);
                 ToastUtils.showShort("Detect Left");
             }
 
             @Override
             public void onUpOrLeftRefresh(float offset) {
-                LLog.INSTANCE.d(TAG, "onUpOrLeftRefresh " + offset);
+                LLog.INSTANCE.d(getTAG(), "onUpOrLeftRefresh " + offset);
             }
 
             @Override
             public void onDownOrRight(float offset) {
-                LLog.INSTANCE.d(TAG, "onDownOrRight " + offset);
+                LLog.INSTANCE.d(getTAG(), "onDownOrRight " + offset);
                 ToastUtils.showShort("Detect Right");
             }
 
             @Override
             public void onDownOrRightRefresh(float offset) {
-                LLog.INSTANCE.d(TAG, "onDownOrRightRefresh " + offset);
+                LLog.INSTANCE.d(getTAG(), "onDownOrRightRefresh " + offset);
             }
         });
 

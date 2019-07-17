@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.core.base.BaseFontActivity;
+import com.core.utilities.LLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +22,6 @@ import io.reactivex.schedulers.Schedulers;
 import kotlin.Unit;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
-import vn.loitp.core.base.BaseFontActivity;
-import vn.loitp.core.utilities.LLog;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;
