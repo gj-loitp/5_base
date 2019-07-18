@@ -14,7 +14,7 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.utils.util.ToastUtils
 import com.views.LToast
-import com.views.dialog.swipeawaydialog.support.v4.SwipeAwayDialogFragment
+import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
 import loitp.basemaster.R
 
 class SADilog : SwipeAwayDialogFragment() {

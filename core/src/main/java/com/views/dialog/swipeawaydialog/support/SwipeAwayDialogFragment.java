@@ -1,4 +1,4 @@
-package com.views.dialog.swipeawaydialog.support.v4;
+package com.views.dialog.swipeawaydialog.support;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +9,6 @@ import androidx.fragment.app.DialogFragment;
 import com.views.dialog.swipeawaydialog.SwipeDismissTouchListener;
 import com.views.dialog.swipeawaydialog.SwipeableFrameLayout;
 
-/**
- * @author kakajika
- * @since 15/08/15.
- */
 public class SwipeAwayDialogFragment extends DialogFragment {
 
     private boolean mSwipeable = true;

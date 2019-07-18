@@ -27,7 +27,7 @@ import loitp.core.R;
 class PrettyDialogButton extends LinearLayout {
     Context context;
     Resources resources;
-    PrettyDialogCallback callback;
+    Runnable callback;
     /*PrettyDialog.BUTTON_TYPE background_type = PrettyDialog.BUTTON_TYPE.BORDER;*/
     Integer default_background_color = R.color.pdlg_color_blue, background_color;
     Integer default_text_color = R.color.pdlg_color_white, text_color;
@@ -43,7 +43,7 @@ class PrettyDialogButton extends LinearLayout {
             int background_color,
             Typeface tf,
             /*PrettyDialog.BUTTON_TYPE type,*/
-            PrettyDialogCallback callback) {
+            Runnable callback) {
         super(context);
         this.context = context;
         resources = context.getResources();
@@ -74,7 +74,7 @@ class PrettyDialogButton extends LinearLayout {
                     v.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            callback.onClick();
+                            callback.run();
                         }
                     }, 150);
                 }

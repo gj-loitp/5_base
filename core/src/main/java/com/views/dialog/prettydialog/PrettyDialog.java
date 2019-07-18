@@ -126,7 +126,8 @@ public class PrettyDialog extends AppCompatDialog {
 
     private List<PrettyDialogButton> prettyDialogButtonList = new ArrayList<>();
 
-    public PrettyDialog addButton(String text, Integer textColor, Integer backgroundColor, /*BUTTON_TYPE type,*/ PrettyDialogCallback callback) {
+    public PrettyDialog addButton(String text, Integer textColor, Integer backgroundColor,
+            /*BUTTON_TYPE type,*/ Runnable callback) {
         PrettyDialogButton button = new PrettyDialogButton(context, text, textColor, backgroundColor, typeface, /*type,*/ callback);
         prettyDialogButtonList.add(button);
         int margin = resources.getDimensionPixelSize(R.dimen.pdlg_space_1_0x);
@@ -179,7 +180,7 @@ public class PrettyDialog extends AppCompatDialog {
         return this;
     }
 
-    public PrettyDialog setIconCallback(final PrettyDialogCallback callback) {
+    public PrettyDialog setIconCallback(final Runnable callback) {
         iv_icon.setOnTouchListener(null);
         if (callback != null) {
             iv_icon.setOnTouchListener(new View.OnTouchListener() {
@@ -191,7 +192,7 @@ public class PrettyDialog extends AppCompatDialog {
                             return true;
                         case MotionEvent.ACTION_UP:
                             v.setAlpha(1.0f);
-                            callback.onClick();
+                            callback.run();
                             return true;
                         default:
                             return false;
@@ -202,7 +203,7 @@ public class PrettyDialog extends AppCompatDialog {
         return this;
     }
 
-    public PrettyDialog setIcon(Integer icon, Integer iconTint, final PrettyDialogCallback callback) {
+    public PrettyDialog setIcon(Integer icon, Integer iconTint, final Runnable callback) {
         icon_animation = false;
         iv_icon.setImageResource(icon == null ? R.drawable.pdlg_icon_close : icon);
         iv_icon.setColorFilter(ContextCompat.getColor(context, iconTint == null ? default_icon_tint : iconTint), PorterDuff.Mode.MULTIPLY);
@@ -217,7 +218,7 @@ public class PrettyDialog extends AppCompatDialog {
                             return true;
                         case MotionEvent.ACTION_UP:
                             v.setAlpha(1.0f);
-                            callback.onClick();
+                            callback.run();
                             return true;
                         default:
                             return false;
