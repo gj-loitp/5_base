@@ -1,4 +1,4 @@
-package com.views.imageview.circularroundrectimageview.lib;
+package com.views.imageview.circularroundrectimageview;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -10,11 +10,12 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 import loitp.core.R;
 
-public class RoundedImage extends ImageView {
+public class RoundedImage extends AppCompatImageView {
 
     private RectF rect;
     private Path path = new Path();

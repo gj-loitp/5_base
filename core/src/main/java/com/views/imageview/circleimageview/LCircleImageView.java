@@ -1,4 +1,4 @@
-package com.views.imageview.circleimageview.lib;
+package com.views.imageview.circleimageview;
 
 /**
  * Created by www.muathu@gmail.com on 10/14/2017.
@@ -20,15 +20,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import loitp.core.R;
 
-public class LCircleImageView extends ImageView {
+public class LCircleImageView extends AppCompatImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 

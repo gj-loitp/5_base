@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
-import com.views.imageview.circleimageview.lib.LCircleImageView;
+import com.views.imageview.circleimageview.LCircleImageView;
 
 import java.util.List;
 

@@ -17,7 +17,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.imageview.circleimageview.lib.LCircleImageView
+            <com.views.imageview.circleimageview.LCircleImageView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 android:layout_centerInParent="true"
@@ -47,7 +47,7 @@
                 android:layout_marginTop="@dimen/margin_30"
                 android:contentDescription="@string/app_name" />
 
-            <com.views.imageview.circleimageview.lib.LCircleImageView
+            <com.views.imageview.circleimageview.LCircleImageView
                 android:layout_width="@dimen/w_250"
                 android:layout_height="@dimen/w_250"
                 android:layout_marginTop="@dimen/margin_30"
@@ -56,7 +56,7 @@
                 app:civ_border_color="@color/vip3"
                 app:civ_border_width="@dimen/w_10" />
 
-            <com.views.imageview.circleimageview.lib.LCircleImageView
+            <com.views.imageview.circleimageview.LCircleImageView
                 android:layout_width="@dimen/w_80"
                 android:layout_height="@dimen/w_80"
                 android:layout_marginTop="@dimen/margin_30"

@@ -119,7 +119,7 @@
             app:layout_anchor="@id/cardView1"
             app:layout_anchorGravity="bottom|end" />
 
-        <com.views.imageview.circleimageview.lib.LCircleImageView
+        <com.views.imageview.circleimageview.LCircleImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|start"

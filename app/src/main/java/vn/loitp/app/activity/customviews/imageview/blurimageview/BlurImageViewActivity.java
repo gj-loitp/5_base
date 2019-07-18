@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
-import com.views.imageview.blurimageview.lib.BlurImage;
+import com.views.imageview.blurimageview.LBlurImageView;
 
 import loitp.basemaster.R;
 
@@ -17,7 +17,7 @@ public class BlurImageViewActivity extends BaseFontActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.iv);
         ImageView imageView2 = (ImageView) findViewById(R.id.iv_2);
-        BlurImage.with(getApplicationContext())
+        LBlurImageView.with(getApplicationContext())
                 .load(R.drawable.iv)
                 .intensity(20)
                 .Async(true)
@@ -35,7 +35,7 @@ public class BlurImageViewActivity extends BaseFontActivity {
         ASynchronous way to Load:- To make blur in asynchronous (Background) you need to put true in Async method.
 
         Direct get Blur Bitmap :- To get direct blur bitmap call the following code .
-        Bitmap bitmap = BlurImage.with(getApplicationContext()).load(R.drawable.mountain).intensity(20).Async(true).getImageBlur();
+        Bitmap bitmap = LBlurImageView.with(getApplicationContext()).load(R.drawable.mountain).intensity(20).Async(true).getImageBlur();
         */
     }
 

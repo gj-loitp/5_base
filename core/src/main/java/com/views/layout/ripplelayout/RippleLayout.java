@@ -1,4 +1,4 @@
-package com.views.layout.ripplelayout.lib;
+package com.views.layout.ripplelayout;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.
@@ -13,11 +13,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-
-/**
- * Created by SouthernBox on 2017/4/20 0020.
- * 涟漪效果控件
- */
 
 public class RippleLayout extends FrameLayout {
 

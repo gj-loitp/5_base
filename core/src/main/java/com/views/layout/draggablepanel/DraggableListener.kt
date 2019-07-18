@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.views.layout.draggablepanel;
+package com.views.layout.draggablepanel
 
 /**
  * Listener created to be notified when some drag actions are performed over DraggablePanel or
@@ -21,25 +21,25 @@ package com.views.layout.draggablepanel;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public interface DraggableListener {
+interface DraggableListener {
 
     /**
      * Called when the view is maximized.
      */
-    void onMaximized();
+    fun onMaximized()
 
     /**
      * Called when the view is minimized.
      */
-    void onMinimized();
+    fun onMinimized()
 
     /**
      * Called when the view is closed to the left.
      */
-    void onClosedToLeft();
+    fun onClosedToLeft()
 
     /**
      * Called when the view is closed to the right.
      */
-    void onClosedToRight();
+    fun onClosedToRight()
 }

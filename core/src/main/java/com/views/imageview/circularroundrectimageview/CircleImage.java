@@ -1,4 +1,4 @@
-package com.views.imageview.circularroundrectimageview.lib;
+package com.views.imageview.circularroundrectimageview;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -17,13 +17,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 import java.io.IOException;
 
 import loitp.core.R;
 
-public class CircleImage extends ImageView {
+public class CircleImage extends AppCompatImageView {
 
     private int borderWidth;
     private Bitmap image;

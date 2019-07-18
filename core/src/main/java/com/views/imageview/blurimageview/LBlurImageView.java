@@ -1,4 +1,4 @@
-package com.views.imageview.blurimageview.lib;
+package com.views.imageview.blurimageview;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.
@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
 
 //https://github.com/sparrow007/BlurImage
-public class BlurImage {
+public class LBlurImageView {
 
     private static final float BITMAP_SCALE = 0.3f;
     private static final float BLUR_RADIUS = 7f;
@@ -32,7 +32,7 @@ public class BlurImage {
     private float MIN_RADIUS = 0;
     private boolean async = false;
 
-    BlurImage(Context context) {
+    LBlurImageView(Context context) {
         this.context = context;
     }
 
@@ -69,25 +69,25 @@ public class BlurImage {
     }
 
     @NonNull
-    public static BlurImage with(Context context) {
-        return new BlurImage(context);
+    public static LBlurImageView with(Context context) {
+        return new LBlurImageView(context);
     }
 
     /*
     * Here we get bitmap on which we apply the blur process
     * */
 
-    public BlurImage load(Bitmap bitmap) {
+    public LBlurImageView load(Bitmap bitmap) {
         this.image = bitmap;
         return this;
     }
 
-    public BlurImage load(int res) {
+    public LBlurImageView load(int res) {
         image = BitmapFactory.decodeResource(context.getResources(), res);
         return this;
     }
 
-    public BlurImage intensity(float intensity) {
+    public LBlurImageView intensity(float intensity) {
         if (intensity < MAX_RADIUS && intensity > 0)
             this.intensity = intensity;
         else
@@ -95,7 +95,7 @@ public class BlurImage {
         return this;
     }
 
-    public BlurImage Async(boolean async) {
+    public LBlurImageView Async(boolean async) {
         this.async = async;
         return this;
     }
@@ -107,8 +107,6 @@ public class BlurImage {
         } else {
             try {
                 imageView.setImageBitmap(blur());
-
-
             } catch (NullPointerException ex) {
                 ex.printStackTrace();
             }
@@ -125,6 +123,7 @@ public class BlurImage {
     * when developer make async true the this class will executed and it perform the blurring process in background
     * */
 
+    //TODO convert asynctask to rx
     private class AsyncBlurImage extends AsyncTask<Void, Void, Bitmap> {
         private WeakReference<ImageView> weakReference;
 
@@ -139,9 +138,7 @@ public class BlurImage {
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-
             ImageView imageView = weakReference.get();
-
             if (imageView != null && bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             }
