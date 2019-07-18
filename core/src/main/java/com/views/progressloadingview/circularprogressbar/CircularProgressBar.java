@@ -1,4 +1,4 @@
-package com.views.progressloadingview.circularprogressbar.lib;
+package com.views.progressloadingview.circularprogressbar;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.
