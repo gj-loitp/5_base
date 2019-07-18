@@ -103,35 +103,41 @@ object LUIUtil {
     }
 
     @JvmOverloads
-    fun displayInterstitial(interstitial: InterstitialAd, maxNumber: Int = 100) {
-        if (interstitial.isLoaded) {
-            val r = Random()
-            val x = r.nextInt(100)
-            if (x < maxNumber) {
-                interstitial.show()
+    fun displayInterstitial(interstitial: InterstitialAd?, maxNumber: Int = 100) {
+        interstitial?.let {
+            if (it.isLoaded) {
+                val r = Random()
+                val x = r.nextInt(100)
+                if (x < maxNumber) {
+                    it.show()
+                } else {
+                    //dont use LLog here
+                    Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
+                }
             } else {
                 //dont use LLog here
-                Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
+                Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()")
             }
-        } else {
-            //dont use LLog here
-            Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()")
         }
     }
 
     /*
      * settext marquee
      */
-    fun setMarquee(tv: TextView, text: String) {
-        tv.text = text
-        setMarquee(tv)
+    fun setMarquee(tv: TextView?, text: String?) {
+        tv?.let {
+            it.text = text
+            setMarquee(it)
+        }
     }
 
-    fun setMarquee(tv: TextView) {
-        tv.isSelected = true
-        tv.ellipsize = TextUtils.TruncateAt.MARQUEE
-        tv.setSingleLine(true)
-        tv.marqueeRepeatLimit = -1//no limit loop
+    fun setMarquee(tv: TextView?) {
+        tv?.let {
+            it.isSelected = true
+            it.ellipsize = TextUtils.TruncateAt.MARQUEE
+            it.setSingleLine(true)
+            it.marqueeRepeatLimit = -1//no limit loop
+        }
     }
 
     fun createGradientDrawableWithRandomColor(): GradientDrawable {
@@ -205,11 +211,13 @@ object LUIUtil {
         v.setBackgroundDrawable(composite)
     }
 
-    fun setTextFromHTML(textView: TextView, bodyData: String) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            textView.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
-        } else {
-            textView.text = Html.fromHtml(bodyData)
+    fun setTextFromHTML(textView: TextView?, bodyData: String) {
+        textView?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
+            } else {
+                it.text = Html.fromHtml(bodyData)
+            }
         }
     }
 
@@ -233,25 +241,27 @@ object LUIUtil {
         }
     }*/
 
-    fun setImageFromAsset(context: Context, fileName: String, imageView: ImageView) {
-        run {
-            val drawable: Drawable?
-            var stream: InputStream? = null
-            try {
-                stream = context.assets.open("img/$fileName")
-                drawable = Drawable.createFromStream(stream, null)
-                drawable?.let {
-                    imageView.setImageDrawable(it)
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "setImageFromAsset: $e")
-            } finally {
+    fun setImageFromAsset(context: Context, fileName: String, imageView: ImageView?) {
+        imageView?.let { iv ->
+            run {
+                val drawable: Drawable?
+                var stream: InputStream? = null
                 try {
-                    stream?.close()
+                    stream = context.assets.open("img/$fileName")
+                    drawable = Drawable.createFromStream(stream, null)
+                    drawable?.let {
+                        iv.setImageDrawable(it)
+                    }
                 } catch (e: Exception) {
-                    LLog.d(TAG, "setImageFromAsset: $e")
-                }
+                    Log.e(TAG, "setImageFromAsset: $e")
+                } finally {
+                    try {
+                        stream?.close()
+                    } catch (e: Exception) {
+                        LLog.d(TAG, "setImageFromAsset: $e")
+                    }
 
+                }
             }
         }
     }
@@ -290,27 +300,29 @@ object LUIUtil {
         activity.window.setSoftInputMode(mode)
     }
 
-    fun setLastCursorEditText(editText: EditText) {
-        if (!editText.text.toString().isEmpty()) {
-            editText.setSelection(editText.text.length)
+    fun setLastCursorEditText(editText: EditText?) {
+        editText?.let {
+            if (it.text.toString().isNotEmpty()) {
+                it.setSelection(it.text.length)
+            }
         }
     }
 
-    fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout) {
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2,
+    fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
+        swipeRefreshLayout?.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2,
                 R.color.vip3, R.color.vip4, R.color.vip5)
     }
 
-    fun setTextShadow(textView: TextView, color: Int = Color.BLACK) {
-        textView.setShadowLayer(1f, // radius
+    fun setTextShadow(textView: TextView?, color: Int = Color.BLACK) {
+        textView?.setShadowLayer(1f, // radius
                 1f, // dx
                 1f, // dy
                 color // shadow color
         )
     }
 
-    fun setTextShadow(textView: TextView) {
-        textView.setShadowLayer(1f, // radius
+    fun setTextShadow(textView: TextView?) {
+        textView?.setShadowLayer(1f, // radius
                 1f, // dx
                 1f, // dy
                 Color.BLACK // shadow color
@@ -321,16 +333,20 @@ object LUIUtil {
         textBold.setTypeface(null, Typeface.BOLD)
     }
 
-    fun printBeautyJson(o: Any, textView: TextView) {
-        val gson = GsonBuilder().setPrettyPrinting().create()
-        val json = gson.toJson(o)
-        textView.text = json
+    fun printBeautyJson(o: Any, textView: TextView?) {
+        textView?.let {
+            val gson = GsonBuilder().setPrettyPrinting().create()
+            val json = gson.toJson(o)
+            it.text = json
+        }
     }
 
-    fun printBeautyJson(o: Any, textView: TextView, tag: String) {
-        val gson = GsonBuilder().setPrettyPrinting().create()
-        val json = gson.toJson(o)
-        textView.text = "$tag :\n$json"
+    fun printBeautyJson(o: Any, textView: TextView?, tag: String) {
+        textView?.let {
+            val gson = GsonBuilder().setPrettyPrinting().create()
+            val json = gson.toJson(o)
+            it.text = "$tag :\n$json"
+        }
     }
 
     fun setPullLikeIOSVertical(recyclerView: RecyclerView) {
@@ -516,15 +532,17 @@ object LUIUtil {
         return ContextCompat.getColor(context, colors[c])
     }
 
-    fun setImeiActionSearch(editText: EditText, actionSearch: Runnable?) {
-        editText.imeOptions = EditorInfo.IME_ACTION_SEARCH
-        editText.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                actionSearch?.run()
-                return@OnEditorActionListener true
-            }
-            false
-        })
+    fun setImeiActionSearch(editText: EditText?, actionSearch: Runnable?) {
+        editText?.let {
+            it.imeOptions = EditorInfo.IME_ACTION_SEARCH
+            it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    actionSearch?.run()
+                    return@OnEditorActionListener true
+                }
+                false
+            })
+        }
     }
 
     fun setColorProgressBar(progressBar: ProgressBar?, color: Int) {
@@ -535,9 +553,11 @@ object LUIUtil {
         progressBar?.visibility = visibility
     }
 
-    fun setColorSeekBar(seekBar: SeekBar, color: Int) {
-        seekBar.progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-        seekBar.thumb.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+    fun setColorSeekBar(seekBar: SeekBar?, color: Int) {
+        seekBar?.let {
+            it.progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+            it.thumb.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        }
     }
 
     //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 25);//25dp
@@ -551,41 +571,49 @@ object LUIUtil {
         textView.setTextSize(typedValue, size.toFloat())
     }
 
-    fun setMargins(view: View, leftPx: Int, topPx: Int, rightPx: Int, bottomPx: Int) {
-        if (view.layoutParams is ViewGroup.MarginLayoutParams) {
-            val p = view.layoutParams as ViewGroup.MarginLayoutParams
-            p.setMargins(leftPx, topPx, rightPx, bottomPx)
-            view.requestLayout()
+    fun setMargins(view: View?, leftPx: Int, topPx: Int, rightPx: Int, bottomPx: Int) {
+        view?.let {
+            if (it.layoutParams is ViewGroup.MarginLayoutParams) {
+                val p = it.layoutParams as ViewGroup.MarginLayoutParams
+                p.setMargins(leftPx, topPx, rightPx, bottomPx)
+                it.requestLayout()
+            }
         }
     }
 
-    fun setMarginsDp(view: View, leftDp: Int, topDp: Int, rightDp: Int, bottomDp: Int) {
-        if (view.layoutParams is ViewGroup.MarginLayoutParams) {
-            val p = view.layoutParams as ViewGroup.MarginLayoutParams
-            p.setMargins(ConvertUtils.dp2px(leftDp.toFloat()), ConvertUtils.dp2px(topDp.toFloat()), ConvertUtils.dp2px(rightDp.toFloat()), ConvertUtils.dp2px(bottomDp.toFloat()))
-            view.requestLayout()
+    fun setMarginsDp(view: View?, leftDp: Int, topDp: Int, rightDp: Int, bottomDp: Int) {
+        view?.let {
+            if (it.layoutParams is ViewGroup.MarginLayoutParams) {
+                val p = it.layoutParams as ViewGroup.MarginLayoutParams
+                p.setMargins(ConvertUtils.dp2px(leftDp.toFloat()), ConvertUtils.dp2px(topDp.toFloat()), ConvertUtils.dp2px(rightDp.toFloat()), ConvertUtils.dp2px(bottomDp.toFloat()))
+                it.requestLayout()
+            }
         }
     }
 
-    fun changeTabsFont(tabLayout: TabLayout, fontName: String) {
-        val vg = tabLayout.getChildAt(0) as ViewGroup
-        val tabsCount = vg.childCount
-        for (j in 0 until tabsCount) {
-            val vgTab = vg.getChildAt(j) as ViewGroup
-            val tabChildsCount = vgTab.childCount
-            for (i in 0 until tabChildsCount) {
-                val tabViewChild = vgTab.getChildAt(i)
-                if (tabViewChild is TextView) {
-                    CalligraphyUtils.applyFontToTextView(tabLayout.context, tabViewChild, fontName)
+    fun changeTabsFont(tabLayout: TabLayout?, fontName: String) {
+        tabLayout?.let {
+            val vg = it.getChildAt(0) as ViewGroup
+            val tabsCount = vg.childCount
+            for (j in 0 until tabsCount) {
+                val vgTab = vg.getChildAt(j) as ViewGroup
+                val tabChildsCount = vgTab.childCount
+                for (i in 0 until tabChildsCount) {
+                    val tabViewChild = vgTab.getChildAt(i)
+                    if (tabViewChild is TextView) {
+                        CalligraphyUtils.applyFontToTextView(it.context, tabViewChild, fontName)
+                    }
                 }
             }
         }
     }
 
-    fun setRandomBackground(view: View) {
-        val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.size)
-        val bkg = Constants.ARR_RANDOM_BKG[r]
-        view.setBackgroundResource(bkg)
+    fun setRandomBackground(view: View?) {
+        view?.let {
+            val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.size)
+            val bkg = Constants.ARR_RANDOM_BKG[r]
+            it.setBackgroundResource(bkg)
+        }
     }
 
     fun setNavMenuItemThemeColors(navigationView: NavigationView, colorDefault: Int, color: Int) {
@@ -628,16 +656,20 @@ object LUIUtil {
     }
 
     //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-    fun playYoutube(activity: Activity, url: String) {
-        if (url.isEmpty()) {
-            return
+    fun playYoutube(activity: Activity?, url: String) {
+        activity?.let {
+            if (url.isEmpty()) {
+                return
+            }
+            it.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            LActivityUtil.tranIn(it)
         }
-        activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-        LActivityUtil.tranIn(activity)
     }
 
-    fun playYoutubeWithId(activity: Activity, id: String) {
-        playYoutube(activity, "http://www.youtube.com/watch?v=$id")
+    fun playYoutubeWithId(activity: Activity?, id: String) {
+        activity?.let {
+            playYoutube(it, "http://www.youtube.com/watch?v=$id")
+        }
     }
 
     //ViewGroup.LayoutParams.MATCH_PARENT
