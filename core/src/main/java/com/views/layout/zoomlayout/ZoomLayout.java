@@ -1,4 +1,4 @@
-package com.views.layout.zoomlayout.lib;
+package com.views.layout.zoomlayout;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.

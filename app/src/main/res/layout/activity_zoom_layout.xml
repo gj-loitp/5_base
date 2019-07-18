@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.layout.zoomlayout.lib.ZoomLayout
+    <com.views.layout.zoomlayout.ZoomLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:hasClickableChildren="true">
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="Image View" />
         </LinearLayout>
-    </com.views.layout.zoomlayout.lib.ZoomLayout>
+    </com.views.layout.zoomlayout.ZoomLayout>
 
     <!--<ScrollView
         android:id="@+id/scroll_view"
