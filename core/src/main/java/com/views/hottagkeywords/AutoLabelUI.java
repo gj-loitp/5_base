@@ -1,4 +1,4 @@
-package com.views.hottagkeywords.lib;
+package com.views.hottagkeywords;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -91,7 +91,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
                 mLabelPadding = typedArray.getDimensionPixelSize(R.styleable.LabelsView_label_padding, getResources().getDimensionPixelSize(R.dimen.padding_label_view));
 
             } catch (Exception e) {
-                LLog.INSTANCE.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
+                LLog.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
             } finally {
                 typedArray.recycle();
             }
@@ -221,7 +221,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      * @param labelToRemove the text of the {@link Label} to remove.
      */
     public boolean removeLabel(String labelToRemove) {
-        Label label = (Label) findViewWithTag(labelToRemove);
+        Label label = findViewWithTag(labelToRemove);
         if (label != null) {
             removeView(label);
             decreaseLabelsCounter();
@@ -242,7 +242,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      * @param position of the item to remove.
      */
     public boolean removeLabel(int position) {
-        Label view = (Label) findViewWithTag(position);
+        Label view = findViewWithTag(position);
         if (view != null) {
             removeView(view);
             decreaseLabelsCounter();

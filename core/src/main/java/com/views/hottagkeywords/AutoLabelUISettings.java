@@ -1,4 +1,4 @@
-package com.views.hottagkeywords.lib;
+package com.views.hottagkeywords;
 
 import android.os.Parcel;
 import android.os.Parcelable;

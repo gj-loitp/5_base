@@ -67,12 +67,6 @@
                 android:text="FidgetSpinner ImageView" />
 
             <Button
-                android:id="@+id/bt_img2ascii"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="image2ascii" />
-
-            <Button
                 android:id="@+id/bt_panorama_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

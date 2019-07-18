@@ -16,7 +16,6 @@ import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageVi
 import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity;
-import vn.loitp.app.activity.customviews.imageview.img2ascii.Img2AsciiActivity;
 import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity;
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity;
@@ -35,7 +34,6 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
         findViewById(R.id.bt_zoom_imageview).setOnClickListener(this);
         findViewById(R.id.bt_fidgetspinner).setOnClickListener(this);
         findViewById(R.id.bt_cirlularroundrect_imageview).setOnClickListener(this);
-        findViewById(R.id.bt_img2ascii).setOnClickListener(this);
         findViewById(R.id.bt_continuous_scrollable_imageview).setOnClickListener(this);
         findViewById(R.id.bt_scroll_parallax_imageview).setOnClickListener(this);
         findViewById(R.id.bt_panorama_imageview).setOnClickListener(this);
@@ -82,9 +80,6 @@ public class ImageViewMenuActivity extends BaseFontActivity implements OnClickLi
                 break;
             case R.id.bt_cirlularroundrect_imageview:
                 intent = new Intent(getActivity(), CircularRoundRectImageViewActivity.class);
-                break;
-            case R.id.bt_img2ascii:
-                intent = new Intent(getActivity(), Img2AsciiActivity.class);
                 break;
             case R.id.bt_continuous_scrollable_imageview:
                 intent = new Intent(getActivity(), ContinuousScrollableImageViewActivity.class);

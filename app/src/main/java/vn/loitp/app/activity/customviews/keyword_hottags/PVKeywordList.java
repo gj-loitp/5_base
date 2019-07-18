@@ -4,9 +4,9 @@ import android.app.Activity;
 
 import androidx.core.content.ContextCompat;
 
-import com.views.hottagkeywords.lib.AutoLabelUI;
-import com.views.hottagkeywords.lib.AutoLabelUISettings;
-import com.views.hottagkeywords.lib.Label;
+import com.views.hottagkeywords.AutoLabelUI;
+import com.views.hottagkeywords.AutoLabelUISettings;
+import com.views.hottagkeywords.Label;
 import com.views.placeholderview.annotations.Layout;
 import com.views.placeholderview.annotations.NonReusable;
 import com.views.placeholderview.annotations.Resolve;
