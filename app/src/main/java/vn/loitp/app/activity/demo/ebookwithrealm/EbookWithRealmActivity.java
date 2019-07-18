@@ -102,7 +102,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             }
         });
         recyclerView.setAdapter(booksAdapter);
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
     }
 
     private void setRealmData() {

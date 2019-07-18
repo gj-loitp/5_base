@@ -36,7 +36,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
 
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this::refresh);
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         findViewById(R.id.bt_clear_all).setOnClickListener(this);
         findViewById(R.id.bt_add_vgviewpager).setOnClickListener(this);
@@ -100,10 +100,13 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     }
 
     private void refresh() {
-        LUIUtil.setDelay(3000, mls -> {
-            swipeRefreshLayout.setRefreshing(false);
-            LToast.show(getActivity(), "Finish refresh -> clear all views");
-            clearAllViews();
+        LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+                LToast.show(getActivity(), "Finish refresh -> clear all views");
+                clearAllViews();
+            }
         });
     }
 
@@ -118,9 +121,9 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
         final TextView textView = new TextView(getActivity());
         textView.setText("Dummy " + System.currentTimeMillis());
         textView.setTextColor(LStoreUtil.getRandomColor());
-        LUIUtil.setTextShadow(textView);
-        LUIUtil.setMarginsDp(textView, 10, 3, 3, 10);
-        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
+        LUIUtil.INSTANCE.setTextShadow(textView);
+        LUIUtil.INSTANCE.setMarginsDp(textView, 10, 3, 3, 10);
+        LUIUtil.INSTANCE.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);
         textView.setOnClickListener(v -> removeView(textView));
         addView(textView);
     }

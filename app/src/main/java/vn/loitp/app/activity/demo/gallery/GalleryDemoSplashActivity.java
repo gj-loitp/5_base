@@ -18,12 +18,12 @@ public class GalleryDemoSplashActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RestClient.init(getString(R.string.flickr_URL));
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+        LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 Intent intent = new Intent(getActivity(), GalleryDemoAlbumActivity.class);
                 startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
+                LActivityUtil.tranIn(getActivity());
                 finish();
             }
         });

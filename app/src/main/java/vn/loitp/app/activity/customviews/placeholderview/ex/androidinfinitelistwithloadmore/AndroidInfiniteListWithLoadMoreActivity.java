@@ -20,7 +20,7 @@ public class AndroidInfiniteListWithLoadMoreActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mLoadMoreView = (InfinitePlaceHolderView) findViewById(R.id.loadMoreView);
 
-        LUIUtil.setPullLikeIOSVertical(mLoadMoreView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mLoadMoreView);
 
         setupView();
     }

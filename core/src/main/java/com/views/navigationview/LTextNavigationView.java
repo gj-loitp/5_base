@@ -190,8 +190,8 @@ public class LTextNavigationView extends RelativeLayout implements View.OnClickL
     }
 
     public void setTextSize(int dpPrev, int dpText, int dpNext) {
-        LUIUtil.setTextSize(tvPrev, TypedValue.COMPLEX_UNIT_DIP, dpPrev);
-        LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, dpText);
-        LUIUtil.setTextSize(tvNext, TypedValue.COMPLEX_UNIT_DIP, dpNext);
+        LUIUtil.INSTANCE.setTextSize(tvPrev, TypedValue.COMPLEX_UNIT_DIP, dpPrev);
+        LUIUtil.INSTANCE.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, dpText);
+        LUIUtil.INSTANCE.setTextSize(tvNext, TypedValue.COMPLEX_UNIT_DIP, dpNext);
     }
 }

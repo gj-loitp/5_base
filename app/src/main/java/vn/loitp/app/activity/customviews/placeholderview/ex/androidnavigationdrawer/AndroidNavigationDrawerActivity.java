@@ -26,7 +26,7 @@ public class AndroidNavigationDrawerActivity extends BaseFontActivity {
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerView = (PlaceHolderView) findViewById(R.id.drawerView);
 
-        LUIUtil.setPullLikeIOSVertical(mDrawerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mDrawerView);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setupDrawer();

@@ -19,16 +19,16 @@ public class ButtonLoadingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        buttonLoading = (ButtonLoading) findViewById(R.id.bt);
-        tv = (TextView) findViewById(R.id.tv);
+        buttonLoading = findViewById(R.id.bt);
+        tv = findViewById(R.id.tv);
         buttonLoading.setOnButtonLoadingListener(new ButtonLoading.OnButtonLoadingListener() {
             @Override
             public void onClick() {
-                LLog.INSTANCE.d(getTAG(), "onClick");
+                LLog.d(getTAG(), "onClick");
                 tv.setText("onClick");
-                LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+                LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
                     @Override
-                    public void doAfter(int mls) {
+                    public void run() {
                         buttonLoading.setProgress(false);
                     }
                 });
@@ -36,13 +36,13 @@ public class ButtonLoadingActivity extends BaseActivity {
 
             @Override
             public void onStart() {
-                LLog.INSTANCE.d(getTAG(), "onStart");
+                LLog.d(getTAG(), "onStart");
                 tv.setText("onStart");
             }
 
             @Override
             public void onFinish() {
-                LLog.INSTANCE.d(getTAG(), "onFinish");
+                LLog.d(getTAG(), "onFinish");
                 tv.setText("onFinish");
             }
         });

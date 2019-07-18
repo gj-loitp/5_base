@@ -127,8 +127,8 @@ public class ResideMenu extends FrameLayout {
         ScrollView svLeft = scrollViewLeftMenu.findViewById(R.id.sv_left_menu);
         ScrollView svRight = scrollViewRightMenu.findViewById(R.id.sv_right_menu);
 
-        LUIUtil.setPullLikeIOSVertical(svLeft);
-        LUIUtil.setPullLikeIOSVertical(svRight);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(svLeft);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(svRight);
 
         RelativeLayout menuHolder = (RelativeLayout) findViewById(R.id.sv_menu_holder);
         menuHolder.addView(scrollViewLeftMenu);

@@ -16,7 +16,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         placeHolderView = (PlaceHolderView) findViewById(R.id.place_holder_view);
-        LUIUtil.setPullLikeIOSVertical(placeHolderView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(placeHolderView);
 
         int max = 50;
         String[] strings = new String[max];

@@ -26,7 +26,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
 
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
 
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         for (int i = 0; i < 100; i++) {

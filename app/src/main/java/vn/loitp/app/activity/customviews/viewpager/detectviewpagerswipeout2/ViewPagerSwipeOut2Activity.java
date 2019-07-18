@@ -36,11 +36,11 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
             }
         });
 
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override

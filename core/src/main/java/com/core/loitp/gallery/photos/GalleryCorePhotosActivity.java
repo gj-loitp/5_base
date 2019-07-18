@@ -57,7 +57,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         PhotosDataCore.getInstance().clearData();
         btPage = findViewById(R.id.bt_page);
         tvTitle = findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle);
+        LUIUtil.INSTANCE.setTextShadow(tvTitle);
 
         avLoadingIndicatorView = findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
@@ -132,7 +132,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
 
         photosetsGetPhotos(photosetID);
 

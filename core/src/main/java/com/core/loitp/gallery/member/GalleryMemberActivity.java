@@ -82,14 +82,14 @@ public class GalleryMemberActivity extends BaseFontActivity {
             adView = new AdView(getActivity());
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
-            LUIUtil.createAdBanner(adView);
+            LUIUtil.INSTANCE.createAdBanner(adView);
             lnAdview.addView(adView);
             final int navigationHeight = DisplayUtil.getNavigationBarHeight(getActivity());
-            LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
+            LUIUtil.INSTANCE.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4);
         }
 
         tvTitle = findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle, Color.WHITE);
+        LUIUtil.INSTANCE.setTextShadow(tvTitle, Color.WHITE);
         avLoadingIndicatorView = findViewById(R.id.av);
 
         photosetID = Constants.INSTANCE.getFLICKR_ID_MEMBERS();
@@ -136,7 +136,7 @@ public class GalleryMemberActivity extends BaseFontActivity {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);*/
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

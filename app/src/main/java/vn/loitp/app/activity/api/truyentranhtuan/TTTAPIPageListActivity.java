@@ -29,7 +29,7 @@ public class TTTAPIPageListActivity extends BaseFontActivity {
         new GetReadImgTask(currentLink, avi, new GetReadImgTask.Callback() {
             @Override
             public void onSuccess(List<String> imagesListOfOneChap) {
-                LUIUtil.printBeautyJson(imagesListOfOneChap, tv);
+                LUIUtil.INSTANCE.printBeautyJson(imagesListOfOneChap, tv);
                 tvTitle.setText("Danh sách page trong chap 69 - size: " + imagesListOfOneChap.size());
             }
 

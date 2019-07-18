@@ -144,7 +144,7 @@ class PrettyDialogButton extends LinearLayout {
 
     public void setTextSize(int typedValued, int size) {
         if (tv != null) {
-            LUIUtil.setTextSize(tv, typedValued, size);
+            LUIUtil.INSTANCE.setTextSize(tv, typedValued, size);
         }
     }
 }

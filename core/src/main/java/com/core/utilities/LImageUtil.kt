@@ -237,8 +237,8 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink100(linkUrlM: String): String? {
-        var linkUrlM = linkUrlM
+    fun getFlickrLink100(urlM: String): String? {
+        var linkUrlM = urlM
         /*
         s	small square 75x75
         q	large square 150x150
@@ -268,8 +268,8 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink640(linkUrlM: String): String? {
-        var linkUrlM = linkUrlM
+    fun getFlickrLink640(urlM: String): String? {
+        var linkUrlM = urlM
         /*
         s	small square 75x75
         q	large square 150x150
@@ -299,8 +299,8 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_n
-    fun getFlickrLink320(linkUrlM: String): String? {
-        var linkUrlM = linkUrlM
+    fun getFlickrLink320(urlM: String): String? {
+        var linkUrlM = urlM
         /*
         s	small square 75x75
         q	large square 150x150
@@ -330,8 +330,8 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink1024(linkUrlM: String): String? {
-        var linkUrlM = linkUrlM
+    fun getFlickrLink1024(urlM: String): String? {
+        var linkUrlM = urlM
         /*
         s	small square 75x75
         q	large square 150x150

@@ -110,7 +110,7 @@ object LDateUtils {
     //date ex: 14-09-2017
     fun convertDateToTimestamp(d: String): Long {
         val formatter = SimpleDateFormat("dd-MM-yyyy")
-        var date: Date? = null
+        val date: Date?
         return try {
             date = formatter.parse(d) as Date
             date.time / 1000
@@ -152,7 +152,7 @@ object LDateUtils {
     fun convertDateToTimeStamp(datetime: String): Long {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
-        var date: Date? = null
+        val date: Date?
         return try {
             date = dateFormat.parse(datetime)
             val time = date!!.time
@@ -174,7 +174,7 @@ object LDateUtils {
     fun convertStringToCalendar(yyyymmdd: String): Calendar {
         val df = SimpleDateFormat("yyyy-MM-dd")
         val cal = Calendar.getInstance()
-        var date: Date? = null
+        val date: Date?
         try {
             date = df.parse(yyyymmdd)
             cal.time = date
@@ -188,7 +188,7 @@ object LDateUtils {
     fun convertStringDate(yyyymmdd: String, format: String): Calendar {
         val df = SimpleDateFormat(format)
         val cal = Calendar.getInstance()
-        var date: Date? = null
+        val date: Date?
         try {
             date = df.parse(yyyymmdd)
             cal.time = date
@@ -249,6 +249,7 @@ object LDateUtils {
             objCalendar.clear()
             result
         } catch (e: Exception) {
+            e.printStackTrace()
             null
         }
 

@@ -65,7 +65,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         LImageUtil.INSTANCE.loadNoAmin(context, photo.getFlickrLink1024(), photo.getUrlS(), viewHolder.iv);
 
         viewHolder.tvSize.setText(photo.getWidthO() + "x" + photo.getHeightO());
-        LUIUtil.setTextShadow(viewHolder.tvSize);
+        LUIUtil.INSTANCE.setTextShadow(viewHolder.tvSize);
         viewHolder.rootView.setOnClickListener(v -> {
             if (callback != null) {
                 callback.onClick(photo, position);

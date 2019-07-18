@@ -52,7 +52,7 @@ class LSApplication : MultiDexApplication() {
         Realm.setDefaultConfiguration(realmConfiguration)
 
         //config font
-        LUIUtil.setFontForAll(Constants.FONT_PATH)
+        LUIUtil.fontForAll = Constants.FONT_PATH
 
         //fcm
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC)

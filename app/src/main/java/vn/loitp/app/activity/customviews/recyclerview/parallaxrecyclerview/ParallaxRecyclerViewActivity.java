@@ -17,7 +17,7 @@ public class ParallaxRecyclerViewActivity extends BaseFontActivity {
         RecyclerView recyclerView = findViewById(R.id.rv);
         recyclerView.setAdapter(new ParallaxAdapter(this));
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
     }
 
     @Override

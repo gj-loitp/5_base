@@ -198,8 +198,8 @@ internal object StatusBarCompatKitKat {
             statusView.alpha = 0f
         }
 
-        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            if (Math.abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
+            if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
                 if (statusView.alpha == 0f) {
                     statusView.animate().cancel()
                     statusView.animate().alpha(1f).setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()

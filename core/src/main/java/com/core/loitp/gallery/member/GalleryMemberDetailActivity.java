@@ -27,7 +27,7 @@ public class GalleryMemberDetailActivity extends BaseFontActivity {
         setShowAdWhenExit(false);
         imageView = findViewById(R.id.image_view);
         tvTitle = findViewById(R.id.tv_title);
-        LUIUtil.setTextShadow(tvTitle);
+        LUIUtil.INSTANCE.setTextShadow(tvTitle);
         final Photo photo = (Photo) getIntent().getSerializableExtra(PHOTO);
         if (photo != null) {
             //LImageUtil.loadNoAmin(activity, photo.getUrlO(), imageView);

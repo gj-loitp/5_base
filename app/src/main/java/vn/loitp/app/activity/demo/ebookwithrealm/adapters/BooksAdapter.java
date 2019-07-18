@@ -55,7 +55,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         holder.textAuthor.setText(book.getAuthor());
         holder.textDescription.setText(book.getDescription());
 
-        holder.imageBackground.setBackgroundColor(LUIUtil.getColor(context));
+        holder.imageBackground.setBackgroundColor(LUIUtil.INSTANCE.getColor(context));
         if (book.getImageUrl() != null) {
             Glide.with(context)
                     .asBitmap()

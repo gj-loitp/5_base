@@ -111,7 +111,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
             holder.bkg.setImageResource(R.drawable.grid_item_background_center);
         }
 
-        LUIUtil.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
+        LUIUtil.INSTANCE.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
         LImageUtil.INSTANCE.load(context, movie.getCover(), holder.iv);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {

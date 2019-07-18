@@ -66,7 +66,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         } else {
             viewHolder.tvTitle.setVisibility(View.VISIBLE);
             viewHolder.tvTitle.setText(photo.getTitle());
-            LUIUtil.setTextShadow(viewHolder.tvTitle);
+            LUIUtil.INSTANCE.setTextShadow(viewHolder.tvTitle);
         }
         viewHolder.imageView.setOnClickListener(v -> {
             if (callback != null) {

@@ -255,7 +255,7 @@ public class PrettyDialog extends AppCompatDialog {
         if (tv_title == null) {
             return this;
         }
-        LUIUtil.setTextSize(tv_title, typedValue, size);
+        LUIUtil.INSTANCE.setTextSize(tv_title, typedValue, size);
         return this;
     }
 
@@ -263,7 +263,7 @@ public class PrettyDialog extends AppCompatDialog {
         if (tv_message == null) {
             return this;
         }
-        LUIUtil.setTextSize(tv_message, typedValue, size);
+        LUIUtil.INSTANCE.setTextSize(tv_message, typedValue, size);
         return this;
     }
 

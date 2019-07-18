@@ -186,10 +186,10 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
             textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         } else {
             LLog.INSTANCE.d(TAG, "msgFromActivity.getObject() != null");
-            LUIUtil.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
+            LUIUtil.INSTANCE.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 
-        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
+        LUIUtil.INSTANCE.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
         if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);
         } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_E) {

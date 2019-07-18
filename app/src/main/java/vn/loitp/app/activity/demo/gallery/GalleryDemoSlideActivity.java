@@ -28,7 +28,7 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
         viewPager.setMode(Mode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
 
-        LUIUtil.setPullLikeIOSVertical(viewPager);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(viewPager);
 
         String photoID = getIntent().getStringExtra("photoID");
         int position = PhotosData.getInstance().getPosition(photoID);
@@ -63,7 +63,7 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
             LImageUtil.INSTANCE.load(getActivity(), photo.getUrlO(), imageView, 50, 80);
 
             TextView tv = (TextView) layout.findViewById(R.id.tv);
-            LUIUtil.printBeautyJson(photo, tv);
+            LUIUtil.INSTANCE.printBeautyJson(photo, tv);
 
             collection.addView(layout);
             return layout;

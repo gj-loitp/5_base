@@ -31,7 +31,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {
-                LUIUtil.printBeautyJson(tttChap, tv);
+                LUIUtil.INSTANCE.printBeautyJson(tttChap, tv);
                 avi.smoothToHide();
                 tvTitle.setText("Chap truyện One Piece - size: " + tttChap.getChaps().getChap().size());
             }

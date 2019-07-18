@@ -38,7 +38,7 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
             vpPhotoList.add(vpPhoto);
         }
 
-        LUIUtil.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
+        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
             @Override
             public void onUpOrLeft(float offset) {
                 LLog.INSTANCE.d(getTAG(), "onUpOrLeft " + offset);

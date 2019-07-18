@@ -21,7 +21,7 @@ public class AndroidAdvanceImageGalleryActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mGalleryView = (InfinitePlaceHolderView) findViewById(R.id.galleryView);
 
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
 
         setupGallery();
         findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {

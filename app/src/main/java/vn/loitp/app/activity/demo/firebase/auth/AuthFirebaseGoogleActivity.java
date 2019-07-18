@@ -190,7 +190,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
             //mDetailTextView.setText(LSApplication.getInstance().getGson().toJson(user));
-            LUIUtil.printBeautyJson(user, mDetailTextView);
+            LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
 
             LLog.INSTANCE.d(getTAG(), "updateUI " + LSApplication.Companion.getGson().toJson(user));
             LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());

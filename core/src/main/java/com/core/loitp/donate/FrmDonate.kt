@@ -72,7 +72,10 @@ class FrmDonate : BaseFragment() {
             colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
             colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
         }
-        LUIUtil.setDelay(500) { activeConfettiManagers.add(generateOnce()) }
+
+        LUIUtil.setDelay(500, Runnable {
+            activeConfettiManagers.add(generateOnce())
+        })
     }
 
     override fun setLayoutResourceId(): Int {

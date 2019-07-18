@@ -10,6 +10,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ToastUtils;
+import com.views.LToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
 
         mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
@@ -60,24 +61,21 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
             }
         });
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(getTAG(), "loadMore");
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                int newSize = 5;
-                for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
-                    movieList.add(movie);
-                }
-                mAdapter.notifyDataSetChanged();
-                ToastUtils.showShort("Finish loadMore");
+        LLog.d(getTAG(), "loadMore");
+        LUIUtil.INSTANCE.setDelay(2000, () -> {
+            int newSize = 5;
+            for (int i = 0; i < newSize; i++) {
+                Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
+                movieList.add(movie);
             }
+            mAdapter.notifyDataSetChanged();
+            LToast.show(activity, "Finish loadMore", R.drawable.bkg_horizontal);
         });
     }
 

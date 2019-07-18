@@ -73,9 +73,9 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
     @Override
     public void onBindViewHolder(@NotNull UItemViewHolder holder, final int position) {
         if (position % 2 == 0) {
-            LUIUtil.setMarginsDp(holder.cv, 10, 5, 5, 5);
+            LUIUtil.INSTANCE.setMarginsDp(holder.cv, 10, 5, 5, 5);
         } else {
-            LUIUtil.setMarginsDp(holder.cv, 5, 5, 10, 5);
+            LUIUtil.INSTANCE.setMarginsDp(holder.cv, 5, 5, 10, 5);
         }
         final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());

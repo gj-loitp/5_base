@@ -28,7 +28,7 @@ public class AndroidExpandableNewsFreedActivity extends BaseFontActivity {
         mContext = this.getApplicationContext();
         mExpandableView = (ExpandablePlaceHolderView) findViewById(R.id.expandableView);
 
-        LUIUtil.setPullLikeIOSVertical(mExpandableView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mExpandableView);
 
         for (Feed feed : Utils.loadFeeds(this.getApplicationContext())) {
             mExpandableView.addView(new HeadingView(mContext, feed.getHeading()));

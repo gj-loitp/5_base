@@ -32,7 +32,7 @@ public class GalleryDemoAlbumActivity extends BaseFontActivity {
         avi.smoothToHide();
         mGalleryView = findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
         photosetsGetList();
     }
 

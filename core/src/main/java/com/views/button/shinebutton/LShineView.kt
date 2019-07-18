@@ -43,7 +43,9 @@ class LShineView : RelativeLayout {
             LAnimationUtil.play(v, Techniques.Pulse)
             if (callback != null) {
                 if (isDelay) {
-                    LUIUtil.setDelay(750) { callback?.onClick(v) }
+                    LUIUtil.setDelay(750, Runnable {
+                        callback?.onClick(v)
+                    })
                 } else {
                     callback?.onClick(v)
                 }

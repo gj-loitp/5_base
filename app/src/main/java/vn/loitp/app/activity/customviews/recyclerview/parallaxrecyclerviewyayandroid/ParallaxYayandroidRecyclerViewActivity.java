@@ -47,7 +47,7 @@ public class ParallaxYayandroidRecyclerViewActivity extends BaseFontActivity {
         });
         recyclerView.setAdapter(testRecyclerAdapter);
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
     }
 
     @Override
