@@ -35,19 +35,18 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
         collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
 
         val appBarLayout = findViewById<LAppBarLayout>(R.id.app_bar)
-        appBarLayout.setOnStateChangeListener { toolbarChange ->
-            //LLog.d(TAG, "toolbarChange: " + toolbarChange);
-            if (toolbarChange == LAppBarLayout.State.COLLAPSED) {
-                //COLLAPSED appBarLayout min
-                LLog.d(TAG, "COLLAPSED toolbarChange: $toolbarChange")
-            } else if (toolbarChange == LAppBarLayout.State.EXPANDED) {
-                //EXPANDED appBarLayout max
-                LLog.d(TAG, "EXPANDED toolbarChange: $toolbarChange")
-            } else {
-                //IDLE appBarLayout not min not max
-                LLog.d(TAG, "IDLE toolbarChange: $toolbarChange")
+        appBarLayout.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {
+            override fun onStateChange(toolbarChange: LAppBarLayout.State) {
+                when (toolbarChange) {
+                    LAppBarLayout.State.COLLAPSED -> //COLLAPSED appBarLayout min
+                        LLog.d(TAG, "COLLAPSED toolbarChange: $toolbarChange")
+                    LAppBarLayout.State.EXPANDED -> //EXPANDED appBarLayout max
+                        LLog.d(TAG, "EXPANDED toolbarChange: $toolbarChange")
+                    else -> //IDLE appBarLayout not min not max
+                        LLog.d(TAG, "IDLE toolbarChange: $toolbarChange")
+                }
             }
-        }
+        })
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener { view ->

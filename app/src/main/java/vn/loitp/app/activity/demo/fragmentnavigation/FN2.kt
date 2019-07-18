@@ -21,7 +21,7 @@ class FN2 : BaseFragment(), OnBackPressedListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val button = view.findViewById<Button>(R.id.button2)
-        button.setOnClickListener { v ->
+        button.setOnClickListener {
             val navController = fragmentNavigationActivity!!.navController
             //new NavOptions.Builder().setExitAnim(R.anim.fade_out);
             navController.navigate(R.id.action_fn2_to_fn3)
