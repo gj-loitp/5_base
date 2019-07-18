@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.textview.extratextview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.views.textview.extratextview.ToggleExtraTextView
+import com.views.textview.extratextview.LToggleLExtraTextView
 import kotlinx.android.synthetic.main.activity_extra_textview.*
 import loitp.basemaster.R
 
@@ -11,22 +11,22 @@ class ExtraTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val toggleText = findViewById<ToggleExtraTextView>(R.id.toggle_txt)
+        val toggleText = findViewById<LToggleLExtraTextView>(R.id.toggle_txt)
         toggleText.setOnClickListener { toggleText.toggle() }
 
         waitingBtn.setOnClickListener {
-            if (toggleText.state == ToggleExtraTextView.State.WAITING) {
-                toggleText.state = ToggleExtraTextView.State.IDLE
+            if (toggleText.getState() == LToggleLExtraTextView.State.WAITING) {
+                toggleText.setState(LToggleLExtraTextView.State.IDLE)
             } else {
-                toggleText.state = ToggleExtraTextView.State.WAITING
+                toggleText.setState(LToggleLExtraTextView.State.WAITING)
             }
         }
 
         activeBtn.setOnClickListener {
-            if (toggleText.state == ToggleExtraTextView.State.ACTIVE) {
-                toggleText.state = ToggleExtraTextView.State.IDLE
+            if (toggleText.getState() == LToggleLExtraTextView.State.ACTIVE) {
+                toggleText.setState(LToggleLExtraTextView.State.IDLE)
             } else {
-                toggleText.state = ToggleExtraTextView.State.ACTIVE
+                toggleText.setState(LToggleLExtraTextView.State.ACTIVE)
             }
         }
     }
