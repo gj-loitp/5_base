@@ -1,9 +1,9 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.views.overscroll.lib.overscroll.adapters.IOverScrollDecoratorAdapter;
+import com.views.overscroll.adapters.IOverScrollDecoratorAdapter;
 
 /**
  * A concrete implementation of {@link me.everything.android.ui.overscroll.OverScrollBounceEffectDecoratorBase} for a vertical orientation.

@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll.adapters;
+package com.views.overscroll.adapters;
 
 import android.graphics.Canvas;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import com.views.overscroll.lib.overscroll.adapters.IOverScrollDecoratorAdapter;
+import com.views.overscroll.adapters.IOverScrollDecoratorAdapter;
 
-import static com.views.overscroll.lib.overscroll.IOverScrollState.STATE_BOUNCE_BACK;
-import static com.views.overscroll.lib.overscroll.IOverScrollState.STATE_DRAG_END_SIDE;
-import static com.views.overscroll.lib.overscroll.IOverScrollState.STATE_DRAG_START_SIDE;
-import static com.views.overscroll.lib.overscroll.IOverScrollState.STATE_IDLE;
+import static com.views.overscroll.IOverScrollState.STATE_BOUNCE_BACK;
+import static com.views.overscroll.IOverScrollState.STATE_DRAG_END_SIDE;
+import static com.views.overscroll.IOverScrollState.STATE_DRAG_START_SIDE;
+import static com.views.overscroll.IOverScrollState.STATE_IDLE;
 
 /**
  * A standalone view decorator adding over-scroll with a smooth bounce-back effect to (potentially) any view -

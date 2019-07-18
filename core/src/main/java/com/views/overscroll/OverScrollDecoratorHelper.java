@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 import android.view.View;
 import android.widget.GridView;
@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
-import com.views.overscroll.lib.overscroll.adapters.AbsListViewOverScrollDecorAdapter;
-import com.views.overscroll.lib.overscroll.adapters.HorizontalScrollViewOverScrollDecorAdapter;
-import com.views.overscroll.lib.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
-import com.views.overscroll.lib.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
-import com.views.overscroll.lib.overscroll.adapters.StaticOverScrollDecorAdapter;
-import com.views.overscroll.lib.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
+import com.views.overscroll.adapters.AbsListViewOverScrollDecorAdapter;
+import com.views.overscroll.adapters.HorizontalScrollViewOverScrollDecorAdapter;
+import com.views.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
+import com.views.overscroll.adapters.ScrollViewOverScrollDecorAdapter;
+import com.views.overscroll.adapters.StaticOverScrollDecorAdapter;
+import com.views.overscroll.adapters.ViewPagerOverScrollDecorAdapter;
 
 /**
  * @author amit

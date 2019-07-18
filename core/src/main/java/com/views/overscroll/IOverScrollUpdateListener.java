@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 /**
  * A callback-listener enabling over-scroll effect clients to subscribe to <b>real-time</b> updates

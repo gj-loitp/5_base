@@ -30,7 +30,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.utils.util.ConvertUtils
-import com.views.overscroll.lib.overscroll.OverScrollDecoratorHelper
+import com.views.overscroll.OverScrollDecoratorHelper
 import loitp.core.R
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils

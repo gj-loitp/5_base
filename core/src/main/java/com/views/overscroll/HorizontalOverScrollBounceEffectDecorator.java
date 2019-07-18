@@ -1,9 +1,9 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.views.overscroll.lib.overscroll.adapters.IOverScrollDecoratorAdapter;
+import com.views.overscroll.adapters.IOverScrollDecoratorAdapter;
 
 public class HorizontalOverScrollBounceEffectDecorator extends OverScrollBounceEffectDecoratorBase {
 

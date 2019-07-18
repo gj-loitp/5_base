@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll;
+package com.views.overscroll;
 
 import android.view.View;
 

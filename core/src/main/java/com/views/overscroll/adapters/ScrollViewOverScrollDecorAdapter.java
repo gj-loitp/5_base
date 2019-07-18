@@ -1,4 +1,4 @@
-package com.views.overscroll.lib.overscroll.adapters;
+package com.views.overscroll.adapters;
 
 import android.view.View;
 import android.widget.ScrollView;
