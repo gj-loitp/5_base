@@ -20,7 +20,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
         final TextView tvContent = (TextView) findViewById(R.id.tvContent);
         final String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et porta ipsum. Praesent vitae libero a mi sodales accumsan. Donec tempor nulla turpis, vitae pellentesque ligula consectetur sed. Quisque commodo lorem eget ipsum pulvinar consequat. Nam erat risus, rhoncus quis ligula sed, tempor venenatis nulla. Duis quis placerat quam.";
 
-        TextDecorator
+        TextDecorator.Companion
                 .decorate(tvContent, text)
                 .setTextColor(R.color.colorAccent, "Lorem", "amet")
                 .setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
