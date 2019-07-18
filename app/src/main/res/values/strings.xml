@@ -394,4 +394,19 @@ Likewise may someone love you next.
     <string name="load_1">Load 1</string>
     <string name="load_2">Load 2</string>
     <string name="gif">Gif</string>
+    <string name="menu_textview">Menu TextView</string>
+    <string name="autofit_textview">Autofit TextView</string>
+    <string name="circle_textview">Circle TextView</string>
+    <string name="color_textview">Color TextView</string>
+    <string name="countdown_textview">Countdown TextView</string>
+    <string name="score_text">Score Text</string>
+    <string name="justifiedtextview">JustifiedTextView</string>
+    <string name="scroll_number">Scroll Number</string>
+    <string name="selectabletextview">SelectableTextView</string>
+    <string name="text_decorator">Text Decorator</string>
+    <string name="translucent_view">Translucent View</string>
+    <string name="type_writer_textview">Type Writer Textview</string>
+    <string name="vertial_marquee_textview">Vertial Marquee TextView</string>
+    <string name="zoom_textview">Zoom TextView</string>
+    <string name="extra_textview">Extra textview</string>
 </resources>
