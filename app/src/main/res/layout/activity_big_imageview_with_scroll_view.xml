@@ -7,6 +7,7 @@
     android:background="@color/WhiteSmoke">
 
     <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
