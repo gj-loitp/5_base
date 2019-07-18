@@ -20,15 +20,6 @@ import androidx.renderscript.ScriptIntrinsicBlur;
 
 import loitp.core.R;
 
-/**
- * A realtime blurring overlay (like iOS UIVisualEffectView). Just put it above
- * the view you want to blur and it doesn't have to be in the same ViewGroup
- * <ul>
- * <li>realtimeBlurRadius (10dp)</li>
- * <li>realtimeDownsampleFactor (4)</li>
- * <li>realtimeOverlayColor (#aaffffff)</li>
- * </ul>
- */
 public class RealtimeBlurView extends View {
     private float mDownsampleFactor; // default 4
     private int mOverlayColor; // default #aaffffff

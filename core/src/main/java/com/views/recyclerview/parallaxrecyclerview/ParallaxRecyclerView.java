@@ -1,4 +1,4 @@
-package com.views.recyclerview.parallaxrecyclerview.lib;
+package com.views.recyclerview.parallaxrecyclerview;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.

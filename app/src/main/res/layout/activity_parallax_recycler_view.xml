@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.recyclerview.parallaxrecyclerview.lib.ParallaxRecyclerView
+    <com.views.recyclerview.parallaxrecyclerview.ParallaxRecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
