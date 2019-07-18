@@ -266,12 +266,18 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     public override fun onPause() {
-        adView?.pause()
+        adView?.let {
+            it.pause()
+            it.visibility = View.INVISIBLE
+        }
         super.onPause()
     }
 
     public override fun onResume() {
-        adView?.resume()
+        adView?.let {
+            it.resume()
+            it.visibility = View.VISIBLE
+        }
         super.onResume()
         if (!isShowDialogCheck) {
             checkPermission()
