@@ -25,6 +25,7 @@ import com.core.utilities.LUIUtil
 import com.core.utilities.connection.LConectifyService
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
+import com.views.LToast
 import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.disposables.CompositeDisposable
 import loitp.core.R
@@ -298,5 +299,9 @@ abstract class BaseActivity : AppCompatActivity() {
             val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
             jobScheduler.schedule(myJob)
         }
+    }
+
+    protected fun showShort(msg: String) {
+        LToast.showShort(activity, msg, R.drawable.bkg_horizontal)
     }
 }

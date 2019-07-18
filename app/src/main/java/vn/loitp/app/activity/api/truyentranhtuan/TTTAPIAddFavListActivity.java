@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -79,20 +79,20 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                ToastUtils.showShort("onAddComicSuccess");
+                LToast.showShort(activity, "onAddComicSuccess", R.drawable.bkg_horizontal);
                 avi.smoothToHide();
             }
 
             @Override
             public void onComicIsExist(Comic mComic, List<Comic> comicList) {
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                ToastUtils.showShort("onComicIsExist");
+                LToast.showShort(activity, "onComicIsExist");
                 avi.smoothToHide();
             }
 
             @Override
             public void onAddComicError() {
-                ToastUtils.showShort("onAddComicError");
+                LToast.showShort(activity, "onAddComicError");
                 tv.setText("add error");
                 avi.smoothToHide();
             }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.LToast;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
         mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                ToastUtils.showShort("Click " + movie.getTitle());
+                showShort("Click " + movie.getTitle());
             }
 
             @Override

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.utils.util.ToastUtils;
 
 import loitp.basemaster.R;
 
@@ -20,13 +19,13 @@ public class ZoomLayoutActivity extends BaseFontActivity {
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showShort("Click button bt_1");
+                showShort("Click button bt_1");
             }
         });
         findViewById(R.id.bt_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showShort("Click button bt_2");
+                showShort("Click button bt_2");
             }
         });
 

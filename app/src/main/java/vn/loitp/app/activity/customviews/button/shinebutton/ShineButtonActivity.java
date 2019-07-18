@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.utils.util.ToastUtils;
 import com.views.button.shinebutton.LShineView;
 
 import loitp.basemaster.R;
@@ -21,7 +20,7 @@ public class ShineButtonActivity extends BaseFontActivity {
         bt0.setOnClick(new LShineView.Callback() {
             @Override
             public void onClick(View view) {
-                ToastUtils.showShort("onClick");
+                showShort("onClick");
             }
         });
     }

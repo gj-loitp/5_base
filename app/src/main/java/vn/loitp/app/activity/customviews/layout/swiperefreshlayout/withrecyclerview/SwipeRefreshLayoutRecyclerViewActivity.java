@@ -10,7 +10,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                ToastUtils.showShort("Click " + movie.getTitle());
+                showShort("Click " + movie.getTitle());
             }
 
             @Override
@@ -74,7 +73,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
             public void run() {
                 prepareMovieData();
                 swipeRefreshLayout.setRefreshing(false);
-                ToastUtils.showShort("Finish refresh");
+                showShort("Finish refresh");
             }
         });
     }
@@ -92,7 +91,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                ToastUtils.showShort("Finish loadMore");
+                showShort("Finish loadMore");
             }
         });
     }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
@@ -33,7 +32,7 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
             mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(getActivity(), R.drawable.logo), i, new GalleryItem.Callback() {
                 @Override
                 public void onClick(int position) {
-                    ToastUtils.showShort("Click " + position);
+                    showShort("Click " + position);
                 }
             }));
         }

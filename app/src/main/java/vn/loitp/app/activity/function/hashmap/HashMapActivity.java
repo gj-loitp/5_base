@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
-import com.utils.util.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +51,7 @@ public class HashMapActivity extends BaseFontActivity implements View.OnClickLis
                 break;
             case R.id.bt_get_key_0:
                 String value = map.get(String.valueOf(0));
-                ToastUtils.showShort("Click value= " + value);
+                showShort("Click value= " + value);
                 break;
             case R.id.bt_remove_key_0:
                 map.remove(String.valueOf(0));

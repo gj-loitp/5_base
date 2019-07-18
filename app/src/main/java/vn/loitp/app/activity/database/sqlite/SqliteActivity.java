@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ll = (LinearLayout) findViewById(R.id.ll);
+        ll = findViewById(R.id.ll);
 
         db = new DatabaseHandler(this);
 
@@ -116,7 +115,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.INSTANCE.d(getTAG(), "size: " + size);
+        LLog.d(getTAG(), "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -125,7 +124,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.INSTANCE.d(getTAG(), "clearAllContact");
+        LLog.d(getTAG(), "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -134,22 +133,22 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void getContactWithId(int id) {
         Contact contact = db.getContact(id);
         if (contact == null) {
-            ToastUtils.showShort("Contact with ID=" + id + " not found");
+            showShort("Contact with ID=" + id + " not found");
         } else {
-            ToastUtils.showShort("Found: " + contact.getID() + " " + contact.getName() + " " + contact.getPhoneNumber());
+            showShort("Found: " + contact.getID() + " " + contact.getName() + " " + contact.getPhoneNumber());
         }
     }
 
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.INSTANCE.d(getTAG(), "updateContact result " + result);
+        LLog.d(getTAG(), "updateContact result " + result);
         button.setText(contact.getID() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.INSTANCE.d(getTAG(), "deleteContact result " + result);
+        LLog.d(getTAG(), "deleteContact result " + result);
         ll.removeView(button);
     }
 }

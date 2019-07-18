@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 import com.views.placeholderview.Animation;
 import com.views.placeholderview.PlaceHolderView;
 import com.views.placeholderview.annotations.Animate;
@@ -51,6 +51,6 @@ public class ImageTypeSmall {
 
     @Click(R.id.imageView)
     private void onClick() {
-        ToastUtils.showShort("Touch " + mUlr);
+        LToast.showShort(mContext, "Touch " + mUlr, R.drawable.bkg_horizontal);
     }
 }

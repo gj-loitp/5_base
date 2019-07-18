@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -89,7 +89,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
 
                     @Override
                     public void onError() {
-                        ToastUtils.showShort("Error");
+                        LToast.showShort(activity, "Error");
                     }
                 }).execute();
             }

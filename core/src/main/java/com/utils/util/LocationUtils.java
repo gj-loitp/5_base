@@ -12,9 +12,13 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 
+import com.views.LToast;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import loitp.core.R;
 
 /**
  * <pre>
@@ -84,7 +88,7 @@ public final class LocationUtils {
         mLocationManager = (LocationManager) Utils.getContext().getSystemService(Context.LOCATION_SERVICE);
         mListener = listener;
         if (!isLocationEnabled()) {
-            ToastUtils.showShortSafe("无法定位，请打开定位服务");
+            LToast.showShort(Utils.getContext(), "Unable to locate, please open the location service", R.drawable.bkg_horizontal);
             return false;
         }
         String provider = mLocationManager.getBestProvider(getCriteria(), true);

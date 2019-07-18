@@ -12,7 +12,6 @@ import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.viewpager);
 
         int max = 3;
         for (int i = 0; i < max; i++) {
@@ -41,24 +40,24 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
         LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager, new LUIUtil.Callback() {
             @Override
             public void onUpOrLeft(float offset) {
-                LLog.INSTANCE.d(getTAG(), "onUpOrLeft " + offset);
-                ToastUtils.showShort("Detect Left");
+                LLog.d(getTAG(), "onUpOrLeft " + offset);
+                showShort("Detect Left");
             }
 
             @Override
             public void onUpOrLeftRefresh(float offset) {
-                LLog.INSTANCE.d(getTAG(), "onUpOrLeftRefresh " + offset);
+                LLog.d(getTAG(), "onUpOrLeftRefresh " + offset);
             }
 
             @Override
             public void onDownOrRight(float offset) {
-                LLog.INSTANCE.d(getTAG(), "onDownOrRight " + offset);
-                ToastUtils.showShort("Detect Right");
+                LLog.d(getTAG(), "onDownOrRight " + offset);
+                showShort("Detect Right");
             }
 
             @Override
             public void onDownOrRightRefresh(float offset) {
-                LLog.INSTANCE.d(getTAG(), "onDownOrRightRefresh " + offset);
+                LLog.d(getTAG(), "onDownOrRightRefresh " + offset);
             }
         });
 

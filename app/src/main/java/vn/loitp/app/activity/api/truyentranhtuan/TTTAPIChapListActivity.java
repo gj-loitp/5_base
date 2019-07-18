@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import loitp.basemaster.R;
@@ -38,7 +37,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
 
             @Override
             public void onError() {
-                ToastUtils.showShort("onError");
+                showShort("onError");
             }
         }).execute();
     }

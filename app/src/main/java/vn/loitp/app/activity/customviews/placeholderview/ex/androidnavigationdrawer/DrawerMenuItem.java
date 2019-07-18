@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 import com.views.placeholderview.annotations.Click;
 import com.views.placeholderview.annotations.Layout;
 import com.views.placeholderview.annotations.Position;
@@ -81,39 +81,43 @@ public class DrawerMenuItem {
         }
     }
 
+    private void showShort(String msg) {
+        LToast.showShort(mContext, msg, R.drawable.bkg_horizontal);
+    }
+
     @Click(R.id.mainView)
     private void onMenuItemClick() {
         switch (mMenuPosition) {
             case DRAWER_MENU_ITEM_PROFILE:
-                ToastUtils.showShort("Profile");
+                showShort("Profile");
                 if (mCallBack != null) mCallBack.onProfileMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_REQUESTS:
-                ToastUtils.showShort("Requests");
+                showShort("Requests");
                 if (mCallBack != null) mCallBack.onRequestMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_GROUPS:
-                ToastUtils.showShort("Groups");
+                showShort("Groups");
                 if (mCallBack != null) mCallBack.onGroupsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_MESSAGE:
-                ToastUtils.showShort("Messages");
+                showShort("Messages");
                 if (mCallBack != null) mCallBack.onMessagesMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_NOTIFICATIONS:
-                ToastUtils.showShort("Notifications");
+                showShort("Notifications");
                 if (mCallBack != null) mCallBack.onNotificationsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_SETTINGS:
-                ToastUtils.showShort("Settings");
+                showShort("Settings");
                 if (mCallBack != null) mCallBack.onSettingsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_TERMS:
-                ToastUtils.showShort("Terms");
+                showShort("Terms");
                 if (mCallBack != null) mCallBack.onTermsMenuSelected();
                 break;
             case DRAWER_MENU_ITEM_LOGOUT:
-                ToastUtils.showShort("Logout");
+                showShort("Logout");
                 if (mCallBack != null) mCallBack.onLogoutMenuSelected();
                 break;
         }

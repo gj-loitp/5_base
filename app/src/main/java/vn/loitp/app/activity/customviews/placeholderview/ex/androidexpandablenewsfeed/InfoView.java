@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 import com.views.placeholderview.annotations.Click;
 import com.views.placeholderview.annotations.Layout;
 import com.views.placeholderview.annotations.Resolve;
@@ -58,16 +58,16 @@ public class InfoView {
 
     @Click(R.id.titleTxt)
     private void onClickTitle() {
-        ToastUtils.showShort(titleTxt.getText().toString());
+        LToast.showShort(mContext, titleTxt.getText().toString(), R.drawable.bkg_horizontal);
     }
 
     @Click(R.id.captionTxt)
     private void onClickCaption() {
-        ToastUtils.showShort(captionTxt.getText().toString());
+        LToast.showShort(mContext, captionTxt.getText().toString(), R.drawable.bkg_horizontal);
     }
 
     @Click(R.id.imageView)
     private void onClickImage() {
-        ToastUtils.showShort(mInfo.getImageUrl());
+        LToast.showShort(mContext, mInfo.getImageUrl(), R.drawable.bkg_horizontal);
     }
 }

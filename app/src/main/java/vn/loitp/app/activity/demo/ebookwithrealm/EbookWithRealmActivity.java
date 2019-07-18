@@ -15,7 +15,6 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LPref;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.utils.util.ToastUtils;
 import com.views.LToast;
 
 import java.util.ArrayList;
@@ -173,7 +172,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                     book.setImageUrl(editThumbnail.getText().toString());
 
                     if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                        ToastUtils.showShort("Entry not saved, missing title");
+                        showShort("Entry not saved, missing title");
                     } else {
                         // Persist your data easily
                         realm.beginTransaction();
@@ -245,10 +244,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         booksAdapter.notifyItemRemoved(position);
         booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
-        ToastUtils.showShort("Removed book: " + title);
+        showShort("Removed book: " + title);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            ToastUtils.showShort("getBooks().isEmpty()");
+            showShort("getBooks().isEmpty()");
         }
     }
 }

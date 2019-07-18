@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
@@ -28,7 +27,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
             @Override
             public void onClick(String keyword) {
                 //LLog.d(TAG, "onClick " + keyword);
-                ToastUtils.showShort("onClick " + keyword);
+                showShort("onClick " + keyword);
             }
         }));
     }
