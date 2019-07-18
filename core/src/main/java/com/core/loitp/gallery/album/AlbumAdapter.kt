@@ -23,7 +23,7 @@ import loitp.core.R
 class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>?, private val callback: Callback?) : RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
     private val TAG = javaClass.simpleName
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private val sizeW: Int = LScreenUtil.getScreenWidth()
+    private val sizeW: Int = LScreenUtil.screenWidth
     private val sizeH: Int
 
     init {

@@ -5,9 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
 

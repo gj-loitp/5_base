@@ -50,7 +50,7 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
             @Override
             public void onSuccess(List<Comic> comicList) {
                 LLog.INSTANCE.d(getTAG(), "onSuccess " + comicList.size());
-                LUIUtil.printBeautyJson(comicList, tv);
+                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
                 tvTitle.setText("Danh sách yêu thích: " + comicList.size());
             }
         }).execute();

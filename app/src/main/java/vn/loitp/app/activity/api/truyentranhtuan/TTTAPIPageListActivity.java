@@ -5,7 +5,6 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -29,13 +28,13 @@ public class TTTAPIPageListActivity extends BaseFontActivity {
         new GetReadImgTask(currentLink, avi, new GetReadImgTask.Callback() {
             @Override
             public void onSuccess(List<String> imagesListOfOneChap) {
-                LUIUtil.printBeautyJson(imagesListOfOneChap, tv);
+                LUIUtil.INSTANCE.printBeautyJson(imagesListOfOneChap, tv);
                 tvTitle.setText("Danh sách page trong chap 69 - size: " + imagesListOfOneChap.size());
             }
 
             @Override
             public void onError() {
-                ToastUtils.showShort("onError");
+                showShort("onError");
             }
         }).execute();
     }

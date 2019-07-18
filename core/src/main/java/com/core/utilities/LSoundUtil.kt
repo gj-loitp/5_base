@@ -22,13 +22,13 @@ object LSoundUtil {
             mediaPlayer.prepare()
             mediaPlayer.start()
             mediaPlayer.setOnCompletionListener { player ->
-                var mediaPlayer = player
-                mediaPlayer?.let {
+                var mPlayer = player
+                mPlayer?.let {
                     it.stop()
                     //LLog.d(TAG, "onCompletion >>> release");
                     it.reset()
                     it.release()
-                    mediaPlayer = null
+                    mPlayer = null
                 }
             }
         } catch (e: IOException) {

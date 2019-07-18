@@ -142,18 +142,6 @@
                 android:text="@string/square_layout" />
 
             <Button
-                android:id="@+id/bt_swipable_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/swipablelayoutactivity" />
-
-            <Button
-                android:id="@+id/bt_swipeable_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/swipeablelayout" />
-
-            <Button
                 android:id="@+id/bt_swipeback_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

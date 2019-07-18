@@ -16,7 +16,7 @@ import com.restapi.flickr.FlickrConst;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class GalleryDemoPhotosActivity extends BaseFontActivity {
         avi.smoothToHide();
         mGalleryView = findViewById(R.id.galleryView);
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
         final String photosetID = getIntent().getStringExtra("photosetID");
         photosetsGetPhotos(photosetID);
 

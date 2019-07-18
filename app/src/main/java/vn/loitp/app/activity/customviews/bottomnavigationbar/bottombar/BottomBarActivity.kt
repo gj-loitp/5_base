@@ -46,9 +46,9 @@ class BottomBarActivity : BaseFontActivity() {
         }
         findViewById<View>(R.id.bt_cl_1).setOnClickListener { lBottomBar.setColorTextView(R.color.Black) }
         findViewById<View>(R.id.bt_cl_2).setOnClickListener { lBottomBar.setColorTextView(R.color.Blue) }
-        LUIUtil.setDelay(5000) {
+        LUIUtil.setDelay(5000, Runnable {
             lBottomBar?.setPerformItemClick(4)
-        }
+        })
     }
 
     override fun setFullScreen(): Boolean {

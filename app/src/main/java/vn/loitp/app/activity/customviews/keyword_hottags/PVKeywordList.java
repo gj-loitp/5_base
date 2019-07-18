@@ -4,13 +4,13 @@ import android.app.Activity;
 
 import androidx.core.content.ContextCompat;
 
-import com.views.hottagkeywords.lib.AutoLabelUI;
-import com.views.hottagkeywords.lib.AutoLabelUISettings;
-import com.views.hottagkeywords.lib.Label;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.hottagkeywords.AutoLabelUI;
+import com.views.hottagkeywords.AutoLabelUISettings;
+import com.views.hottagkeywords.Label;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
 

@@ -10,7 +10,7 @@ import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
-import com.views.textview.textdecorator.lib.TextDecorator
+import com.views.textview.textdecorator.TextDecorator
 import loitp.core.R
 import java.util.*
 
@@ -72,7 +72,10 @@ class FrmDonate : BaseFragment() {
             colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
             colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
         }
-        LUIUtil.setDelay(500) { activeConfettiManagers.add(generateOnce()) }
+
+        LUIUtil.setDelay(500, Runnable {
+            activeConfettiManagers.add(generateOnce())
+        })
     }
 
     override fun setLayoutResourceId(): Int {

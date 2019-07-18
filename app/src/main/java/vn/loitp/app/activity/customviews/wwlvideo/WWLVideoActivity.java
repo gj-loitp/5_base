@@ -9,7 +9,7 @@ import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
 import com.views.wwlmusic.utils.WWLMusicUiUtil;
 import com.views.wwlmusic.utils.WWLMusicViewHelper;
-import com.views.wwlvideo.layout.WWLVideo;
+import com.views.wwlvideo.WWLVideo;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;

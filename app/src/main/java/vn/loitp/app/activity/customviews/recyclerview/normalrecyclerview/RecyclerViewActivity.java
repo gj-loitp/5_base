@@ -92,7 +92,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
 
@@ -127,7 +127,7 @@ public class RecyclerViewActivity extends BaseFontActivity {
 
     private void loadMore() {
         LLog.d(getTAG(), "loadMore");
-        LUIUtil.setDelay(2000, mls -> {
+        LUIUtil.INSTANCE.setDelay(2000, () -> {
             final int newSize = 5;
             for (int i = 0; i < newSize; i++) {
                 final Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());

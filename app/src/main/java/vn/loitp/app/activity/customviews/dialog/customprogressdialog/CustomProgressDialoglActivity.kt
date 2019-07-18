@@ -13,9 +13,9 @@ class CustomProgressDialoglActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_0).setOnClickListener {
             val alertDialog = LDialogUtil.showCustomProgressDialog(activity, 0.1f)
-            LUIUtil.setDelay(3000) { mls ->
+            LUIUtil.setDelay(3000, Runnable {
                 alertDialog?.dismiss()
-            }
+            })
         }
     }
 

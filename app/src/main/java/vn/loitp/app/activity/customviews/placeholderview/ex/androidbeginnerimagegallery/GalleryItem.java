@@ -3,13 +3,13 @@ package vn.loitp.app.activity.customviews.placeholderview.ex.androidbeginnerimag
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-import com.views.placeholderview.lib.placeholderview.Animation;
-import com.views.placeholderview.lib.placeholderview.annotations.Animate;
-import com.views.placeholderview.lib.placeholderview.annotations.Click;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.placeholderview.Animation;
+import com.views.placeholderview.annotations.Animate;
+import com.views.placeholderview.annotations.Click;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
 

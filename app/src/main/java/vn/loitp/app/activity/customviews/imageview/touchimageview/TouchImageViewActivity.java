@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
-import com.views.imageview.touchimageview.lib.LTouchImageView;
+import com.views.imageview.touchimageview.LTouchImageView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
@@ -17,7 +17,7 @@ public class TouchImageViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
 
         LTouchImageView lTouchImageView = (LTouchImageView) findViewById(R.id.iv);
-        LImageUtil.load(getActivity(), Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
+        LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), lTouchImageView, R.mipmap.ic_launcher);
     }
 
     @Override

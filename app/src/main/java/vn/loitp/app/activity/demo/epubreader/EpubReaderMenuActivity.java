@@ -36,13 +36,8 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
                 LReaderUtil.INSTANCE.readEpub(getActivity(), bookInfo, getString(R.string.str_b));
             }
         });
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        LUIUtil.setDelay(1000, new LUIUtil.DelayCallback() {
-            @Override
-            public void doAfter(int mls) {
-                ask();
-            }
-        });
+        progressBar = findViewById(R.id.progressbar);
+        LUIUtil.INSTANCE.setDelay(1000, this::ask);
     }
 
     private void ask() {
@@ -58,7 +53,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.INSTANCE.d(getTAG(), "onPostExecute " + bookInfoList.size());
+                        LLog.d(getTAG(), "onPostExecute " + bookInfoList.size());
                         LDialogUtil.INSTANCE.hideProgress(progressBar);
                         BookInfoGridAdapter adapter = new BookInfoGridAdapter(getActivity(), bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
@@ -77,9 +72,10 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
 
                     @Override
                     public void onPostExecute(List<BookInfo> bookInfoList) {
-                        LLog.INSTANCE.d(getTAG(), "onPostExecute " + bookInfoList.size());
+                        LLog.d(getTAG(), "onPostExecute " + bookInfoList.size());
                         LDialogUtil.INSTANCE.hideProgress(progressBar);
                         bookInfoList.addAll(bookInfoList);
+                        /*bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
@@ -87,8 +83,7 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
                         bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
+                        bookInfoList.addAll(bookInfoList);*/
                         BookInfoGridAdapter adapter = new BookInfoGridAdapter(getActivity(), bookInfoList);
                         ((GridView) findViewById(R.id.grid_book_info)).setAdapter(adapter);
                     }

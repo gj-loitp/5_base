@@ -28,10 +28,10 @@ class SplashActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LUIUtil.setDelay(2500) {
+        LUIUtil.setDelay(2500, Runnable {
             isAnimDone = true
             goToHome()
-        }
+        })
         val tv = findViewById<TextView>(R.id.tv)
         tv.text = "Version ${BuildConfig.VERSION_NAME}"
 
@@ -116,7 +116,9 @@ class SplashActivity : BaseFontActivity() {
             val intent = Intent(activity, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
-            LUIUtil.setDelay(1000) { finish() }
+            LUIUtil.setDelay(1000, Runnable {
+                finish()
+            })
         }
     }
 

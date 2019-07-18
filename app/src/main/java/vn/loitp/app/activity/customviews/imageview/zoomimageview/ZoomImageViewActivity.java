@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.views.imageview.zoomimageview.ColorGridDrawable;
-import com.views.layout.zoomlayout.lib.ZoomImageView;
+import com.views.layout.zoomlayout.ZoomImageView;
 
 import loitp.basemaster.R;
 

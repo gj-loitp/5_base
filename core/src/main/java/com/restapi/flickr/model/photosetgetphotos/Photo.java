@@ -213,7 +213,7 @@ public class Photo implements Serializable {
             //gif extension have no link large
             return urlO;
         } else {
-            return LImageUtil.getFlickrLink100(urlM);
+            return LImageUtil.INSTANCE.getFlickrLink100(urlM);
         }
     }
 
@@ -222,7 +222,7 @@ public class Photo implements Serializable {
             //gif extension have no link large
             return urlO;
         } else {
-            return LImageUtil.getFlickrLink640(urlM);
+            return LImageUtil.INSTANCE.getFlickrLink640(urlM);
         }
     }
 
@@ -231,7 +231,7 @@ public class Photo implements Serializable {
             //gif extension have no link large
             return urlO;
         } else {
-            return LImageUtil.getFlickrLink1024(urlM);
+            return LImageUtil.INSTANCE.getFlickrLink1024(urlM);
         }
     }
 
@@ -240,7 +240,7 @@ public class Photo implements Serializable {
             //gif extension have no link large
             return urlO;
         } else {
-            return LImageUtil.getFlickrLink320(urlM);
+            return LImageUtil.INSTANCE.getFlickrLink320(urlM);
         }
     }
 }

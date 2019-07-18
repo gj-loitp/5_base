@@ -34,10 +34,10 @@ public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickL
         bt1.setOnClickListener(this);
 
         ImageButtonWithSize bt2 = findViewById(R.id.bt_2);
-        bt2.setPortraitSizeWInPx(LScreenUtil.getScreenWidth());
-        bt2.setPortraitSizeHInPx(LScreenUtil.getScreenWidth() / 10);
-        bt2.setLandscapeSizeWInPx(LScreenUtil.getScreenWidth() / 2);
-        bt2.setLandscapeSizeHInPx(LScreenUtil.getScreenWidth() / 2);
+        bt2.setPortraitSizeWInPx(LScreenUtil.INSTANCE.getScreenWidth());
+        bt2.setPortraitSizeHInPx(LScreenUtil.INSTANCE.getScreenWidth() / 10);
+        bt2.setLandscapeSizeWInPx(LScreenUtil.INSTANCE.getScreenWidth() / 2);
+        bt2.setLandscapeSizeHInPx(LScreenUtil.INSTANCE.getScreenWidth() / 2);
         bt2.setOnClickListener(this);
     }
 

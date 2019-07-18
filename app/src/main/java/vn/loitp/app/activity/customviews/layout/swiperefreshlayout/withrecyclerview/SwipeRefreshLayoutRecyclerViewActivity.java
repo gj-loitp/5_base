@@ -10,7 +10,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,21 +28,21 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refresh();
             }
         });
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
 
         mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                ToastUtils.showShort("Click " + movie.getTitle());
+                showShort("Click " + movie.getTitle());
             }
 
             @Override
@@ -69,22 +68,22 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private void refresh() {
         movieList.clear();
         mAdapter.notifyDataSetChanged();
-        LUIUtil.setDelay(3000, new LUIUtil.DelayCallback() {
+        LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 prepareMovieData();
                 swipeRefreshLayout.setRefreshing(false);
-                ToastUtils.showShort("Finish refresh");
+                showShort("Finish refresh");
             }
         });
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(getTAG(), "loadMore");
+        LLog.d(getTAG(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+        LUIUtil.INSTANCE.setDelay(2000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 swipeRefreshLayout.setRefreshing(false);
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
@@ -92,7 +91,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
                     movieList.add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                ToastUtils.showShort("Finish loadMore");
+                showShort("Finish loadMore");
             }
         });
     }

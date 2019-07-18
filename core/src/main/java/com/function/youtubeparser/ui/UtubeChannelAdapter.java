@@ -59,7 +59,7 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
         this.context = context;
         this.uItemList = uItemList;
         this.callback = callback;
-        int screenW = LScreenUtil.getScreenWidth();
+        int screenW = LScreenUtil.INSTANCE.getScreenWidth();
         holderHeight = screenW / 2;
     }
 
@@ -73,13 +73,13 @@ public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapte
     @Override
     public void onBindViewHolder(@NotNull UItemViewHolder holder, final int position) {
         if (position % 2 == 0) {
-            LUIUtil.setMarginsDp(holder.cv, 10, 5, 5, 5);
+            LUIUtil.INSTANCE.setMarginsDp(holder.cv, 10, 5, 5, 5);
         } else {
-            LUIUtil.setMarginsDp(holder.cv, 5, 5, 10, 5);
+            LUIUtil.INSTANCE.setMarginsDp(holder.cv, 5, 5, 10, 5);
         }
         final UItem uItem = uItemList.get(position);
         holder.tvName.setText(uItem.getName());
-        LImageUtil.load(context, uItem.getImg(), holder.iv);
+        LImageUtil.INSTANCE.load(context, uItem.getImg(), holder.iv);
         holder.cv.setOnClickListener(v -> {
             if (callback != null) {
                 callback.onClick(uItem, position);

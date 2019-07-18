@@ -139,7 +139,7 @@
         <attr name="shadowHeight" format="dimension" />
         <attr name="cornerRadius" format="dimension" />
     </declare-styleable>
-    <declare-styleable name="MaterialTextField">
+    <declare-styleable name="LMaterialTextField">
         <attr name="mtf_cardCollapsedHeight" format="dimension" />
         <attr name="mtf_labelColor" format="color" />
         <attr name="mtf_image" format="reference" />
@@ -618,5 +618,36 @@
         <attr name="cropMinCropResultHeightPX" format="float" />
         <attr name="cropMaxCropResultWidthPX" format="float" />
         <attr name="cropMaxCropResultHeightPX" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="LExtraTextView">
+        <attr name="ext_txt_drawable" format="reference" />
+        <attr name="ext_txt_drawableWidth" format="dimension" />
+        <attr name="ext_txt_drawableHeight" format="dimension" />
+        <attr name="ext_txt_drawablePosition" format="enum">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="ext_txt_drawableTint" format="color" />
+        <attr name="ext_txt_drawableFit" format="boolean" />
+        <attr name="ext_txt_cornerRadius" format="dimension" />
+        <attr name="ext_txt_cornerBorderSize" format="dimension" />
+        <attr name="ext_txt_cornerBorderColor" format="color" />
+        <attr name="ext_txt_cornerBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LToggleLExtraTextView">
+        <attr name="ext_txt_state" format="enum">
+            <enum name="active" value="0" />
+            <enum name="waiting" value="1" />
+            <enum name="idle" value="2" />
+        </attr>
+        <attr name="ext_txt_activeDrawable" format="reference" />
+        <attr name="ext_txt_activeTint" format="color" />
+        <attr name="ext_txt_waitingTint" format="color" />
+        <attr name="ext_txt_idleDrawable" format="reference" />
+        <attr name="ext_txt_idleTint" format="color" />
     </declare-styleable>
 </resources>

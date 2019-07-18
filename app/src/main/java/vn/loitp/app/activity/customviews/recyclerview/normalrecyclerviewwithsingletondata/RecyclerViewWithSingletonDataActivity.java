@@ -30,13 +30,13 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        tvType = (TextView) findViewById(R.id.tv_type);
+        recyclerView = findViewById(R.id.rv);
+        tvType = findViewById(R.id.tv_type);
 
         mAdapter = new MoviesAdapter(getActivity(), DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(getActivity(), "Click " + movie.getTitle());
+                LToast.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override
@@ -58,7 +58,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
 
         prepareMovieData();
 
@@ -98,17 +98,17 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(getTAG(), "loadMore");
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+        LLog.d(getTAG(), "loadMore");
+        LUIUtil.INSTANCE.setDelay(2000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
                     Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
                     DummyData.getInstance().getMovieList().add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
-                LToast.INSTANCE.show(getActivity(), "Finish loadMore");
+                LToast.show(getActivity(), "Finish loadMore");
             }
         });
     }

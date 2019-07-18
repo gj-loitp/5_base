@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import com.core.utilities.LImageUtil;
 import com.restapi.flickr.model.photosetgetlist.Photoset;
-import com.views.placeholderview.lib.placeholderview.annotations.Click;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.placeholderview.annotations.Click;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
 
@@ -42,7 +42,7 @@ public class AlbumItem {
 
     @Resolve
     private void onResolved() {
-        LImageUtil.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView, 50, 80);
+        LImageUtil.INSTANCE.load(activity, photoset.getPrimaryPhotoExtras().getUrlM(), imageView, 50, 80);
         String s = photoset.getTitle().getContent() + " (" + photoset.getPhotos() + ")";
         tv.setText(s);
     }

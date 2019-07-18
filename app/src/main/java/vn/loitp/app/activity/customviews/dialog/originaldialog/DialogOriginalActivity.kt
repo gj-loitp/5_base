@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.utils.util.ToastUtils
 import com.views.LToast
 import loitp.basemaster.R
 
@@ -63,11 +62,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private fun show2() {
         LDialogUtil.showDialog2(activity, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
             override fun onClick1() {
-                ToastUtils.showShort("Click 1")
+                LToast.showShort(activity, "Click 1", R.drawable.bkg_horizontal)
             }
 
             override fun onClick2() {
-                ToastUtils.showShort("Click 2")
+                LToast.showShort(activity, "Click 2", R.drawable.bkg_horizontal)
             }
         })
     }
@@ -75,15 +74,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private fun show3() {
         LDialogUtil.showDialog3(activity, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
             override fun onClick1() {
-                ToastUtils.showShort("Click 1")
+                LToast.showShort(activity, "Click 1", R.drawable.bkg_horizontal)
             }
 
             override fun onClick2() {
-                ToastUtils.showShort("Click 2")
+                LToast.showShort(activity, "Click 2", R.drawable.bkg_horizontal)
             }
 
             override fun onClick3() {
-                ToastUtils.showShort("Click 3")
+                LToast.showShort(activity, "Click 3", R.drawable.bkg_horizontal)
             }
         })
     }

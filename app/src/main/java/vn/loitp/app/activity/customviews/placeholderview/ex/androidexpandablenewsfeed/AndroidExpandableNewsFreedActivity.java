@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.ExpandablePlaceHolderView;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.ExpandablePlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 
@@ -28,7 +28,7 @@ public class AndroidExpandableNewsFreedActivity extends BaseFontActivity {
         mContext = this.getApplicationContext();
         mExpandableView = (ExpandablePlaceHolderView) findViewById(R.id.expandableView);
 
-        LUIUtil.setPullLikeIOSVertical(mExpandableView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mExpandableView);
 
         for (Feed feed : Utils.loadFeeds(this.getApplicationContext())) {
             mExpandableView.addView(new HeadingView(mContext, feed.getHeading()));

@@ -11,6 +11,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.core.utilities.LDialogUtil
+import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
 import loitp.core.R
 
@@ -115,6 +116,9 @@ abstract class BaseFragment : Fragment() {
         } catch (ex: Resources.NotFoundException) {
             return defValue
         }
+    }
 
+    protected fun showShort(msg: String) {
+        activity?.let { LToast.showShort(it, msg, R.drawable.bkg_horizontal) }
     }
 }

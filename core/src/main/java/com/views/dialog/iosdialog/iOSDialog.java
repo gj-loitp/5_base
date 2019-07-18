@@ -1,9 +1,5 @@
 package com.views.dialog.iosdialog;
 
-/**
- * Created by www.muathu@gmail.com on 1/4/2018.
- */
-
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -14,13 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import loitp.core.R;
-
-/**
- * Created by Gennaro Daniele Acciaro
- * http://gdacciaro.com
- * acciarogennaro@gmail.com
- * on 04/09/17.
- */
 
 public class iOSDialog {
     private Dialog dialog;
@@ -95,24 +84,12 @@ public class iOSDialog {
 
 
     private void initViews() {
-        title_lbl = (TextView) dialog.findViewById(R.id.title);
-        subtitle_lbl = (TextView) dialog.findViewById(R.id.subtitle);
-        dialogButtonOk = (TextView) dialog.findViewById(R.id.dialogButtonOK);
-        dialogButtonNo = (TextView) dialog.findViewById(R.id.dialogButtonNO);
-        separator = (View) dialog.findViewById(R.id.separator);
+        title_lbl = dialog.findViewById(R.id.title);
+        subtitle_lbl = dialog.findViewById(R.id.subtitle);
+        dialogButtonOk = dialog.findViewById(R.id.dialogButtonOK);
+        dialogButtonNo = dialog.findViewById(R.id.dialogButtonNO);
+        separator = dialog.findViewById(R.id.separator);
     }
 
 
 }
-
-/*
- *  Made with love (and coffee and pizza) in Naples, Italy!
- *
- *  __
- * // ""--.._
- * ||  (_)  _ "-._
- * ||    _ (_)    '-.
- * ||   (_)   __..-'
- * \\__..--""
- *
- */

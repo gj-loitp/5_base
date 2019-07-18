@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.placeholderview.lib.placeholderview.PlaceHolderView
+    <com.views.placeholderview.PlaceHolderView
         android:id="@+id/place_holder_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

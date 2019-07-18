@@ -148,7 +148,7 @@ public class FrmYoutubeParser extends BaseFragment {
         if (getActivity() == null) {
             return;
         }
-        final boolean isShowed = LPref.getIsShowedDlgWarningYoutubeParser(getActivity());
+        final boolean isShowed = LPref.Companion.getIsShowedDlgWarningYoutubeParser(getActivity());
         if (!isShowed) {
             String tit;
             String msg;
@@ -160,7 +160,7 @@ public class FrmYoutubeParser extends BaseFragment {
                 msg = "Tất cả những video dưới đây đều có bản quyền từ Youtube, chúng tôi chỉ cung cấp link để các bạn xem dễ dàng hơn. Nếu có bất cứ vấn đề gì về bản quyền, xin vui lòng liên hệ với chủ sở hữu video đó trên Youtube. Trân trọng cảm ơn.";
             }
             LDialogUtil.INSTANCE.showDialog1(getActivity(), tit, msg, "Okay",
-                    () -> LPref.setIsShowedDlgWarningYoutubeParser(getActivity(), true));
+                    () -> LPref.Companion.setIsShowedDlgWarningYoutubeParser(getActivity(), true));
         }
     }
 

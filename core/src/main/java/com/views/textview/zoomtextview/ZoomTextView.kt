@@ -4,6 +4,7 @@ package com.views.textview.zoomtextview
  * Created by www.muathu@gmail.com on 11/1/2017.
  */
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
@@ -11,6 +12,8 @@ import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.widget.TextView
+import kotlin.math.max
+import kotlin.math.min
 
 class ZoomTextView : TextView {
     private var mScaleDetector: ScaleGestureDetector? = null
@@ -44,10 +47,7 @@ class ZoomTextView : TextView {
         this.zoomLimit = zoomLimit
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    }
-
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent): Boolean {
         super.onTouchEvent(ev)
         mScaleDetector!!.onTouchEvent(ev)
@@ -63,7 +63,7 @@ class ZoomTextView : TextView {
     private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
         override fun onScale(detector: ScaleGestureDetector): Boolean {
             mScaleFactor *= detector.scaleFactor
-            mScaleFactor = Math.max(1.0f, Math.min(mScaleFactor, zoomLimit))
+            mScaleFactor = max(1.0f, min(mScaleFactor, zoomLimit))
             setTextSize(TypedValue.COMPLEX_UNIT_PX, defaultSize * mScaleFactor)
             Log.e(TAG, mScaleFactor.toString())
             return true
@@ -71,6 +71,6 @@ class ZoomTextView : TextView {
     }
 
     companion object {
-        private val TAG = "ZoomTextView"
+        private const val TAG = "ZoomTextView"
     }
 }

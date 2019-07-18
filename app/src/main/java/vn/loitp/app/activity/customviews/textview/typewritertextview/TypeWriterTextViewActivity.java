@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.typewritertextview.lib.TypeWriterTextView;
+import com.views.textview.typewritertextview.TypeWriterTextView;
 
 import loitp.basemaster.R;
 

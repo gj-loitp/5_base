@@ -300,9 +300,7 @@ Likewise may someone love you next.
     <string name="scroll_view_2d">Scroll view 2d</string>
     <string name="scroll_view_2d_advance">Scroll view 2d advance</string>
     <string name="square_layout">Square Layout</string>
-    <string name="swipablelayoutactivity">SwipableLayoutActivity</string>
-    <string name="swipeablelayout">SwipeableLayout</string>
-    <string name="swipebacklayout">+++ SwipeBackLayout</string>
+    <string name="swipebacklayout">SwipeBackLayout</string>
     <string name="swipe_refresh_layout">Swipe Refresh Layout</string>
     <string name="zoom_layout">Zoom Layout</string>
     <string name="menu_animation">Menu Animation</string>
@@ -392,4 +390,23 @@ Likewise may someone love you next.
     <string name="falling_ice_flakes_with_touch">Falling ice flakes with touch</string>
     <string name="falling_ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="network">Network</string>
+    <string name="load_0">Load 0</string>
+    <string name="load_1">Load 1</string>
+    <string name="load_2">Load 2</string>
+    <string name="gif">Gif</string>
+    <string name="menu_textview">Menu TextView</string>
+    <string name="autofit_textview">Autofit TextView</string>
+    <string name="circle_textview">Circle TextView</string>
+    <string name="color_textview">Color TextView</string>
+    <string name="countdown_textview">Countdown TextView</string>
+    <string name="score_text">Score Text</string>
+    <string name="justifiedtextview">JustifiedTextView</string>
+    <string name="scroll_number">Scroll Number</string>
+    <string name="selectabletextview">SelectableTextView</string>
+    <string name="text_decorator">Text Decorator</string>
+    <string name="translucent_view">Translucent View</string>
+    <string name="type_writer_textview">Type Writer Textview</string>
+    <string name="vertial_marquee_textview">Vertial Marquee TextView</string>
+    <string name="zoom_textview">Zoom TextView</string>
+    <string name="extra_textview">Extra textview</string>
 </resources>

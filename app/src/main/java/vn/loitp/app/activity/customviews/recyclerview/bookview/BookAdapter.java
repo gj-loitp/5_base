@@ -81,7 +81,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         this.column = column;
         this.moviesList = moviesList;
         this.callback = callback;
-        this.sizeW = LScreenUtil.getScreenWidth() / column;
+        this.sizeW = LScreenUtil.INSTANCE.getScreenWidth() / column;
         this.sizeH = sizeW * 15 / 9;
         this.sizeMarginTopBottom = sizeW / 5;
         this.sizeMarginTopLeftRight = sizeW / 10;
@@ -111,8 +111,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
             holder.bkg.setImageResource(R.drawable.grid_item_background_center);
         }
 
-        LUIUtil.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
-        LImageUtil.load(context, movie.getCover(), holder.iv);
+        LUIUtil.INSTANCE.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
+        LImageUtil.INSTANCE.load(context, movie.getCover(), holder.iv);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

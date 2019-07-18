@@ -6,7 +6,7 @@ import android.view.View;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
+import com.views.placeholderview.InfinitePlaceHolderView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class AndroidAdvanceImageGalleryActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mGalleryView = (InfinitePlaceHolderView) findViewById(R.id.galleryView);
 
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
 
         setupGallery();
         findViewById(R.id.remove).setOnClickListener(new View.OnClickListener() {

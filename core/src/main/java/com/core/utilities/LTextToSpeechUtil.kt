@@ -21,7 +21,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = tts!!.setLanguage(Locale.US)
+            val result = tts?.setLanguage(Locale.US)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 LLog.d(TAG, "This Language is not supported")
             } else {
@@ -37,16 +37,16 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
             return
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+            tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
         } else {
-            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null)
+            tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null)
         }
     }
 
     fun destroy() {
         if (tts != null) {
-            tts!!.stop()
-            tts!!.shutdown()
+            tts?.stop()
+            tts?.shutdown()
         }
     }
 

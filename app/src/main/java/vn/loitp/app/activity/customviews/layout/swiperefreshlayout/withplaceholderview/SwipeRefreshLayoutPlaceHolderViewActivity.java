@@ -12,7 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,15 +35,15 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
 
         imageList = Utils.loadImages(getActivity());
 
-        llMain = (LinearLayout) findViewById(R.id.ll_main);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        llMain = findViewById(R.id.ll_main);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refresh();
             }
         });
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         //mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
         createNewPlaceHolderView();
@@ -97,9 +97,9 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     private void refresh() {
         mGalleryView.removeAllViews();
         removePlaceHolderView();
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+        LUIUtil.INSTANCE.setDelay(2000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 createNewPlaceHolderView();
                 setupGallery();
                 swipeRefreshLayout.setRefreshing(false);
@@ -108,10 +108,10 @@ public class SwipeRefreshLayoutPlaceHolderViewActivity extends BaseFontActivity 
     }
 
     private void loadMore() {
-        LLog.INSTANCE.d(getTAG(), ">>>>loadMore");
-        LUIUtil.setDelay(2000, new LUIUtil.DelayCallback() {
+        LLog.d(getTAG(), ">>>>loadMore");
+        LUIUtil.INSTANCE.setDelay(2000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 setupGallery();
                 swipeRefreshLayout.setRefreshing(false);
             }

@@ -60,11 +60,11 @@ public class LStoreUtil {
     }
 
     public interface CallbackReadFile {
-        public void onFinish(String result);
+        void onFinish(String result);
     }
 
     public interface CallbackWriteFile {
-        public void onFinish(boolean isSuccess);
+        void onFinish(boolean isSuccess);
     }
 
     public static String getFolderPath(Context context) {
@@ -78,7 +78,7 @@ public class LStoreUtil {
                     folderPath = sdPath.getAbsolutePath();
                 }
             } catch (Exception e) {
-                LLog.INSTANCE.d("TAG", "if getFolderPath: " + e.toString());
+                LLog.d("TAG", "if getFolderPath: " + e.toString());
             }
             folderPath = Environment.getExternalStorageDirectory().getPath() + "/" + folderName + "/";
         } else {
@@ -91,7 +91,7 @@ public class LStoreUtil {
                     folderPath = cacheDir.getAbsolutePath();
                 }
             } catch (Exception e) {
-                LLog.INSTANCE.d("TAG", "else getFolderPath: " + e.toString());
+                LLog.d("TAG", "else getFolderPath: " + e.toString());
             }
         }
         return folderPath;
@@ -122,23 +122,23 @@ public class LStoreUtil {
                 //path = path + folder;
                 path = path + folder + "/";
             }
-            LLog.INSTANCE.d(TAG, "path: " + path);
+            LLog.d(TAG, "path: " + path);
             final File dir = new File(path);
             if (!dir.exists()) {
                 if (!dir.mkdirs()) {
-                    LLog.INSTANCE.d(TAG, "could not create the directories");
+                    LLog.d(TAG, "could not create the directories");
                 }
             }
             final File myFile = new File(dir, fileName);
             if (!myFile.exists()) {
                 boolean isSuccess = myFile.createNewFile();
-                LLog.INSTANCE.d(TAG, "isSuccess: " + isSuccess);
+                LLog.d(TAG, "isSuccess: " + isSuccess);
             }
             fos = new FileOutputStream(myFile);
             fos.write(body.getBytes());
             fos.close();
         } catch (IOException e) {
-            LLog.INSTANCE.d(TAG, e.toString());
+            LLog.d(TAG, e.toString());
             isCompelete = false;
         }
         return isCompelete;
@@ -169,7 +169,7 @@ public class LStoreUtil {
      */
     public static String readTxtFromFolder(Activity activity, String folderName, String fileName) {
         String path = LStoreUtil.getFolderPath(activity) + (folderName == null ? "/" : (folderName + "/")) + fileName;
-        LLog.INSTANCE.d(TAG, "path: " + path);
+        LLog.d(TAG, "path: " + path);
         File txtFile = new File(path);
         StringBuilder text = new StringBuilder();
         try {
@@ -180,7 +180,7 @@ public class LStoreUtil {
             }
             reader.close();
         } catch (IOException e) {
-            LLog.INSTANCE.d(TAG, "readTxtFromFolder===" + e.toString());
+            LLog.d(TAG, "readTxtFromFolder===" + e.toString());
         }
         return text.toString();
     }
@@ -204,9 +204,9 @@ public class LStoreUtil {
     }
 
     public interface EventReadFromFolder {
-        public void onSuccess(String data);
+        void onSuccess(String data);
 
-        public void onError();
+        void onError();
     }
 
     /*
@@ -226,7 +226,7 @@ public class LStoreUtil {
             protected Void doInBackground(Void... params) {
                 String path = LStoreUtil.getFolderPath(activity) + (folderName == null ? "/" :
                         (folderName + "/")) + fileName;
-                LLog.INSTANCE.d(TAG, "path: " + path);
+                LLog.d(TAG, "path: " + path);
                 File txtFile = new File(path);
                 text = new StringBuilder();
                 try {
@@ -238,7 +238,7 @@ public class LStoreUtil {
                     reader.close();
                 } catch (IOException e) {
                     runTaskSuccess = false;
-                    LLog.INSTANCE.d(TAG, "readTxtFromFolder===" + e.toString());
+                    LLog.d(TAG, "readTxtFromFolder===" + e.toString());
 
                 }
                 return null;
@@ -271,13 +271,13 @@ public class LStoreUtil {
             }
             inputStream.close();
         } catch (Exception e) {
-            LLog.INSTANCE.d(TAG, e.toString());
+            LLog.d(TAG, e.toString());
         }
         return byteArrayOutputStream.toString();
     }
 
     public interface CallbackReadFromRaw {
-        public void onFinish(String result);
+        void onFinish(String result);
     }
 
     public static void readTxtFromRawFolder(final Context context, final int nameOfRawFile, final CallbackReadFromRaw callbackReadFromRaw) {
@@ -411,7 +411,7 @@ public class LStoreUtil {
             str = new String(buffer);
 
         } catch (Exception e) {
-            LLog.INSTANCE.e(TAG, "readTxtFromAsset: " + e.toString());
+            LLog.e(TAG, "readTxtFromAsset: " + e.toString());
         }
         return str;
     }
@@ -520,13 +520,13 @@ public class LStoreUtil {
         if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
             return;
         }
-        LLog.INSTANCE.d(TAG, "getSettingFromGGDrive");
+        LLog.d(TAG, "getSettingFromGGDrive");
         Request request = new Request.Builder().url(linkGGDriveSetting).build();
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                LLog.INSTANCE.d(TAG, "getSettingFromGGDrive onFailure " + e.toString());
+                LLog.d(TAG, "getSettingFromGGDrive onFailure " + e.toString());
                 if (ggSettingCallback != null) {
                     ggSettingCallback.onGGFailure(call, e);
                 }
@@ -540,7 +540,7 @@ public class LStoreUtil {
                         return;
                     }
                     String json = responseBody.string();
-                    LLog.INSTANCE.d(TAG, "getSettingFromGGDrive onResponse isSuccessful " + json);
+                    LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful " + json);
                     if (json == null) {
                         return;
                     }
@@ -550,18 +550,14 @@ public class LStoreUtil {
                             ggSettingCallback.onGGResponse(null, false);
                         }
                     } else {
-                        String localMsg = LPref.getGGAppMsg(context);
+                        String localMsg = LPref.Companion.getGGAppMsg(context);
                         String serverMsg = app.getConfig().getMsg();
-                        LPref.setGGAppMsg(context, serverMsg);
+                        LPref.Companion.setGGAppMsg(context, serverMsg);
                         boolean isNeedToShowMsg;
                         if (serverMsg == null || serverMsg.isEmpty()) {
                             isNeedToShowMsg = false;
                         } else {
-                            if (localMsg.trim().equalsIgnoreCase(serverMsg)) {
-                                isNeedToShowMsg = false;
-                            } else {
-                                isNeedToShowMsg = true;
-                            }
+                            isNeedToShowMsg = !localMsg.trim().equalsIgnoreCase(serverMsg);
                         }
                         if (ggSettingCallback != null) {
                             ggSettingCallback.onGGResponse(app, isNeedToShowMsg);
@@ -569,7 +565,7 @@ public class LStoreUtil {
                     }
 
                 } else {
-                    LLog.INSTANCE.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
+                    LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: " + response.toString());
                     if (ggSettingCallback != null) {
                         ggSettingCallback.onGGResponse(null, false);
                     }

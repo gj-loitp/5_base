@@ -5,9 +5,9 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.core.utilities.LLog;
-import com.views.placeholderview.lib.placeholderview.InfinitePlaceHolderView;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.infinite.LoadMore;
+import com.views.placeholderview.InfinitePlaceHolderView;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.infinite.LoadMore;
 
 import java.util.List;
 

@@ -25,8 +25,6 @@ import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivit
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
-import vn.loitp.app.activity.customviews.layout.swipablelayout.SwipableLayoutActivity
-import vn.loitp.app.activity.customviews.layout.swipeablelayout.SwipeableLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
@@ -45,8 +43,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_elastic_drag_dismiss_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_circular_view).setOnClickListener(this)
         findViewById<View>(R.id.bt_auto_linear_layout).setOnClickListener(this)
-        findViewById<View>(R.id.bt_swipeable_layout).setOnClickListener(this)
-        findViewById<View>(R.id.bt_swipable_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_constraint_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_swipeback_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_heart_layout).setOnClickListener(this)
@@ -86,8 +82,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_elastic_drag_dismiss_layout -> intent = Intent(activity, ElasticDragDismissLayoutActivity::class.java)
             R.id.bt_circular_view -> intent = Intent(activity, CircularViewActivity::class.java)
             R.id.bt_auto_linear_layout -> intent = Intent(activity, AutoLinearLayoutActivity::class.java)
-            R.id.bt_swipeable_layout -> intent = Intent(activity, SwipeableLayoutActivity::class.java)
-            R.id.bt_swipable_layout -> intent = Intent(activity, SwipableLayoutActivity::class.java)
             R.id.bt_constraint_layout -> intent = Intent(activity, ConstraintlayoutMenuActivity::class.java)
             R.id.bt_swipeback_layout -> intent = Intent(activity, SwipeBackLayoutActivity::class.java)
             R.id.bt_heart_layout -> intent = Intent(activity, HeartLayoutActivity::class.java)

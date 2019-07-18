@@ -32,7 +32,7 @@ public class ReadSqliteAssetActivity extends BaseFontActivity {
         LLog.d(getTAG(), "size: " + vocabularyList.size());
 
         tv = findViewById(R.id.tv);
-        LUIUtil.printBeautyJson(vocabularyList.get(0), tv);
+        LUIUtil.INSTANCE.printBeautyJson(vocabularyList.get(0), tv);
     }
 
     @Override

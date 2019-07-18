@@ -45,9 +45,9 @@ public class FloatingViewEdgeService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        screenWidth = LScreenUtil.getScreenWidth();
-        screenHeight = LScreenUtil.getScreenHeight();
-        statusBarHeight = LScreenUtil.getStatusBarHeight(getApplicationContext());
+        screenWidth = LScreenUtil.INSTANCE.getScreenWidth();
+        screenHeight = LScreenUtil.INSTANCE.getScreenHeight();
+        statusBarHeight = LScreenUtil.INSTANCE.getStatusBarHeight(getApplicationContext());
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_view_edge, null);
         moveView = (RelativeLayout) mFloatingView.findViewById(R.id.move_view);

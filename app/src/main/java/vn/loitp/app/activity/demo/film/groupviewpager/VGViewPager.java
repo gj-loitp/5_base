@@ -125,7 +125,7 @@ public class VGViewPager extends RelativeLayout {
             final Page page = pageArrayList.get(position);
             viewGroup.setBackgroundColor(page.getColor());
             tv.setText(page.getName());
-            LImageUtil.load(getContext(), page.getUrlImg(), iv);
+            LImageUtil.INSTANCE.load(getContext(), page.getUrlImg(), iv);
             //event click
             viewGroup.setOnClickListener(v -> LToast.show(getContext(), "Click " + page.getName()));
             collection.addView(viewGroup);

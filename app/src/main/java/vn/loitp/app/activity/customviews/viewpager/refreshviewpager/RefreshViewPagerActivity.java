@@ -21,10 +21,10 @@ public class RefreshViewPagerActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         viewPager = (ViewPager) findViewById(R.id.vp);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
 
     @Override

@@ -7,8 +7,8 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.views.placeholderview.lib.placeholderview.SwipeDecor;
-import com.views.placeholderview.lib.placeholderview.SwipePlaceHolderView;
+import com.views.placeholderview.SwipeDecor;
+import com.views.placeholderview.SwipePlaceHolderView;
 
 import loitp.basemaster.R;
 

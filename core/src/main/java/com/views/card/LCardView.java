@@ -101,7 +101,7 @@ public class LCardView extends RelativeLayout {
     }
 
     public void setImg(String url) {
-        LImageUtil.load(getContext(), url, iv);
+        LImageUtil.INSTANCE.load(getContext(), url, iv);
     }
 
     public void setText(String s) {

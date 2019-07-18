@@ -76,7 +76,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LUIUtil.setDelay(3000) {
+        LUIUtil.setDelay(3000, Runnable {
             val intent = Intent(activity, GalleryCoreAlbumActivity::class.java)
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
             intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
@@ -85,7 +85,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
             finish()
-        }
+        })
     }
 
     override fun setFullScreen(): Boolean {

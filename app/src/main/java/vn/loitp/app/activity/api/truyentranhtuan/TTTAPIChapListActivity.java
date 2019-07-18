@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import loitp.basemaster.R;
@@ -31,14 +30,14 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {
-                LUIUtil.printBeautyJson(tttChap, tv);
+                LUIUtil.INSTANCE.printBeautyJson(tttChap, tv);
                 avi.smoothToHide();
                 tvTitle.setText("Chap truyện One Piece - size: " + tttChap.getChaps().getChap().size());
             }
 
             @Override
             public void onError() {
-                ToastUtils.showShort("onError");
+                showShort("onError");
             }
         }).execute();
     }

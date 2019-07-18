@@ -4,8 +4,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 
@@ -16,7 +15,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         placeHolderView = (PlaceHolderView) findViewById(R.id.place_holder_view);
-        LUIUtil.setPullLikeIOSVertical(placeHolderView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(placeHolderView);
 
         int max = 50;
         String[] strings = new String[max];
@@ -28,7 +27,7 @@ public class KeywordHotagsActivity extends BaseFontActivity {
             @Override
             public void onClick(String keyword) {
                 //LLog.d(TAG, "onClick " + keyword);
-                ToastUtils.showShort("onClick " + keyword);
+                showShort("onClick " + keyword);
             }
         }));
     }

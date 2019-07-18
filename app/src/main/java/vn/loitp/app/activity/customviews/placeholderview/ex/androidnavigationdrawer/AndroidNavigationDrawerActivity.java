@@ -11,7 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 
@@ -26,7 +26,7 @@ public class AndroidNavigationDrawerActivity extends BaseFontActivity {
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerView = (PlaceHolderView) findViewById(R.id.drawerView);
 
-        LUIUtil.setPullLikeIOSVertical(mDrawerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mDrawerView);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setupDrawer();

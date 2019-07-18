@@ -145,7 +145,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
             listHolder.rlPhoto.setLayoutParams(params);
 
             final File file = new File(thumbsDataList.get(position));
-            LImageUtil.load(getActivity(), file, listHolder.ivPhoto);
+            LImageUtil.INSTANCE.load(getActivity(), file, listHolder.ivPhoto);
             listHolder.ivPhoto.setOnClickListener(v -> {
                 /*CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.OFF)

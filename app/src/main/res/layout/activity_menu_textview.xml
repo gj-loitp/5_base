@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu TextView"
+                android:text="@string/menu_textview"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,79 +29,85 @@
                 android:id="@+id/bt_autofit_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Autofit TextView" />
+                android:text="@string/autofit_textview" />
 
             <Button
                 android:id="@+id/bt_circle_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Circle TextView" />
+                android:text="@string/circle_textview" />
 
             <Button
                 android:id="@+id/bt_color_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Color TextView" />
+                android:text="@string/color_textview" />
 
             <Button
                 android:id="@+id/bt_countdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Countdown TextView" />
+                android:text="@string/countdown_textview" />
+
+            <Button
+                android:id="@+id/btExtraTextview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/extra_textview" />
 
             <Button
                 android:id="@+id/bt_justifield_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="JustifiedTextView" />
+                android:text="@string/justifiedtextview" />
 
             <Button
                 android:id="@+id/bt_score_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Score Text" />
+                android:text="@string/score_text" />
 
             <Button
                 android:id="@+id/bt_scroll_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Scroll Number" />
+                android:text="@string/scroll_number" />
 
             <Button
                 android:id="@+id/bt_selectable_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SelectableTextView" />
+                android:text="@string/selectabletextview" />
 
             <Button
                 android:id="@+id/bt_text_decorator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Text Decorator" />
+                android:text="@string/text_decorator" />
 
             <Button
                 android:id="@+id/bt_translucent_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Translucent View" />
+                android:text="@string/translucent_view" />
 
             <Button
                 android:id="@+id/bt_type_writer_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Type Writer Textview" />
+                android:text="@string/type_writer_textview" />
 
             <Button
                 android:id="@+id/bt_vertical_marquee_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vertial Marquee TextView" />
+                android:text="@string/vertial_marquee_textview" />
 
             <Button
                 android:id="@+id/bt_zoom_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Zoom TextView" />
+                android:text="@string/zoom_textview" />
 
         </LinearLayout>
     </ScrollView>

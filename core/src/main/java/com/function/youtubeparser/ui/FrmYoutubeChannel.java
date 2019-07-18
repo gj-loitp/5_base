@@ -96,12 +96,12 @@ public class FrmYoutubeChannel extends BaseFragment {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
         getListChannel();
     }
 
     private void getListChannel() {
-        final long lastTime = LPref.getTimeGetYoutubeChannelListSuccess(getActivity());
+        final long lastTime = LPref.Companion.getTimeGetYoutubeChannelListSuccess(getActivity());
         LLog.d(TAG, "lastTime " + lastTime);
         if (lastTime == 0) {
             LLog.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
@@ -114,7 +114,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                 LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
                 LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
-                final UtubeChannel utubeChannel = LPref.getYoutubeChannelList(getActivity());
+                final UtubeChannel utubeChannel = LPref.Companion.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
             }
@@ -142,8 +142,8 @@ public class FrmYoutubeChannel extends BaseFragment {
                         getListYoutubeChannelFailed();
                         return;
                     }
-                    LPref.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
-                    LPref.setYoutubeChannelList(getActivity(), utubeChannel);
+                    LPref.Companion.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
+                    LPref.Companion.setYoutubeChannelList(getActivity(), utubeChannel);
                     getListYoutubeChannelSuccess(utubeChannel);
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());

@@ -85,15 +85,15 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         collapsedView = mFloatingView.findViewById(R.id.collapse_view);
         expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
-        expandedView.getLayoutParams().width = LScreenUtil.getScreenWidth() / 2;
-        expandedView.getLayoutParams().height = LScreenUtil.getScreenHeight() * 2 / 3;
+        expandedView.getLayoutParams().width = LScreenUtil.INSTANCE.getScreenWidth() / 2;
+        expandedView.getLayoutParams().height = LScreenUtil.INSTANCE.getScreenHeight() * 2 / 3;
         expandedView.requestLayout();
 
-        llRootTv = (LinearLayout) mFloatingView.findViewById(R.id.ll_root_tv);
-        scrollView = (ScrollView) mFloatingView.findViewById(R.id.scroll_view);
+        llRootTv = mFloatingView.findViewById(R.id.ll_root_tv);
+        scrollView = mFloatingView.findViewById(R.id.scroll_view);
 
         //Set the close button
-        ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +103,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         });
 
         //Set the close button
-        ImageView closeButton = (ImageView) mFloatingView.findViewById(R.id.close_button);
+        ImageView closeButton = mFloatingView.findViewById(R.id.close_button);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,14 +182,14 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         TextView textView = new TextView(this);
 
         if (msgFromActivity.getObject() == null) {
-            LLog.INSTANCE.d(TAG, "msgFromActivity.getObject() == null");
+            LLog.d(TAG, "msgFromActivity.getObject() == null");
             textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         } else {
-            LLog.INSTANCE.d(TAG, "msgFromActivity.getObject() != null");
-            LUIUtil.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
+            LLog.d(TAG, "msgFromActivity.getObject() != null");
+            LUIUtil.INSTANCE.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 
-        LUIUtil.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
+        LUIUtil.INSTANCE.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
         if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);
         } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_E) {

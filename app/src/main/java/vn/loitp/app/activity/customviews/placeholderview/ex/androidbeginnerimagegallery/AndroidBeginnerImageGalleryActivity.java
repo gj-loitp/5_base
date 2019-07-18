@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 
@@ -26,14 +25,14 @@ public class AndroidBeginnerImageGalleryActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mGalleryView = (PlaceHolderView) findViewById(R.id.galleryView);
 
-        LUIUtil.setPullLikeIOSVertical(mGalleryView);
+        LUIUtil.INSTANCE.setPullLikeIOSVertical(mGalleryView);
 
         mGalleryView.getBuilder().setLayoutManager(new GridLayoutManager(this.getApplicationContext(), 2));
         for (int i = 0; i < 100; i++) {
             mGalleryView.addView(new GalleryItem(ContextCompat.getDrawable(getActivity(), R.drawable.logo), i, new GalleryItem.Callback() {
                 @Override
                 public void onClick(int position) {
-                    ToastUtils.showShort("Click " + position);
+                    showShort("Click " + position);
                 }
             }));
         }

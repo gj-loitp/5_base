@@ -8,7 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
-import com.utils.util.ToastUtils;
+import com.views.LToast;
 
 import loitp.basemaster.R;
 
@@ -25,7 +25,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
                 doTask();
             }
         });
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         TextView tv = (TextView) findViewById(R.id.tv);
         String poem = LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp);
@@ -33,11 +33,11 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     }
 
     private void doTask() {
-        LUIUtil.setDelay(5000, new LUIUtil.DelayCallback() {
+        LUIUtil.INSTANCE.setDelay(5000, new Runnable() {
             @Override
-            public void doAfter(int mls) {
+            public void run() {
                 swipeRefreshLayout.setRefreshing(false);
-                ToastUtils.showShort("Finish");
+                LToast.show(activity, "Finish", R.drawable.bkg_horizontal);
             }
         });
     }

@@ -12,9 +12,8 @@ import android.widget.Button
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
-import com.utils.util.ToastUtils
 import com.views.LToast
-import com.views.dialog.swipeawaydialog.support.v4.SwipeAwayDialogFragment
+import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
 import loitp.basemaster.R
 
 class SADilog : SwipeAwayDialogFragment() {
@@ -50,11 +49,11 @@ class SADilog : SwipeAwayDialogFragment() {
     private fun show2(): AlertDialog {
         return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
             override fun onClick1() {
-                ToastUtils.showShort("Click 1")
+                LToast.showShort(context!!, "Click 1", R.drawable.bkg_horizontal)
             }
 
             override fun onClick2() {
-                ToastUtils.showShort("Click 2")
+                LToast.showShort(context!!, "Click 2", R.drawable.bkg_horizontal)
             }
         })
     }
@@ -62,15 +61,15 @@ class SADilog : SwipeAwayDialogFragment() {
     private fun show3(): AlertDialog {
         return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
             override fun onClick1() {
-                ToastUtils.showShort("Click 1")
+                LToast.showShort(context!!, "Click 1", R.drawable.bkg_horizontal)
             }
 
             override fun onClick2() {
-                ToastUtils.showShort("Click 2")
+                LToast.showShort(context!!, "Click 2", R.drawable.bkg_horizontal)
             }
 
             override fun onClick3() {
-                ToastUtils.showShort("Click 3")
+                LToast.showShort(context!!, "Click 3", R.drawable.bkg_horizontal)
             }
         })
     }
@@ -90,6 +89,7 @@ class SADilog : SwipeAwayDialogFragment() {
 
     private fun showProgress(): AlertDialog {
         val progressDialog = LDialogUtil.showProgressDialog(activity!!, 100, "Title", "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null)
+        //TODO convert asynctask to rx
         object : AsyncTask<Void, Int, Void>() {
             var i = 0
 

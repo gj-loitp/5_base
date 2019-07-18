@@ -18,7 +18,7 @@ public class ScrollView2DActivity extends BaseFontActivity {
         twoDScrollView.setScrollChangeListner((view, x, y, oldx, oldy) -> {
             LLog.d(getTAG(), "setScrollChangeListner " + x + " - " + y);
         });
-        LUIUtil.setDelay(2000, mls -> twoDScrollView.smoothScrollTo(300, 300));
+        LUIUtil.INSTANCE.setDelay(2000, () -> twoDScrollView.smoothScrollTo(300, 300));
     }
 
     @Override

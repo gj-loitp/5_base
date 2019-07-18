@@ -36,9 +36,9 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         rlControl = findViewById(R.id.rl_control);
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransparentStatusNavigationBar();
-            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getNavigationBarHeight(getActivity()));
+            LUIUtil.INSTANCE.setMargins(rlControl, 0, 0, 0, DisplayUtil.getNavigationBarHeight(getActivity()));
         } else {
-            LUIUtil.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(getActivity()));
+            LUIUtil.INSTANCE.setMargins(rlControl, 0, 0, 0, DisplayUtil.getStatusHeight(getActivity()));
         }
 
         int bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
@@ -57,7 +57,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         final ViewPager viewPager = findViewById(R.id.viewpager);
         final SlidePagerAdapter slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
-        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);
         viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
 
         final String photoID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTO_ID());

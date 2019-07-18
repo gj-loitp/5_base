@@ -3,8 +3,7 @@ package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton;
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
-import com.utils.util.ToastUtils;
-import com.views.switchtoggle.customtogglebutton.lib.CustomToggle;
+import com.views.switchtoggle.customtogglebutton.CustomToggle;
 
 import loitp.basemaster.R;
 
@@ -23,12 +22,12 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
         customToggle1.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onLefToggleEnabled " + enabled);
+                showShort("onLefToggleEnabled " + enabled);
             }
 
             @Override
             public void onRightToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onRightToggleEnabled " + enabled);
+                showShort("onRightToggleEnabled " + enabled);
             }
         });
 
@@ -36,12 +35,12 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
         customToggle2.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onLefToggleEnabled " + enabled);
+                showShort("onLefToggleEnabled " + enabled);
             }
 
             @Override
             public void onRightToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onRightToggleEnabled " + enabled);
+                showShort("onRightToggleEnabled " + enabled);
             }
         });
 
@@ -49,12 +48,12 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
         customToggle3.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onLefToggleEnabled " + enabled);
+                showShort("onLefToggleEnabled " + enabled);
             }
 
             @Override
             public void onRightToggleEnabled(boolean enabled) {
-                ToastUtils.showShort("onRightToggleEnabled " + enabled);
+                showShort("onRightToggleEnabled " + enabled);
             }
         });
     }

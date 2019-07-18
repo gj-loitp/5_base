@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Red">
+    android:background="@color/Yellow">
 
     <com.github.piasy.biv.view.BigImageView
         android:id="@+id/mBigImage"
@@ -37,28 +37,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Load 0" />
+            android:text="@string/load_0" />
 
         <Button
             android:id="@+id/bt_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Load 1" />
+            android:text="@string/load_1" />
 
         <Button
             android:id="@+id/bt_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Load 2" />
+            android:text="@string/load_2" />
 
         <Button
             android:id="@+id/bt_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Gif" />
+            android:text="@string/gif" />
     </LinearLayout>
 </RelativeLayout>
 
