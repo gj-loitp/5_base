@@ -390,4 +390,8 @@ Likewise may someone love you next.
     <string name="falling_ice_flakes_with_touch">Falling ice flakes with touch</string>
     <string name="falling_ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="network">Network</string>
+    <string name="load_0">Load 0</string>
+    <string name="load_1">Load 1</string>
+    <string name="load_2">Load 2</string>
+    <string name="gif">Gif</string>
 </resources>
