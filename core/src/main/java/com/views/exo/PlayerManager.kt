@@ -3,6 +3,7 @@ package com.views.exo
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.ImageButton
 import com.core.utilities.LActivityUtil
@@ -55,7 +56,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     constructor(context: Context, urlIMAAd: String) {
-        if (!urlIMAAd.isEmpty()) {
+        if (urlIMAAd.isNotEmpty()) {
             adsLoader = ImaAdsLoader(context, Uri.parse(urlIMAAd))
         }
         this.screenW = LScreenUtil.screenWidth
@@ -65,7 +66,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     @JvmOverloads
     fun init(context: Context, playerView: PlayerView, linkPlay: String, contentPosition: Long = 0) {
         if (linkPlay.isEmpty()) {
-            LLog.e(TAG, "init failed -> return")
+            Log.e(TAG, "init failed -> return")
             return
         }
         playerView.controllerShowTimeoutMs = 8000
@@ -186,12 +187,11 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     private fun buildMediaSource(uri: Uri): MediaSource {
-        @ContentType val type = Util.inferContentType(uri)
-        when (type) {
-            C.TYPE_DASH -> return DashMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
-            C.TYPE_SS -> return SsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
-            C.TYPE_HLS -> return HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
-            C.TYPE_OTHER -> return ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+        return when (@ContentType val type = Util.inferContentType(uri)) {
+            C.TYPE_DASH -> DashMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+            C.TYPE_SS -> SsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+            C.TYPE_HLS -> HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+            C.TYPE_OTHER -> ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
             else -> throw IllegalStateException("Unsupported type: $type")
         }
     }

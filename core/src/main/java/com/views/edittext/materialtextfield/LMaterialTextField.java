@@ -1,4 +1,4 @@
-package com.views.edittext.materialtextfield.lib;
+package com.views.edittext.materialtextfield;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -24,7 +24,7 @@ import androidx.core.view.ViewPropertyAnimatorUpdateListener;
 
 import loitp.core.R;
 
-public class MaterialTextField extends FrameLayout {
+public class LMaterialTextField extends FrameLayout {
     protected InputMethodManager inputMethodManager;
 
     protected TextView label;
@@ -46,18 +46,18 @@ public class MaterialTextField extends FrameLayout {
 
     protected float reducedScale = 0.2f;
 
-    public MaterialTextField(Context context) {
+    public LMaterialTextField(Context context) {
         super(context);
         init();
     }
 
-    public MaterialTextField(Context context, AttributeSet attrs) {
+    public LMaterialTextField(Context context, AttributeSet attrs) {
         super(context, attrs);
         handleAttributes(context, attrs);
         init();
     }
 
-    public MaterialTextField(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LMaterialTextField(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         handleAttributes(context, attrs);
         init();
@@ -221,28 +221,28 @@ public class MaterialTextField extends FrameLayout {
 
     protected void handleAttributes(Context context, AttributeSet attrs) {
         try {
-            TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.MaterialTextField);
+            TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.LMaterialTextField);
 
             {
-                ANIMATION_DURATION = styledAttrs.getInteger(R.styleable.MaterialTextField_mtf_animationDuration, 400);
+                ANIMATION_DURATION = styledAttrs.getInteger(R.styleable.LMaterialTextField_mtf_animationDuration, 400);
             }
             {
-                OPEN_KEYBOARD_ON_FOCUS = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_openKeyboardOnFocus, false);
+                OPEN_KEYBOARD_ON_FOCUS = styledAttrs.getBoolean(R.styleable.LMaterialTextField_mtf_openKeyboardOnFocus, false);
             }
             {
-                labelColor = styledAttrs.getColor(R.styleable.MaterialTextField_mtf_labelColor, -1);
+                labelColor = styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_labelColor, -1);
             }
             {
-                imageDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_image, -1);
+                imageDrawableId = styledAttrs.getResourceId(R.styleable.LMaterialTextField_mtf_image, -1);
             }
             {
-                cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(R.styleable.MaterialTextField_mtf_cardCollapsedHeight, context.getResources().getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial));
+                cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(R.styleable.LMaterialTextField_mtf_cardCollapsedHeight, context.getResources().getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial));
             }
             {
-                hasFocus = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_hasFocus, false);
+                hasFocus = styledAttrs.getBoolean(R.styleable.LMaterialTextField_mtf_hasFocus, false);
             }
             {
-                backgroundColor = styledAttrs.getColor(R.styleable.MaterialTextField_mtf_backgroundColor, -1);
+                backgroundColor = styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_backgroundColor, -1);
             }
 
             styledAttrs.recycle();

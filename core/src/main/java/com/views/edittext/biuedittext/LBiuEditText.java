@@ -1,4 +1,4 @@
-package com.views.edittext.biuedittext.lib;
+package com.views.edittext.biuedittext;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -33,7 +33,7 @@ import loitp.core.R;
 /**
  * Created by james on 22/11/15.
  */
-public class BiuEditText extends EditText {
+public class LBiuEditText extends EditText {
     private ViewGroup contentContainer;
     private int height;
     private String cacheStr = "";
@@ -48,17 +48,17 @@ public class BiuEditText extends EditText {
     private int biuDuration;
     private int biuType;
 
-    public BiuEditText(Context context) {
+    public LBiuEditText(Context context) {
         super(context);
     }
 
-    public BiuEditText(Context context, AttributeSet attrs) {
+    public LBiuEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
         setlistener();
     }
 
-    public BiuEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LBiuEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
