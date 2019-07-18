@@ -1,4 +1,4 @@
-package com.views.wwlvideo.layout;
+package com.views.wwlvideo;
 
 import android.content.Context;
 import android.content.res.TypedArray;
