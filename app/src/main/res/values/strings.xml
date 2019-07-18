@@ -300,9 +300,7 @@ Likewise may someone love you next.
     <string name="scroll_view_2d">Scroll view 2d</string>
     <string name="scroll_view_2d_advance">Scroll view 2d advance</string>
     <string name="square_layout">Square Layout</string>
-    <string name="swipablelayoutactivity">SwipableLayoutActivity</string>
-    <string name="swipeablelayout">SwipeableLayout</string>
-    <string name="swipebacklayout">+++ SwipeBackLayout</string>
+    <string name="swipebacklayout">SwipeBackLayout</string>
     <string name="swipe_refresh_layout">Swipe Refresh Layout</string>
     <string name="zoom_layout">Zoom Layout</string>
     <string name="menu_animation">Menu Animation</string>

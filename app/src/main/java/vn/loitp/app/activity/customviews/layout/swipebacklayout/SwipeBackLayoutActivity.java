@@ -21,8 +21,8 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSwipeBackLayout = (SwipeBackLayout) findViewById(R.id.swipeBackLayout);
-        view = (View) findViewById(R.id.view);
+        mSwipeBackLayout = findViewById(R.id.swipeBackLayout);
+        view = findViewById(R.id.view);
         screenW = LScreenUtil.INSTANCE.getScreenWidth();
         screenH = LScreenUtil.INSTANCE.getScreenHeight();
         mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
@@ -31,18 +31,18 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
         mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
             @Override
             public void onViewPositionChanged(View mView, float swipeBackFraction, float SWIPE_BACK_FACTOR) {
-                LLog.INSTANCE.d(getTAG(), "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
+                LLog.d(getTAG(), "onViewPositionChanged swipeBackFraction " + swipeBackFraction);
                 float newY = screenH * swipeBackFraction;
                 view.setTranslationY(newY);
             }
 
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
-                LLog.INSTANCE.d(getTAG(), "onViewSwipeFinished");
+                LLog.d(getTAG(), "onViewSwipeFinished");
             }
         });
 
-        RadioGroup rb = (RadioGroup) findViewById(R.id.radio_group);
+        RadioGroup rb = findViewById(R.id.radio_group);
         rb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
@@ -81,7 +81,7 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
 
     @Override
     protected void onDestroy() {
-        LLog.INSTANCE.d(getTAG(), "onDestroy");
+        LLog.d(getTAG(), "onDestroy");
         super.onDestroy();
     }
 }
