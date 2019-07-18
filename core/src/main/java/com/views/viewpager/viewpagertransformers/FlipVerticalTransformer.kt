@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class StackTransformer extends BaseTransformer {
+class FlipVerticalTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		view.setTranslationX(position < 0 ? 0f : -view.getWidth() * position);
-	}
+    override fun onTransform(view: View, position: Float) {
+        val rotation = -180f * position
+
+        view.visibility = if (rotation > 90f || rotation < -90f) View.INVISIBLE else View.VISIBLE
+        view.pivotX = view.width * 0.5f
+        view.pivotY = view.height * 0.5f
+        view.rotationX = rotation
+    }
 
 }

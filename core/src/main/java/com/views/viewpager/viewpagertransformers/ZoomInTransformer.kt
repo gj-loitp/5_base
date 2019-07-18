@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
+import kotlin.math.abs
 
-public class AccordionTransformer extends BaseTransformer {
+class ZoomInTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		view.setPivotX(position < 0 ? 0 : view.getWidth());
-		view.setScaleX(position < 0 ? 1f + position : 1f - position);
-	}
+    override fun onTransform(view: View, position: Float) {
+        val scale = if (position < 0) position + 1f else abs(1f - position)
+        view.scaleX = scale
+        view.scaleY = scale
+        view.pivotX = view.width * 0.5f
+        view.pivotY = view.height * 0.5f
+        view.alpha = if (position < -1f || position > 1f) 0f else 1f - (scale - 1f)
+    }
 
 }

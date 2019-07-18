@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class DefaultTransformer extends BaseTransformer {
+class CubeOutTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-	}
+    public override val isPagingEnabled: Boolean
+        get() = true
 
-	@Override
-	public boolean isPagingEnabled() {
-		return true;
-	}
+    override fun onTransform(view: View, position: Float) {
+        view.pivotX = if (position < 0f) view.width.toFloat() else 0f
+        view.pivotY = view.height * 0.5f
+        view.rotationY = 90f * position
+    }
 
 }

@@ -14,28 +14,20 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class RotateDownTransformer extends BaseTransformer {
+class CubeInTransformer : BaseTransformer() {
 
-	private static final float ROT_MOD = -15f;
+    public override val isPagingEnabled: Boolean
+        get() = true
 
-	@Override
-	protected void onTransform(View view, float position) {
-		final float width = view.getWidth();
-		final float height = view.getHeight();
-		final float rotation = ROT_MOD * position * -1.25f;
-
-		view.setPivotX(width * 0.5f);
-		view.setPivotY(height);
-		view.setRotation(rotation);
-	}
-	
-	@Override
-	protected boolean isPagingEnabled() {
-		return true;
-	}
+    override fun onTransform(view: View, position: Float) {
+        // Rotate the fragment on the left or right edge
+        view.pivotX = (if (position > 0) 0 else view.width).toFloat()
+        view.pivotY = 0f
+        view.rotationY = -90f * position
+    }
 
 }

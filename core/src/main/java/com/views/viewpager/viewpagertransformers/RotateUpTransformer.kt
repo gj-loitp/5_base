@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class FlipHorizontalTransformer extends BaseTransformer {
+class RotateUpTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		final float rotation = 180f * position;
+    override val isPagingEnabled: Boolean
+        get() = true
 
-		view.setVisibility(rotation > 90f || rotation < -90f ? View.INVISIBLE : View.VISIBLE);
-		view.setPivotX(view.getWidth() * 0.5f);
-		view.setPivotY(view.getHeight() * 0.5f);
-		view.setRotationY(rotation);
-	}
+    override fun onTransform(view: View, position: Float) {
+        val width = view.width.toFloat()
+        val rotation = ROT_MOD * position
+
+        view.pivotX = width * 0.5f
+        view.pivotY = 0f
+        view.translationX = 0f
+        view.rotation = rotation
+    }
+
+    companion object {
+        private const val ROT_MOD = -15f
+    }
 
 }

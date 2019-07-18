@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
+import kotlin.math.abs
 
-public class CubeInTransformer extends BaseTransformer {
+class ZoomOutTranformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		// Rotate the fragment on the left or right edge
-		view.setPivotX(position > 0 ? 0 : view.getWidth());
-		view.setPivotY(0);
-		view.setRotationY(-90f * position);
-	}
-
-	@Override
-	public boolean isPagingEnabled() {
-		return true;
-	}
+    override fun onTransform(view: View, position: Float) {
+        val scale = 1f + abs(position)
+        view.scaleX = scale
+        view.scaleY = scale
+        view.pivotX = view.width * 0.5f
+        view.pivotY = view.height * 0.5f
+        view.alpha = if (position < -1f || position > 1f) 0f else 1f - (scale - 1f)
+        if (position == -1f) {
+            view.translationX = (view.width * -1).toFloat()
+        }
+    }
 
 }

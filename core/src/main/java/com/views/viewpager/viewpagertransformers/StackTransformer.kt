@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class CubeOutTransformer extends BaseTransformer {
+class StackTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		view.setPivotX(position < 0f ? view.getWidth() : 0f);
-		view.setPivotY(view.getHeight() * 0.5f);
-		view.setRotationY(90f * position);
-	}
-
-	@Override
-	public boolean isPagingEnabled() {
-		return true;
-	}
+    override fun onTransform(view: View, position: Float) {
+        view.translationX = if (position < 0) 0f else -view.width * position
+    }
 
 }

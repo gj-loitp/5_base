@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-package com.views.viewpager.viewpagertransformers;
+package com.views.viewpager.viewpagertransformers
 
-import android.view.View;
+import android.view.View
 
-public class ZoomInTransformer extends BaseTransformer {
+class RotateDownTransformer : BaseTransformer() {
 
-	@Override
-	protected void onTransform(View view, float position) {
-		final float scale = position < 0 ? position + 1f : Math.abs(1f - position);
-		view.setScaleX(scale);
-		view.setScaleY(scale);
-		view.setPivotX(view.getWidth() * 0.5f);
-		view.setPivotY(view.getHeight() * 0.5f);
-		view.setAlpha(position < -1f || position > 1f ? 0f : 1f - (scale - 1f));
-	}
+    override val isPagingEnabled: Boolean
+        get() = true
+
+    override fun onTransform(view: View, position: Float) {
+        val width = view.width.toFloat()
+        val height = view.height.toFloat()
+        val rotation = ROT_MOD * position * -1.25f
+
+        view.pivotX = width * 0.5f
+        view.pivotY = height
+        view.rotation = rotation
+    }
+
+    companion object {
+        private const val ROT_MOD = -15f
+    }
 
 }
