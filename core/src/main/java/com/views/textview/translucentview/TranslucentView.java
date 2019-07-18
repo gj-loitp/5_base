@@ -1,4 +1,4 @@
-package com.views.textview.translucentview.lib;
+package com.views.textview.translucentview;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.

@@ -10,7 +10,7 @@ import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
-import com.views.textview.textdecorator.lib.TextDecorator
+import com.views.textview.textdecorator.TextDecorator
 import loitp.core.R
 import java.util.*
 

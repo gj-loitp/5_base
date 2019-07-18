@@ -24,7 +24,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.textview.translucentview.lib.TranslucentView
+            <com.views.textview.translucentview.TranslucentView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"

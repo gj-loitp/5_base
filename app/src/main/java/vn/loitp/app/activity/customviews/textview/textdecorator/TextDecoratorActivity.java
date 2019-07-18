@@ -6,8 +6,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.textdecorator.lib.OnTextClickListener;
-import com.views.textview.textdecorator.lib.TextDecorator;
+import com.views.textview.textdecorator.OnTextClickListener;
+import com.views.textview.textdecorator.TextDecorator;
 
 import loitp.basemaster.R;
 
