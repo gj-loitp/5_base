@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import com.views.placeholderview.lib.placeholderview.annotations.Click;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.placeholderview.PlaceHolderView;
+import com.views.placeholderview.annotations.Click;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import loitp.basemaster.R;
 

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.ExpandablePlaceHolderView;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.ExpandablePlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 

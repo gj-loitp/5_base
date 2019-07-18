@@ -5,13 +5,13 @@ import android.content.Context;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.Animation;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
-import com.views.placeholderview.lib.placeholderview.annotations.Animate;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.NonReusable;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
+import com.views.placeholderview.Animation;
+import com.views.placeholderview.PlaceHolderView;
+import com.views.placeholderview.annotations.Animate;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.NonReusable;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.views.placeholderview.lib.placeholderview.PlaceHolderView
+    <com.views.placeholderview.PlaceHolderView
         android:id="@+id/placeholderview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

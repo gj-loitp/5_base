@@ -13,7 +13,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ToastUtils;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 

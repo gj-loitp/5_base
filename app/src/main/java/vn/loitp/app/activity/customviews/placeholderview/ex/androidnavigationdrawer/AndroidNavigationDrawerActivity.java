@@ -11,7 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import loitp.basemaster.R;
 

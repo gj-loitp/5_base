@@ -12,7 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 
 import java.util.ArrayList;
 import java.util.List;

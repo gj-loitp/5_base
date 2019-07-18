@@ -6,12 +6,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.utils.util.ToastUtils;
-import com.views.placeholderview.lib.placeholderview.annotations.Click;
-import com.views.placeholderview.lib.placeholderview.annotations.Layout;
-import com.views.placeholderview.lib.placeholderview.annotations.Resolve;
-import com.views.placeholderview.lib.placeholderview.annotations.View;
-import com.views.placeholderview.lib.placeholderview.annotations.expand.ChildPosition;
-import com.views.placeholderview.lib.placeholderview.annotations.expand.ParentPosition;
+import com.views.placeholderview.annotations.Click;
+import com.views.placeholderview.annotations.Layout;
+import com.views.placeholderview.annotations.Resolve;
+import com.views.placeholderview.annotations.View;
+import com.views.placeholderview.annotations.expand.ChildPosition;
+import com.views.placeholderview.annotations.expand.ParentPosition;
 
 import loitp.basemaster.R;
 

@@ -12,7 +12,7 @@ import com.restapi.flickr.FlickrConst;
 import com.restapi.flickr.model.photosetgetlist.Photoset;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.placeholderview.lib.placeholderview.PlaceHolderView;
+import com.views.placeholderview.PlaceHolderView;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.util.List;
