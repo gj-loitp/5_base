@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:padding="@dimen/padding_5">
 
-    <com.views.switchtoggle.customtogglebutton.lib.CustomToggle
+    <com.views.switchtoggle.customtogglebutton.CustomToggle
         android:id="@+id/toggle_xml_1"
         android:layout_width="200dp"
         android:layout_height="70dp"
@@ -17,7 +17,7 @@
         app:ctg_addSlideBackgroundColor="#6c817a"
         app:ctg_addSlideColor="#ff67" />
 
-    <com.views.switchtoggle.customtogglebutton.lib.CustomToggle
+    <com.views.switchtoggle.customtogglebutton.CustomToggle
         android:id="@+id/toggle_xml_2"
         android:layout_width="500dp"
         android:layout_height="125dp"
@@ -30,7 +30,7 @@
         app:ctg_addSlideBackgroundColor="@color/colorPrimary"
         app:ctg_addSlideColor="@color/red04" />
 
-    <com.views.switchtoggle.customtogglebutton.lib.CustomToggle
+    <com.views.switchtoggle.customtogglebutton.CustomToggle
         android:id="@+id/toggle_xml_3"
         android:layout_width="300dp"
         android:layout_height="105dp"

@@ -1,4 +1,4 @@
-package com.views.switchtoggle.customtogglebutton.lib;
+package com.views.switchtoggle.customtogglebutton;
 
 /**
  * Created by www.muathu@gmail.com on 12/2/2017.

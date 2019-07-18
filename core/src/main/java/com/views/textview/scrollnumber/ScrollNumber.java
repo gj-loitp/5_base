@@ -1,4 +1,4 @@
-package com.views.textview.scrollnumber.lib;
+package com.views.textview.scrollnumber;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
