@@ -5,15 +5,21 @@ import android.os.Bundle;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
+import com.github.barteksc.pdfviewer.PDFView;
+
+import java.io.File;
 
 import loitp.basemaster.R;
 
+//https://github.com/barteksc/AndroidPdfViewer
 public class PdfDemoActivity extends BaseFontActivity {
     private AsyncTaskDownloadPdf asyncTaskDownloadPdf;
+    private PDFView pdfView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pdfView = findViewById(R.id.pdfView);
         findViewById(R.id.btDownload).setOnClickListener(view -> {
             fromUrl();
         });
@@ -42,7 +48,7 @@ public class PdfDemoActivity extends BaseFontActivity {
         super.onDestroy();
     }
 
-    private void fromUrl(){
+    private void fromUrl() {
         if (asyncTaskDownloadPdf != null) {
             asyncTaskDownloadPdf.cancel(true);
         }
@@ -50,9 +56,11 @@ public class PdfDemoActivity extends BaseFontActivity {
         final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
         final String folderName = "PDFDemo";
         asyncTaskDownloadPdf = new AsyncTaskDownloadPdf(folderPath, url, folderName, new AsyncTaskDownloadPdf.Callback() {
+
             @Override
-            public void onSuccess(long durationSec, String durationHHmmss) {
+            public void onSuccess(long durationSec, String durationHHmmss, File file) {
                 LLog.d(TAG, "onSuccess " + durationSec + " - " + durationHHmmss);
+                LLog.d(TAG, "onSuccess " + file.getPath());
             }
 
             @Override

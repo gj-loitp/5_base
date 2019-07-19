@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 //TODO convert to rx
-public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
+public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
     private final String TAG = getClass().getSimpleName();
     private String mURL;
     private String folderPath;
@@ -47,22 +47,22 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(String... arg0) {
+    protected File doInBackground(String... arg0) {
         return downloadFileToSdCard(mURL, fileName);
     }
 
-    private boolean downloadFileToSdCard(final String downloadUrl, final String imageName) {
+    private File downloadFileToSdCard(final String downloadUrl, final String fileName) {
         try {
             final URL url = new URL(downloadUrl);
-            final File myDir = new File(folderPath + "/" + folderName);
+            final File dir = new File(folderPath + "/" + folderName);
 
-            if (!myDir.exists()) {
-                boolean isMkDirResult = myDir.mkdir();
+            if (!dir.exists()) {
+                boolean isMkDirResult = dir.mkdir();
                 LLog.d(TAG, "isMkDirResult " + isMkDirResult);
             }
 
             /* checks the file and if it already exist delete */
-            final File file = new File(myDir, imageName);
+            final File file = new File(dir, fileName);
             if (file.exists()) {
                 boolean isDeleted = file.delete();
                 LLog.d(TAG, "isDeleted " + isDeleted);
@@ -79,7 +79,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
                 inputStream = httpURLConnection.getInputStream();
             }
             if (inputStream == null) {
-                return false;
+                return null;
             }
             final FileOutputStream fos = new FileOutputStream(file);
             final int totalSize = httpURLConnection.getContentLength();
@@ -90,7 +90,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
             while ((bufferLength = inputStream.read(buffer)) > 0) {
                 if (isCancelled()) {
                     LLog.d(TAG, "isCancelled -> return false");
-                    return false;
+                    return null;
                 }
                 fos.write(buffer, 0, bufferLength);
                 downloadedSize += bufferLength;
@@ -99,15 +99,15 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
 
             fos.close();
             LLog.d(TAG, "File saved in sdcard..");
-            return true;
+            return file;
         } catch (IOException ioException) {
             exception = ioException;
             LLog.e(TAG, "IOException" + ioException.toString());
-            return false;
+            return null;
         } catch (Exception e) {
             exception = e;
             LLog.e(TAG, "Exception" + e.toString());
-            return false;
+            return null;
         }
     }
 
@@ -124,7 +124,8 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
     }
 
     @Override
-    protected void onPostExecute(Boolean isDownloaded) {
+    protected void onPostExecute(File file) {
+        boolean isDownloaded = file != null && file.exists();
         LLog.d(TAG, "onPostExecute isDownloaded: " + isDownloaded);
         if (isDownloaded) {
             if (callback != null) {
@@ -132,18 +133,18 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, Boolean> {
                 final long durationSec = (endTime - startTime) / 1000;
                 final String duration = LDateUtils.INSTANCE.convertSToFormat(durationSec, "HH:mm:ss");
                 LLog.d(TAG, "onPostExecute duration: " + duration);
-                callback.onSuccess(durationSec, duration);
+                callback.onSuccess(durationSec, duration, file);
             }
         } else {
             if (callback != null) {
                 callback.onError(exception);
             }
         }
-        super.onPostExecute(isDownloaded);
+        super.onPostExecute(file);
     }
 
     public interface Callback {
-        void onSuccess(long durationSec, String durationHHmmss);
+        void onSuccess(long durationSec, String durationHHmmss, File file);
 
         void onError(Exception e);
 
