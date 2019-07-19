@@ -7,7 +7,6 @@ import java.util.*
 
 object LDateUtils {
     private val TAG = LDateUtils::class.java.simpleName
-
     val currentDate: String
         get() {
             val c = Calendar.getInstance()
@@ -253,5 +252,13 @@ object LDateUtils {
             null
         }
 
+    }
+
+    fun convertSToFormat(second: Long, format: String): String? {
+        val d = Date(second * 1000L)
+        val df = SimpleDateFormat(format)
+        df.timeZone = TimeZone.getTimeZone("GMT")
+        val time = df.format(d)
+        return time
     }
 }
