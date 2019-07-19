@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.demo.pdf;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
@@ -15,11 +17,13 @@ import loitp.basemaster.R;
 public class PdfDemoActivity extends BaseFontActivity {
     private AsyncTaskDownloadPdf asyncTaskDownloadPdf;
     private PDFView pdfView;
+    private ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pdfView = findViewById(R.id.pdfView);
+        pb = findViewById(R.id.pb);
         findViewById(R.id.btDownload).setOnClickListener(view -> {
             fromUrl();
         });
@@ -55,22 +59,27 @@ public class PdfDemoActivity extends BaseFontActivity {
         final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
         final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
         final String folderName = "PDFDemo";
+        pb.setVisibility(View.VISIBLE);
         asyncTaskDownloadPdf = new AsyncTaskDownloadPdf(folderPath, url, folderName, new AsyncTaskDownloadPdf.Callback() {
 
             @Override
             public void onSuccess(long durationSec, String durationHHmmss, File file) {
                 LLog.d(TAG, "onSuccess " + durationSec + " - " + durationHHmmss);
                 LLog.d(TAG, "onSuccess " + file.getPath());
+                showShort("onSuccess after " + durationSec + " seconds");
+                pb.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Exception e) {
                 LLog.d(TAG, "onError");
+                pb.setVisibility(View.GONE);
             }
 
             @Override
             public void onProgressUpdate(int downloadedSize, int totalSize, float percent) {
                 LLog.d(TAG, "onProgressUpdate " + downloadedSize + " - " + totalSize + " - " + percent);
+                pb.setProgress((int) percent);
             }
         });
         asyncTaskDownloadPdf.execute();
