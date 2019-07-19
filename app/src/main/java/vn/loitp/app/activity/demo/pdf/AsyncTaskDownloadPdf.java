@@ -78,7 +78,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Void, Boolean> {
             final int totalSize = httpURLConnection.getContentLength();
             LLog.d(TAG, "totalSize " + totalSize);
             int downloadedSize = 0;
-            final byte[] buffer = new byte[1024 * 3];
+            final byte[] buffer = new byte[1024 * 2];
             int bufferLength;
             while ((bufferLength = inputStream.read(buffer)) > 0) {
                 if (isCancelled()) {
