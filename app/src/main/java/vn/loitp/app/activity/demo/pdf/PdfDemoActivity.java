@@ -15,29 +15,7 @@ public class PdfDemoActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.btDownload).setOnClickListener(view -> {
-            if (asyncTaskDownloadPdf != null) {
-                asyncTaskDownloadPdf.cancel(true);
-            }
-            final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
-            final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
-            final String folderName = "PDFDemo";
-            asyncTaskDownloadPdf = new AsyncTaskDownloadPdf(folderPath, url, folderName, new AsyncTaskDownloadPdf.Callback() {
-                @Override
-                public void onSuccess(long durationSec, String durationHHmmss) {
-                    LLog.d(TAG, "onSuccess " + durationSec + " - " + durationHHmmss);
-                }
-
-                @Override
-                public void onError(Exception e) {
-                    LLog.d(TAG, "onError");
-                }
-
-                @Override
-                public void onProgressUpdate(int downloadedSize, int totalSize, float percent) {
-                    LLog.d(TAG, "onProgressUpdate " + downloadedSize + " - " + totalSize + " - " + percent);
-                }
-            });
-            asyncTaskDownloadPdf.execute();
+            fromUrl();
         });
     }
 
@@ -62,5 +40,31 @@ public class PdfDemoActivity extends BaseFontActivity {
             asyncTaskDownloadPdf.cancel(true);
         }
         super.onDestroy();
+    }
+
+    private void fromUrl(){
+        if (asyncTaskDownloadPdf != null) {
+            asyncTaskDownloadPdf.cancel(true);
+        }
+        final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
+        final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        final String folderName = "PDFDemo";
+        asyncTaskDownloadPdf = new AsyncTaskDownloadPdf(folderPath, url, folderName, new AsyncTaskDownloadPdf.Callback() {
+            @Override
+            public void onSuccess(long durationSec, String durationHHmmss) {
+                LLog.d(TAG, "onSuccess " + durationSec + " - " + durationHHmmss);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                LLog.d(TAG, "onError");
+            }
+
+            @Override
+            public void onProgressUpdate(int downloadedSize, int totalSize, float percent) {
+                LLog.d(TAG, "onProgressUpdate " + downloadedSize + " - " + totalSize + " - " + percent);
+            }
+        });
+        asyncTaskDownloadPdf.execute();
     }
 }
