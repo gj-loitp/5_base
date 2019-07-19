@@ -431,4 +431,5 @@ Likewise may someone love you next.
     <string name="video">Video</string>
     <string name="youtube_parser">Youtube parser</string>
     <string name="pdf">PDF</string>
+    <string name="load_from_url_file_pdf_30mb">Load from Url (File PDF 30Mb)</string>
 </resources>

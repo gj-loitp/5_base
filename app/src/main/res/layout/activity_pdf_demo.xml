@@ -9,7 +9,7 @@
         android:id="@+id/btDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Load from Url (File PDF 30Mb)" />
+        android:text="@string/load_from_url_file_pdf_30mb" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,18 +18,18 @@
         <com.github.barteksc.pdfviewer.PDFView
             android:id="@+id/pdfView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
-            <ProgressBar
-                android:id="@+id/pb"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_10"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/margin_10"
-                android:max="100"
-                android:visibility="gone" />
-        </com.github.barteksc.pdfviewer.PDFView>
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_10"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/margin_10"
+            android:max="100"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>
 
