@@ -3,7 +3,6 @@ package com.task;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -115,10 +114,10 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     protected void onPostExecute(Bitmap result) {
         //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
-            LToast.show(mContext, "Download successful " + sdCard + fileName, Toast.LENGTH_LONG);
+            LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.bkg_horizontal);
             LSoundUtil.INSTANCE.startMusicFromAsset(mContext, "ting.ogg");
         } else {
-            LToast.show(mContext, R.string.download_failed, Toast.LENGTH_LONG);
+            LToast.show(mContext, R.string.download_failed, R.drawable.bkg_horizontal);
         }
         super.onPostExecute(result);
     }

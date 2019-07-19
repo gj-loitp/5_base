@@ -409,4 +409,26 @@ Likewise may someone love you next.
     <string name="vertial_marquee_textview">Vertial Marquee TextView</string>
     <string name="zoom_textview">Zoom TextView</string>
     <string name="extra_textview">Extra textview</string>
+    <string name="menu_demo">Menu Demo</string>
+    <string name="alarm">Alarm</string>
+    <string name="butter_knife">Butter knife</string>
+    <string name="ebook_with_realm">Ebook With Realm</string>
+    <string name="epub_reader">Epub reader</string>
+    <string name="film">Film</string>
+    <string name="firebase">Firebase</string>
+    <string name="android_floating_video">Android Floating Video</string>
+    <string name="android_floating_widget_like_facebook_chat_head">Android Floating Widget like Facebook Chat Head</string>
+    <string name="floating_view">Floating view</string>
+    <string name="fragment_navigation">Fragment navigation</string>
+    <string name="gallery">Gallery</string>
+    <string name="gallery_from_core">Gallery From Core</string>
+    <string name="gallery_from_core_album_only">Gallery From Core Album Only</string>
+    <string name="gallery_from_core_album_only_fragment">Gallery From Core Album Only Fragment</string>
+    <string name="gallery_member">Gallery Member</string>
+    <string name="sound">Sound</string>
+    <string name="text_to_speech">Text to speech</string>
+    <string name="_2_instance_activity_parallel">2 instance activity parallel</string>
+    <string name="video">Video</string>
+    <string name="youtube_parser">Youtube parser</string>
+    <string name="pdf">PDF</string>
 </resources>
