@@ -18,10 +18,10 @@ android {
         renderscriptSupportModeEnabled true
         multiDexEnabled true
     }
-    /*buildTypes {
+    buildTypes {
         release {
-            minifyEnabled false
-            useProguard false
+            minifyEnabled true
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -29,7 +29,7 @@ android {
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }*/
+    }
     dexOptions {
         jumboMode true
         javaMaxHeapSize "4g"

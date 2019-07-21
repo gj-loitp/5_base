@@ -123,3 +123,15 @@
 #-keep class com.views.progressloadingview.avloadingindicatorview.lib.avi.** { *; }
 #-keep class com.views.progressloadingview.avloadingindicatorview.indicators.** { *; }
 ##for loading view
+
+# Basic ProGuard rules for Firebase Android SDK 2.0.0+
+-keep class com.firebase.** { *; }
+-keep class org.apache.** { *; }
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames class javax.servlet.** { *; }
+-keepnames class org.ietf.jgss.** { *; }
+-dontwarn org.apache.**
+-dontwarn org.w3c.dom.**
+
+##pdf view
+-keep class com.shockwave.**
