@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -21,8 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="LButton change drawable of pressed state programmatically with one line code
-                lButton.setPressedDrawable(...);"
+                android:text="@string/lbutton_change_drawable_of_pressed_state_programmatically_with_one_line_code_lbutton_setpresseddrawable"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />
 
