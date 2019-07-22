@@ -55,10 +55,10 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setMessage("PrettyDialog Message")
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.pdlg_color_green)
-                    .setIconCallback {
+                    .setIconCallback(Runnable {
                         LToast.show(activity, "onClick setIconCallback")
                         prettyDialog?.cancel()
-                    }
+                    })
                     .show()
         }
     }
@@ -71,34 +71,37 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setMessage("PrettyDialog Message")
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.pdlg_color_green)
-                    .setIconCallback { LToast.show(activity, "onClick setIconCallback") }
+                    .setIconCallback(Runnable { LToast.show(activity, "onClick setIconCallback") })
                     // OK button
                     .addButton(
                             "OK", // button text
                             R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green // button background color
-                    ) {
-                        LToast.show(activity, "onClick OK")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_green, // button background color
+                            Runnable {
+                                LToast.show(activity, "onClick OK")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     //Cancel button
                     .addButton(
                             "Cancel",
                             R.color.pdlg_color_white,
-                            R.color.pdlg_color_red
-                    ) {
-                        LToast.show(activity, "onClick Cancel")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_red,
+                            Runnable {
+                                LToast.show(activity, "onClick Cancel")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     // 3rd button
                     .addButton(
                             "Option 3",
                             R.color.pdlg_color_black,
-                            R.color.pdlg_color_gray
-                    ) {
-                        LToast.show(activity, "onClick Option 3")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_gray,
+                            Runnable {
+                                LToast.show(activity, "onClick Option 3")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     .show()
         }
     }
@@ -116,34 +119,39 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIconTint(R.color.pdlg_color_green)
                     .setTextSizeTitle(TypedValue.COMPLEX_UNIT_DIP, 22)
                     .setTextSizeMsg(TypedValue.COMPLEX_UNIT_DIP, 18)
-                    .setIconCallback { LToast.show(activity, "onClick setIconCallback") }
+                    .setIconCallback(Runnable {
+                        LToast.show(activity, "onClick setIconCallback")
+                    })
                     // OK button
                     .addButton(
                             "OK", // button text
                             R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green // button background color
-                    ) {
-                        LToast.show(activity, "onClick OK")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_green,// button background color
+                            Runnable {
+                                LToast.show(activity, "onClick OK")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     //Cancel button
                     .addButton(
                             "Cancel",
                             R.color.pdlg_color_white,
-                            R.color.pdlg_color_red
-                    ) {
-                        LToast.show(activity, "onClick Cancel")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_red,
+                            Runnable {
+                                LToast.show(activity, "onClick Cancel")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     // 3rd button
                     .addButton(
                             "Option 3",
                             R.color.pdlg_color_black,
-                            R.color.pdlg_color_gray
-                    ) {
-                        LToast.show(activity, "onClick Option 3")
-                        prettyDialog?.cancel()
-                    }
+                            R.color.pdlg_color_gray,
+                            Runnable {
+                                LToast.show(activity, "onClick Option 3")
+                                prettyDialog?.cancel()
+                            }
+                    )
                     .setTextSizeButton(TypedValue.COMPLEX_UNIT_DIP, 20)
                     .show()
         }

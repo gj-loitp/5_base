@@ -2,8 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/pdlg_space_1.0x"
-    android:layout_marginTop="@dimen/pdlg_space_1.0x">
+    android:layout_marginTop="@dimen/pdlg_space_1.0x"
+    android:layout_marginBottom="@dimen/pdlg_space_1.0x">
 
     <LinearLayout
         android:id="@+id/ll_content"
@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="@dimen/pdlg_space_1.0x"
-            android:paddingRight="@dimen/pdlg_space_1.0x"
             android:paddingTop="@dimen/pdlg_space_1.0x"
+            android:paddingRight="@dimen/pdlg_space_1.0x"
             android:textColor="@color/pdlg_color_black"
             android:textSize="@dimen/pdlg_tv_title"
             android:textStyle="bold" />
@@ -44,7 +44,7 @@
                 android:id="@+id/ll_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical" />
         </ScrollView>
 
     </LinearLayout>
@@ -61,6 +61,7 @@
             android:layout_width="@dimen/pdlg_icon_size"
             android:layout_height="@dimen/pdlg_icon_size"
             android:layout_margin="@dimen/pdlg_border_size"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/pdlg_icon_close"
             android:tint="@color/pdlg_color_blue" />
     </LinearLayout>
