@@ -182,34 +182,38 @@ object LDialogUtil {
     fun showIOSDialog1(activity: Activity, title: String, subtitle: String, label1: String,
                        isBold: Boolean, callback1: Callback1?) {
         val iOSDialog = iOSDialog(activity)
-        iOSDialog.setTitle(title)
-        iOSDialog.setSubtitle(subtitle)
-        iOSDialog.setPositiveLabel(label1)
-        iOSDialog.setBoldPositiveLabel(isBold)
-        iOSDialog.setPositiveListener {
-            iOSDialog.dismiss()
-            callback1?.onClick1()
+        iOSDialog.apply {
+            setTitle(title)
+            setSubtitle(subtitle)
+            setPositiveLabel(label1)
+            setBoldPositiveLabel(isBold)
+            setPositiveListener(View.OnClickListener {
+                dismiss()
+                callback1?.onClick1()
+            })
+            show()
         }
-        iOSDialog.show()
     }
 
     fun showIOSDialog2(activity: Activity, title: String, subtitle: String, label1: String,
                        label2: String, isBold: Boolean, callback2: Callback2?) {
         val iOSDialog = iOSDialog(activity)
-        iOSDialog.setTitle(title)
-        iOSDialog.setSubtitle(subtitle)
-        iOSDialog.setNegativeLabel(label1)
-        iOSDialog.setPositiveLabel(label2)
-        iOSDialog.setBoldPositiveLabel(isBold)
-        iOSDialog.setNegativeListener {
-            iOSDialog.dismiss()
-            callback2?.onClick1()
+        iOSDialog.apply {
+            setTitle(title)
+            setSubtitle(subtitle)
+            setNegativeLabel(label1)
+            setPositiveLabel(label2)
+            setBoldPositiveLabel(isBold)
+            setNegativeListener(View.OnClickListener {
+                dismiss()
+                callback2?.onClick1()
+            })
+            setPositiveListener(View.OnClickListener {
+                dismiss()
+                callback2?.onClick2()
+            })
+            show()
         }
-        iOSDialog.setPositiveListener {
-            iOSDialog.dismiss()
-            callback2?.onClick2()
-        }
-        iOSDialog.show()
     }
 
     @SuppressLint("InflateParams")
