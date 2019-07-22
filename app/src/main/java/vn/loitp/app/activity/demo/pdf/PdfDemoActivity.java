@@ -13,6 +13,7 @@ import com.core.utilities.LStoreUtil;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.github.barteksc.pdfviewer.util.FitPolicy;
+import com.task.AsyncTaskDownloadPdf;
 
 import java.io.File;
 
@@ -66,6 +67,8 @@ public class PdfDemoActivity extends BaseFontActivity {
         }
         final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
         final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        //final String url = "http://www.pdf995.com/samples/pdf.pdf";
+        //final String url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         final String folderName = "PDFDemo";
         pb.setVisibility(View.VISIBLE);
         pb.setProgress(0);

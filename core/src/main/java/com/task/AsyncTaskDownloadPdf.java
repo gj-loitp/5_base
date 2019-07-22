@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.pdf;
+package com.task;
 
 import android.os.AsyncTask;
 
@@ -16,7 +16,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-//TODO convert to rx
 public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
     private final String TAG = getClass().getSimpleName();
     private String mURL;
