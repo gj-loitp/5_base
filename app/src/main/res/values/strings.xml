@@ -433,4 +433,6 @@ Likewise may someone love you next.
     <string name="load_from_url_file_pdf_30mb">Load from Url (File PDF 30Mb)</string>
     <string name="lbutton_change_drawable_of_pressed_state_programmatically_with_one_line_code_lbutton_setpresseddrawable">LButton change drawable of pressed state programmatically with one line code lButton.setPressedDrawable(...);</string>
     <string name="click">Click</string>
+    <string name="menu">Menu</string>
+    <string name="reside_menu">Reside menu</string>
 </resources>
