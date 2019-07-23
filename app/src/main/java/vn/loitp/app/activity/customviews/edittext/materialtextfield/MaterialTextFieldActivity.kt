@@ -8,7 +8,6 @@ import loitp.basemaster.R
 class MaterialTextFieldActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun setFullScreen(): Boolean {

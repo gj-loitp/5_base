@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -23,14 +23,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:mtf_image="@mipmap/ic_launcher"
-                app:mtf_labelColor="#666">
+                app:mtf_labelColor="@color/Black">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:textColor="#333"
-                    android:textSize="15sp" />
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/txt_15" />
 
             </com.views.edittext.materialtextfield.LMaterialTextField>
         </LinearLayout>
