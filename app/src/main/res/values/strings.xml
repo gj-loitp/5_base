@@ -456,8 +456,8 @@ Likewise may someone love you next.
     <string name="place_holder_view">Place holder view</string>
     <string name="popup_menu">Popup Menu</string>
     <string name="progress_loading_view">Progress/Loading View</string>
-    <string name="recyclerview">RecyclerView</string>
     <string name="scratchview">ScratchView</string>
+    <string name="recyclerview">Recycler view</string>
     <string name="scrollablepanel">ScrollablePanel</string>
     <string name="seekbar">Seekbar</string>
     <string name="sticker">Sticker</string>
@@ -469,4 +469,15 @@ Likewise may someone love you next.
     <string name="wwl_music">WWL Music</string>
     <string name="wwl_video">WWL Video</string>
     <string name="swipe_reveal_layout">Swipe Reveal Layout</string>
+    <string name="my_awesome_layout_4">My Awesome Layout 4</string>
+    <string name="my_awesome_layout_3">My Awesome Layout 3</string>
+    <string name="my_awesome_layout_2">My Awesome Layout 2</string>
+    <string name="help">Help</string>
+    <string name="archive">Archive</string>
+    <string name="my_awesome_layout_1">My Awesome Layout 1</string>
+    <string name="delete">Delete</string>
+    <string name="more">More</string>
+    <string name="log_out">Log out</string>
+    <string name="listview">ListView</string>
+    <string name="gridview">GridView</string>
 </resources>
