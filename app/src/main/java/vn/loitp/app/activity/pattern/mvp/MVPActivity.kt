@@ -5,11 +5,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.core.base.BaseFontActivity
+import com.views.OnSingleClickListener
 import kotlinx.android.synthetic.main.activity_mvp.*
 import loitp.basemaster.R
 
 
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
+
     private lateinit var demoPresenter: DemoPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +19,8 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
         demoPresenter = DemoPresenter(this)
 
         username.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 demoPresenter.updateFullName(s.toString())
@@ -29,7 +32,8 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
         })
 
         email.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 demoPresenter.updateEmail(s.toString())
@@ -37,6 +41,12 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
             override fun afterTextChanged(s: Editable) {
                 hideProgressBar()
+            }
+        })
+
+        btLongTask.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+                demoPresenter.doALongTask()
             }
         })
     }
@@ -63,5 +73,13 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
     override fun hideProgressBar() {
         pb.visibility = View.INVISIBLE
+    }
+
+    override fun onDoALongTask(result: String) {
+        tvDoAlongTask.text = result
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }
