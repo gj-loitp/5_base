@@ -4,29 +4,19 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
 import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_mvp.*
 import loitp.basemaster.R
 
 
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
     private lateinit var demoPresenter: DemoPresenter
-    private lateinit var myTextView: TextView
-    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         demoPresenter = DemoPresenter(this)
 
-        progressBar = findViewById(R.id.pb)
-        myTextView = findViewById(R.id.myTextView)
-
-        val userNameEt = findViewById<EditText>(R.id.username)
-        val emailEt = findViewById<EditText>(R.id.email)
-
-        userNameEt.addTextChangedListener(object : TextWatcher {
+        username.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -38,7 +28,7 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
             }
         })
 
-        emailEt.addTextChangedListener(object : TextWatcher {
+        email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -68,10 +58,10 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
     }
 
     override fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE
+        pb.visibility = View.VISIBLE
     }
 
     override fun hideProgressBar() {
-        progressBar.visibility = View.INVISIBLE
+        pb.visibility = View.INVISIBLE
     }
 }
