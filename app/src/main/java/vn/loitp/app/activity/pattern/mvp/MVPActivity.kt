@@ -80,6 +80,7 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
     }
 
     override fun onDestroy() {
+        demoPresenter.view = null
         super.onDestroy()
     }
 }
