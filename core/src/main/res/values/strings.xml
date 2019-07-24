@@ -29,4 +29,5 @@
     <string name="no_data">Không có dữ liệu</string>
     <string name="video_not_found">Không tìm thấy video này</string>
     <string name="lgallery">LGallery</string>
+    <string name="drag_me_here">Drag me here</string>
 </resources>

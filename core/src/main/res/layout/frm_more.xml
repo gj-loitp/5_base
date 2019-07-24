@@ -62,7 +62,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_rate" />
+                    android:src="@drawable/rating" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_share_2" />
+                    android:src="@drawable/share" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,7 +146,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_chat" />
+                    android:src="@drawable/facebook" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -174,7 +174,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_support" />
+                    android:src="@drawable/help" />
 
                 <TextView
                     android:layout_width="match_parent"
