@@ -86,12 +86,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         val contentMediaSource = buildMediaSource(Uri.parse(linkPlay))
 
         // Compose the content media source into a new AdsMediaSource with both ads and content.
-        var mediaSourceWithAds: MediaSource?
-        adsLoader.let {
+        var mediaSourceWithAds: MediaSource? = null
+        adsLoader?.let {
             mediaSourceWithAds = AdsMediaSource(
                     contentMediaSource,
                     /* adMediaSourceFactory= */ this,
-                    adsLoader,
+                    it,
                     playerView.overlayFrameLayout)
         }
 

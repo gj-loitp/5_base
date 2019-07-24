@@ -15,7 +15,7 @@ import loitp.core.R
 
 class LButton : AppCompatImageButton {
 
-    private var pressedDrawable = R.drawable.circle_effect
+    private var pressedDrawable = R.drawable.circle_black
 
     constructor(context: Context) : super(context) {}
 
