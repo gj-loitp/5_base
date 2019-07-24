@@ -480,4 +480,8 @@ Likewise may someone love you next.
     <string name="log_out">Log out</string>
     <string name="listview">ListView</string>
     <string name="gridview">GridView</string>
+    <string name="menu_pattern">Menu Pattern</string>
+    <string name="observer_pattern">Observer Pattern</string>
+    <string name="mvvm">MVVM</string>
+    <string name="mvp">MVP</string>
 </resources>

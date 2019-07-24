@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_pattern.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity
 
@@ -15,6 +17,7 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_observer_pattern).setOnClickListener(this)
         findViewById<View>(R.id.bt_mvvm).setOnClickListener(this)
+        btMVP.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -34,8 +37,9 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
         when (v.id) {
             R.id.bt_observer_pattern -> intent = Intent(activity, ObserverPatternActivity::class.java)
             R.id.bt_mvvm -> intent = Intent(activity, MVVMActivity::class.java)
+            R.id.btMVP -> intent = Intent(activity, MVPActivity::class.java)
         }
-        if (intent != null) {
+        intent?.let {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

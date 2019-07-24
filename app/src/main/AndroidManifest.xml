@@ -183,7 +183,7 @@
             android:name="vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity"
+            android:name="vn.loitp.app.activity.pattern.mvp.MVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity"
