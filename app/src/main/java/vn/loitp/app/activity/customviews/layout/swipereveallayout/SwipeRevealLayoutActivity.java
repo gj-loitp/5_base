@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.swipereveallayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,8 +9,12 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
 
 import loitp.basemaster.R;
+import vn.loitp.app.activity.customviews.layout.swipereveallayout.grid.SwipeRevealLayoutGridActivity;
+import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeRevealLayoutListActivity;
+import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity;
 
 //https://github.com/chthai64/SwipeRevealLayout
 public class SwipeRevealLayoutActivity extends BaseFontActivity {
@@ -46,15 +51,18 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_recycler_view:
-                //startActivity(new Intent(this, RecyclerDemoActivity.class));
+                startActivity(new Intent(this, SwipeRevealLayoutRecyclerActivity.class));
+                LActivityUtil.tranIn(activity);
                 return true;
 
             case R.id.action_list_view:
-                //startActivity(new Intent(this, ListDemoActivity.class));
+                startActivity(new Intent(this, SwipeRevealLayoutListActivity.class));
+                LActivityUtil.tranIn(activity);
                 return true;
 
             case R.id.action_grid_view:
-                //startActivity(new Intent(this, GridActivity.class));
+                startActivity(new Intent(this, SwipeRevealLayoutGridActivity.class));
+                LActivityUtil.tranIn(activity);
                 return true;
         }
 
