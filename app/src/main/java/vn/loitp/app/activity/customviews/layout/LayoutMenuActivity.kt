@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_layout.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
@@ -27,6 +28,7 @@ import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvance
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
+import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
 class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
@@ -55,6 +57,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_fixed_grid_layout).setOnClickListener(this)
         findViewById<View>(R.id.bt_scroll_view_2d).setOnClickListener(this)
         findViewById<View>(R.id.bt_scroll_view_2d_advance).setOnClickListener(this)
+        btSwipeRevealLayout.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -94,8 +97,9 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_fixed_grid_layout -> intent = Intent(activity, FixedGridLayoutActivity::class.java)
             R.id.bt_scroll_view_2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
             R.id.bt_scroll_view_2d_advance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
+            R.id.btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)
         }
-        if (intent != null) {
+        intent?.let {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

@@ -30,9 +30,6 @@ import androidx.annotation.StyleRes;
 
 import loitp.core.R;
 
-/**
- * Circular progress bar
- */
 public class CircularProgressBar extends View {
     private static final float DEFAULT_MAXIMUM = 100f;
     private static final float DEFAULT_PROGRESS = 0f;
