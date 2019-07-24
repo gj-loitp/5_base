@@ -16,6 +16,8 @@ import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.core.R;
 
 @SuppressLint("RtlHardcoded")
@@ -165,6 +167,7 @@ public class SwipeRevealLayout extends ViewGroup {
         super(context, attrs, defStyleAttr);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         mGestureDetector.onTouchEvent(event);
@@ -182,9 +185,9 @@ public class SwipeRevealLayout extends ViewGroup {
         mGestureDetector.onTouchEvent(ev);
         accumulateDragDist(ev);
 
-        boolean couldBecomeClick = couldBecomeClick(ev);
-        boolean settling = mDragHelper.getViewDragState() == ViewDragHelper.STATE_SETTLING;
-        boolean idleAfterScrolled = mDragHelper.getViewDragState() == ViewDragHelper.STATE_IDLE
+        final boolean couldBecomeClick = couldBecomeClick(ev);
+        final boolean settling = mDragHelper.getViewDragState() == ViewDragHelper.STATE_SETTLING;
+        final boolean idleAfterScrolled = mDragHelper.getViewDragState() == ViewDragHelper.STATE_IDLE
                 && mIsScrolling;
 
         // must be placed as the last statement
@@ -849,7 +852,7 @@ public class SwipeRevealLayout extends ViewGroup {
 
     private final ViewDragHelper.Callback mDragHelperCallback = new ViewDragHelper.Callback() {
         @Override
-        public boolean tryCaptureView(View child, int pointerId) {
+        public boolean tryCaptureView(@NotNull View child, int pointerId) {
             mAborted = false;
 
             if (mLockDrag)
@@ -860,7 +863,7 @@ public class SwipeRevealLayout extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
+        public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
             switch (mDragEdge) {
                 case DRAG_EDGE_TOP:
                     return Math.max(
@@ -880,7 +883,7 @@ public class SwipeRevealLayout extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
+        public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
             switch (mDragEdge) {
                 case DRAG_EDGE_RIGHT:
                     return Math.max(
@@ -900,7 +903,7 @@ public class SwipeRevealLayout extends ViewGroup {
         }
 
         @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
+        public void onViewReleased(@NotNull View releasedChild, float xvel, float yvel) {
             final boolean velRightExceeded = pxToDp((int) xvel) >= mMinFlingVelocity;
             final boolean velLeftExceeded = pxToDp((int) xvel) <= -mMinFlingVelocity;
             final boolean velUpExceeded = pxToDp((int) yvel) <= -mMinFlingVelocity;
@@ -994,7 +997,7 @@ public class SwipeRevealLayout extends ViewGroup {
         }
 
         @Override
-        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+        public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             if (mMode == MODE_SAME_LEVEL) {
                 if (mDragEdge == DRAG_EDGE_LEFT || mDragEdge == DRAG_EDGE_RIGHT) {
