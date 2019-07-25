@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_dialog.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
+import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
 import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity
 
 class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
@@ -21,6 +23,7 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_pretty_dialog).setOnClickListener(this)
         findViewById<View>(R.id.bt_swipe_away_dialog).setOnClickListener(this)
         findViewById<View>(R.id.bt_custom_progress_dialog).setOnClickListener(this)
+        btSlideImages.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -43,8 +46,9 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_pretty_dialog -> intent = Intent(activity, PrettyDialogActivity::class.java)
             R.id.bt_swipe_away_dialog -> intent = Intent(activity, SwipeAwayDialogActivity::class.java)
             R.id.bt_custom_progress_dialog -> intent = Intent(activity, CustomProgressDialoglActivity::class.java)
+            R.id.btSlideImages -> intent = Intent(activity, DialogSlideImagesActivity::class.java)
         }
-        if (intent != null) {
+        intent?.let {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
