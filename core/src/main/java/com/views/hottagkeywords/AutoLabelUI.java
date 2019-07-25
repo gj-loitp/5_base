@@ -520,6 +520,6 @@ public class AutoLabelUI extends AutoViewGroup implements LLabelView.OnClickCros
         /**
          * Call when the {@link LLabelView} is clicked.
          */
-        void onClickLabel(LLabelView LLabelViewClicked);
+        void onClickLabel(LLabelView lLabelView);
     }
 }

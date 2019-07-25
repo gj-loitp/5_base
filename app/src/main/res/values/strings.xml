@@ -484,4 +484,5 @@ Likewise may someone love you next.
     <string name="observer_pattern">Observer Pattern</string>
     <string name="mvvm">MVVM</string>
     <string name="mvp">MVP</string>
+    <string name="hot_keyword">HOT KEYWORD</string>
 </resources>
