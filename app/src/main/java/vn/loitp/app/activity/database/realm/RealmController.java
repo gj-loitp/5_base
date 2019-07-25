@@ -2,6 +2,7 @@ package vn.loitp.app.activity.database.realm;
 
 import android.app.Activity;
 import android.app.Application;
+
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
