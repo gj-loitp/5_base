@@ -11,7 +11,8 @@
         android:id="@+id/trees1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/circle_effect"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="130dp" />
 
@@ -19,6 +20,7 @@
         android:id="@+id/mountains"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
         android:src="@drawable/buildings" />
 
@@ -26,6 +28,7 @@
         android:id="@+id/trees2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/plane"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="98dp" />
@@ -34,6 +37,7 @@
         android:id="@+id/car"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/bus"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="194dp" />

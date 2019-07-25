@@ -12,7 +12,6 @@ import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity;
 import vn.loitp.app.activity.customviews.button.buttonloading.ButtonLoadingActivity;
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity;
-import vn.loitp.app.activity.customviews.button.fbutton.FButtonActivity;
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity;
 import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity;
 import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity;
@@ -24,7 +23,6 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_shine_button).setOnClickListener(this);
-        findViewById(R.id.bt_f_button).setOnClickListener(this);
         findViewById(R.id.bt_circular_image_click).setOnClickListener(this);
         findViewById(R.id.bt_button_loading).setOnClickListener(this);
         findViewById(R.id.bt_goodview).setOnClickListener(this);
@@ -55,9 +53,6 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
             case R.id.bt_shine_button:
                 intent = new Intent(getActivity(), ShineButtonActivity.class);
                 break;
-            case R.id.bt_f_button:
-                intent = new Intent(getActivity(), FButtonActivity.class);
-                break;
             case R.id.bt_circular_image_click:
                 intent = new Intent(getActivity(), CircularImageClickActivity.class);
                 break;
@@ -79,7 +74,7 @@ public class ButtonMenuActivity extends BaseFontActivity implements OnClickListe
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

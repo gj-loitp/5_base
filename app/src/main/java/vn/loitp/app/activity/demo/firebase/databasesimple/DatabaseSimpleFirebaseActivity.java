@@ -60,7 +60,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                 userList.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     User user = data.getValue(User.class);
-                    //LLog.d(TAG, "onDataChange: " + LSApplication.getInstance().getGson().toJson(user));
+                    //LLog.d(TAG, "onDataChange: " + LApplication.getInstance().getGson().toJson(user));
                     /*if (!userList.contains(user)) {
                         userList.add(user);
                     }*/

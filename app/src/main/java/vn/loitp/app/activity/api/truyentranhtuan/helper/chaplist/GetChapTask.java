@@ -18,7 +18,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chap;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -61,7 +61,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
             Chaps chaps = tttChap.getChaps();
             if (chaps != null) {
                 chapList = chaps.getChap();
-                LLog.d(TAG, ">>>chapList: " + LSApplication.Companion.getGson().toJson(chapList));
+                LLog.d(TAG, ">>>chapList: " + LApplication.Companion.getGson().toJson(chapList));
                 //kiem tra xem cac phan tu cua chapList co giong nhau ko
                 try {
                     if (chapList.get(0).getTit().equals(chapList.get(1).getTit())) {
@@ -69,14 +69,14 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                         for (int i = 0; i < chapList.size(); i++) {
                             chapList.get(i).setTit(chapList.get(i).getTit() + " * Chap (" + (chapList.size() - i) + ")");
                         }
-                        LLog.d(TAG, ">>>chapList: " + LSApplication.Companion.getGson().toJson(chapList));
+                        LLog.d(TAG, ">>>chapList: " + LApplication.Companion.getGson().toJson(chapList));
                     }
                 } catch (NullPointerException e) {
                     LLog.d(TAG, "NullPointerException " + e.toString());
                 }
 
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
-                getChapSuccess = LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(url), LSApplication.Companion.getGson().toJson(tttChap));
+                getChapSuccess = LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
             }
 
             //save url img cover to list comic -> tttChap.getInfo().getCover()
@@ -89,7 +89,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(TAG, "onPostExecute " + LSApplication.Companion.getGson().toJson(tttChap));
+        LLog.d(TAG, "onPostExecute " + LApplication.Companion.getGson().toJson(tttChap));
         if (getChapSuccess) {
             if (callback != null) {
                 callback.onSuccess(tttChap);

@@ -33,12 +33,6 @@ import com.views.switchtoggle.toggle.interfaces.OnToggledListener;
 
 import loitp.core.R;
 
-/**
- * <p>
- * Created by Angad Singh on 27/1/18.
- * </p>
- */
-
 public class LabeledSwitch extends View {
     private int width;
     private int height;
@@ -102,7 +96,7 @@ public class LabeledSwitch extends View {
         this.labelOff = "OFF";
 
         this.enabled = true;
-        this.textSize = (int)(12f * getResources().getDisplayMetrics().scaledDensity);
+        this.textSize = (int) (12f * getResources().getDisplayMetrics().scaledDensity);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             colorBorder = colorOn = getResources().getColor(R.color.colorAccent, getContext().getTheme());
@@ -125,7 +119,7 @@ public class LabeledSwitch extends View {
     }
 
     private void initProperties(AttributeSet attrs) {
-        TypedArray tarr = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.Toggle,0,0);
+        TypedArray tarr = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.Toggle, 0, 0);
         final int N = tarr.getIndexCount();
         for (int i = 0; i < N; ++i) {
             int attr = tarr.getIndex(i);
@@ -156,9 +150,9 @@ public class LabeledSwitch extends View {
             } else if (attr == R.styleable.Toggle_textOn) {
                 labelOn = tarr.getString(R.styleable.Toggle_textOn);
             } else if (attr == R.styleable.Toggle_android_textSize) {
-                int defaultTextSize = (int)(12f * getResources().getDisplayMetrics().scaledDensity);
+                int defaultTextSize = (int) (12f * getResources().getDisplayMetrics().scaledDensity);
                 textSize = tarr.getDimensionPixelSize(R.styleable.Toggle_android_textSize, defaultTextSize);
-            } else if(attr == R.styleable.Toggle_android_enabled) {
+            } else if (attr == R.styleable.Toggle_android_enabled) {
                 enabled = tarr.getBoolean(R.styleable.Toggle_android_enabled, false);
             }
         }
@@ -172,7 +166,7 @@ public class LabeledSwitch extends View {
 
 //      Drawing Switch background here
         {
-            if(isEnabled()) {
+            if (isEnabled()) {
                 paint.setColor(colorBorder);
             } else {
                 paint.setColor(colorDisabled);
@@ -189,7 +183,7 @@ public class LabeledSwitch extends View {
 
             int alpha = (int) (((thumbBounds.centerX() - thumbOffCenterX) / (thumbOnCenterX - thumbOffCenterX)) * 255);
             int onColor;
-            if(isEnabled()) {
+            if (isEnabled()) {
                 onColor = Color.argb(alpha, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
             } else {
                 onColor = Color.argb(alpha, Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
@@ -212,8 +206,8 @@ public class LabeledSwitch extends View {
 //      Drawing Switch Labels here
         String MAX_CHAR = "N";
         float textCenter = paint.measureText(MAX_CHAR) / 2;
-        if(isOn) {
-            int alpha = (int)(((thumbBounds.centerX() - (width / 2)) / (thumbOnCenterX - (width / 2))) * 255);
+        if (isOn) {
+            int alpha = (int) (((thumbBounds.centerX() - (width / 2)) / (thumbOnCenterX - (width / 2))) * 255);
             int offColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOff), Color.green(colorOff), Color.blue(colorOff));
             paint.setColor(offColor);
 
@@ -229,9 +223,9 @@ public class LabeledSwitch extends View {
             float centerX = (((padding / 2) + maxSize) - padding) / 2;
             canvas.drawText(labelOn, padding + centerX - (paint.measureText(labelOn) / 2), (height / 2) + textCenter, paint);
         } else {
-            int alpha = (int)((((width / 2) - thumbBounds.centerX()) / ((width / 2) - thumbOffCenterX)) * 255);
+            int alpha = (int) ((((width / 2) - thumbBounds.centerX()) / ((width / 2) - thumbOffCenterX)) * 255);
             int onColor;
-            if(isEnabled()) {
+            if (isEnabled()) {
                 onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
             } else {
                 onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
@@ -260,7 +254,7 @@ public class LabeledSwitch extends View {
             alpha = (int) (((thumbOnCenterX - thumbBounds.centerX()) / (thumbOnCenterX - thumbOffCenterX)) * 255);
 
             int onColor;
-            if(isEnabled()) {
+            if (isEnabled()) {
                 onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
             } else {
                 onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
@@ -308,17 +302,17 @@ public class LabeledSwitch extends View {
         thumbBounds.set(padding, padding, padding + thumbRadii, height - padding);
         thumbOffCenterX = thumbBounds.centerX();
 
-        if(isOn) {
+        if (isOn) {
             thumbBounds.set(width - padding - thumbRadii, padding, width - padding, height - padding);
         } else {
             thumbBounds.set(padding, padding, padding + thumbRadii, height - padding);
         }
 
-        leftBgArc.set(0,0, 2 * outerRadii, height);
-        rightBgArc.set(width - (2 * outerRadii),0, width, height);
+        leftBgArc.set(0, 0, 2 * outerRadii, height);
+        rightBgArc.set(width - (2 * outerRadii), 0, width, height);
 
-        leftFgArc.set(padding / 10,padding / 10, (2 * outerRadii)- (padding / 10), height - (padding / 10));
-        rightFgArc.set(width - (2 * outerRadii) + (padding / 10),padding / 10, width - (padding / 10), height - (padding / 10));
+        leftFgArc.set(padding / 10, padding / 10, (2 * outerRadii) - (padding / 10), height - (padding / 10));
+        rightFgArc.set(width - (2 * outerRadii) + (padding / 10), padding / 10, width - (padding / 10), height - (padding / 10));
     }
 
     @Override
@@ -351,13 +345,13 @@ public class LabeledSwitch extends View {
             switchColor.setDuration(250);
             switchColor.start();
         }
-        isOn =! isOn;
+        isOn = !isOn;
         return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if(isEnabled()) {
+        if (isEnabled()) {
             float x = event.getX();
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN: {
@@ -422,7 +416,7 @@ public class LabeledSwitch extends View {
                         }
                     }
                     invalidate();
-                    if(onToggledListener != null) {
+                    if (onToggledListener != null) {
                         onToggledListener.onSwitched(this, isOn);
                     }
                     return true;
@@ -493,7 +487,7 @@ public class LabeledSwitch extends View {
 
     public void setOn(boolean on) {
         isOn = on;
-        if(isOn) {
+        if (isOn) {
             thumbBounds.set(width - padding - thumbRadii, padding, width - padding, height - padding);
         } else {
             thumbBounds.set(padding, padding, padding + thumbRadii, height - padding);

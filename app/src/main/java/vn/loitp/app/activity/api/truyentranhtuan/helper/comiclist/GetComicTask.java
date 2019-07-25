@@ -19,7 +19,7 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -79,14 +79,14 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                 Comics comics = new Comics();
                 comics.setComic(comicList);
                 tttComic.setComics(comics);
-                jsonTTTComic = LSApplication.Companion.getGson().toJson(tttComic);
+                jsonTTTComic = LApplication.Companion.getGson().toJson(tttComic);
                 LLog.INSTANCE.d(TAG, "jsonTTTComic: " + jsonTTTComic);
                 LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
                 getComicSuccess = true;
             } else {
                 LLog.INSTANCE.d(TAG, "restore readTxtFromFolder jsonTTTComic: " + jsonTTTComic);
                 if (jsonTTTComic != null && !jsonTTTComic.isEmpty()) {
-                    TTTComic tttComic = LSApplication.Companion.getGson().fromJson(jsonTTTComic, TTTComic.class);
+                    TTTComic tttComic = LApplication.Companion.getGson().fromJson(jsonTTTComic, TTTComic.class);
                     try {
                         List<Comic> oldComicList = tttComic.getComics().getComic();
                         LLog.INSTANCE.d(TAG, ">>>2 oldComicList size: " + oldComicList.size());
@@ -126,7 +126,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                     Comics comics = new Comics();
                     comics.setComic(comicList);
                     tttComic.setComics(comics);
-                    jsonTTTComic = LSApplication.Companion.getGson().toJson(tttComic);
+                    jsonTTTComic = LApplication.Companion.getGson().toJson(tttComic);
                     LLog.INSTANCE.d(TAG, "jsonTTTComic: " + jsonTTTComic);
                     LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
                     getComicSuccess = true;

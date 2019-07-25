@@ -88,8 +88,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 LUIUtil.setPullLikeIOSVertical(view);
             }
         }
-
-        rootView = activity.findViewById(R.id.root_view)
+        try {
+            rootView = activity.findViewById(R.id.root_view)
+        } catch (e: ClassCastException) {
+            Log.e(TAG, "ClassCastException $e")
+        }
         scheduleJob()
     }
 

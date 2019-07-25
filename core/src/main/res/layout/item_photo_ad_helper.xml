@@ -49,7 +49,7 @@
         android:textColor="@color/White"
         android:textSize="@dimen/txt_18"
         android:visibility="visible" />-->
-    <life.sabujak.roundedbutton.RoundedButton
+    <com.views.button.roundedbutton.LRoundedButton
         android:id="@+id/bt_okay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

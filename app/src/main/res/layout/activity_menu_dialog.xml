@@ -50,6 +50,12 @@
                 android:text="@string/pretty_dialog" />
 
             <Button
+                android:id="@+id/btSlideImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/slide_images" />
+
+            <Button
                 android:id="@+id/bt_swipe_away_dialog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

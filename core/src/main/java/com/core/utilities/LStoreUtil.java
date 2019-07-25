@@ -34,8 +34,8 @@ import okhttp3.ResponseBody;
 
 public class LStoreUtil {
     static String TAG = LStoreUtil.class.getSimpleName();
-    static String folderName = "Loitp";
-    static String folderPath;
+    //static String folderName = "Loitp";
+    //static String folderPath;
 
     public static String FOLDER_TRANSLATE = ".Loitp";
     public static String FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt";
@@ -67,10 +67,11 @@ public class LStoreUtil {
         void onFinish(boolean isSuccess);
     }
 
-    public static String getFolderPath(Context context) {
+    public static String getFolderPath(final Context context, final String mfolderName) {
+        String folderPath = "";
         if (isSdPresent()) {
             try {
-                File sdPath = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + folderName);
+                File sdPath = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + mfolderName);
                 if (!sdPath.exists()) {
                     sdPath.mkdirs();
                     folderPath = sdPath.getAbsolutePath();
@@ -80,10 +81,10 @@ public class LStoreUtil {
             } catch (Exception e) {
                 LLog.d("TAG", "if getFolderPath: " + e.toString());
             }
-            folderPath = Environment.getExternalStorageDirectory().getPath() + "/" + folderName + "/";
+            folderPath = Environment.getExternalStorageDirectory().getPath() + "/" + mfolderName + "/";
         } else {
             try {
-                File cacheDir = new File(context.getCacheDir(), folderName + "/");
+                File cacheDir = new File(context.getCacheDir(), mfolderName + "/");
                 if (!cacheDir.exists()) {
                     cacheDir.mkdirs();
                     folderPath = cacheDir.getAbsolutePath();
@@ -91,10 +92,14 @@ public class LStoreUtil {
                     folderPath = cacheDir.getAbsolutePath();
                 }
             } catch (Exception e) {
-                LLog.d("TAG", "else getFolderPath: " + e.toString());
+                Log.e(TAG, "else getFolderPath: " + e.toString());
             }
         }
         return folderPath;
+    }
+
+    public static String getFolderPath(Context context) {
+        return getFolderPath(context, "Loitp");
     }
 
     public static boolean isSdPresent() {

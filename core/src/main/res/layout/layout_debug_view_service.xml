@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
                 android:layout_marginTop="@dimen/margin_5"
-                android:src="@drawable/l_help_6"
+                android:src="@drawable/baseline_bug_report_black_48"
                 tools:ignore="ContentDescription" />
 
             <!--Close button-->
@@ -31,7 +31,7 @@
                 android:id="@+id/close_btn"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="@dimen/margin_40"
                 android:src="@drawable/l_close"
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
@@ -58,7 +58,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="Drag me here"
+                    android:text="@string/drag_me_here"
                     android:textColor="@color/White"
                     android:textSize="@dimen/txt_14"
                     android:textStyle="bold" />
@@ -67,7 +67,7 @@
                     android:id="@+id/close_button"
                     android:layout_width="@dimen/w_20"
                     android:layout_height="@dimen/w_20"
-                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/margin_5"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/l_close" />
             </LinearLayout>

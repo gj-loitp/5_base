@@ -154,6 +154,12 @@
                 android:text="@string/swipe_refresh_layout" />
 
             <Button
+                android:id="@+id/btSwipeRevealLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/swipe_reveal_layout" />
+
+            <Button
                 android:id="@+id/bt_zoom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

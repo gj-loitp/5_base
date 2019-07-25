@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.views.layout.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/w_150"
+    app:dragEdge="right"
+    app:srl_mode="same_level">
+
+    <FrameLayout
+        android:id="@+id/delete_layout"
+        android:layout_width="@dimen/w_30"
+        android:layout_height="match_parent"
+        android:background="#ffcc0000">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_settings_black_48dp"
+            android:tint="@color/white" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/front_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_5"
+            android:background="@color/DarkCyan"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt_18" />
+
+    </FrameLayout>
+</com.views.layout.swipereveallayout.SwipeRevealLayout>

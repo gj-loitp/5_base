@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@android:color/white" />
+
+    <com.views.layout.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:dragEdge="right"
+        app:srl_mode="normal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:onClick="moreOnClick"
+                android:text="@string/more"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:onClick="deleteOnClick"
+                android:text="@string/delete"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_solid_white"
+            android:onClick="layoutOneOnClick">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/my_awesome_layout_1" />
+        </FrameLayout>
+    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+
+    <com.views.layout.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        app:dragEdge="left"
+        app:srl_mode="same_level">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:onClick="archiveOnClick"
+                android:text="@string/archive"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:onClick="helpOnClick"
+                android:text="@string/help"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_solid_white"
+            android:onClick="layoutTwoOnClick">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/my_awesome_layout_2" />
+        </FrameLayout>
+    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+
+    <com.views.layout.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout_3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        app:dragEdge="top"
+        app:srl_mode="same_level">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffbf00"
+            android:onClick="searchOnClick">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/search_color"
+                android:tint="@color/white" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_solid_white"
+            android:onClick="layoutThreeOnClick">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/my_awesome_layout_3" />
+        </FrameLayout>
+    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+
+    <com.views.layout.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout_4"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        app:dragEdge="bottom"
+        app:srl_mode="same_level">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00264d"
+            android:onClick="starOnClick">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_settings_black_48dp"
+                android:tint="@color/white" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_solid_white"
+            android:onClick="layoutFourOnClick">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/my_awesome_layout_4" />
+        </FrameLayout>
+    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+</LinearLayout>

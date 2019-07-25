@@ -34,12 +34,6 @@ object LImageUtil {
             return Constants.ARR_URL_BKG_FLICKR[r]
         }
 
-    val randomMiniDrawable: Int
-        get() {
-            val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_MINI_DRAWABLE.size)
-            return Constants.ARR_RANDOM_MINI_DRAWABLE[r]
-        }
-
     //for flide
     fun clear(context: Context, target: View) {
         Glide.with(context).clear(target)

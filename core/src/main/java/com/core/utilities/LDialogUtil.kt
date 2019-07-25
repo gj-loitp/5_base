@@ -9,10 +9,17 @@ import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.Gravity
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
+import com.daimajia.androidanimations.library.Techniques
 import com.views.dialog.iosdialog.iOSDialog
+import com.views.dialog.slideimages.SlideAdapter
 import loitp.core.R
 import java.util.*
 
@@ -182,34 +189,38 @@ object LDialogUtil {
     fun showIOSDialog1(activity: Activity, title: String, subtitle: String, label1: String,
                        isBold: Boolean, callback1: Callback1?) {
         val iOSDialog = iOSDialog(activity)
-        iOSDialog.setTitle(title)
-        iOSDialog.setSubtitle(subtitle)
-        iOSDialog.setPositiveLabel(label1)
-        iOSDialog.setBoldPositiveLabel(isBold)
-        iOSDialog.setPositiveListener {
-            iOSDialog.dismiss()
-            callback1?.onClick1()
+        iOSDialog.apply {
+            setTitle(title)
+            setSubtitle(subtitle)
+            setPositiveLabel(label1)
+            setBoldPositiveLabel(isBold)
+            setPositiveListener(View.OnClickListener {
+                dismiss()
+                callback1?.onClick1()
+            })
+            show()
         }
-        iOSDialog.show()
     }
 
     fun showIOSDialog2(activity: Activity, title: String, subtitle: String, label1: String,
                        label2: String, isBold: Boolean, callback2: Callback2?) {
         val iOSDialog = iOSDialog(activity)
-        iOSDialog.setTitle(title)
-        iOSDialog.setSubtitle(subtitle)
-        iOSDialog.setNegativeLabel(label1)
-        iOSDialog.setPositiveLabel(label2)
-        iOSDialog.setBoldPositiveLabel(isBold)
-        iOSDialog.setNegativeListener {
-            iOSDialog.dismiss()
-            callback2?.onClick1()
+        iOSDialog.apply {
+            setTitle(title)
+            setSubtitle(subtitle)
+            setNegativeLabel(label1)
+            setPositiveLabel(label2)
+            setBoldPositiveLabel(isBold)
+            setNegativeListener(View.OnClickListener {
+                dismiss()
+                callback2?.onClick1()
+            })
+            setPositiveListener(View.OnClickListener {
+                dismiss()
+                callback2?.onClick2()
+            })
+            show()
         }
-        iOSDialog.setPositiveListener {
-            iOSDialog.dismiss()
-            callback2?.onClick2()
-        }
-        iOSDialog.show()
     }
 
     @SuppressLint("InflateParams")
@@ -246,5 +257,63 @@ object LDialogUtil {
 
     fun hideProgress(progressBar: ProgressBar?) {
         progressBar?.visibility = View.GONE
+    }
+
+    fun showDialogSlide(context: Context, index: Int, imgList: List<String>, amount: Float,
+                        isShowController: Boolean,
+                        isShowIconClose: Boolean
+    ): Dialog {
+        val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dlg_slide_images)
+        dialog.setCanceledOnTouchOutside(true);
+        val slideAdapter = SlideAdapter(context, imgList, isShowIconClose, object : SlideAdapter.Callback {
+            override fun onClickClose() {
+                dialog.cancel()
+            }
+        })
+        val viewPager = dialog.findViewById<View>(R.id.vp) as ViewPager
+        viewPager.adapter = slideAdapter
+        if (index != 0) {
+            viewPager.currentItem = index
+        }
+        LUIUtil.setPullLikeIOSHorizontal(viewPager);
+        val ivNext = dialog.findViewById<ImageView>(R.id.iv_next)
+        val ivPrev = dialog.findViewById<ImageView>(R.id.iv_prev)
+        if (isShowController) {
+            ivNext.visibility = View.VISIBLE
+            ivPrev.visibility = View.VISIBLE
+        } else {
+            ivNext.visibility = View.INVISIBLE
+            ivPrev.visibility = View.INVISIBLE
+        }
+        ivNext.setOnClickListener { view ->
+            LAnimationUtil.play(view, Techniques.Pulse)
+            val next = viewPager.currentItem + 1
+            if (next < imgList.size) {
+                viewPager.currentItem = next
+            }
+        }
+        ivPrev.setOnClickListener { view ->
+            LAnimationUtil.play(view, Techniques.Pulse)
+            val prev = viewPager.currentItem - 1
+            if (prev >= 0) {
+                viewPager.currentItem = prev
+            }
+        }
+        dialog.window?.let {
+            //it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            it.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.black_65)))
+            it.setDimAmount(amount)
+
+            val wlp = it.attributes
+            wlp.gravity = Gravity.CENTER
+            //wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
+            wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_DIM_BEHIND.inv()
+            it.attributes = wlp
+            it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+        }
+        dialog.show()
+        return dialog
     }
 }

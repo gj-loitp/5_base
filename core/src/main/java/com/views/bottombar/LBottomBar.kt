@@ -14,11 +14,11 @@ import com.views.realtimeblurview.RealtimeBlurView
 import loitp.core.R
 
 /**
- * Created by www.muathu@gmail.com on 5/13/2017.
+ * Created by www.muathu@gmail.com on 7/25/2019.
  */
 
 class LBottomBar : RelativeLayout, View.OnClickListener {
-    val TAG = javaClass.simpleName
+    private val TAG = javaClass.simpleName
     var blurView: RealtimeBlurView? = null
     var llIcon0: LinearLayout? = null
     var llIcon1: LinearLayout? = null
@@ -38,8 +38,8 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     var tvIcon3: TextView? = null
     var tvIcon4: TextView? = null
     var tvIcon5: TextView? = null
-    var previousPos: Int = 0
-    var currentPos: Int = 0
+    private var previousPos: Int = 0
+    private var currentPos: Int = 0
 
     var colorIvOn = R.color.colorPrimary
         set(colorOn) {
@@ -91,12 +91,12 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         this.tvIcon3 = findViewById<TextView>(R.id.tv_icon_3)
         this.tvIcon4 = findViewById<TextView>(R.id.tv_icon_4)
         this.tvIcon5 = findViewById<TextView>(R.id.tv_icon_5)
-        llIcon0!!.setOnClickListener(this)
-        llIcon1!!.setOnClickListener(this)
-        llIcon2!!.setOnClickListener(this)
-        llIcon3!!.setOnClickListener(this)
-        llIcon4!!.setOnClickListener(this)
-        llIcon5!!.setOnClickListener(this)
+        llIcon0?.setOnClickListener(this)
+        llIcon1?.setOnClickListener(this)
+        llIcon2?.setOnClickListener(this)
+        llIcon3?.setOnClickListener(this)
+        llIcon4?.setOnClickListener(this)
+        llIcon5?.setOnClickListener(this)
         updateView(ivIcon0, tvIcon0)
     }
 
@@ -104,86 +104,94 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         if (count !in 0 until 7) {
             throw IllegalArgumentException("Error value of count number, value must between 0 and 7.")
         }
-        if (count == 0) {
-            llIcon0!!.visibility = View.GONE
-            llIcon1!!.visibility = View.GONE
-            llIcon2!!.visibility = View.GONE
-            llIcon3!!.visibility = View.GONE
-            llIcon4!!.visibility = View.GONE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 1) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.GONE
-            llIcon2!!.visibility = View.GONE
-            llIcon3!!.visibility = View.GONE
-            llIcon4!!.visibility = View.GONE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 2) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.VISIBLE
-            llIcon2!!.visibility = View.GONE
-            llIcon3!!.visibility = View.GONE
-            llIcon4!!.visibility = View.GONE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 3) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.VISIBLE
-            llIcon2!!.visibility = View.VISIBLE
-            llIcon3!!.visibility = View.GONE
-            llIcon4!!.visibility = View.GONE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 4) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.VISIBLE
-            llIcon2!!.visibility = View.VISIBLE
-            llIcon3!!.visibility = View.VISIBLE
-            llIcon4!!.visibility = View.GONE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 5) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.VISIBLE
-            llIcon2!!.visibility = View.VISIBLE
-            llIcon3!!.visibility = View.VISIBLE
-            llIcon4!!.visibility = View.VISIBLE
-            llIcon5!!.visibility = View.GONE
-        } else if (count == 6) {
-            llIcon0!!.visibility = View.VISIBLE
-            llIcon1!!.visibility = View.VISIBLE
-            llIcon2!!.visibility = View.VISIBLE
-            llIcon3!!.visibility = View.VISIBLE
-            llIcon4!!.visibility = View.VISIBLE
-            llIcon5!!.visibility = View.VISIBLE
+        when (count) {
+            0 -> {
+                llIcon0?.visibility = View.GONE
+                llIcon1?.visibility = View.GONE
+                llIcon2?.visibility = View.GONE
+                llIcon3?.visibility = View.GONE
+                llIcon4?.visibility = View.GONE
+                llIcon5?.visibility = View.GONE
+            }
+            1 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.GONE
+                llIcon2?.visibility = View.GONE
+                llIcon3?.visibility = View.GONE
+                llIcon4?.visibility = View.GONE
+                llIcon5?.visibility = View.GONE
+            }
+            2 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.VISIBLE
+                llIcon2?.visibility = View.GONE
+                llIcon3?.visibility = View.GONE
+                llIcon4?.visibility = View.GONE
+                llIcon5?.visibility = View.GONE
+            }
+            3 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.VISIBLE
+                llIcon2?.visibility = View.VISIBLE
+                llIcon3?.visibility = View.GONE
+                llIcon4?.visibility = View.GONE
+                llIcon5?.visibility = View.GONE
+            }
+            4 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.VISIBLE
+                llIcon2?.visibility = View.VISIBLE
+                llIcon3?.visibility = View.VISIBLE
+                llIcon4?.visibility = View.GONE
+                llIcon5?.visibility = View.GONE
+            }
+            5 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.VISIBLE
+                llIcon2?.visibility = View.VISIBLE
+                llIcon3?.visibility = View.VISIBLE
+                llIcon4?.visibility = View.VISIBLE
+                llIcon5?.visibility = View.GONE
+            }
+            6 -> {
+                llIcon0?.visibility = View.VISIBLE
+                llIcon1?.visibility = View.VISIBLE
+                llIcon2?.visibility = View.VISIBLE
+                llIcon3?.visibility = View.VISIBLE
+                llIcon4?.visibility = View.VISIBLE
+                llIcon5?.visibility = View.VISIBLE
+            }
         }
     }
 
     fun setItem0(resImg: Int, name: String) {
-        ivIcon0!!.setImageResource(resImg)
-        tvIcon0!!.text = name
+        ivIcon0?.setImageResource(resImg)
+        tvIcon0?.text = name
     }
 
     fun setItem1(resImg: Int, name: String) {
-        ivIcon1!!.setImageResource(resImg)
-        tvIcon1!!.text = name
+        ivIcon1?.setImageResource(resImg)
+        tvIcon1?.text = name
     }
 
     fun setItem2(resImg: Int, name: String) {
-        ivIcon2!!.setImageResource(resImg)
-        tvIcon2!!.text = name
+        ivIcon2?.setImageResource(resImg)
+        tvIcon2?.text = name
     }
 
     fun setItem3(resImg: Int, name: String) {
-        ivIcon3!!.setImageResource(resImg)
-        tvIcon3!!.text = name
+        ivIcon3?.setImageResource(resImg)
+        tvIcon3?.text = name
     }
 
     fun setItem4(resImg: Int, name: String) {
-        ivIcon4!!.setImageResource(resImg)
-        tvIcon4!!.text = name
+        ivIcon4?.setImageResource(resImg)
+        tvIcon4?.text = name
     }
 
     fun setItem5(resImg: Int, name: String) {
-        ivIcon5!!.setImageResource(resImg)
-        tvIcon5!!.text = name
+        ivIcon5?.setImageResource(resImg)
+        tvIcon5?.text = name
     }
 
     override fun onClick(v: View) {
@@ -237,27 +245,22 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setColorTextView(colorRes: Int) {
-        tvIcon0!!.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon1!!.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon2!!.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon3!!.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon4!!.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon5!!.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon0?.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon1?.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon2?.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon3?.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon4?.setTextColor(ContextCompat.getColor(context, colorRes))
+        tvIcon5?.setTextColor(ContextCompat.getColor(context, colorRes))
     }
 
     fun refreshUI() {
-        if (currentPos == PAGE_0) {
-            updateView(ivIcon0, tvIcon0)
-        } else if (currentPos == PAGE_1) {
-            updateView(ivIcon1, tvIcon1)
-        } else if (currentPos == PAGE_2) {
-            updateView(ivIcon2, tvIcon2)
-        } else if (currentPos == PAGE_3) {
-            updateView(ivIcon3, tvIcon3)
-        } else if (currentPos == PAGE_4) {
-            updateView(ivIcon4, tvIcon4)
-        } else if (currentPos == PAGE_5) {
-            updateView(ivIcon5, tvIcon5)
+        when (currentPos) {
+            PAGE_0 -> updateView(ivIcon0, tvIcon0)
+            PAGE_1 -> updateView(ivIcon1, tvIcon1)
+            PAGE_2 -> updateView(ivIcon2, tvIcon2)
+            PAGE_3 -> updateView(ivIcon3, tvIcon3)
+            PAGE_4 -> updateView(ivIcon4, tvIcon4)
+            PAGE_5 -> updateView(ivIcon5, tvIcon5)
         }
     }
 
@@ -266,37 +269,52 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             LAnimationUtil.play(imageView, it)
             LAnimationUtil.play(textView, it)
         }
-        ivIcon0!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        ivIcon1!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        ivIcon2!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        ivIcon3!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        ivIcon4!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        ivIcon5!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon0!!.visibility = View.GONE
-        tvIcon1!!.visibility = View.GONE
-        tvIcon2!!.visibility = View.GONE
-        tvIcon3!!.visibility = View.GONE
-        tvIcon4!!.visibility = View.GONE
-        tvIcon5!!.visibility = View.GONE
-        ivIcon0!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        ivIcon1!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        ivIcon2!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        ivIcon3!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        ivIcon4!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        ivIcon5!!.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
-        imageView!!.setColorFilter(ContextCompat.getColor(context, this.colorIvOn))
-        imageView.setPadding(paddingOnInDp, paddingOnInDp, paddingOnInDp, paddingOnInDp)
-        textView!!.visibility = View.VISIBLE
+
+        tvIcon0?.visibility = View.GONE
+        tvIcon1?.visibility = View.GONE
+        tvIcon2?.visibility = View.GONE
+        tvIcon3?.visibility = View.GONE
+        tvIcon4?.visibility = View.GONE
+        tvIcon5?.visibility = View.GONE
+
+        ivIcon0?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+        ivIcon1?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+        ivIcon2?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+        ivIcon3?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+        ivIcon4?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+        ivIcon5?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
+        }
+
+        imageView?.let {
+            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOn))
+            it.setPadding(paddingOnInDp, paddingOnInDp, paddingOnInDp, paddingOnInDp)
+        }
+        textView?.visibility = View.VISIBLE
     }
 
     private fun onClickItem(pos: Int) {
-        if (callback != null) {
-            callback!!.OnClickItem(pos)
-        }
+        callback?.onClickItem(pos)
     }
 
     interface Callback {
-        fun OnClickItem(position: Int)
+        fun onClickItem(position: Int)
     }
 
     fun setOnItemClick(callback: Callback) {
@@ -337,11 +355,11 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
 
     companion object {
         val PAGE_NONE = -1
-        val PAGE_0 = 0
-        val PAGE_1 = 1
-        val PAGE_2 = 2
-        val PAGE_3 = 3
-        val PAGE_4 = 4
-        val PAGE_5 = 5
+        const val PAGE_0 = 0
+        const val PAGE_1 = 1
+        const val PAGE_2 = 2
+        const val PAGE_3 = 3
+        const val PAGE_4 = 4
+        const val PAGE_5 = 5
     }
 }

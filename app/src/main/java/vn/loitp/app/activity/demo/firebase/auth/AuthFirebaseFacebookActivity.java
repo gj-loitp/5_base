@@ -39,7 +39,7 @@ import com.views.LToast;
 import java.security.MessageDigest;
 
 import loitp.basemaster.R;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android
 public class AuthFirebaseFacebookActivity extends BaseFontActivity implements View.OnClickListener {
@@ -179,7 +179,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
 
-            LLog.INSTANCE.d(getTAG(), "updateUI " + LSApplication.Companion.getGson().toJson(user));
+            LLog.INSTANCE.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
             LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
                 LImageUtil.INSTANCE.load(getActivity(), user.getPhotoUrl() + "?height=500", (ImageView) findViewById(R.id.icon));
