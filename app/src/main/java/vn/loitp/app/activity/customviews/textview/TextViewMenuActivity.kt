@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTex
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity
 import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity
+import vn.loitp.app.activity.customviews.textview.strokedtextview.StrokedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity
 import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity
@@ -44,6 +45,7 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_justifield_textview).setOnClickListener(this)
 
         btExtraTextview.setOnClickListener(this)
+        btStrokedTextView.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -75,6 +77,7 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_text_decorator -> intent = Intent(activity, TextDecoratorActivity::class.java)
             R.id.bt_justifield_textview -> intent = Intent(activity, JustifiedTextViewActivity::class.java)
             R.id.btExtraTextview -> intent = Intent(activity, ExtraTextViewActivity::class.java)
+            R.id.btStrokedTextView -> intent = Intent(activity, StrokedTextViewActivity::class.java)
         }
         intent?.let {
             startActivity(it)

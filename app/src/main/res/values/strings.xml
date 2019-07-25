@@ -503,4 +503,5 @@ Likewise may someone love you next.
     <string name="viewdraghelper">ViewDragHelper</string>
     <string name="viewdraghelper_simple">ViewDragHelper simple</string>
     <string name="viewdraghelper_simple_1">ViewDragHelper simple 1</string>
+    <string name="stroked_textview">Stroked TextView</string>
 </resources>

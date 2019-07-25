@@ -4,13 +4,15 @@
     package="loitp.basemaster">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+
     <application
         android:name="vn.loitp.app.app.LApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppThemeAndroidO">
+        android:theme="@style/AppThemeAndroidO"
+        tools:ignore="GoogleAppIndexingWarning">
         <!-- support 18:9 -->
         <meta-data
             android:name="android.max_aspect"
@@ -997,6 +999,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.function.keyboard.KeyboardActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.textview.strokedtextview.StrokedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
