@@ -30,7 +30,7 @@ class BottomBarActivity : BaseFontActivity() {
             setItem5(R.drawable.baseline_picture_in_picture_alt_white_48dp, "Picture")
             setTechniques(Techniques.Bounce)
             setOnItemClick(object : LBottomBar.Callback {
-                override fun OnClickItem(position: Int) {
+                override fun onClickItem(position: Int) {
                     LToast.show(activity, "Touch $position")
                 }
             })
