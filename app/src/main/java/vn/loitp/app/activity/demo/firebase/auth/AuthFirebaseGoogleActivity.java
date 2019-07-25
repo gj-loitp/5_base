@@ -31,7 +31,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import loitp.basemaster.R;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {
@@ -189,10 +189,10 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
         if (user != null) {
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-            //mDetailTextView.setText(LSApplication.getInstance().getGson().toJson(user));
+            //mDetailTextView.setText(LApplication.getInstance().getGson().toJson(user));
             LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
 
-            LLog.INSTANCE.d(getTAG(), "updateUI " + LSApplication.Companion.getGson().toJson(user));
+            LLog.INSTANCE.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
             LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
 
             try {

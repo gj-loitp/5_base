@@ -26,7 +26,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 public class GalleryAPIActivity extends BaseFontActivity {
     private AVLoadingIndicatorView avi;
@@ -82,7 +82,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
-                    LLog.d(getTAG(), "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
                     LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avi.smoothToHide();
@@ -129,7 +129,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
-                    LLog.d(getTAG(), "onSuccess " + LSApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
+                    LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avi.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);

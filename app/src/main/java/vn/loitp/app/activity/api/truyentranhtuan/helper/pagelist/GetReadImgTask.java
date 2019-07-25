@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -57,7 +57,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         LLog.INSTANCE.d(TAG, "doInBackground");
         imagesListOfOneChap = doTask(link);
-        LLog.INSTANCE.d(TAG, ">>>imagesListOfOneChap: " + LSApplication.Companion.getGson().toJson(imagesListOfOneChap));
+        LLog.INSTANCE.d(TAG, ">>>imagesListOfOneChap: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             for (int i = 0; i < imagesListOfOneChap.size(); i++) {
                 String urlImg = imagesListOfOneChap.get(i);
@@ -74,7 +74,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.INSTANCE.d(TAG, "onPostExecute: " + LSApplication.Companion.getGson().toJson(imagesListOfOneChap));
+        LLog.INSTANCE.d(TAG, "onPostExecute: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             if (callback != null) {
                 callback.onSuccess(imagesListOfOneChap);
@@ -134,7 +134,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
                             needToSortList = true;
                         }
                         arrString = stringAfterSplit.split(",");
-                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit: " + LSApplication.Companion.getGson().toJson(arrString));
+                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit: " + LApplication.Companion.getGson().toJson(arrString));
                         Collections.addAll(imgList, arrString);
                         if (needToSortList) {
                             Collections.sort(imgList, new Comparator<String>() {
@@ -146,7 +146,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
                             });
                         }
-                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit after sort: " + LSApplication.Companion.getGson().toJson(arrString));
+                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit after sort: " + LApplication.Companion.getGson().toJson(arrString));
                         return imgList;
                     } else {
                         LLog.INSTANCE.d(TAG, "doTask else");

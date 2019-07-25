@@ -20,7 +20,7 @@ import java.util.Map;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private static final String REQUIRED = "Required";
@@ -85,7 +85,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        LLog.INSTANCE.d(getTAG(), "onDataChange user: " + LSApplication.Companion.getGson().toJson(user));
+                        LLog.INSTANCE.d(getTAG(), "onDataChange user: " + LApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out

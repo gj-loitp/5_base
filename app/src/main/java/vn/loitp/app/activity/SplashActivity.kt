@@ -18,7 +18,7 @@ import com.model.App
 import loitp.basemaster.BuildConfig
 import loitp.basemaster.R
 import okhttp3.*
-import vn.loitp.app.app.LSApplication
+import vn.loitp.app.app.LApplication
 import java.io.IOException
 
 class SplashActivity : BaseFontActivity() {
@@ -225,7 +225,7 @@ class SplashActivity : BaseFontActivity() {
             }
 
             override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
-                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LSApplication.gson.toJson(app))
+                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
                 //LPref.setGGAppSetting(activity, app);
             }
         })

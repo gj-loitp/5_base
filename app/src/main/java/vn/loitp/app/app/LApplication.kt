@@ -26,8 +26,8 @@ import loitp.basemaster.R
 /*git reset --soft HEAD~2
 git push -f*/
 
-class LSApplication : MultiDexApplication() {
-    private val TAG = LSApplication::class.java.simpleName
+class LApplication : MultiDexApplication() {
+    private val TAG = LApplication::class.java.simpleName
 
     companion object {
         val gson: Gson = Gson()

@@ -26,7 +26,7 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
 public class TestRxActivity extends BaseFontActivity implements View.OnClickListener {
@@ -244,11 +244,11 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
 
     //for test 5
     private Observable<String> searchBike(String b) {
-        return Observable.just(LSApplication.Companion.getGson().toJson(getBikeList()));
+        return Observable.just(LApplication.Companion.getGson().toJson(getBikeList()));
     }
 
     private List<Bike> parse(String json) {
-        return LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Bike>>() {
+        return LApplication.Companion.getGson().fromJson(json, new TypeToken<List<Bike>>() {
         }.getType());
     }
 

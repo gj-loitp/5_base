@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
-import vn.loitp.app.app.LSApplication;
+import vn.loitp.app.app.LApplication;
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -51,7 +51,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
         if (json == null || json.isEmpty()) {
             LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
         } else {
-            comicList = LSApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
+            comicList = LApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
         }
         LLog.INSTANCE.d(TAG, "comicList size: " + comicList);
