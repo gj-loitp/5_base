@@ -57,7 +57,6 @@ public class LTouchImageView extends AppCompatImageView {
 
     private static enum State {NONE, DRAG, ZOOM, FLING, ANIMATE_ZOOM}
 
-    ;
     private State state;
 
     private float minScale;
