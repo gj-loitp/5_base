@@ -132,13 +132,6 @@
     <declare-styleable name="TranslucentView">
         <attr name="translucentBackgroundColor" format="color" />
     </declare-styleable>
-    <declare-styleable name="FButton">
-        <attr name="shadowEnabled" format="boolean" />
-        <attr name="buttonColor" format="color" />
-        <attr name="shadowColor" format="color" />
-        <attr name="shadowHeight" format="dimension" />
-        <attr name="cornerRadius" format="dimension" />
-    </declare-styleable>
     <declare-styleable name="LMaterialTextField">
         <attr name="mtf_cardCollapsedHeight" format="dimension" />
         <attr name="mtf_labelColor" format="color" />
@@ -664,5 +657,13 @@
         </attr>
         <attr name="flingVelocity" format="integer" />
         <attr name="minDistRequestDisallowParent" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="LRoundedButton">
+        <attr name="buttonColor" format="color" />
+        <attr name="buttonGradientStartColor" format="color" />
+        <attr name="buttonGradientEndColor" format="color" />
+        <attr name="buttonCornerRadius" format="dimension" />
+        <attr name="buttonRippleColor" format="color" />
+        <attr name="buttonRippleAlpha" format="integer" />
     </declare-styleable>
 </resources>

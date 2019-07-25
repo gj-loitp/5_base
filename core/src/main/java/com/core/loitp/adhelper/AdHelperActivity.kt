@@ -16,7 +16,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.AppUtils
-import life.sabujak.roundedbutton.RoundedButton
+import com.views.button.roundedbutton.LRoundedButton
 import loitp.core.R
 import java.util.*
 
@@ -162,7 +162,7 @@ class AdHelperActivity : BaseFontActivity() {
             tvMsg.text = adPage.msg
             LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White))
 
-            val btOkay = layout.findViewById<RoundedButton>(R.id.bt_okay)
+            val btOkay = layout.findViewById<LRoundedButton>(R.id.bt_okay)
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
             } else {

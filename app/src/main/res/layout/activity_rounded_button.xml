@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -15,18 +17,18 @@
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Rounded Button"
+                android:text="@string/rounded_button"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <life.sabujak.roundedbutton.RoundedButton
+            <com.views.button.roundedbutton.LRoundedButton
                 android:id="@+id/bt_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,30 +37,31 @@
                 android:padding="24dp"
                 android:text="Button"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="20dp"
                 app:buttonGradientEndColor="@color/colorPrimaryTrans"
                 app:buttonGradientStartColor="@color/colorPrimary"
                 app:buttonRippleAlpha="10"
-                app:buttonRippleColor="@color/Blue" />
+                app:buttonRippleColor="@color/Blue"
+                tools:ignore="HardcodedText" />
 
-            <life.sabujak.roundedbutton.RoundedButton
+            <com.views.button.roundedbutton.LRoundedButton
                 android:id="@+id/bt_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:padding="5dp"
+                android:padding="@dimen/padding_5"
                 android:text="Button"
                 android:textColor="@color/Black"
-                android:textSize="30dp"
+                android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="20dp"
                 app:buttonGradientEndColor="@color/Granite"
                 app:buttonGradientStartColor="@color/Green"
                 app:buttonRippleAlpha="80"
                 app:buttonRippleColor="@color/Red" />
 
-            <life.sabujak.roundedbutton.RoundedButton
+            <com.views.button.roundedbutton.LRoundedButton
                 android:id="@+id/bt_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,14 +70,14 @@
                 android:padding="24dp"
                 android:text="Button"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="20dp"
                 app:buttonGradientEndColor="@color/Blue"
                 app:buttonGradientStartColor="@color/Red"
                 app:buttonRippleAlpha="50"
                 app:buttonRippleColor="@color/colorPrimaryTrans" />
 
-            <life.sabujak.roundedbutton.RoundedButton
+            <com.views.button.roundedbutton.LRoundedButton
                 android:id="@+id/bt_3"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
@@ -82,7 +85,7 @@
                 android:gravity="center"
                 android:text="Button"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="100dp"
                 app:buttonGradientEndColor="@color/Pine_Green"
                 app:buttonGradientStartColor="@color/Yellow"
