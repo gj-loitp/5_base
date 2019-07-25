@@ -22,16 +22,16 @@ class SlideAdapter(private val mContext: Context, private val stringList: List<S
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(mContext)
         val layout = inflater.inflate(R.layout.frm_image_slide, collection, false) as ViewGroup
-        val imageView = layout.findViewById<ImageView>(R.id.iv)
-        val ivClose = layout.findViewById<ImageView>(R.id.iv_close)
+        val iv = layout.findViewById<ImageView>(R.id.iv)
+        val ivClose = layout.findViewById<ImageView>(R.id.ivClose)
         ivClose.visibility = if (isShowIconClose) View.VISIBLE else View.INVISIBLE
         //int sizeW = screenW * 3 / 5;
         val sizeW = screenW
-        imageView.layoutParams.width = sizeW
-        imageView.requestLayout()
+        iv.layoutParams.width = sizeW
+        iv.requestLayout()
         val url = stringList?.get(position)
         if (!url.isNullOrEmpty()) {
-            LImageUtil.load(mContext, url, imageView, screenW, screenW * 9 / 16)
+            LImageUtil.load(mContext, url, iv, screenW, screenW * 9 / 16)
         }
         ivClose.setOnClickListener {
             callback?.onClickClose()

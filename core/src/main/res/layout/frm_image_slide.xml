@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_close"
+        android:id="@+id/ivClose"
         android:layout_width="@dimen/w_35"
         android:layout_height="@dimen/w_35"
         android:adjustViewBounds="true"
