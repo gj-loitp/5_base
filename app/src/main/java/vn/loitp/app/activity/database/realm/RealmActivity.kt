@@ -45,6 +45,12 @@ class RealmActivity : BaseFontActivity() {
                 getAll()
             }
         })
+        btSearch.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+                //TODO
+
+            }
+        })
     }
 
     override fun setFullScreen(): Boolean {
