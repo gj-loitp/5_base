@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_view"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-	<LinearLayout
-		android:id="@+id/ll_buttons"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-		<Button
-			android:id="@+id/bt_realm"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_alignParentBottom="true"
-			android:text="Demo Ebook App With Realm" />
+        <Button
+            android:id="@+id/btRealm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/demo_ebook_app_with_realm" />
 
-		<Button
-			android:id="@+id/bt_clear_all"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Clear all" />
+        <Button
+            android:id="@+id/btClearAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_all" />
 
-		<Button
-			android:id="@+id/bt_add"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Add Dummy MyBook" />
-	</LinearLayout>
+        <Button
+            android:id="@+id/btAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_dummy_mybook" />
+    </LinearLayout>
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@+id/ll_buttons"
-		android:fillViewport="true"
-		android:padding="@dimen/padding_5">
+    <ScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_buttons"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_5">
 
-		<LinearLayout
-			android:id="@+id/ll"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="@string/demo_realm_nclick_to_edit_long_click_to_delete"
-				android:textColor="@color/Black"
-				android:textSize="@dimen/txt_20" />
-		</LinearLayout>
-	</ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/demo_realm_nclick_to_edit_long_click_to_delete"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
 

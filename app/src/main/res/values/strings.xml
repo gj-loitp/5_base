@@ -504,4 +504,7 @@ Likewise may someone love you next.
     <string name="viewdraghelper_simple">ViewDragHelper simple</string>
     <string name="viewdraghelper_simple_1">ViewDragHelper simple 1</string>
     <string name="stroked_textview">Stroked TextView</string>
+    <string name="demo_ebook_app_with_realm">Demo Ebook App With Realm</string>
+    <string name="clear_all">Clear all</string>
+    <string name="add_dummy_mybook">Add Dummy MyBook</string>
 </resources>
