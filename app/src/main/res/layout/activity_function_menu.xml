@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,14 +14,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Function Menu"
+                android:text="@string/function_menu"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
@@ -28,85 +29,91 @@
                 android:id="@+id/bt_activity_service_comunicate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Activity Service Comunicate" />
+                android:text="@string/activity_service_comunicate" />
 
             <Button
                 android:id="@+id/bt_drag_drop_sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Drag drop sample" />
+                android:text="@string/drag_drop_sample" />
 
             <Button
                 android:id="@+id/bt_toggle_fullscreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toggle fullscreen" />
+                android:text="@string/toggle_fullscreen" />
 
             <Button
                 android:id="@+id/bt_gesto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gesto" />
+                android:text="@string/gesto" />
 
             <Button
                 android:id="@+id/bt_glide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Glide" />
+                android:text="@string/glide" />
 
             <Button
                 android:id="@+id/bt_hashmap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hashmap" />
+                android:text="@string/hashmap" />
+
+            <Button
+                android:id="@+id/bt_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/keyboard" />
 
             <Button
                 android:id="@+id/bt_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Location" />
+                android:text="@string/location" />
 
             <Button
                 android:id="@+id/bt_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notification" />
+                android:text="@string/notification" />
 
             <Button
                 android:id="@+id/bt_recolor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Recolor" />
+                android:text="@string/recolor" />
 
             <Button
                 android:id="@+id/bt_sensor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sensor" />
+                android:text="@string/sensor" />
 
             <Button
                 android:id="@+id/bt_simple_finger_gesture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Simple finger gestures" />
+                android:text="@string/simple_finger_gestures" />
 
             <Button
                 android:id="@+id/bt_view_drag_helper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ViewDragHelper" />
+                android:text="@string/viewdraghelper" />
 
             <Button
                 android:id="@+id/bt_view_drag_helper_simple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ViewDragHelper simple" />
+                android:text="@string/viewdraghelper_simple" />
 
             <Button
                 android:id="@+id/bt_view_drag_helper_simple_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ViewDragHelper simple 1" />
+                android:text="@string/viewdraghelper_simple_1" />
 
         </LinearLayout>
     </ScrollView>

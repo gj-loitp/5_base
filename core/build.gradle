@@ -9,7 +9,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0.0"
@@ -121,5 +121,9 @@ dependencies {
     //animation
     api 'com.airbnb.android:lottie:3.0.6'
 
+    //crop
     api 'com.yalantis:ucrop:2.2.0'
+
+    //https://github.com/ParkSangGwon/TedKeyboardObserver
+    api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 }

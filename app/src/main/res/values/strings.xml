@@ -487,4 +487,20 @@ Likewise may someone love you next.
     <string name="hot_keyword">HOT KEYWORD</string>
     <string name="slide_images">Slide Images</string>
     <string name="rounded_button">Rounded Button</string>
+    <string name="function_menu">Function Menu</string>
+    <string name="activity_service_comunicate">Activity Service Comunicate</string>
+    <string name="drag_drop_sample">Drag drop sample</string>
+    <string name="toggle_fullscreen">Toggle fullscreen</string>
+    <string name="gesto">Gesto</string>
+    <string name="glide">Glide</string>
+    <string name="hashmap">Hashmap</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="location">Location</string>
+    <string name="notification">Notification</string>
+    <string name="recolor">Recolor</string>
+    <string name="sensor">Sensor</string>
+    <string name="simple_finger_gestures">Simple finger gestures</string>
+    <string name="viewdraghelper">ViewDragHelper</string>
+    <string name="viewdraghelper_simple">ViewDragHelper simple</string>
+    <string name="viewdraghelper_simple_1">ViewDragHelper simple 1</string>
 </resources>

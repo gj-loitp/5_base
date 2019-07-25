@@ -14,6 +14,7 @@ import vn.loitp.app.activity.function.fullscreen.FullScreenActivity;
 import vn.loitp.app.activity.function.gesto.GestoActivity;
 import vn.loitp.app.activity.function.glide.GlideActivity;
 import vn.loitp.app.activity.function.hashmap.HashMapActivity;
+import vn.loitp.app.activity.function.keyboard.KeyboardActivity;
 import vn.loitp.app.activity.function.location.LocationActivity;
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity;
 import vn.loitp.app.activity.function.recolor.RecolorActivity;
@@ -44,6 +45,7 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
         findViewById(R.id.bt_view_drag_helper_simple_1).setOnClickListener(this);
         findViewById(R.id.bt_sensor).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
+        findViewById(R.id.bt_keyboard).setOnClickListener(this);
     }
 
     @Override
@@ -106,6 +108,9 @@ public class MenuFunctionActivity extends BaseFontActivity implements View.OnCli
                 break;
             case R.id.bt_glide:
                 intent = new Intent(getActivity(), GlideActivity.class);
+                break;
+            case R.id.bt_keyboard:
+                intent = new Intent(getActivity(), KeyboardActivity.class);
                 break;
         }
         if (intent != null) {
