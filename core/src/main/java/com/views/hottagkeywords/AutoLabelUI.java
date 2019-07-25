@@ -6,9 +6,8 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ViewGroup;
-
-import com.core.utilities.LLog;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,8 +19,7 @@ import loitp.core.R;
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
-public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossListener, Label.OnLabelClickListener {
-
+public class AutoLabelUI extends AutoViewGroup implements LLabelView.OnClickCrossListener, LLabelView.OnLabelClickListener {
     private final String LOG_TAG = AutoLabelUI.class.getSimpleName();
     private final int EMPTY = 0;
     private final String KEY_INSTANCE_STATE_GENERAL = "instanceState";
@@ -75,8 +73,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      * Retrieve styles attributes
      */
     private void getAttributes(AttributeSet attrs) {
-        TypedArray typedArray = mContext
-                .obtainStyledAttributes(attrs, R.styleable.LabelsView, 0, 0);
+        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.LabelsView, 0, 0);
 
         if (typedArray != null) {
             try {
@@ -91,12 +88,11 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
                 mLabelPadding = typedArray.getDimensionPixelSize(R.styleable.LabelsView_label_padding, getResources().getDimensionPixelSize(R.dimen.padding_label_view));
 
             } catch (Exception e) {
-                LLog.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
+                Log.e(LOG_TAG, "Error while creating the view AutoLabelUI: " + e.toString());
             } finally {
                 typedArray.recycle();
             }
         }
-
     }
 
     /**
@@ -107,17 +103,17 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      */
     public boolean addLabel(String textLabel, int position) {
         if (!checkLabelsCompleted()) {
-            Label label = new Label(getContext(), mTextSize, mIconCross, mShowCross,
+            final LLabelView lLabelView = new LLabelView(getContext(), mTextSize, mIconCross, mShowCross,
                     mTextColor, mBackgroundResource, mLabelsClickables, mLabelPadding);
-            label.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+            lLabelView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
-            label.setText(textLabel);
-            label.setTag(position);
-            label.setOnClickCrossListener(this);
-            label.setOnLabelClickListener(this);
+            lLabelView.setText(textLabel);
+            lLabelView.setTag(position);
+            lLabelView.setOnClickCrossListener(this);
+            lLabelView.setOnLabelClickListener(this);
 
             increaseLabelsCounter();
-            addView(label);
+            addView(lLabelView);
             requestLayout();
 
             return true;
@@ -136,17 +132,16 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      */
     public boolean addLabel(String textLabel) {
         if (!checkLabelsCompleted()) {
-            Label label = new Label(getContext(), mTextSize, mIconCross, mShowCross,
+            LLabelView lLabelView = new LLabelView(getContext(), mTextSize, mIconCross, mShowCross,
                     mTextColor, mBackgroundResource, mLabelsClickables, mLabelPadding);
-            label.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            label.setText(textLabel);
-            label.setTag(textLabel);
-            label.setOnClickCrossListener(this);
-            label.setOnLabelClickListener(this);
+            lLabelView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            lLabelView.setText(textLabel);
+            lLabelView.setTag(textLabel);
+            lLabelView.setOnClickCrossListener(this);
+            lLabelView.setOnLabelClickListener(this);
 
             increaseLabelsCounter();
-            addView(label);
+            addView(lLabelView);
             requestLayout();
 
             return true;
@@ -181,18 +176,18 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     /**
      * Method called when the cross icon is clicked.
      *
-     * @param label the {@link Label} object.
+     * @param LLabelView the {@link LLabelView} object.
      */
     @Override
-    public void onClickCross(Label label) {
-        removeView(label);
+    public void onClickCross(LLabelView LLabelView) {
+        removeView(LLabelView);
         decreaseLabelsCounter();
 
         if (listenerOnRemoveLabel != null) {
-            if (label.getTag() instanceof Integer) {
-                listenerOnRemoveLabel.onRemoveLabel(label, (Integer) label.getTag());
+            if (LLabelView.getTag() instanceof Integer) {
+                listenerOnRemoveLabel.onRemoveLabel(LLabelView, (Integer) LLabelView.getTag());
             } else {
-                listenerOnRemoveLabel.onRemoveLabel(label, -1);
+                listenerOnRemoveLabel.onRemoveLabel(LLabelView, -1);
             }
         }
         if (getLabelsCounter() == EMPTY) {
@@ -204,26 +199,26 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     }
 
     /**
-     * Method called when the {@link Label} object is clicked.
+     * Method called when the {@link LLabelView} object is clicked.
      *
-     * @param label the {@link Label} object.
+     * @param lLabelView the {@link LLabelView} object.
      */
     @Override
-    public void onClickLabel(Label label) {
+    public void onClickLabel(LLabelView lLabelView) {
         if (listenerOnLabelClick != null) {
-            listenerOnLabelClick.onClickLabel(label);
+            listenerOnLabelClick.onClickLabel(lLabelView);
         }
     }
 
     /**
      * Method to remove a label using a list.
      *
-     * @param labelToRemove the text of the {@link Label} to remove.
+     * @param labelToRemove the text of the {@link LLabelView} to remove.
      */
     public boolean removeLabel(String labelToRemove) {
-        Label label = findViewWithTag(labelToRemove);
-        if (label != null) {
-            removeView(label);
+        final LLabelView lLabelView = findViewWithTag(labelToRemove);
+        if (lLabelView != null) {
+            removeView(lLabelView);
             decreaseLabelsCounter();
             if (getLabelsCounter() == EMPTY) {
                 if (listenerOnLabelsEmpty != null) {
@@ -242,7 +237,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
      * @param position of the item to remove.
      */
     public boolean removeLabel(int position) {
-        Label view = findViewWithTag(position);
+        final LLabelView view = findViewWithTag(position);
         if (view != null) {
             removeView(view);
             decreaseLabelsCounter();
@@ -268,16 +263,16 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
         requestLayout();
     }
 
-    public Label getLabel(int position) {
-        return (Label) getChildAt(position);
+    public LLabelView getLabel(int position) {
+        return (LLabelView) getChildAt(position);
     }
 
-    public List<Label> getLabels() {
-        ArrayList<Label> labels = new ArrayList<>();
+    public List<LLabelView> getLabels() {
+        final ArrayList<LLabelView> lLabelViews = new ArrayList<>();
         for (int i = 0; i < getChildCount(); i++) {
-            labels.add(getLabel(i));
+            lLabelViews.add(getLabel(i));
         }
-        return labels;
+        return lLabelViews;
     }
 
     public int getMaxLabels() {
@@ -386,7 +381,7 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     }
 
     /**
-     * Set a callback listener when the {@link Label} is clicked.
+     * Set a callback listener when the {@link LLabelView} is clicked.
      *
      * @param listener Callback instance.
      */
@@ -412,15 +407,15 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     }
 
     private List<LabelValues> getAllLabelsAdded() {
-        List<LabelValues> listLabelValues = new ArrayList<>();
-        int childcount = getChildCount();
+        final List<LabelValues> listLabelValues = new ArrayList<>();
+        final int childcount = getChildCount();
         for (int i = 0; i < childcount; i++) {
-            Label label = (Label) getChildAt(i);
+            LLabelView LLabelView = (LLabelView) getChildAt(i);
 
-            if (label.getTag() instanceof Integer) {
-                listLabelValues.add(new LabelValues((int) label.getTag(), label.getText()));
+            if (LLabelView.getTag() instanceof Integer) {
+                listLabelValues.add(new LabelValues((int) LLabelView.getTag(), LLabelView.getText()));
             } else {
-                listLabelValues.add(new LabelValues(-1, label.getText()));
+                listLabelValues.add(new LabelValues(-1, LLabelView.getText()));
             }
         }
 
@@ -448,21 +443,21 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     public void onRestoreInstanceState(Parcelable state) {
 
         if (state instanceof Bundle) {
-            Bundle bundle = (Bundle) state;
+            final Bundle bundle = (Bundle) state;
             //load everything
-            AutoLabelUISettings autoLabelUISettings = bundle.getParcelable(KEY_INSTANCE_STATE_SETTINGS);
+            final AutoLabelUISettings autoLabelUISettings = bundle.getParcelable(KEY_INSTANCE_STATE_SETTINGS);
             if (autoLabelUISettings != null) {
                 setSettings(autoLabelUISettings);
             }
 
             resetLabelsCounter();
 
-            List<LabelValues> labelsAdded = (List<LabelValues>) bundle
+            final List<LabelValues> labelsAdded = (List<LabelValues>) bundle
                     .getSerializable(KEY_INSTANCE_STATE_LABELS);
 
             if (labelsAdded != null) {
                 for (int i = 0; i < labelsAdded.size(); i++) {
-                    LabelValues labelValues = labelsAdded.get(i);
+                    final LabelValues labelValues = labelsAdded.get(i);
 
                     if (labelValues.getKey() == -1) {
                         addLabel(labelValues.getValue());
@@ -484,12 +479,12 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     public interface OnRemoveLabelListener {
 
         /**
-         * Callback when a {@link Label} is removed.
+         * Callback when a {@link LLabelView} is removed.
          *
-         * @param removedLabel has been removed.
-         * @param position     of the item to remove.
+         * @param removedLLabelView has been removed.
+         * @param position          of the item to remove.
          */
-        void onRemoveLabel(Label removedLabel, int position);
+        void onRemoveLabel(LLabelView removedLLabelView, int position);
     }
 
     /**
@@ -517,14 +512,14 @@ public class AutoLabelUI extends AutoViewGroup implements Label.OnClickCrossList
     }
 
     /**
-     * Interface for a callback listener when the {@link Label} is clicked.
+     * Interface for a callback listener when the {@link LLabelView} is clicked.
      * Container Activity/Fragment must implement this interface.
      */
     public interface OnLabelClickListener {
 
         /**
-         * Call when the {@link Label} is clicked.
+         * Call when the {@link LLabelView} is clicked.
          */
-        void onClickLabel(Label labelClicked);
+        void onClickLabel(LLabelView LLabelViewClicked);
     }
 }

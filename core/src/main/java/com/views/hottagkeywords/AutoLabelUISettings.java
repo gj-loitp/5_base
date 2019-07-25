@@ -198,8 +198,7 @@ public class AutoLabelUISettings implements Parcelable {
         this.mLabelPadding = in.readInt();
     }
 
-    public static final Creator<AutoLabelUISettings> CREATOR
-            = new Creator<AutoLabelUISettings>() {
+    public static final Creator<AutoLabelUISettings> CREATOR = new Creator<AutoLabelUISettings>() {
         public AutoLabelUISettings createFromParcel(Parcel source) {
             return new AutoLabelUISettings(source);
         }

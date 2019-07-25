@@ -14,14 +14,12 @@ import java.util.List;
  */
 
 public class AutoViewGroup extends ViewGroup {
-
     private final List<List<View>> mLines = new ArrayList<>();
     private final List<Integer> mLineHeights = new ArrayList<>();
     private final List<Integer> mLineMargins = new ArrayList<>();
     private List<View> lineViews = new ArrayList<>();
 
-    public AutoViewGroup(Context context, AttributeSet attrs,
-                         int defStyleAttr) {
+    public AutoViewGroup(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -35,12 +33,11 @@ public class AutoViewGroup extends ViewGroup {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int sizeWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft()
-                - getPaddingRight();
-        int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
+        final int sizeWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
+        final int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
 
-        int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
-        int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
+        final int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
+        final int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
 
         int width = 0;
         int height = getPaddingTop() + getPaddingBottom();
@@ -51,23 +48,20 @@ public class AutoViewGroup extends ViewGroup {
         int childCount = getChildCount();
 
         for (int i = 0; i < childCount; i++) {
-
-            View child = getChildAt(i);
-            boolean lastChild = i == childCount - 1;
+            final View child = getChildAt(i);
+            final boolean lastChild = i == childCount - 1;
 
             if (child.getVisibility() == View.GONE) {
-
                 if (lastChild) {
                     width = Math.max(width, lineWidth);
                     height += lineHeight;
                 }
-
                 continue;
             }
 
             measureChildWithMargins(child, widthMeasureSpec, lineWidth, heightMeasureSpec, height);
 
-            LayoutParams lp = (LayoutParams) child.getLayoutParams();
+            final LayoutParams lp = (LayoutParams) child.getLayoutParams();
 
             int childWidthMode = MeasureSpec.AT_MOST;
             int childWidthSize = sizeWidth;
@@ -96,10 +90,9 @@ public class AutoViewGroup extends ViewGroup {
                     MeasureSpec.makeMeasureSpec(childHeightSize, childHeightMode)
             );
 
-            int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+            final int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
 
             if (lineWidth + childWidth > sizeWidth) {
-
                 width = Math.max(width, lineWidth);
                 lineWidth = childWidth;
 
@@ -134,12 +127,11 @@ public class AutoViewGroup extends ViewGroup {
      */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
         mLines.clear();
         mLineHeights.clear();
         mLineMargins.clear();
 
-        int width = getWidth();
+        final int width = getWidth();
 
         int lineWidth = 0;
         int lineHeight = 0;
@@ -148,17 +140,16 @@ public class AutoViewGroup extends ViewGroup {
         float horizontalGravityFactor = 0;
 
         for (int i = 0; i < getChildCount(); i++) {
-
-            View child = getChildAt(i);
+            final View child = getChildAt(i);
 
             if (child.getVisibility() == View.GONE) {
                 continue;
             }
 
-            LayoutParams lp = (LayoutParams) child.getLayoutParams();
+            final LayoutParams lp = (LayoutParams) child.getLayoutParams();
 
-            int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
-            int childHeight = child.getMeasuredHeight() + lp.bottomMargin + lp.topMargin;
+            final int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+            final int childHeight = child.getMeasuredHeight() + lp.bottomMargin + lp.topMargin;
 
             if (lineWidth + childWidth > width) {
                 mLineHeights.add(lineHeight);
@@ -188,7 +179,6 @@ public class AutoViewGroup extends ViewGroup {
         int top = getPaddingTop();
 
         for (int i = 0; i < numLines; i++) {
-
             lineHeight = mLineHeights.get(i);
             lineViews = mLines.get(i);
             left = mLineMargins.get(i);
@@ -196,14 +186,13 @@ public class AutoViewGroup extends ViewGroup {
             int children = lineViews.size();
 
             for (int j = 0; j < children; j++) {
-
-                View child = lineViews.get(j);
+                final View child = lineViews.get(j);
 
                 if (child.getVisibility() == View.GONE) {
                     continue;
                 }
 
-                LayoutParams lp = (LayoutParams) child.getLayoutParams();
+                final LayoutParams lp = (LayoutParams) child.getLayoutParams();
 
                 // if height is match_parent we need to remeasure child to line height
                 if (lp.height == LayoutParams.MATCH_PARENT) {
@@ -224,8 +213,8 @@ public class AutoViewGroup extends ViewGroup {
                     );
                 }
 
-                int childWidth = child.getMeasuredWidth();
-                int childHeight = child.getMeasuredHeight();
+                final int childWidth = child.getMeasuredWidth();
+                final int childHeight = child.getMeasuredHeight();
 
                 int gravityMargin = 0;
 
@@ -236,12 +225,10 @@ public class AutoViewGroup extends ViewGroup {
                             break;
                         case Gravity.CENTER_VERTICAL:
                         case Gravity.CENTER:
-                            gravityMargin =
-                                    (lineHeight - childHeight - lp.topMargin - lp.bottomMargin) / 2;
+                            gravityMargin = (lineHeight - childHeight - lp.topMargin - lp.bottomMargin) / 2;
                             break;
                         case Gravity.BOTTOM:
-                            gravityMargin = lineHeight - childHeight - lp.topMargin
-                                    - lp.bottomMargin;
+                            gravityMargin = lineHeight - childHeight - lp.topMargin - lp.bottomMargin;
                             break;
                     }
                 }

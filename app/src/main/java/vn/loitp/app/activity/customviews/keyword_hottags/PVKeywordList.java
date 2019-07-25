@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import com.views.hottagkeywords.AutoLabelUI;
 import com.views.hottagkeywords.AutoLabelUISettings;
-import com.views.hottagkeywords.Label;
+import com.views.hottagkeywords.LLabelView;
 import com.views.placeholderview.annotations.Layout;
 import com.views.placeholderview.annotations.NonReusable;
 import com.views.placeholderview.annotations.Resolve;
@@ -70,9 +70,9 @@ public class PVKeywordList {
         mAutoLabel.setSettings(autoLabelUISettings);
         mAutoLabel.setOnLabelClickListener(new AutoLabelUI.OnLabelClickListener() {
             @Override
-            public void onClickLabel(Label labelClicked) {
+            public void onClickLabel(LLabelView LLabelViewClicked) {
                 if (callback != null) {
-                    callback.onClick(labelClicked.getText());
+                    callback.onClick(LLabelViewClicked.getText());
                 }
             }
         });
