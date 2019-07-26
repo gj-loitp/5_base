@@ -79,6 +79,14 @@ class LAutoSuggestEditText : RelativeLayout {
         LUIUtil.setLastCursorEditText(et)
     }
 
+    fun setHintText(hinText: String) {
+        et.hint = hinText
+    }
+
+    fun setHinTextColor(color: Int) {
+        et.setHintTextColor(color)
+    }
+
     fun clearResultList() {
         resultList.clear()
     }

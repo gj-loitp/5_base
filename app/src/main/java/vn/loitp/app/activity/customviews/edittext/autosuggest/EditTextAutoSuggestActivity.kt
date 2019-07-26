@@ -18,11 +18,23 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        aet0.setHintText("1/2 screen")
+        aet0.setHinTextColor(Color.BLUE)
         aet0.setColorProgressBar(Color.RED)
         aet0.setBackgroundResource(R.drawable.bkg_et)
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
-                fakeCallAPI(text)
+                fakeCallAPI0(text)
+            }
+        }
+
+        aet1.setHintText("1/2 screen")
+        aet1.setHinTextColor(Color.RED)
+        aet1.setColorProgressBar(Color.BLUE)
+        aet1.setBackgroundResource(R.drawable.bkg_horizontal)
+        aet1.callback = object : LAutoSuggestEditText.Callback {
+            override fun onTextChanged(text: String) {
+                fakeCallAPI1(text)
             }
         }
     }
@@ -39,8 +51,8 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         return R.layout.activity_editext_auto_suggest
     }
 
-    private fun fakeCallAPI(text: String) {
-        LLog.d(TAG, "fakeCallAPI $text")
+    private fun fakeCallAPI0(text: String) {
+        LLog.d(TAG, "fakeCallAPI0 $text")
         disposableSearch?.dispose()
         if (text.isEmpty()) {
             return
@@ -62,12 +74,45 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
                 }
                 .subscribe(
                         {
-                            LLog.d(TAG, "fakeCallAPI " + LApplication.gson.toJson(it))
+                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
                             aet0.setResultList(it)
                         },
                         {
-                            LLog.e(TAG, "fakeCallAPI $it")
+                            LLog.e(TAG, "fakeCallAPI0 $it")
                             aet0.clearResultList()
+                        }
+                )
+    }
+
+    private fun fakeCallAPI1(text: String) {
+        LLog.d(TAG, "fakeCallAPI0 $text")
+        disposableSearch?.dispose()
+        if (text.isEmpty()) {
+            return
+        }
+        disposableSearch = Single.create<ArrayList<String>> {
+            try {
+                Thread.sleep(2000)
+            } catch (e: InterruptedException) {
+            }
+            val stringList = ArrayList<String>()
+            for (i in 0..50) {
+                stringList.add("Result $text $i")
+            }
+            it.onSuccess(stringList)
+        }.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnDispose {
+                    LLog.d(TAG, "doOnDispose")
+                }
+                .subscribe(
+                        {
+                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
+                            aet1.setResultList(it)
+                        },
+                        {
+                            LLog.e(TAG, "fakeCallAPI0 $it")
+                            aet1.clearResultList()
                         }
                 )
     }

@@ -18,6 +18,12 @@
                 android:id="@+id/aet0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <com.views.edittext.autosuggesttextview.LAutoSuggestEditText
+                android:id="@+id/aet1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp" />
         </LinearLayout>
     </ScrollView>
 
