@@ -5,10 +5,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
 
 class LAutoSuggestEditText : RelativeLayout {
@@ -17,7 +20,14 @@ class LAutoSuggestEditText : RelativeLayout {
     lateinit var et: EditText
     lateinit var pb: ProgressBar
 
+    private var resultList = ArrayList<String>()
+    val popup = SuggestPopupView(context)
+
     var callback: Callback? = null
+
+    interface Callback {
+        fun onTextChanged(text: String)
+    }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
@@ -61,7 +71,26 @@ class LAutoSuggestEditText : RelativeLayout {
         LUIUtil.setLastCursorEditText(et)
     }
 
-    interface Callback {
-        fun onTextChanged(text: String)
+    fun clearResultList() {
+        resultList.clear()
+    }
+
+    fun setResultList(resultList: ArrayList<String>) {
+        resultList.clear()
+        resultList.addAll(resultList)
+        showSuggestPopup()
+    }
+
+    fun showSuggestPopup() {
+        LLog.d(TAG, "showSuggestPopup size: " + resultList.size)
+        /*popup.width = ViewGroup.LayoutParams.MATCH_PARENT
+        popup.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
+
+        popup.width = this.width
+        popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
+
+        val vertPos = RelativePopupWindow.VerticalPosition.BELOW
+        val horizPos = RelativePopupWindow.HorizontalPosition.CENTER
+        popup.showOnAnchor(this, vertPos, horizPos, true)
     }
 }

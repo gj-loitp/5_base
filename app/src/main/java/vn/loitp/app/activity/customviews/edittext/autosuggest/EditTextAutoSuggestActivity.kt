@@ -62,9 +62,11 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
                 .subscribe(
                         {
                             LLog.d(TAG, "fakeCallAPI " + LApplication.gson.toJson(it))
+                            aet0.setResultList(it)
                         },
                         {
                             LLog.e(TAG, "fakeCallAPI $it")
+                            aet0.clearResultList()
                         }
                 )
     }
