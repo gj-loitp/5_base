@@ -5,10 +5,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
@@ -87,21 +87,24 @@ class LAutoSuggestEditText : RelativeLayout {
 
     fun showSuggestPopup() {
         hideProgress()
-        popup = SuggestPopupView(context, object : SuggestPopupView.Callback {
-            override fun onClick(s: String) {
-                et.setText(s)
+        if (popup == null) {
+            popup = SuggestPopupView(context, object : SuggestPopupView.Callback {
+                override fun onClick(s: String) {
+                    et.setText(s)
+                    LUIUtil.setLastCursorEditText(et)
+                }
+            })
+            popup?.let {
+                /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
+                it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
+                it.width = this.width
+                it.height = LScreenUtil.screenHeight / 2
+                vertPos = RelativePopupWindow.VerticalPosition.BELOW
+                horizPos = RelativePopupWindow.HorizontalPosition.CENTER
             }
-        })
+        }
         popup?.let {
-            /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
-            it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
-            it.width = this.width
-            it.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            vertPos = RelativePopupWindow.VerticalPosition.BELOW
-            horizPos = RelativePopupWindow.HorizontalPosition.CENTER
-
             it.setStringList(this.resultList)
-
             //LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
             it.showOnAnchor(this, vertPos, horizPos, true)
         }

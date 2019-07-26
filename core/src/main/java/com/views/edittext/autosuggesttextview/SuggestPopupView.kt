@@ -12,8 +12,10 @@ import android.view.ViewAnimationUtils
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import com.utils.util.ConvertUtils
 import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
 import kotlin.math.hypot
@@ -38,6 +40,8 @@ class SuggestPopupView(val context: Context, val callback: Callback?) : Relative
         }
 
         ll = layout.findViewById(R.id.ll)
+        val sv = layout.findViewById<ScrollView>(R.id.sv)
+        LUIUtil.setPullLikeIOSVertical(sv)
     }
 
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
@@ -69,17 +73,23 @@ class SuggestPopupView(val context: Context, val callback: Callback?) : Relative
     }
 
     fun setStringList(stringList: ArrayList<String>) {
+        val padding = ConvertUtils.dp2px(10f)
+        ll.removeAllViews()
         for (s in stringList) {
-            val tv = Button(context)
-            tv.setBackgroundColor(Color.TRANSPARENT)
-            tv.text = s
-            tv.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 16)
-            tv.setOnClickListener {
+            val button = Button(context)
+            button.setPadding(padding, padding, padding, padding)
+            button.isAllCaps = false
+            button.setSingleLine(true)
+            //button.setBackgroundColor(Color.TRANSPARENT)
+            button.text = s
+            button.setTextColor(Color.BLACK)
+            LUIUtil.setTextSize(button, TypedValue.COMPLEX_UNIT_DIP, 14)
+            LUIUtil.setRipple(context, button)
+            button.setOnClickListener {
                 LLog.d(TAG, "onClick $s")
                 callback?.onClick(s)
             }
-            ll.addView(tv)
+            ll.addView(button)
         }
     }
 

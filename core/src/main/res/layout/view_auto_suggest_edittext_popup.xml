@@ -7,22 +7,28 @@
     app:cardElevation="@dimen/w_3"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:id="@+id/ll"
+    <ScrollView
+        android:id="@+id/sv"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/padding_10">
+        android:layout_height="wrap_content">
 
-        <!--<TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/Black"
-            android:textSize="@dimen/txt_18" />-->
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_18" />-->
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.cardview.widget.CardView>
