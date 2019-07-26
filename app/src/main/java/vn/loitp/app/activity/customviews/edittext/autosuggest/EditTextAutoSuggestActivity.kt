@@ -22,9 +22,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet0.setBackgroundResource(R.drawable.bkg_et)
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
-                if (text.isNotEmpty()) {
-                    fakeCallAPI(text)
-                }
+                fakeCallAPI(text)
             }
         }
     }
@@ -44,6 +42,9 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     private fun fakeCallAPI(text: String) {
         LLog.d(TAG, "fakeCallAPI $text")
         disposableSearch?.dispose()
+        if (text.isEmpty()) {
+            return
+        }
         disposableSearch = Single.create<ArrayList<String>> {
             try {
                 Thread.sleep(2000)

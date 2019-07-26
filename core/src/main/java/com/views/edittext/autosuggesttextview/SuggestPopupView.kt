@@ -6,10 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewAnimationUtils
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -79,6 +76,7 @@ class SuggestPopupView(val context: Context, val callback: Callback?) : Relative
             val button = Button(context)
             button.setPadding(padding, padding, padding, padding)
             button.isAllCaps = false
+            button.gravity = Gravity.START
             button.setSingleLine(true)
             //button.setBackgroundColor(Color.TRANSPARENT)
             button.text = s

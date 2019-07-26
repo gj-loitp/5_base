@@ -49,8 +49,12 @@ class LAutoSuggestEditText : RelativeLayout {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                showProgress()
-                hideSuggestPopup()
+                if (p0.toString().isEmpty()) {
+                    //hideSuggestPopup()
+                    hideProgress()
+                } else {
+                    showProgress()
+                }
                 callback?.onTextChanged(p0.toString())
             }
 
@@ -90,6 +94,7 @@ class LAutoSuggestEditText : RelativeLayout {
         if (popup == null) {
             popup = SuggestPopupView(context, object : SuggestPopupView.Callback {
                 override fun onClick(s: String) {
+                    hideSuggestPopup()
                     et.setText(s)
                     LUIUtil.setLastCursorEditText(et)
                 }
@@ -106,14 +111,17 @@ class LAutoSuggestEditText : RelativeLayout {
         popup?.let {
             it.setStringList(this.resultList)
             //LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
-            it.showOnAnchor(this, vertPos, horizPos, true)
+            if (!it.isShowing) {
+                //LLog.d(TAG, "showSuggestPopup")
+                it.showOnAnchor(this, vertPos, horizPos, true)
+            }
         }
     }
 
     fun hideSuggestPopup() {
-        //LLog.d(TAG, "hideSuggestPopup")
         popup?.let {
             if (it.isShowing) {
+                //LLog.d(TAG, "hideSuggestPopup")
                 it.dismiss()
             }
         }
