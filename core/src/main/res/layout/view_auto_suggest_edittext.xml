@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
+        android:inputType="text"
         android:paddingEnd="@dimen/padding_30"
         android:textCursorDrawable="@null" />
 

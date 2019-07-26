@@ -2,8 +2,10 @@ package vn.loitp.app.activity.customviews.edittext.autosuggest
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.views.LToast
 import com.views.edittext.autosuggesttextview.LAutoSuggestEditText
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,6 +24,9 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet0.setHinTextColor(Color.BLUE)
         aet0.setColorProgressBar(Color.RED)
         aet0.setBackgroundResource(R.drawable.bkg_et)
+        aet0.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
+            LToast.show(activity, "Text ${aet0.et.text}")
+        })
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
                 fakeCallAPI0(text)
@@ -29,9 +34,12 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         }
 
         aet1.setHintText("1/2 screen")
-        aet1.setHinTextColor(Color.RED)
+        aet1.setHinTextColor(Color.WHITE)
         aet1.setColorProgressBar(Color.BLUE)
         aet1.setBackgroundResource(R.drawable.bkg_horizontal)
+        aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
+            LToast.show(activity, "Text ${aet1.et.text}")
+        })
         aet1.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
                 fakeCallAPI1(text)

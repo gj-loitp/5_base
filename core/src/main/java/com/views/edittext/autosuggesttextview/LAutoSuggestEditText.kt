@@ -91,6 +91,10 @@ class LAutoSuggestEditText : RelativeLayout {
         resultList.clear()
     }
 
+    fun setImeiAction(imeOptions: Int, runnable: Runnable?) {
+        LUIUtil.setImeiActionEditText(et, imeOptions, runnable)
+    }
+
     fun setResultList(resultList: ArrayList<String>) {
         this.resultList.clear()
         this.resultList.addAll(resultList)

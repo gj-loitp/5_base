@@ -534,6 +534,20 @@ object LUIUtil {
         return ContextCompat.getColor(context, colors[c])
     }
 
+    //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
+    fun setImeiActionEditText(editText: EditText?, imeOptions: Int, runnable: Runnable?) {
+        editText?.let {
+            it.imeOptions = imeOptions
+            it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                if (actionId == imeOptions) {
+                    runnable?.run()
+                    return@OnEditorActionListener true
+                }
+                false
+            })
+        }
+    }
+
     fun setImeiActionSearch(editText: EditText?, actionSearch: Runnable?) {
         editText?.let {
             it.imeOptions = EditorInfo.IME_ACTION_SEARCH
