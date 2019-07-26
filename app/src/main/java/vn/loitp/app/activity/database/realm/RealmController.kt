@@ -10,15 +10,12 @@ import java.util.*
 class RealmController(application: Application) {
     val realm: Realm = Realm.getDefaultInstance()
 
-    val books: RealmResults<MyBook>
+    val myBookList: RealmResults<MyBook>
         get() = realm.where(MyBook::class.java).findAll()
-
-    val myBookList: List<MyBook>
-        get() = ArrayList(books)
 
     val myBookListSortByID: List<MyBook>
         get() {
-            val myBookList = ArrayList(books)
+            val myBookList = ArrayList(myBookList)
             sort(myBookList)
             return myBookList
         }
@@ -35,13 +32,13 @@ class RealmController(application: Application) {
     }
 
     fun getMyBook(id: Long): MyBook {
-        return realm.where(MyBook::class.java).equalTo("id", id).findFirst()
+        return realm.where(MyBook::class.java).equalTo(FIELD_ID, id).findFirst()
     }
 
     fun getBooks(myBook: MyBook): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
                 .equalTo("title", myBook.title)
-                .equalTo("id", myBook.id)
+                .equalTo(FIELD_ID, myBook.id)
                 .findAll()
     }
 
@@ -71,6 +68,7 @@ class RealmController(application: Application) {
     }
 
     companion object {
+        const val FIELD_ID = "id"
         private var ins: RealmController? = null
 
         fun getInstance(): RealmController {

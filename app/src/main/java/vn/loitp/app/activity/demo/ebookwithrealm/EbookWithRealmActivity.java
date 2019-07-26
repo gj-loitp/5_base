@@ -182,9 +182,9 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                         booksAdapter.notifyDataSetChanged();
                         recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
 
-                        /*booksAdapter.notifyItemInserted(RealmController.getInstance().getBooks().size() - 1);
-                        booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getBooks().size() - 1, RealmController.getInstance().getBooks().size());
-                        recyclerView.scrollToPosition(RealmController.getInstance().getBooks().size() - 1);*/
+                        /*booksAdapter.notifyItemInserted(RealmController.getInstance().getMyBookList().size() - 1);
+                        booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getMyBookList().size() - 1, RealmController.getInstance().getMyBookList().size());
+                        recyclerView.scrollToPosition(RealmController.getInstance().getMyBookList().size() - 1);*/
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
@@ -247,7 +247,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         showShort("Removed book: " + title);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            showShort("getBooks().isEmpty()");
+            showShort("getMyBookList().isEmpty()");
         }
     }
 }

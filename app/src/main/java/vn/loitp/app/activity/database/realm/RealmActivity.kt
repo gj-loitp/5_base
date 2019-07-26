@@ -6,13 +6,12 @@ import android.view.View
 import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
+import com.views.LToast
 import com.views.OnSingleClickListener
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
-import vn.loitp.app.app.LApplication
 
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
@@ -24,7 +23,7 @@ class RealmActivity : BaseFontActivity() {
         // refresh the realm instance
         RealmController.with(application).refresh()
 
-        getAll()
+        getAllMyBook()
 
         btRealm.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
@@ -42,13 +41,12 @@ class RealmActivity : BaseFontActivity() {
             override fun onSingleClick(v: View) {
                 clearUI()
                 RealmController.getInstance().clearAllMyBook()
-                getAll()
+                getAllMyBook()
             }
         })
         btSearch.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
                 //TODO
-
             }
         })
     }
@@ -66,11 +64,10 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun addMyBook() {
-        LLog.d(TAG, "add " + RealmController.getInstance().books.size)
         mRealm.beginTransaction()
 
         val myBook = MyBook()
-        myBook.id = RealmController.getInstance().books.size + System.currentTimeMillis()
+        myBook.id = System.currentTimeMillis()
         myBook.title = "Title ${System.currentTimeMillis()}"
         myBook.author = "Author ${System.currentTimeMillis()}"
 
@@ -78,10 +75,7 @@ class RealmActivity : BaseFontActivity() {
         mRealm.commitTransaction()
 
         addViewMyBook(myBook)
-    }
-
-    private fun logMyBook(myBook: MyBook) {
-        LLog.d(TAG, "> " + LApplication.gson.toJson(myBook))
+        printTotalSize()
     }
 
     private fun addViewMyBook(myBook: MyBook) {
@@ -112,13 +106,13 @@ class RealmActivity : BaseFontActivity() {
         }
     }
 
-    private fun getAll() {
+    private fun getAllMyBook() {
         val myBookList = RealmController.getInstance().myBookListSortByID
         printUI(myBookList)
+        printTotalSize()
     }
 
     private fun removeMyBook(myBook: MyBook, button: Button) {
-        LLog.d(TAG, "removeMyBook " + LApplication.gson.toJson(myBook))
         mRealm.beginTransaction()
         val mb = RealmController.getInstance().getBooks(myBook)
         if (!mb.isEmpty()) {
@@ -128,15 +122,19 @@ class RealmActivity : BaseFontActivity() {
         }
         mRealm.commitTransaction()
         ll.removeView(button)
+        printTotalSize()
     }
 
     private fun updateMyBook(myBook: MyBook, button: Button) {
-        LLog.d(TAG, "updateMyBook " + LApplication.gson.toJson(myBook))
         mRealm.beginTransaction()
         val mb = RealmController.getInstance().getMyBook(myBook.id)
         mb.title = "Title ${System.currentTimeMillis()}"
         mb.author = "Author ${System.currentTimeMillis()}"
         mRealm.commitTransaction()
         button.text = "${mb.title} - ${mb.author}"
+    }
+
+    private fun printTotalSize() {
+        LToast.showShort(activity, "Total size: " + RealmController.getInstance().myBookList.size)
     }
 }
