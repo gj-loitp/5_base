@@ -21,7 +21,10 @@ class LAutoSuggestEditText : RelativeLayout {
     lateinit var pb: ProgressBar
 
     private var resultList = ArrayList<String>()
-    val popup = SuggestPopupView(context)
+    private var popup: SuggestPopupView? = null
+
+    private var vertPos: Int = 0
+    private var horizPos: Int = 0
 
     var callback: Callback? = null
 
@@ -47,6 +50,7 @@ class LAutoSuggestEditText : RelativeLayout {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                hideSuggestPopup()
                 callback?.onTextChanged(p0.toString())
             }
 
@@ -76,21 +80,32 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun setResultList(resultList: ArrayList<String>) {
-        resultList.clear()
-        resultList.addAll(resultList)
+        this.resultList.clear()
+        this.resultList.addAll(resultList)
         showSuggestPopup()
     }
 
     fun showSuggestPopup() {
-        LLog.d(TAG, "showSuggestPopup size: " + resultList.size)
-        /*popup.width = ViewGroup.LayoutParams.MATCH_PARENT
-        popup.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
+        popup = SuggestPopupView(context)
+        popup?.let {
+            /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
+            it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
+            it.width = this.width
+            it.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            vertPos = RelativePopupWindow.VerticalPosition.BELOW
+            horizPos = RelativePopupWindow.HorizontalPosition.CENTER
 
-        popup.width = this.width
-        popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
+            it.showOnAnchor(this, vertPos, horizPos, true)
+        }
+    }
 
-        val vertPos = RelativePopupWindow.VerticalPosition.BELOW
-        val horizPos = RelativePopupWindow.HorizontalPosition.CENTER
-        popup.showOnAnchor(this, vertPos, horizPos, true)
+    fun hideSuggestPopup() {
+        LLog.d(TAG, "hideSuggestPopup")
+        popup?.let {
+            if (it.isShowing) {
+                it.dismiss()
+            }
+        }
     }
 }
