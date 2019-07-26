@@ -5,16 +5,23 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
 import kotlin.math.hypot
 import kotlin.math.max
 
-class SuggestPopupView(context: Context) : RelativePopupWindow() {
+class SuggestPopupView(val context: Context, val callback: Callback?) : RelativePopupWindow() {
+    private val TAG = javaClass.simpleName;
+    private lateinit var ll: LinearLayout
 
     init {
         val layout = LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
@@ -29,7 +36,8 @@ class SuggestPopupView(context: Context) : RelativePopupWindow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             animationStyle = 0
         }
-        //layout.findViewById<View>(R.id.ll).setOnClickListener { LToast.show(context, "On Click") }
+
+        ll = layout.findViewById(R.id.ll)
     }
 
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
@@ -60,4 +68,22 @@ class SuggestPopupView(context: Context) : RelativePopupWindow() {
         }
     }
 
+    fun setStringList(stringList: ArrayList<String>) {
+        for (s in stringList) {
+            val tv = Button(context)
+            tv.setBackgroundColor(Color.TRANSPARENT)
+            tv.text = s
+            tv.setTextColor(Color.BLACK)
+            LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 16)
+            tv.setOnClickListener {
+                LLog.d(TAG, "onClick $s")
+                callback?.onClick(s)
+            }
+            ll.addView(tv)
+        }
+    }
+
+    interface Callback {
+        fun onClick(s: String)
+    }
 }

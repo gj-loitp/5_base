@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
@@ -50,6 +49,7 @@ class LAutoSuggestEditText : RelativeLayout {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                showProgress()
                 hideSuggestPopup()
                 callback?.onTextChanged(p0.toString())
             }
@@ -86,7 +86,12 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun showSuggestPopup() {
-        popup = SuggestPopupView(context)
+        hideProgress()
+        popup = SuggestPopupView(context, object : SuggestPopupView.Callback {
+            override fun onClick(s: String) {
+                et.setText(s)
+            }
+        })
         popup?.let {
             /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
             it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
@@ -95,13 +100,15 @@ class LAutoSuggestEditText : RelativeLayout {
             vertPos = RelativePopupWindow.VerticalPosition.BELOW
             horizPos = RelativePopupWindow.HorizontalPosition.CENTER
 
-            LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
+            it.setStringList(this.resultList)
+
+            //LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
             it.showOnAnchor(this, vertPos, horizPos, true)
         }
     }
 
     fun hideSuggestPopup() {
-        LLog.d(TAG, "hideSuggestPopup")
+        //LLog.d(TAG, "hideSuggestPopup")
         popup?.let {
             if (it.isShowing) {
                 it.dismiss()
