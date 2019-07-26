@@ -29,10 +29,10 @@
             android:text="@string/add_dummy_mybook" />
 
         <Button
-            android:id="@+id/btSearch"
+            android:id="@+id/btSearchById"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/search_book" />
+            android:text="@string/search_book_by_id" />
     </LinearLayout>
 
     <ScrollView

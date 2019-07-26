@@ -150,7 +150,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private fun showInputDialog() {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Title")
-        
+
         val input = EditText(activity)
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)

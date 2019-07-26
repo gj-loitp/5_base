@@ -1,11 +1,14 @@
 package vn.loitp.app.activity.database.realm
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LLog
 import com.views.LToast
 import com.views.OnSingleClickListener
 import io.realm.Realm
@@ -44,9 +47,9 @@ class RealmActivity : BaseFontActivity() {
                 getAllMyBook()
             }
         })
-        btSearch.setOnClickListener(object : OnSingleClickListener() {
+        btSearchById.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
-                //TODO
+                searchById()
             }
         })
     }
@@ -136,5 +139,39 @@ class RealmActivity : BaseFontActivity() {
 
     private fun printTotalSize() {
         LToast.showShort(activity, "Total size: " + RealmController.getInstance().myBookList.size)
+    }
+
+    private fun showInputDialog(ipb: InputCallback) {
+        val builder = AlertDialog.Builder(activity)
+        builder.setTitle("Title")
+
+        val input = EditText(activity)
+        //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("OK") { dialog, which ->
+            val text = input.text.toString()
+            ipb.onText(text)
+            dialog.cancel()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun searchById() {
+        showInputDialog(object : InputCallback {
+            override fun onText(text: String?) {
+                text?.let {
+                    LLog.d(TAG, "searchById $it")
+                    try {
+                        val id: Long = it.toLong()
+                        val mb = RealmController.getInstance().getMyBook(id)
+                        LToast.showLong(activity, "searchById -> ${mb.title}")
+                    } catch (e: Exception) {
+                        LToast.showShort(activity, "searchById $e")
+                    }
+                }
+            }
+        })
     }
 }
