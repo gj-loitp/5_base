@@ -508,4 +508,5 @@ Likewise may someone love you next.
     <string name="clear_all">Clear all</string>
     <string name="add_dummy_mybook">Add Dummy MyBook</string>
     <string name="search_book">Search book</string>
+    <string name="input_dialog">Input dialog</string>
 </resources>
