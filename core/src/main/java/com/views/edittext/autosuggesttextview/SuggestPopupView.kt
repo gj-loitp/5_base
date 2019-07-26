@@ -21,6 +21,7 @@ import kotlin.math.max
 class SuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : RelativePopupWindow() {
     private val TAG = javaClass.simpleName;
     private var ll: LinearLayout
+    private var sv: ScrollView
 
     init {
         val layout = LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
@@ -37,8 +38,10 @@ class SuggestPopupView(val context: Context, val withEffect: Boolean, val callba
         }
 
         ll = layout.findViewById(R.id.ll)
-        val sv = layout.findViewById<ScrollView>(R.id.sv)
-        LUIUtil.setPullLikeIOSVertical(sv)
+        sv = layout.findViewById(R.id.sv)
+        if (withEffect) {
+            LUIUtil.setPullLikeIOSVertical(sv)
+        }
     }
 
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
@@ -89,6 +92,7 @@ class SuggestPopupView(val context: Context, val withEffect: Boolean, val callba
             }
             ll.addView(button)
         }
+        sv.scrollTo(0, 0)
     }
 
     interface Callback {
