@@ -20,7 +20,6 @@ class RealmController(application: Application) {
             return myBookList
         }
 
-    //Refresh the realm istance
     fun refresh() {
         realm.refresh()
     }
@@ -35,9 +34,9 @@ class RealmController(application: Application) {
         return realm.where(MyBook::class.java).equalTo(FIELD_ID, id).findFirst()
     }
 
-    fun getBooks(myBook: MyBook): RealmResults<MyBook> {
+    fun getMyBook(myBook: MyBook): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
-                .equalTo("title", myBook.title)
+                .equalTo(FIELD_TITLE, myBook.title)
                 .equalTo(FIELD_ID, myBook.id)
                 .findAll()
     }
@@ -54,21 +53,22 @@ class RealmController(application: Application) {
         }
     }
 
-    fun hasMyBooks(): Boolean {
+    fun hasMyBook(): Boolean {
         return !realm.allObjects(MyBook::class.java).isEmpty()
     }
 
-    //query example
-    fun queryedMyBooks(): RealmResults<MyBook> {
+    fun hasMyBooks(): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
-                .contains("author", "Author 0")
+                .contains(FIELD_AUTHOR, "Author 0")
                 .or()
-                .contains("title", "Realm")
+                .contains(FIELD_TITLE, "Realm")
                 .findAll()
     }
 
     companion object {
         const val FIELD_ID = "id"
+        const val FIELD_TITLE = "title"
+        const val FIELD_AUTHOR = "author"
         private var ins: RealmController? = null
 
         fun getInstance(): RealmController {

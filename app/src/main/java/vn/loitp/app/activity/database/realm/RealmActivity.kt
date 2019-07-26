@@ -114,7 +114,7 @@ class RealmActivity : BaseFontActivity() {
 
     private fun removeMyBook(myBook: MyBook, button: Button) {
         mRealm.beginTransaction()
-        val mb = RealmController.getInstance().getBooks(myBook)
+        val mb = RealmController.getInstance().getMyBook(myBook)
         if (!mb.isEmpty()) {
             for (i in mb.indices.reversed()) {
                 mb[i].removeFromRealm()
