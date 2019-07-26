@@ -92,7 +92,7 @@ class LAutoSuggestEditText : RelativeLayout {
     fun showSuggestPopup() {
         hideProgress()
         if (popup == null) {
-            popup = SuggestPopupView(context, object : SuggestPopupView.Callback {
+            popup = SuggestPopupView(context, false, object : SuggestPopupView.Callback {
                 override fun onClick(s: String) {
                     hideSuggestPopup()
                     et.setText(s)

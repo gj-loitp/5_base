@@ -18,9 +18,9 @@ import loitp.core.R
 import kotlin.math.hypot
 import kotlin.math.max
 
-class SuggestPopupView(val context: Context, val callback: Callback?) : RelativePopupWindow() {
+class SuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : RelativePopupWindow() {
     private val TAG = javaClass.simpleName;
-    private lateinit var ll: LinearLayout
+    private var ll: LinearLayout
 
     init {
         val layout = LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
@@ -43,7 +43,7 @@ class SuggestPopupView(val context: Context, val callback: Callback?) : Relative
 
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
         super.showOnAnchor(anchor, vertPos, horizPos, x, y, fitInScreen)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (withEffect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             circularReveal(anchor)
         }
     }
