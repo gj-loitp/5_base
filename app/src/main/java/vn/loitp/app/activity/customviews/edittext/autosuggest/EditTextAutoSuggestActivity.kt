@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.core.utilities.LScreenUtil
 import com.views.LToast
 import com.views.edittext.autosuggesttextview.LAutoSuggestEditText
+import com.views.layout.relativepopupwindow.RelativePopupWindow
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -20,6 +22,9 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        aet0.popupHeight = LScreenUtil.screenHeight / 2
+        aet0.vertPos = RelativePopupWindow.VerticalPosition.BELOW
+        aet0.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
         aet0.setHintText("1/2 screen")
         aet0.setHinTextColor(Color.BLUE)
         aet0.setColorProgressBar(Color.RED)
@@ -33,7 +38,11 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             }
         }
 
-        aet1.setHintText("1/2 screen")
+        aet1.popupWidth = LScreenUtil.screenWidth * 1 / 2
+        aet1.popupHeight = LScreenUtil.screenHeight * 1 / 4
+        aet1.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
+        aet1.horizPos = RelativePopupWindow.HorizontalPosition.RIGHT
+        aet1.setHintText("3/4 screen")
         aet1.setHinTextColor(Color.WHITE)
         aet1.setColorProgressBar(Color.BLUE)
         aet1.setBackgroundResource(R.drawable.bkg_horizontal)

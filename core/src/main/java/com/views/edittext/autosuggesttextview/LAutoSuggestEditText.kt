@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
-import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.views.layout.relativepopupwindow.RelativePopupWindow
 import loitp.core.R
@@ -22,8 +21,10 @@ class LAutoSuggestEditText : RelativeLayout {
     private var resultList = ArrayList<String>()
     private var popup: SuggestPopupView? = null
 
-    private var vertPos: Int = 0
-    private var horizPos: Int = 0
+    var vertPos: Int = RelativePopupWindow.VerticalPosition.BELOW
+    var horizPos: Int = RelativePopupWindow.HorizontalPosition.CENTER
+    var popupWidth: Int = 0
+    var popupHeight: Int = 0
 
     var callback: Callback? = null
 
@@ -114,10 +115,8 @@ class LAutoSuggestEditText : RelativeLayout {
             popup?.let {
                 /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
                 it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
-                it.width = this.width
-                it.height = LScreenUtil.screenHeight / 2
-                vertPos = RelativePopupWindow.VerticalPosition.BELOW
-                horizPos = RelativePopupWindow.HorizontalPosition.CENTER
+                it.width = if (popupWidth == 0) this.width else popupWidth
+                it.height = popupHeight
             }
         }
         popup?.let {
