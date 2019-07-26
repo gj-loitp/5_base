@@ -509,4 +509,5 @@ Likewise may someone love you next.
     <string name="add_dummy_mybook">Add Dummy MyBook</string>
     <string name="search_book_by_id">Search book By Id</string>
     <string name="input_dialog">Input dialog</string>
+    <string name="autosuggestedittext">AutoSuggestEditText</string>
 </resources>

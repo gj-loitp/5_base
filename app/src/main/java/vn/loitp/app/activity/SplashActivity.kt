@@ -94,7 +94,7 @@ class SplashActivity : BaseFontActivity() {
             val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to allow modifying system settings", "Okay", "Exit", object : LDialogUtil.Callback2 {
                 override fun onClick1() {
                     isShowDialogCheck = false
-                    val intent = Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
                     intent.data = Uri.parse("package:" + activity.packageName)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     activity.startActivity(intent)
@@ -124,7 +124,7 @@ class SplashActivity : BaseFontActivity() {
 
     private fun showDialogNotReady() {
         runOnUiThread {
-            var title = if (LConnectivityUtil.isConnected(activity)) {
+            val title = if (LConnectivityUtil.isConnected(activity)) {
                 "This app is not available now"
             } else {
                 getString(R.string.check_ur_connection)
@@ -181,7 +181,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String {
-        return "TAG" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

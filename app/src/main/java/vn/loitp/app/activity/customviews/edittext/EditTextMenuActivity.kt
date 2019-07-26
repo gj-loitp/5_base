@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_edittext.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity
+import vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSuggestActivity
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity
 
@@ -19,6 +21,7 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_auto_resize_edit_text).setOnClickListener(this)
         findViewById<View>(R.id.bt_material_text_field).setOnClickListener(this)
         findViewById<View>(R.id.bt_biu_edit_text).setOnClickListener(this)
+        btAutoSuggestEditText.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -40,8 +43,9 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_auto_resize_edit_text -> intent = Intent(activity, AutoResizeEditTextActivity::class.java)
             R.id.bt_material_text_field -> intent = Intent(activity, MaterialTextFieldActivity::class.java)
             R.id.bt_biu_edit_text -> intent = Intent(activity, BiuEditTextActivity::class.java)
+            R.id.btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
         }
-        if (intent != null) {
+        intent?.let {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
