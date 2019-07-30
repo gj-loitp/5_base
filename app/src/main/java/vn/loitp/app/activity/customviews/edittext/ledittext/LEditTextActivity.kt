@@ -23,8 +23,12 @@ class LEditTextActivity : BaseFontActivity() {
         lEditText.ivLeft.setImageResource(R.mipmap.ic_launcher)
         lEditText.showMessage("Message!!!")
         lEditText.callback = object : LEditText.Callback {
+            override fun onTextChanged(s: String) {
+                LLog.d(TAG, "onTextChanged s: $s")
+            }
+
             override fun setOnFocusChangeListener(isFocus: Boolean) {
-                LLog.d(TAG, "setOnFocusChangeListener isFocus $isFocus")
+                LLog.d(TAG, "setOnFocusChangeListener isFocus: $isFocus")
             }
 
         }
