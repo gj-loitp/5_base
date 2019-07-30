@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
@@ -33,15 +34,16 @@ class LActionbarActivity : BaseFontActivity() {
         tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
 
         lActionBar.setOnClickBack(object : LActionBar.Callback {
-            override fun onClickBack() {
+            override fun onClickBack(view: View) {
                 onBackPressed()
             }
 
-            override fun onClickMenu() {
+            override fun onClickMenu(view: View) {
                 LToast.show(activity, "onClickMenu")
             }
         })
         lActionBar.showMenuIcon()
+        lActionBar.showShadowView()
         lActionBar.setImageMenuIcon(R.mipmap.ic_launcher)
         lActionBar.setTvTitle("Demo LActionbarActivity")
     }
