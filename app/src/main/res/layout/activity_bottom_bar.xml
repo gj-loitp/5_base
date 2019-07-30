@@ -6,13 +6,14 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -24,13 +25,13 @@
                     android:id="@+id/bt_blur_view_red"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Blur view red" />
+                    android:text="@string/blur_view_red" />
 
                 <Button
                     android:id="@+id/bt_blur_view_green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Blur view green" />
+                    android:text="@string/blur_view_green" />
             </LinearLayout>
 
             <LinearLayout

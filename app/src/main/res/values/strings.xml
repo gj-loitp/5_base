@@ -510,4 +510,6 @@ Likewise may someone love you next.
     <string name="search_book_by_id">Search book By Id</string>
     <string name="input_dialog">Input dialog</string>
     <string name="autosuggestedittext">AutoSuggestEditText</string>
+    <string name="blur_view_red">Blur view red</string>
+    <string name="blur_view_green">Blur view green</string>
 </resources>
