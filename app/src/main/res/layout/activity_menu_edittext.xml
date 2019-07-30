@@ -44,6 +44,12 @@
                 android:text="@string/autosuggestedittext" />
 
             <Button
+                android:id="@+id/btLEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ledittext" />
+
+            <Button
                 android:id="@+id/bt_material_text_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

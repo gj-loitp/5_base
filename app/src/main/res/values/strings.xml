@@ -512,4 +512,5 @@ Likewise may someone love you next.
     <string name="autosuggestedittext">AutoSuggestEditText</string>
     <string name="blur_view_red">Blur view red</string>
     <string name="blur_view_green">Blur view green</string>
+    <string name="ledittext">LEditText</string>
 </resources>
