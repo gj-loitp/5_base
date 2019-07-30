@@ -119,4 +119,10 @@
     <dimen name="default_velocity_fast">200dp</dimen>
     <dimen name="default_explosion_radius">100dp</dimen>
     <dimen name="top_toolbar">42dp</dimen>
+    <dimen name="pdlg_icon_size">33.6dp</dimen>
+    <dimen name="pdlg_border_size">2.8dp</dimen>
+    <dimen name="pdlg_corner_radius">5.6dp</dimen>
+    <dimen name="pdlg_tv_title">12.6sp</dimen>
+    <dimen name="pdlg_tv_message">11.2sp</dimen>
+    <dimen name="pdlg_space">8.4dp</dimen>
 </resources>

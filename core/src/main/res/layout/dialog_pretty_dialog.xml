@@ -2,8 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/pdlg_space_1.0x"
-    android:layout_marginBottom="@dimen/pdlg_space_1.0x">
+    android:layout_marginTop="@dimen/pdlg_space"
+    android:layout_marginBottom="@dimen/pdlg_space">
 
     <LinearLayout
         android:id="@+id/ll_content"
@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingLeft="@dimen/pdlg_space_1.0x"
-            android:paddingTop="@dimen/pdlg_space_1.0x"
-            android:paddingRight="@dimen/pdlg_space_1.0x"
+            android:paddingLeft="@dimen/pdlg_space"
+            android:paddingTop="@dimen/pdlg_space"
+            android:paddingRight="@dimen/pdlg_space"
             android:textColor="@color/pdlg_color_black"
             android:textSize="@dimen/pdlg_tv_title"
             android:textStyle="bold" />
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/pdlg_space_1.0x"
+            android:padding="@dimen/pdlg_space"
             android:textColor="@color/pdlg_color_black"
             android:textSize="@dimen/pdlg_tv_message" />
 

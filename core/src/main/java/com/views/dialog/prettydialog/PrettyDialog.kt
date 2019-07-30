@@ -70,7 +70,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         llContent?.let {
             it.layoutParams = lp
             it.setPadding(0, (1.25 * resources.getDimensionPixelSize(R.dimen.pdlg_icon_size) / 2).toInt(),
-                    0, resources.getDimensionPixelSize(R.dimen.pdlg_space_1_0x))
+                    0, resources.getDimensionPixelSize(R.dimen.pdlg_space))
         }
 
         closeRotationAnimation = RotateAnimation(0f, 180f,
@@ -118,7 +118,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
             /*BUTTON_TYPE type,*/ callback: Runnable): PrettyDialog {
         val button = PrettyDialogButton(context, text, textColor, backgroundColor, typeface, /*type,*/ callback)
         prettyDialogButtonList.add(button)
-        val margin = resources.getDimensionPixelSize(R.dimen.pdlg_space_1_0x)
+        val margin = resources.getDimensionPixelSize(R.dimen.pdlg_space)
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         lp.setMargins(margin, margin, margin, 0)
         button.layoutParams = lp
