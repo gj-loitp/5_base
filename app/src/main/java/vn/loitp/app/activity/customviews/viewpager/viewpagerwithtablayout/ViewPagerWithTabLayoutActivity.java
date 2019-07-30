@@ -35,6 +35,8 @@ import com.views.viewpager.viewpagertransformers.ZoomInTransformer;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 import com.views.viewpager.viewpagertransformers.ZoomOutTranformer;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,14 +50,14 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.view_pager);
         //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
             resList.add(LStoreUtil.getRandomColor());
         }
         viewPager.setAdapter(new SlidePagerAdapter());
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 
@@ -110,7 +112,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select", arr, new LDialogUtil.CallbackList() {
             @Override
             public void onClick(int position) {
-                LToast.INSTANCE.show(getActivity(), "Click position " + position + ", item: " + arr[position]);
+                LToast.show(getActivity(), "Click position " + position + ", item: " + arr[position]);
                 switch (stringList.get(position)) {
                     case AccordionTransformer:
                         viewPager.setPageTransformer(true, new AccordionTransformer());
@@ -188,14 +190,15 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
 
     private class SlidePagerAdapter extends PagerAdapter {
 
+        @NotNull
         @Override
-        public Object instantiateItem(ViewGroup collection, int position) {
+        public Object instantiateItem(@NotNull ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.INSTANCE.d(getTAG(), "res " + res);
+            LLog.d(getTAG(), "res " + res);
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+            ImageView imageView = layout.findViewById(R.id.imageView);
             //imageView.setBackgroundColor(res);
             if (position % 2 == 0) {
                 imageView.setImageResource(R.drawable.iv);
@@ -203,7 +206,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
                 imageView.setImageResource(R.drawable.logo);
             }
 
-            TextView tv = (TextView) layout.findViewById(R.id.tv);
+            TextView tv = layout.findViewById(R.id.tv);
             tv.setText(position + "/" + resList.size());
 
             collection.addView(layout);
@@ -211,7 +214,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         }
 
         @Override
-        public void destroyItem(ViewGroup collection, int position, Object view) {
+        public void destroyItem(@NotNull ViewGroup collection, int position, @NotNull Object view) {
             collection.removeView((View) view);
         }
 
@@ -221,7 +224,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NotNull View view, @NotNull Object object) {
             return view == object;
         }
 
