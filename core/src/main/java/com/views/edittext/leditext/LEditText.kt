@@ -26,6 +26,14 @@ class LEditText : RelativeLayout {
     var callback: Callback? = null
     var colorFocus = Color.BLACK
     var colorUnfocus = Color.GRAY
+        set(value) {
+            if (editText.isFocused) {
+                mcv.strokeColor = colorFocus
+            } else {
+                mcv.strokeColor = value
+            }
+            field = value
+        }
     var colorError = Color.RED
         set(value) {
             tvMessage.setTextColor(value)

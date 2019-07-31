@@ -23,7 +23,7 @@ class LEditTextActivity : BaseFontActivity() {
 
         lEditTextId.apply {
             colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
             colorError = ContextCompat.getColor(activity, R.color.Red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(loitp.basemaster.R.drawable.remove)
@@ -62,7 +62,7 @@ class LEditTextActivity : BaseFontActivity() {
         var isShowPw = false
         lEditTextPw.apply {
             colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
             colorError = ContextCompat.getColor(activity, R.color.Red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)

@@ -56,7 +56,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_14"
-        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="@id/mcv"
         app:layout_constraintRight_toRightOf="@id/mcv"
