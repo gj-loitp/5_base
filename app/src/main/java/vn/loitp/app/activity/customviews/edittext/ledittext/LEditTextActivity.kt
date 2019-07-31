@@ -22,15 +22,16 @@ class LEditTextActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         lEditTextId.apply {
+            colorFocus = ContextCompat.getColor(activity, R.color.Black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            colorError = ContextCompat.getColor(activity, R.color.Red)
+            ivLeft.setImageResource(R.mipmap.ic_launcher)
+            ivRight.setImageResource(loitp.basemaster.R.drawable.remove)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
             setCardRadius(45f)
             setPaddingDp(5f)
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
-            ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(loitp.basemaster.R.drawable.remove)
             editText.hint = "Account"
             setMaxLines(1)
             setInputType(InputType.TYPE_CLASS_TEXT)
@@ -60,15 +61,16 @@ class LEditTextActivity : BaseFontActivity() {
         }
         var isShowPw = false
         lEditTextPw.apply {
+            colorFocus = ContextCompat.getColor(activity, R.color.Black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            colorError = ContextCompat.getColor(activity, R.color.Red)
+            ivLeft.setImageResource(R.mipmap.ic_launcher)
+            ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
             setCardRadius(45f)
             setPaddingDp(5f)
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
-            ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
             editText.hint = "Password"
             setMaxLines(1)
             setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)

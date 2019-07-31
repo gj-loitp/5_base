@@ -24,8 +24,12 @@ class LEditText : RelativeLayout {
     lateinit var ll: LinearLayout
 
     var callback: Callback? = null
-    var colorFocus = Color.RED
+    var colorFocus = Color.BLACK
     var colorUnfocus = Color.GRAY
+    var colorError = Color.RED
+        set(value) {
+            tvMessage.setTextColor(value)
+        }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
@@ -103,6 +107,8 @@ class LEditText : RelativeLayout {
     fun showMessage(text: String) {
         tvMessage.text = text
         tvMessage.visibility = View.VISIBLE
+        mcv.strokeColor = colorError
+
     }
 
     fun hideMessage() {
