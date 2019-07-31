@@ -73,6 +73,12 @@ class LEditText : RelativeLayout {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (editText.isFocused) {
+                    mcv.strokeColor = colorFocus
+                } else {
+                    mcv.strokeColor = colorUnfocus
+                }
+                hideMessage()
                 callback?.onTextChanged(p0.toString())
             }
         })
