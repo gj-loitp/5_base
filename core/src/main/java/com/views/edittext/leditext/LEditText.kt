@@ -80,16 +80,6 @@ class LEditText : RelativeLayout {
     fun setCardElevation(elevation: Float) {
         mcv.cardElevation = elevation
         LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
-        LUIUtil.setMargins(tvMessage, elevation.roundToInt(), 0, elevation.roundToInt(), 0)
-        /*if (elevation == 0f) {
-            val params = tvMessage.layoutParams as LayoutParams
-            params.addRule(BELOW, R.id.mcv);
-            tvMessage.layoutParams = params
-        } else {
-            val mcvHeight = LUIUtil.getHeightOfView(mcv)
-            LLog.d(TAG, "setCardElevation marginTop: $mcvHeight")
-            LUIUtil.setMargins(tvMessage, elevation.roundToInt(), mcvHeight + elevation.roundToInt(), elevation.roundToInt(), 0)
-        }*/
     }
 
     fun setPaddingDp(paddingDp: Float) {

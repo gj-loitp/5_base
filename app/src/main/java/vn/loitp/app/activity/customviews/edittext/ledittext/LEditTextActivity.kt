@@ -20,7 +20,7 @@ class LEditTextActivity : BaseFontActivity() {
 
         lEditTextId.apply {
             setStrokeWidth(5)
-            setCardElevation(3f)
+            setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
             setCardRadius(45f)
             setPaddingDp(5f)
