@@ -112,7 +112,24 @@ class LEditText : RelativeLayout {
     }
 
     fun hideMessage() {
-        tvMessage.visibility = View.GONE
+        tvMessage.visibility = View.INVISIBLE
+    }
+
+    fun setInputType(inputType: Int) {
+        editText.inputType = inputType
+    }
+
+    fun setImeiActionEditText(imeOptions: Int, runnable: Runnable?) {
+        LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
+    }
+
+    fun setMaxLines(maxLines: Int) {
+        editText.maxLines = maxLines
+        if (maxLines == 1) {
+            editText.setSingleLine(true)
+        } else {
+            editText.setSingleLine(false)
+        }
     }
 
     interface Callback {

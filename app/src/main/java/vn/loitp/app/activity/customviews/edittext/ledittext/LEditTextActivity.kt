@@ -2,7 +2,9 @@ package vn.loitp.app.activity.customviews.edittext.ledittext
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
@@ -26,6 +28,11 @@ class LEditTextActivity : BaseFontActivity() {
             colorUnfocus = ContextCompat.getColor(activity, R.color.Black)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.remove)
+            setMaxLines(1)
+            setInputType(InputType.TYPE_CLASS_TEXT)
+            setImeiActionEditText(EditorInfo.IME_ACTION_NEXT, Runnable {
+                lEditTextPw.editText.requestFocus()
+            })
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     setText("")
