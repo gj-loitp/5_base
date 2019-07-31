@@ -12,6 +12,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
+import com.utils.util.ConvertUtils
+import com.views.OnSingleClickListener
 import loitp.core.R
 import kotlin.math.roundToInt
 
@@ -22,6 +24,7 @@ class LEditText : RelativeLayout {
     lateinit var ivLeft: ImageView
     lateinit var ivRight: ImageView
     lateinit var tvMessage: TextView
+    lateinit var rl: RelativeLayout
 
     var callback: Callback? = null
     var colorFocus = Color.RED
@@ -42,6 +45,7 @@ class LEditText : RelativeLayout {
         ivLeft = findViewById(R.id.ivLeft)
         ivRight = findViewById(R.id.ivRight)
         tvMessage = findViewById(R.id.tvMessage)
+        rl = findViewById(R.id.rl)
 
         editText.setOnFocusChangeListener { view, isFocus ->
             if (isFocus) {
@@ -63,6 +67,12 @@ class LEditText : RelativeLayout {
                 callback?.onTextChanged(p0.toString())
             }
         })
+
+        ivRight.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+                callback?.onClickIvRight(ivRight)
+            }
+        })
     }
 
     fun setStrokeWidth(width: Int) {
@@ -71,8 +81,13 @@ class LEditText : RelativeLayout {
 
     fun setCardElevation(elevation: Float) {
         mcv.cardElevation = elevation
-        LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), 0)
+        LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
         LUIUtil.setMarginsDp(tvMessage, elevation.roundToInt(), 0, elevation.roundToInt(), 0)
+    }
+
+    fun setPaddingDp(paddingDp: Float) {
+        val paddingPx = ConvertUtils.dp2px(paddingDp)
+        rl.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
     }
 
     fun setCardBackgroundColor(color: Int) {
@@ -87,6 +102,10 @@ class LEditText : RelativeLayout {
         LUIUtil.setLastCursorEditText(editText)
     }
 
+    fun setText(s: String) {
+        editText.setText(s)
+    }
+
     fun showMessage(text: String) {
         tvMessage.text = text
         tvMessage.visibility = View.VISIBLE
@@ -96,8 +115,9 @@ class LEditText : RelativeLayout {
         tvMessage.visibility = View.GONE
     }
 
-    public interface Callback {
+    interface Callback {
         fun setOnFocusChangeListener(isFocus: Boolean)
         fun onTextChanged(s: String)
+        fun onClickIvRight(imageView: ImageView)
     }
 }

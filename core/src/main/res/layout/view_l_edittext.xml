@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -20,14 +21,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="@dimen/margin_5"
-                android:layout_marginBottom="@dimen/margin_5"
                 android:background="@color/transparent"
                 android:paddingStart="@dimen/padding_30"
                 android:paddingEnd="@dimen/padding_30"
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/txt_16"
-                tools:text="@string/large_dummy_text" />
+                tools:text="@string/app_name" />
 
             <ImageView
                 android:id="@+id/ivLeft"
