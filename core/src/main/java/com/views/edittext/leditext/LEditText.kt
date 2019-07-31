@@ -10,7 +10,6 @@ import android.widget.*
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
-import com.views.OnSingleClickListener
 import loitp.core.R
 import kotlin.math.roundToInt
 
@@ -66,11 +65,9 @@ class LEditText : RelativeLayout {
             }
         })
 
-        ivRight.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                callback?.onClickIvRight(ivRight)
-            }
-        })
+        ivRight.setOnClickListener {
+            callback?.onClickIvRight(ivRight)
+        }
     }
 
     fun setStrokeWidth(width: Int) {

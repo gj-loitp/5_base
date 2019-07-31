@@ -3,6 +3,8 @@ package vn.loitp.app.activity.customviews.edittext.ledittext
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
@@ -12,6 +14,7 @@ import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LLog
 import com.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_l_edit_text.*
+import loitp.basemaster.R
 
 class LEditTextActivity : BaseFontActivity() {
 
@@ -24,9 +27,9 @@ class LEditTextActivity : BaseFontActivity() {
             setCardBackgroundColor(Color.WHITE)
             setCardRadius(45f)
             setPaddingDp(5f)
-            colorFocus = ContextCompat.getColor(activity, loitp.basemaster.R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, loitp.basemaster.R.color.Gray)
-            ivLeft.setImageResource(loitp.basemaster.R.mipmap.ic_launcher)
+            colorFocus = ContextCompat.getColor(activity, R.color.Black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(loitp.basemaster.R.drawable.remove)
             editText.hint = "Account"
             setMaxLines(1)
@@ -55,17 +58,17 @@ class LEditTextActivity : BaseFontActivity() {
 
             }
         }
-
+        var isShowPw = false
         lEditTextPw.apply {
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
             setCardRadius(45f)
             setPaddingDp(5f)
-            colorFocus = ContextCompat.getColor(activity, loitp.basemaster.R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, loitp.basemaster.R.color.Gray)
-            ivLeft.setImageResource(loitp.basemaster.R.mipmap.ic_launcher)
-            ivRight.setImageResource(loitp.basemaster.R.drawable.search_color)
+            colorFocus = ContextCompat.getColor(activity, R.color.Black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.Gray)
+            ivLeft.setImageResource(R.mipmap.ic_launcher)
+            ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
             editText.hint = "Password"
             setMaxLines(1)
             setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
@@ -74,7 +77,17 @@ class LEditTextActivity : BaseFontActivity() {
             })
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
-
+                    if (isShowPw) {
+                        ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
+                        editText.transformationMethod = PasswordTransformationMethod.getInstance()
+                        setLastCursorEditText()
+                        isShowPw = false
+                    } else {
+                        ivRight.setImageResource(R.drawable.baseline_visibility_off_black_48dp)
+                        editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                        setLastCursorEditText()
+                        isShowPw = true
+                    }
                 }
 
                 override fun onTextChanged(s: String) {
@@ -97,16 +110,16 @@ class LEditTextActivity : BaseFontActivity() {
         btLogin.setOnClickListener {
             val id = lEditTextId.editText.text.toString()
             val pw = lEditTextPw.editText.text.toString()
-            var isCorrectId = false;
-            var isCorrectPw = false;
+            var isCorrectId = false
+            var isCorrectPw = false
 
             if (id == "loitp") {
-                isCorrectId = true;
+                isCorrectId = true
             } else {
                 lEditTextId.showMessage("Wrong id!!!")
             }
             if (pw == "123456789") {
-                isCorrectPw = true;
+                isCorrectPw = true
             } else {
                 lEditTextPw.showMessage("Wrong pw!!!")
             }
