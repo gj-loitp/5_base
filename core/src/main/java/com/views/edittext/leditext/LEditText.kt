@@ -6,16 +6,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
 import com.views.OnSingleClickListener
 import loitp.core.R
 import kotlin.math.roundToInt
+
 
 class LEditText : RelativeLayout {
     private val TAG = javaClass.simpleName
@@ -24,7 +22,7 @@ class LEditText : RelativeLayout {
     lateinit var ivLeft: ImageView
     lateinit var ivRight: ImageView
     lateinit var tvMessage: TextView
-    lateinit var rl: RelativeLayout
+    lateinit var ll: LinearLayout
 
     var callback: Callback? = null
     var colorFocus = Color.RED
@@ -45,7 +43,7 @@ class LEditText : RelativeLayout {
         ivLeft = findViewById(R.id.ivLeft)
         ivRight = findViewById(R.id.ivRight)
         tvMessage = findViewById(R.id.tvMessage)
-        rl = findViewById(R.id.rl)
+        ll = findViewById(R.id.ll)
 
         editText.setOnFocusChangeListener { view, isFocus ->
             if (isFocus) {
@@ -82,12 +80,21 @@ class LEditText : RelativeLayout {
     fun setCardElevation(elevation: Float) {
         mcv.cardElevation = elevation
         LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
-        LUIUtil.setMarginsDp(tvMessage, elevation.roundToInt(), 0, elevation.roundToInt(), 0)
+        LUIUtil.setMargins(tvMessage, elevation.roundToInt(), 0, elevation.roundToInt(), 0)
+        /*if (elevation == 0f) {
+            val params = tvMessage.layoutParams as LayoutParams
+            params.addRule(BELOW, R.id.mcv);
+            tvMessage.layoutParams = params
+        } else {
+            val mcvHeight = LUIUtil.getHeightOfView(mcv)
+            LLog.d(TAG, "setCardElevation marginTop: $mcvHeight")
+            LUIUtil.setMargins(tvMessage, elevation.roundToInt(), mcvHeight + elevation.roundToInt(), elevation.roundToInt(), 0)
+        }*/
     }
 
     fun setPaddingDp(paddingDp: Float) {
         val paddingPx = ConvertUtils.dp2px(paddingDp)
-        rl.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
+        ll.setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
     }
 
     fun setCardBackgroundColor(color: Int) {
