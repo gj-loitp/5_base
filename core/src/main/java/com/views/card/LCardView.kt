@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 
 import loitp.core.R
 
@@ -19,14 +20,11 @@ import loitp.core.R
 
 class LCardView : RelativeLayout {
     private val TAG = javaClass.simpleName
-    var cardView: CardView? = null
-        private set
-    var iv: ImageView? = null
-        private set
-    var tv: TextView? = null
-        private set
+    lateinit var cardView: CardView
+    lateinit var iv: ImageView
+    lateinit var tv: TextView
 
-    private var callback: Callback? = null
+    var callback: Callback? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -46,63 +44,71 @@ class LCardView : RelativeLayout {
         tv = findViewById(R.id.tv)
         iv = findViewById(R.id.iv)
 
-        cardView?.setOnClickListener { v ->
+        cardView.setOnClickListener { v ->
             callback?.onClickRoot(v)
         }
 
-        cardView?.setOnLongClickListener { v ->
+        cardView.setOnLongClickListener { v ->
             callback?.onLongClickRoot(v)
             true
         }
-        tv?.setOnClickListener { v ->
+        tv.setOnClickListener { v ->
             callback?.onClickText(v)
         }
 
-        tv?.setOnLongClickListener { v ->
+        tv.setOnLongClickListener { v ->
             callback?.onLongClickText(v)
             true
         }
     }
 
     fun setHeight(px: Int) {
-        cardView?.let {
+        cardView.let {
             it.layoutParams.height = px
             it.requestLayout()
         }
     }
 
+    fun setWidth(px: Int) {
+        cardView.let {
+            it.layoutParams.width = px
+            it.requestLayout()
+        }
+    }
+
     fun setRadius(px: Float) {
-        cardView?.radius = px
+        cardView.radius = px
     }
 
     fun setCardBackground(color: Int) {
-        cardView?.setCardBackgroundColor(color)
+        cardView.setCardBackgroundColor(color)
     }
 
     fun setCardElevation(elevation: Float) {
-        cardView?.cardElevation = elevation
+        cardView.cardElevation = elevation
+        LUIUtil.setMargins(cardView, elevation.toInt(), elevation.toInt(), elevation.toInt(), elevation.toInt() * 2)
     }
 
     fun setImg(url: String) {
-        iv?.let {
+        iv.let {
             LImageUtil.load(context, url, it)
         }
     }
 
     fun setText(s: String) {
-        tv?.text = s
+        tv.text = s
     }
 
     fun setText(res: Int) {
-        tv?.text = context.getString(res)
+        tv.text = context.getString(res)
     }
 
     fun setTextColor(color: Int) {
-        tv?.setTextColor(color)
+        tv.setTextColor(color)
     }
 
     fun setTextShadow(color: Int) {
-        tv?.setTextColor(color)
+        tv.setTextColor(color)
     }
 
     interface Callback {
@@ -113,9 +119,5 @@ class LCardView : RelativeLayout {
         fun onClickText(v: View)
 
         fun onLongClickText(v: View)
-    }
-
-    fun setCallback(callback: Callback) {
-        this.callback = callback
     }
 }

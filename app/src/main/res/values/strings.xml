@@ -516,4 +516,5 @@ Likewise may someone love you next.
     <string name="login">Login</string>
     <string name="always_show_text">Always show text</string>
     <string name="always_hide_text">Always hide text</string>
+    <string name="demo_lcardview">Demo LCardView</string>
 </resources>
