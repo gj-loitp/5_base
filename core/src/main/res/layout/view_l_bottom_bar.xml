@@ -19,7 +19,7 @@
         android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -30,8 +30,7 @@
             <ImageView
                 android:id="@+id/iv_icon_0"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -42,6 +41,7 @@
                 android:id="@+id/tv_icon_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/Gray"
@@ -49,9 +49,9 @@
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -62,8 +62,7 @@
             <ImageView
                 android:id="@+id/iv_icon_1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -74,6 +73,7 @@
                 android:id="@+id/tv_icon_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/copyright"
@@ -81,9 +81,9 @@
                 android:textSize="@dimen/txt_12"
                 android:visibility="gone"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -94,8 +94,7 @@
             <ImageView
                 android:id="@+id/iv_icon_2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -106,6 +105,7 @@
                 android:id="@+id/tv_icon_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/Gray"
@@ -113,9 +113,9 @@
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -126,8 +126,7 @@
             <ImageView
                 android:id="@+id/iv_icon_3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -138,6 +137,7 @@
                 android:id="@+id/tv_icon_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:contentDescription="@string/app_name"
                 android:gravity="center"
                 android:singleLine="true"
@@ -146,9 +146,9 @@
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -159,8 +159,7 @@
             <ImageView
                 android:id="@+id/iv_icon_4"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -171,6 +170,7 @@
                 android:id="@+id/tv_icon_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/Gray"
@@ -178,9 +178,9 @@
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_icon_5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -191,8 +191,7 @@
             <ImageView
                 android:id="@+id/iv_icon_5"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
@@ -203,6 +202,7 @@
                 android:id="@+id/tv_icon_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/Gray"
@@ -210,6 +210,6 @@
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

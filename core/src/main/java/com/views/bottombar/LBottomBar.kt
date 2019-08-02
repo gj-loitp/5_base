@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -21,12 +20,12 @@ import loitp.core.R
 class LBottomBar : RelativeLayout, View.OnClickListener {
     private val TAG = javaClass.simpleName
     lateinit var blurView: RealtimeBlurView
-    lateinit var llIcon0: LinearLayout
-    lateinit var llIcon1: LinearLayout
-    lateinit var llIcon2: LinearLayout
-    lateinit var llIcon3: LinearLayout
-    lateinit var llIcon4: LinearLayout
-    lateinit var llIcon5: LinearLayout
+    lateinit var llIcon0: RelativeLayout
+    lateinit var llIcon1: RelativeLayout
+    lateinit var llIcon2: RelativeLayout
+    lateinit var llIcon3: RelativeLayout
+    lateinit var llIcon4: RelativeLayout
+    lateinit var llIcon5: RelativeLayout
     lateinit var ivIcon0: ImageView
     lateinit var ivIcon1: ImageView
     lateinit var ivIcon2: ImageView
@@ -371,6 +370,15 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
                 updateView(ivIcon5, tvIcon5)
             }
         }
+    }
+
+    fun setTextMarginBottom(bottomPx: Int) {
+        LUIUtil.setMargins(tvIcon0, 0, 0, 0, bottomPx)
+        LUIUtil.setMargins(tvIcon1, 0, 0, 0, bottomPx)
+        LUIUtil.setMargins(tvIcon2, 0, 0, 0, bottomPx)
+        LUIUtil.setMargins(tvIcon3, 0, 0, 0, bottomPx)
+        LUIUtil.setMargins(tvIcon4, 0, 0, 0, bottomPx)
+        LUIUtil.setMargins(tvIcon5, 0, 0, 0, bottomPx)
     }
 
     companion object {

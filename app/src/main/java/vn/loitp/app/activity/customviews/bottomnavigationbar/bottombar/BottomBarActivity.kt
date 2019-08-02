@@ -22,9 +22,10 @@ class BottomBarActivity : BaseFontActivity() {
         val lBottomBar = findViewById<LBottomBar>(R.id.bottom_bar)
         with(lBottomBar) {
             paddingOnInDp = 15
-            paddingOffInDp = 15
+            paddingOffInDp = 55
             colorIvOn = R.color.Red
             colorIvOff = R.color.Pink
+            setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
             setItem0(R.drawable.baseline_bug_report_black_48, "Bug report")
             setItem1(R.drawable.baseline_add_black_48, "Add")
             setItem2(R.drawable.baseline_chat_black_48dp, "Chat")
