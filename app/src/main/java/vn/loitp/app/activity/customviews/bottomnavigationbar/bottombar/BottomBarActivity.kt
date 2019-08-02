@@ -21,8 +21,8 @@ class BottomBarActivity : BaseFontActivity() {
         tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp)
         val lBottomBar = findViewById<LBottomBar>(R.id.bottom_bar)
         with(lBottomBar) {
-            paddingOnInDp = 15
-            paddingOffInDp = 55
+            paddingOnInDp = context.resources.getDimension(R.dimen.padding_10).toInt()
+            paddingOffInDp = context.resources.getDimension(R.dimen.padding_15).toInt()
             colorIvOn = R.color.Red
             colorIvOff = R.color.Pink
             setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
@@ -45,11 +45,6 @@ class BottomBarActivity : BaseFontActivity() {
         findViewById<View>(R.id.bt_count_3).setOnClickListener { lBottomBar.setCount(3) }
         findViewById<View>(R.id.bt_count_5).setOnClickListener { lBottomBar.setCount(5) }
         findViewById<View>(R.id.bt_count_6).setOnClickListener { lBottomBar.setCount(6) }
-        findViewById<View>(R.id.bt_cl_0).setOnClickListener {
-            lBottomBar.setColorTextView(R.color.Red)
-        }
-        findViewById<View>(R.id.bt_cl_1).setOnClickListener { lBottomBar.setColorTextView(R.color.Black) }
-        findViewById<View>(R.id.bt_cl_2).setOnClickListener { lBottomBar.setColorTextView(R.color.Blue) }
         btShowText.setOnClickListener { lBottomBar.isAlwayShowText = true }
         btHideText.setOnClickListener { lBottomBar.isAlwayShowText = false }
         LUIUtil.setDelay(5000, Runnable {

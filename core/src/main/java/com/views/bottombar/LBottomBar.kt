@@ -256,15 +256,6 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         this.techniques = techniques
     }
 
-    fun setColorTextView(colorRes: Int) {
-        tvIcon0.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon1.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon2.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon3.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon4.setTextColor(ContextCompat.getColor(context, colorRes))
-        tvIcon5.setTextColor(ContextCompat.getColor(context, colorRes))
-    }
-
     private fun refreshUI() {
         when (currentPos) {
             PAGE_0 -> updateView(ivIcon0, tvIcon0)
@@ -281,6 +272,15 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             LAnimationUtil.play(imageView, it)
             LAnimationUtil.play(textView, it)
         }
+
+        tvIcon0.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        tvIcon1.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        tvIcon2.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        tvIcon3.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        tvIcon4.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        tvIcon5.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
+        textView.setTextColor(ContextCompat.getColor(context, this.colorIvOn))
+
         if (isAlwayShowText) {
             tvIcon0.visibility = View.VISIBLE
             tvIcon1.visibility = View.VISIBLE
