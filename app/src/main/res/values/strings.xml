@@ -514,4 +514,6 @@ Likewise may someone love you next.
     <string name="blur_view_green">Blur view green</string>
     <string name="ledittext">LEditText</string>
     <string name="login">Login</string>
+    <string name="always_show_text">Always show text</string>
+    <string name="always_hide_text">Always hide text</string>
 </resources>

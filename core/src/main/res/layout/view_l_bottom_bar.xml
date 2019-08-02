@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_60"
     android:animateLayoutChanges="true">
@@ -15,6 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -30,9 +32,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_0"
@@ -40,10 +44,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="@string/copyright"
+                tools:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,9 +64,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_1"
@@ -72,7 +79,8 @@
                 android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,9 +96,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_2"
@@ -98,10 +108,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="@string/copyright"
+                tools:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,9 +128,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_3"
@@ -128,10 +141,11 @@
                 android:contentDescription="@string/app_name"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="@string/copyright"
+                tools:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -147,9 +161,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_4"
@@ -157,10 +173,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="@string/copyright"
+                tools:visibility="visible" />
         </LinearLayout>
 
         <LinearLayout
@@ -176,9 +193,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_5"
@@ -186,10 +205,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@string/copyright"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/txt_12"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="@string/copyright"
+                tools:visibility="visible" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

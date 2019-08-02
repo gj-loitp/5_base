@@ -8,7 +8,7 @@
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true">
 
         <LinearLayout
@@ -87,6 +87,24 @@
                     android:layout_height="wrap_content"
                     android:text="Blue" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btShowText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/always_show_text" />
+
+                <Button
+                    android:id="@+id/btHideText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/always_hide_text" />
             </LinearLayout>
 
             <ImageView
