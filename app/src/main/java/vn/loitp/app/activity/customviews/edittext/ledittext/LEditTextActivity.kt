@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LLog
+import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_l_edit_text.*
 import loitp.basemaster.R
@@ -34,6 +35,9 @@ class LEditTextActivity : BaseFontActivity() {
             setPaddingDp(5f)
             editText.hint = "Account"
             setMaxLines(1)
+            setWidthRootView(LScreenUtil.screenWidth * 3 / 4)
+            setHeightRootView(350)
+            //disableEditing()
             setInputType(InputType.TYPE_CLASS_TEXT)
             setImeiActionEditText(EditorInfo.IME_ACTION_NEXT, Runnable {
                 lEditTextPw.editText.requestFocus()

@@ -7,12 +7,11 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
-import loitp.core.R
-import kotlin.math.roundToInt
-
+import com.views.OnSingleClickListener
 
 class LEditText : RelativeLayout {
     private val TAG = javaClass.simpleName
@@ -22,6 +21,7 @@ class LEditText : RelativeLayout {
     lateinit var ivRight: ImageView
     lateinit var tvMessage: TextView
     lateinit var ll: LinearLayout
+    lateinit var rootView: ConstraintLayout
 
     var callback: Callback? = null
     var colorFocus = Color.BLACK
@@ -48,13 +48,14 @@ class LEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_edittext, this)
-        mcv = findViewById(R.id.mcv)
-        editText = findViewById(R.id.editText)
-        ivLeft = findViewById(R.id.ivLeft)
-        ivRight = findViewById(R.id.ivRight)
-        tvMessage = findViewById(R.id.tvMessage)
-        ll = findViewById(R.id.ll)
+        View.inflate(context, loitp.core.R.layout.view_l_edittext, this)
+        mcv = findViewById(loitp.core.R.id.mcv)
+        editText = findViewById(loitp.core.R.id.editText)
+        ivLeft = findViewById(loitp.core.R.id.ivLeft)
+        ivRight = findViewById(loitp.core.R.id.ivRight)
+        tvMessage = findViewById(loitp.core.R.id.tvMessage)
+        ll = findViewById(loitp.core.R.id.ll)
+        rootView = findViewById(loitp.core.R.id.rootView)
 
         editText.setOnFocusChangeListener { view, isFocus ->
             if (isFocus) {
@@ -84,7 +85,11 @@ class LEditText : RelativeLayout {
         })
 
         ivRight.setOnClickListener {
-            callback?.onClickIvRight(ivRight)
+            object : OnSingleClickListener() {
+                override fun onSingleClick(v: View) {
+                    callback?.onClickIvRight(ivRight)
+                }
+            }
         }
     }
 
@@ -94,7 +99,8 @@ class LEditText : RelativeLayout {
 
     fun setCardElevation(elevation: Float) {
         mcv.cardElevation = elevation
-        LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
+        mcv.useCompatPadding = true
+        //LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
     }
 
     fun setPaddingDp(paddingDp: Float) {
@@ -144,6 +150,24 @@ class LEditText : RelativeLayout {
         } else {
             editText.setSingleLine(false)
         }
+    }
+
+    fun setWidthRootView(width: Int) {
+        rootView.layoutParams.width = width
+        rootView.requestLayout()
+    }
+
+    fun setHeightRootView(height: Int) {
+        rootView.layoutParams.height = height
+        rootView.requestLayout()
+    }
+
+    fun disableEditing() {
+        editText.isFocusable = false
+    }
+
+    fun enableEditing() {
+        editText.isFocusableInTouchMode = true
     }
 
     interface Callback {
