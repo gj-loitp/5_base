@@ -35,6 +35,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class FrmYoutubeChannel extends BaseFragment {
+
     private final String TAG = getClass().getSimpleName();
     private List<UItem> uItemList = new ArrayList<>();
     private TextView tvMsg;
@@ -178,5 +179,11 @@ public class FrmYoutubeChannel extends BaseFragment {
             utubeChannelAdapter.notifyDataSetChanged();
             progressBar.setVisibility(View.GONE);
         });
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
     }
 }

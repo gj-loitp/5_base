@@ -123,6 +123,12 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         }
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
     public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int HEADER = 0;
         private static final int TITLE = 1;

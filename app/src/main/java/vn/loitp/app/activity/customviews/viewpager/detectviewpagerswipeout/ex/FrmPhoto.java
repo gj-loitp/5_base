@@ -66,4 +66,10 @@ public class FrmPhoto extends BaseFragment {
     protected int setLayoutResourceId() {
         return R.layout.item_photo;
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

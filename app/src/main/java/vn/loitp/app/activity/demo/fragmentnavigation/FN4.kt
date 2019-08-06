@@ -10,6 +10,10 @@ import loitp.basemaster.R
 
 
 class FN4 : BaseFragment(), OnBackPressedListener {
+    override fun setTag(): String? {
+        return javaClass.simpleName
+    }
+
     private var fragmentNavigationActivity: FragmentNavigationActivity? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

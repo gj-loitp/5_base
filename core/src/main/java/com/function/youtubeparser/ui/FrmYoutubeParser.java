@@ -224,4 +224,10 @@ public class FrmYoutubeParser extends BaseFragment {
             videoAdapter.clearData();
         }
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

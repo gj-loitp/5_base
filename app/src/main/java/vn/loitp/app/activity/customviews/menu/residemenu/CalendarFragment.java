@@ -67,4 +67,10 @@ public class CalendarFragment extends BaseFragment {
         calendarList.add("Christmas Day");
         return calendarList;
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

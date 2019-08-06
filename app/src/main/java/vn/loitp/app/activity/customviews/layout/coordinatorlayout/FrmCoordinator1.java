@@ -53,4 +53,10 @@ public class FrmCoordinator1 extends BaseFragment {
             }
         });
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

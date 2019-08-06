@@ -79,6 +79,12 @@ public class WWLHomeFragment extends BaseFragment {
         }
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
         private WWLMusicDataset.DatasetItem[] mDataSet;
 

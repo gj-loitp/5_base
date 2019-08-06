@@ -19,8 +19,8 @@ import loitp.core.R
  * Created by loitp on 2019/7/12
  */
 abstract class BaseFragment : Fragment() {
+    protected lateinit var TAG: String
     protected var compositeDisposable = CompositeDisposable()
-    protected val TAG = "TAG" + BaseFragment::class.java.simpleName
     protected lateinit var frmRootView: View
     protected var fragmentCallback: FragmentCallback? = null
 
@@ -33,10 +33,12 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
+        TAG = "TAG" + setTag()
         return frmRootView
     }
 
     protected abstract fun setLayoutResourceId(): Int
+    protected abstract fun setTag(): String?
 
     override fun onDestroyView() {
         LDialogUtil.clearAll()

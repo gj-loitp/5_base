@@ -67,6 +67,12 @@ public class WWLPlaylistFragment extends BaseFragment {
         this.mSubTitleView.setText(item.subtitle);
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
     private class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private final WWLMusicDataset.DatasetItem[] mDataSet;
 
