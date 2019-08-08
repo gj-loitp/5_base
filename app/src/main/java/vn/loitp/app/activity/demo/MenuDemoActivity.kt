@@ -19,6 +19,7 @@ import vn.loitp.app.activity.demo.film.FilmDemoActivity
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
+import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity
 import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity
@@ -69,6 +70,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_youtube_parser).setOnClickListener(this)
         findViewById<View>(R.id.bt_fragment_navigation).setOnClickListener(this)
         btPdf.setOnClickListener(this)
+        btFragmentFlow.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -133,6 +135,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_youtube_parser -> intent = Intent(activity, YoutubeParserChannelActivity::class.java)
             R.id.bt_fragment_navigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
             R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
+            R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

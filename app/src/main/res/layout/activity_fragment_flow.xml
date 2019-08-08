@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_250"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Black"
+            android:padding="@dimen/padding_10"
+            android:textColor="@color/White"
+            android:textSize="@dimen/txt_12"
+            android:textStyle="bold" />
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btAddFrmFlow0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add FrmFlow0" />
+
+        <Button
+            android:id="@+id/btClearAllFrm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear All Frm" />
+    </LinearLayout>
+</LinearLayout>
