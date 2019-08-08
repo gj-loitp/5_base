@@ -50,13 +50,13 @@ abstract class BaseFragment : Fragment() {
         super.onAttach(context)
     }
 
-    protected fun handleException(throwable: Throwable) {
+    open fun handleException(throwable: Throwable) {
         throwable.message?.let {
             showDialogError(it)
         }
     }
 
-    protected fun showDialogError(errMsg: String) {
+    open fun showDialogError(errMsg: String) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
@@ -66,7 +66,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun showDialogMsg(msg: String) {
+    open fun showDialogMsg(msg: String) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
@@ -120,7 +120,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun showShort(msg: String) {
+    open fun showShort(msg: String) {
         activity?.let { LToast.showShort(it, msg, R.drawable.bkg_horizontal) }
     }
 }

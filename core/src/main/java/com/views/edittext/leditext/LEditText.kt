@@ -11,7 +11,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
-import com.views.OnSingleClickListener
 
 class LEditText : RelativeLayout {
     private val TAG = javaClass.simpleName
@@ -84,13 +83,7 @@ class LEditText : RelativeLayout {
             }
         })
 
-        ivRight.setOnClickListener {
-            object : OnSingleClickListener() {
-                override fun onSingleClick(v: View) {
-                    callback?.onClickIvRight(ivRight)
-                }
-            }
-        }
+        ivRight.setOnClickListener { callback?.onClickIvRight(ivRight) }
     }
 
     fun setStrokeWidth(width: Int) {
@@ -160,14 +153,6 @@ class LEditText : RelativeLayout {
     fun setHeightRootView(height: Int) {
         rootView.layoutParams.height = height
         rootView.requestLayout()
-    }
-
-    fun disableEditing() {
-        editText.isFocusable = false
-    }
-
-    fun enableEditing() {
-        editText.isFocusableInTouchMode = true
     }
 
     interface Callback {
