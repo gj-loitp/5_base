@@ -340,33 +340,45 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         this.callback = callback
     }
 
-    fun setPerformItemClick(position: Int) {
+    fun setPerformItemClick(position: Int, invokedOnClickItem: Boolean = true) {
         //LLog.d(TAG, "setPerformItemClick " + position);
         previousPos = currentPos
         currentPos = position
         when (position) {
             PAGE_0 -> {
-                onClickItem(PAGE_0)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_0)
+                }
                 updateView(ivIcon0, tvIcon0)
             }
             PAGE_1 -> {
-                onClickItem(PAGE_1)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_1)
+                }
                 updateView(ivIcon1, tvIcon1)
             }
             PAGE_2 -> {
-                onClickItem(PAGE_2)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_2)
+                }
                 updateView(ivIcon2, tvIcon2)
             }
             PAGE_3 -> {
-                onClickItem(PAGE_3)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_3)
+                }
                 updateView(ivIcon3, tvIcon3)
             }
             PAGE_4 -> {
-                onClickItem(PAGE_4)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_4)
+                }
                 updateView(ivIcon4, tvIcon4)
             }
             PAGE_5 -> {
-                onClickItem(PAGE_5)
+                if (invokedOnClickItem) {
+                    onClickItem(PAGE_5)
+                }
                 updateView(ivIcon5, tvIcon5)
             }
         }
@@ -379,6 +391,10 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         LUIUtil.setMargins(tvIcon3, 0, 0, 0, bottomPx)
         LUIUtil.setMargins(tvIcon4, 0, 0, 0, bottomPx)
         LUIUtil.setMargins(tvIcon5, 0, 0, 0, bottomPx)
+    }
+
+    fun getCurrentPos(): Int {
+        return currentPos
     }
 
     companion object {
