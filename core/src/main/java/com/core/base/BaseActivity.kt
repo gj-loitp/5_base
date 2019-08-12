@@ -43,7 +43,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var rootView: RelativeLayout? = null
         private set
     private var interstitialAd: InterstitialAd? = null
-    protected var isShowAdWhenExit = true
+    protected var isShowAdWhenExit = false
     protected var isShowAnimWhenExit = true
 
     protected fun setRootViewPadding() {
