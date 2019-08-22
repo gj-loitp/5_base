@@ -518,4 +518,8 @@ Likewise may someone love you next.
     <string name="always_hide_text">Always hide text</string>
     <string name="demo_lcardview">Demo LCardView</string>
     <string name="fragment_flow">Fragment flow</string>
+    <string name="shadow_layout">Shadow layout</string>
+    <string name="dynamic_change_oval_color">Click to change the color of oval shadow</string>
+    <string name="dynamic_change_rectangle_color">Click to change the color of rectangle shadow</string>
+    <string name="dynamic_change_shadow_radius">Click to change the radius of shadow</string>
 </resources>
