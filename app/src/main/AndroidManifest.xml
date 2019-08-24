@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="loitp.basemaster">
 
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
     <application
         android:name="vn.loitp.app.app.LApplication"
         android:allowBackup="true"
@@ -25,7 +26,6 @@
         <activity
             android:name="vn.loitp.app.activity.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-
         <activity
             android:name="vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -940,6 +940,7 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
@@ -956,6 +957,7 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
@@ -965,6 +967,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <receiver
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
             android:process=":remote" />
@@ -974,6 +977,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
         <service
             android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
             android:enabled="true"
@@ -1013,7 +1017,9 @@
             android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
-    </application>
 
-    <uses-permission android:name="android.permission.REORDER_TASKS" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+    </application>
 </manifest>

@@ -685,4 +685,35 @@
             <flag name="bottom" value="0x1000" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CircularProgressIndicator">
+        <attr name="cpiProgressColor" format="color" />
+        <attr name="cpiProgressBackgroundColor" format="color" />
+        <attr name="cpiProgressStrokeWidth" format="dimension" />
+        <attr name="cpiProgressBackgroundStrokeWidth" format="dimension" />
+        <attr name="cpiTextColor" format="color" />
+        <attr name="cpiTextSize" format="dimension" />
+        <attr name="cpiFormattingPattern" format="string|reference" />
+        <attr name="cpiDrawDot" format="boolean" />
+        <attr name="cpiDotColor" format="color" />
+        <attr name="cpiDotWidth" format="dimension" />
+        <attr name="cpiStartAngle" format="integer|reference" />
+        <attr name="cpiDirection" format="enum">
+            <enum name="clockwise" value="0" />
+            <enum name="counterclockwise" value="1" />
+        </attr>
+        <attr name="cpiProgressCap" format="enum">
+            <enum name="round" value="0" />
+            <enum name="butt" value="1" />
+        </attr>
+        <attr name="cpiEnableProgressAnimation" format="boolean" />
+        <attr name="cpiFillBackground" format="boolean" />
+        <attr name="cpiGradientEndColor" format="color|reference" />
+        <attr name="cpiGradientType" format="enum">
+            <enum name="no_gradient" value="0" />
+            <enum name="linear" value="1" />
+            <enum name="radial" value="2" />
+            <enum name="sweep" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>

@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:padding="@dimen/padding_5"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Menu Progress Loading View"
+                android:text="@string/menu_progress_loading_view"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
             <Button
-                android:id="@+id/bt_avloading_indicator_view"
+                android:id="@+id/btAvloadingIndicatorView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="AVLoadingIndicatorView" />
+                android:text="@string/avloadingindicatorview" />
 
             <Button
-                android:id="@+id/bt_circular_progress_bar"
+                android:id="@+id/btCircularProgressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Circular Progress Bar" />
+                android:text="@string/circular_progress_bar" />
 
+            <Button
+                android:id="@+id/btCircularProgressIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/circularprogressindicator" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
