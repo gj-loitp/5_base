@@ -22,6 +22,10 @@ import com.core.utilities.LUIUtil
 import loitp.core.R
 
 class FrmFBComment : BaseFragment() {
+    override fun setTag(): String? {
+        return javaClass.simpleName
+    }
+
     private var mContainer: RelativeLayout? = null
     private var mWebViewComments: WebView? = null
     private var progressBar: ProgressBar? = null

@@ -10,16 +10,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppThemeAndroidO">
+        android:theme="@style/AppThemeAndroidO"
+        tools:ignore="GoogleAppIndexingWarning">
         <!-- support 18:9 -->
-        <meta-data
-            android:name="android.max_aspect"
-            android:value="2.1" />
-        <!--https://ads-developers.googleblog.com/2018/10/announcing-v1700-of-android-google.html-->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/str_app_id" />
-
         <activity
             android:name="vn.loitp.app.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -29,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--https://ads-developers.googleblog.com/2018/10/announcing-v1700-of-android-google.html-->
         <activity
             android:name="vn.loitp.app.activity.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -266,7 +260,6 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity"
             android:label="@string/app_name">
@@ -280,6 +273,7 @@
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.EditAlarmActivity"
             android:label="Edit alarm" />
+        <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification"
             android:label="Alarm notification" />
@@ -334,29 +328,20 @@
         <activity
             android:name="vn.loitp.app.activity.animation.activitytransition.Animation2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <receiver
-            android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
-            android:process=":remote" />
-        <receiver android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.BootCompletedReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-        <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!-- FOR ALARM DEMO APP -->
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -495,29 +480,9 @@
         <activity
             android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
-            android:enabled="true"
-            android:exported="false" />
-        <service
-            android:name="vn.loitp.app.activity.function.activityandservice.TestService"
-            android:enabled="true"
-            android:exported="false" />
-
         <activity
             android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
-            android:enabled="true"
-            android:exported="false" />
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewEdgeService"
-            android:enabled="true"
-            android:exported="false" />
-
         <activity
             android:name="vn.loitp.app.activity.function.fullscreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -527,21 +492,25 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.OverFlyingRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -593,12 +562,6 @@
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseFacebookActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!-- Facebook Configuration -->
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"
-            tools:replace="android:value" />
-
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -623,31 +586,11 @@
         <activity
             android:name="vn.loitp.app.activity.demo.firebase.fcm.FCMFirebaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!--service for FCM-->
-        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseMsgService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseInstanceIdService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-        See README(https://goo.gl/l4GJaQ) for more. -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@mipmap/ic_launcher" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorPrimary" />
-        <!--end service for FCM-->
+        <!-- Facebook Configuration -->
         <activity
             android:name="vn.loitp.app.activity.function.notification.MenuNotificationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -674,18 +617,24 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/FullscreenTheme" />
+        <!--service for FCM-->
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
             android:theme="@style/NoTitleTheme" />
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+        See README(https://goo.gl/l4GJaQ) for more. -->
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
         <activity
             android:name="vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--end service for FCM-->
         <activity
             android:name="vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -698,7 +647,6 @@
         <activity
             android:name="vn.loitp.app.activity.function.sensor.SensorActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
-        <!--<activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"android:name="vn.loitp.app.activity.function.sensor.SensorActivity" />-->
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -738,6 +686,7 @@
         <activity
             android:name="vn.loitp.app.activity.demo.film.FilmDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--<activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"android:name="vn.loitp.app.activity.function.sensor.SensorActivity" />-->
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -816,21 +765,9 @@
         <activity
             android:name="vn.loitp.app.activity.animation.lottie.MenuLottieActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <!--start floating view-->
         <activity
             android:name="vn.loitp.app.activity.demo.floatingview.FloatingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
-            android:exported="false" />
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService"
-            android:exported="false" />
-        <service
-            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService"
-            android:exported="false" />
-        <!--end floating view-->
         <activity
             android:name="vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -855,12 +792,6 @@
         <activity
             android:name="vn.loitp.app.activity.demo.twoinstanceactivity.Activity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <service
-            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
-            android:enabled="true"
-            android:exported="false" />
-
         <activity
             android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -873,29 +804,21 @@
         <activity
             android:name="vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--start floating view-->
         <activity
             android:name="vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
         <activity
             android:name="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--end floating view-->
         <activity
             android:name="vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -920,9 +843,11 @@
         <activity
             android:name="vn.loitp.app.activity.tutorial.rxjava2.DisposableExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.tutorial.rxjava2.FlowableExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -941,9 +866,11 @@
         <activity
             android:name="vn.loitp.app.activity.tutorial.rxjava2.CompletableObserverExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.tutorial.rxjava2.MapExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
         <activity
             android:name="vn.loitp.app.activity.customviews.layout.fixedgridlayout.FixedGridLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -997,6 +924,102 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.function.keyboard.KeyboardActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.textview.strokedtextview.StrokedTextViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSuggestActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/str_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <receiver
+            android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver"
+            android:process=":remote" />
+        <receiver android:name="vn.loitp.app.activity.demo.alarmdemoapp.service.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingwidget.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.function.activityandservice.TestService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewVideoService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingvideo.FloatingViewEdgeService"
+            android:enabled="true"
+            android:exported="false" />
+        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseMsgService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService"
+            android:exported="false" />
+        <service
+            android:name="vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

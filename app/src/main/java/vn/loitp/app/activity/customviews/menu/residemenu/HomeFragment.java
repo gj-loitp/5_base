@@ -43,4 +43,9 @@ public class HomeFragment extends BaseFragment {
         resideMenu.addIgnoredView(ignored_view);
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

@@ -25,6 +25,7 @@ import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivit
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
+import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
@@ -58,6 +59,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_scroll_view_2d).setOnClickListener(this)
         findViewById<View>(R.id.bt_scroll_view_2d_advance).setOnClickListener(this)
         btSwipeRevealLayout.setOnClickListener(this)
+        btShadowLayout.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -98,6 +100,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_scroll_view_2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
             R.id.bt_scroll_view_2d_advance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
             R.id.btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)
+            R.id.btShadowLayout -> intent = Intent(activity, ShadowLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

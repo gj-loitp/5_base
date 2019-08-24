@@ -134,4 +134,10 @@ public class FrmSample extends BaseFragment {
     protected int setLayoutResourceId() {
         return R.layout.frm_expect_anim_sample;
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

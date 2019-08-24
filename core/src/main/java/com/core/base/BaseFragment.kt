@@ -19,8 +19,8 @@ import loitp.core.R
  * Created by loitp on 2019/7/12
  */
 abstract class BaseFragment : Fragment() {
+    protected lateinit var TAG: String
     protected var compositeDisposable = CompositeDisposable()
-    protected val TAG = "TAG" + BaseFragment::class.java.simpleName
     protected lateinit var frmRootView: View
     protected var fragmentCallback: FragmentCallback? = null
 
@@ -33,10 +33,12 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
+        TAG = "TAG" + setTag()
         return frmRootView
     }
 
     protected abstract fun setLayoutResourceId(): Int
+    protected abstract fun setTag(): String?
 
     override fun onDestroyView() {
         LDialogUtil.clearAll()
@@ -48,13 +50,13 @@ abstract class BaseFragment : Fragment() {
         super.onAttach(context)
     }
 
-    protected fun handleException(throwable: Throwable) {
+    open fun handleException(throwable: Throwable) {
         throwable.message?.let {
             showDialogError(it)
         }
     }
 
-    protected fun showDialogError(errMsg: String) {
+    open fun showDialogError(errMsg: String) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
@@ -64,7 +66,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun showDialogMsg(msg: String) {
+    open fun showDialogMsg(msg: String) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
@@ -118,7 +120,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun showShort(msg: String) {
+    open fun showShort(msg: String) {
         activity?.let { LToast.showShort(it, msg, R.drawable.bkg_horizontal) }
     }
 }

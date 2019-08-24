@@ -174,4 +174,10 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
             am.abandonAudioFocus(null);
         }
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

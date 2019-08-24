@@ -15,6 +15,10 @@ import loitp.core.R
 import java.util.*
 
 class FrmDonate : BaseFragment() {
+    override fun setTag(): String? {
+        return javaClass.simpleName
+    }
+
     private var goldDark: Int = 0
     private var goldMed: Int = 0
     private var gold: Int = 0

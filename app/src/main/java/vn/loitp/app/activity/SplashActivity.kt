@@ -181,7 +181,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String {
-        return "TAG" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

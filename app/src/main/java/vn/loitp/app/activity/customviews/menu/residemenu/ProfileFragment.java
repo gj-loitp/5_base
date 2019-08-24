@@ -28,4 +28,9 @@ public class ProfileFragment extends BaseFragment {
         return R.layout.reside_menu_profile;
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

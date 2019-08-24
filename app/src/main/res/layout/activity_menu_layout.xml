@@ -136,6 +136,12 @@
                 android:text="@string/scroll_view_2d_advance" />
 
             <Button
+                android:id="@+id/btShadowLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/shadow_layout" />
+
+            <Button
                 android:id="@+id/bt_square_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

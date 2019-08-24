@@ -18,6 +18,9 @@ import loitp.core.R
  */
 
 class FrmMore : BaseFragment(), View.OnClickListener {
+    override fun setTag(): String? {
+        return javaClass.simpleName
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_150"
     card_view:cardBackgroundColor="@color/LightGrey"
-    card_view:cardCornerRadius="@dimen/round_5"
-    card_view:cardElevation="@dimen/w_3">
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

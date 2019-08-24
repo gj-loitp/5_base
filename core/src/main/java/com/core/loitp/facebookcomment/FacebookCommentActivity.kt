@@ -82,11 +82,11 @@ class FacebookCommentActivity : BaseFontActivity() {
         val lActionBar = findViewById<LActionBar>(R.id.l_action_bar)
         lActionBar?.apply {
             setOnClickBack(object : LActionBar.Callback {
-                override fun onClickBack() {
+                override fun onClickBack(view: View) {
                     onBackPressed()
                 }
 
-                override fun onClickMenu() {
+                override fun onClickMenu(view: View) {
                     //LToast.show(activity, "onClickMenu");
                 }
             })

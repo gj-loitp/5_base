@@ -88,4 +88,10 @@ public class FrmScroll extends BaseFragment {
     protected int setLayoutResourceId() {
         return R.layout.frm_expect_anim_scroll;
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

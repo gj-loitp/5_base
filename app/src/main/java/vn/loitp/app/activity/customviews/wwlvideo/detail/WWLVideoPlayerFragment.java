@@ -81,6 +81,12 @@ public class WWLVideoPlayerFragment extends BaseFragment {
         }*/
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
+
     /*@Override
     public void onBackPressed() {
         if (LScreenUtil.isFullScreen(activity)) {

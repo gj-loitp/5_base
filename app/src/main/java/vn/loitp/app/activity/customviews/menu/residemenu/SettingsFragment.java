@@ -28,4 +28,9 @@ public class SettingsFragment extends BaseFragment {
         return R.layout.reside_menu_setting;
     }
 
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected String setTag() {
+        return getClass().getSimpleName();
+    }
 }

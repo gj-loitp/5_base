@@ -7,8 +7,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.core.utilities.LAnimationUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.views.realtimeblurview.RealtimeBlurView
 import loitp.core.R
 
@@ -42,71 +40,77 @@ class LActionBar : RelativeLayout {
         this.realtimeBlurView = findViewById<RealtimeBlurView>(R.id.blur_view)
         this.shadowView = findViewById<View>(R.id.shadow_view)
 
-        ivIconBack!!.setOnClickListener { v ->
-            LAnimationUtil.play(v, Techniques.Pulse)
-            if (callback != null) {
-                callback!!.onClickBack()
-            }
+        ivIconBack?.setOnClickListener { v ->
+            callback?.onClickBack(v)
         }
-        ivIconMenu!!.setOnClickListener { v ->
-            LAnimationUtil.play(v, Techniques.Pulse)
-            if (callback != null) {
-                callback!!.onClickMenu()
-            }
+        ivIconMenu?.setOnClickListener { v ->
+            callback?.onClickMenu(v)
         }
     }
 
     interface Callback {
-        fun onClickBack()
+        fun onClickBack(view: View)
 
-        fun onClickMenu()
+        fun onClickMenu(view: View)
     }
 
-    fun setOnClickBack(onClickBack: Callback) {
+    fun setOnClickBack(onClickBack: Callback?) {
         this.callback = onClickBack
     }
 
     fun setTvTitle(title: String) {
-        tvTitle!!.text = title
+        tvTitle?.text = title
     }
 
     fun hideBackIcon() {
-        ivIconBack!!.visibility = View.GONE
+        ivIconBack?.visibility = View.GONE
     }
 
     fun inviBackIcon() {
-        ivIconBack!!.visibility = View.INVISIBLE
+        ivIconBack?.visibility = View.INVISIBLE
     }
 
     fun hideMenuIcon() {
-        ivIconMenu!!.visibility = View.GONE
+        ivIconMenu?.visibility = View.GONE
     }
 
     fun showMenuIcon() {
-        ivIconMenu!!.visibility = View.VISIBLE
+        ivIconMenu?.visibility = View.VISIBLE
     }
 
     fun setTvTitlePositionLeft() {
-        tvTitle!!.gravity = Gravity.START or Gravity.CENTER_VERTICAL
+        tvTitle?.gravity = Gravity.START or Gravity.CENTER_VERTICAL
     }
 
     fun setTvTitlePositionCenter() {
-        tvTitle!!.gravity = Gravity.CENTER
+        tvTitle?.gravity = Gravity.CENTER
     }
 
     fun setImageMenuIcon(drawableRes: Int) {
-        ivIconMenu!!.setImageResource(drawableRes)
+        ivIconMenu?.setImageResource(drawableRes)
     }
 
     fun setImageBackIcon(drawableRes: Int) {
-        ivIconBack!!.setImageResource(drawableRes)
+        ivIconBack?.setImageResource(drawableRes)
     }
 
     fun hideBlurView() {
-        realtimeBlurView!!.visibility = View.GONE
+        realtimeBlurView?.visibility = View.GONE
+    }
+
+    fun setBlurRadius(radius: Float) {
+        realtimeBlurView?.setBlurRadius(radius)
+    }
+
+    fun setBlurOverlayColor(color: Int) {
+        realtimeBlurView?.setOverlayColor(color)
     }
 
     fun hideShadowView() {
-        shadowView!!.visibility = View.GONE
+        shadowView?.visibility = View.GONE
+    }
+
+    fun showShadowView() {
+        shadowView?.visibility = View.VISIBLE
     }
 }

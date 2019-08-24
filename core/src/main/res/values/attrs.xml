@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="direction">
+        <enum name="up" value="0" />
+        <enum name="right" value="1" />
+        <enum name="down" value="2" />
+        <enum name="left" value="3" />
+    </attr>
+    <attr name="scaleType">
+        <enum name="matrix" value="0" />
+        <enum name="fitXy" value="1" />
+        <enum name="fitStart" value="2" />
+        <enum name="fitCenter" value="3" />
+        <enum name="fitEnd" value="4" />
+        <enum name="center" value="5" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="7" />
+    </attr>
+    <attr name="interval" format="integer" />
+    <attr name="showIndicator" format="boolean" />
+    <attr name="autoPlaying" format="boolean" />
     <declare-styleable name="RecyclerViewPager">
         <attr name="rvp_triggerOffset" format="float" />
         <attr name="rvp_flingFactor" format="float" />
@@ -200,6 +219,7 @@
         <attr name="from_alpha" format="float" />
         <attr name="to_alpha" format="float" />
     </declare-styleable>
+    <!--LoadingButton-->
     <declare-styleable name="ParallaxImageView">
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
@@ -245,7 +265,6 @@
             <enum name="cropOutside" value="1" />
         </attr>
     </declare-styleable>
-    <!--LoadingButton-->
     <declare-styleable name="buttonLoading">
         <attr name="BL_enable" format="boolean" />
         <attr name="BL_idParent" format="integer" />
@@ -270,22 +289,6 @@
         <attr name="duration" format="integer" />
         <attr name="scaleType" />
     </declare-styleable>
-    <attr name="direction">
-        <enum name="up" value="0" />
-        <enum name="right" value="1" />
-        <enum name="down" value="2" />
-        <enum name="left" value="3" />
-    </attr>
-    <attr name="scaleType">
-        <enum name="matrix" value="0" />
-        <enum name="fitXy" value="1" />
-        <enum name="fitStart" value="2" />
-        <enum name="fitCenter" value="3" />
-        <enum name="fitEnd" value="4" />
-        <enum name="center" value="5" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="7" />
-    </attr>
     <declare-styleable name="PanoramaImageView">
         <attr name="piv_enablePanoramaMode" format="boolean" />
         <attr name="piv_invertScrollDirection" format="boolean" />
@@ -467,6 +470,10 @@
         <attr name="textEnabled_boxed" format="boolean" />
         <attr name="imageEnabled_boxed" format="boolean" />
     </declare-styleable>
+    <!--<attr name="orientation" format="enum">
+        <enum name="horizontal" value="0" />
+        <enum name="vertical" value="1" />
+    </attr>-->
     <declare-styleable name="SwipeBackLayout">
         <attr name="swipeBackFactor" format="float" />
         <attr name="maskAlpha" format="integer" />
@@ -478,13 +485,6 @@
             <enum name="bottom" value="8" />
         </attr>
     </declare-styleable>
-    <attr name="interval" format="integer" />
-    <attr name="showIndicator" format="boolean" />
-    <!--<attr name="orientation" format="enum">
-        <enum name="horizontal" value="0" />
-        <enum name="vertical" value="1" />
-    </attr>-->
-    <attr name="autoPlaying" format="boolean" />
     <declare-styleable name="RecyclerViewBannerBase">
         <attr name="interval" />
         <attr name="showIndicator_banner_base" />
@@ -665,5 +665,55 @@
         <attr name="buttonCornerRadius" format="dimension" />
         <attr name="buttonRippleColor" format="color" />
         <attr name="buttonRippleAlpha" format="integer" />
+    </declare-styleable>
+
+    <!-- ShadowLayout 阴影 -->
+    <declare-styleable name="ShadowLayout">
+        <attr name="shadowColor" format="color" />
+        <attr name="shadowRadius" format="dimension" />
+        <attr name="shadowDx" format="dimension" />
+        <attr name="shadowDy" format="dimension" />
+        <attr name="shadowShape">
+            <flag name="rectangle" value="0x0001" />
+            <flag name="oval" value="0x0010" />
+        </attr>
+        <attr name="shadowSide">
+            <flag name="all" value="0x1111" />
+            <flag name="left" value="0x0001" />
+            <flag name="top" value="0x0010" />
+            <flag name="right" value="0x0100" />
+            <flag name="bottom" value="0x1000" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressIndicator">
+        <attr name="cpiProgressColor" format="color" />
+        <attr name="cpiProgressBackgroundColor" format="color" />
+        <attr name="cpiProgressStrokeWidth" format="dimension" />
+        <attr name="cpiProgressBackgroundStrokeWidth" format="dimension" />
+        <attr name="cpiTextColor" format="color" />
+        <attr name="cpiTextSize" format="dimension" />
+        <attr name="cpiFormattingPattern" format="string|reference" />
+        <attr name="cpiDrawDot" format="boolean" />
+        <attr name="cpiDotColor" format="color" />
+        <attr name="cpiDotWidth" format="dimension" />
+        <attr name="cpiStartAngle" format="integer|reference" />
+        <attr name="cpiDirection" format="enum">
+            <enum name="clockwise" value="0" />
+            <enum name="counterclockwise" value="1" />
+        </attr>
+        <attr name="cpiProgressCap" format="enum">
+            <enum name="round" value="0" />
+            <enum name="butt" value="1" />
+        </attr>
+        <attr name="cpiEnableProgressAnimation" format="boolean" />
+        <attr name="cpiFillBackground" format="boolean" />
+        <attr name="cpiGradientEndColor" format="color|reference" />
+        <attr name="cpiGradientType" format="enum">
+            <enum name="no_gradient" value="0" />
+            <enum name="linear" value="1" />
+            <enum name="radial" value="2" />
+            <enum name="sweep" value="3" />
+        </attr>
     </declare-styleable>
 </resources>

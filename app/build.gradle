@@ -75,7 +75,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:3.7.0'
+    //api 'com.github.tplloi:basemaster:3.7.3'
 
     api 'io.realm:realm-android:0.82.1'//realm
 
@@ -138,6 +138,9 @@ dependencies {
 
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
+
+    //https://github.com/p32929/AndroidEasySQL-Library
+    //api 'com.github.p32929:AndroidEasySQL-Library:1.4.0'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

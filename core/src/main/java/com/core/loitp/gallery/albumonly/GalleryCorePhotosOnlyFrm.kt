@@ -34,6 +34,10 @@ import io.reactivex.schedulers.Schedulers
 import loitp.core.R
 
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
+    override fun setTag(): String? {
+        return javaClass.simpleName
+    }
+
     private lateinit var tvTitle: TextView
     private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
     private var currentPage = 0

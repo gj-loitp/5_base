@@ -1,5 +1,6 @@
 package com.core.utilities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -13,6 +14,7 @@ import android.os.Handler
 import android.text.Html
 import android.text.TextUtils
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -532,6 +534,20 @@ object LUIUtil {
         return ContextCompat.getColor(context, colors[c])
     }
 
+    //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
+    fun setImeiActionEditText(editText: EditText?, imeOptions: Int, runnable: Runnable?) {
+        editText?.let {
+            it.imeOptions = imeOptions
+            it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                if (actionId == imeOptions) {
+                    runnable?.run()
+                    return@OnEditorActionListener true
+                }
+                false
+            })
+        }
+    }
+
     fun setImeiActionSearch(editText: EditText?, actionSearch: Runnable?) {
         editText?.let {
             it.imeOptions = EditorInfo.IME_ACTION_SEARCH
@@ -677,5 +693,16 @@ object LUIUtil {
         view.layoutParams.width = w
         view.layoutParams.height = h
         view.requestLayout()
+    }
+
+    @SuppressLint("ObsoleteSdkInt")
+    fun setRipple(context: Context?, view: View) {
+        context?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                val outValue = TypedValue();
+                context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
+                view.setBackgroundResource(outValue.resourceId);
+            }
+        }
     }
 }

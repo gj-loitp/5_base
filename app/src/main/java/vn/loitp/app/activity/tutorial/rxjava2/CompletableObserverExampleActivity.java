@@ -52,19 +52,19 @@ public class CompletableObserverExampleActivity extends BaseFontActivity {
         return new CompletableObserver() {
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.INSTANCE.d(getTAG(), " onSubscribe : " + d.isDisposed());
+                LLog.d(getTAG(), " onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onComplete() {
                 textView.append(" onComplete\n");
-                LLog.INSTANCE.d(getTAG(), " onComplete");
+                LLog.d(getTAG(), " onComplete");
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
+                LLog.d(getTAG(), " onError : " + e.getMessage());
             }
         };
     }

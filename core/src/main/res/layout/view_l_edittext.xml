@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivLeft"
+                android:layout_width="@dimen/w_30"
+                android:layout_height="@dimen/w_30"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_5"
+                android:src="@drawable/ic_settings_black_48dp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/txt_16"
+                tools:text="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/ivRight"
+                android:layout_width="@dimen/w_30"
+                android:layout_height="@dimen/w_30"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/padding_5"
+                android:src="@drawable/icon_close"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_14"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@id/mcv"
+        app:layout_constraintRight_toRightOf="@id/mcv"
+        app:layout_constraintTop_toBottomOf="@id/mcv"
+        tools:text="@string/app_name"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

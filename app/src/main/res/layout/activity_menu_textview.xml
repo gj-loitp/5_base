@@ -80,6 +80,12 @@
                 android:text="@string/selectabletextview" />
 
             <Button
+                android:id="@+id/btStrokedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stroked_textview" />
+
+            <Button
                 android:id="@+id/bt_text_decorator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
