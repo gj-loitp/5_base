@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.pdf;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,13 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.github.barteksc.pdfviewer.util.FitPolicy;
 import com.task.AsyncTaskDownloadPdf;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import loitp.basemaster.R;
 
@@ -24,19 +31,63 @@ public class PdfDemoActivity extends BaseFontActivity {
     private AsyncTaskDownloadPdf asyncTaskDownloadPdf;
     private PDFView pdfView;
     private ProgressBar pb;
-    private Button btDownload;
+    private Button btFile;
+    private Button btStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pdfView = findViewById(R.id.pdfView);
         pb = findViewById(R.id.pb);
-        btDownload = findViewById(R.id.btDownload);
-        btDownload.setOnClickListener(view -> {
+        btFile = findViewById(R.id.btFile);
+        btStream = findViewById(R.id.btStream);
+        btFile.setOnClickListener(view -> {
             fromUrl();
         });
+        btStream.setOnClickListener(view -> {
+            new RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf");
+            //new RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
+        });
+
         showDialogMsg("You can load pdf from url, uri, file, asset, bytes, stream...");
     }
+
+
+    private class RetrievePDFStream extends AsyncTask<String, Void, InputStream> {
+        @Override
+        protected InputStream doInBackground(String... strings) {
+            LLog.d(TAG, "doInBackground");
+            InputStream inputStream = null;
+            URL url = null;
+            try {
+                url = new URL(strings[0]);
+            } catch (MalformedURLException e) {
+                LLog.e(TAG, "doInBackground MalformedURLException " + e.toString());
+            }
+
+            try {
+                HttpURLConnection httpURLConnection = null;
+                if (url != null) {
+                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                }
+                if (httpURLConnection != null && httpURLConnection.getResponseCode() == 200) {
+                    inputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+                }
+            } catch (IOException e) {
+                LLog.d(TAG, "doInBackground IOException " + e.toString());
+                return null;
+            }
+            return inputStream;
+        }
+
+        @Override
+        protected void onPostExecute(InputStream inputStream) {
+            LLog.d(TAG, "onPostExecute");
+            pdfView.setVisibility(View.VISIBLE);
+            pdfView.fromStream(inputStream).load();
+        }
+    }
+
 
     @Override
     protected boolean setFullScreen() {
@@ -66,9 +117,10 @@ public class PdfDemoActivity extends BaseFontActivity {
             asyncTaskDownloadPdf.cancel(true);
         }
         final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
-        final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        //final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
         //final String url = "http://www.pdf995.com/samples/pdf.pdf";
         //final String url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+        final String url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf";
         final String folderName = "PDFDemo";
         pb.setVisibility(View.VISIBLE);
         pb.setProgress(0);
@@ -82,7 +134,7 @@ public class PdfDemoActivity extends BaseFontActivity {
                 showShort("onSuccess after " + durationSec + " seconds");
                 pb.setVisibility(View.GONE);
                 pdfView.setVisibility(View.VISIBLE);
-                btDownload.setVisibility(View.GONE);
+                btFile.setVisibility(View.GONE);
                 showPDF(file);
             }
 
@@ -182,7 +234,7 @@ public class PdfDemoActivity extends BaseFontActivity {
     public void onBackPressed() {
         if (pdfView.getVisibility() == View.VISIBLE) {
             pdfView.setVisibility(View.GONE);
-            btDownload.setVisibility(View.VISIBLE);
+            btFile.setVisibility(View.VISIBLE);
         } else {
             super.onBackPressed();
         }

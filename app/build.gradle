@@ -137,7 +137,7 @@ dependencies {
     //kapt 'com.android.databinding:compiler:3.1.4'
 
     //https://github.com/barteksc/AndroidPdfViewer
-    api 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
+    api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
     //https://github.com/p32929/AndroidEasySQL-Library
     //api 'com.github.p32929:AndroidEasySQL-Library:1.4.0'
