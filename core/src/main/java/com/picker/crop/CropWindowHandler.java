@@ -204,8 +204,8 @@ final class CropWindowHandler {
      * @param targetRadius the target radius in pixels
      * @return the Handle that was pressed; null if no Handle was pressed
      */
-    public CropWindowMoveHandler getMoveHandler(float x, float y, float targetRadius, CropImageView.CropShape cropShape) {
-        CropWindowMoveHandler.Type type = cropShape == CropImageView.CropShape.OVAL
+    public CropWindowMoveHandler getMoveHandler(float x, float y, float targetRadius, LCropImageView.CropShape cropShape) {
+        CropWindowMoveHandler.Type type = cropShape == LCropImageView.CropShape.OVAL
                 ? getOvalPressedMoveType(x, y)
                 : getRectanglePressedMoveType(x, y, targetRadius);
         return type != null ? new CropWindowMoveHandler(type, this, x, y) : null;

@@ -569,7 +569,7 @@
         <attr name="lVerticalSpacing" />
         <attr name="lHorizontalDivider" />
     </declare-styleable>
-    <declare-styleable name="CropImageView">
+    <declare-styleable name="LCropImageView">
         <attr name="cropGuidelines">
             <enum name="off" value="0" />
             <enum name="onTouch" value="1" />

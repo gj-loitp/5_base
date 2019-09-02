@@ -42,7 +42,7 @@ import loitp.core.R;
 /**
  * Custom view that provides cropping capabilities to an image.
  */
-public class CropImageView extends FrameLayout {
+public class LCropImageView extends FrameLayout {
 
     //region: Fields and Consts
 
@@ -79,7 +79,7 @@ public class CropImageView extends FrameLayout {
     /**
      * Animation class to smooth animate zoom-in/out
      */
-    private CropImageAnimation mAnimation;
+    private LCropImageAnimation mAnimation;
 
     private Bitmap mBitmap;
 
@@ -189,11 +189,11 @@ public class CropImageView extends FrameLayout {
     private WeakReference<BitmapCroppingWorkerTask> mBitmapCroppingWorkerTask;
     //endregion
 
-    public CropImageView(Context context) {
+    public LCropImageView(Context context) {
         this(context, null);
     }
 
-    public CropImageView(Context context, AttributeSet attrs) {
+    public LCropImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         CropImageOptions options = null;
@@ -206,43 +206,43 @@ public class CropImageView extends FrameLayout {
             options = new CropImageOptions();
 
             if (attrs != null) {
-                final TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CropImageView, 0, 0);
+                final TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.LCropImageView, 0, 0);
                 try {
-                    options.fixAspectRatio = ta.getBoolean(R.styleable.CropImageView_cropFixAspectRatio, options.fixAspectRatio);
-                    options.aspectRatioX = ta.getInteger(R.styleable.CropImageView_cropAspectRatioX, options.aspectRatioX);
-                    options.aspectRatioY = ta.getInteger(R.styleable.CropImageView_cropAspectRatioY, options.aspectRatioY);
-                    options.scaleType = ScaleType.values()[ta.getInt(R.styleable.CropImageView_cropScaleType, options.scaleType.ordinal())];
-                    options.autoZoomEnabled = ta.getBoolean(R.styleable.CropImageView_cropAutoZoomEnabled, options.autoZoomEnabled);
-                    options.multiTouchEnabled = ta.getBoolean(R.styleable.CropImageView_cropMultiTouchEnabled, options.multiTouchEnabled);
-                    options.maxZoom = ta.getInteger(R.styleable.CropImageView_cropMaxZoom, options.maxZoom);
-                    options.cropShape = CropShape.values()[ta.getInt(R.styleable.CropImageView_cropShape, options.cropShape.ordinal())];
-                    options.guidelines = Guidelines.values()[ta.getInt(R.styleable.CropImageView_cropGuidelines, options.guidelines.ordinal())];
-                    options.snapRadius = ta.getDimension(R.styleable.CropImageView_cropSnapRadius, options.snapRadius);
-                    options.touchRadius = ta.getDimension(R.styleable.CropImageView_cropTouchRadius, options.touchRadius);
-                    options.initialCropWindowPaddingRatio = ta.getFloat(R.styleable.CropImageView_cropInitialCropWindowPaddingRatio, options.initialCropWindowPaddingRatio);
-                    options.borderLineThickness = ta.getDimension(R.styleable.CropImageView_cropBorderLineThickness, options.borderLineThickness);
-                    options.borderLineColor = ta.getInteger(R.styleable.CropImageView_cropBorderLineColor, options.borderLineColor);
-                    options.borderCornerThickness = ta.getDimension(R.styleable.CropImageView_cropBorderCornerThickness, options.borderCornerThickness);
-                    options.borderCornerOffset = ta.getDimension(R.styleable.CropImageView_cropBorderCornerOffset, options.borderCornerOffset);
-                    options.borderCornerLength = ta.getDimension(R.styleable.CropImageView_cropBorderCornerLength, options.borderCornerLength);
-                    options.borderCornerColor = ta.getInteger(R.styleable.CropImageView_cropBorderCornerColor, options.borderCornerColor);
-                    options.guidelinesThickness = ta.getDimension(R.styleable.CropImageView_cropGuidelinesThickness, options.guidelinesThickness);
-                    options.guidelinesColor = ta.getInteger(R.styleable.CropImageView_cropGuidelinesColor, options.guidelinesColor);
-                    options.backgroundColor = ta.getInteger(R.styleable.CropImageView_cropBackgroundColor, options.backgroundColor);
-                    options.showCropOverlay = ta.getBoolean(R.styleable.CropImageView_cropShowCropOverlay, mShowCropOverlay);
-                    options.showProgressBar = ta.getBoolean(R.styleable.CropImageView_cropShowProgressBar, mShowProgressBar);
-                    options.borderCornerThickness = ta.getDimension(R.styleable.CropImageView_cropBorderCornerThickness, options.borderCornerThickness);
-                    options.minCropWindowWidth = (int) ta.getDimension(R.styleable.CropImageView_cropMinCropWindowWidth, options.minCropWindowWidth);
-                    options.minCropWindowHeight = (int) ta.getDimension(R.styleable.CropImageView_cropMinCropWindowHeight, options.minCropWindowHeight);
-                    options.minCropResultWidth = (int) ta.getFloat(R.styleable.CropImageView_cropMinCropResultWidthPX, options.minCropResultWidth);
-                    options.minCropResultHeight = (int) ta.getFloat(R.styleable.CropImageView_cropMinCropResultHeightPX, options.minCropResultHeight);
-                    options.maxCropResultWidth = (int) ta.getFloat(R.styleable.CropImageView_cropMaxCropResultWidthPX, options.maxCropResultWidth);
-                    options.maxCropResultHeight = (int) ta.getFloat(R.styleable.CropImageView_cropMaxCropResultHeightPX, options.maxCropResultHeight);
+                    options.fixAspectRatio = ta.getBoolean(R.styleable.LCropImageView_cropFixAspectRatio, options.fixAspectRatio);
+                    options.aspectRatioX = ta.getInteger(R.styleable.LCropImageView_cropAspectRatioX, options.aspectRatioX);
+                    options.aspectRatioY = ta.getInteger(R.styleable.LCropImageView_cropAspectRatioY, options.aspectRatioY);
+                    options.scaleType = ScaleType.values()[ta.getInt(R.styleable.LCropImageView_cropScaleType, options.scaleType.ordinal())];
+                    options.autoZoomEnabled = ta.getBoolean(R.styleable.LCropImageView_cropAutoZoomEnabled, options.autoZoomEnabled);
+                    options.multiTouchEnabled = ta.getBoolean(R.styleable.LCropImageView_cropMultiTouchEnabled, options.multiTouchEnabled);
+                    options.maxZoom = ta.getInteger(R.styleable.LCropImageView_cropMaxZoom, options.maxZoom);
+                    options.cropShape = CropShape.values()[ta.getInt(R.styleable.LCropImageView_cropShape, options.cropShape.ordinal())];
+                    options.guidelines = Guidelines.values()[ta.getInt(R.styleable.LCropImageView_cropGuidelines, options.guidelines.ordinal())];
+                    options.snapRadius = ta.getDimension(R.styleable.LCropImageView_cropSnapRadius, options.snapRadius);
+                    options.touchRadius = ta.getDimension(R.styleable.LCropImageView_cropTouchRadius, options.touchRadius);
+                    options.initialCropWindowPaddingRatio = ta.getFloat(R.styleable.LCropImageView_cropInitialCropWindowPaddingRatio, options.initialCropWindowPaddingRatio);
+                    options.borderLineThickness = ta.getDimension(R.styleable.LCropImageView_cropBorderLineThickness, options.borderLineThickness);
+                    options.borderLineColor = ta.getInteger(R.styleable.LCropImageView_cropBorderLineColor, options.borderLineColor);
+                    options.borderCornerThickness = ta.getDimension(R.styleable.LCropImageView_cropBorderCornerThickness, options.borderCornerThickness);
+                    options.borderCornerOffset = ta.getDimension(R.styleable.LCropImageView_cropBorderCornerOffset, options.borderCornerOffset);
+                    options.borderCornerLength = ta.getDimension(R.styleable.LCropImageView_cropBorderCornerLength, options.borderCornerLength);
+                    options.borderCornerColor = ta.getInteger(R.styleable.LCropImageView_cropBorderCornerColor, options.borderCornerColor);
+                    options.guidelinesThickness = ta.getDimension(R.styleable.LCropImageView_cropGuidelinesThickness, options.guidelinesThickness);
+                    options.guidelinesColor = ta.getInteger(R.styleable.LCropImageView_cropGuidelinesColor, options.guidelinesColor);
+                    options.backgroundColor = ta.getInteger(R.styleable.LCropImageView_cropBackgroundColor, options.backgroundColor);
+                    options.showCropOverlay = ta.getBoolean(R.styleable.LCropImageView_cropShowCropOverlay, mShowCropOverlay);
+                    options.showProgressBar = ta.getBoolean(R.styleable.LCropImageView_cropShowProgressBar, mShowProgressBar);
+                    options.borderCornerThickness = ta.getDimension(R.styleable.LCropImageView_cropBorderCornerThickness, options.borderCornerThickness);
+                    options.minCropWindowWidth = (int) ta.getDimension(R.styleable.LCropImageView_cropMinCropWindowWidth, options.minCropWindowWidth);
+                    options.minCropWindowHeight = (int) ta.getDimension(R.styleable.LCropImageView_cropMinCropWindowHeight, options.minCropWindowHeight);
+                    options.minCropResultWidth = (int) ta.getFloat(R.styleable.LCropImageView_cropMinCropResultWidthPX, options.minCropResultWidth);
+                    options.minCropResultHeight = (int) ta.getFloat(R.styleable.LCropImageView_cropMinCropResultHeightPX, options.minCropResultHeight);
+                    options.maxCropResultWidth = (int) ta.getFloat(R.styleable.LCropImageView_cropMaxCropResultWidthPX, options.maxCropResultWidth);
+                    options.maxCropResultHeight = (int) ta.getFloat(R.styleable.LCropImageView_cropMaxCropResultHeightPX, options.maxCropResultHeight);
 
                     // if aspect ratio is set then set fixed to true
-                    if (ta.hasValue(R.styleable.CropImageView_cropAspectRatioX) &&
-                            ta.hasValue(R.styleable.CropImageView_cropAspectRatioX) &&
-                            !ta.hasValue(R.styleable.CropImageView_cropFixAspectRatio)) {
+                    if (ta.hasValue(R.styleable.LCropImageView_cropAspectRatioX) &&
+                            ta.hasValue(R.styleable.LCropImageView_cropAspectRatioX) &&
+                            !ta.hasValue(R.styleable.LCropImageView_cropFixAspectRatio)) {
                         options.fixAspectRatio = true;
                     }
                 } finally {
@@ -260,7 +260,7 @@ public class CropImageView extends FrameLayout {
         mShowProgressBar = options.showProgressBar;
 
         final LayoutInflater inflater = LayoutInflater.from(context);
-        final View v = inflater.inflate(R.layout.crop_image_view, this, true);
+        final View v = inflater.inflate(R.layout.l_crop_image_view, this, true);
 
         mImageView = v.findViewById(R.id.ImageView_image);
         mImageView.setScaleType(ImageView.ScaleType.MATRIX);
@@ -1319,7 +1319,7 @@ public class CropImageView extends FrameLayout {
                     if (animate) {
                         if (mAnimation == null) {
                             // lazy create animation single instance
-                            mAnimation = new CropImageAnimation(mImageView, mLCropOverlayView);
+                            mAnimation = new LCropImageAnimation(mImageView, mLCropOverlayView);
                         }
                         // set the state for animation to start from
                         mAnimation.setStartState(mImagePoints, mImageMatrix);
@@ -1617,7 +1617,7 @@ public class CropImageView extends FrameLayout {
          * @param uri   the URI of the image that was loading
          * @param error if error occurred during loading will contain the error, otherwise null.
          */
-        void onSetImageUriComplete(CropImageView view, Uri uri, Exception error);
+        void onSetImageUriComplete(LCropImageView view, Uri uri, Exception error);
     }
     //endregion
 
@@ -1636,7 +1636,7 @@ public class CropImageView extends FrameLayout {
          * @param view   The crop image view that cropping of image was complete.
          * @param result the crop image result data (with cropped image or error)
          */
-        void onCropImageComplete(CropImageView view, CropResult result);
+        void onCropImageComplete(LCropImageView view, CropResult result);
     }
     //endregion
 
@@ -1659,7 +1659,7 @@ public class CropImageView extends FrameLayout {
          * @param bitmap the cropped image bitmap (null if failed)
          * @param error  if error occurred during cropping will contain the error, otherwise null.
          */
-        void onGetCroppedImageComplete(CropImageView view, Bitmap bitmap, Exception error);
+        void onGetCroppedImageComplete(LCropImageView view, Bitmap bitmap, Exception error);
     }
     //endregion
 
@@ -1682,7 +1682,7 @@ public class CropImageView extends FrameLayout {
          * @param uri   the cropped image uri (null if failed)
          * @param error if error occurred during cropping will contain the error, otherwise null.
          */
-        void onSaveCroppedImageComplete(CropImageView view, Uri uri, Exception error);
+        void onSaveCroppedImageComplete(LCropImageView view, Uri uri, Exception error);
     }
     //endregion
 

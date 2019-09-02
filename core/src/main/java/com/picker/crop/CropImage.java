@@ -457,7 +457,7 @@ public final class CropImage {
          * To set square/circle crop shape set aspect ratio to 1:1.<br>
          * <i>Default: RECTANGLE</i>
          */
-        public ActivityBuilder setCropShape(@NonNull CropImageView.CropShape cropShape) {
+        public ActivityBuilder setCropShape(@NonNull LCropImageView.CropShape cropShape) {
             mOptions.cropShape = cropShape;
             return this;
         }
@@ -488,7 +488,7 @@ public final class CropImage {
          * whether the guidelines should be on, off, or only showing when resizing.<br>
          * <i>Default: ON_TOUCH</i>
          */
-        public ActivityBuilder setGuidelines(@NonNull CropImageView.Guidelines guidelines) {
+        public ActivityBuilder setGuidelines(@NonNull LCropImageView.Guidelines guidelines) {
             mOptions.guidelines = guidelines;
             return this;
         }
@@ -497,7 +497,7 @@ public final class CropImage {
          * The initial scale type of the image in the crop image view<br>
          * <i>Default: FIT_CENTER</i>
          */
-        public ActivityBuilder setScaleType(@NonNull CropImageView.ScaleType scaleType) {
+        public ActivityBuilder setScaleType(@NonNull LCropImageView.ScaleType scaleType) {
             mOptions.scaleType = scaleType;
             return this;
         }
@@ -742,18 +742,18 @@ public final class CropImage {
 
         /**
          * the size to resize the cropped image to.<br>
-         * Uses {@link CropImageView.RequestSizeOptions#RESIZE_INSIDE} option.<br>
+         * Uses {@link LCropImageView.RequestSizeOptions#RESIZE_INSIDE} option.<br>
          * <i>Default: 0, 0 - not set, will not resize</i>
          */
         public ActivityBuilder setRequestedSize(int reqWidth, int reqHeight) {
-            return setRequestedSize(reqWidth, reqHeight, CropImageView.RequestSizeOptions.RESIZE_INSIDE);
+            return setRequestedSize(reqWidth, reqHeight, LCropImageView.RequestSizeOptions.RESIZE_INSIDE);
         }
 
         /**
          * the size to resize the cropped image to.<br>
          * <i>Default: 0, 0 - not set, will not resize</i>
          */
-        public ActivityBuilder setRequestedSize(int reqWidth, int reqHeight, CropImageView.RequestSizeOptions options) {
+        public ActivityBuilder setRequestedSize(int reqWidth, int reqHeight, LCropImageView.RequestSizeOptions options) {
             mOptions.outputRequestWidth = reqWidth;
             mOptions.outputRequestHeight = reqHeight;
             mOptions.outputRequestSizeOptions = options;
@@ -823,7 +823,7 @@ public final class CropImage {
     /**
      * Result data of Crop Image Activity.
      */
-    public static final class ActivityResult extends CropImageView.CropResult implements Parcelable {
+    public static final class ActivityResult extends LCropImageView.CropResult implements Parcelable {
 
         public static final Creator<ActivityResult> CREATOR = new Creator<ActivityResult>() {
             @Override

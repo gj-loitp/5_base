@@ -20,7 +20,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.picker.crop.CropImage;
-import com.picker.crop.CropImageView;
+import com.picker.crop.LCropImageView;
 import com.picker.crop.LGalleryActivity;
 import com.views.LToast;
 import com.yalantis.ucrop.util.FileUtils;
@@ -116,21 +116,21 @@ public class CropActivity extends BaseFontActivity {
             }
             if (isOvalOption) {
                 CropImage.activity(imageUri)
-                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .setGuidelines(LCropImageView.Guidelines.ON)
                         .setBorderLineColor(Color.WHITE)
                         .setBorderLineThickness(2)
                         .setCircleSize(30)
-                        .setCropShape(CropImageView.CropShape.OVAL)
+                        .setCropShape(LCropImageView.CropShape.OVAL)
                         .setCircleColor(Color.WHITE)
                         .setBackgroundColor(Color.argb(200, 0, 0, 0))
                         .start(getActivity());
             } else {
                 CropImage.activity(imageUri)
-                        .setGuidelines(CropImageView.Guidelines.OFF)
+                        .setGuidelines(LCropImageView.Guidelines.OFF)
                         .setBorderLineColor(Color.RED)
                         .setBorderLineThickness(2)
                         .setCircleSize(15)
-                        .setCropShape(CropImageView.CropShape.RECTANGLE)
+                        .setCropShape(LCropImageView.CropShape.RECTANGLE)
                         .setCircleColor(Color.RED)
                         .setBackgroundColor(Color.argb(200, 0, 0, 0))
                         .setAspectRatio(1, 1)

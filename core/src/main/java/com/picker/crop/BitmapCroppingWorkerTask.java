@@ -29,7 +29,7 @@ final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppin
     /**
      * Use a WeakReference to ensure the ImageView can be garbage collected
      */
-    private final WeakReference<CropImageView> mCropImageViewReference;
+    private final WeakReference<LCropImageView> mCropImageViewReference;
 
     /**
      * the bitmap to crop
@@ -94,7 +94,7 @@ final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppin
     /**
      * The option to handle requested width/height
      */
-    private final CropImageView.RequestSizeOptions mReqSizeOptions;
+    private final LCropImageView.RequestSizeOptions mReqSizeOptions;
 
     /**
      * the Android Uri to save the cropped image to
@@ -112,13 +112,13 @@ final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppin
     private final int mSaveCompressQuality;
     //endregion
 
-    BitmapCroppingWorkerTask(CropImageView cropImageView, Bitmap bitmap, float[] cropPoints,
+    BitmapCroppingWorkerTask(LCropImageView LCropImageView, Bitmap bitmap, float[] cropPoints,
                              int degreesRotated, boolean fixAspectRatio, int aspectRatioX, int aspectRatioY,
-                             int reqWidth, int reqHeight, CropImageView.RequestSizeOptions options,
+                             int reqWidth, int reqHeight, LCropImageView.RequestSizeOptions options,
                              Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality) {
 
-        mCropImageViewReference = new WeakReference<>(cropImageView);
-        mContext = cropImageView.getContext();
+        mCropImageViewReference = new WeakReference<>(LCropImageView);
+        mContext = LCropImageView.getContext();
         mBitmap = bitmap;
         mCropPoints = cropPoints;
         mUri = null;
@@ -136,14 +136,14 @@ final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppin
         mOrgHeight = 0;
     }
 
-    BitmapCroppingWorkerTask(CropImageView cropImageView, Uri uri, float[] cropPoints,
+    BitmapCroppingWorkerTask(LCropImageView LCropImageView, Uri uri, float[] cropPoints,
                              int degreesRotated, int orgWidth, int orgHeight,
                              boolean fixAspectRatio, int aspectRatioX, int aspectRatioY,
-                             int reqWidth, int reqHeight, CropImageView.RequestSizeOptions options,
+                             int reqWidth, int reqHeight, LCropImageView.RequestSizeOptions options,
                              Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality) {
 
-        mCropImageViewReference = new WeakReference<>(cropImageView);
-        mContext = cropImageView.getContext();
+        mCropImageViewReference = new WeakReference<>(LCropImageView);
+        mContext = LCropImageView.getContext();
         mUri = uri;
         mCropPoints = cropPoints;
         mDegreesRotated = degreesRotated;
@@ -219,10 +219,10 @@ final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppin
         if (result != null) {
             boolean completeCalled = false;
             if (!isCancelled()) {
-                final CropImageView cropImageView = mCropImageViewReference.get();
-                if (cropImageView != null) {
+                final LCropImageView LCropImageView = mCropImageViewReference.get();
+                if (LCropImageView != null) {
                     completeCalled = true;
-                    cropImageView.onImageCroppingAsyncComplete(result);
+                    LCropImageView.onImageCroppingAsyncComplete(result);
                 }
             }
             if (!completeCalled && result.bitmap != null) {
