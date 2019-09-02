@@ -10,7 +10,7 @@
         android:scaleType="centerInside"
         tools:ignore="contentDescription" />
 
-    <com.picker.crop.CropOverlayView
+    <com.picker.crop.LCropOverlayView
         android:id="@+id/CropOverlayView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

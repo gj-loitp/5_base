@@ -83,7 +83,7 @@ public class PdfDemoActivity extends BaseFontActivity {
         @Override
         protected void onPostExecute(InputStream inputStream) {
             LLog.d(TAG, "onPostExecute");
-            
+
             pdfView.setVisibility(View.VISIBLE);
             pdfView.fromStream(inputStream).load();
         }

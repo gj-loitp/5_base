@@ -32,7 +32,7 @@ import java.util.Arrays;
 /**
  * A custom View representing the crop window and the shaded background outside the crop window.
  */
-public class CropOverlayView extends View {
+public class LCropOverlayView extends View {
 
     //region: Fields and Consts
 
@@ -189,11 +189,11 @@ public class CropOverlayView extends View {
     private Integer mOriginalLayerType;
     //endregion
 
-    public CropOverlayView(Context context) {
+    public LCropOverlayView(Context context) {
         this(context, null);
     }
 
-    public CropOverlayView(Context context, AttributeSet attrs) {
+    public LCropOverlayView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
