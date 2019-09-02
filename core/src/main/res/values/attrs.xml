@@ -570,47 +570,47 @@
         <attr name="lHorizontalDivider" />
     </declare-styleable>
     <declare-styleable name="LCropImageView">
-        <attr name="cropGuidelines">
+        <attr name="LcropGuidelines">
             <enum name="off" value="0" />
             <enum name="onTouch" value="1" />
             <enum name="on" value="2" />
         </attr>
-        <attr name="cropScaleType">
+        <attr name="LcropScaleType">
             <enum name="fitCenter" value="0" />
             <enum name="center" value="1" />
             <enum name="centerCrop" value="2" />
             <enum name="centerInside" value="3" />
         </attr>
-        <attr name="cropShape">
+        <attr name="LcropShape">
             <enum name="rectangle" value="0" />
             <enum name="oval" value="1" />
         </attr>
-        <attr name="cropAutoZoomEnabled" format="boolean" />
-        <attr name="cropMaxZoom" format="integer" />
-        <attr name="cropMultiTouchEnabled" format="boolean" />
-        <attr name="cropFixAspectRatio" format="boolean" />
-        <attr name="cropAspectRatioX" format="integer" />
-        <attr name="cropAspectRatioY" format="integer" />
-        <attr name="cropInitialCropWindowPaddingRatio" format="float" />
-        <attr name="cropBorderLineThickness" format="dimension" />
-        <attr name="cropBorderLineColor" format="color" />
-        <attr name="cropBorderCornerThickness" format="dimension" />
-        <attr name="cropBorderCornerOffset" format="dimension" />
-        <attr name="cropBorderCornerLength" format="dimension" />
-        <attr name="cropBorderCornerColor" format="color" />
-        <attr name="cropGuidelinesThickness" format="dimension" />
-        <attr name="cropGuidelinesColor" format="color" />
-        <attr name="cropBackgroundColor" format="color" />
-        <attr name="cropSnapRadius" format="dimension" />
-        <attr name="cropTouchRadius" format="dimension" />
-        <attr name="cropShowCropOverlay" format="boolean" />
-        <attr name="cropShowProgressBar" format="boolean" />
-        <attr name="cropMinCropWindowWidth" format="dimension" />
-        <attr name="cropMinCropWindowHeight" format="dimension" />
-        <attr name="cropMinCropResultWidthPX" format="float" />
-        <attr name="cropMinCropResultHeightPX" format="float" />
-        <attr name="cropMaxCropResultWidthPX" format="float" />
-        <attr name="cropMaxCropResultHeightPX" format="float" />
+        <attr name="LcropAutoZoomEnabled" format="boolean" />
+        <attr name="LcropMaxZoom" format="integer" />
+        <attr name="LcropMultiTouchEnabled" format="boolean" />
+        <attr name="LcropFixAspectRatio" format="boolean" />
+        <attr name="LcropAspectRatioX" format="integer" />
+        <attr name="LcropAspectRatioY" format="integer" />
+        <attr name="LcropInitialCropWindowPaddingRatio" format="float" />
+        <attr name="LcropBorderLineThickness" format="dimension" />
+        <attr name="LcropBorderLineColor" format="color" />
+        <attr name="LcropBorderCornerThickness" format="dimension" />
+        <attr name="LcropBorderCornerOffset" format="dimension" />
+        <attr name="LcropBorderCornerLength" format="dimension" />
+        <attr name="LcropBorderCornerColor" format="color" />
+        <attr name="LcropGuidelinesThickness" format="dimension" />
+        <attr name="LcropGuidelinesColor" format="color" />
+        <attr name="LcropBackgroundColor" format="color" />
+        <attr name="LcropSnapRadius" format="dimension" />
+        <attr name="LcropTouchRadius" format="dimension" />
+        <attr name="LcropShowCropOverlay" format="boolean" />
+        <attr name="LcropShowProgressBar" format="boolean" />
+        <attr name="LcropMinCropWindowWidth" format="dimension" />
+        <attr name="LcropMinCropWindowHeight" format="dimension" />
+        <attr name="LcropMinCropResultWidthPX" format="float" />
+        <attr name="LcropMinCropResultHeightPX" format="float" />
+        <attr name="LcropMaxCropResultWidthPX" format="float" />
+        <attr name="LcropMaxCropResultHeightPX" format="float" />
     </declare-styleable>
 
     <declare-styleable name="LExtraTextView">
