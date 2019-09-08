@@ -959,7 +959,7 @@
             android:resource="@color/colorPrimary" />
 
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name="vn.loitp.app.activity.picker.bsimagepicker.BSPickerFileProvider"
             android:authorities="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -1020,6 +1020,9 @@
 
         <activity
             android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

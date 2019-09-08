@@ -46,9 +46,9 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
     }
 
-    override fun onAttach(context: Context?) {
+    /*override fun onAttach(context: Context?) {
         super.onAttach(context)
-    }
+    }*/
 
     open fun handleException(throwable: Throwable) {
         throwable.message?.let {

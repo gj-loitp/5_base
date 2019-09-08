@@ -42,6 +42,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Crop" />
+
+            <Button
+                android:id="@+id/btTedImagePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TedImagePicker" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
