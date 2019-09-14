@@ -15,11 +15,11 @@ import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import loitp.core.R
 
 class FrmFBComment : BaseFragment() {
     override fun setTag(): String? {

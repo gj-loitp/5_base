@@ -1,9 +1,5 @@
 package com.views.textview.selectabletextview;
 
-/**
- * Created by www.muathu@gmail.com on 12/25/2017.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -19,12 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import loitp.core.R;
+import com.R;
 
-
-/**
- * Created by jd on 2017. 8. 13..
- */
 public class SelectableView extends FrameLayout {
 
     private Context context;

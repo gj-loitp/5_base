@@ -9,11 +9,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
 
+import com.R;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import loitp.core.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

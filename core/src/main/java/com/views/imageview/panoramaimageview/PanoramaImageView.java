@@ -9,12 +9,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
-
-import loitp.core.R;
-
-/**
- * Created by gjz on 19/12/2016.
- */
+import com.R;
 
 public class PanoramaImageView extends ImageView {
 

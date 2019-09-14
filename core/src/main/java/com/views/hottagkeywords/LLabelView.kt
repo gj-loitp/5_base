@@ -8,8 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-
-import loitp.core.R
+import com.R
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

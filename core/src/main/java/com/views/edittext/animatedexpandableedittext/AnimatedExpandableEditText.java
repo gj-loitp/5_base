@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import loitp.core.R;
+import com.R;
 
 public class AnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
 

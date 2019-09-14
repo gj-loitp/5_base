@@ -5,18 +5,11 @@ import android.content.res.TypedArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
-
+import com.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.core.R;
-
-/**
- * Defer all the things to this class, so that we can create the layouts easily. Use this
- * to create your own ViewGroups
- */
 public class ElasticDragDismissDelegate {
 
     //copied from View in API 21

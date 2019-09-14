@@ -5,11 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import loitp.core.R;
-
-/**
- * Created by thangn on 2/26/17.
- */
+import com.R;
 
 public class WWLVideoFixedAspectRatioRelativeLayout extends RelativeLayout {
     public float mAspectRatio;

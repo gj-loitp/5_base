@@ -1,9 +1,5 @@
 package com.views.progressloadingview.circularprogressbar;
 
-/**
- * Created by www.muathu@gmail.com on 12/2/2017.
- */
-
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
@@ -28,7 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.StyleRes;
 
-import loitp.core.R;
+import com.R;
 
 public class CircularProgressBar extends View {
     private static final float DEFAULT_MAXIMUM = 100f;

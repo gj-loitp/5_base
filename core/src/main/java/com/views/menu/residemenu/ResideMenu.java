@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.R;
 import com.core.utilities.LUIUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -28,14 +29,6 @@ import com.views.realtimeblurview.RealtimeBlurView;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.core.R;
-
-/**
- * User: special
- * Date: 13-12-10
- * Time: 下午10:44
- * Mail: specialcyci@gmail.com
- */
 public class ResideMenu extends FrameLayout {
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;

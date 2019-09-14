@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.RequiresApi;
 
-import loitp.core.R;
+import com.R;
 
 public class ShapeView extends ImageView implements ShapeSetter {
     public ShapeView(Context context) {

@@ -12,22 +12,13 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 
+import com.R;
 import com.views.LToast;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import loitp.core.R;
-
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 16/11/13
- *     desc  : 定位相关工具类
- * </pre>
- */
 public final class LocationUtils {
 
     private static OnLocationChangeListener mListener;

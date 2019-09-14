@@ -21,10 +21,9 @@ import android.widget.ImageButton;
 
 import androidx.core.view.animation.PathInterpolatorCompat;
 
+import com.R;
 import com.views.button.buttonloading.utils.DeviceScreenUtils;
 import com.views.button.buttonloading.utils.FontUtils;
-
-import loitp.core.R;
 
 import static com.views.button.buttonloading.ButtonLoadingAttribute.STATE_ANIMATION_FINISH;
 import static com.views.button.buttonloading.ButtonLoadingAttribute.STATE_ANIMATION_START;

@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 
-import loitp.core.R;
+import com.R;
 
 /**
  * Created by loitp on 08.09.2016.

@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 import androidx.viewpager.widget.ViewPager
-import loitp.core.R
+import com.R
 
 class ParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
     private var mMode: Mode? = null

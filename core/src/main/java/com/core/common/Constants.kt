@@ -1,6 +1,6 @@
 package com.core.common
 
-import loitp.core.R
+import com.R
 
 /**
  * Created by loitp

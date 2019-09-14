@@ -8,9 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.R;
 import com.views.answerview.internal.OneAnswerView;
-
-import loitp.core.R;
 
 /**
  * Created by buraktamturk on 21/04/15.

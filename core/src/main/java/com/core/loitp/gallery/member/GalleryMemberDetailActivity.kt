@@ -6,13 +6,12 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.core.view.ViewCompat
+import com.R
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
-
-import loitp.core.R
 
 class GalleryMemberDetailActivity : BaseFontActivity() {
     private lateinit var imageView: ImageView

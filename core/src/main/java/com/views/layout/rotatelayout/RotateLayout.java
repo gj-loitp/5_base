@@ -1,9 +1,5 @@
 package com.views.layout.rotatelayout;
 
-/**
- * Created by loitp on 6/22/2018.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -16,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-import loitp.core.R;
+import com.R;
 
 import static android.view.View.MeasureSpec.UNSPECIFIED;
 import static java.lang.Math.PI;

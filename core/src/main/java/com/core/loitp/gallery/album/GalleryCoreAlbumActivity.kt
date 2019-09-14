@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.loitp.gallery.photos.GalleryCorePhotosActivity
@@ -26,7 +27,6 @@ import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import loitp.core.R
 import java.util.*
 
 class GalleryCoreAlbumActivity : BaseFontActivity() {

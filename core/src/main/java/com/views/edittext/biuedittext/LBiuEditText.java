@@ -23,12 +23,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.R;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
-
-import loitp.core.R;
 
 /**
  * Created by james on 22/11/15.

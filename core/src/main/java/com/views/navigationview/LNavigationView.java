@@ -8,16 +8,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LAnimationUtil;
 import com.daimajia.androidanimations.library.Techniques;
 
 import java.util.List;
-
-import loitp.core.R;
-
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
 
 public class LNavigationView extends RelativeLayout implements View.OnClickListener {
     private final String TAG = getClass().getSimpleName();

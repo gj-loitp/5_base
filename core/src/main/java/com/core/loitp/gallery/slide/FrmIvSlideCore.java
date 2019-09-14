@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.R;
 import com.core.common.Constants;
 import com.core.loitp.gallery.photos.PhotosDataCore;
 import com.core.utilities.LLog;
@@ -22,8 +23,6 @@ import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
 
 import java.io.File;
-
-import loitp.core.R;
 
 public class FrmIvSlideCore extends Fragment {
     private final String TAG = getClass().getSimpleName();

@@ -18,7 +18,7 @@ import androidx.renderscript.Element;
 import androidx.renderscript.RenderScript;
 import androidx.renderscript.ScriptIntrinsicBlur;
 
-import loitp.core.R;
+import com.R;
 
 public class RealtimeBlurView extends View {
     private float mDownsampleFactor; // default 4

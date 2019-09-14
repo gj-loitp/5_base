@@ -34,10 +34,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.R;
+
 import java.lang.ref.WeakReference;
 import java.util.UUID;
-
-import loitp.core.R;
 
 /**
  * Custom view that provides cropping capabilities to an image.

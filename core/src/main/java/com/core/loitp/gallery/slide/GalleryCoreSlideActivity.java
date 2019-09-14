@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.R;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.loitp.gallery.photos.PhotosDataCore;
@@ -23,8 +24,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.task.AsyncTaskDownloadImage;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
-
-import loitp.core.R;
 
 public class GalleryCoreSlideActivity extends BaseFontActivity {
     private LinearLayout rlControl;

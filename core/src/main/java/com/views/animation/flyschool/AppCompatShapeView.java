@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import loitp.core.R;
+import com.R;
 
 public class AppCompatShapeView extends AppCompatImageView implements ShapeSetter {
     public AppCompatShapeView(Context context) {

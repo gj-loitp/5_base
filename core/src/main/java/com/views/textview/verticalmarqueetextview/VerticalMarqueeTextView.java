@@ -13,14 +13,8 @@ import android.view.Window;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * A {@link TextView} with vertical marquee effect. The animation speed can be set using
- * {@link #setMarqueeSpeed(int)} or through XML declaration. By default, the marquee effect
- * animation starts automatically when this view is attached to a {@link Window}.
- * Set {@code autoStartMarquee} to {@code false} to disable this behavior.
- */
 public class VerticalMarqueeTextView extends ScrollView {
     private static final String TAG = VerticalMarqueeTextView.class.getName();
 

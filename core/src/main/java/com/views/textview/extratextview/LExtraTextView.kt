@@ -11,7 +11,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import loitp.core.R
+import com.R
 
 open class LExtraTextView : AppCompatTextView {
     private var drawableResourceId = 0

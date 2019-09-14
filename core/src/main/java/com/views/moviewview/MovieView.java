@@ -1,9 +1,5 @@
 package com.views.moviewview;
 
-/**
- * Created by LENOVO on 4/10/2018.
- */
-
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.TypedArray;
@@ -24,17 +20,11 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 
+import com.R;
+
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 
-import loitp.core.R;
-
-/**
- * Provides video playback. There is nothing directly related to Picture-in-Picture here.
- * <p>
- * <p>This is similar to {@link android.widget.VideoView}, but it comes with a custom control
- * (play/pause, fast forward, and fast rewind).
- */
 public class MovieView extends RelativeLayout {
 
     /**

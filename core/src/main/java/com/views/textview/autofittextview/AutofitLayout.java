@@ -1,9 +1,5 @@
 package com.views.textview.autofittextview;
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -13,18 +9,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.R;
+
 import java.util.WeakHashMap;
 
-import loitp.core.R;
-
-/**
- * A {@link ViewGroup} that re-sizes the text of it's children to be no larger than the width of the
- * view.
- *
- * @attr ref R.styleable.AutofitTextView_sizeToFit
- * @attr ref R.styleable.AutofitTextView_minTextSize
- * @attr ref R.styleable.AutofitTextView_precision
- */
 public class AutofitLayout extends FrameLayout {
 
     private boolean mEnabled;

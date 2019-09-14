@@ -2,6 +2,7 @@ package com.core.loitp.admobrewardedvideo
 
 import android.os.Bundle
 import android.widget.TextView
+import com.R
 
 import com.airbnb.lottie.LottieAnimationView
 import com.core.base.BaseFontActivity
@@ -15,8 +16,6 @@ import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.views.LToast
-
-import loitp.core.R
 
 class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private var mAd: RewardedVideoAd? = null

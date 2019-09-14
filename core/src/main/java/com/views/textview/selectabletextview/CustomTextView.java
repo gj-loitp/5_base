@@ -1,9 +1,5 @@
 package com.views.textview.selectabletextview;
 
-/**
- * Created by www.muathu@gmail.com on 12/25/2017.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -20,12 +16,8 @@ import android.widget.ScrollView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 
-import loitp.core.R;
+import com.R;
 
-
-/**
- * Created by jd on 2017. 8. 13..
- */
 public class CustomTextView extends AppCompatTextView {
 
     private static final String TAG = "drag ";

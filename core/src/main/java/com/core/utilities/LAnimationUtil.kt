@@ -6,9 +6,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 6/9/2017.

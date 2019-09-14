@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
+import com.R
 import com.views.LToast
-import loitp.core.R
 
 object LPickerUtil {
     fun cropImage(activity: Activity, picUri: Uri, CROP_PIC_REQUEST_CODE: Int,

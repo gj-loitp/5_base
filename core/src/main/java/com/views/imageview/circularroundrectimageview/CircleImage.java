@@ -20,9 +20,9 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import java.io.IOException;
+import com.R;
 
-import loitp.core.R;
+import java.io.IOException;
 
 public class CircleImage extends AppCompatImageView {
 

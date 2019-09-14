@@ -18,14 +18,10 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
+import com.R;
+
 import java.util.ArrayList;
 
-import loitp.core.R;
-
-/**
- * A helper class to enable automatically resizing {@link TextView}`s {@code textSize} to fit
- * within its bounds.
- */
 public class AutofitHelper {
 
     private static final String TAG = "AutoFitTextHelper";

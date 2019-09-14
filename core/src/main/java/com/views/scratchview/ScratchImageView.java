@@ -1,9 +1,5 @@
 package com.views.scratchview;
 
-/**
- * Created by www.muathu@gmail.com on 1/22/2018.
- */
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -25,11 +21,8 @@ import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * Created by Harish on 25/03/16.
- */
 public class ScratchImageView extends ImageView {
 
 

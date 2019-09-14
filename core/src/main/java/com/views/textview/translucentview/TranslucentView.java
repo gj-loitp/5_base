@@ -1,9 +1,5 @@
 package com.views.textview.translucentview;
 
-/**
- * Created by www.muathu@gmail.com on 11/1/2017.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,14 +16,8 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.widget.TextView;
 
-import loitp.core.R;
+import com.R;
 
-
-/**
- * Created by hugo
- * on 06/04/16
- * of Translucent
- */
 //guide https://github.com/mallethugo/translucent-android
 
 public class TranslucentView extends TextView {

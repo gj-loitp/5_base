@@ -16,6 +16,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LLog
@@ -24,7 +25,6 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.views.LToast
 import com.views.actionbar.LActionBar
-import loitp.core.R
 
 class FacebookCommentActivity : BaseFontActivity() {
     private var mWebViewComments: WebView? = null

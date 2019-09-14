@@ -21,23 +21,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
-
-import androidx.appcompat.widget.AppCompatEditText;
-
+import com.R;
 import java.util.ArrayList;
-
-import loitp.core.R;
-
-/**
- * <p>A helper class to enable automatically resizing {@link AppCompatEditText}`s {@code textSize} to fit
- * within its bounds.
- *
- * @author Victor Minerva<br>
- * @attr ref R.styleable.AutofitEditText_sizeToFit
- * @attr ref R.styleable.AutofitEditText_minTextSize
- * @attr ref R.styleable.AutofitEditText_precision
- * @since Dec 3, 2017
- */
 public class AutofitHelper {
 
     private static final String TAG = "AutoFitTextHelper";

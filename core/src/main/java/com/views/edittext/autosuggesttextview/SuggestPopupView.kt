@@ -10,11 +10,11 @@ import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import com.R
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.utils.util.ConvertUtils
 import com.views.layout.relativepopupwindow.RelativePopupWindow
-import loitp.core.R
 import kotlin.math.hypot
 import kotlin.math.max
 

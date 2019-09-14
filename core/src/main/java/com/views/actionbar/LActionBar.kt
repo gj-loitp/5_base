@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.R
 import com.views.realtimeblurview.RealtimeBlurView
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

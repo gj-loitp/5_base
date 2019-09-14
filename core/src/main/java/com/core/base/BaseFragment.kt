@@ -9,10 +9,10 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import com.R
 import com.core.utilities.LDialogUtil
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
-import loitp.core.R
 
 /**
  * Created by loitp on 2019/7/12

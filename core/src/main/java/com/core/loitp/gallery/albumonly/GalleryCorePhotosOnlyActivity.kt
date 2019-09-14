@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.loitp.gallery.photos.PhotosDataCore
@@ -35,7 +36,6 @@ import com.views.layout.floatdraglayout.DisplayUtil
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import loitp.core.R
 
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var tvTitle: TextView? = null

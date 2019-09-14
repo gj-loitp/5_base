@@ -14,8 +14,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.utilities.LUIUtil
-import loitp.core.R
 import kotlin.math.min
 
 internal class PrettyDialogButton(

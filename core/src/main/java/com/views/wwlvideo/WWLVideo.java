@@ -19,22 +19,17 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
+import com.R;
 import com.views.wwlmusic.utils.WWLMusicIllegal;
 import com.views.wwlmusic.utils.WWLMusicViewHelper;
 
 import java.util.LinkedList;
-
-import loitp.core.R;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
-
-/**
- * Created by thangn on 2/26/17.
- */
 
 public class WWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;

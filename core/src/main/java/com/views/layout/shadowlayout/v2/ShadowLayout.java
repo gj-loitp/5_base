@@ -13,14 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * ShadowLayout
- * <p>
- * Created by lijiankun24 on 2018/9/25
- * Email: jiankunli24@gmail.com
- */
 public class ShadowLayout extends FrameLayout {
 
     public static final int ALL = 0x1111;

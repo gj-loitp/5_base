@@ -1,9 +1,5 @@
 package com.views.recyclerview.parallaxrecyclerviewyayandroid;
 
-/**
- * Created by www.muathu@gmail.com on 1/2/2018.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -13,11 +9,8 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * Created by yahyabayramoglu on 15/04/15.
- */
 public class ParallaxImageView extends ImageView {
 
     private final float DEFAULT_PARALLAX_RATIO = 1.2f;

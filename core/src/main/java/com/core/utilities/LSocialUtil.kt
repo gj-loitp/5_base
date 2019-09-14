@@ -6,12 +6,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import com.R
 
 import com.core.common.Constants
 import com.core.loitp.facebookcomment.FacebookCommentActivity
-
-import loitp.core.R
-
 
 /**
  * File created on 11/14/2016.

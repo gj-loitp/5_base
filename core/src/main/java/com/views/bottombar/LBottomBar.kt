@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.views.realtimeblurview.RealtimeBlurView
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 7/25/2019.

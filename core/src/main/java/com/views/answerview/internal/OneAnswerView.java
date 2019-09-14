@@ -6,9 +6,8 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.R;
 import com.views.answerview.AnswerView;
-
-import loitp.core.R;
 
 /**
  * Created by buraktamturk on 21/04/15.

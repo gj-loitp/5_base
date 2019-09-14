@@ -1,19 +1,13 @@
 package com.views.imageview.circularroundrectimageview;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-
 import androidx.appcompat.widget.AppCompatImageView;
-
-import loitp.core.R;
+import com.R;
 
 public class RoundedImage extends AppCompatImageView {
 

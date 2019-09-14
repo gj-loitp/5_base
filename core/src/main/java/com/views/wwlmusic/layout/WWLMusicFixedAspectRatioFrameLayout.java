@@ -5,11 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import loitp.core.R;
-
-/**
- * Created by thangn on 3/1/17.
- */
+import com.R;
 
 public class WWLMusicFixedAspectRatioFrameLayout extends FrameLayout {
     public float mAspectRatio;

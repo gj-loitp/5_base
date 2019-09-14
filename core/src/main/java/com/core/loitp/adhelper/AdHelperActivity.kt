@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
@@ -17,7 +18,6 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.AppUtils
 import com.views.button.roundedbutton.LRoundedButton
-import loitp.core.R
 import java.util.*
 
 class AdHelperActivity : BaseFontActivity() {

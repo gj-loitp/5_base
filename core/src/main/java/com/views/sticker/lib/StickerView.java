@@ -1,9 +1,5 @@
 package com.views.sticker.lib;
 
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -20,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import loitp.core.R;
+import com.R;
 
 public abstract class StickerView extends FrameLayout {
 

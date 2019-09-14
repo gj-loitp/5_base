@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
-import loitp.core.R
+import com.R
 
 class AutoViewPager : ViewPager {
     private var duration = DEFAULT_DURATION

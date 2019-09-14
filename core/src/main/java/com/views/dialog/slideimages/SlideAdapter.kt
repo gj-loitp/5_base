@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
+import com.R
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
-import loitp.core.R
 
 class SlideAdapter(private val mContext: Context, private val stringList: List<String>?,
                    private val isShowIconClose: Boolean,

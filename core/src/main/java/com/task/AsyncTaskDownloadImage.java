@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 
+import com.R;
 import com.core.utilities.LSoundUtil;
 import com.core.utilities.LStoreUtil;
 import com.views.LToast;
@@ -18,9 +19,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-import loitp.core.R;
-
-//TODO convert to rx
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private Context mContext;
     private String mURL;

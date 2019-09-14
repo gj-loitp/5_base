@@ -26,7 +26,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import loitp.core.R;
+import com.R;
 
 public class LCircleImageView extends AppCompatImageView {
 

@@ -3,7 +3,7 @@ package com.views.textview.extratextview
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import loitp.core.R
+import com.R
 
 class LToggleLExtraTextView : LExtraTextView {
     private lateinit var state: State

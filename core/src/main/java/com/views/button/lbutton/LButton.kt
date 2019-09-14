@@ -6,8 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 
 import androidx.appcompat.widget.AppCompatImageButton
-
-import loitp.core.R
+import com.R
 
 /**
  * Created by Loitp on 7/5/2018.

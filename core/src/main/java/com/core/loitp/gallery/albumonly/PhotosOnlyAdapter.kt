@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 import com.core.loitp.gallery.photos.PhotosDataCore
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LLog
@@ -19,7 +20,6 @@ import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.restapi.flickr.model.photosetgetphotos.Photo
-import loitp.core.R
 import java.io.File
 
 /**

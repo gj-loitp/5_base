@@ -21,9 +21,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import java.text.DecimalFormat;
+import com.R;
 
-import loitp.core.R;
+import java.text.DecimalFormat;
 
 import static android.content.Context.SENSOR_SERVICE;
 

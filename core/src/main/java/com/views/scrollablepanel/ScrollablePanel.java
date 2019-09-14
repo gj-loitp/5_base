@@ -12,14 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
+
 import java.util.HashSet;
 
-import loitp.core.R;
-
-/**
- * A flexible view for providing a limited window into a large data set,like a two-dimensional recyclerView.
- * but it will pin the itemView of first row and first column in their original location.
- */
 public class ScrollablePanel extends FrameLayout {
     protected RecyclerView recyclerView;
     protected RecyclerView headerRecyclerView;

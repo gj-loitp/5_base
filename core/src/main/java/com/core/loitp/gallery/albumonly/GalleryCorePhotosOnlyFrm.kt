@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.loitp.gallery.photos.PhotosDataCore
@@ -31,7 +32,6 @@ import com.task.AsyncTaskDownloadImage
 import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import loitp.core.R
 
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
     override fun setTag(): String? {

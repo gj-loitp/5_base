@@ -1,11 +1,11 @@
 package com.core.utilities
 
 import android.annotation.SuppressLint
+import com.R
 import com.core.common.Constants
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import loitp.core.R
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request

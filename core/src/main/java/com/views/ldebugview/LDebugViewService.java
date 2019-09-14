@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LDateUtils;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
@@ -25,12 +26,6 @@ import com.core.utilities.LUIUtil;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import loitp.core.R;
-
-/**
- * Created by loitp on 3/27/2018.
- */
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
     private final String TAG = getClass().getSimpleName();

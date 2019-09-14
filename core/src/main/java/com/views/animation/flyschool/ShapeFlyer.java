@@ -13,10 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.R;
+
 import java.util.ArrayList;
 import java.util.Random;
-
-import loitp.core.R;
 
 /**
  * View that uses the BluePrints (refer to the {@link FlyBluePrint})

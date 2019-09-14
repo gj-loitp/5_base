@@ -17,14 +17,9 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
-
+import com.R;
 import java.util.ArrayList;
 
-import loitp.core.R;
-
-/**
- * TODO: document your custom view class.
- */
 public class CircularView extends View {
     private static final String TAG = CircularView.class.getSimpleName();
     private String mText; //TODO add customization for the text (style, color, etc)

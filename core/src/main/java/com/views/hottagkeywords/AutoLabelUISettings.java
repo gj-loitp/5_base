@@ -3,7 +3,7 @@ package com.views.hottagkeywords;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import loitp.core.R;
+import com.R;
 
 public class AutoLabelUISettings implements Parcelable {
 

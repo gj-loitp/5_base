@@ -11,13 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import loitp.core.R;
-
-/**
- * ShadowLayout.java
- * <p>
- * Created by lijiankun on 17/8/11.
- */
+import com.R;
 
 public class ShadowLayout extends RelativeLayout {
 

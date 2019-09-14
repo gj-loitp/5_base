@@ -21,7 +21,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 
-import loitp.core.R;
+import com.R;
 
 public class TreeView extends AdapterView<TreeAdapter> implements GestureDetector.OnGestureListener {
 

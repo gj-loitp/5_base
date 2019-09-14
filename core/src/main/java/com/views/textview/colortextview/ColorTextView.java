@@ -1,9 +1,5 @@
 package com.views.textview.colortextview;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Html;
@@ -12,10 +8,10 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.R;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import loitp.core.R;
 
 public class ColorTextView extends AppCompatTextView {
     private List<String> mColorTexts = new ArrayList<>();

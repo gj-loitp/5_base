@@ -1,9 +1,5 @@
 package com.views.seekbar.circularseekbar;
 
-/**
- * Created by www.muathu@gmail.com on 1/4/2018.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -23,16 +19,11 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.R;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import loitp.core.R;
-
-/**
- * Displays a touchable and circular SeekBar, an optional central circle
- * and a customizable text in the center.
- * The faster the user moves the finger across the CircularSeekBar, the faster the progress changes.
- */
 public class CircularSeekBar extends View {
     /**
      * Listen for touch-events on the ring area

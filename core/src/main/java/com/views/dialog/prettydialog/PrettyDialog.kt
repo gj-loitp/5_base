@@ -24,8 +24,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.utilities.LUIUtil
-import loitp.core.R
 import java.util.*
 
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {

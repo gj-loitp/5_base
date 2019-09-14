@@ -5,14 +5,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-
+import com.R;
 import com.core.utilities.LLog;
-
-import loitp.core.R;
 
 public class DraggablePanelFreeLayout extends ViewGroup {
     private final String TAG = getClass().getSimpleName();

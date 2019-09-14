@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
+import com.R
 import com.core.common.Constants
 import com.data.AdmobData
 import com.google.android.gms.ads.AdRequest
@@ -33,7 +34,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.utils.util.ConvertUtils
 import com.views.overscroll.OverScrollDecoratorHelper
-import loitp.core.R
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import java.io.InputStream

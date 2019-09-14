@@ -30,12 +30,11 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.RequiresApi;
 
+import com.R;
 import com.core.base.BaseFontActivity;
 
 import java.io.File;
 import java.io.IOException;
-
-import loitp.core.R;
 
 /**
  * Built-in activity for image cropping.<br>

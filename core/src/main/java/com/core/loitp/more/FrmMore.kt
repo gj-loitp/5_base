@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.NestedScrollView
+import com.R
 
 import com.core.base.BaseFragment
 import com.core.loitp.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
-
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

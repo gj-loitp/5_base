@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
-import loitp.core.R;
+import com.R;
 
 public class ArcViewSettings {
     public final static int CROP_INSIDE = 0;

@@ -28,7 +28,6 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
 import com.utils.util.AppUtils
-import loitp.core.R
 
 class PlayerManager : AdsMediaSource.MediaSourceFactory {
     private val TAG = javaClass.simpleName

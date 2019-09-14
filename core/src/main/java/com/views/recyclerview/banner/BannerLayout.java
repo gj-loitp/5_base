@@ -23,10 +23,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.views.recyclerview.banner.layoutmanager.BannerLayoutManager;
 import com.views.recyclerview.banner.layoutmanager.CenterSnapHelper;
-
-import loitp.core.R;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 

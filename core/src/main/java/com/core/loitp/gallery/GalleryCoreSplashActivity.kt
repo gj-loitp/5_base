@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.loitp.gallery.album.GalleryCoreAlbumActivity
@@ -24,7 +25,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import com.views.layout.floatdraglayout.DisplayUtil
-import loitp.core.R
 import java.util.*
 
 class GalleryCoreSplashActivity : BaseFontActivity() {

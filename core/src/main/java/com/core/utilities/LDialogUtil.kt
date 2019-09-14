@@ -17,10 +17,10 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
+import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.views.dialog.iosdialog.iOSDialog
 import com.views.dialog.slideimages.SlideAdapter
-import loitp.core.R
 import java.util.*
 
 /**

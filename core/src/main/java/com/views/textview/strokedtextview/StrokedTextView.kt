@@ -10,7 +10,7 @@ import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import loitp.core.R
+import com.R
 
 class StrokedTextView : AppCompatTextView {
 

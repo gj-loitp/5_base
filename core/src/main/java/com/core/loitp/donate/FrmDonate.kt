@@ -6,12 +6,12 @@ import android.widget.RelativeLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
 import com.views.textview.textdecorator.TextDecorator
-import loitp.core.R
 import java.util.*
 
 class FrmDonate : BaseFragment() {

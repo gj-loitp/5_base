@@ -1,10 +1,5 @@
 package com.views.seekbar.boxedverticalseekbar;
 
-/**
- * Created by alpaslanbak on 29/09/2017.
- * Modified by Nick Panagopoulos @npanagop on 12/05/2018.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -22,7 +17,7 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-import loitp.core.R;
+import com.R;
 
 public class BoxedVertical extends View {
     private static final String TAG = BoxedVertical.class.getSimpleName();

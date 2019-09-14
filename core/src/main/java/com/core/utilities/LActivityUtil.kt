@@ -6,9 +6,9 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.view.View
 import android.view.WindowManager
+import com.R
 import com.core.common.Constants
 import com.data.ActivityData
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 1/3/2018.

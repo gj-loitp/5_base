@@ -7,17 +7,10 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
-
 import androidx.core.view.GravityCompat;
-
+import com.R;
 import java.util.ArrayList;
 
-import loitp.core.R;
-
-/**
- * Arrange views in columns and rows using orientation (default horizontal).
- * Extends from FrameLayout for an easy implementation and reuse of FrameLayout.LayoutParams.
- */
 public class AutoLinearLayout extends FrameLayout {
 
     private int mOrientation;

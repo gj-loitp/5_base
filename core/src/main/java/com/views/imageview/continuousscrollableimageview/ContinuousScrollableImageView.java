@@ -9,17 +9,10 @@ import android.util.Log;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import androidx.annotation.IntDef;
-
+import com.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import loitp.core.R;
-
-/**
- * Created by cuneytcarikci on 17/08/2017.
- */
 
 public class ContinuousScrollableImageView extends LinearLayout {
 

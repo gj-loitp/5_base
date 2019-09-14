@@ -8,14 +8,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 
 import com.core.utilities.LDateUtils
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetlist.Photoset
-
-import loitp.core.R
 
 /**
  * Created by loitp on 14/04/15.

@@ -1,9 +1,5 @@
 package com.views.switchtoggle.customtogglebutton;
 
-/**
- * Created by www.muathu@gmail.com on 12/2/2017.
- */
-
 //https://github.com/sparrow007/CustomToggleButton?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6517
 
 import android.animation.AnimatorSet;
@@ -29,7 +25,7 @@ import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.NonNull;
 
-import loitp.core.R;
+import com.R;
 
 public class CustomToggle extends View {
 

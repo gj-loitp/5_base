@@ -17,9 +17,8 @@ import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 
+import com.R;
 import com.views.progressloadingview.avloadingindicatorview.indicators.BallPulseIndicator;
-
-import loitp.core.R;
 
 public class AVLoadingIndicatorView extends View {
 

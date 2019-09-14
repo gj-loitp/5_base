@@ -8,8 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-
-import loitp.core.R
+import com.R
 
 class iOSDialog(context: Context) {
     private val TAG = javaClass.simpleName

@@ -8,11 +8,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * Created by thangn on 2/27/17.
- */
 public class WWLMusicUiUtil {
     public static int getGridColumnCount(Resources res) {
         return Math.min(getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size), 5);

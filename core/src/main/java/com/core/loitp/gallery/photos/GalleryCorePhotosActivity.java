@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.loitp.gallery.slide.GalleryCoreSlideActivity;
@@ -32,7 +33,6 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import loitp.core.R;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
     private TextView tvTitle;
