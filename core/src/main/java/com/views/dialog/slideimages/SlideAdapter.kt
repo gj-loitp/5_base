@@ -21,7 +21,7 @@ class SlideAdapter(private val mContext: Context, private val stringList: List<S
 
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(mContext)
-        val layout = inflater.inflate(R.layout.frm_image_slide, collection, false) as ViewGroup
+        val layout = inflater.inflate(R.layout.l_frm_image_slide, collection, false) as ViewGroup
         val iv = layout.findViewById<ImageView>(R.id.iv)
         val ivClose = layout.findViewById<ImageView>(R.id.ivClose)
         ivClose.visibility = if (isShowIconClose) View.VISIBLE else View.INVISIBLE

@@ -165,7 +165,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_gallery_core_photos_only
+        return R.layout.l_activity_gallery_core_photos_only
     }
 
     private fun init() {

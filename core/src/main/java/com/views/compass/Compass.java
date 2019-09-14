@@ -88,7 +88,7 @@ public class Compass extends RelativeLayout implements SensorEventListener {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        LayoutInflater.from(context).inflate(R.layout.compass_layout, this, true);
+        LayoutInflater.from(context).inflate(R.layout.l_compass_layout, this, true);
 
         SensorManager mSensorManager = (SensorManager) getContext().getSystemService(SENSOR_SERVICE);
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);

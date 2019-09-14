@@ -73,7 +73,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_admob_rewarded_video
+        return R.layout.l_activity_admob_rewarded_video
     }
 
     private fun loadRewardedVideoAd() {

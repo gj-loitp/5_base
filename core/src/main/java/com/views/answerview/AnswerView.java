@@ -60,7 +60,7 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
         aw_canCancelAnswer = isCanCancelAnswer;
 
         if (isShowNumber) {
-            numberTextView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.answer_number, this, false);
+            numberTextView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.l_view_answer_number, this, false);
             setNumber(number);
             addView(numberTextView);
         }
@@ -68,7 +68,7 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
         viewler = new OneAnswerView[numberOfAnswer];
 
         for (int i = 0; i < numberOfAnswer; ++i) {
-            viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.answer_one_view, this, false);
+            viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.l_view_answer_one_view, this, false);
             viewler[i].setIndex(i);
             viewler[i].setOnClickListener(this);
             addView(viewler[i]);
@@ -88,7 +88,7 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
             int count = a.getInt(R.styleable.AnswerView_aw_NumberOfAnswers, 5);
 
             if (a.getBoolean(R.styleable.AnswerView_aw_ShowNumber, false)) {
-                numberTextView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.answer_number, this, false);
+                numberTextView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.l_view_answer_number, this, false);
                 setNumber(a.getInt(R.styleable.AnswerView_aw_Number, 1));
                 addView(numberTextView);
             }
@@ -98,7 +98,7 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
             viewler = new OneAnswerView[count];
 
             for (int i = 0; i < count; ++i) {
-                viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.answer_one_view, this, false);
+                viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.l_view_answer_one_view, this, false);
                 viewler[i].setIndex(i);
                 viewler[i].setOnClickListener(this);
                 addView(viewler[i]);
@@ -121,7 +121,7 @@ public class AnswerView extends LinearLayout implements View.OnClickListener {
 
         viewler = new OneAnswerView[count];
         for (int i = 0; i < count; ++i) {
-            viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.answer_one_view, this, false);
+            viewler[i] = (OneAnswerView) LayoutInflater.from(getContext()).inflate(R.layout.l_view_answer_one_view, this, false);
             viewler[i].setIndex(i);
             viewler[i].setOnClickListener(this);
             viewler[i].setActive(index == i, this);

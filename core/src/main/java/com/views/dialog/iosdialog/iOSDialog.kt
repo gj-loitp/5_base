@@ -22,7 +22,7 @@ class iOSDialog(context: Context) {
     private var negativeExist: Boolean = false
 
     init {
-        dialog.setContentView(R.layout.dialog_ios_two_buttons)
+        dialog.setContentView(R.layout.l_dialog_ios_two_buttons)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         initViews()
     }

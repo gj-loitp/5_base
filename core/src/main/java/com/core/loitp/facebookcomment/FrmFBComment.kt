@@ -60,7 +60,7 @@ class FrmFBComment : BaseFragment() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_fb_cmt
+        return R.layout.l_frm_fb_cmt
     }
 
     @SuppressLint("SetJavaScriptEnabled")

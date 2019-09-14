@@ -38,7 +38,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(inflater.inflate(R.layout.item_photos_core_only, viewGroup, false))
+        return ViewHolder(inflater.inflate(R.layout.l_item_photos_core_only, viewGroup, false))
     }
 
     override fun onViewRecycled(holder: ViewHolder) {

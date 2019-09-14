@@ -344,7 +344,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_epub_reader_read;
+        return R.layout.l_activity_epub_reader_read;
     }
 
     /*@Override

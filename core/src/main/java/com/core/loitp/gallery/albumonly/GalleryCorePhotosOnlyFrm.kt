@@ -51,7 +51,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_gallery_core_photos_only
+        return R.layout.l_frm_gallery_core_photos_only
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

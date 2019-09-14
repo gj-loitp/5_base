@@ -156,7 +156,7 @@ public class ContinuousScrollableImageView extends LinearLayout {
      * @param context
      */
     private void init(Context context) {
-        inflate(context, R.layout.continuos_scrollable_imageview_layout, this);
+        inflate(context, R.layout.l_continuos_scrollable_imageview_layout, this);
         build();
     }
 

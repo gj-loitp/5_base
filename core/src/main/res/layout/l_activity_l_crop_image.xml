@@ -96,7 +96,5 @@
             android:src="@drawable/sel_btn_crop_confirm"
             android:visibility="gone"
             aandroid:layout_width="@dimen/w_50" />
-
     </LinearLayout>
-
 </LinearLayout>

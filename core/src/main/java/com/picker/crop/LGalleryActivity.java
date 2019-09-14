@@ -109,7 +109,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_l_gallery;
+        return R.layout.l_activity_l_gallery;
     }
 
     /**
@@ -131,7 +131,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            final View itemView = LayoutInflater.from(getActivity()).inflate(R.layout.item_l_gallery, parent, false);
+            final View itemView = LayoutInflater.from(getActivity()).inflate(R.layout.l_item_l_gallery, parent, false);
             return new PhotoItemHolder(itemView);
         }
 

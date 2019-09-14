@@ -48,7 +48,7 @@ public class FrmYoutubeParser extends BaseFragment {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.frm_youtube_parser;
+        return R.layout.l_frm_youtube_parser;
     }
 
     @Override

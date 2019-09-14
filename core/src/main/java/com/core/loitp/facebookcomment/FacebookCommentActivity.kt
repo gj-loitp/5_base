@@ -105,7 +105,7 @@ class FacebookCommentActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fb_cmt_core
+        return R.layout.l_activity_fb_cmt_core
     }
 
     @SuppressLint("SetJavaScriptEnabled")

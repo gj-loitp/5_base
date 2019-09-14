@@ -83,7 +83,7 @@ class FrmDonate : BaseFragment() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_donate
+        return R.layout.l_frm_donate
     }
 
     protected fun generateOnce(): ConfettiManager {

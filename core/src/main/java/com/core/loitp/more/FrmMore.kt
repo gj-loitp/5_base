@@ -36,7 +36,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_more
+        return R.layout.l_frm_more
     }
 
     override fun onClick(v: View) {

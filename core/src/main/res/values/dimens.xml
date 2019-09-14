@@ -1,5 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
     <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_8">8dp</dimen>
@@ -14,6 +15,7 @@
     <dimen name="padding_50">50dp</dimen>
     <dimen name="padding_55">55dp</dimen>
     <dimen name="padding_100">100dp</dimen>
+
     <dimen name="margin_3">3dp</dimen>
     <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_8">8dp</dimen>
@@ -29,6 +31,7 @@
     <dimen name="margin_65">65dp</dimen>
     <dimen name="margin_75">75dp</dimen>
     <dimen name="margin_100">100dp</dimen>
+
     <dimen name="txt_8">8sp</dimen>
     <dimen name="txt_10">10sp</dimen>
     <dimen name="txt_12">12sp</dimen>
@@ -50,6 +53,7 @@
     <dimen name="txt_80">80sp</dimen>
     <dimen name="txt_100">100sp</dimen>
     <dimen name="txt_150">150sp</dimen>
+
     <dimen name="round_5">5dp</dimen>
     <dimen name="round_10">10dp</dimen>
     <dimen name="round_15">15dp</dimen>
@@ -58,26 +62,28 @@
     <dimen name="round_45">45dp</dimen>
     <dimen name="round_50">50dp</dimen>
     <dimen name="round_80">80dp</dimen>
-    <dimen name="w_60">60dp</dimen>
-    <dimen name="w_65">65dp</dimen>
-    <dimen name="w_48">48dp</dimen>
-    <dimen name="w_80">80dp</dimen>
-    <dimen name="w_50">50dp</dimen>
-    <dimen name="w_300">300dp</dimen>
-    <dimen name="w_40">40dp</dimen>
-    <dimen name="w_45">45dp</dimen>
+
     <dimen name="w_1">1dp</dimen>
     <dimen name="w_3">3dp</dimen>
-    <dimen name="w_150">150dp</dimen>
-    <dimen name="w_10">10dp</dimen>
     <dimen name="w_5">5dp</dimen>
+    <dimen name="w_10">10dp</dimen>
     <dimen name="w_20">20dp</dimen>
     <dimen name="w_25">25dp</dimen>
     <dimen name="w_30">30dp</dimen>
     <dimen name="w_35">35dp</dimen>
+    <dimen name="w_40">40dp</dimen>
+    <dimen name="w_45">45dp</dimen>
+    <dimen name="w_48">48dp</dimen>
+    <dimen name="w_50">50dp</dimen>
+    <dimen name="w_60">60dp</dimen>
+    <dimen name="w_65">65dp</dimen>
     <dimen name="w_70">70dp</dimen>
-    <dimen name="w_350">350dp</dimen>
+    <dimen name="w_80">80dp</dimen>
     <dimen name="w_100">100dp</dimen>
+    <dimen name="w_150">150dp</dimen>
+    <dimen name="w_300">300dp</dimen>
+    <dimen name="w_350">350dp</dimen>
+
     <dimen name="label_title_size">14sp</dimen>
     <dimen name="padding_label_view">10dp</dimen>
     <dimen name="margin_between_labels">3dp</dimen>
@@ -112,9 +118,7 @@
     <dimen name="medium_font_size">16.0sp</dimen>
     <dimen name="small_font_size">14.0sp</dimen>
     <dimen name="watch_while_mini_player_shadow_size">4.0dip</dimen>
-    <!-- Default elevation for the confetti -->
     <dimen name="confetti_default_elevation">9999dp</dimen>
-    <!-- Default configuration for some common confetti animations -->
     <dimen name="default_confetti_size">6dp</dimen>
     <dimen name="big_confetti_size">36dp</dimen>
     <dimen name="default_velocity_slow">50dp</dimen>

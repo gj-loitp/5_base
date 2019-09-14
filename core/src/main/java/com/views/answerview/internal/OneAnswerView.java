@@ -37,7 +37,7 @@ public class OneAnswerView extends LinearLayout {
     public boolean active;
 
     protected void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.answer_view, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.l_answer_view, this, true);
     }
 
     public void setActive(boolean active, AnswerView aw) {

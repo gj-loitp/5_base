@@ -59,7 +59,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
 
-        <service android:name="com.views.scrog.ScrogService" />
         <service
             android:name="com.views.ldebugview.LDebugViewService"
             android:enabled="true"

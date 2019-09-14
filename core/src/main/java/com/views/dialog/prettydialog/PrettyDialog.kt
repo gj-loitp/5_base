@@ -46,7 +46,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     init {
         window?.requestFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_pretty_dialog)
+        setContentView(R.layout.l_dialog_pretty_dialog)
         setCancelable(true)
         resources = context.resources
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

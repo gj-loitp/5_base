@@ -120,7 +120,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_gallery_core_album
+        return R.layout.l_activity_gallery_core_album
     }
 
     private fun photosetsGetList() {

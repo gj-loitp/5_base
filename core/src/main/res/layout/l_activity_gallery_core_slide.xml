@@ -53,7 +53,7 @@
             android:id="@+id/bt_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/baseline_bug_report_black_48"

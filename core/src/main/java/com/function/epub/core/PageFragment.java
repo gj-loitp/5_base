@@ -56,7 +56,7 @@ public class PageFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.frm_epub_reader, container, false);
+        View rootView = inflater.inflate(R.layout.l_frm_epub_reader, container, false);
         RelativeLayout mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_main_layout);
         View view = onFragmentReadyListener.onFragmentReady(getArguments().getInt(ARG_TAB_POSITON));
         if (view != null) {

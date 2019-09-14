@@ -37,7 +37,7 @@ class AdHelperActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ad_helper
+        return R.layout.l_activity_ad_helper
     }
 
     private fun setupData() {
@@ -148,7 +148,7 @@ class AdHelperActivity : BaseFontActivity() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val adPage = adPageList[position]
             val inflater = LayoutInflater.from(activity)
-            val layout = inflater.inflate(R.layout.item_photo_ad_helper, collection, false) as ViewGroup
+            val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             adPage.urlAd?.let {
                 LImageUtil.load(activity, it, imageView)

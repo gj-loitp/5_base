@@ -46,7 +46,7 @@ public class FrmYoutubeChannel extends BaseFragment {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.frm_youtube_channel;
+        return R.layout.l_frm_youtube_channel;
     }
 
     @Override

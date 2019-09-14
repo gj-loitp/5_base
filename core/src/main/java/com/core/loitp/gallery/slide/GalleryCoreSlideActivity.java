@@ -151,7 +151,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_gallery_core_slide;
+        return R.layout.l_activity_gallery_core_slide;
     }
 
     private class SlidePagerAdapter extends FragmentStatePagerAdapter {
