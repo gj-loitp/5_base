@@ -19,7 +19,6 @@ class LWebView : WebView {
         if (onScrollChangedCallback != null) {
             onScrollChangedCallback!!.onScroll(l, t, oldl, oldt)
         }
-
     }
 
     interface OnScrollChangedCallback {
