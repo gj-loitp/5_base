@@ -88,12 +88,12 @@ object LAnimationUtil {
     }
 
     fun slideInDown(context: Context, view: View?) {
-        val slideDown = AnimationUtils.loadAnimation(context, R.anim.slide_down)
+        val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_down)
         view?.startAnimation(slideDown)
     }
 
     fun slideInUp(context: Context, view: View?) {
-        val slideDown = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+        val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_up)
         view?.startAnimation(slideDown)
     }
 }
