@@ -75,7 +75,7 @@
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_more_vert_white_48dp" />
+                        android:src="@drawable/l_ic_more_vert_white_48dp" />
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>

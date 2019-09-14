@@ -448,10 +448,6 @@ public class CustomToggle extends View {
 
     }
 
-    /* These values are used to draw circle and icon to it's exact position
-     * Use these values if you want to make your own custom view
-     * it's really gone help you
-      * */
     private void calculateSomeValue() {
         commanFact = width / 3;
         bitmapFact = width / magnification;

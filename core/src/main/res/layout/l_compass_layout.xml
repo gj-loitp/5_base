@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_needle" />
+        android:src="@drawable/l_ic_needle" />
 
     <RelativeLayout
         android:id="@+id/data_layout"

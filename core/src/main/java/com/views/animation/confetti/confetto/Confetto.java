@@ -24,12 +24,6 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.animation.Interpolator;
 
-/**
- * Abstract class that represents a single confetto on the screen. This class holds all of the
- * internal states for the confetto to help it animate.
- *
- * <p>All of the configured states are in milliseconds, e.g. pixels per millisecond for velocity.
- */
 public abstract class Confetto {
     private static final int MAX_ALPHA = 255;
     private static final long RESET_ANIMATION_INITIAL_DELAY = -1;

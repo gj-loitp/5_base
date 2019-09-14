@@ -29,7 +29,7 @@
                 android:contentDescription="@string/app_name"
                 android:foreground="?selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_keyboard_arrow_left_black_48dp" />
+                android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_title"

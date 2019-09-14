@@ -95,7 +95,7 @@
             android:layout_marginStart="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_share_black_48dp"
+            android:src="@drawable/l_ic_share_black_48dp"
             android:tint="@color/Black"
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"

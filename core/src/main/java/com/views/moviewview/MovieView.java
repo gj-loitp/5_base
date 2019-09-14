@@ -492,10 +492,10 @@ public class MovieView extends RelativeLayout {
     void adjustToggleState() {
         if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
             mToggle.setContentDescription(getResources().getString(R.string.pause));
-            mToggle.setImageResource(R.drawable.ic_pause_64dp);
+            mToggle.setImageResource(R.drawable.l_ic_pause_64dp);
         } else {
             mToggle.setContentDescription(getResources().getString(R.string.play));
-            mToggle.setImageResource(R.drawable.ic_play_arrow_64dp);
+            mToggle.setImageResource(R.drawable.l_ic_play_arrow_64dp);
         }
     }
 

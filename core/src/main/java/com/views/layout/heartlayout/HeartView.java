@@ -32,7 +32,7 @@ public class HeartView extends ImageView {
 
     private static final Paint sPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
     private int mHeartResId = R.drawable.l_heart_icon;
-    private int mHeartBorderResId = R.drawable.heart_border;
+    private int mHeartBorderResId = R.drawable.l_heart_border;
     private static Bitmap sHeart;
     private static Bitmap sHeartBorder;
     private static final Canvas sCanvas = new Canvas();

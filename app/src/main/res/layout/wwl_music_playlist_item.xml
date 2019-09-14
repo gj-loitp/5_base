@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:padding="4.0dip"
-            android:src="@drawable/ic_more_vert_white_shadow"
+            android:src="@drawable/l_ic_more_vert_white_shadow"
             android:visibility="visible" />
     </FrameLayout>
 

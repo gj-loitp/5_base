@@ -44,7 +44,7 @@
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
+            android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
             android:tint="@color/colorPrimary" />
 
         <TextView
@@ -68,7 +68,7 @@
             android:contentDescription="@string/app_name"
             android:rotation="180"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
+            android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
             android:tint="@color/colorPrimary" />
     </RelativeLayout>
 

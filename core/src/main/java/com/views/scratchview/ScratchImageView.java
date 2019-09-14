@@ -144,7 +144,7 @@ public class ScratchImageView extends ImageView {
         mErasePath = new Path();
         mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
-        Bitmap scratchBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_scratch_pattern);
+        Bitmap scratchBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.l_ic_scratch_pattern);
         mDrawable = new BitmapDrawable(getResources(), scratchBitmap);
         mDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
 

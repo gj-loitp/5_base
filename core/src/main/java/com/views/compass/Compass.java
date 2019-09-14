@@ -161,7 +161,7 @@ public class Compass extends RelativeLayout implements SensorEventListener {
 
     private void updateNeedle() {
         if (mNeedle == null) {
-            mNeedle = ContextCompat.getDrawable(getContext(), R.drawable.ic_needle);
+            mNeedle = ContextCompat.getDrawable(getContext(), R.drawable.l_ic_needle);
         }
         mNeedleImageView = findViewById(R.id.iv_needle);
         mNeedleImageView.setImageDrawable(mNeedle);

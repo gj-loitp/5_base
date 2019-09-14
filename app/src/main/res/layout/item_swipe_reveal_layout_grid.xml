@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_settings_black_48dp"
+            android:src="@drawable/l_ic_settings_black_48dp"
             android:tint="@color/white" />
     </FrameLayout>
 

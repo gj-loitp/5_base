@@ -13,8 +13,8 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CustomToggle customToggle1 = (CustomToggle) findViewById(R.id.toggle_xml_1);
-        //customToggle.addFirstIcon(R.drawable.ic_thumb_down_black_48dp);
-        //customToggle.addSecondIcon(R.drawable.ic_thumb_up_black_48dp);
+        //customToggle.addFirstIcon(R.drawable.l_ic_thumb_down_black_48dp);
+        //customToggle.addSecondIcon(R.drawable.l_ic_thumb_up_black_48dp);
         //customToggle.setMagnification(9);
         //customToggle.setSlideBackgroundColor(Color.BLACK);
         //customToggle.setAnimationTime(700);
