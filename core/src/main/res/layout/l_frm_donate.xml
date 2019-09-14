@@ -25,7 +25,7 @@
                 android:layout_marginTop="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                android:src="@drawable/donation" />
+                android:src="@drawable/l_donation" />
 
             <TextView
                 android:id="@+id/tv"

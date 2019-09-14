@@ -347,14 +347,6 @@ public final class CropImage {
         }
     }
 
-    /**
-     * Create {@link ActivityBuilder} instance to start {@link LCropImageActivity} to crop the given image.<br>
-     * Result will be recieved in {@link Activity#onActivityResult(int, int, Intent)} and can be retrieved
-     * using {@link #getActivityResult(Intent)}.
-     *
-     * @param uri the image Android uri source to crop
-     * @return builder for Crop Image Activity
-     */
     public static ActivityBuilder activity(@NonNull Uri uri) {
         if (uri.equals(Uri.EMPTY)) {
             throw new IllegalArgumentException("Uri must be non null or empty");
@@ -362,12 +354,6 @@ public final class CropImage {
         return new ActivityBuilder(uri);
     }
 
-    /**
-     * Get {@link LCropImageActivity} result data object for crop image activity started using {@link #activity(Uri)}.
-     *
-     * @param data result data intent as received in {@link Activity#onActivityResult(int, int, Intent)}.
-     * @return Crop Image Activity Result object or null if none exists
-     */
     public static ActivityResult getActivityResult(@Nullable Intent data) {
         return data != null ? (ActivityResult) data.getParcelableExtra(CROP_IMAGE_EXTRA_RESULT) : null;
     }
@@ -502,11 +488,6 @@ public final class CropImage {
             return this;
         }
 
-        /**
-         * if to show crop overlay UI what contains the crop window UI surrounded by background over the cropping
-         * image.<br>
-         * <i>default: true, may disable for animation or frame transition.</i>
-         */
         public ActivityBuilder setShowCropOverlay(boolean showCropOverlay) {
             mOptions.showCropOverlay = showCropOverlay;
             return this;
@@ -645,7 +626,7 @@ public final class CropImage {
         }
 
         /**
-         * the color of the overlay background around the crop window cover the image parts not in the crop window.<br>
+         * the color of the overlay l_bkg_white around the crop window cover the image parts not in the crop window.<br>
          * <i>Default: Color.argb(119, 0, 0, 0)</i>
          */
         public ActivityBuilder setBackgroundColor(int backgroundColor) {

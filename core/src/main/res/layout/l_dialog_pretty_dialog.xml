@@ -9,7 +9,7 @@
         android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_dialog"
+        android:background="@drawable/l_bkg_dialog"
         android:orientation="vertical">
 
         <TextView
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:background="@drawable/background_dialog_icon"
+        android:background="@drawable/l_bkg_dialog_icon"
         android:orientation="vertical">
 
         <ImageView

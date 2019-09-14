@@ -68,11 +68,6 @@ public class CropImageOptions implements Parcelable {
      */
     public LCropImageView.ScaleType scaleType;
 
-    /**
-     * if to show crop overlay UI what contains the crop window UI surrounded by background over the cropping
-     * image.<br>
-     * default: true, may disable for animation or frame transition.
-     */
     public boolean showCropOverlay;
 
     /**
@@ -159,7 +154,7 @@ public class CropImageOptions implements Parcelable {
     public int guidelinesColor;
 
     /**
-     * the color of the overlay background around the crop window cover the image parts not in the crop window.
+     * the color of the overlay l_bkg_white around the crop window cover the image parts not in the crop window.
      */
     public int backgroundColor;
 

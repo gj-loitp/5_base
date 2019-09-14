@@ -20,7 +20,7 @@
         android:layout_height="@dimen/mtf_cardHeight_final"
         android:layout_gravity="bottom"
         android:layout_marginTop="20dp"
-        android:background="@drawable/card">
+        android:background="@drawable/l_card">
 
         <ImageView
             android:id="@+id/mtf_image"

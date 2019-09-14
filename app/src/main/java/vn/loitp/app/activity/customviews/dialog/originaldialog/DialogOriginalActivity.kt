@@ -58,7 +58,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1"
                 , object : LDialogUtil.Callback1 {
             override fun onClick1() {
-                LToast.show(activity, "Click 1", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.show(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
         })
     }
@@ -66,11 +66,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private fun show2() {
         LDialogUtil.showDialog2(activity, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
             override fun onClick1() {
-                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick2() {
-                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
         })
     }
@@ -78,15 +78,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private fun show3() {
         LDialogUtil.showDialog3(activity, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
             override fun onClick1() {
-                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick2() {
-                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick3() {
-                LToast.showShort(activity, "Click 3", loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.showShort(activity, "Click 3", loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
         })
     }
@@ -99,7 +99,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         }
         LDialogUtil.showDialogList(activity, "Title", arr, object : LDialogUtil.CallbackList {
             override fun onClick(position: Int) {
-                LToast.show(activity, "Click position " + position + ", item: " + arr[position], loitp.basemaster.R.drawable.bkg_horizontal)
+                LToast.show(activity, "Click position " + position + ", item: " + arr[position], loitp.basemaster.R.drawable.l_bkg_horizontal)
             }
         })
     }

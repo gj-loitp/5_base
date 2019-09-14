@@ -1,6 +1,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Define the background properties like color etc -->
+    <!-- Define the l_bkg_white properties like color etc -->
     <item android:id="@android:id/background">
         <shape>
             <gradient

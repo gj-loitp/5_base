@@ -204,7 +204,6 @@ public class ButtonLoading extends View {
                 RectBoundCanvas.inset(-DeviceScreenUtils.width(getContext()), -DeviceScreenUtils.height(getContext()));
                 canvas.clipRect(RectBoundCanvas, Region.Op.REPLACE);
 
-                //background
                 paint.setColor(attribute.getBackgroundColor());
                 point.set(canvas.getWidth() / 2, canvas.getHeight() / 2);
 

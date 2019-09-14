@@ -190,7 +190,6 @@ public class CircularSeekBar extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (mEnabled) {
-            // if the detector recognized a gesture, consume it
             if (mGestureDetector.onTouchEvent(event)) {
                 return true;
             }

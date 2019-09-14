@@ -51,6 +51,6 @@ public class ImageTypeSmall {
 
     @Click(R.id.imageView)
     private void onClick() {
-        LToast.showShort(mContext, "Touch " + mUlr, R.drawable.bkg_horizontal);
+        LToast.showShort(mContext, "Touch " + mUlr, R.drawable.l_bkg_horizontal);
     }
 }

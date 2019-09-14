@@ -114,10 +114,10 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     protected void onPostExecute(Bitmap result) {
         //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
-            LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.bkg_horizontal);
+            LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.l_bkg_horizontal);
             LSoundUtil.INSTANCE.startMusicFromAsset(mContext, "ting.ogg");
         } else {
-            LToast.show(mContext, R.string.download_failed, R.drawable.bkg_horizontal);
+            LToast.show(mContext, R.string.download_failed, R.drawable.l_bkg_horizontal);
         }
         super.onPostExecute(result);
     }

@@ -787,8 +787,6 @@ public class SwipeRevealLayout extends ViewGroup {
                     shouldDisallow = true;
                 }
 
-                // disallow parent to intercept touch event so that the layout will work
-                // properly on RecyclerView or view that handles scroll gesture.
                 getParent().requestDisallowInterceptTouchEvent(shouldDisallow);
             }
 

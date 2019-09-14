@@ -224,11 +224,6 @@ public class ResideMenu extends FrameLayout {
         }
     }
 
-    /**
-     * Set the background image of menu;
-     *
-     * @param imageResource
-     */
     public void setBackground(int imageResource) {
         imageViewBackground.setImageResource(imageResource);
     }

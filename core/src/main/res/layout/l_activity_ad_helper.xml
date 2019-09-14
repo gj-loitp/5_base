@@ -14,7 +14,7 @@
         android:layout_alignParentBottom="true"
         app:direction="left"
         app:duration="28000"
-        app:imageSrc="@drawable/city_2"
+        app:imageSrc="@drawable/l_bkg_city"
         app:scaleType="centerCrop" />
 
     <ImageButton
@@ -25,7 +25,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/baseline_clear_black_48"
+        android:src="@drawable/l_baseline_clear_black_48"
         android:tint="@color/colorPrimary" />
 
     <RelativeLayout

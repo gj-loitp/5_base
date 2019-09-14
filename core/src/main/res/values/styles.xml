@@ -96,7 +96,7 @@
         <item name="android:paddingLeft">@dimen/padding_icon_cross</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:src">@drawable/cross</item>
+        <item name="android:src">@drawable/l_cross</item>
     </style>
 
     <style name="Label">

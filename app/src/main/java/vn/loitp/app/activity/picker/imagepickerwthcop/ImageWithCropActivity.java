@@ -42,7 +42,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startGalleryBtn)).setOnClickListener(v -> new PickerBuilder(getActivity(), PickerBuilder.SELECT_FROM_GALLERY)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.bkg_horizontal);
+                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
@@ -54,7 +54,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(getActivity(), PickerBuilder.SELECT_FROM_CAMERA)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.bkg_horizontal);
+                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)

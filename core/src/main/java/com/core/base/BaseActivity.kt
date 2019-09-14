@@ -305,6 +305,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showShort(msg: String) {
-        LToast.showShort(activity, msg, R.drawable.bkg_horizontal)
+        LToast.showShort(activity, msg, R.drawable.l_bkg_horizontal)
+    }
+
+    protected fun showLong(msg: String) {
+        LToast.showLong(activity, msg, R.drawable.l_bkg_horizontal)
     }
 }

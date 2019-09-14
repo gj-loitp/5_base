@@ -80,7 +80,7 @@ public class FlySchoolActivity extends BaseFontActivity {
     private void play1(ImgObject imgObject) {
         //FlyBluePrint linearBluePrint = new FlyBluePrint(new FPoint(0, 0), FlyPath.getSimpleLinePath(new FPoint(1, 1)));
         //mShapeFlyer.startAnimation(R.drawable.logo, linearBluePrint);
-        //mShapeFlyer.startAnimation(R.drawable.heart);
+        //mShapeFlyer.startAnimation(R.drawable.l_heart_icon);
 
         if (imgObject == null) {
             return;

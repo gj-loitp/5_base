@@ -495,9 +495,6 @@ public class CircularProgressBar extends View {
             return this;
         }
 
-        /**
-         * Draw background stroke or not
-         */
         @NonNull
         public Configurator drawBackgroundStroke(boolean value) {
             drawBackgroundStroke = value;

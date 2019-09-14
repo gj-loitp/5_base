@@ -58,6 +58,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_10"
         android:layout_below="@+id/rl_menu"
-        android:background="@drawable/bkg_shadow_black_white"
+        android:background="@drawable/l_bkg_shadow_black_white"
         android:visibility="gone" />
 </RelativeLayout>

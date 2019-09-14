@@ -16,7 +16,7 @@
         android:layout_height="@dimen/w_5"
         android:max="100"
         android:progress="1"
-        android:progressDrawable="@drawable/custom_progressbar" />
+        android:progressDrawable="@drawable/l_custom_progressbar" />
 
     <View
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/baseline_bug_report_black_48"
+            android:src="@drawable/l_baseline_bug_report_black_48"
             android:tint="@color/Black"
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
@@ -67,7 +67,7 @@
             android:layout_marginStart="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/baseline_cloud_download_black_48"
+            android:src="@drawable/l_baseline_cloud_download_black_48"
             android:tint="@color/Black"
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
@@ -81,7 +81,7 @@
             android:layout_marginStart="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/baseline_chat_black_48dp"
+            android:src="@drawable/l_baseline_chat_black_48dp"
             android:tint="@color/Black"
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"

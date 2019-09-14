@@ -96,11 +96,6 @@ public class LCropImageView extends FrameLayout {
      */
     private ScaleType mScaleType;
 
-    /**
-     * if to show crop overlay UI what contains the crop window UI surrounded by background over the cropping
-     * image.<br>
-     * default: true, may disable for animation or frame transition.
-     */
     private boolean mShowCropOverlay = true;
 
     /**
@@ -483,20 +478,10 @@ public class LCropImageView extends FrameLayout {
         }
     }
 
-    /**
-     * if to show crop overlay UI what contains the crop window UI surrounded by background over the cropping
-     * image.<br>
-     * default: true, may disable for animation or frame transition.
-     */
     public boolean isShowCropOverlay() {
         return mShowCropOverlay;
     }
 
-    /**
-     * if to show crop overlay UI what contains the crop window UI surrounded by background over the cropping
-     * image.<br>
-     * default: true, may disable for animation or frame transition.
-     */
     public void setShowCropOverlay(final boolean showCropOverlay) {
         if (mShowCropOverlay != showCropOverlay) {
             mShowCropOverlay = showCropOverlay;

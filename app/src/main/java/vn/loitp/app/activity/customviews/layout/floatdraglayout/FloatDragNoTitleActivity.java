@@ -24,7 +24,7 @@ public class FloatDragNoTitleActivity extends BaseActivity {
         ViewGroup rootView = mDecorView.findViewById(android.R.id.content);
 
         FloatDragLayout floatDragLayout = new FloatDragLayout(this);
-        floatDragLayout.setBackgroundResource(R.drawable.heart);
+        floatDragLayout.setBackgroundResource(R.drawable.l_heart_icon);
         int size = DisplayUtil.dp2px(this, 100);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(size, size);
         floatDragLayout.setLayoutParams(layoutParams);

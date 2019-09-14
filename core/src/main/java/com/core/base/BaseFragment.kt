@@ -1,6 +1,5 @@
 package com.core.base
 
-import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -121,6 +120,6 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun showShort(msg: String) {
-        activity?.let { LToast.showShort(it, msg, R.drawable.bkg_horizontal) }
+        activity?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
     }
 }

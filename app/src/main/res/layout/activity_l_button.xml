@@ -48,7 +48,7 @@
                 android:layout_height="@dimen/w_80"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/heart" />
+                android:src="@drawable/l_heart_icon" />
 
         </LinearLayout>
     </ScrollView>

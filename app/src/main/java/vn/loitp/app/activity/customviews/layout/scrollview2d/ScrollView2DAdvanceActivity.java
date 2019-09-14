@@ -145,7 +145,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
                 button.setText("Date " + i);
                 button.setOnClickListener(view1 -> {
-                    LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                    LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.l_bkg_horizontal);
                 });
                 publishProgress(button, ll2);
             }
@@ -156,7 +156,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                 button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
                 button.setText(i + ":00:00");
                 button.setOnClickListener(view1 -> {
-                    LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                    LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.l_bkg_horizontal);
                 });
                 publishProgress(button, ll3);
             }
@@ -174,7 +174,7 @@ public class ScrollView2DAdvanceActivity extends BaseFontActivity {
                     button.setLayoutParams(new LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX));
                     button.setText("Pos " + i + " - " + j);
                     button.setOnClickListener(view1 -> {
-                        LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.bkg_horizontal);
+                        LToast.showShort(getActivity(), "Click " + button.getText().toString(), R.drawable.l_bkg_horizontal);
                     });
                     linearLayout.addView(button);
                 }

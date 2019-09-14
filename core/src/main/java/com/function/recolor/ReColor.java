@@ -391,9 +391,6 @@ public class ReColor {
         return this;
     }
 
-    /**
-     * This method changes the background color of a View. This can be used for any View
-     */
     public ReColor setViewBackgroundColor(View view, String startingColor, String endingColor, int duration) {
         try {
             if (duration < 16)
@@ -415,9 +412,6 @@ public class ReColor {
         return this;
     }
 
-    /**
-     * This method changes the background color of a CardView.
-     */
     public ReColor setCardViewColor(CardView cardView, String startingColor, String endingColor, int duration) {
 
         try {

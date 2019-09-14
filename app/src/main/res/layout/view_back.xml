@@ -8,7 +8,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_margin="@dimen/margin_5"
-		android:background="@drawable/bt_corner">
+		android:background="@drawable/l_bt_corner">
 
 		<ImageView
 			android:layout_width="match_parent"

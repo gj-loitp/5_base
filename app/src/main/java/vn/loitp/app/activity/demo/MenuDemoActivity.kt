@@ -103,7 +103,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(activity, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
                 //neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
                 removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
@@ -115,7 +115,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_gallery_core_album -> {
                 intent = Intent(activity, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
@@ -127,7 +127,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_gallery_member -> {
                 intent = Intent(activity, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
             }
             R.id.bt_epub_reader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
             R.id.bt_floating_view -> intent = Intent(activity, FloatingViewActivity::class.java)

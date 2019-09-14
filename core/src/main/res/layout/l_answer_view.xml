@@ -11,7 +11,7 @@
             android:id="@+id/chooice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/answer_circle"
+            android:background="@drawable/l_answer_circle"
             android:gravity="center"
             android:textColor="@color/aw_cevap_text"
             android:textSize="15sp"

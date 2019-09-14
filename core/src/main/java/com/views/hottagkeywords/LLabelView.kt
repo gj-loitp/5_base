@@ -68,23 +68,12 @@ class LLabelView : LinearLayout {
 
     }
 
-    /**
-     * Set a callback listener when the cross icon is clicked.
-     *
-     * @param listener Callback instance.
-     */
     fun setOnClickCrossListener(listener: OnClickCrossListener) {
         this.listenerOnCrossClick = listener
     }
 
-    /**
-     * Interface for a callback listener when the cross icon is clicked.
-     */
     interface OnClickCrossListener {
 
-        /**
-         * Call when the cross icon is clicked.
-         */
         fun onClickCross(LLabelView: LLabelView)
     }
 

@@ -516,10 +516,6 @@ public class DraggableView extends RelativeLayout {
         transformer.updateScale(getVerticalDragOffset());
     }
 
-    /**
-     * Modify the background alpha if has been configured to applying an alpha effect when the view
-     * is dragged.
-     */
     void changeBackgroundAlpha() {
         Drawable background = getBackground();
         if (background != null) {

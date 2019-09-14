@@ -1,9 +1,5 @@
 package com.views.imageview.blurimageview;
 
-/**
- * Created by www.muathu@gmail.com on 12/2/2017.
- */
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -119,11 +115,6 @@ public class LBlurImageView {
         return blur();
     }
 
-    /*
-    * when developer make async true the this class will executed and it perform the blurring process in background
-    * */
-
-    //TODO convert asynctask to rx
     private class AsyncBlurImage extends AsyncTask<Void, Void, Bitmap> {
         private WeakReference<ImageView> weakReference;
 

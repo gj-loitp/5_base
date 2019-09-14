@@ -43,7 +43,6 @@ public class GestureAnalyser {
 
     public static final int DOUBLE_TAP_1 = 107;
 
-    //Ongoing gesture flags
     public static final int SWIPING_1_UP = 101;
     public static final int SWIPING_1_DOWN = 102;
     public static final int SWIPING_1_LEFT = 103;

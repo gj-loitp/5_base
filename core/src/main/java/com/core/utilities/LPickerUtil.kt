@@ -23,7 +23,7 @@ object LPickerUtil {
             activity.startActivityForResult(cropIntent, CROP_PIC_REQUEST_CODE)
         } catch (anfe: ActivityNotFoundException) {
             val errorMessage = "Whoops - your device doesn't support the crop action!"
-            LToast.showShort(activity, errorMessage, R.drawable.bkg_horizontal)
+            LToast.showShort(activity, errorMessage, R.drawable.l_bkg_horizontal)
         }
         // respond to users whose devices do not support the crop action
     }

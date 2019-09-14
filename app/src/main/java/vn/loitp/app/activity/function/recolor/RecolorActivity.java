@@ -127,7 +127,6 @@ public class RecolorActivity extends BaseFontActivity {
             }
         });
 
-        // recoloring the background
         linReColorBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,9 +140,6 @@ public class RecolorActivity extends BaseFontActivity {
             }
         });
 
-
-        // recoloring the card view, by creating a new object of ReColor class, and implementing a
-        // callback on it, to print "It listens" whenever the last color is set on the CardView.
         final ReColor reColorCardView = new ReColor(context);
         reColorCardView.setOnReColorFinish(new OnReColorFinish() {
             @Override

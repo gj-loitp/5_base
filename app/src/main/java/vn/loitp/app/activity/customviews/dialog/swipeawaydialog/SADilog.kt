@@ -41,7 +41,7 @@ class SADilog : SwipeAwayDialogFragment() {
         return LDialogUtil.showDialog1(context!!, "Title", "Msg", "Button 1",
                 object : LDialogUtil.Callback1 {
                     override fun onClick1() {
-                        LToast.show(context!!, "Click 1", R.drawable.bkg_horizontal)
+                        LToast.show(context!!, "Click 1", R.drawable.l_bkg_horizontal)
                     }
                 })
     }
@@ -49,11 +49,11 @@ class SADilog : SwipeAwayDialogFragment() {
     private fun show2(): AlertDialog {
         return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
             override fun onClick1() {
-                LToast.showShort(context!!, "Click 1", R.drawable.bkg_horizontal)
+                LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick2() {
-                LToast.showShort(context!!, "Click 2", R.drawable.bkg_horizontal)
+                LToast.showShort(context!!, "Click 2", R.drawable.l_bkg_horizontal)
             }
         })
     }
@@ -61,15 +61,15 @@ class SADilog : SwipeAwayDialogFragment() {
     private fun show3(): AlertDialog {
         return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
             override fun onClick1() {
-                LToast.showShort(context!!, "Click 1", R.drawable.bkg_horizontal)
+                LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick2() {
-                LToast.showShort(context!!, "Click 2", R.drawable.bkg_horizontal)
+                LToast.showShort(context!!, "Click 2", R.drawable.l_bkg_horizontal)
             }
 
             override fun onClick3() {
-                LToast.showShort(context!!, "Click 3", R.drawable.bkg_horizontal)
+                LToast.showShort(context!!, "Click 3", R.drawable.l_bkg_horizontal)
             }
         })
     }
@@ -82,7 +82,7 @@ class SADilog : SwipeAwayDialogFragment() {
         }
         return LDialogUtil.showDialogList(context!!, "Title", arr, object : LDialogUtil.CallbackList {
             override fun onClick(position: Int) {
-                LToast.show(context!!, "Click position " + position + ", item: " + arr[position], R.drawable.bkg_horizontal)
+                LToast.show(context!!, "Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_horizontal)
             }
         })
     }

@@ -7,18 +7,6 @@ import android.database.DataSetObserver;
 import android.os.Handler;
 import android.widget.CursorAdapter;
 
-/**
- * <p>
- * Adapter that exposes data from a {@link Cursor Cursor} to a
- * {@link android.widget.ListView ListView} widget.
- * </p>
- * <p>
- * The Cursor must include a column named "_id" or this class will not work.
- * Additionally, using {@link android.database.MergeCursor} with this class will
- * not work if the merged Cursors have overlapping values in their "_id"
- * columns.
- * </p>
- */
 public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapter {
     private static final String TAG = CircularViewCursorAdapter.class.getSimpleName();
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
@@ -29,43 +17,15 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
     protected ChangeObserver mChangeObserver;
     protected DataSetObserver mDataSetObserver;
 
-    /**
-     * Constructor that always enables auto-requery.
-     *
-     * @param c The cursor from which to get the data.
-     * @deprecated This option is discouraged, as it results in Cursor queries
-     * being performed on the application's UI thread and thus can cause poor
-     * responsiveness or even Application Not Responding errors.  As an alternative,
-     * use {@link android.app.LoaderManager} with a {@link android.content.CursorLoader}.
-     */
     @Deprecated
     public CircularViewCursorAdapter(Cursor c) {
         init(c, CursorAdapter.FLAG_AUTO_REQUERY);
     }
 
-    /**
-     * Constructor that allows control over auto-requery.  It is recommended
-     * you not use this, but instead {@link #CircularViewCursorAdapter(Cursor, int)}.
-     * When using this constructor, {@link CursorAdapter#FLAG_REGISTER_CONTENT_OBSERVER}
-     * will always be set.
-     *
-     * @param c           The cursor from which to get the data.
-     * @param autoRequery If true the adapter will call requery() on the
-     *                    cursor whenever it changes so the most recent
-     *                    data is always displayed.  Using true here is discouraged.
-     */
     public CircularViewCursorAdapter(Cursor c, boolean autoRequery) {
         init(c, autoRequery ? CursorAdapter.FLAG_AUTO_REQUERY : CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
     }
 
-    /**
-     * Recommended constructor.
-     *
-     * @param c     The cursor from which to get the data.
-     * @param flags Flags used to determine the behavior of the adapter; may
-     *              be any combination of {@link CursorAdapter#FLAG_AUTO_REQUERY} and
-     *              {@link CursorAdapter#FLAG_REGISTER_CONTENT_OBSERVER}.
-     */
     public CircularViewCursorAdapter(Cursor c, int flags) {
         init(c, flags);
     }
@@ -120,11 +80,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         mDataSetObservable.notifyInvalidated();
     }
 
-    /**
-     * Returns the cursor.
-     *
-     * @return the cursor.
-     */
     public Cursor getCursor() {
         return mCursor;
     }
@@ -152,12 +107,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
      */
     public abstract void setupMarker(int position, Marker marker, Cursor cursor);
 
-    /**
-     * Returns a cursor pointed to the given position.
-     *
-     * @param position position to set on the cursor.
-     * @return a cursor set to the position.
-     */
     public Cursor getItem(int position) {
         if (mDataValid && mCursor != null) {
             mCursor.moveToPosition(position);
@@ -167,16 +116,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         }
     }
 
-    /**
-     * Swap in a new Cursor, returning the old Cursor.  Unlike
-     * {@link #changeCursor(Cursor)}, the returned old Cursor is <em>not</em>
-     * closed.
-     *
-     * @param newCursor The new cursor to be used.
-     * @return Returns the previously set Cursor, or null if there was not one.
-     * If the given new Cursor is the same instance is the previously set
-     * Cursor, null is also returned.
-     */
     public Cursor swapCursor(Cursor newCursor) {
         if (newCursor == mCursor) {
             return null;
@@ -192,7 +131,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
             if (mDataSetObserver != null) newCursor.registerDataSetObserver(mDataSetObserver);
             mRowIDColumn = newCursor.getColumnIndexOrThrow("_id");
             mDataValid = true;
-            // notify the observers about the new cursor
             notifyDataSetChanged();
         } else {
             mRowIDColumn = -1;
@@ -203,12 +141,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         return oldCursor;
     }
 
-    /**
-     * Change the underlying cursor to a new cursor. If there is an existing cursor it will be
-     * closed.
-     *
-     * @param cursor The new cursor to be used
-     */
     public void changeCursor(Cursor cursor) {
         Cursor old = swapCursor(cursor);
         if (old != null) {
@@ -216,13 +148,6 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         }
     }
 
-    /**
-     * Called when the {@link ContentObserver} on the cursor receives a change notification.
-     * The default implementation provides the auto-requery logic, but may be overridden by
-     * sub classes.
-     *
-     * @see ContentObserver#onChange(boolean)
-     */
     protected void onContentChanged() {
         if (mAutoRequery && mCursor != null && !mCursor.isClosed()) {
             mDataValid = mCursor.requery();

@@ -37,5 +37,5 @@
         android:layout_margin="@dimen/fab_margin"
         android:tint="@color/White"
         android:visibility="gone"
-        app:srcCompat="@drawable/baseline_add_black_48" />
+        app:srcCompat="@drawable/l_baseline_add_black_48" />
 </RelativeLayout>

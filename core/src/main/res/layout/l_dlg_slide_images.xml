@@ -25,6 +25,6 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/baseline_keyboard_arrow_right_black_48dp"
+        android:src="@drawable/l_baseline_keyboard_arrow_right_black_48dp"
         android:tint="@color/White" />
 </RelativeLayout>

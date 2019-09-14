@@ -173,11 +173,6 @@ public class AutoLabelUI extends AutoViewGroup implements LLabelView.OnClickCros
         this.labelsCounter = EMPTY;
     }
 
-    /**
-     * Method called when the cross icon is clicked.
-     *
-     * @param LLabelView the {@link LLabelView} object.
-     */
     @Override
     public void onClickCross(LLabelView LLabelView) {
         removeView(LLabelView);

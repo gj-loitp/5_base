@@ -17,7 +17,7 @@ public class ArcViewSettings {
     private boolean cropInside = true;
     private float arcWidth;
     private float elevation;
-    private Drawable backgroundDrawable = new ColorDrawable(Color.WHITE); //default background color of navigation view
+    private Drawable backgroundDrawable = new ColorDrawable(Color.WHITE);
 
     public static float dpToPx(Context context, int dp) {
         Resources r = context.getResources();

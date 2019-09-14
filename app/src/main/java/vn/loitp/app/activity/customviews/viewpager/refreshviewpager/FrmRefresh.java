@@ -58,7 +58,7 @@ public class FrmRefresh extends Fragment {
     private void loadData() {
         tv.setVisibility(View.INVISIBLE);
         avl.smoothToShow();
-        LToast.showShort(getActivity(), "loadData " + mPosition, R.drawable.bkg_horizontal);
+        LToast.showShort(getActivity(), "loadData " + mPosition, R.drawable.l_bkg_horizontal);
         LUIUtil.INSTANCE.setDelay(1000, new Runnable() {
             @Override
             public void run() {

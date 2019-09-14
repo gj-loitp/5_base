@@ -7,13 +7,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import loitp.core.R;
 
-/**
- * * ShapeView to be used inside {@link ShapeFlyer}
- * for Android < LOLLIPOP
- * <p>
- * Created by avin on 30/01/17.
- */
-
 public class AppCompatShapeView extends AppCompatImageView implements ShapeSetter {
     public AppCompatShapeView(Context context) {
         super(context);
@@ -31,7 +24,7 @@ public class AppCompatShapeView extends AppCompatImageView implements ShapeSette
     }
 
     private void init() {
-        setImageResource(R.drawable.facebook_button_blue);
+        setImageResource(R.drawable.l_facebook_button_blue);
     }
 
     @Override

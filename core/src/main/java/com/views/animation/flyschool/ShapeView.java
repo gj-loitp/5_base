@@ -9,12 +9,6 @@ import androidx.annotation.RequiresApi;
 
 import loitp.core.R;
 
-/**
- * ShapeView to be used inside {@link ShapeFlyer}
- * for Android >= LOLLIPOP
- * Created by avin on 31/01/17.
- */
-
 public class ShapeView extends ImageView implements ShapeSetter {
     public ShapeView(Context context) {
         super(context);
@@ -38,7 +32,7 @@ public class ShapeView extends ImageView implements ShapeSetter {
     }
 
     private void init() {
-        setImageResource(R.drawable.facebook_button_blue);
+        setImageResource(R.drawable.l_facebook_button_blue);
         //int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dimensionInPixel, getResources().getDisplayMetrics());
     }
 

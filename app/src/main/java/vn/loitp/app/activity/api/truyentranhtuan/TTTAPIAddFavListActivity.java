@@ -79,7 +79,7 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                LToast.showShort(activity, "onAddComicSuccess", R.drawable.bkg_horizontal);
+                LToast.showShort(activity, "onAddComicSuccess", R.drawable.l_bkg_horizontal);
                 avi.smoothToHide();
             }
 

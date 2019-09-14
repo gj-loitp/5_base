@@ -18,11 +18,11 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
         bt0.setOnClickListener(this)
 
         val bt1 = findViewById<LButton>(R.id.bt_1)
-        bt1.setPressedDrawable(R.drawable.circle_color_primary)
+        bt1.setPressedDrawable(R.drawable.l_circle_color_primary)
         bt1.setOnClickListener(this)
 
         val bt2 = findViewById<LButton>(R.id.bt_2)
-        bt2.setPressedDrawable(R.drawable.bt_color_primary)
+        bt2.setPressedDrawable(R.drawable.l_bt_color_primary)
         bt2.setOnClickListener(this)
     }
 

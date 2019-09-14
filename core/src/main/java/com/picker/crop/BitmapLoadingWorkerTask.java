@@ -72,12 +72,6 @@ final class BitmapLoadingWorkerTask extends AsyncTask<Void, Void, BitmapLoadingW
         return mUri;
     }
 
-    /**
-     * Decode image in background.
-     *
-     * @param params ignored
-     * @return the decoded bitmap data
-     */
     @Override
     protected Result doInBackground(Void... params) {
         try {

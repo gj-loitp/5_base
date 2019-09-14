@@ -29,9 +29,6 @@ import android.view.View;
 
 import java.util.Arrays;
 
-/**
- * A custom View representing the crop window and the shaded background outside the crop window.
- */
 public class LCropOverlayView extends View {
 
     //region: Fields and Consts
@@ -643,15 +640,11 @@ public class LCropOverlayView extends View {
         }
     }
 
-    /**
-     * Draw crop overview by drawing background over image not in the cripping area, then borders and guidelines.
-     */
     @Override
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
 
-        // Draw translucent background for the cropped area.
         drawBackground(canvas);
 
         if (mCropWindowHandler.showGuidelines()) {
@@ -670,9 +663,6 @@ public class LCropOverlayView extends View {
         //drawCorners(canvas);
     }
 
-    /**
-     * Draw shadow background over the image not including the crop area.
-     */
     private void drawBackground(Canvas canvas) {
 
         RectF rect = mCropWindowHandler.getRect();

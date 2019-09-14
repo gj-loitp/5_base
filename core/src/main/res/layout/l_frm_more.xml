@@ -146,7 +146,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/facebook" />
+                    android:src="@drawable/l_facebook" />
 
                 <TextView
                     android:layout_width="match_parent"

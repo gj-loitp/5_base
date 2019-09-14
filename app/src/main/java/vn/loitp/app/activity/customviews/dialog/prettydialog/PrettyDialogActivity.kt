@@ -75,8 +75,8 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     // OK button
                     .addButton(
                             "OK", // button text
-                            R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green, // button background color
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_green,
                             Runnable {
                                 LToast.show(activity, "onClick OK")
                                 prettyDialog?.cancel()
@@ -125,8 +125,8 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     // OK button
                     .addButton(
                             "OK", // button text
-                            R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green,// button background color
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_green,
                             Runnable {
                                 LToast.show(activity, "onClick OK")
                                 prettyDialog?.cancel()

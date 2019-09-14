@@ -456,8 +456,6 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
         @ScaledPan int tolerance = (int) overScroll;
         float min, max;
         if (contentSize <= viewSize) {
-            // If contentSize <= viewSize, we want to stay centered.
-            // Need a positive translation, that shows some background.
             min = (viewSize - contentSize) / 2f;
             max = (viewSize - contentSize) / 2f;
         } else {
@@ -634,7 +632,7 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
 
         @Override
         public boolean onDown(MotionEvent e) {
-            return true; // We are interested in the gesture.
+            return true;
         }
 
         @Override

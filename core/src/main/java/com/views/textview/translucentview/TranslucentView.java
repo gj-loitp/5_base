@@ -57,7 +57,6 @@ public class TranslucentView extends TextView {
     private Paint mTextPaint;
     // endregion
 
-    // region background properties
     private Bitmap mBackgroundBitmap;
     private int mBackgroundWidth;
     private int mBackgroundHeight;
@@ -86,12 +85,6 @@ public class TranslucentView extends TextView {
 
     // region setters
 
-    /**
-     * Set background size in pixels
-     *
-     * @param width  Background width in pixels
-     * @param height Background height in pixels
-     */
     public void setBackgroundSize(int width, int height) {
         mBackgroundWidth = width;
         mBackgroundHeight = height;

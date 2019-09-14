@@ -164,7 +164,6 @@ public class LabeledSwitch extends View {
 //        float scaledSizeInPixels = textSize * getResources().getDisplayMetrics().scaledDensity;
         paint.setTextSize(textSize);
 
-//      Drawing Switch background here
         {
             if (isEnabled()) {
                 paint.setColor(colorBorder);

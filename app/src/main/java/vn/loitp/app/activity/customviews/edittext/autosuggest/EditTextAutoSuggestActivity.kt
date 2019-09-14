@@ -45,7 +45,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.setHintText("3/4 screen")
         aet1.setHinTextColor(Color.WHITE)
         aet1.setColorProgressBar(Color.BLUE)
-        aet1.setBackgroundResource(R.drawable.bkg_horizontal)
+        aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
         aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
             LToast.show(activity, "Text ${aet1.et.text}")
         })

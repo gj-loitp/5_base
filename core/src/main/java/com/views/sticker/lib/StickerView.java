@@ -68,7 +68,7 @@ public abstract class StickerView extends FrameLayout {
 
         this.iv_scale.setImageResource(R.drawable.zoominout);
         this.iv_delete.setImageResource(R.drawable.remove);
-        this.iv_flip.setImageResource(R.drawable.flip);
+        this.iv_flip.setImageResource(R.drawable.l_flip);
 
         this.setTag("DraggableViewGroup");
         this.iv_border.setTag("iv_border");
@@ -142,8 +142,6 @@ public abstract class StickerView extends FrameLayout {
 
             @Override
             public void onClick(View view) {
-                Log.v(TAG, "flip the view");
-
                 View mainView = getMainView();
                 mainView.setRotationY(mainView.getRotationY() == -180f ? 0f : -180f);
                 mainView.invalidate();

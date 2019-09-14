@@ -1,18 +1,9 @@
 package com.function.simplefingergestures;
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * @author championswimmer
- * @version 0.2
- * @since 0.1 12/04/14
- */
 public class SimpleFingerGestures implements View.OnTouchListener {
 
     private boolean debug = true;
@@ -27,10 +18,6 @@ public class SimpleFingerGestures implements View.OnTouchListener {
     private GestureAnalyser ga;
     private OnFingerGestureListener onFingerGestureListener;
 
-
-    /**
-     * Constructor that creates an internal {@link in.championswimmer.sfg.lib.GestureAnalyser } object as well
-     */
     public SimpleFingerGestures() {
         ga = new GestureAnalyser();
     }
@@ -51,20 +38,9 @@ public class SimpleFingerGestures implements View.OnTouchListener {
         this.consumeTouchEvents = consumeTouchEvents;
     }
 
-    /**
-     * Register a callback to be invoked when multi-finger gestures take place
-     * <p/>
-     * <br></br>
-     * <p>
-     * For the callbacks implemented via this, check the interface {@link in.championswimmer.sfg.lib.SimpleFingerGestures.OnFingerGestureListener}
-     * </p>
-     *
-     * @param omfgl The callback that will run
-     */
     public void setOnFingerGestureListener(OnFingerGestureListener omfgl) {
         onFingerGestureListener = omfgl;
     }
-
 
     @Override
     public boolean onTouch(View view, MotionEvent ev) {
@@ -194,64 +170,18 @@ public class SimpleFingerGestures implements View.OnTouchListener {
         }
     }
 
-
-    /**
-     * Interface definition for the callback to be invoked when 2-finger gestures are performed
-     */
     public interface OnFingerGestureListener {
 
-        /**
-         * Called when user swipes <b>up</b> with two fingers
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onSwipeUp(int fingers, long gestureDuration, double gestureDistance);
 
-        /**
-         * Called when user swipes <b>down</b> with two fingers
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onSwipeDown(int fingers, long gestureDuration, double gestureDistance);
 
-        /**
-         * Called when user swipes <b>left</b> with two fingers
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onSwipeLeft(int fingers, long gestureDuration, double gestureDistance);
 
-        /**
-         * Called when user swipes <b>right</b> with two fingers
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onSwipeRight(int fingers, long gestureDuration, double gestureDistance);
 
-        /**
-         * Called when user <b>pinches</b> with two fingers (bring together)
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onPinch(int fingers, long gestureDuration, double gestureDistance);
 
-        /**
-         * Called when user <b>un-pinches</b> with two fingers (take apart)
-         *
-         * @param fingers         number of fingers involved in this gesture
-         * @param gestureDuration duration in milliSeconds
-         * @return
-         */
         public boolean onUnpinch(int fingers, long gestureDuration, double gestureDistance);
 
         public boolean onDoubleTap(int fingers);

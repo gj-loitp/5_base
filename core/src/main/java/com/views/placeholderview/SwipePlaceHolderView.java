@@ -609,7 +609,6 @@ public class SwipePlaceHolderView extends FrameLayout implements
             if (mSwipeViewBinderList.size() > 1) {
                 SwipeViewBinder<Object, FrameView, SwipeOption, SwipeDecor> lowerCard
                         = mSwipeViewBinderList.get(1);
-                //for condition where only one card is in the display
                 if (lowerCard.getLayoutView() != null) {
                     lowerCard.blockTouch();
                 }

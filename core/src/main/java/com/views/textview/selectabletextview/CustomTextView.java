@@ -31,9 +31,6 @@ public class CustomTextView extends AppCompatTextView {
     private static final String TAG = "drag ";
     private int mDefaultSelectionColor;
 
-    /**
-     * the selection information used by the cursor
-     */
     private CustomInfo mCursorSelection;
 
     private final int[] mTempCoords = new int[2];
@@ -230,17 +227,7 @@ public class CustomTextView extends AppCompatTextView {
         x += getScrollXInternal();
 
         int line = getLayout().getLineForVertical(y);
-        // The "HACK BLOCK"S in this function is required because of how Android Layout for
-        // TextView works - if 'offset' equals to the last character of a line, then
-        //
-        // * getLineForOffset(offset) will result the NEXT line
-        // * getPrimaryHorizontal(offset) will return 0 because the next insertion point is on the next line
-        // * getOffsetForHorizontal(line, x) will not return the last offset of a line no matter where x is
-        // These are highly undesired and is worked around with the HACK BLOCK
-        //
-        // @see Moon+ Reader/Color Note - see how it can't select the last character of a line unless you move
-        // the cursor to the beginning of the next line.
-        //
+
         ////////////////////HACK BLOCK////////////////////////////////////////////////////
         if (isEndOfLineOffset(previousOffset)) {
             // we have to minus one from the offset so that the code below to find
@@ -259,20 +246,12 @@ public class CustomTextView extends AppCompatTextView {
         final int previousLineBottom = layout.getLineBottom(previousLine);
         final int hysteresisThreshold = (previousLineBottom - previousLineTop) / 2;
 
-        // If new line is just before or after previous line and y position is less than
-        // hysteresisThreshold away from previous line, keep cursor on previous line.
         if (((line == previousLine + 1) && ((y - previousLineBottom) < hysteresisThreshold)) || ((line
                 == previousLine - 1) && ((previousLineTop - y) < hysteresisThreshold))) {
             line = previousLine;
         }
 
         int offset = layout.getOffsetForHorizontal(line, x);
-        // This allow the user to select the last character of a line without moving the
-        // cursor to the next line. (As Layout.getOffsetForHorizontal does not return the
-        // offset of the last character of the specified line)
-        //
-        // But this function will probably get called again immediately, must decrement the offset
-        // by 1 to compensate for the change made below. (see previous HACK BLOCK)
         /////////////////////HACK BLOCK///////////////////////////////////////////////////
 
         if (offset < getText().length() - 1) {
@@ -510,54 +489,25 @@ public class CustomTextView extends AppCompatTextView {
         }
     }
 
-    /**
-     * represents a single cursor
-     */
     private class CursorHandle extends View {
 
         private final PopupWindow mContainer;
 
-        /**
-         * the drawble of the cursor
-         */
         private Drawable mDrawable;
 
-        /**
-         * whether the user is dragging the cursor
-         */
         @SuppressWarnings("unused")
         private boolean mIsDragging;
 
-        /**
-         * the controller that's controlling the cursor
-         */
         private SelectionCursorController mController;
 
-        /**
-         * the height of the cursor
-         */
         private int mHeight;
 
-        /**
-         * the width of the cursor
-         */
         private int mWidth;
 
-        /**
-         * the x coordinate of the "pointer" of the cursor
-         */
         private int mHotspotX;
 
-        /**
-         * the y coordinate of the "pointer" of the cursor which is usually the top, so it's zero.
-         */
         private int mHotspotY;
 
-        /**
-         * Adjustment to add to the Raw x, y coordinate of the touch position to get the location of
-         * where
-         * the cursor is pointing to
-         */
         private int mAdjustX;
         private int mAdjustY;
 
@@ -569,15 +519,8 @@ public class CustomTextView extends AppCompatTextView {
 
             mController = controller;
 
-            mDrawable = ContextCompat.getDrawable(getContext(), R.drawable.cursor);
+            mDrawable = ContextCompat.getDrawable(getContext(), R.drawable.l_cursor);
 
-			/* My Note
-             At first I tried using mContainer = new PopupWindow(SelectableTextView.this.getContext())
-             and mContainer.setContentView(this) in the show() method AND FAILED to draw the
-             PopupWindow properly (e.g. PopupWindow can't contain the whole drawable, background
-             of the PopupWindow is not transparent. I think it's because calling
-             new PopupWindow(context) uses the internal's default style which messes up
-			 */
             mContainer = new PopupWindow(this);
             // mContainer.setSplitTouchEnabled(true);
             mContainer.setClippingEnabled(false);
@@ -596,9 +539,6 @@ public class CustomTextView extends AppCompatTextView {
             mContainer.setWidth(mWidth);
             mContainer.setHeight(mHeight);
 
-            // this is the location of where the pointer is relative to the cursor itself
-            // if the left and right cursor are different, mHotspotX will need to be calculated
-            // differently for each cursor. Currently, I'm using the same left and right cursor
             mHotspotX = mWidth / 2;
             mHotspotY = 0;
 
@@ -624,8 +564,6 @@ public class CustomTextView extends AppCompatTextView {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN: {
-                    // calculate distance from the (x,y) of the finger to where the cursor
-                    // points to
                     mAdjustX = mHotspotX - (int) event.getX();
                     mAdjustY = mHotspotY - (int) event.getY();
                     mOldX = mAdjustX + rawX;
@@ -645,7 +583,6 @@ public class CustomTextView extends AppCompatTextView {
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
-                    // calculate the raw (x, y) the cursor is POINTING TO
                     int x = mAdjustX + rawX;
                     int y = mAdjustY + rawY;
 
@@ -678,9 +615,6 @@ public class CustomTextView extends AppCompatTextView {
             }
         }
 
-        /**
-         * hide this cursor
-         */
         public void hide() {
             mIsDragging = false;
             mContainer.dismiss();

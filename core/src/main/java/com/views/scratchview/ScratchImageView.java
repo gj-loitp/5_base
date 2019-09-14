@@ -74,9 +74,6 @@ public class ScratchImageView extends ImageView {
      */
     private Paint mErasePaint;
 
-    /**
-     * Gradient paint properties that lies as a background for scratch region.
-     */
     private Paint mGradientBgPaint;
 
     /**

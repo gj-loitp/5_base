@@ -206,11 +206,6 @@ public class LBiuEditText extends EditText {
         animSet.start();
     }
 
-    /**
-     * @return the coordinate of cursor. x=float[0]; y=float[1];
-     * <p>
-     * thanks @covetcode for this beautiful method
-     */
     private float[] getCursorCoordinate() {
      /*
        *以下通过反射获取光标cursor的坐标。

@@ -15,7 +15,7 @@ import loitp.core.R
 object LReaderUtil {
 
     val defaultCover: Int
-        get() = R.drawable.df_cover_epub
+        get() = R.drawable.l_df_cover_epub
 
     fun decodeBitmapFromByteArray(coverImage: ByteArray, reqWidth: Int, reqHeight: Int): Bitmap {
         // First decode with inJustDecodeBounds=true to check dimensions

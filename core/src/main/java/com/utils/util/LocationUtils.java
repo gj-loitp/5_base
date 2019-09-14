@@ -88,7 +88,7 @@ public final class LocationUtils {
         mLocationManager = (LocationManager) Utils.getContext().getSystemService(Context.LOCATION_SERVICE);
         mListener = listener;
         if (!isLocationEnabled()) {
-            LToast.showShort(Utils.getContext(), "Unable to locate, please open the location service", R.drawable.bkg_horizontal);
+            LToast.showShort(Utils.getContext(), "Unable to locate, please open the location service", R.drawable.l_bkg_horizontal);
             return false;
         }
         String provider = mLocationManager.getBestProvider(getCriteria(), true);
