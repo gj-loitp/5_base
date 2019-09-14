@@ -113,7 +113,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setTitleColor(R.color.pdlg_color_blue)
                     .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
                     .setMessageColor(R.color.pdlg_color_gray)
-                    .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/OpenSans-Bold.ttf"))
+                    .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
                     .setAnimationEnabled(true)
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.pdlg_color_green)

@@ -68,7 +68,7 @@ object Constants {
     val SK_PHOTO_ID = "SK_PHOTO_ID"
     val SK_PHOTO_PISITION = "SK_PHOTO_PISITION"
     val ASSET_FILE_GIFT = "img/ic_gift.png"
-    val FONT_PATH = "fonts/baisau.TTF"
+    val FONT_PATH = "fonts/android_font.TTF"
     val FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL"
     val FLICKR_ID_IT = "72157680937087024"
     val FLICKR_ID_MUSIC = "72157684069831365"
