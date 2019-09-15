@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.textview.extratextview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.views.textview.extratextview.LToggleLExtraTextView
+import com.views.textview.extra.LToggleLExtraTextView
 import kotlinx.android.synthetic.main.activity_extra_textview.*
 import loitp.basemaster.R
 

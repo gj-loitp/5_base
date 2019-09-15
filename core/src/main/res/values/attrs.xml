@@ -119,7 +119,7 @@
         <attr name="shadow_color" format="color" />
         <attr name="shadow_radius" format="float" />
     </declare-styleable>
-    <declare-styleable name="ColorTextView">
+    <declare-styleable name="LColorTextView">
         <attr name="color_texts" format="string" />
         <attr name="color_arrays" format="string" />
     </declare-styleable>
@@ -249,7 +249,7 @@
         <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFit" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="AutofitTextView">
+    <declare-styleable name="LAutofitTextView">
         <!-- Minimum size of the text. -->
         <attr name="minTextSizeTv" format="dimension" />
         <!-- Amount of precision used to calculate the correct text size to fit within its

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.textview.strokedtextview.StrokedTextView
+    <com.views.textview.stroked.LStrokedTextView
         android:id="@+id/stv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/stv">
 
-        <com.views.textview.strokedtextview.StrokedTextView
+        <com.views.textview.stroked.LStrokedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_10"

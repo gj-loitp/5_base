@@ -1,4 +1,4 @@
-package com.views.textview.autofittextview;
+package com.views.textview.autofit;
 
 /**
  * Created by www.muathu@gmail.com on 1/16/2018.
@@ -16,21 +16,21 @@ import android.widget.TextView;
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
-public class AutofitTextView extends TextView implements AutofitHelper.OnTextSizeChangeListener {
+public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSizeChangeListener {
 
     private AutofitHelper mHelper;
 
-    public AutofitTextView(Context context) {
+    public LAutofitTextView(Context context) {
         super(context);
         init(context, null, 0);
     }
 
-    public AutofitTextView(Context context, AttributeSet attrs) {
+    public LAutofitTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
-    public AutofitTextView(Context context, AttributeSet attrs, int defStyle) {
+    public LAutofitTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs, defStyle);
     }

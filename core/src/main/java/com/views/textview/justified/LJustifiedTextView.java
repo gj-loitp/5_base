@@ -1,4 +1,4 @@
-package com.views.textview.justifiedtextview;
+package com.views.textview.justified;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class JustifiedTextView extends View {
+public class LJustifiedTextView extends View {
     private String text;
     private ArrayList<Line> linesCollection = new ArrayList<Line>();
     private TextPaint textPaint;
@@ -20,7 +20,7 @@ public class JustifiedTextView extends View {
     private float onBirim, w, h;
     private float leftPadding, rightPadding;
 
-    public JustifiedTextView(Context context, String text) {
+    public LJustifiedTextView(Context context, String text) {
         super(context);
         this.text = text;
         init();

@@ -1,4 +1,4 @@
-package com.views.textview.strokedtextview
+package com.views.textview.stroked
 
 import android.content.Context
 import android.graphics.Canvas
@@ -12,7 +12,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import com.R
 
-class StrokedTextView : AppCompatTextView {
+class LStrokedTextView : AppCompatTextView {
 
     //region Constructors
 
@@ -40,8 +40,8 @@ class StrokedTextView : AppCompatTextView {
 
     private val staticLayoutPaint by lazy {
         TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-            textSize = this@StrokedTextView.textSize
-            typeface = this@StrokedTextView.typeface
+            textSize = this@LStrokedTextView.textSize
+            typeface = this@LStrokedTextView.typeface
         }
     }
     //endregion
@@ -49,9 +49,9 @@ class StrokedTextView : AppCompatTextView {
     //region Methods
 
     private fun getStyledAttributes(attr: AttributeSet?) {
-        context.obtainStyledAttributes(attr, R.styleable.StrokedTextView).apply {
-            strokeWidth = getDimensionPixelSize(R.styleable.StrokedTextView_strokeThickness, 4).toFloat()
-            strokeColor = getColor(R.styleable.StrokedTextView_strokeColor, Color.RED)
+        context.obtainStyledAttributes(attr, R.styleable.LStrokedTextView).apply {
+            strokeWidth = getDimensionPixelSize(R.styleable.LStrokedTextView_strokeThickness, 4).toFloat()
+            strokeColor = getColor(R.styleable.LStrokedTextView_strokeColor, Color.RED)
             recycle()
         }
     }
@@ -110,7 +110,7 @@ class StrokedTextView : AppCompatTextView {
     private fun Paint.configureForStroke() {
         style = Paint.Style.STROKE
         color = strokeColor
-        strokeWidth = this@StrokedTextView.strokeWidth
+        strokeWidth = this@LStrokedTextView.strokeWidth
     }
     //endregion
 }

@@ -1,4 +1,4 @@
-package com.views.textview.selectabletextview;
+package com.views.textview.selectable;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.R;
 
-public class SelectableView extends FrameLayout {
+public class LSelectableView extends FrameLayout {
 
     private Context context;
     private ObservableScrollView scrollView;
@@ -39,19 +39,19 @@ public class SelectableView extends FrameLayout {
         scrollView.hideCursor();
     }
 
-    public SelectableView(@NonNull Context context) {
+    public LSelectableView(@NonNull Context context) {
         super(context);
         this.context = context;
         init();
     }
 
-    public SelectableView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LSelectableView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();
     }
 
-    public SelectableView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public LSelectableView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();

@@ -1,4 +1,4 @@
-package com.views.textview.autofittextview;
+package com.views.textview.autofit;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -43,13 +43,13 @@ public class AutofitLayout extends FrameLayout {
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(
                     attrs,
-                    R.styleable.AutofitTextView,
+                    R.styleable.LAutofitTextView,
                     defStyle,
                     0);
-            sizeToFit = ta.getBoolean(R.styleable.AutofitTextView_sizeToFitTv, sizeToFit);
-            minTextSize = ta.getDimensionPixelSize(R.styleable.AutofitTextView_minTextSizeTv,
+            sizeToFit = ta.getBoolean(R.styleable.LAutofitTextView_sizeToFitTv, sizeToFit);
+            minTextSize = ta.getDimensionPixelSize(R.styleable.LAutofitTextView_minTextSizeTv,
                     minTextSize);
-            precision = ta.getFloat(R.styleable.AutofitTextView_precisionTv, precision);
+            precision = ta.getFloat(R.styleable.LAutofitTextView_precisionTv, precision);
             ta.recycle();
         }
 

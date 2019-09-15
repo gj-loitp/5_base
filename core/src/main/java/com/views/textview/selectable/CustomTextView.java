@@ -1,4 +1,4 @@
-package com.views.textview.selectabletextview;
+package com.views.textview.selectable;
 
 import android.content.Context;
 import android.graphics.Canvas;

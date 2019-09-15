@@ -11,7 +11,7 @@ import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
-import com.views.textview.textdecorator.TextDecorator
+import com.views.textview.textdecorator.LTextDecorator
 import java.util.*
 
 class FrmDonate : BaseFragment() {
@@ -52,7 +52,7 @@ class FrmDonate : BaseFragment() {
                 "\n\n" +
                 "Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"
 
-        TextDecorator
+        LTextDecorator
                 .decorate(tv, text)
                 .setTextColor(R.color.colorPrimary, "❤", "Trần Phú Lợi", "0371000106443", "166210585", "164205468", "0764088864")
                 //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")

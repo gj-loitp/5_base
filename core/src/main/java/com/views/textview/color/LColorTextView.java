@@ -1,4 +1,4 @@
-package com.views.textview.colortextview;
+package com.views.textview.color;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,30 +13,30 @@ import com.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorTextView extends AppCompatTextView {
+public class LColorTextView extends AppCompatTextView {
     private List<String> mColorTexts = new ArrayList<>();
     private List<String> mColors = new ArrayList<>();
     private int size;
     private String mCurrentText;
 
-    public ColorTextView(Context context) {
+    public LColorTextView(Context context) {
         super(context);
     }
 
-    public ColorTextView(Context context, AttributeSet attrs) {
+    public LColorTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public ColorTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LColorTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
     private void init(AttributeSet attrs) {
-        final TypedArray attrsArray = getContext().obtainStyledAttributes(attrs, R.styleable.ColorTextView, 0, 0);
-        final String colorTexts = attrsArray.getString(R.styleable.ColorTextView_color_texts);
-        final String colors = attrsArray.getString(R.styleable.ColorTextView_color_arrays);
+        final TypedArray attrsArray = getContext().obtainStyledAttributes(attrs, R.styleable.LColorTextView, 0, 0);
+        final String colorTexts = attrsArray.getString(R.styleable.LColorTextView_color_texts);
+        final String colors = attrsArray.getString(R.styleable.LColorTextView_color_arrays);
         attrsArray.recycle();
 
         initData(colorTexts, colors);
@@ -82,7 +82,7 @@ public class ColorTextView extends AppCompatTextView {
     }
 
 
-    public ColorTextView findAndSetStrColor(String str, String color) {
+    public LColorTextView findAndSetStrColor(String str, String color) {
         try {
             if (!TextUtils.isEmpty(mCurrentText)) {
                 mCurrentText = mCurrentText.replaceAll(str, color(color, str));

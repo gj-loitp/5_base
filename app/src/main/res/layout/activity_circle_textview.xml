@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.textview.circletextview.CircleTextView
+    <com.views.textview.circle.LCircleTextView
         android:id="@+id/circle_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.views.textview.selectabletextview;
+package com.views.textview.selectable;
 
 /**
  * Created by www.muathu@gmail.com on 12/25/2017.

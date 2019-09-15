@@ -19,7 +19,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 
-class TextDecorator private constructor(private val textView: TextView, private val content: String) {
+class LTextDecorator private constructor(private val textView: TextView, private val content: String) {
     private val decoratedContent: SpannableString = SpannableString(content)
     private var flags: Int = 0
 
@@ -27,20 +27,20 @@ class TextDecorator private constructor(private val textView: TextView, private 
         this.flags = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
     }
 
-    fun setFlags(flags: Int): TextDecorator {
+    fun setFlags(flags: Int): LTextDecorator {
         this.flags = flags
 
         return this
     }
 
-    fun underline(start: Int, end: Int): TextDecorator {
+    fun underline(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(UnderlineSpan(), start, end, flags)
 
         return this
     }
 
-    fun underline(vararg texts: String): TextDecorator {
+    fun underline(vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -53,7 +53,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextColor(@ColorRes resColorId: Int, start: Int, end: Int): TextDecorator {
+    fun setTextColor(@ColorRes resColorId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(ForegroundColorSpan(ContextCompat.getColor(textView.context, resColorId)), start, end,
                 flags)
@@ -61,7 +61,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextColor(@ColorRes resColorId: Int, vararg texts: String): TextDecorator {
+    fun setTextColor(@ColorRes resColorId: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -74,14 +74,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setBackgroundColor(@ColorRes colorResId: Int, start: Int, end: Int): TextDecorator {
+    fun setBackgroundColor(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BackgroundColorSpan(ContextCompat.getColor(textView.context, colorResId)), start, end, 0)
 
         return this
     }
 
-    fun setBackgroundColor(@ColorRes colorResId: Int, vararg texts: String): TextDecorator {
+    fun setBackgroundColor(@ColorRes colorResId: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -94,21 +94,21 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun insertBullet(start: Int, end: Int): TextDecorator {
+    fun insertBullet(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BulletSpan(), start, end, flags)
 
         return this
     }
 
-    fun insertBullet(gapWidth: Int, start: Int, end: Int): TextDecorator {
+    fun insertBullet(gapWidth: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BulletSpan(gapWidth), start, end, flags)
 
         return this
     }
 
-    fun insertBullet(gapWidth: Int, @ColorRes colorResId: Int, start: Int, end: Int): TextDecorator {
+    fun insertBullet(gapWidth: Int, @ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BulletSpan(gapWidth, ContextCompat.getColor(textView.context, colorResId)), start, end,
                 flags)
@@ -116,7 +116,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun makeTextClickable(listener: OnTextClickListener, start: Int, end: Int, underlineText: Boolean): TextDecorator {
+    fun makeTextClickable(listener: OnTextClickListener, start: Int, end: Int, underlineText: Boolean): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(object : ClickableSpan() {
             override fun onClick(view: View) {
@@ -133,7 +133,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun makeTextClickable(listener: OnTextClickListener, underlineText: Boolean, vararg texts: String): TextDecorator {
+    fun makeTextClickable(listener: OnTextClickListener, underlineText: Boolean, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -158,7 +158,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun makeTextClickable(clickableSpan: ClickableSpan, start: Int, end: Int): TextDecorator {
+    fun makeTextClickable(clickableSpan: ClickableSpan, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(clickableSpan, start, end, flags)
         textView.movementMethod = LinkMovementMethod.getInstance()
@@ -166,7 +166,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun makeTextClickable(clickableSpan: ClickableSpan, vararg texts: String): TextDecorator {
+    fun makeTextClickable(clickableSpan: ClickableSpan, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -181,21 +181,21 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun insertImage(@DrawableRes resId: Int, start: Int, end: Int): TextDecorator {
+    fun insertImage(@DrawableRes resId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(ImageSpan(textView.context, resId), start, end, flags)
 
         return this
     }
 
-    fun quote(start: Int, end: Int): TextDecorator {
+    fun quote(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(QuoteSpan(), start, end, flags)
 
         return this
     }
 
-    fun quote(vararg texts: String): TextDecorator {
+    fun quote(vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -208,7 +208,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun quote(@ColorRes colorResId: Int, start: Int, end: Int): TextDecorator {
+    fun quote(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(QuoteSpan(ContextCompat.getColor(textView.context, colorResId)), start, end,
                 flags)
@@ -216,7 +216,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun quote(@ColorRes colorResId: Int, vararg texts: String): TextDecorator {
+    fun quote(@ColorRes colorResId: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -229,14 +229,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun strikethrough(start: Int, end: Int): TextDecorator {
+    fun strikethrough(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(StrikethroughSpan(), start, end, flags)
 
         return this
     }
 
-    fun strikethrough(vararg texts: String): TextDecorator {
+    fun strikethrough(vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -249,14 +249,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextStyle(style: Int, start: Int, end: Int): TextDecorator {
+    fun setTextStyle(style: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(StyleSpan(style), start, end, flags)
 
         return this
     }
 
-    fun setTextStyle(style: Int, vararg texts: String): TextDecorator {
+    fun setTextStyle(style: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -269,14 +269,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun alignText(alignment: Layout.Alignment, start: Int, end: Int): TextDecorator {
+    fun alignText(alignment: Layout.Alignment, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AlignmentSpan.Standard(alignment), start, end, flags)
 
         return this
     }
 
-    fun alignText(alignment: Layout.Alignment, vararg texts: String): TextDecorator {
+    fun alignText(alignment: Layout.Alignment, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -289,14 +289,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setSubscript(start: Int, end: Int): TextDecorator {
+    fun setSubscript(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(SubscriptSpan(), start, end, flags)
 
         return this
     }
 
-    fun setSubscript(vararg texts: String): TextDecorator {
+    fun setSubscript(vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -309,14 +309,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setSuperscript(start: Int, end: Int): TextDecorator {
+    fun setSuperscript(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(SuperscriptSpan(), start, end, flags)
 
         return this
     }
 
-    fun setSuperscript(vararg texts: String): TextDecorator {
+    fun setSuperscript(vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -329,14 +329,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTypeface(family: String, start: Int, end: Int): TextDecorator {
+    fun setTypeface(family: String, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(TypefaceSpan(family), start, end, flags)
 
         return this
     }
 
-    fun setTypeface(family: String, vararg texts: String): TextDecorator {
+    fun setTypeface(family: String, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -349,7 +349,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(appearance: Int, start: Int, end: Int): TextDecorator {
+    fun setTextAppearance(appearance: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance), start, end,
                 flags)
@@ -357,7 +357,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(appearance: Int, vararg texts: String): TextDecorator {
+    fun setTextAppearance(appearance: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -370,7 +370,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(appearance: Int, colorList: Int, start: Int, end: Int): TextDecorator {
+    fun setTextAppearance(appearance: Int, colorList: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance, colorList), start, end,
                 flags)
@@ -378,7 +378,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(appearance: Int, colorList: Int, vararg texts: String): TextDecorator {
+    fun setTextAppearance(appearance: Int, colorList: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -391,7 +391,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, start: Int, end: Int): TextDecorator {
+    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(TextAppearanceSpan(family, style, size, color, linkColor), start, end,
                 flags)
@@ -399,7 +399,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, vararg texts: String): TextDecorator {
+    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -412,14 +412,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setAbsoluteSize(size: Int, start: Int, end: Int): TextDecorator {
+    fun setAbsoluteSize(size: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AbsoluteSizeSpan(size), start, end, flags)
 
         return this
     }
 
-    fun setAbsoluteSize(size: Int, vararg texts: String): TextDecorator {
+    fun setAbsoluteSize(size: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -432,14 +432,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setAbsoluteSize(size: Int, dip: Boolean, start: Int, end: Int): TextDecorator {
+    fun setAbsoluteSize(size: Int, dip: Boolean, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AbsoluteSizeSpan(size, dip), start, end, flags)
 
         return this
     }
 
-    fun setAbsoluteSize(size: Int, dip: Boolean, vararg texts: String): TextDecorator {
+    fun setAbsoluteSize(size: Int, dip: Boolean, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -452,14 +452,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun setRelativeSize(proportion: Float, start: Int, end: Int): TextDecorator {
+    fun setRelativeSize(proportion: Float, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(RelativeSizeSpan(proportion), start, end, flags)
 
         return this
     }
 
-    fun setRelativeSize(proportion: Float, vararg texts: String): TextDecorator {
+    fun setRelativeSize(proportion: Float, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -472,14 +472,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun scaleX(proportion: Float, start: Int, end: Int): TextDecorator {
+    fun scaleX(proportion: Float, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(ScaleXSpan(proportion), start, end, flags)
 
         return this
     }
 
-    fun scaleX(proportion: Float, vararg texts: String): TextDecorator {
+    fun scaleX(proportion: Float, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -492,14 +492,14 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun blur(radius: Float, style: BlurMaskFilter.Blur, start: Int, end: Int): TextDecorator {
+    fun blur(radius: Float, style: BlurMaskFilter.Blur, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(MaskFilterSpan(BlurMaskFilter(radius, style)), start, end, flags)
 
         return this
     }
 
-    fun blur(radius: Float, style: BlurMaskFilter.Blur, vararg texts: String): TextDecorator {
+    fun blur(radius: Float, style: BlurMaskFilter.Blur, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -512,7 +512,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, start: Int, end: Int): TextDecorator {
+    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(MaskFilterSpan(EmbossMaskFilter(direction, ambient, specular, blurRadius)), start, end,
                 flags)
@@ -520,7 +520,7 @@ class TextDecorator private constructor(private val textView: TextView, private 
         return this
     }
 
-    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, vararg texts: String): TextDecorator {
+    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, vararg texts: String): LTextDecorator {
         var index: Int
 
         for (text in texts) {
@@ -547,8 +547,8 @@ class TextDecorator private constructor(private val textView: TextView, private 
 
     companion object {
 
-        fun decorate(textView: TextView, content: String): TextDecorator {
-            return TextDecorator(textView, content)
+        fun decorate(textView: TextView, content: String): LTextDecorator {
+            return LTextDecorator(textView, content)
         }
     }
 }

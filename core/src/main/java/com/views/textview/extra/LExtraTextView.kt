@@ -1,4 +1,4 @@
-package com.views.textview.extratextview
+package com.views.textview.extra
 
 
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.views.textview.circletextview;
+package com.views.textview.circle;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -18,7 +18,7 @@ import androidx.annotation.DimenRes;
 /**
  * Created by lisawray on 5/29/15.
  */
-public class CircleTextView extends View {
+public class LCircleTextView extends View {
 
     private int maxLines;
     private TextPaint textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
@@ -27,20 +27,20 @@ public class CircleTextView extends View {
     private int[] rightIndents;
     private StaticLayout layout;
 
-    public CircleTextView(Context context) {
+    public LCircleTextView(Context context) {
         super(context);
     }
 
-    public CircleTextView(Context context, AttributeSet attrs) {
+    public LCircleTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CircleTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LCircleTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CircleTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public LCircleTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
