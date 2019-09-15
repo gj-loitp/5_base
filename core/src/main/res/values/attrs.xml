@@ -444,7 +444,7 @@
         </attr>
         <attr name="scrollAndClickable" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="MovieView">
+    <declare-styleable name="LMovieView">
         <attr name="android:src" />
         <attr name="android:title" />
         <attr name="android:adjustViewBounds" />

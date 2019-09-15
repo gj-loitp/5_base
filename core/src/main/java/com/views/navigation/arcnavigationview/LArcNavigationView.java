@@ -32,27 +32,27 @@ import java.lang.reflect.Field;
  * Created by rom4ek on 10.01.2017.
  */
 
-public class ArcNavigationView extends NavigationView {
+public class LArcNavigationView extends NavigationView {
 
     private static int THRESHOLD;
 
-    private ArcViewSettings settings;
+    private LArcViewSettings settings;
     private int height = 0;
     private int width = 0;
     private Path clipPath, arcPath;
 
-    public ArcNavigationView(Context context) {
+    public LArcNavigationView(Context context) {
         super(context);
         init(context, null);
     }
 
-    public ArcNavigationView(Context context, AttributeSet attrs) {
+    public LArcNavigationView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
     public void init(Context context, AttributeSet attrs) {
-        settings = new ArcViewSettings(context, attrs);
+        settings = new LArcViewSettings(context, attrs);
         settings.setElevation(ViewCompat.getElevation(this));
 
         /**
@@ -69,7 +69,7 @@ public class ArcNavigationView extends NavigationView {
         }
         setBackgroundColor(Color.TRANSPARENT);
         setInsetsColor(Color.TRANSPARENT);
-        THRESHOLD = Math.round(ArcViewSettings.dpToPx(getContext(), 15)); //some threshold for child views while remeasuring them
+        THRESHOLD = Math.round(LArcViewSettings.dpToPx(getContext(), 15)); //some threshold for child views while remeasuring them
     }
 
     private void setInsetsColor(final int color) {

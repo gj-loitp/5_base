@@ -25,10 +25,10 @@ import com.R;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 
-public class MovieView extends RelativeLayout {
+public class LMovieView extends RelativeLayout {
 
     /**
-     * Monitors all events related to {@link MovieView}.
+     * Monitors all events related to {@link LMovieView}.
      */
     public abstract static class MovieListener {
 
@@ -108,15 +108,15 @@ public class MovieView extends RelativeLayout {
 
     private int mSavedCurrentPosition;
 
-    public MovieView(Context context) {
+    public LMovieView(Context context) {
         this(context, null);
     }
 
-    public MovieView(Context context, AttributeSet attrs) {
+    public LMovieView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MovieView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LMovieView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setBackgroundColor(Color.BLACK);
 
@@ -132,13 +132,13 @@ public class MovieView extends RelativeLayout {
         final TypedArray attributes =
                 context.obtainStyledAttributes(
                         attrs,
-                        R.styleable.MovieView,
+                        R.styleable.LMovieView,
                         defStyleAttr,
                         R.style.Widget_PictureInPicture_MovieView);
-        setVideoResourceId(attributes.getResourceId(R.styleable.MovieView_android_src, 0));
+        setVideoResourceId(attributes.getResourceId(R.styleable.LMovieView_android_src, 0));
         setAdjustViewBounds(
-                attributes.getBoolean(R.styleable.MovieView_android_adjustViewBounds, false));
-        setTitle(attributes.getString(R.styleable.MovieView_android_title));
+                attributes.getBoolean(R.styleable.LMovieView_android_adjustViewBounds, false));
+        setTitle(attributes.getString(R.styleable.LMovieView_android_title));
         attributes.recycle();
 
         // Bind view events
@@ -162,7 +162,7 @@ public class MovieView extends RelativeLayout {
                         // Start or reset the timeout to hide controls
                         if (mMediaPlayer != null) {
                             if (mTimeoutHandler == null) {
-                                mTimeoutHandler = new TimeoutHandler(MovieView.this);
+                                mTimeoutHandler = new TimeoutHandler(LMovieView.this);
                             }
                             mTimeoutHandler.removeMessages(TimeoutHandler.MESSAGE_HIDE_CONTROLS);
                             if (mMediaPlayer.isPlaying()) {
@@ -493,9 +493,9 @@ public class MovieView extends RelativeLayout {
 
         static final int MESSAGE_HIDE_CONTROLS = 1;
 
-        private final WeakReference<MovieView> mMovieViewRef;
+        private final WeakReference<LMovieView> mMovieViewRef;
 
-        TimeoutHandler(MovieView view) {
+        TimeoutHandler(LMovieView view) {
             mMovieViewRef = new WeakReference<>(view);
         }
 
@@ -503,9 +503,9 @@ public class MovieView extends RelativeLayout {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MESSAGE_HIDE_CONTROLS:
-                    MovieView movieView = mMovieViewRef.get();
-                    if (movieView != null) {
-                        movieView.hideControls();
+                    LMovieView LMovieView = mMovieViewRef.get();
+                    if (LMovieView != null) {
+                        LMovieView.hideControls();
                     }
                     break;
                 default:

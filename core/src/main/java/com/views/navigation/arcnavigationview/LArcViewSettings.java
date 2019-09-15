@@ -11,7 +11,7 @@ import android.util.TypedValue;
 
 import com.R;
 
-public class ArcViewSettings {
+public class LArcViewSettings {
     public final static int CROP_INSIDE = 0;
     public final static int CROP_OUTSIDE = 1;
     private boolean cropInside = true;
@@ -24,7 +24,7 @@ public class ArcViewSettings {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
     }
 
-    public ArcViewSettings(Context context, AttributeSet attrs) {
+    public LArcViewSettings(Context context, AttributeSet attrs) {
         TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.ArcDrawer, 0, 0);
         arcWidth = styledAttributes.getDimension(R.styleable.ArcDrawer_arc_width, dpToPx(context, 10));
 

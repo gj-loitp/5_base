@@ -6,7 +6,7 @@ import org.greenrobot.eventbus.EventBus;
  * Created by LENOVO on 7/6/2018.
  */
 
-public class ComunicateDebug {
+public class LComunicateDebug {
     public static class MsgFromActivity {
         public static int TYPE_D = 0;
         public static int TYPE_E = -1;
