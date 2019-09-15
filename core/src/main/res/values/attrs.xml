@@ -72,7 +72,7 @@
     <declare-styleable name="PorterImageView">
         <attr name="siShape" format="integer|reference" />
     </declare-styleable>
-    <declare-styleable name="AVLoadingIndicatorView">
+    <declare-styleable name="LAVLoadingIndicatorView">
         <attr name="minWidth" format="dimension" />
         <attr name="maxWidth" format="dimension" />
         <attr name="minHeight" format="dimension" />
@@ -183,7 +183,7 @@
             <enum name="extra_animation" value="2" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="CircularProgressBar">
+    <declare-styleable name="LCircularProgressBar">
         <attr name="maximum" format="float" />
         <attr name="progress" format="float" />
         <attr name="animateProgress" format="boolean" />

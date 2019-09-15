@@ -3,7 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist;
 import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.DataNode;
@@ -28,7 +28,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     private List<String> imagesListOfOneChap = new ArrayList<>();//list img per chap
     private String link = "";
 
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
 
     public interface Callback {
         public void onSuccess(List<String> imagesListOfOneChap);
@@ -38,7 +38,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetReadImgTask(String link, AVLoadingIndicatorView avi, Callback callback) {
+    public GetReadImgTask(String link, LAVLoadingIndicatorView avi, Callback callback) {
         this.link = link;
         this.avi = avi;
         this.callback = callback;

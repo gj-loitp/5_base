@@ -19,7 +19,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import java.io.File
 
 /**
@@ -128,7 +128,7 @@ object LImageUtil {
     @SuppressLint("ResourceType")
     @JvmOverloads
     fun load(context: Context, url: String, imageView: ImageView,
-             avLoadingIndicatorView: AVLoadingIndicatorView?, resPlaceHolder:
+             LAVLoadingIndicatorView: LAVLoadingIndicatorView?, resPlaceHolder:
              Int = Color.TRANSPARENT, resError: Int = Color.TRANSPARENT) {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
@@ -140,12 +140,12 @@ object LImageUtil {
                 )
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                        avLoadingIndicatorView?.hide()
+                        LAVLoadingIndicatorView?.hide()
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                        avLoadingIndicatorView?.hide()
+                        LAVLoadingIndicatorView?.hide()
                         return false
                     }
                 })

@@ -7,12 +7,12 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LUIUtil;
 import com.restapi.restclient.RestClient;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import loitp.basemaster.R;
 
 public class GalleryDemoSplashActivity extends BaseFontActivity {
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

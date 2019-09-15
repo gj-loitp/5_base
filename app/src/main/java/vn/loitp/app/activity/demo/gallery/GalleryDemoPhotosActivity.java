@@ -17,7 +17,7 @@ import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
 import com.views.placeholderview.PlaceHolderView;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
 
 public class GalleryDemoPhotosActivity extends BaseFontActivity {
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
     private PlaceHolderView mGalleryView;
     private TextView tvTitle;
 

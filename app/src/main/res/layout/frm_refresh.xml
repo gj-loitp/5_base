@@ -17,7 +17,7 @@
 			android:visibility="invisible" />
 	</ScrollView>
 
-	<com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+	<com.views.progressloadingview.avl.LAVLoadingIndicatorView
 		android:id="@+id/avl"
 		style="@style/AVLoadingIndicatorView.Large"
 		android:layout_width="@dimen/w_50"

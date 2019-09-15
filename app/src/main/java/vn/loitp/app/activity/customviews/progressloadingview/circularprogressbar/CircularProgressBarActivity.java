@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.progressloadingview.circularprogressba
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
-import com.views.progressloadingview.circularprogressbar.CircularProgressBar;
+import com.views.progressloadingview.circular.LCircularProgressBar;
 
 import loitp.basemaster.R;
 
@@ -12,7 +12,7 @@ public class CircularProgressBarActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CircularProgressBar progressBar = findViewById(R.id.progress_bar);
+        LCircularProgressBar progressBar = findViewById(R.id.progress_bar);
         progressBar.setProgress(30f);
         progressBar.configure().animateProgress(true).maximum(40).progress(30).apply();
     }

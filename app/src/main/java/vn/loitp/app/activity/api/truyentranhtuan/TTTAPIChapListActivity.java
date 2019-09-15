@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
@@ -15,7 +15,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 public class TTTAPIChapListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
     private Button btSelect;
 
     @Override
@@ -24,7 +24,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         btSelect = (Button) findViewById(R.id.bt_select);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tv = (TextView) findViewById(R.id.tv);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {

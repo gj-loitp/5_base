@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.google.gson.reflect.TypeToken;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
 
     private Activity mActivity;
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
 
     private List<Comic> comicList = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetFavListTask(Activity activity, AVLoadingIndicatorView avi, Callback callback) {
+    public GetFavListTask(Activity activity, LAVLoadingIndicatorView avi, Callback callback) {
         this.mActivity = activity;
         this.avi = avi;
         this.callback = callback;

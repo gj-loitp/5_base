@@ -25,7 +25,7 @@ import com.restapi.flickr.FlickrConst;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -36,7 +36,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
     private TextView tvTitle;
-    private AVLoadingIndicatorView avLoadingIndicatorView;
+    private LAVLoadingIndicatorView LAVLoadingIndicatorView;
 
     private int currentPage = 0;
     private int totalPage = 1;
@@ -59,7 +59,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         tvTitle = findViewById(R.id.tv_title);
         LUIUtil.INSTANCE.setTextShadow(tvTitle);
 
-        avLoadingIndicatorView = findViewById(R.id.av);
+        LAVLoadingIndicatorView = findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
@@ -193,7 +193,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         }
         LLog.d(getTAG(), "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
-        avLoadingIndicatorView.smoothToShow();
+        LAVLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
         final String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         final String apiKey = FlickrConst.API_KEY;
@@ -201,7 +201,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         if (currentPage <= 0) {
             LLog.d(getTAG(), "currentPage <= 0 -> return");
             currentPage = 0;
-            avLoadingIndicatorView.smoothToHide();
+            LAVLoadingIndicatorView.smoothToHide();
             isLoading = false;
             return;
         }
@@ -219,13 +219,13 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                     final List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                     PhotosDataCore.getInstance().addPhoto(photoList);
                     updateAllViews();
-                    avLoadingIndicatorView.smoothToHide();
+                    LAVLoadingIndicatorView.smoothToHide();
                     btPage.setVisibility(View.VISIBLE);
                     isLoading = false;
                 }, e -> {
                     LLog.e(getTAG(), "onFail " + e.toString());
                     handleException(e);
-                    avLoadingIndicatorView.smoothToHide();
+                    LAVLoadingIndicatorView.smoothToHide();
                     isLoading = true;
                 }));
     }

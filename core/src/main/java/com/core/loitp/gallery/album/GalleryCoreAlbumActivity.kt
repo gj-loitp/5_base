@@ -22,7 +22,7 @@ import com.restapi.flickr.model.photosetgetlist.Photoset
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,7 +34,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private val photosetList = ArrayList<Photoset>()
     private var removeAlbumList: ArrayList<String>? = null
     private var bkgRootView: Int = 0
-    private var avLoadingIndicatorView: AVLoadingIndicatorView? = null
+    private var LAVLoadingIndicatorView: LAVLoadingIndicatorView? = null
     private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         isShowAdWhenExit = false
         setTransparentStatusNavigationBar()
         removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        avLoadingIndicatorView = findViewById(R.id.av)
+        LAVLoadingIndicatorView = findViewById(R.id.av)
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         LLog.d(TAG, "admobBannerUnitId $admobBannerUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
@@ -124,7 +124,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     private fun photosetsGetList() {
-        avLoadingIndicatorView?.smoothToShow()
+        LAVLoadingIndicatorView?.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -167,10 +167,10 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
                     })
                     updateAllViews()
-                    avLoadingIndicatorView?.smoothToHide()
+                    LAVLoadingIndicatorView?.smoothToHide()
                 }, { throwable ->
                     handleException(throwable)
-                    avLoadingIndicatorView?.smoothToHide()
+                    LAVLoadingIndicatorView?.smoothToHide()
                 }))
     }
 

@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import loitp.basemaster.R;
 
@@ -20,7 +20,7 @@ public class FrmRefresh extends Fragment {
     public static final String KEY_POSITION = "KEY_POSITION";
     private int mPosition;
     private TextView tv;
-    private AVLoadingIndicatorView avl;
+    private LAVLoadingIndicatorView avl;
 
     @Nullable
     @Override
@@ -36,7 +36,7 @@ public class FrmRefresh extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tv = (TextView) view.findViewById(R.id.tv);
-        avl = (AVLoadingIndicatorView) view.findViewById(R.id.avl);
+        avl = (LAVLoadingIndicatorView) view.findViewById(R.id.avl);
         if (isVisibleToUser && (!isLoaded)) {
             loadData();
             isLoaded = true;

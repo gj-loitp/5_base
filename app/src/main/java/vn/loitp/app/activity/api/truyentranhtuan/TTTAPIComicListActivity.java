@@ -11,7 +11,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
 public class TTTAPIComicListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
     private Button btSelect;
 
     private List<ComicType> comicTypeList;
@@ -36,7 +36,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
         btSelect = (Button) findViewById(R.id.bt_select);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tv = (TextView) findViewById(R.id.tv);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
         avi.hide();
 
         comicTypeList = ComicUtils.getComicTypeList();

@@ -40,7 +40,7 @@
             android:gravity="center"
             android:orientation="vertical" />
 
-        <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+        <com.views.progressloadingview.avl.LAVLoadingIndicatorView
             android:id="@+id/av"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"

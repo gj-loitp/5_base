@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -38,7 +38,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private List<Comic> comicList = new ArrayList<>();
 
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
     private Activity activity;
 
     public interface Callback {
@@ -49,7 +49,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetComicTask(Activity activity, String link, AVLoadingIndicatorView avi, Callback callback) {
+    public GetComicTask(Activity activity, String link, LAVLoadingIndicatorView avi, Callback callback) {
         this.activity = activity;
         this.link = link;
         this.avi = avi;

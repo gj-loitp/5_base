@@ -18,7 +18,7 @@ import com.restapi.flickr.model.photosetgetlist.Photoset;
 import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.app.LApplication;
 
 public class GalleryAPIActivity extends BaseFontActivity {
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
     private TextView tv;
     private Button bt2;
     private WrapperPhotosetGetlist mWrapperPhotosetGetlist;

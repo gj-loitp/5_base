@@ -20,7 +20,7 @@ import com.github.piasy.biv.loader.ImageLoader;
 import com.github.piasy.biv.view.BigImageView;
 import com.github.piasy.biv.view.GlideImageViewFactory;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.io.File;
 
@@ -44,7 +44,7 @@ public class FrmIvSlideCore extends Fragment {
         int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
         final Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
-        final AVLoadingIndicatorView avLoadingIndicatorView = view.findViewById(R.id.avi);
+        final LAVLoadingIndicatorView LAVLoadingIndicatorView = view.findViewById(R.id.avi);
         final BigImageView bigImageView = view.findViewById(R.id.biv);
         final TextView tvProgress = view.findViewById(R.id.tv_progress);
         LUIUtil.INSTANCE.setTextShadow(tvProgress);
@@ -61,8 +61,8 @@ public class FrmIvSlideCore extends Fragment {
 
             @Override
             public void onStart() {
-                if (avLoadingIndicatorView != null) {
-                    avLoadingIndicatorView.smoothToShow();
+                if (LAVLoadingIndicatorView != null) {
+                    LAVLoadingIndicatorView.smoothToShow();
                 }
                 tvProgress.setText("0%");
             }
@@ -85,8 +85,8 @@ public class FrmIvSlideCore extends Fragment {
                 if (ssiv != null) {
                     ssiv.setZoomEnabled(true);
                 }*/
-                if (avLoadingIndicatorView != null) {
-                    avLoadingIndicatorView.smoothToHide();
+                if (LAVLoadingIndicatorView != null) {
+                    LAVLoadingIndicatorView.smoothToHide();
                 }
                 tvProgress.setVisibility(View.GONE);
             }

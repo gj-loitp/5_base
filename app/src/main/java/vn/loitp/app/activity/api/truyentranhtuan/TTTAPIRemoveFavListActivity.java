@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView;
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 
 public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     private TextView tv;
-    private AVLoadingIndicatorView avi;
+    private LAVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = (TextView) findViewById(R.id.tv);
-        avi = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
         avi.hide();
 
         findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(new View.OnClickListener() {
