@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_demo.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity
+import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.film.FilmDemoActivity
@@ -71,6 +72,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_fragment_navigation).setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
+        btDeepLinks.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -136,6 +138,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_fragment_navigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
             R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
             R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
+            R.id.btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
