@@ -114,12 +114,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:src="@drawable/ic_play_arrow_black_48dp"
+            android:src="@drawable/l_ic_play_arrow_black_48dp"
             android:tint="@color/White"
             app:layout_anchor="@id/cardView1"
             app:layout_anchorGravity="bottom|end" />
 
-        <com.views.imageview.circleimageview.LCircleImageView
+        <com.views.imageview.circle.LCircleImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|start"

@@ -33,14 +33,10 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.R;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import loitp.core.R;
-
-/**
- * Created by Anton on 03.03.2018.
- */
 
 @SuppressWarnings("FieldCanBeLocal")
 public class CircularProgressIndicator extends View {

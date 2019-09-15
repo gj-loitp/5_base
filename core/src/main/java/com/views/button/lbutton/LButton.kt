@@ -6,8 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 
 import androidx.appcompat.widget.AppCompatImageButton
-
-import loitp.core.R
+import com.R
 
 /**
  * Created by Loitp on 7/5/2018.
@@ -15,7 +14,7 @@ import loitp.core.R
 
 class LButton : AppCompatImageButton {
 
-    private var pressedDrawable = R.drawable.circle_black
+    private var pressedDrawable = R.drawable.l_circle_black
 
     constructor(context: Context) : super(context) {}
 

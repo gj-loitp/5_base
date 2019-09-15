@@ -3,18 +3,14 @@ package com.views.hottagkeywords;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import loitp.core.R;
-
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
+import com.R;
 
 public class AutoLabelUISettings implements Parcelable {
 
     public static final boolean DEFAULT_SHOW_CROSS = true;
     public static final boolean DEFAULT_LABELS_CLICKABLES = false;
     public static final int DEFAULT_MAX_LABELS = -1;
-    public static final int DEFAULT_ICON_CROSS = R.drawable.cross;
+    public static final int DEFAULT_ICON_CROSS = R.drawable.l_cross;
 
     private int mMaxLabels;
     private boolean mShowCross;

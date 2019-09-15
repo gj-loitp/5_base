@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.R
 import com.core.utilities.LUIUtil
 import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
@@ -47,14 +48,14 @@ class LEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, loitp.core.R.layout.view_l_edittext, this)
-        mcv = findViewById(loitp.core.R.id.mcv)
-        editText = findViewById(loitp.core.R.id.editText)
-        ivLeft = findViewById(loitp.core.R.id.ivLeft)
-        ivRight = findViewById(loitp.core.R.id.ivRight)
-        tvMessage = findViewById(loitp.core.R.id.tvMessage)
-        ll = findViewById(loitp.core.R.id.ll)
-        rootView = findViewById(loitp.core.R.id.rootView)
+        View.inflate(context, R.layout.view_l_edittext, this)
+        mcv = findViewById(R.id.mcv)
+        editText = findViewById(R.id.editText)
+        ivLeft = findViewById(R.id.ivLeft)
+        ivRight = findViewById(R.id.ivRight)
+        tvMessage = findViewById(R.id.tvMessage)
+        ll = findViewById(R.id.ll)
+        rootView = findViewById(R.id.rootView)
 
         editText.setOnFocusChangeListener { view, isFocus ->
             if (isFocus) {

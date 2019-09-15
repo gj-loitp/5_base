@@ -56,7 +56,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        LToast.showLong(getActivity(), "Press card item for edit, long press to remove item", R.drawable.bkg_horizontal);
+        LToast.showLong(getActivity(), "Press card item for edit, long press to remove item", R.drawable.l_bkg_horizontal);
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());

@@ -8,7 +8,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.core.base.BaseFontActivity;
-import com.views.layout.relativepopupwindow.RelativePopupWindow;
+import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import loitp.basemaster.R;
 
@@ -44,7 +44,7 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
         final CheckBox checkboxFitInScreen = findViewById(R.id.checkbox_fit_in_screen);
 
         findViewById(R.id.button1).setOnClickListener(view -> {
-            final ExampleCardPopup popup = new ExampleCardPopup(view.getContext());
+            final ExampleCardPopupL popup = new ExampleCardPopupL(view.getContext());
             switch (spinnerWidth.getSelectedItemPosition()) {
                 case 0:
                     popup.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -86,19 +86,19 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
             final int vertPos;
             switch (spinnerVertical.getSelectedItemPosition()) {
                 case 0:
-                    vertPos = RelativePopupWindow.VerticalPosition.ABOVE;
+                    vertPos = LRelativePopupWindow.VerticalPosition.ABOVE;
                     break;
                 case 1:
-                    vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM;
+                    vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM;
                     break;
                 case 2:
-                    vertPos = RelativePopupWindow.VerticalPosition.CENTER;
+                    vertPos = LRelativePopupWindow.VerticalPosition.CENTER;
                     break;
                 case 3:
-                    vertPos = RelativePopupWindow.VerticalPosition.ALIGN_TOP;
+                    vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_TOP;
                     break;
                 case 4:
-                    vertPos = RelativePopupWindow.VerticalPosition.BELOW;
+                    vertPos = LRelativePopupWindow.VerticalPosition.BELOW;
                     break;
                 default:
                     throw new IllegalStateException();
@@ -106,19 +106,19 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
             final int horizPos;
             switch (spinnerHorizontal.getSelectedItemPosition()) {
                 case 0:
-                    horizPos = RelativePopupWindow.HorizontalPosition.LEFT;
+                    horizPos = LRelativePopupWindow.HorizontalPosition.LEFT;
                     break;
                 case 1:
-                    horizPos = RelativePopupWindow.HorizontalPosition.ALIGN_RIGHT;
+                    horizPos = LRelativePopupWindow.HorizontalPosition.ALIGN_RIGHT;
                     break;
                 case 2:
-                    horizPos = RelativePopupWindow.HorizontalPosition.CENTER;
+                    horizPos = LRelativePopupWindow.HorizontalPosition.CENTER;
                     break;
                 case 3:
-                    horizPos = RelativePopupWindow.HorizontalPosition.ALIGN_LEFT;
+                    horizPos = LRelativePopupWindow.HorizontalPosition.ALIGN_LEFT;
                     break;
                 case 4:
-                    horizPos = RelativePopupWindow.HorizontalPosition.RIGHT;
+                    horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT;
                     break;
                 default:
                     throw new IllegalStateException();

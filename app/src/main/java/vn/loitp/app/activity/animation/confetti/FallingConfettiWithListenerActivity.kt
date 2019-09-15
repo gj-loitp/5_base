@@ -72,7 +72,7 @@ class FallingConfettiWithListenerActivity : BaseFontActivity(), View.OnClickList
         velocitySlow = res.getDimensionPixelOffset(R.dimen.default_velocity_slow)
         velocityNormal = res.getDimensionPixelOffset(R.dimen.default_velocity_normal)
 
-        bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, R.drawable.heart),
+        bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, R.drawable.l_heart_icon),
                 size, size, false)
     }
 

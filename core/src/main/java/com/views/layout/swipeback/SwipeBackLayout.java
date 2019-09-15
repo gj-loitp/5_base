@@ -19,16 +19,11 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
+import com.R;
 import com.views.layout.swipeback.tools.Util;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import loitp.core.R;
-
-/**
- * Created by GongWen on 17/8/24.
- */
 
 public class SwipeBackLayout extends ViewGroup {
     private static final String TAG = "SwipeBackLayout";

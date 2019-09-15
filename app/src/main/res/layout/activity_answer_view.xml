@@ -26,7 +26,7 @@
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 
-            <com.views.answerview.AnswerView
+            <com.views.answerview.LAnswerView
                 android:id="@+id/av_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 app:aw_canCancelAnswer="true"
                 app:aw_changeOnClick="true" />
 
-            <com.views.answerview.AnswerView
+            <com.views.answerview.LAnswerView
                 android:id="@+id/av_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

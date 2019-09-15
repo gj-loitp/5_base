@@ -18,7 +18,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
-import loitp.core.R
+import com.R
 
 open class LMaterialTextField : FrameLayout {
     private lateinit var inputMethodManager: InputMethodManager

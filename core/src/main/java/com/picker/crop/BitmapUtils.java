@@ -301,20 +301,20 @@ final class BitmapUtils {
     /**
      * Resize the given bitmap to the given width/height by the given option.<br>
      */
-    public static Bitmap resizeBitmap(Bitmap bitmap, int reqWidth, int reqHeight, CropImageView.RequestSizeOptions options) {
+    public static Bitmap resizeBitmap(Bitmap bitmap, int reqWidth, int reqHeight, LCropImageView.RequestSizeOptions options) {
         try {
-            if (reqWidth > 0 && reqHeight > 0 && (options == CropImageView.RequestSizeOptions.RESIZE_FIT ||
-                    options == CropImageView.RequestSizeOptions.RESIZE_INSIDE ||
-                    options == CropImageView.RequestSizeOptions.RESIZE_EXACT)) {
+            if (reqWidth > 0 && reqHeight > 0 && (options == LCropImageView.RequestSizeOptions.RESIZE_FIT ||
+                    options == LCropImageView.RequestSizeOptions.RESIZE_INSIDE ||
+                    options == LCropImageView.RequestSizeOptions.RESIZE_EXACT)) {
 
                 Bitmap resized = null;
-                if (options == CropImageView.RequestSizeOptions.RESIZE_EXACT) {
+                if (options == LCropImageView.RequestSizeOptions.RESIZE_EXACT) {
                     resized = Bitmap.createScaledBitmap(bitmap, reqWidth, reqHeight, false);
                 } else {
                     final int width = bitmap.getWidth();
                     final int height = bitmap.getHeight();
                     final float scale = Math.max(width / (float) reqWidth, height / (float) reqHeight);
-                    if (scale > 1 || options == CropImageView.RequestSizeOptions.RESIZE_FIT) {
+                    if (scale > 1 || options == LCropImageView.RequestSizeOptions.RESIZE_FIT) {
                         resized = Bitmap.createScaledBitmap(bitmap, (int) (width / scale), (int) (height / scale), false);
                     }
                 }

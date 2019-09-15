@@ -6,10 +6,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btDownload"
+        android:id="@+id/btFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/load_from_url_file_pdf_30mb" />
+        android:text="@string/load_from_url_file_pdf_30mb_file" />
+
+    <Button
+        android:id="@+id/btStream"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/load_from_url_file_pdf_30mb_stream" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,4 +38,3 @@
             android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>
-

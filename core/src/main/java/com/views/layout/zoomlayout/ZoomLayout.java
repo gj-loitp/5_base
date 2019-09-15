@@ -1,9 +1,5 @@
 package com.views.layout.zoomlayout;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -20,22 +16,8 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import loitp.core.R;
+import com.R;
 
-/**
- * Uses {@link ZoomEngine} to allow zooming and pan events onto a view hierarchy.
- * The hierarchy must be contained in a single view, added to this layout
- * (like what you do with a ScrollView).
- * <p>
- * If the hierarchy has clickable children that should react to touch events, you are
- * required to call {@link #setHasClickableChildren(boolean)} or use the attribute.
- * This is off by default because it is more expensive in terms of performance.
- * <p>
- * Currently padding to this view / margins to the child view are NOT supported.
- * <p>
- * TODO: support padding (from inside ZoomEngine that gets the view)
- * TODO: support layout_margin (here)
- */
 public class ZoomLayout extends FrameLayout implements ZoomEngine.Listener {
 
     private final static String TAG = ZoomLayout.class.getSimpleName();

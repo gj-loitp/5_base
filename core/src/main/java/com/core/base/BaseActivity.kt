@@ -17,6 +17,7 @@ import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
+import com.R
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
@@ -28,7 +29,6 @@ import com.google.android.gms.ads.InterstitialAd
 import com.views.LToast
 import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.disposables.CompositeDisposable
-import loitp.core.R
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -305,6 +305,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showShort(msg: String) {
-        LToast.showShort(activity, msg, R.drawable.bkg_horizontal)
+        LToast.showShort(activity, msg, R.drawable.l_bkg_horizontal)
+    }
+
+    protected fun showLong(msg: String) {
+        LToast.showLong(activity, msg, R.drawable.l_bkg_horizontal)
     }
 }

@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
-import com.views.answerview.AnswerView;
+import com.views.answerview.LAnswerView;
 
 import loitp.basemaster.R;
 
@@ -22,22 +22,22 @@ public class AnswerViewActivity extends BaseFontActivity {
     }
 
     private void useXML() {
-        AnswerView answerView1 = (AnswerView) findViewById(R.id.av_1);
-        answerView1.setNumber(1);
-        answerView1.setOnAnswerChange(new AnswerView.OnAnswerChange() {
+        LAnswerView LAnswerView1 = (LAnswerView) findViewById(R.id.av_1);
+        LAnswerView1.setNumber(1);
+        LAnswerView1.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
             @Override
-            public void onAnswerChange(AnswerView view, int index) {
+            public void onAnswerChange(LAnswerView view, int index) {
                 LToast.INSTANCE.show(getActivity(), "Click: " + index);
             }
         });
-        answerView1.setActiveChar('A');
+        LAnswerView1.setActiveChar('A');
         //answerView1.resize(2);
 
-        AnswerView answerView2 = (AnswerView) findViewById(R.id.av_2);
-        answerView2.setNumber(2);
-        answerView2.setOnAnswerChange(new AnswerView.OnAnswerChange() {
+        LAnswerView LAnswerView2 = (LAnswerView) findViewById(R.id.av_2);
+        LAnswerView2.setNumber(2);
+        LAnswerView2.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
             @Override
-            public void onAnswerChange(AnswerView view, int index) {
+            public void onAnswerChange(LAnswerView view, int index) {
                 LToast.INSTANCE.show(getActivity(), "Click: " + index);
             }
         });
@@ -46,15 +46,15 @@ public class AnswerViewActivity extends BaseFontActivity {
     private void useJava() {
         LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
         for (int i = 0; i < 10; i++) {
-            AnswerView answerView = new AnswerView(getActivity());
-            answerView.init(i + 3, 6, true, true, true, true);
-            answerView.setOnAnswerChange(new AnswerView.OnAnswerChange() {
+            LAnswerView LAnswerView = new LAnswerView(getActivity());
+            LAnswerView.init(i + 3, 6, true, true, true, true);
+            LAnswerView.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
                 @Override
-                public void onAnswerChange(AnswerView view, int index) {
+                public void onAnswerChange(LAnswerView view, int index) {
                     LToast.INSTANCE.show(getActivity(), "Click: " + index);
                 }
             });
-            ll.addView(answerView);
+            ll.addView(LAnswerView);
         }
     }
 

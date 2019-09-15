@@ -430,7 +430,8 @@ Likewise may someone love you next.
     <string name="video">Video</string>
     <string name="youtube_parser">Youtube parser</string>
     <string name="pdf">PDF</string>
-    <string name="load_from_url_file_pdf_30mb">Load from Url (File PDF 30Mb)</string>
+    <string name="load_from_url_file_pdf_30mb_file">Load from Url (File PDF 30Mb) File</string>
+    <string name="load_from_url_file_pdf_30mb_stream">Load from Url (File PDF 30Mb) Stream</string>
     <string name="lbutton_change_drawable_of_pressed_state_programmatically_with_one_line_code_lbutton_setpresseddrawable">LButton change drawable of pressed state programmatically with one line code lButton.setPressedDrawable(...);</string>
     <string name="click">Click</string>
     <string name="reside_menu">Reside menu</string>

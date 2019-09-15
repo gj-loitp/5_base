@@ -60,9 +60,9 @@ public class ShadowDrawable extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         //Log.i("ShadowLayout3", "ShadowDrawable1 draw " + canvas);
 
-        if (mShape == ShadowLayout.SHAPE_RECTANGLE) {
+        if (mShape == LShadowLayout2.SHAPE_RECTANGLE) {
             canvas.drawRect(mRect, mShadowPaint);
-        } else if (mShape == ShadowLayout.SHAPE_OVAL) {
+        } else if (mShape == LShadowLayout2.SHAPE_OVAL) {
             canvas.drawCircle(mRect.centerX(), mRect.centerY(), Math.min(mRect.width(), mRect.height()) / 2, mShadowPaint);
         }
     }

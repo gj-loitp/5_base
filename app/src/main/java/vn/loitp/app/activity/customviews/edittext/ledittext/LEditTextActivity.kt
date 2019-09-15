@@ -69,7 +69,7 @@ class LEditTextActivity : BaseFontActivity() {
             colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
             colorError = ContextCompat.getColor(activity, R.color.Red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
+            ivRight.setImageResource(R.drawable.l_baseline_visibility_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
@@ -84,12 +84,12 @@ class LEditTextActivity : BaseFontActivity() {
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     if (isShowPw) {
-                        ivRight.setImageResource(R.drawable.baseline_visibility_black_48dp)
+                        ivRight.setImageResource(R.drawable.l_baseline_visibility_black_48dp)
                         editText.transformationMethod = PasswordTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = false
                     } else {
-                        ivRight.setImageResource(R.drawable.baseline_visibility_off_black_48dp)
+                        ivRight.setImageResource(R.drawable.l_baseline_visibility_off_black_48dp)
                         editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = true
@@ -144,6 +144,6 @@ class LEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return loitp.basemaster.R.layout.activity_l_edit_text
+        return R.layout.activity_l_edit_text
     }
 }

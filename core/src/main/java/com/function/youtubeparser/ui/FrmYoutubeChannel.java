@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.core.base.BaseFragment;
 import com.core.common.Constants;
 import com.core.utilities.LLog;
@@ -26,8 +27,6 @@ import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import loitp.core.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -46,7 +45,7 @@ public class FrmYoutubeChannel extends BaseFragment {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.frm_youtube_channel;
+        return R.layout.l_frm_youtube_channel;
     }
 
     @Override

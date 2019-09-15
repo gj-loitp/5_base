@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
 import com.views.textview.textdecorator.OnTextClickListener;
-import com.views.textview.textdecorator.TextDecorator;
+import com.views.textview.textdecorator.LTextDecorator;
 
 import loitp.basemaster.R;
 
@@ -20,7 +20,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
         final TextView tvContent = (TextView) findViewById(R.id.tvContent);
         final String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et porta ipsum. Praesent vitae libero a mi sodales accumsan. Donec tempor nulla turpis, vitae pellentesque ligula consectetur sed. Quisque commodo lorem eget ipsum pulvinar consequat. Nam erat risus, rhoncus quis ligula sed, tempor venenatis nulla. Duis quis placerat quam.";
 
-        TextDecorator.Companion
+        LTextDecorator.Companion
                 .decorate(tvContent, text)
                 .setTextColor(R.color.colorAccent, "Lorem", "amet")
                 .setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
@@ -36,7 +36,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
                 .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build();
 
-        //TextDecorator
+        //LTextDecorator
         //    .decorate(tvContent, text)
         //    .setTextColor(R.color.colorAccent, 0, 5)
         //    .setBackgroundColor(R.color.colorPrimary, 6, 11)

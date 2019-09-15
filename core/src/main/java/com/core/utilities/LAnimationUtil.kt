@@ -6,9 +6,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 6/9/2017.
@@ -88,12 +88,12 @@ object LAnimationUtil {
     }
 
     fun slideInDown(context: Context, view: View?) {
-        val slideDown = AnimationUtils.loadAnimation(context, R.anim.slide_down)
+        val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_down)
         view?.startAnimation(slideDown)
     }
 
     fun slideInUp(context: Context, view: View?) {
-        val slideDown = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+        val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_up)
         view?.startAnimation(slideDown)
     }
 }

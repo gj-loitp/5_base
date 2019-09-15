@@ -4,10 +4,8 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-
 import androidx.core.widget.NestedScrollView;
-
-import loitp.core.R;
+import com.R;
 
 class Util {
 

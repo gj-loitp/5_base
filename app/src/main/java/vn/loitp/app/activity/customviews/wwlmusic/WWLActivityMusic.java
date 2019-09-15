@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
-import com.views.wwlmusic.layout.WWLMusic;
-import com.views.wwlmusic.utils.WWLMusicUiUtil;
+import com.views.wwlmusic.layout.LWWLMusic;
+import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment;
@@ -14,8 +14,8 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
-public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Listener, FragmentHost {
-    private WWLMusic wwlMusic;
+public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.Listener, FragmentHost {
+    private LWWLMusic LWWLMusic;
     private float mLastAlpha;
     private WWLWatchFragment watchFragment;
     private WWLPlaylistFragment playlistFragment;
@@ -24,8 +24,8 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.wwlMusic = (WWLMusic) findViewById(R.id.watch_while_layout);
-        this.wwlMusic.setListener(this);
+        this.LWWLMusic = (LWWLMusic) findViewById(R.id.watch_while_layout);
+        this.LWWLMusic.setListener(this);
 
         this.watchFragment = (WWLWatchFragment) getSupportFragmentManager().findFragmentById(R.id.watch_fragment);
         this.playlistFragment = (WWLPlaylistFragment) getSupportFragmentManager().findFragmentById(R.id.playlist_fragment);
@@ -58,7 +58,7 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
                 alpha = 1.0f;
             }
             if (offset >= 0.0f && offset <= 1.0f) {
-                WWLMusicUiUtil.updateStatusBarAlpha(getActivity(), 1.0f - offset);
+                LWWLMusicUiUtil.updateStatusBarAlpha(getActivity(), 1.0f - offset);
             }
         }
         this.mLastAlpha = alpha;
@@ -66,10 +66,10 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
 
     @Override
     public void WWL_onClicked() {
-        if (this.wwlMusic.mState == WWLMusic.STATE_MINIMIZED) {
-            this.wwlMusic.maximize(false);
+        if (this.LWWLMusic.mState == LWWLMusic.STATE_MINIMIZED) {
+            this.LWWLMusic.maximize(false);
         }
-        if (this.wwlMusic.mState == WWLMusic.STATE_MAXIMIZED) {
+        if (this.LWWLMusic.mState == LWWLMusic.STATE_MAXIMIZED) {
             this.watchFragment.toggleControls();
         }
     }
@@ -98,15 +98,15 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
 
     @Override
     public void goToDetail(WWLMusicDataset.DatasetItem item) {
-        if (this.wwlMusic.mState == WWLMusic.STATE_HIDED) {
-            this.wwlMusic.mState = WWLMusic.STATE_MAXIMIZED;
-            this.wwlMusic.mIsFullscreen = false;
-            if (this.wwlMusic.canAnimate()) {
-                this.wwlMusic.setAnimatePos(this.wwlMusic.mMaxY);
+        if (this.LWWLMusic.mState == LWWLMusic.STATE_HIDED) {
+            this.LWWLMusic.mState = LWWLMusic.STATE_MAXIMIZED;
+            this.LWWLMusic.mIsFullscreen = false;
+            if (this.LWWLMusic.canAnimate()) {
+                this.LWWLMusic.setAnimatePos(this.LWWLMusic.mMaxY);
             }
-            this.wwlMusic.reset();
+            this.LWWLMusic.reset();
         }
-        this.wwlMusic.maximize(false);
+        this.LWWLMusic.maximize(false);
 
         this.watchFragment.startPlay(item);
         if (this.playlistFragment != null) {
@@ -116,20 +116,20 @@ public class WWLActivityMusic extends BaseFontActivity implements WWLMusic.Liste
 
     @Override
     public void onVideoCollapse() {
-        WWLMusicUiUtil.showSystemUI(getActivity());
-        this.wwlMusic.exitFullscreenToMinimize();
+        LWWLMusicUiUtil.showSystemUI(getActivity());
+        this.LWWLMusic.exitFullscreenToMinimize();
         this.watchFragment.switchFullscreen(false);
-        this.wwlMusic.minimize(false);
+        this.LWWLMusic.minimize(false);
     }
 
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            WWLMusicUiUtil.hideSystemUI(getActivity());
-            this.wwlMusic.enterFullscreen();
+            LWWLMusicUiUtil.hideSystemUI(getActivity());
+            this.LWWLMusic.enterFullscreen();
         } else {
-            WWLMusicUiUtil.showSystemUI(getActivity());
-            this.wwlMusic.exitFullscreen();
+            LWWLMusicUiUtil.showSystemUI(getActivity());
+            this.LWWLMusic.exitFullscreen();
         }
         this.watchFragment.switchFullscreen(selected);
     }

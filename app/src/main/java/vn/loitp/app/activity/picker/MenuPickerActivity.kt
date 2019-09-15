@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_picker_menu.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
+import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
 
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -18,6 +20,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_bs_image_picker).setOnClickListener(this)
         findViewById<View>(R.id.bt_image_picker_with_crop).setOnClickListener(this)
         findViewById<View>(R.id.bt_crop).setOnClickListener(this)
+        btTedImagePicker.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -38,6 +41,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_bs_image_picker -> intent = Intent(activity, BSImagePickerActivity::class.java)
             R.id.bt_image_picker_with_crop -> intent = Intent(activity, ImageWithCropActivity::class.java)
             R.id.bt_crop -> intent = Intent(activity, CropActivity::class.java)
+            R.id.btTedImagePicker -> intent = Intent(activity, DemoTedImagePickerActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

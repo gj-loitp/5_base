@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LDateUtils;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
@@ -25,12 +26,6 @@ import com.core.utilities.LUIUtil;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import loitp.core.R;
-
-/**
- * Created by loitp on 3/27/2018.
- */
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
     private final String TAG = getClass().getSimpleName();
@@ -174,7 +169,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         return false;
     }
 
-    private void print(ComunicateDebug.MsgFromActivity msgFromActivity) {
+    private void print(LComunicateDebug.MsgFromActivity msgFromActivity) {
         if (msgFromActivity == null) {
             return;
         }
@@ -190,11 +185,11 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         }
 
         LUIUtil.INSTANCE.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
-        if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_D) {
+        if (msgFromActivity.getType() == LComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);
-        } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_E) {
+        } else if (msgFromActivity.getType() == LComunicateDebug.MsgFromActivity.TYPE_E) {
             textView.setTextColor(Color.RED);
-        } else if (msgFromActivity.getType() == ComunicateDebug.MsgFromActivity.TYPE_I) {
+        } else if (msgFromActivity.getType() == LComunicateDebug.MsgFromActivity.TYPE_I) {
             textView.setTextColor(Color.GREEN);
         }
         llRootTv.addView(textView);
@@ -216,7 +211,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
 
     //listen msg from activity
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ComunicateDebug.MsgFromActivity msg) {
+    public void onEvent(LComunicateDebug.MsgFromActivity msg) {
         //LLog.d(TAG, "onEvent " + msg.getMsg());
         print(msg);
     }

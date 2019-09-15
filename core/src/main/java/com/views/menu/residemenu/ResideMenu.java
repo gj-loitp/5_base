@@ -17,25 +17,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.R;
 import com.core.utilities.LUIUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.views.layout.floatdraglayout.DisplayUtil;
-import com.views.realtimeblurview.RealtimeBlurView;
+import com.views.realtimeblurview.LRealtimeBlurView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.core.R;
-
-/**
- * User: special
- * Date: 13-12-10
- * Time: 下午10:44
- * Mail: specialcyci@gmail.com
- */
 public class ResideMenu extends FrameLayout {
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;
@@ -44,7 +37,7 @@ public class ResideMenu extends FrameLayout {
     private static final int PRESSED_DONE = 4;
     private static final int PRESSED_MOVE_VERTICAL = 5;
 
-    private RealtimeBlurView realtimeBlurView;
+    private LRealtimeBlurView LRealtimeBlurView;
     private ImageView imageViewShadow;
     private ImageView imageViewBackground;
     private LinearLayout layoutLeftMenu;
@@ -120,7 +113,7 @@ public class ResideMenu extends FrameLayout {
             layoutRightMenu = (LinearLayout) scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 
-        realtimeBlurView = (RealtimeBlurView) findViewById(R.id.real_time_blur_view);
+        LRealtimeBlurView = (LRealtimeBlurView) findViewById(R.id.real_time_blur_view);
         imageViewShadow = (ImageView) findViewById(R.id.iv_shadow);
         imageViewBackground = (ImageView) findViewById(R.id.iv_background);
 
@@ -224,11 +217,6 @@ public class ResideMenu extends FrameLayout {
         }
     }
 
-    /**
-     * Set the background image of menu;
-     *
-     * @param imageResource
-     */
     public void setBackground(int imageResource) {
         imageViewBackground.setImageResource(imageResource);
     }
@@ -724,15 +712,15 @@ public class ResideMenu extends FrameLayout {
         }
     }
 
-    public RealtimeBlurView getRealtimeBlurView() {
-        return realtimeBlurView;
+    public LRealtimeBlurView getLRealtimeBlurView() {
+        return LRealtimeBlurView;
     }
 
     public void showBlurView() {
-        realtimeBlurView.setVisibility(VISIBLE);
+        LRealtimeBlurView.setVisibility(VISIBLE);
     }
 
     public void hideBlurView() {
-        realtimeBlurView.setVisibility(GONE);
+        LRealtimeBlurView.setVisibility(GONE);
     }
 }

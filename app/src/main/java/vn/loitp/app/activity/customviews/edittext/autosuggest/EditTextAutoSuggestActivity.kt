@@ -7,8 +7,8 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.LToast
-import com.views.edittext.autosuggesttextview.LAutoSuggestEditText
-import com.views.layout.relativepopupwindow.RelativePopupWindow
+import com.views.edittext.autosuggest.LAutoSuggestEditText
+import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -23,8 +23,8 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         aet0.popupHeight = LScreenUtil.screenHeight / 2
-        aet0.vertPos = RelativePopupWindow.VerticalPosition.BELOW
-        aet0.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
+        aet0.vertPos = LRelativePopupWindow.VerticalPosition.BELOW
+        aet0.horizPos = LRelativePopupWindow.HorizontalPosition.CENTER
         aet0.setHintText("1/2 screen")
         aet0.setHinTextColor(Color.BLUE)
         aet0.setColorProgressBar(Color.RED)
@@ -40,12 +40,12 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
 
         aet1.popupWidth = LScreenUtil.screenWidth * 1 / 2
         aet1.popupHeight = LScreenUtil.screenHeight * 1 / 4
-        aet1.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
-        aet1.horizPos = RelativePopupWindow.HorizontalPosition.RIGHT
+        aet1.vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
+        aet1.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
         aet1.setHintText("3/4 screen")
         aet1.setHinTextColor(Color.WHITE)
         aet1.setColorProgressBar(Color.BLUE)
-        aet1.setBackgroundResource(R.drawable.bkg_horizontal)
+        aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
         aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
             LToast.show(activity, "Text ${aet1.et.text}")
         })

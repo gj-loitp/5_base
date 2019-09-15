@@ -2,9 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/icon_pic_cut_s" />
+        android:drawable="@drawable/l_icon_pic_cut_s" />
     <item
         android:state_selected="true"
-        android:drawable="@drawable/icon_pic_cut_s" />
-    <item android:drawable="@drawable/icon_pic_cut" />
+        android:drawable="@drawable/l_icon_pic_cut_s" />
+    <item android:drawable="@drawable/l_icon_pic_cut" />
 </selector>

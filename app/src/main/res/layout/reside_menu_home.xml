@@ -18,7 +18,7 @@
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            android:src="@drawable/gesture" />
+            android:src="@drawable/l_gesture" />
 
         <TextView
             android:id="@+id/textView"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bt_color_primary"
+            android:background="@drawable/l_bt_color_primary"
             android:padding="12dp"
             android:text="2. Click me to open menu"
             android:textColor="@android:color/white"

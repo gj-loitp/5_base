@@ -5,9 +5,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.R;
 import com.core.utilities.LImageUtil;
-
-import loitp.core.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

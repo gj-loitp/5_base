@@ -26,6 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.R;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LAnimationUtil;
@@ -47,8 +48,6 @@ import com.google.android.gms.ads.AdView;
 import com.utils.util.ConvertUtils;
 import com.views.LToast;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
-
-import loitp.core.R;
 
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     private Reader reader = new Reader();
@@ -344,7 +343,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_epub_reader_read;
+        return R.layout.l_activity_epub_reader_read;
     }
 
     /*@Override

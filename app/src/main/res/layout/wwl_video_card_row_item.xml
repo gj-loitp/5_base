@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.views.wwlvideo.WWLVideoFixedAspectRatioRelativeLayout
+    <com.views.wwlvideo.LWWLVideoFixedAspectRatioRelativeLayout
         android:id="@+id/thumbnail_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -40,7 +40,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_22" />
 
-    </com.views.wwlvideo.WWLVideoFixedAspectRatioRelativeLayout>
+    </com.views.wwlvideo.LWWLVideoFixedAspectRatioRelativeLayout>
 
     <FrameLayout
         android:id="@+id/avatar_container"

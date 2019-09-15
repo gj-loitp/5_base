@@ -12,8 +12,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
-import com.views.viewpager.parrallaxviewpager.Mode;
-import com.views.viewpager.parrallaxviewpager.ParallaxViewPager;
+import com.views.viewpager.parrallax.ParrallaxMode;
+import com.views.viewpager.parrallax.LParallaxViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +27,13 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
+        LParallaxViewPager viewPager = (LParallaxViewPager) findViewById(R.id.viewpager);
         //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
             resList.add(LStoreUtil.getRandomColor());
         }
 
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
+        viewPager.setParrallaxMode(ParrallaxMode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
     }
 

@@ -5,18 +5,11 @@ import android.content.res.TypedArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
-
+import com.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.core.R;
-
-/**
- * Defer all the things to this class, so that we can create the layouts easily. Use this
- * to create your own ViewGroups
- */
 public class ElasticDragDismissDelegate {
 
     //copied from View in API 21
@@ -72,7 +65,6 @@ public class ElasticDragDismissDelegate {
     }
 
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-        // if we're in a drag gesture and the user reverses up the we should take those events
         if (draggingDown && dy > 0 || draggingUp && dy < 0) {
             dragScale(dy);
             consumed[1] = dy;

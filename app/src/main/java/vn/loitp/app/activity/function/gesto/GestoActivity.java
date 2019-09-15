@@ -61,8 +61,6 @@ public class GestoActivity extends BaseFontActivity {
                               }
 
         );
-        //To remove gesture listener
-        //view.setOnTouchListener(null);
     }
 
     @Override

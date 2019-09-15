@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import loitp.core.R;
+import com.R;
 
 /**
  * a class performing animation of view depending on the movement of user

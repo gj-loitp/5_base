@@ -82,7 +82,7 @@ public class DrawerMenuItem {
     }
 
     private void showShort(String msg) {
-        LToast.showShort(mContext, msg, R.drawable.bkg_horizontal);
+        LToast.showShort(mContext, msg, R.drawable.l_bkg_horizontal);
     }
 
     @Click(R.id.mainView)

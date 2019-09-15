@@ -6,9 +6,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LUIUtil;
-
-import loitp.core.R;
 
 /**
  * Created by LENOVO on 4/19/2018.

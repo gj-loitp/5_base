@@ -75,7 +75,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:3.7.3'
+    //api 'com.github.tplloi:basemaster:3.8.6'
 
     api 'io.realm:realm-android:0.82.1'//realm
 
@@ -137,10 +137,10 @@ dependencies {
     //kapt 'com.android.databinding:compiler:3.1.4'
 
     //https://github.com/barteksc/AndroidPdfViewer
-    api 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
+    api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
-    //https://github.com/p32929/AndroidEasySQL-Library
-    //api 'com.github.p32929:AndroidEasySQL-Library:1.4.0'
+    //https://github.com/ParkSangGwon/TedImagePicker
+    api 'gun0912.ted:tedimagepicker:1.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

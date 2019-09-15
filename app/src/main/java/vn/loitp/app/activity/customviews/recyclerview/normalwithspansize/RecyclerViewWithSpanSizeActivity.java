@@ -74,7 +74,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
                 movieList.add(movie);
             }
             mAdapter.notifyDataSetChanged();
-            LToast.show(activity, "Finish loadMore", R.drawable.bkg_horizontal);
+            LToast.show(activity, "Finish loadMore", R.drawable.l_bkg_horizontal);
         });
     }
 

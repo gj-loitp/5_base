@@ -1,6 +1,6 @@
 package com.core.common
 
-import loitp.core.R
+import com.R
 
 /**
  * Created by loitp
@@ -68,7 +68,7 @@ object Constants {
     val SK_PHOTO_ID = "SK_PHOTO_ID"
     val SK_PHOTO_PISITION = "SK_PHOTO_PISITION"
     val ASSET_FILE_GIFT = "img/ic_gift.png"
-    val FONT_PATH = "fonts/baisau.TTF"
+    val FONT_PATH = "fonts/android_font.TTF"
     val FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL"
     val FLICKR_ID_IT = "72157680937087024"
     val FLICKR_ID_MUSIC = "72157684069831365"
@@ -160,7 +160,7 @@ object Constants {
     val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
     val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"
     val IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW"
-    val ARR_RANDOM_BKG = intArrayOf(R.drawable.bkg_gradient_man_of_steel, R.drawable.bkg_shadow_black_white, R.drawable.bkg_shadow_black_white_dark, R.drawable.bkg_shadow_white_black, R.drawable.bkg_shadow_white_black_dark)
+    val ARR_RANDOM_BKG = intArrayOf(R.drawable.l_bkg_gradient_man_of_steel, R.drawable.l_bkg_shadow_black_white, R.drawable.l_bkg_shadow_black_white_dark, R.drawable.l_bkg_shadow_white_black, R.drawable.l_bkg_shadow_white_black_dark)
     val ARR_URL_BKG_FLICKR = arrayOf(URL_IMG, URL_IMG_1, URL_IMG_2, URL_IMG_3, URL_IMG_4, URL_IMG_5, URL_IMG_6, URL_IMG_7, URL_IMG_8, URL_IMG_9, URL_IMG_10, URL_IMG_11, URL_IMG_12)
     val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
     val KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY"

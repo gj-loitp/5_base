@@ -25,11 +25,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
+import com.R;
 import com.views.animation.confetti.confetto.Confetto;
 
 import java.util.List;
-
-import loitp.core.R;
 
 /**
  * A helper temporary view that helps render the confetti. This view will attach itself to the

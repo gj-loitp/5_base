@@ -58,16 +58,16 @@ public class InfoView {
 
     @Click(R.id.titleTxt)
     private void onClickTitle() {
-        LToast.showShort(mContext, titleTxt.getText().toString(), R.drawable.bkg_horizontal);
+        LToast.showShort(mContext, titleTxt.getText().toString(), R.drawable.l_bkg_horizontal);
     }
 
     @Click(R.id.captionTxt)
     private void onClickCaption() {
-        LToast.showShort(mContext, captionTxt.getText().toString(), R.drawable.bkg_horizontal);
+        LToast.showShort(mContext, captionTxt.getText().toString(), R.drawable.l_bkg_horizontal);
     }
 
     @Click(R.id.imageView)
     private void onClickImage() {
-        LToast.showShort(mContext, mInfo.getImageUrl(), R.drawable.bkg_horizontal);
+        LToast.showShort(mContext, mInfo.getImageUrl(), R.drawable.l_bkg_horizontal);
     }
 }

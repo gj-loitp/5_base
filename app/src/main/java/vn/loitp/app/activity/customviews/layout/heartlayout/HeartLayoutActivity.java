@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.views.layout.heartlayout.HeartLayout;
+import com.views.layout.heartlayout.LHeartLayout;
 
 import java.util.Random;
 
@@ -13,16 +13,16 @@ import loitp.basemaster.R;
 
 public class HeartLayoutActivity extends BaseFontActivity {
     private Random mRandom = new Random();
-    private HeartLayout mHeartLayout;
+    private LHeartLayout mLHeartLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHeartLayout = (HeartLayout) findViewById(R.id.heart_layout);
+        mLHeartLayout = (LHeartLayout) findViewById(R.id.heart_layout);
         getRootView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHeartLayout.addHeart(randomColor());
+                mLHeartLayout.addHeart(randomColor());
             }
         });
     }

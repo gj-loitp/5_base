@@ -6,23 +6,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.selectabletextview.SelectableListener;
-import com.views.textview.selectabletextview.SelectableView;
+import com.views.textview.selectable.SelectableListener;
+import com.views.textview.selectable.LSelectableView;
 
 import loitp.basemaster.R;
 
 public class SelectableTextViewActivity extends BaseFontActivity {
     private TextView emptyBoxBtn;
-    private SelectableView selectableView;
+    private LSelectableView LSelectableView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        selectableView = (SelectableView) findViewById(R.id.selectableView);
-        selectableView.setActivity(this);
-        selectableView.setText(getString(R.string.i_love_you));
-        selectableView.addOnSaveClickListener(new SelectableListener() {
+        LSelectableView = (LSelectableView) findViewById(R.id.selectableView);
+        LSelectableView.setActivity(this);
+        LSelectableView.setText(getString(R.string.i_love_you));
+        LSelectableView.addOnSaveClickListener(new SelectableListener() {
             @Override
             public void selectedText(String text) {
                 Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
@@ -37,11 +37,11 @@ public class SelectableTextViewActivity extends BaseFontActivity {
                 int type = (int) view.getTag();
                 if (type == 0) {
                     emptyBoxBtn.setBackgroundResource(R.drawable.selector_cancel_btn);
-                    selectableView.selectAll();
+                    LSelectableView.selectAll();
                     emptyBoxBtn.setTag(1);
                 } else {
                     emptyBoxBtn.setBackgroundResource(R.drawable.selector_emptybox);
-                    selectableView.hideCursor();
+                    LSelectableView.hideCursor();
                     emptyBoxBtn.setTag(0);
                 }
             }

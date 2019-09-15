@@ -1,6 +1,5 @@
 package com.core.base
 
-import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +9,10 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import com.R
 import com.core.utilities.LDialogUtil
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
-import loitp.core.R
 
 /**
  * Created by loitp on 2019/7/12
@@ -46,9 +45,9 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
     }
 
-    override fun onAttach(context: Context?) {
+    /*override fun onAttach(context: Context?) {
         super.onAttach(context)
-    }
+    }*/
 
     open fun handleException(throwable: Throwable) {
         throwable.message?.let {
@@ -121,6 +120,6 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun showShort(msg: String) {
-        activity?.let { LToast.showShort(it, msg, R.drawable.bkg_horizontal) }
+        activity?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
     }
 }

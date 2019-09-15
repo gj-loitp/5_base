@@ -933,7 +933,8 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/AppThemeMaterialComponents" />
         <activity
             android:name="vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -959,7 +960,7 @@
             android:resource="@color/colorPrimary" />
 
         <provider
-            android:name="androidx.core.content.FileProvider"
+            android:name="vn.loitp.app.activity.picker.bsimagepicker.BSPickerFileProvider"
             android:authorities="vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -1021,5 +1022,28 @@
         <activity
             android:name="vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- URI http://www.mydeeplink.com/semester -->
+                <data
+                    android:host="www.mydeeplink.com"
+                    android:pathPrefix="/semester"
+                    android:scheme="http" />
+                <!-- URI http://www.mydeeplink.com/semester -->
+                <data
+                    android:host="www.google.com"
+                    android:pathPrefix="/vn"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

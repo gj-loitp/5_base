@@ -7,9 +7,9 @@ import android.widget.FrameLayout;
 
 import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
-import com.views.wwlmusic.utils.WWLMusicUiUtil;
-import com.views.wwlmusic.utils.WWLMusicViewHelper;
-import com.views.wwlvideo.WWLVideo;
+import com.views.wwlmusic.utils.LWWLMusicUiUtil;
+import com.views.wwlmusic.utils.LWWLMusicViewHelper;
+import com.views.wwlvideo.LWWLVideo;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
@@ -19,8 +19,8 @@ import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
-public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener, FragmentHost {
-    private WWLVideo wwlVideo;
+public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener, FragmentHost {
+    private LWWLVideo LWWLVideo;
     private float mLastAlpha;
     private FrameLayout mPlayerFragmentContainer;
     private WWLVideoPlayerFragment wwlVideoPlayerFragment;
@@ -31,8 +31,8 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.wwlVideo = findViewById(R.id.watch_while_layout);
-        this.wwlVideo.setListener(this);
+        this.LWWLVideo = findViewById(R.id.watch_while_layout);
+        this.LWWLVideo.setListener(this);
 
         this.mPlayerFragmentContainer = findViewById(R.id.player_fragment_container);
         this.wwlVideoPlayerFragment = (WWLVideoPlayerFragment) getSupportFragmentManager().findFragmentById(R.id.player_fragment);
@@ -78,10 +78,10 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
     @Override
     public void WWL_onClicked() {
         LLog.d(getTAG(), "WWL_onClicked");
-        if (this.wwlVideo.mState == WWLVideo.STATE_MINIMIZED) {
-            this.wwlVideo.maximize(false);
+        if (this.LWWLVideo.mState == LWWLVideo.STATE_MINIMIZED) {
+            this.LWWLVideo.maximize(false);
         }
-        if (this.wwlVideo.mState == WWLVideo.STATE_MAXIMIZED) {
+        if (this.LWWLVideo.mState == LWWLVideo.STATE_MAXIMIZED) {
             this.wwlVideoPlayerFragment.toggleControls();
         }
     }
@@ -111,15 +111,15 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void goToDetail(WWLVideoDataset.DatasetItem item) {
-        if (this.wwlVideo.mState == WWLVideo.STATE_HIDED) {
-            this.wwlVideo.mState = WWLVideo.STATE_MAXIMIZED;
-            this.wwlVideo.mIsFullscreen = false;
-            if (this.wwlVideo.canAnimate()) {
-                this.wwlVideo.setAnimatePos(this.wwlVideo.mMaxY);
+        if (this.LWWLVideo.mState == LWWLVideo.STATE_HIDED) {
+            this.LWWLVideo.mState = LWWLVideo.STATE_MAXIMIZED;
+            this.LWWLVideo.mIsFullscreen = false;
+            if (this.LWWLVideo.canAnimate()) {
+                this.LWWLVideo.setAnimatePos(this.LWWLVideo.mMaxY);
             }
-            this.wwlVideo.reset();
+            this.LWWLVideo.reset();
         }
-        this.wwlVideo.maximize(false);
+        this.LWWLVideo.maximize(false);
 
         this.wwlVideoPlayerFragment.startPlay(item);
         if (this.wwlVideoUpNextFragment != null) {
@@ -132,20 +132,20 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
 
     @Override
     public void onVideoCollapse() {
-        WWLMusicUiUtil.showSystemUI(getActivity());
-        this.wwlVideo.exitFullscreenToMinimize();
+        LWWLMusicUiUtil.showSystemUI(getActivity());
+        this.LWWLVideo.exitFullscreenToMinimize();
         this.wwlVideoPlayerFragment.switchFullscreen(false);
-        this.wwlVideo.minimize(false);
+        this.LWWLVideo.minimize(false);
     }
 
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            WWLMusicUiUtil.hideSystemUI(getActivity());
-            this.wwlVideo.enterFullscreen();
+            LWWLMusicUiUtil.hideSystemUI(getActivity());
+            this.LWWLVideo.enterFullscreen();
         } else {
-            WWLMusicUiUtil.showSystemUI(getActivity());
-            this.wwlVideo.exitFullscreen();
+            LWWLMusicUiUtil.showSystemUI(getActivity());
+            this.LWWLVideo.exitFullscreen();
         }
         this.wwlVideoPlayerFragment.switchFullscreen(selected);
     }
@@ -154,7 +154,7 @@ public class WWLVideoActivity extends BaseActivity implements WWLVideo.Listener,
         if (Build.VERSION.SDK_INT >= 21) {
             int color = getResources().getColor(R.color.colorPrimaryDark);
             int color2 = Color.BLACK;
-            int color3 = WWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
+            int color3 = LWWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
             getWindow().setStatusBarColor(color3);
         }
     }

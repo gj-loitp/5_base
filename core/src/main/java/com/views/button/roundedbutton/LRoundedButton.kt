@@ -13,10 +13,9 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
-import loitp.core.R
+import com.R
 import kotlin.math.pow
 import kotlin.math.sqrt
-
 
 class LRoundedButton(context: Context?, attrs: AttributeSet?) : AppCompatTextView(context, attrs) {
 

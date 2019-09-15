@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.button.buttonloading.ButtonLoading;
+import com.views.button.loading.LButtonLoading;
 
 import loitp.basemaster.R;
 
@@ -14,14 +14,14 @@ import loitp.basemaster.R;
 //Note: Do not use the button in LinearLayout.
 public class ButtonLoadingActivity extends BaseActivity {
     private TextView tv;
-    private ButtonLoading buttonLoading;
+    private LButtonLoading LButtonLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        buttonLoading = findViewById(R.id.bt);
+        LButtonLoading = findViewById(R.id.bt);
         tv = findViewById(R.id.tv);
-        buttonLoading.setOnButtonLoadingListener(new ButtonLoading.OnButtonLoadingListener() {
+        LButtonLoading.setOnButtonLoadingListener(new LButtonLoading.OnButtonLoadingListener() {
             @Override
             public void onClick() {
                 LLog.d(getTAG(), "onClick");
@@ -29,7 +29,7 @@ public class ButtonLoadingActivity extends BaseActivity {
                 LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
                     @Override
                     public void run() {
-                        buttonLoading.setProgress(false);
+                        LButtonLoading.setProgress(false);
                     }
                 });
             }

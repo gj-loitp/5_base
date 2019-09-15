@@ -17,10 +17,10 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
+import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.views.dialog.iosdialog.iOSDialog
-import com.views.dialog.slideimages.SlideAdapter
-import loitp.core.R
+import com.views.dialog.slideimages.LSlideAdapter
 import java.util.*
 
 /**
@@ -232,7 +232,7 @@ object LDialogUtil {
         clearAll()
         val builder = AlertDialog.Builder(context)
         val inflater = (context as Activity).layoutInflater
-        val view = inflater.inflate(R.layout.dlg_custom_progress, null)
+        val view = inflater.inflate(R.layout.l_dlg_custom_progress, null)
         /*RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.rl);
         rl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -265,9 +265,9 @@ object LDialogUtil {
     ): Dialog {
         val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dlg_slide_images)
+        dialog.setContentView(R.layout.l_dlg_slide_images)
         dialog.setCanceledOnTouchOutside(true);
-        val slideAdapter = SlideAdapter(context, imgList, isShowIconClose, object : SlideAdapter.Callback {
+        val slideAdapter = LSlideAdapter(context, imgList, isShowIconClose, object : LSlideAdapter.Callback {
             override fun onClickClose() {
                 dialog.cancel()
             }

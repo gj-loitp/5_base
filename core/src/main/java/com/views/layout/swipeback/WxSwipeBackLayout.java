@@ -9,10 +9,6 @@ import androidx.annotation.Nullable;
 
 import com.views.layout.swipeback.tools.Util;
 
-/**
- * Created by GongWen on 17/8/24.
- */
-
 public class WxSwipeBackLayout extends SwipeBackLayout {
     private static final String TAG = "WxSwipeBackLayout";
 

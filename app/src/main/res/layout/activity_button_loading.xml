@@ -19,7 +19,7 @@
         android:textColor="@color/grey"
         android:textSize="@dimen/txt_14" />
 
-    <com.views.button.buttonloading.ButtonLoading
+    <com.views.button.loading.LButtonLoading
         android:id="@+id/bt"
         android:layout_width="match_parent"
         android:layout_height="48dp"

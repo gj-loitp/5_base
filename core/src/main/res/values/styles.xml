@@ -23,6 +23,18 @@
         <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
     </style>
 
+    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+    </style>
+
     <style name="NoTitleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -96,7 +108,7 @@
         <item name="android:paddingLeft">@dimen/padding_icon_cross</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:src">@drawable/cross</item>
+        <item name="android:src">@drawable/l_cross</item>
     </style>
 
     <style name="Label">
@@ -122,8 +134,8 @@
     </style>
 
     <style name="pdlg_default_animation">
-        <item name="android:windowEnterAnimation">@anim/pdlg_anim_fade_in</item>
-        <item name="android:windowExitAnimation">@anim/pdlg_anim_fade_out</item>
+        <item name="android:windowEnterAnimation">@anim/l_pdlg_anim_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/l_pdlg_anim_fade_out</item>
     </style>
 
     <style name="pdlg_no_animation">
@@ -137,7 +149,7 @@
     <color name="aw_cevap_text">@color/aw_cevap_border</color>
     <color name="aw_cevap_text_sel">@color/aw_cevap_1</color>
 
-    <declare-styleable name="AnswerView">
+    <declare-styleable name="LAnswerView">
         <attr name="aw_ShowTextWhenActive" format="boolean" />
         <attr name="aw_NumberOfAnswers" format="integer" />
         <attr name="aw_ShowNumber" format="boolean" />

@@ -14,8 +14,8 @@ import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
-import com.views.viewpager.parrallaxviewpager.Mode;
-import com.views.viewpager.parrallaxviewpager.ParallaxViewPager;
+import com.views.viewpager.parrallax.ParrallaxMode;
+import com.views.viewpager.parrallax.LParallaxViewPager;
 
 import loitp.basemaster.R;
 
@@ -24,8 +24,8 @@ public class GalleryDemoSlideActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ParallaxViewPager viewPager = (ParallaxViewPager) findViewById(R.id.viewpager);
-        viewPager.setMode(Mode.RIGHT_OVERLAY);
+        LParallaxViewPager viewPager = (LParallaxViewPager) findViewById(R.id.viewpager);
+        viewPager.setParrallaxMode(ParrallaxMode.RIGHT_OVERLAY);
         viewPager.setAdapter(new SlidePagerAdapter());
 
         LUIUtil.INSTANCE.setPullLikeIOSVertical(viewPager);

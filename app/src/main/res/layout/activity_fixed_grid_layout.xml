@@ -5,7 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<com.views.layout.fixedgridlayout.FixedGridLayout
+	<com.views.layout.fixedgridlayout.LFixedGridLayout
 		android:id="@+id/fgl"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

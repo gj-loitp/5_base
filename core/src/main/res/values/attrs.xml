@@ -32,7 +32,7 @@
         <attr name="dividerColor" format="reference" />
         <attr name="spanNumber" format="integer" />
     </declare-styleable>
-    <declare-styleable name="ParallaxViewPager">
+    <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
             <enum name="left_overlay" value="0" />
             <enum name="right_overlay" value="1" />
@@ -72,7 +72,7 @@
     <declare-styleable name="PorterImageView">
         <attr name="siShape" format="integer|reference" />
     </declare-styleable>
-    <declare-styleable name="AVLoadingIndicatorView">
+    <declare-styleable name="LAVLoadingIndicatorView">
         <attr name="minWidth" format="dimension" />
         <attr name="maxWidth" format="dimension" />
         <attr name="minHeight" format="dimension" />
@@ -109,7 +109,7 @@
             <enum name="realZoom" value="1" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="RoundedImage">
+    <declare-styleable name="LRoundedImage">
         <attr name="rounded_radius" format="float" />
     </declare-styleable>
     <declare-styleable name="CircleImage">
@@ -119,7 +119,7 @@
         <attr name="shadow_color" format="color" />
         <attr name="shadow_radius" format="float" />
     </declare-styleable>
-    <declare-styleable name="ColorTextView">
+    <declare-styleable name="LColorTextView">
         <attr name="color_texts" format="string" />
         <attr name="color_arrays" format="string" />
     </declare-styleable>
@@ -129,7 +129,7 @@
         <attr name="number_size" format="integer" />
         <!--<attr name="number_color" format="color"/>-->
     </declare-styleable>
-    <declare-styleable name="VerticalMarqueeTextView">
+    <declare-styleable name="LVerticalMarqueeTextView">
         <attr name="autoStartMarquee" format="boolean" />
         <attr name="marqueeSpeed" format="reference|integer" />
         <attr name="text" format="reference|string" />
@@ -148,7 +148,7 @@
             <enum name="monospace" value="3" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="TranslucentView">
+    <declare-styleable name="LTranslucentView">
         <attr name="translucentBackgroundColor" format="color" />
     </declare-styleable>
     <declare-styleable name="LMaterialTextField">
@@ -170,7 +170,7 @@
             <enum name="flydown" value="1" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="CustomToggle">
+    <declare-styleable name="LCustomToggle">
         <attr name="ctg_addLeftIcon" format="reference" type="drawable" />
         <attr name="ctg_addRightIcon" format="reference" />
         <attr name="ctg_addSlideBackgroundColor" format="color" />
@@ -183,7 +183,7 @@
             <enum name="extra_animation" value="2" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="CircularProgressBar">
+    <declare-styleable name="LCircularProgressBar">
         <attr name="maximum" format="float" />
         <attr name="progress" format="float" />
         <attr name="animateProgress" format="boolean" />
@@ -199,12 +199,12 @@
         <attr name="indeterminateArcAnimationDuration" format="integer" />
         <attr name="indeterminateRotationAnimationDuration" format="integer" />
     </declare-styleable>
-    <declare-styleable name="RealtimeBlurView">
+    <declare-styleable name="LRealtimeBlurView">
         <attr name="realtimeBlurRadius" format="dimension" />
         <attr name="realtimeDownsampleFactor" format="float" />
         <attr name="realtimeOverlayColor" format="color" />
     </declare-styleable>
-    <declare-styleable name="AutoViewPager">
+    <declare-styleable name="LAutoViewPager">
         <attr name="avp_indeterminate" format="boolean" />
         <attr name="avp_autoScroll" format="boolean" />
         <attr name="avp_duration" format="integer" />
@@ -224,7 +224,7 @@
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="CircularSeekBar">
+    <declare-styleable name="LCircularSeekBar">
         <attr name="enabled" format="boolean" />
         <attr name="showIndicator_circular_seekbar" format="boolean" />
         <attr name="minCircularSeekBar" format="float" />
@@ -249,7 +249,7 @@
         <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFit" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="AutofitTextView">
+    <declare-styleable name="LAutofitTextView">
         <!-- Minimum size of the text. -->
         <attr name="minTextSizeTv" format="dimension" />
         <!-- Amount of precision used to calculate the correct text size to fit within its
@@ -283,13 +283,13 @@
             <enum name="animationFinish" value="4" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="ContinuousScrollableImageView">
+    <declare-styleable name="LContinuousScrollableImageView">
         <attr name="imageSrc" format="reference" />
         <attr name="direction" />
         <attr name="duration" format="integer" />
         <attr name="scaleType" />
     </declare-styleable>
-    <declare-styleable name="PanoramaImageView">
+    <declare-styleable name="LPanoramaImageView">
         <attr name="piv_enablePanoramaMode" format="boolean" />
         <attr name="piv_invertScrollDirection" format="boolean" />
         <attr name="piv_show_scrollbar" format="boolean" />
@@ -318,7 +318,7 @@
         <attr name="enable_click_to_minimize_view" format="boolean" />
         <attr name="top_view_resize" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="TreeView">
+    <declare-styleable name="LTreeView">
         <attr name="level_separation" format="dimension" />
         <attr name="line_thickness" format="dimension" />
         <attr name="line_color" format="color" />
@@ -368,9 +368,9 @@
         <attr name="animateMarkersOnStillHighlight" format="boolean" />
         <!-- Flag that determine if this object's drawable should fit inside of the center circle. -->
         <attr name="fitToCircle" format="boolean" />
-        <!-- Attribute to display markers when in edit mode. -->
+        <!-- Attribute to display markers when in edit parrallaxMode. -->
         <attr name="editMode_markerCount" format="integer" />
-        <!-- Set the marker radius for edit mode only. -->
+        <!-- Set the marker radius for edit parrallaxMode only. -->
         <attr name="editMode_markerRadius" format="integer" />
     </declare-styleable>
     <declare-styleable name="Toggle">
@@ -384,7 +384,7 @@
         <attr name="android:textSize" />
         <attr name="android:enabled" />
     </declare-styleable>
-    <declare-styleable name="AutoLinearLayout">
+    <declare-styleable name="LAutoLinearLayout">
         <!-- Standard orientation constant. -->
         <attr name="auto_orientation">
             <!-- Defines an horizontal widget. -->
@@ -444,12 +444,12 @@
         </attr>
         <attr name="scrollAndClickable" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="MovieView">
+    <declare-styleable name="LMovieView">
         <attr name="android:src" />
         <attr name="android:title" />
         <attr name="android:adjustViewBounds" />
     </declare-styleable>
-    <declare-styleable name="BoxedVertical">
+    <declare-styleable name="LBoxedVertical">
         <attr name="points" format="integer" />
         <attr name="max_boxed" format="integer" />
         <attr name="min_boxed" format="integer" />
@@ -511,7 +511,7 @@
         <attr name="centerScale" format="float" />
         <attr name="moveSpeed" format="float" />
     </declare-styleable>
-    <declare-styleable name="VerticalSeekBar">
+    <declare-styleable name="LVerticalSeekBar">
         <attr name="VSseekBarRotation">
             <!-- Clock wise - 90 deg; top = min, bottom = max -->
             <enum name="CW90" value="90" />
@@ -519,7 +519,7 @@
             <enum name="CW270" value="270" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="Compass">
+    <declare-styleable name="LCompass">
         <attr name="degree_color" format="color" />
         <attr name="show_orientation_labels" format="boolean" />
         <attr name="orientation_labels_color" format="color" />
@@ -530,7 +530,7 @@
         <attr name="show_border" format="boolean" />
         <attr name="border_color_compass" format="color" />
     </declare-styleable>
-    <declare-styleable name="HeartLayout">
+    <declare-styleable name="LHeartLayout">
         <attr name="initX" format="dimension" />
         <attr name="initY" format="dimension" />
         <attr name="xRand" format="dimension" />
@@ -558,7 +558,7 @@
     <declare-styleable name="FixedAspectRatioRelativeLayout">
         <attr name="aspectRatioRelativeLayout" format="fraction" />
     </declare-styleable>
-    <declare-styleable name="RotateLayout">
+    <declare-styleable name="LRotateLayout">
         <!-- Child view of this layout will be rotated by this angle. -->
         <attr name="angle" format="integer" />
     </declare-styleable>
@@ -569,48 +569,48 @@
         <attr name="lVerticalSpacing" />
         <attr name="lHorizontalDivider" />
     </declare-styleable>
-    <declare-styleable name="CropImageView">
-        <attr name="cropGuidelines">
+    <declare-styleable name="LCropImageView">
+        <attr name="LcropGuidelines">
             <enum name="off" value="0" />
             <enum name="onTouch" value="1" />
             <enum name="on" value="2" />
         </attr>
-        <attr name="cropScaleType">
+        <attr name="LcropScaleType">
             <enum name="fitCenter" value="0" />
             <enum name="center" value="1" />
             <enum name="centerCrop" value="2" />
             <enum name="centerInside" value="3" />
         </attr>
-        <attr name="cropShape">
+        <attr name="LcropShape">
             <enum name="rectangle" value="0" />
             <enum name="oval" value="1" />
         </attr>
-        <attr name="cropAutoZoomEnabled" format="boolean" />
-        <attr name="cropMaxZoom" format="integer" />
-        <attr name="cropMultiTouchEnabled" format="boolean" />
-        <attr name="cropFixAspectRatio" format="boolean" />
-        <attr name="cropAspectRatioX" format="integer" />
-        <attr name="cropAspectRatioY" format="integer" />
-        <attr name="cropInitialCropWindowPaddingRatio" format="float" />
-        <attr name="cropBorderLineThickness" format="dimension" />
-        <attr name="cropBorderLineColor" format="color" />
-        <attr name="cropBorderCornerThickness" format="dimension" />
-        <attr name="cropBorderCornerOffset" format="dimension" />
-        <attr name="cropBorderCornerLength" format="dimension" />
-        <attr name="cropBorderCornerColor" format="color" />
-        <attr name="cropGuidelinesThickness" format="dimension" />
-        <attr name="cropGuidelinesColor" format="color" />
-        <attr name="cropBackgroundColor" format="color" />
-        <attr name="cropSnapRadius" format="dimension" />
-        <attr name="cropTouchRadius" format="dimension" />
-        <attr name="cropShowCropOverlay" format="boolean" />
-        <attr name="cropShowProgressBar" format="boolean" />
-        <attr name="cropMinCropWindowWidth" format="dimension" />
-        <attr name="cropMinCropWindowHeight" format="dimension" />
-        <attr name="cropMinCropResultWidthPX" format="float" />
-        <attr name="cropMinCropResultHeightPX" format="float" />
-        <attr name="cropMaxCropResultWidthPX" format="float" />
-        <attr name="cropMaxCropResultHeightPX" format="float" />
+        <attr name="LcropAutoZoomEnabled" format="boolean" />
+        <attr name="LcropMaxZoom" format="integer" />
+        <attr name="LcropMultiTouchEnabled" format="boolean" />
+        <attr name="LcropFixAspectRatio" format="boolean" />
+        <attr name="LcropAspectRatioX" format="integer" />
+        <attr name="LcropAspectRatioY" format="integer" />
+        <attr name="LcropInitialCropWindowPaddingRatio" format="float" />
+        <attr name="LcropBorderLineThickness" format="dimension" />
+        <attr name="LcropBorderLineColor" format="color" />
+        <attr name="LcropBorderCornerThickness" format="dimension" />
+        <attr name="LcropBorderCornerOffset" format="dimension" />
+        <attr name="LcropBorderCornerLength" format="dimension" />
+        <attr name="LcropBorderCornerColor" format="color" />
+        <attr name="LcropGuidelinesThickness" format="dimension" />
+        <attr name="LcropGuidelinesColor" format="color" />
+        <attr name="LcropBackgroundColor" format="color" />
+        <attr name="LcropSnapRadius" format="dimension" />
+        <attr name="LcropTouchRadius" format="dimension" />
+        <attr name="LcropShowCropOverlay" format="boolean" />
+        <attr name="LcropShowProgressBar" format="boolean" />
+        <attr name="LcropMinCropWindowWidth" format="dimension" />
+        <attr name="LcropMinCropWindowHeight" format="dimension" />
+        <attr name="LcropMinCropResultWidthPX" format="float" />
+        <attr name="LcropMinCropResultHeightPX" format="float" />
+        <attr name="LcropMaxCropResultWidthPX" format="float" />
+        <attr name="LcropMaxCropResultHeightPX" format="float" />
     </declare-styleable>
 
     <declare-styleable name="LExtraTextView">
@@ -644,7 +644,7 @@
         <attr name="ext_txt_idleTint" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="SwipeRevealLayout">
+    <declare-styleable name="LSwipeRevealLayout">
         <attr name="dragEdge">
             <flag name="left" value="1" />
             <flag name="right" value="2" />
@@ -668,7 +668,7 @@
     </declare-styleable>
 
     <!-- ShadowLayout 阴影 -->
-    <declare-styleable name="ShadowLayout">
+    <declare-styleable name="LShadowLayout">
         <attr name="shadowColor" format="color" />
         <attr name="shadowRadius" format="dimension" />
         <attr name="shadowDx" format="dimension" />

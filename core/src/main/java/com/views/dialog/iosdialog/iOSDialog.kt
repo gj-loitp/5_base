@@ -8,8 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-
-import loitp.core.R
+import com.R
 
 class iOSDialog(context: Context) {
     private val TAG = javaClass.simpleName
@@ -22,7 +21,7 @@ class iOSDialog(context: Context) {
     private var negativeExist: Boolean = false
 
     init {
-        dialog.setContentView(R.layout.dialog_ios_two_buttons)
+        dialog.setContentView(R.layout.l_dialog_ios_two_buttons)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         initViews()
     }

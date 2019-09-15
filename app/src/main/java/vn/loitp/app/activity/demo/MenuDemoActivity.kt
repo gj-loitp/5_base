@@ -5,14 +5,15 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.loitp.gallery.GalleryCoreSplashActivity
-import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity
-import com.core.loitp.gallery.member.GalleryMemberActivity
+import com.core.helper.gallery.GalleryCoreSplashActivity
+import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
+import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity
+import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.film.FilmDemoActivity
@@ -71,6 +72,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_fragment_navigation).setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
+        btDeepLinks.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -103,7 +105,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(activity, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
                 //neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
                 removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
@@ -115,7 +117,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_gallery_core_album -> {
                 intent = Intent(activity, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
@@ -127,7 +129,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_gallery_member -> {
                 intent = Intent(activity, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
             }
             R.id.bt_epub_reader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
             R.id.bt_floating_view -> intent = Intent(activity, FloatingViewActivity::class.java)
@@ -136,6 +138,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_fragment_navigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
             R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
             R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
+            R.id.btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

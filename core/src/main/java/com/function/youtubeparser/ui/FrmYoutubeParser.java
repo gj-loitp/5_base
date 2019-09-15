@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.R;
 import com.core.base.BaseFragment;
 import com.core.utilities.LConnectivityUtil;
 import com.core.utilities.LDialogUtil;
@@ -26,8 +27,6 @@ import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import loitp.core.R;
 
 //https://www.slickremix.com/docs/get-api-key-for-youtube/
 public class FrmYoutubeParser extends BaseFragment {
@@ -48,7 +47,7 @@ public class FrmYoutubeParser extends BaseFragment {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.frm_youtube_parser;
+        return R.layout.l_frm_youtube_parser;
     }
 
     @Override

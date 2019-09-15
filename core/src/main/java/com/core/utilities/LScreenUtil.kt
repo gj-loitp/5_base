@@ -317,8 +317,8 @@ object LScreenUtil {
         LLog.d(TAG, "setBrightness $brightness")
 
         try {
-            //sets manual mode and brightnes 255
-            Settings.System.putInt(context.contentResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL)  //this will set the manual mode (set the automatic mode off)
+            //sets manual parrallaxMode and brightnes 255
+            Settings.System.putInt(context.contentResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL)  //this will set the manual parrallaxMode (set the automatic parrallaxMode off)
             Settings.System.putInt(context.contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)  //this will set the brightness to maximum (255)
 
             //refreshes the screen

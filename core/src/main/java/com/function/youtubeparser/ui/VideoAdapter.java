@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
@@ -20,8 +21,6 @@ import com.function.youtubeparser.models.videos.Video;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import loitp.core.R;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
     private ArrayList<Video> videos;

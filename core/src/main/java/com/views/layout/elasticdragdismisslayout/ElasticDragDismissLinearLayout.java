@@ -6,15 +6,10 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.core.view.NestedScrollingParent;
+import com.R;
 
-import loitp.core.R;
-
-/**
- * Like {@link ElasticDragDismissFrameLayout} but its parent is a {@link LinearLayout}
- */
 public class ElasticDragDismissLinearLayout extends LinearLayout implements NestedScrollingParent {
 
     private ElasticDragDismissDelegate delegate;

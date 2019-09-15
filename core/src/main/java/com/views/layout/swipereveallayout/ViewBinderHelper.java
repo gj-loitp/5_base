@@ -13,7 +13,7 @@ public class ViewBinderHelper {
     private static final String BUNDLE_MAP_KEY = "ViewBinderHelper_Bundle_Map_Key";
 
     private Map<String, Integer> mapStates = Collections.synchronizedMap(new HashMap<String, Integer>());
-    private Map<String, SwipeRevealLayout> mapLayouts = Collections.synchronizedMap(new HashMap<String, SwipeRevealLayout>());
+    private Map<String, LSwipeRevealLayout> mapLayouts = Collections.synchronizedMap(new HashMap<String, LSwipeRevealLayout>());
     private Set<String> lockedSwipeSet = Collections.synchronizedSet(new HashSet<String>());
 
     private volatile boolean openOnlyOne = false;
@@ -26,7 +26,7 @@ public class ViewBinderHelper {
      * @param swipeLayout swipeLayout of the current view.
      * @param id          a string that uniquely defines the data object of the current view.
      */
-    public void bind(final SwipeRevealLayout swipeLayout, final String id) {
+    public void bind(final LSwipeRevealLayout swipeLayout, final String id) {
         if (swipeLayout.shouldRequestLayout()) {
             swipeLayout.requestLayout();
         }
@@ -45,7 +45,7 @@ public class ViewBinderHelper {
 
         // first time binding.
         if (!mapStates.containsKey(id)) {
-            mapStates.put(id, SwipeRevealLayout.STATE_CLOSE);
+            mapStates.put(id, LSwipeRevealLayout.STATE_CLOSE);
             swipeLayout.close(false);
         }
 
@@ -53,9 +53,9 @@ public class ViewBinderHelper {
         else {
             final int state = mapStates.get(id);
 
-            if (state == SwipeRevealLayout.STATE_CLOSE
-                    || state == SwipeRevealLayout.STATE_CLOSING
-                    || state == SwipeRevealLayout.STATE_DRAGGING) {
+            if (state == LSwipeRevealLayout.STATE_CLOSE
+                    || state == LSwipeRevealLayout.STATE_CLOSING
+                    || state == LSwipeRevealLayout.STATE_DRAGGING) {
                 swipeLayout.close(false);
             } else {
                 swipeLayout.open(false);
@@ -140,10 +140,10 @@ public class ViewBinderHelper {
      */
     public void openLayout(final String id) {
         synchronized (stateChangeLock) {
-            mapStates.put(id, SwipeRevealLayout.STATE_OPEN);
+            mapStates.put(id, LSwipeRevealLayout.STATE_OPEN);
 
             if (mapLayouts.containsKey(id)) {
-                final SwipeRevealLayout layout = mapLayouts.get(id);
+                final LSwipeRevealLayout layout = mapLayouts.get(id);
                 if (layout != null) {
                     layout.open(true);
                 }
@@ -160,10 +160,10 @@ public class ViewBinderHelper {
      */
     public void closeLayout(final String id) {
         synchronized (stateChangeLock) {
-            mapStates.put(id, SwipeRevealLayout.STATE_CLOSE);
+            mapStates.put(id, LSwipeRevealLayout.STATE_CLOSE);
 
             if (mapLayouts.containsKey(id)) {
-                final SwipeRevealLayout layout = mapLayouts.get(id);
+                final LSwipeRevealLayout layout = mapLayouts.get(id);
                 if (layout != null) {
                     layout.close(true);
                 }
@@ -177,17 +177,17 @@ public class ViewBinderHelper {
      * @param id          layout which bind with this data object id will be excluded.
      * @param swipeLayout will be excluded.
      */
-    private void closeOthers(String id, SwipeRevealLayout swipeLayout) {
+    private void closeOthers(String id, LSwipeRevealLayout swipeLayout) {
         synchronized (stateChangeLock) {
             // close other rows if openOnlyOne is true.
             if (getOpenCount() > 1) {
                 for (final Map.Entry<String, Integer> entry : mapStates.entrySet()) {
                     if (!entry.getKey().equals(id)) {
-                        entry.setValue(SwipeRevealLayout.STATE_CLOSE);
+                        entry.setValue(LSwipeRevealLayout.STATE_CLOSE);
                     }
                 }
 
-                for (final SwipeRevealLayout layout : mapLayouts.values()) {
+                for (final LSwipeRevealLayout layout : mapLayouts.values()) {
                     if (layout != swipeLayout) {
                         layout.close(true);
                     }
@@ -208,7 +208,7 @@ public class ViewBinderHelper {
         }
 
         for (final String s : id) {
-            final SwipeRevealLayout layout = mapLayouts.get(s);
+            final LSwipeRevealLayout layout = mapLayouts.get(s);
             if (layout != null) {
                 layout.setLockDrag(lock);
             }
@@ -219,7 +219,7 @@ public class ViewBinderHelper {
         int total = 0;
 
         for (final int state : mapStates.values()) {
-            if (state == SwipeRevealLayout.STATE_OPEN || state == SwipeRevealLayout.STATE_OPENING) {
+            if (state == LSwipeRevealLayout.STATE_OPEN || state == LSwipeRevealLayout.STATE_OPENING) {
                 total++;
             }
         }

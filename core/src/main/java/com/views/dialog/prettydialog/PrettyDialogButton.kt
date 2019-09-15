@@ -14,8 +14,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.utilities.LUIUtil
-import loitp.core.R
 import kotlin.math.min
 
 internal class PrettyDialogButton(
@@ -38,7 +38,7 @@ internal class PrettyDialogButton(
 
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.dialog_pretty_button, this)
+        inflater.inflate(R.layout.l_dialog_pretty_button, this)
         tv = findViewById<TextView>(R.id.tv_button)
         tv?.let {
             it.text = text

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.views.edittext.autoresizeedittext.AutofitEdittext
+            <com.views.edittext.autoresize.AutofitEdittext
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

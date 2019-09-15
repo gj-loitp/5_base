@@ -92,7 +92,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary" />
 
-    <com.views.imageview.circleimageview.LCircleImageView
+    <com.views.imageview.circle.LCircleImageView
         android:id="@+id/avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"

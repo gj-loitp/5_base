@@ -10,21 +10,21 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.views.LToast;
-import com.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
+import com.views.viewpager.swipeout.LSwipeOutViewPager;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
 
 public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
-    private SwipeOutViewPager viewPager;
+    private LSwipeOutViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (SwipeOutViewPager) findViewById(R.id.vp);
+        viewPager = (LSwipeOutViewPager) findViewById(R.id.vp);
 
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
-        viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
+        viewPager.setOnSwipeOutListener(new LSwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
                 LToast.INSTANCE.show(getActivity(), "onSwipeOutAtStart");

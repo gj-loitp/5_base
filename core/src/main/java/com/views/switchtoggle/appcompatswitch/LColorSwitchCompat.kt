@@ -9,7 +9,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import loitp.core.R
+import com.R
 
 class LColorSwitchCompat : SwitchCompat {
 

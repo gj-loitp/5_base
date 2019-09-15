@@ -1,9 +1,5 @@
 package com.views.textview.scrollnumber;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
@@ -20,15 +16,11 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.IntRange;
 import androidx.core.content.ContextCompat;
 
+import com.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.core.R;
-
-
-/**
- * Created by wuhaojie on 2016/7/19 20:39.
- */
 //guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 public class MultiScrollNumber extends LinearLayout {
     private Context mContext;

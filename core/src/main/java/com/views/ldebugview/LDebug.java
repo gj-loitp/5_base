@@ -35,18 +35,18 @@ public class LDebug {
     }
 
     public static void log(String log) {
-        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(ComunicateDebug.MsgFromActivity.TYPE_D, log, null));
+        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(LComunicateDebug.MsgFromActivity.TYPE_D, log, null));
     }
 
     public static void log(int type, String log) {
-        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(type, log, null));
+        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(type, log, null));
     }
 
     public static void log(Object o) {
-        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(ComunicateDebug.MsgFromActivity.TYPE_D, "", o));
+        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(LComunicateDebug.MsgFromActivity.TYPE_D, "", o));
     }
 
     public static void log(int type, Object o) {
-        ComunicateDebug.postFromActivity(new ComunicateDebug.MsgFromActivity(type, "", o));
+        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(type, "", o));
     }
 }

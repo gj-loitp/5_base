@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
-import com.views.imageview.blurimageview.LBlurImageView;
+import com.views.imageview.blur.LBlurImageView;
 
 import loitp.basemaster.R;
 

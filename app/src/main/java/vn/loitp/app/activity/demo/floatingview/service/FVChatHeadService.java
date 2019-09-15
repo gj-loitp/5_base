@@ -48,8 +48,8 @@ public class FVChatHeadService extends Service implements FloatingViewListener {
             }
         });
         mFloatingViewManager = new FloatingViewManager(this, this);
-        mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_trash_fixed);
-        mFloatingViewManager.setActionTrashIconImage(R.drawable.ic_trash_action);
+        mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
+        mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
         mFloatingViewManager.setSafeInsetRect((Rect) intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         final FloatingViewManager.Options options = new FloatingViewManager.Options();
         options.overMargin = (int) (16 * metrics.density);

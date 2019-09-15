@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
-import com.views.ldebugview.ComunicateDebug;
+import com.views.ldebugview.LComunicateDebug;
 import com.views.ldebugview.LDebug;
 
 import loitp.basemaster.R;
@@ -82,10 +82,10 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 LDebug.log("Sample d: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_i:
-                LDebug.log(ComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis());
+                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_e:
-                LDebug.log(ComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
+                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_object_d:
                 User user = new User();

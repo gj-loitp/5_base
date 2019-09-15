@@ -10,13 +10,8 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
+import com.R;
 import com.core.utilities.LLog;
-
-import loitp.core.R;
-
-/**
- * Created by loitp on 4/22/2018.
- */
 
 public class YoutubeLayout extends ViewGroup {
     private final String TAG = getClass().getSimpleName();

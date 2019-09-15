@@ -8,7 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.core.utilities.LLog;
-import com.views.imageview.circleimageview.LCircleImageView;
+import com.views.imageview.circle.LCircleImageView;
 
 /**
  * Created by Obaro on 18/07/2016.

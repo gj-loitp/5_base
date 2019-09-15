@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.views.LToast;
-import com.views.layout.swipereveallayout.SwipeRevealLayout;
+import com.views.layout.swipereveallayout.LSwipeRevealLayout;
 import com.views.layout.swipereveallayout.ViewBinderHelper;
 
 import org.jetbrains.annotations.NotNull;
@@ -82,7 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {
-        private SwipeRevealLayout swipeLayout;
+        private LSwipeRevealLayout swipeLayout;
         private View frontLayout;
         private View deleteLayout;
         private TextView textView;

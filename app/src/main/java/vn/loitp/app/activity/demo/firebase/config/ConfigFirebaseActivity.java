@@ -45,7 +45,7 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         // [END get_remote_config_instance]
 
-        // Create a Remote Config Setting to enable developer mode, which you can use to increase
+        // Create a Remote Config Setting to enable developer parrallaxMode, which you can use to increase
         // the number of fetches available per hour during development. See Best Practices in the
         // README for more information.
         // [START enable_dev_mode]
@@ -88,7 +88,7 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
         mWelcomeTextView.setText(mFirebaseRemoteConfig.getString(LOADING_PHRASE_CONFIG_KEY));
 
         long cacheExpiration = 3600; // 1 hour in seconds.
-        // If your app is using developer mode, cacheExpiration is set to 0, so each fetch will
+        // If your app is using developer parrallaxMode, cacheExpiration is set to 0, so each fetch will
         // retrieve values from the service.
         if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
             cacheExpiration = 0;

@@ -51,7 +51,6 @@ public class DisposableExampleActivity extends BaseFontActivity {
     void doSomeWork() {
         textView.append("\nLoading...\n");
         disposables.add(sampleObservable()
-                // Run on a background thread
                 .subscribeOn(Schedulers.io())
                 // Be notified on the main thread
                 .observeOn(AndroidSchedulers.mainThread())

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/padding_5">
 
-    <com.views.textview.zoomtextview.ZoomTextView
+    <com.views.textview.zoom.LZoomTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"

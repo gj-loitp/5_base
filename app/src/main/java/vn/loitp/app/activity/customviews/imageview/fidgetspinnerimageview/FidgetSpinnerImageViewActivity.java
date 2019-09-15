@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview;
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
-import com.views.imageview.fidgetspinnerimageview.FidgetSpinner;
+import com.views.imageview.fidgetspinner.LFidgetSpinner;
 
 import loitp.basemaster.R;
 
@@ -13,7 +13,7 @@ public class FidgetSpinnerImageViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FidgetSpinner f = (FidgetSpinner) findViewById(R.id.fidgetspinner);
+        LFidgetSpinner f = (LFidgetSpinner) findViewById(R.id.fidgetspinner);
         f.setImageDrawable(R.drawable.spinner);
     }
 

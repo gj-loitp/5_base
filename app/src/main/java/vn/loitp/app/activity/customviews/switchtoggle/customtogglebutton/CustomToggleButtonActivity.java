@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton;
 import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
-import com.views.switchtoggle.customtogglebutton.CustomToggle;
+import com.views.switchtoggle.customtogglebutton.LCustomToggle;
 
 import loitp.basemaster.R;
 
@@ -12,14 +12,14 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CustomToggle customToggle1 = (CustomToggle) findViewById(R.id.toggle_xml_1);
-        //customToggle.addFirstIcon(R.drawable.ic_thumb_down_black_48dp);
-        //customToggle.addSecondIcon(R.drawable.ic_thumb_up_black_48dp);
+        LCustomToggle LCustomToggle1 = (LCustomToggle) findViewById(R.id.toggle_xml_1);
+        //customToggle.addFirstIcon(R.drawable.l_ic_thumb_down_black_48dp);
+        //customToggle.addSecondIcon(R.drawable.l_ic_thumb_up_black_48dp);
         //customToggle.setMagnification(9);
         //customToggle.setSlideBackgroundColor(Color.BLACK);
         //customToggle.setAnimationTime(700);
         //customToggle.setSlideColor(Color.GREEN);
-        customToggle1.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
+        LCustomToggle1.setOnToggleClickListener(new LCustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
                 showShort("onLefToggleEnabled " + enabled);
@@ -31,8 +31,8 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
             }
         });
 
-        CustomToggle customToggle2 = (CustomToggle) findViewById(R.id.toggle_xml_2);
-        customToggle2.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
+        LCustomToggle LCustomToggle2 = (LCustomToggle) findViewById(R.id.toggle_xml_2);
+        LCustomToggle2.setOnToggleClickListener(new LCustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
                 showShort("onLefToggleEnabled " + enabled);
@@ -44,8 +44,8 @@ public class CustomToggleButtonActivity extends BaseFontActivity {
             }
         });
 
-        CustomToggle customToggle3 = (CustomToggle) findViewById(R.id.toggle_xml_3);
-        customToggle3.setOnToggleClickListener(new CustomToggle.OnToggleClickListener() {
+        LCustomToggle LCustomToggle3 = (LCustomToggle) findViewById(R.id.toggle_xml_3);
+        LCustomToggle3.setOnToggleClickListener(new LCustomToggle.OnToggleClickListener() {
             @Override
             public void onLefToggleEnabled(boolean enabled) {
                 showShort("onLefToggleEnabled " + enabled);

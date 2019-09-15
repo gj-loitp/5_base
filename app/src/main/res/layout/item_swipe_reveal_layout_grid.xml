@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.views.layout.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.views.layout.swipereveallayout.LSwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_settings_black_48dp"
+            android:src="@drawable/l_ic_settings_black_48dp"
             android:tint="@color/white" />
     </FrameLayout>
 
@@ -39,4 +39,4 @@
             android:textSize="@dimen/txt_18" />
 
     </FrameLayout>
-</com.views.layout.swipereveallayout.SwipeRevealLayout>
+</com.views.layout.swipereveallayout.LSwipeRevealLayout>

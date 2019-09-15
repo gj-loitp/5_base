@@ -26,7 +26,7 @@ interface ScreenChangedListener {
      * スクリーンが変化した時に呼び出されます。
      *
      * @param windowRect System window rect
-     * @param visibility System UI Mode
+     * @param visibility System UI ParrallaxMode
      */
     void onScreenChanged(Rect windowRect, int visibility);
 }

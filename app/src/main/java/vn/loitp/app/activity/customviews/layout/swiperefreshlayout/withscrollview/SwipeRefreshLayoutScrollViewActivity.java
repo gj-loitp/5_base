@@ -37,7 +37,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(false);
-                LToast.show(activity, "Finish", R.drawable.bkg_horizontal);
+                LToast.show(activity, "Finish", R.drawable.l_bkg_horizontal);
             }
         });
     }

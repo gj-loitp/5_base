@@ -6,9 +6,8 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.views.answerview.AnswerView;
-
-import loitp.core.R;
+import com.R;
+import com.views.answerview.LAnswerView;
 
 /**
  * Created by buraktamturk on 21/04/15.
@@ -37,10 +36,10 @@ public class OneAnswerView extends LinearLayout {
     public boolean active;
 
     protected void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.answer_view, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.l_answer_view, this, true);
     }
 
-    public void setActive(boolean active, AnswerView aw) {
+    public void setActive(boolean active, LAnswerView aw) {
         if (active != this.active) {
             this.active = active;
             if (active) {
@@ -50,7 +49,7 @@ public class OneAnswerView extends LinearLayout {
                     findViewById(R.id.chooice).setVisibility(INVISIBLE);
                 }
 
-                getChildAt(0).setBackgroundDrawable(getResources().getDrawable(R.drawable.answer_circle_ac));
+                getChildAt(0).setBackgroundDrawable(getResources().getDrawable(R.drawable.l_answer_circle_ac));
             } else {
                 if (aw.aw_ShowTextWhenActive) {
                     ((TextView) findViewById(R.id.chooice)).setTextColor(getResources().getColor(R.color.aw_cevap_text));
@@ -58,7 +57,7 @@ public class OneAnswerView extends LinearLayout {
                     findViewById(R.id.chooice).setVisibility(VISIBLE);
                 }
 
-                getChildAt(0).setBackgroundDrawable(getResources().getDrawable(R.drawable.answer_circle));
+                getChildAt(0).setBackgroundDrawable(getResources().getDrawable(R.drawable.l_answer_circle));
             }
         }
     }

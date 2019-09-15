@@ -2,7 +2,7 @@ package vn.loitp.app.activity.donation
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.loitp.donate.FrmDonate
+import com.core.helper.donate.FrmDonate
 import com.core.utilities.LScreenUtil
 import loitp.basemaster.R
 

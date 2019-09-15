@@ -8,19 +8,19 @@ import com.core.utilities.LLog
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
-import com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import loitp.basemaster.R
 import vn.loitp.app.common.Constants
 import java.io.File
 
 //https://github.com/Piasy/BigImageViewer
 class BigImageViewActivity : BaseFontActivity() {
-    private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
+    private lateinit var LAVLoadingIndicatorView: LAVLoadingIndicatorView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        avLoadingIndicatorView = findViewById(R.id.avi)
-        avLoadingIndicatorView.hide()
+        LAVLoadingIndicatorView = findViewById(R.id.avi)
+        LAVLoadingIndicatorView.hide()
         val bigImageView = findViewById<BigImageView>(R.id.mBigImage)
         bigImageView.setImageViewFactory(GlideImageViewFactory())
         bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
@@ -29,7 +29,7 @@ class BigImageViewActivity : BaseFontActivity() {
             override fun onCacheMiss(imageType: Int, image: File) {}
 
             override fun onStart() {
-                avLoadingIndicatorView.smoothToShow()
+                LAVLoadingIndicatorView.smoothToShow()
             }
 
             override fun onProgress(progress: Int) {
@@ -44,7 +44,7 @@ class BigImageViewActivity : BaseFontActivity() {
                 if (ssiv != null) {
                     ssiv.isZoomEnabled = true
                 }
-                avLoadingIndicatorView.smoothToHide()
+                LAVLoadingIndicatorView.smoothToHide()
             }
 
             override fun onFail(error: Exception) {}

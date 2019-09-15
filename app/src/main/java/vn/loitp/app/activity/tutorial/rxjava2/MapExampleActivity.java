@@ -50,7 +50,6 @@ public class MapExampleActivity extends BaseFontActivity {
      */
     private void doSomeWork() {
         getObservable()
-                // Run on a background thread
                 .subscribeOn(Schedulers.io())
                 // Be notified on the main thread
                 .observeOn(AndroidSchedulers.mainThread())

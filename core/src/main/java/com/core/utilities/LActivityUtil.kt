@@ -6,9 +6,9 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.view.View
 import android.view.WindowManager
+import com.R
 import com.core.common.Constants
 import com.data.ActivityData
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 1/3/2018.
@@ -102,47 +102,47 @@ object LActivityUtil {
 
     @JvmStatic
     fun slideLeft(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.slide_left_enter, R.anim.slide_left_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_slide_left_enter, R.anim.l_slide_left_exit)
     }
 
     @JvmStatic
     fun slideRight(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        (context as Activity).overridePendingTransition(R.anim.l_slide_in_left, R.anim.l_slide_out_right)
     }
 
     @JvmStatic
     fun slideDown(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.slide_down_enter, R.anim.slide_down_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_slide_down_enter, R.anim.l_slide_down_exit)
     }
 
     @JvmStatic
     fun slideUp(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.slide_up_enter, R.anim.slide_up_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_slide_up_enter, R.anim.l_slide_up_exit)
     }
 
     @JvmStatic
     fun zoom(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_zoom_enter, R.anim.l_zoom_exit)
     }
 
     @JvmStatic
     fun fade(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.fade_enter, R.anim.fade_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_fade_enter, R.anim.l_fade_exit)
     }
 
     @JvmStatic
     fun windmill(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.windmill_enter, R.anim.windmill_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_windmill_enter, R.anim.l_windmill_exit)
     }
 
     @JvmStatic
     fun spin(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.spin_enter, R.anim.spin_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_spin_enter, R.anim.l_spin_exit)
     }
 
     @JvmStatic
     fun diagonal(context: Context) {
-        (context as Activity).overridePendingTransition(R.anim.diagonal_right_enter, R.anim.diagonal_right_exit)
+        (context as Activity).overridePendingTransition(R.anim.l_diagonal_right_enter, R.anim.l_diagonal_right_exit)
     }
 
     @JvmStatic

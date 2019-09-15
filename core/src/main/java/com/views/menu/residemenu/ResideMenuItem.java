@@ -6,17 +6,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ConvertUtils;
 
-import loitp.core.R;
-
-/**
- * User: loitp
- * Date: 13-12-10
- * Time: 下午11:05
- * Mail: www.muathu@gmail.com
- */
 public class ResideMenuItem extends LinearLayout {
 
     /**

@@ -22,13 +22,12 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.view.ViewGroup;
 
+import com.R;
 import com.views.animation.confetti.confetto.BitmapConfetto;
 import com.views.animation.confetti.confetto.Confetto;
 
 import java.util.List;
 import java.util.Random;
-
-import loitp.core.R;
 
 public class CommonConfetti {
     private static int defaultConfettiSize;

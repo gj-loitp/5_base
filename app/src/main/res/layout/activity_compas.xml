@@ -18,7 +18,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.compass.Compass
+            <com.views.compass.LCompass
                 android:id="@+id/compass_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,7 +27,7 @@
                 app:degree_color="@color/Blue"
                 app:degree_value_color="@color/colorAccent"
                 app:degrees_step="5"
-                app:needle="@drawable/ic_needle"
+                app:needle="@drawable/l_ic_needle"
                 app:orientation_labels_color="@color/Red"
                 app:show_border="false"
                 app:show_degree_value="false"

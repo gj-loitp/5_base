@@ -1,9 +1,5 @@
 package com.views.smoothtransition;
 
-/**
- * Created by LENOVO on 5/19/2018.
- */
-
 //https://github.com/dkmeteor/SmoothTransition
 
 import android.view.View;

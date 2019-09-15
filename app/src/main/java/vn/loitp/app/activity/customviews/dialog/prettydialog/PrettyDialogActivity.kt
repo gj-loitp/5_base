@@ -75,8 +75,8 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     // OK button
                     .addButton(
                             "OK", // button text
-                            R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green, // button background color
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_green,
                             Runnable {
                                 LToast.show(activity, "onClick OK")
                                 prettyDialog?.cancel()
@@ -113,7 +113,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setTitleColor(R.color.pdlg_color_blue)
                     .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
                     .setMessageColor(R.color.pdlg_color_gray)
-                    .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/OpenSans-Bold.ttf"))
+                    .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
                     .setAnimationEnabled(true)
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.pdlg_color_green)
@@ -125,8 +125,8 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     // OK button
                     .addButton(
                             "OK", // button text
-                            R.color.pdlg_color_white, // button text color
-                            R.color.pdlg_color_green,// button background color
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_green,
                             Runnable {
                                 LToast.show(activity, "onClick OK")
                                 prettyDialog?.cancel()

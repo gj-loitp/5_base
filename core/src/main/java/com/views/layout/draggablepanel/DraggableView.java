@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2014 Pedro Vicente Gómez Sánchez.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.views.layout.draggablepanel;
 
 import android.content.Context;
@@ -22,24 +7,15 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
-
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
+import com.R;
 import com.nineoldandroids.view.ViewHelper;
 import com.views.layout.draggablepanel.transformer.Transformer;
 import com.views.layout.draggablepanel.transformer.TransformerFactory;
-
-import loitp.core.R;
-
-/**
- * Class created to extends a ViewGroup and simulate the YoutubeLayoutComponent
- *
- * @author Pedro Vicente Gómez Sánchez
- */
 
 //https://github.com/pedrovgs/DraggablePanel
 
@@ -516,10 +492,6 @@ public class DraggableView extends RelativeLayout {
         transformer.updateScale(getVerticalDragOffset());
     }
 
-    /**
-     * Modify the background alpha if has been configured to applying an alpha effect when the view
-     * is dragged.
-     */
     void changeBackgroundAlpha() {
         Drawable background = getBackground();
         if (background != null) {

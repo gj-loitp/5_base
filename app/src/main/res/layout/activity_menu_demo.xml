@@ -38,6 +38,12 @@
                 android:text="@string/butter_knife" />
 
             <Button
+                android:id="@+id/btDeepLinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deep links" />
+
+            <Button
                 android:id="@+id/bt_ebook_with_realm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

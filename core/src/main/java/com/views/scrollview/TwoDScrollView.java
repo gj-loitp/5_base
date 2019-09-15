@@ -1000,7 +1000,7 @@ public class TwoDScrollView extends FrameLayout {
                 break;
         }
 
-        // The only time we want to intercept motion events is if we are in the drag mode.
+        // The only time we want to intercept motion events is if we are in the drag parrallaxMode.
 
         return isBeingDragged;
     }

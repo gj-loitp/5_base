@@ -41,7 +41,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList!!, this)
                     cryptocurrency_list.adapter = retrofit2Adapter
                 }, {
-                    LToast.show(activity, it.toString(), R.drawable.bkg_horizontal)
+                    LToast.show(activity, it.toString(), R.drawable.l_bkg_horizontal)
                 }))
     }
 

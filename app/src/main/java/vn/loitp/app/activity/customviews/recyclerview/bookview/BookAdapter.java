@@ -104,11 +104,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         holder.tv.setText(movie.getTitle());
         //holder.tv.setText(indexEachColumn + "");
         if (indexEachColumn == 0) {
-            holder.bkg.setImageResource(R.drawable.grid_item_background_left);
+            holder.bkg.setImageResource(R.drawable.l_grid_item_background_left);
         } else if (indexEachColumn == (column - 1)) {
-            holder.bkg.setImageResource(R.drawable.grid_item_background_right);
+            holder.bkg.setImageResource(R.drawable.l_grid_item_background_right);
         } else {
-            holder.bkg.setImageResource(R.drawable.grid_item_background_center);
+            holder.bkg.setImageResource(R.drawable.l_grid_item_background_center);
         }
 
         LUIUtil.INSTANCE.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);

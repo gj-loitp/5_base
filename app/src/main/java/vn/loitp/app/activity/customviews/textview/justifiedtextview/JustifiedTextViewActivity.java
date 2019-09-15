@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.justifiedtextview.JustifiedTextView;
+import com.views.textview.justified.LJustifiedTextView;
 
 import loitp.basemaster.R;
 
@@ -15,7 +15,7 @@ public class JustifiedTextViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
-        JustifiedTextView jtv = new JustifiedTextView(getApplicationContext(), getString(R.string.large_text));
+        LJustifiedTextView jtv = new LJustifiedTextView(getApplicationContext(), getString(R.string.large_text));
         ll.addView(jtv);
     }
 

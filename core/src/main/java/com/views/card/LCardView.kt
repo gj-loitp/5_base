@@ -8,11 +8,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 
 import androidx.cardview.widget.CardView
+import com.R
 
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
-
-import loitp.core.R
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

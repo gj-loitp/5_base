@@ -193,7 +193,7 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
         return "";
     }
 
-    // Returns true if we should go to that mode.
+    // Returns true if we should go to that parrallaxMode.
     private boolean setState(@State int mode) {
         LOG.v("trySetState:", ms(mode));
         if (!mInitialized) return false;
@@ -456,8 +456,6 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
         @ScaledPan int tolerance = (int) overScroll;
         float min, max;
         if (contentSize <= viewSize) {
-            // If contentSize <= viewSize, we want to stay centered.
-            // Need a positive translation, that shows some background.
             min = (viewSize - contentSize) / 2f;
             max = (viewSize - contentSize) / 2f;
         } else {
@@ -634,7 +632,7 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
 
         @Override
         public boolean onDown(MotionEvent e) {
-            return true; // We are interested in the gesture.
+            return true;
         }
 
         @Override
@@ -772,7 +770,7 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
      * for a brief time.
      *
      * @param maxZoom the max zoom
-     * @param type    the constraint mode
+     * @param type    the constraint parrallaxMode
      * @see #getZoom()
      * @see #getRealZoom()
      * @see #TYPE_ZOOM
@@ -795,7 +793,7 @@ public final class ZoomEngine implements ViewTreeObserver.OnGlobalLayoutListener
      * for a brief time.
      *
      * @param minZoom the min zoom
-     * @param type    the constraint mode
+     * @param type    the constraint parrallaxMode
      * @see #getZoom()
      * @see #getRealZoom()
      */

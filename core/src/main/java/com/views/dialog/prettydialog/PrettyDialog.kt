@@ -24,8 +24,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
 import androidx.core.content.ContextCompat
+import com.R
 import com.core.utilities.LUIUtil
-import loitp.core.R
 import java.util.*
 
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
@@ -46,7 +46,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     init {
         window?.requestFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_pretty_dialog)
+        setContentView(R.layout.l_dialog_pretty_dialog)
         setCancelable(true)
         resources = context.resources
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

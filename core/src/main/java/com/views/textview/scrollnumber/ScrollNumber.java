@@ -1,9 +1,5 @@
 package com.views.textview.scrollnumber;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -18,9 +14,6 @@ import android.view.animation.Interpolator;
 
 import androidx.annotation.IntRange;
 
-/**
- * Created by wuhaojie on 2016/7/15 11:36.
- */
 class ScrollNumber extends View {
 
     public static final String TAG = "ScrollNumber";

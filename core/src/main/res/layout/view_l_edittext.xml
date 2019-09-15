@@ -28,7 +28,7 @@
                 android:layout_height="@dimen/w_30"
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_5"
-                android:src="@drawable/ic_settings_black_48dp" />
+                android:src="@drawable/l_ic_settings_black_48dp" />
 
             <EditText
                 android:id="@+id/editText"
@@ -46,7 +46,7 @@
                 android:layout_height="@dimen/w_30"
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_5"
-                android:src="@drawable/icon_close"
+                android:src="@drawable/l_icon_close"
                 android:visibility="gone"
                 tools:visibility="visible" />
         </LinearLayout>

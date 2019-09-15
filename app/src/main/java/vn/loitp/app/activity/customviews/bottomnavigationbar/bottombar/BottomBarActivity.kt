@@ -26,12 +26,12 @@ class BottomBarActivity : BaseFontActivity() {
             colorIvOn = R.color.Red
             colorIvOff = R.color.Pink
             setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
-            setItem0(R.drawable.baseline_bug_report_black_48, "Bug report")
-            setItem1(R.drawable.baseline_add_black_48, "Add")
-            setItem2(R.drawable.baseline_chat_black_48dp, "Chat")
-            setItem3(R.drawable.baseline_clear_black_48, "Clear")
-            setItem4(R.drawable.baseline_cloud_download_black_48, "Cloud")
-            setItem5(R.drawable.baseline_picture_in_picture_alt_white_48dp, "Picture")
+            setItem0(R.drawable.l_baseline_bug_report_black_48, "Bug report")
+            setItem1(R.drawable.l_baseline_add_black_48, "Add")
+            setItem2(R.drawable.l_baseline_chat_black_48dp, "Chat")
+            setItem3(R.drawable.l_baseline_clear_black_48, "Clear")
+            setItem4(R.drawable.l_baseline_cloud_download_black_48, "Cloud")
+            setItem5(R.drawable.l_baseline_picture_in_picture_alt_white_48dp, "Picture")
             setTechniques(Techniques.Pulse)
             setOnItemClick(object : LBottomBar.Callback {
                 override fun onClickItem(position: Int) {
@@ -39,8 +39,8 @@ class BottomBarActivity : BaseFontActivity() {
                 }
             })
         }
-        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.blurView.setOverlayColor(ContextCompat.getColor(activity, R.color.RedTrans)) }
-        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.blurView.setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans)) }
+        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.blurViewL.setOverlayColor(ContextCompat.getColor(activity, R.color.RedTrans)) }
+        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.blurViewL.setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans)) }
         findViewById<View>(R.id.bt_count_1).setOnClickListener { lBottomBar.setCount(1) }
         findViewById<View>(R.id.bt_count_3).setOnClickListener { lBottomBar.setCount(3) }
         findViewById<View>(R.id.bt_count_5).setOnClickListener { lBottomBar.setCount(5) }

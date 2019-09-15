@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
@@ -18,8 +19,6 @@ import com.function.youtubeparser.models.utubechannel.UItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
-import loitp.core.R;
 
 public class UtubeChannelAdapter extends RecyclerView.Adapter<UtubeChannelAdapter.UItemViewHolder> {
     // Allows to remember the last item shown on screen

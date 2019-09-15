@@ -43,16 +43,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/large_text" />
             </ScrollView>
-            <!--<TextView
-                android:id="@+id/viewDesc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FF00FF"
-                android:gravity="center"
-                android:tag="desc"
-                android:text="Loreum Loreum"
-                android:textColor="@android:color/white"
-                android:textSize="35sp" />-->
 
         </com.views.layout.youtubelayout.YoutubeLayout>
     </FrameLayout>

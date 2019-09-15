@@ -4,18 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import com.R
 
 import com.core.common.Constants
 import com.function.epub.core.EpubReaderReadActivity
 import com.function.epub.model.BookInfo
 import com.function.epub.model.BookInfoData
 
-import loitp.core.R
-
 object LReaderUtil {
 
     val defaultCover: Int
-        get() = R.drawable.df_cover_epub
+        get() = R.drawable.l_df_cover_epub
 
     fun decodeBitmapFromByteArray(coverImage: ByteArray, reqWidth: Int, reqHeight: Int): Bitmap {
         // First decode with inJustDecodeBounds=true to check dimensions

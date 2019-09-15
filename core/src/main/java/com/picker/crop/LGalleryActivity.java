@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.R;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -25,8 +26,6 @@ import com.utils.util.ConvertUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import loitp.core.R;
 
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
     private ArrayList<String> thumbsDataList = new ArrayList<>();
@@ -109,7 +108,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_l_gallery;
+        return R.layout.l_activity_l_gallery;
     }
 
     /**
@@ -131,7 +130,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            final View itemView = LayoutInflater.from(getActivity()).inflate(R.layout.item_l_gallery, parent, false);
+            final View itemView = LayoutInflater.from(getActivity()).inflate(R.layout.l_item_l_gallery, parent, false);
             return new PhotoItemHolder(itemView);
         }
 

@@ -32,7 +32,7 @@
         android:layout_below="@+id/tv_title"
         android:scrollbars="vertical" />
 
-    <com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
+    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"

@@ -1,9 +1,5 @@
 package com.views.layout.zoomlayout;
 
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,14 +14,8 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import loitp.core.R;
+import com.R;
 
-
-/**
- * Uses {@link ZoomEngine} to allow zooming and pan events to the inner drawable.
- * <p>
- * TODO: support padding (from inside ZoomEngine that gets the view)
- */
 @SuppressLint("AppCompatCustomView")
 public class ZoomImageView extends ImageView implements ZoomEngine.Listener {
 

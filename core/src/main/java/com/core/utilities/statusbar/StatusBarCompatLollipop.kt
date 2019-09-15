@@ -100,7 +100,7 @@ internal object StatusBarCompatLollipop {
      * compat for CollapsingToolbarLayout
      *
      *
-     * 1. change to full-screen mode(like translucentStatusBar).
+     * 1. change to full-screen parrallaxMode(like translucentStatusBar).
      * 2. cancel CollapsingToolbarLayout's WindowInsets, let it layout as normal(now setStatusBarScrimColor is useless).
      * 3. set View's FitsSystemWindow to false.
      * 4. add Toolbar's height, let it layout from top, then add paddingTop to layout normal.

@@ -4,14 +4,14 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.views.imageview.panoramaimageview.GyroscopeObserver;
-import com.views.imageview.panoramaimageview.PanoramaImageView;
+import com.views.imageview.panorama.GyroscopeObserver;
+import com.views.imageview.panorama.LPanoramaImageView;
 
 import loitp.basemaster.R;
 
 //https://github.com/gjiazhe/PanoramaImageView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5041
 public class PanoramaImageViewActivity extends BaseFontActivity {
-    private PanoramaImageView panoramaImageView;
+    private LPanoramaImageView LPanoramaImageView;
     private GyroscopeObserver gyroscopeObserver;
 
     @Override
@@ -22,18 +22,18 @@ public class PanoramaImageViewActivity extends BaseFontActivity {
         // It should be set between 0 and π/2.
         // The default value is π/9.
         gyroscopeObserver.setMaxRotateRadian(Math.PI / 9);
-        panoramaImageView = (PanoramaImageView) findViewById(R.id.panorama_image_view);
+        LPanoramaImageView = (LPanoramaImageView) findViewById(R.id.panorama_image_view);
 
         //panoramaImageView.setEnablePanoramaMode(true);
         //panoramaImageView.setEnableScrollbar(true);
         //panoramaImageView.setInvertScrollDirection(false);
 
         // Set GyroscopeObserver for PanoramaImageView.
-        panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
+        LPanoramaImageView.setGyroscopeObserver(gyroscopeObserver);
 
-        panoramaImageView.setOnPanoramaScrollListener(new PanoramaImageView.OnPanoramaScrollListener() {
+        LPanoramaImageView.setOnPanoramaScrollListener(new LPanoramaImageView.OnPanoramaScrollListener() {
             @Override
-            public void onScrolled(PanoramaImageView view, float offsetProgress) {
+            public void onScrolled(LPanoramaImageView view, float offsetProgress) {
                 LLog.INSTANCE.d(getTAG(), "onScrolled offsetProgress " + offsetProgress);
             }
         });

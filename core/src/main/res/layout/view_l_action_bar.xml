@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.views.realtimeblurview.RealtimeBlurView
+        <com.views.realtimeblurview.LRealtimeBlurView
             android:id="@+id/blur_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,7 +29,7 @@
                 android:contentDescription="@string/app_name"
                 android:foreground="?selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_keyboard_arrow_left_black_48dp" />
+                android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -58,6 +58,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_10"
         android:layout_below="@+id/rl_menu"
-        android:background="@drawable/bkg_shadow_black_white"
+        android:background="@drawable/l_bkg_shadow_black_white"
         android:visibility="gone" />
 </RelativeLayout>

@@ -4,10 +4,6 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class Config {
-
-    @SerializedName("uiza")
-    @Expose
-    var uiza: Uiza? = null
     @SerializedName("isReady")
     @Expose
     var isIsReady: Boolean = false

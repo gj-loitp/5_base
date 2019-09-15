@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.circletextview.CircleTextView;
+import com.views.textview.circle.LCircleTextView;
 
 import loitp.basemaster.R;
 
@@ -13,7 +13,7 @@ public class CircleTextViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CircleTextView textView = (CircleTextView) findViewById(R.id.circle_text_view);
+        LCircleTextView textView = (LCircleTextView) findViewById(R.id.circle_text_view);
         textView.setTextSize(R.dimen.txt_18);
 
         SpannableStringBuilder builder = new SpannableStringBuilder(getResources().getString(R.string.hello_world));

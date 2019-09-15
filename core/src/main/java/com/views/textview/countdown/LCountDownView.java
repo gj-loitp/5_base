@@ -5,15 +5,10 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.R;
 import com.core.utilities.LAnimationUtil;
 import com.core.utilities.LLog;
 import com.daimajia.androidanimations.library.Techniques;
-
-import loitp.core.R;
-
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
 
 public class LCountDownView extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();

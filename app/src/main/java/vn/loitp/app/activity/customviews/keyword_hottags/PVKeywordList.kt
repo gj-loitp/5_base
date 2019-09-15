@@ -46,8 +46,8 @@ class PVKeywordList(private val mActivity: Activity, private val strings: Array<
 
         val autoLabelUISettings = AutoLabelUISettings.Builder()
                 .withMaxLabels(strings.size)
-                .withIconCross(R.drawable.cross)
-                .withBackgroundResource(R.drawable.bt_tag)
+                .withIconCross(R.drawable.l_cross)
+                .withBackgroundResource(R.drawable.l_bt_tag)
                 .withLabelsClickables(true)
                 .withShowCross(false)
                 .withTextColor(ContextCompat.getColor(mActivity, R.color.Black))

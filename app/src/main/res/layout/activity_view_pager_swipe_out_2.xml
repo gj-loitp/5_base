@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
 
-    <com.views.viewpager.swipeoutviewpager.SwipeOutViewPager
+    <com.views.viewpager.swipeout.LSwipeOutViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

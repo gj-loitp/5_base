@@ -18,6 +18,11 @@ android {
         renderscriptSupportModeEnabled true
         multiDexEnabled true
     }
+
+    /*dataBinding {
+        enabled = true
+    }*/
+
     /*buildTypes {
         release {
             minifyEnabled true

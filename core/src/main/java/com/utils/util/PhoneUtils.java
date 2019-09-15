@@ -250,7 +250,6 @@ public final class PhoneUtils {
                 while (cursor.moveToNext()) {
                     // 6.获取查询的数据
                     String contact_id = cursor.getString(0);
-                    // cursor.getString(cursor.getColumnIndex("contact_id"));//getColumnIndex
                     // : 查询字段在cursor中索引值,一般都是用在查询字段比较多的时候
                     // 判断contact_id是否为空
                     if (!StringUtils.isEmpty(contact_id)) {//null   ""
