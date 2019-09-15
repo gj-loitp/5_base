@@ -23,13 +23,13 @@ import androidx.core.content.ContextCompat;
 
 import com.R;
 
-public class ScratchImageView extends ImageView {
+public class LScratchImageView extends ImageView {
 
 
     public interface IRevealListener {
-        public void onRevealed(ScratchImageView iv);
+        public void onRevealed(LScratchImageView iv);
 
-        public void onRevealPercentChangedListener(ScratchImageView siv, float percent);
+        public void onRevealPercentChangedListener(LScratchImageView siv, float percent);
     }
 
     public static final float STROKE_WIDTH = 12f;
@@ -90,18 +90,18 @@ public class ScratchImageView extends ImageView {
     private int mThreadCount = 0;
 
 
-    public ScratchImageView(Context context) {
+    public LScratchImageView(Context context) {
         super(context);
         init();
 
     }
 
-    public ScratchImageView(Context context, AttributeSet set) {
+    public LScratchImageView(Context context, AttributeSet set) {
         super(context, set);
         init();
     }
 
-    public ScratchImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LScratchImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -344,12 +344,12 @@ public class ScratchImageView extends ImageView {
                         mRevealPercent = percentRevealed;
 
                         if (oldValue != percentRevealed) {
-                            mRevealListener.onRevealPercentChangedListener(ScratchImageView.this, percentRevealed);
+                            mRevealListener.onRevealPercentChangedListener(LScratchImageView.this, percentRevealed);
                         }
 
                         // if now revealed.
                         if (isRevealed()) {
-                            mRevealListener.onRevealed(ScratchImageView.this);
+                            mRevealListener.onRevealed(LScratchImageView.this);
                         }
                     }
                 }

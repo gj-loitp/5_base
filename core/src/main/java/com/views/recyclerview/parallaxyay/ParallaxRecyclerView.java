@@ -1,17 +1,10 @@
-package com.views.recyclerview.parallaxrecyclerviewyayandroid;
-
-/**
- * Created by www.muathu@gmail.com on 1/2/2018.
- */
+package com.views.recyclerview.parallaxyay;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * Created by yahyabayramoglu on 26/04/15.
- */
 public class ParallaxRecyclerView extends RecyclerView {
 
     private OnScrollListener scrollListener;

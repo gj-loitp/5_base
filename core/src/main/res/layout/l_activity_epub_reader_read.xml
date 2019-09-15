@@ -121,7 +121,7 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
-        <com.views.realtimeblurview.RealtimeBlurView
+        <com.views.realtimeblurview.LRealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_5"

@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.R
-import com.views.realtimeblurview.RealtimeBlurView
+import com.views.realtimeblurview.LRealtimeBlurView
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
@@ -19,7 +19,7 @@ class LActionBar : RelativeLayout {
     var ivIconBack: ImageView? = null
     var ivIconMenu: ImageView? = null
     var tvTitle: TextView? = null
-    private var realtimeBlurView: RealtimeBlurView? = null
+    private var LRealtimeBlurView: LRealtimeBlurView? = null
     private var shadowView: View? = null
     private var callback: Callback? = null
 
@@ -37,7 +37,7 @@ class LActionBar : RelativeLayout {
         this.ivIconBack = findViewById<ImageView>(R.id.iv_icon_back)
         this.ivIconMenu = findViewById<ImageView>(R.id.iv_icon_menu)
         this.tvTitle = findViewById<TextView>(R.id.tv_title)
-        this.realtimeBlurView = findViewById<RealtimeBlurView>(R.id.blur_view)
+        this.LRealtimeBlurView = findViewById<LRealtimeBlurView>(R.id.blur_view)
         this.shadowView = findViewById<View>(R.id.shadow_view)
 
         ivIconBack?.setOnClickListener { v ->
@@ -95,15 +95,15 @@ class LActionBar : RelativeLayout {
     }
 
     fun hideBlurView() {
-        realtimeBlurView?.visibility = View.GONE
+        LRealtimeBlurView?.visibility = View.GONE
     }
 
     fun setBlurRadius(radius: Float) {
-        realtimeBlurView?.setBlurRadius(radius)
+        LRealtimeBlurView?.setBlurRadius(radius)
     }
 
     fun setBlurOverlayColor(color: Int) {
-        realtimeBlurView?.setOverlayColor(color)
+        LRealtimeBlurView?.setOverlayColor(color)
     }
 
     fun hideShadowView() {

@@ -20,7 +20,7 @@ import androidx.renderscript.ScriptIntrinsicBlur;
 
 import com.R;
 
-public class RealtimeBlurView extends View {
+public class LRealtimeBlurView extends View {
     private float mDownsampleFactor; // default 4
     private int mOverlayColor; // default #aaffffff
     private float mBlurRadius; // default 10dp (0 < r <= 25)
@@ -40,14 +40,14 @@ public class RealtimeBlurView extends View {
     private boolean mDifferentRoot;
     private static int RENDERING_COUNT;
 
-    public RealtimeBlurView(Context context, AttributeSet attrs) {
+    public LRealtimeBlurView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RealtimeBlurView);
-        mBlurRadius = a.getDimension(R.styleable.RealtimeBlurView_realtimeBlurRadius,
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LRealtimeBlurView);
+        mBlurRadius = a.getDimension(R.styleable.LRealtimeBlurView_realtimeBlurRadius,
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
-        mDownsampleFactor = a.getFloat(R.styleable.RealtimeBlurView_realtimeDownsampleFactor, 4);
-        mOverlayColor = a.getColor(R.styleable.RealtimeBlurView_realtimeOverlayColor, 0xAAFFFFFF);
+        mDownsampleFactor = a.getFloat(R.styleable.LRealtimeBlurView_realtimeDownsampleFactor, 4);
+        mOverlayColor = a.getColor(R.styleable.LRealtimeBlurView_realtimeOverlayColor, 0xAAFFFFFF);
         a.recycle();
     }
 
@@ -329,7 +329,7 @@ public class RealtimeBlurView extends View {
     static {
         try {
             //RealtimeBlurView.class.getClassLoader().loadClass("android.support.v8.renderscript.RenderScript");
-            RealtimeBlurView.class.getClassLoader().loadClass("androidx.renderscript.RenderScript");
+            LRealtimeBlurView.class.getClassLoader().loadClass("androidx.renderscript.RenderScript");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("RenderScript support not enabled. Add \"android { defaultConfig { renderscriptSupportModeEnabled true }}\" in your build.gradle");
         }

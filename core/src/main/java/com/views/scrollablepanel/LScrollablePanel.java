@@ -16,25 +16,25 @@ import com.R;
 
 import java.util.HashSet;
 
-public class ScrollablePanel extends FrameLayout {
+public class LScrollablePanel extends FrameLayout {
     protected RecyclerView recyclerView;
     protected RecyclerView headerRecyclerView;
     protected PanelLineAdapter panelLineAdapter;
     protected PanelAdapter panelAdapter;
     protected FrameLayout firstItemView;
 
-    public ScrollablePanel(Context context, PanelAdapter panelAdapter) {
+    public LScrollablePanel(Context context, PanelAdapter panelAdapter) {
         super(context);
         this.panelAdapter = panelAdapter;
         initView();
     }
 
-    public ScrollablePanel(Context context, AttributeSet attrs) {
+    public LScrollablePanel(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public ScrollablePanel(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LScrollablePanel(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
@@ -84,7 +84,7 @@ public class ScrollablePanel extends FrameLayout {
     }
 
     /**
-     * Adapter used to bind dataSet to cell View that are displayed within every row of {@link ScrollablePanel}.
+     * Adapter used to bind dataSet to cell View that are displayed within every row of {@link LScrollablePanel}.
      */
     private static class PanelLineItemAdapter extends RecyclerView.Adapter {
 
@@ -126,7 +126,7 @@ public class ScrollablePanel extends FrameLayout {
 
 
     /**
-     * Adapter used to bind dataSet to views that are displayed within a{@link ScrollablePanel}.
+     * Adapter used to bind dataSet to views that are displayed within a{@link LScrollablePanel}.
      */
     private static class PanelLineAdapter extends RecyclerView.Adapter<PanelLineAdapter.ViewHolder> {
 

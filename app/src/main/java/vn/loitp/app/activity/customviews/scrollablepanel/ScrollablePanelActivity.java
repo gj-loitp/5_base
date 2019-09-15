@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.core.base.BaseFontActivity;
-import com.views.scrollablepanel.ScrollablePanel;
+import com.views.scrollablepanel.LScrollablePanel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,10 +24,10 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ScrollablePanel scrollablePanel = findViewById(R.id.scrollable_panel);
+        final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollable_panel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();
         generateTestData(scrollablePanelAdapter);
-        scrollablePanel.setPanelAdapter(scrollablePanelAdapter);
+        LScrollablePanel.setPanelAdapter(scrollablePanelAdapter);
     }
 
     @Override

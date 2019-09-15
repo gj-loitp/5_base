@@ -11,7 +11,7 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 
-    <com.views.realtimeblurview.RealtimeBlurView
+    <com.views.realtimeblurview.LRealtimeBlurView
         android:id="@+id/real_time_blur_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

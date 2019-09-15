@@ -1,4 +1,4 @@
-package com.views.recyclerview.parallaxrecyclerview;
+package com.views.recyclerview.parallax;
 
 /**
  * Created by www.muathu@gmail.com on 11/4/2017.
@@ -19,13 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
  * 带视差折叠效果的列表控件
  */
 
-public class ParallaxRecyclerView extends RecyclerView {
+public class LParallaxRecyclerView extends RecyclerView {
 
-    public ParallaxRecyclerView(Context context) {
+    public LParallaxRecyclerView(Context context) {
         this(context, null);
     }
 
-    public ParallaxRecyclerView(final Context context, @Nullable AttributeSet attrs) {
+    public LParallaxRecyclerView(final Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         if (isInEditMode()) {

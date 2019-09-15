@@ -1,4 +1,4 @@
-package com.views.recyclerview.parallaxrecyclerviewyayandroid;
+package com.views.recyclerview.parallaxyay;
 
 import android.content.Context;
 import android.content.res.TypedArray;

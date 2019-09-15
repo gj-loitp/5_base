@@ -22,13 +22,13 @@ import androidx.core.content.ContextCompat;
 
 import com.R;
 
-public class ScratchTextView extends TextView {
+public class LScratchTextView extends TextView {
 
 
     public interface IRevealListener {
-        public void onRevealed(ScratchTextView tv);
+        public void onRevealed(LScratchTextView tv);
 
-        public void onRevealPercentChangedListener(ScratchTextView stv, float percent);
+        public void onRevealPercentChangedListener(LScratchTextView stv, float percent);
     }
 
     public static final float STROKE_WIDTH = 12f;
@@ -90,18 +90,18 @@ public class ScratchTextView extends TextView {
     private int mThreadCount = 0;
 
 
-    public ScratchTextView(Context context) {
+    public LScratchTextView(Context context) {
         super(context);
         init();
 
     }
 
-    public ScratchTextView(Context context, AttributeSet set) {
+    public LScratchTextView(Context context, AttributeSet set) {
         super(context, set);
         init();
     }
 
-    public ScratchTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LScratchTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -317,12 +317,12 @@ public class ScratchTextView extends TextView {
                         mRevealPercent = percentRevealed;
 
                         if (oldValue != percentRevealed) {
-                            mRevealListener.onRevealPercentChangedListener(ScratchTextView.this, percentRevealed);
+                            mRevealListener.onRevealPercentChangedListener(LScratchTextView.this, percentRevealed);
                         }
 
                         // if now revealed.
                         if (isRevealed()) {
-                            mRevealListener.onRevealed(ScratchTextView.this);
+                            mRevealListener.onRevealed(LScratchTextView.this);
                         }
                     }
                 }

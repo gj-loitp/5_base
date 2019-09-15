@@ -1,4 +1,4 @@
-package com.views.recyclerview.parallaxrecyclerviewyayandroid;
+package com.views.recyclerview.parallaxyay;
 
 /**
  * Created by www.muathu@gmail.com on 1/2/2018.
