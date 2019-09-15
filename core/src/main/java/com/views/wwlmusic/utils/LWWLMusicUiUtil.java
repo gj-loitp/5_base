@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.R;
 
-public class WWLMusicUiUtil {
+public class LWWLMusicUiUtil {
     public static int getGridColumnCount(Resources res) {
         return Math.min(getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size), 5);
     }
@@ -42,7 +42,7 @@ public class WWLMusicUiUtil {
         if (Build.VERSION.SDK_INT >= 21) {
             int color = activity.getResources().getColor(R.color.colorPrimaryDark);
             int color2 = Color.BLACK;
-            int color3 = WWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
+            int color3 = LWWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
             activity.getWindow().setStatusBarColor(color3);
         }
     }

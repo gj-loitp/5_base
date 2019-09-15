@@ -1,9 +1,6 @@
 package com.views.wwlmusic.utils;
 
-/**
- * Created by thangn on 2/26/17.
- */
-public class WWLMusicIllegal {
+public class LWWLMusicIllegal {
     public static void check(boolean ok) {
         if (!ok) {
             throw new IllegalArgumentException();

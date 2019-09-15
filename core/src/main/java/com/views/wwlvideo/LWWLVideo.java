@@ -20,8 +20,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
 import com.R;
-import com.views.wwlmusic.utils.WWLMusicIllegal;
-import com.views.wwlmusic.utils.WWLMusicViewHelper;
+import com.views.wwlmusic.utils.LWWLMusicIllegal;
+import com.views.wwlmusic.utils.LWWLMusicViewHelper;
 
 import java.util.LinkedList;
 
@@ -31,7 +31,7 @@ import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
 
-public class WWLVideo extends ViewGroup {
+public class LWWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
     public static final int STATE_MINIMIZED = 2;
@@ -77,7 +77,7 @@ public class WWLVideo extends ViewGroup {
     private int mOffsetH;
     private int mStart = 0;
 
-    public WWLVideo(Context context, AttributeSet attributeSet) {
+    public LWWLVideo(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Resources resources = context.getResources();
         this.mMiniPlayerRect = new Rect();
@@ -106,10 +106,10 @@ public class WWLVideo extends ViewGroup {
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
         this.mMiniPlayerPadding = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerPadding, 12.0f);
         typedArray.recycle();
-        WWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
-        WWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
+        LWWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
+        LWWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
         if (isTablet()) {
-            WWLMusicIllegal.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
+            LWWLMusicIllegal.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
         }
     }
 
@@ -136,7 +136,7 @@ public class WWLVideo extends ViewGroup {
         int childCount = getChildCount();
         boolean isTL = isTablet();
         int requireViewCount = isTL ? 4 : 3;
-        WWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
+        LWWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
@@ -153,12 +153,12 @@ public class WWLVideo extends ViewGroup {
                 this.mViews.add(view);
             }
         }
-        WWLMusicIllegal.check(this.mPlayerView);
-        WWLMusicIllegal.check(this.mMetadataView);
+        LWWLMusicIllegal.check(this.mPlayerView);
+        LWWLMusicIllegal.check(this.mMetadataView);
         if (isTL) {
-            WWLMusicIllegal.check(this.mMetadataPanelView);
+            LWWLMusicIllegal.check(this.mMetadataPanelView);
         }
-        WWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
+        LWWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
         this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
@@ -238,7 +238,7 @@ public class WWLVideo extends ViewGroup {
             updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, innerWidth, fullPlayerInnerHeight);
         } else if (isTablet()) {
             Context context = getContext();
-            WWLMusicIllegal.check(context);
+            LWWLMusicIllegal.check(context);
             int fullPlayerInnerWidth;
             if (context.getResources().getConfiguration().smallestScreenWidthDp >= 720) {
                 fullPlayerInnerWidth = Math.round(0.7f * ((float) innerWidth));
@@ -639,10 +639,10 @@ public class WWLVideo extends ViewGroup {
         }
         if (this.mInnerglowDrawable != null) {
             this.mInnerglowDrawable.setBounds(this.mPlayerRect);
-            this.mInnerglowDrawable.setAlpha(WWLMusicViewHelper.alpha255(alpha));
+            this.mInnerglowDrawable.setAlpha(LWWLMusicViewHelper.alpha255(alpha));
         }
         this.mShadowDrawable.setBounds(this.mPlayerOuterRect);
-        this.mShadowDrawable.setAlpha(WWLMusicViewHelper.alpha255(alpha));
+        this.mShadowDrawable.setAlpha(LWWLMusicViewHelper.alpha255(alpha));
         invalidate(this.mMixRect.left, this.mMixRect.top, this.mMixRect.right, this.mMixRect.bottom);
         int width = getWidth();
         int height = getHeight();
@@ -1053,7 +1053,7 @@ public class WWLVideo extends ViewGroup {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
-        public WWLVideo layout;
+        public LWWLVideo layout;
         public float eX;
         public float eY;
         public int pointerId;
@@ -1066,7 +1066,7 @@ public class WWLVideo extends ViewGroup {
             this(context, 200);
         }
 
-        public Tracker(WWLVideo layout, Context context) {
+        public Tracker(LWWLVideo layout, Context context) {
             this(context, 400);
             this.layout = layout;
             this.fraction = 0.0f;
@@ -1074,7 +1074,7 @@ public class WWLVideo extends ViewGroup {
 
         public Tracker(Context context, int snapVelocity) {
             this.pointerId = -1;
-            WWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
+            LWWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.scaledPagingTouchSlop = viewConfiguration.getScaledPagingTouchSlop();
             this.a = viewConfiguration.getScaledMaximumFlingVelocity();
@@ -1173,9 +1173,9 @@ public class WWLVideo extends ViewGroup {
     }
 
     final class PlayerViewClickListener implements View.OnClickListener {
-        private WWLVideo mLayout;
+        private LWWLVideo mLayout;
 
-        public PlayerViewClickListener(WWLVideo layout) {
+        public PlayerViewClickListener(LWWLVideo layout) {
             this.mLayout = layout;
         }
 

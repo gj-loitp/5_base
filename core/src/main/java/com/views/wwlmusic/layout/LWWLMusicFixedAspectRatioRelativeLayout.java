@@ -1,4 +1,4 @@
-package com.views.wwlvideo;
+package com.views.wwlmusic.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,18 +7,18 @@ import android.widget.RelativeLayout;
 
 import com.R;
 
-public class WWLVideoFixedAspectRatioRelativeLayout extends RelativeLayout {
+public class LWWLMusicFixedAspectRatioRelativeLayout extends RelativeLayout {
     public float mAspectRatio;
 
-    public WWLVideoFixedAspectRatioRelativeLayout(Context context) {
+    public LWWLMusicFixedAspectRatioRelativeLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public WWLVideoFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
+    public LWWLMusicFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout);
-        this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout, 1, 1, 1.0f);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio);
+        this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f);
         typedArray.recycle();
     }
 

@@ -3,19 +3,19 @@ package com.views.wwlmusic.layout;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
 import com.R;
 
-public class WWLMusicFixedAspectRatioRelativeLayout extends RelativeLayout {
+public class LWWLMusicFixedAspectRatioFrameLayout extends FrameLayout {
     public float mAspectRatio;
 
-    public WWLMusicFixedAspectRatioRelativeLayout(Context context) {
+    public LWWLMusicFixedAspectRatioFrameLayout(Context context) {
         super(context);
         this.mAspectRatio = 1.0f;
     }
 
-    public WWLMusicFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
+    public LWWLMusicFixedAspectRatioFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio);
         this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f);

@@ -11,7 +11,7 @@
         android:layout_height="fill_parent"
         android:fitsSystemWindows="true">
 
-        <com.views.wwlvideo.WWLVideo
+        <com.views.wwlvideo.LWWLVideo
             android:id="@+id/watch_while_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -43,7 +43,7 @@
                 android:layout_height="fill_parent" />
 
             <include layout="@layout/wwl_video_content_panel" />
-        </com.views.wwlvideo.WWLVideo>
+        </com.views.wwlvideo.LWWLVideo>
 
     </FrameLayout>
 
