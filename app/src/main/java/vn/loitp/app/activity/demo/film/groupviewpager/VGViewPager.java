@@ -18,7 +18,7 @@ import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.views.LToast;
-import com.views.viewpager.swipeoutviewpager.SwipeOutViewPager;
+import com.views.viewpager.swipeout.LSwipeOutViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ import loitp.basemaster.R;
 public class VGViewPager extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
     private TextView tv;
-    private SwipeOutViewPager viewPager;
+    private LSwipeOutViewPager viewPager;
 
     private List<Page> pageArrayList = new ArrayList<>();
 
@@ -88,7 +88,7 @@ public class VGViewPager extends RelativeLayout {
 
     public void init() {
         tv.setText("Hello, its me!");
-        viewPager.setOnSwipeOutListener(new SwipeOutViewPager.OnSwipeOutListener() {
+        viewPager.setOnSwipeOutListener(new LSwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
                 LToast.show(getContext(), "onSwipeOutAtStart");

@@ -1,4 +1,4 @@
-package com.views.viewpager.swipeoutviewpager
+package com.views.viewpager.swipeout
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
  * Created by loitp on 7/20/2018.
  */
 
-class SwipeOutViewPager : ViewPager {
+class LSwipeOutViewPager : ViewPager {
     internal var mStartDragX: Float = 0.toFloat()
     internal var mOnSwipeOutListener: OnSwipeOutListener? = null
 
