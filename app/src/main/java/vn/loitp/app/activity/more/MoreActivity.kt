@@ -2,7 +2,7 @@ package vn.loitp.app.activity.more
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.loitp.more.FrmMore
+import com.core.helper.more.FrmMore
 import com.core.utilities.LScreenUtil
 import loitp.basemaster.R
 

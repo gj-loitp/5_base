@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.loitp.gallery.GalleryCoreSplashActivity
-import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyActivity
-import com.core.loitp.gallery.member.GalleryMemberActivity
+import com.core.helper.gallery.GalleryCoreSplashActivity
+import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
+import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import loitp.basemaster.R

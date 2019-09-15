@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.loitp.adhelper.AdHelperActivity
+import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil

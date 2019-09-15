@@ -149,7 +149,7 @@
     <color name="aw_cevap_text">@color/aw_cevap_border</color>
     <color name="aw_cevap_text_sel">@color/aw_cevap_1</color>
 
-    <declare-styleable name="AnswerView">
+    <declare-styleable name="LAnswerView">
         <attr name="aw_ShowTextWhenActive" format="boolean" />
         <attr name="aw_NumberOfAnswers" format="integer" />
         <attr name="aw_ShowNumber" format="boolean" />

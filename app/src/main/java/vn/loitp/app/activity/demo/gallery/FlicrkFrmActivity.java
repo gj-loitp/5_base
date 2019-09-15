@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
-import com.core.loitp.gallery.albumonly.GalleryCorePhotosOnlyFrm;
+import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm;
 import com.core.utilities.LScreenUtil;
 
 import loitp.basemaster.R;

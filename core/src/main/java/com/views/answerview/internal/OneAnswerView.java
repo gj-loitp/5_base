@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.R;
-import com.views.answerview.AnswerView;
+import com.views.answerview.LAnswerView;
 
 /**
  * Created by buraktamturk on 21/04/15.
@@ -39,7 +39,7 @@ public class OneAnswerView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.l_answer_view, this, true);
     }
 
-    public void setActive(boolean active, AnswerView aw) {
+    public void setActive(boolean active, LAnswerView aw) {
         if (active != this.active) {
             this.active = active;
             if (active) {

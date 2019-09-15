@@ -9,7 +9,7 @@ import android.net.Uri
 import com.R
 
 import com.core.common.Constants
-import com.core.loitp.facebookcomment.FacebookCommentActivity
+import com.core.helper.fbcomment.FbCommentActivity
 
 /**
  * File created on 11/14/2016.
@@ -154,14 +154,14 @@ object LSocialUtil {
     }
 
     fun openFacebookComment(context: Context, url: String) {
-        val intent = Intent(context, FacebookCommentActivity::class.java)
+        val intent = Intent(context, FbCommentActivity::class.java)
         intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
         context.startActivity(intent)
         LActivityUtil.tranIn(context)
     }
 
     fun openFacebookComment(context: Context, url: String, adUnitId: String) {
-        val intent = Intent(context, FacebookCommentActivity::class.java)
+        val intent = Intent(context, FbCommentActivity::class.java)
         intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId)
         context.startActivity(intent)
