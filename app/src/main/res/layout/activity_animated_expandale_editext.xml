@@ -25,7 +25,7 @@
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
-                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandable.LAnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
@@ -42,7 +42,7 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
 
-                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandable.LAnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
@@ -59,7 +59,7 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
 
-                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandable.LAnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"
@@ -81,7 +81,7 @@
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
-                <com.views.edittext.animatedexpandableedittext.AnimatedExpandableEditText
+                <com.views.edittext.animatedexpandable.LAnimatedExpandableEditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_50"
                     android:background="@android:color/transparent"

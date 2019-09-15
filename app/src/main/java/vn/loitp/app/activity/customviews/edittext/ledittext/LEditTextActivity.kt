@@ -144,6 +144,6 @@ class LEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return loitp.basemaster.R.layout.activity_l_edit_text
+        return R.layout.activity_l_edit_text
     }
 }

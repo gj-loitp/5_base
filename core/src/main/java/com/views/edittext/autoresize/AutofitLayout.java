@@ -1,4 +1,4 @@
-package com.views.edittext.autoresizeedittext;
+package com.views.edittext.autoresize;
 
 /**
  * Created by www.muathu@gmail.com on 1/4/2018.

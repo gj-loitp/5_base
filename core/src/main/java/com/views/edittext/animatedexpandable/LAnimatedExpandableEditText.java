@@ -1,8 +1,4 @@
-package com.views.edittext.animatedexpandableedittext;
-
-/**
- * Created by www.muathu@gmail.com on 1/17/2018.
- */
+package com.views.edittext.animatedexpandable;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -18,22 +14,22 @@ import androidx.annotation.NonNull;
 
 import com.R;
 
-public class AnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
+public class LAnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     public static int expandHeightPixels;
     public static int expandAnimationDurationMilliseconds;
 
-    public AnimatedExpandableEditText(Context context) {
+    public LAnimatedExpandableEditText(Context context) {
         super(context);
         init();
     }
 
-    public AnimatedExpandableEditText(Context context, AttributeSet attrs) {
+    public LAnimatedExpandableEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public AnimatedExpandableEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LAnimatedExpandableEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

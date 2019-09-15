@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.LToast
-import com.views.edittext.autosuggesttextview.LAutoSuggestEditText
+import com.views.edittext.autosuggest.LAutoSuggestEditText
 import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

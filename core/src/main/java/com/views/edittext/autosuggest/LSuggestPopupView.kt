@@ -1,4 +1,4 @@
-package com.views.edittext.autosuggesttextview
+package com.views.edittext.autosuggest
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -18,7 +18,7 @@ import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import kotlin.math.hypot
 import kotlin.math.max
 
-class SuggestPopupViewL(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
+class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
     private val TAG = javaClass.simpleName;
     private var ll: LinearLayout
     private var sv: ScrollView

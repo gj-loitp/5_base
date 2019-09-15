@@ -1,4 +1,4 @@
-package com.views.edittext.biuedittext;
+package com.views.edittext.biu;
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
