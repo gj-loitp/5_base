@@ -1,4 +1,4 @@
-package com.views.imageview.circularroundrectimageview;
+package com.views.imageview.circularroundrect;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.

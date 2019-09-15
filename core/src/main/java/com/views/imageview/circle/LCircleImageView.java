@@ -1,4 +1,4 @@
-package com.views.imageview.circleimageview;
+package com.views.imageview.circle;
 
 /**
  * Created by www.muathu@gmail.com on 10/14/2017.

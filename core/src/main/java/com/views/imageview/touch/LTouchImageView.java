@@ -1,4 +1,4 @@
-package com.views.imageview.touchimageview;
+package com.views.imageview.touch;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.

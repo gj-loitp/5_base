@@ -109,7 +109,7 @@
             <enum name="realZoom" value="1" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="RoundedImage">
+    <declare-styleable name="LRoundedImage">
         <attr name="rounded_radius" format="float" />
     </declare-styleable>
     <declare-styleable name="CircleImage">
@@ -283,13 +283,13 @@
             <enum name="animationFinish" value="4" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="ContinuousScrollableImageView">
+    <declare-styleable name="LContinuousScrollableImageView">
         <attr name="imageSrc" format="reference" />
         <attr name="direction" />
         <attr name="duration" format="integer" />
         <attr name="scaleType" />
     </declare-styleable>
-    <declare-styleable name="PanoramaImageView">
+    <declare-styleable name="LPanoramaImageView">
         <attr name="piv_enablePanoramaMode" format="boolean" />
         <attr name="piv_invertScrollDirection" format="boolean" />
         <attr name="piv_show_scrollbar" format="boolean" />

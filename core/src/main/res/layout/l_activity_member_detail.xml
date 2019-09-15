@@ -19,7 +19,7 @@
         app:realtimeBlurRadius="@dimen/round_50"
         app:realtimeOverlayColor="@color/black_65" />-->
 
-    <com.views.imageview.touchimageview.LTouchImageView
+    <com.views.imageview.touch.LTouchImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

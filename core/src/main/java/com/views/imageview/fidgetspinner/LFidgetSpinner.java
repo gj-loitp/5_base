@@ -1,4 +1,4 @@
-package com.views.imageview.fidgetspinnerimageview;
+package com.views.imageview.fidgetspinner;
 
 /**
  * Created by www.muathu@gmail.com on 10/31/2017.
@@ -20,7 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-public class FidgetSpinner extends FrameLayout {
+public class LFidgetSpinner extends FrameLayout {
 
     private static final String TAG = "FidgetSpinner";
 
@@ -43,17 +43,17 @@ public class FidgetSpinner extends FrameLayout {
     private ObjectAnimator spinAnimation;
     private long spanAnimationFrameTime = 0;
 
-    public FidgetSpinner(@NonNull Context context) {
+    public LFidgetSpinner(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public FidgetSpinner(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LFidgetSpinner(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public FidgetSpinner(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public LFidgetSpinner(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

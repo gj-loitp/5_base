@@ -1,4 +1,4 @@
-package com.views.imageview.panoramaimageview;
+package com.views.imageview.panorama;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -31,7 +31,7 @@ public class GyroscopeObserver implements SensorEventListener {
     private double mMaxRotateRadian = Math.PI / 9;
 
     // The PanoramaImageViews to be notified when the device rotate.
-    private LinkedList<PanoramaImageView> mViews = new LinkedList<>();
+    private LinkedList<LPanoramaImageView> mViews = new LinkedList<>();
 
     public void register(Context context) {
         if (mSensorManager == null) {
@@ -51,7 +51,7 @@ public class GyroscopeObserver implements SensorEventListener {
         }
     }
 
-    void addPanoramaImageView(PanoramaImageView view) {
+    void addPanoramaImageView(LPanoramaImageView view) {
         if (view != null && !mViews.contains(view)) {
             mViews.addFirst(view);
         }
@@ -76,8 +76,8 @@ public class GyroscopeObserver implements SensorEventListener {
             } else if (mRotateRadianY < -mMaxRotateRadian) {
                 mRotateRadianY = -mMaxRotateRadian;
             } else {
-                for (PanoramaImageView view : mViews) {
-                    if (view != null && view.getOrientation() == PanoramaImageView.ORIENTATION_HORIZONTAL) {
+                for (LPanoramaImageView view : mViews) {
+                    if (view != null && view.getOrientation() == LPanoramaImageView.ORIENTATION_HORIZONTAL) {
                         view.updateProgress((float) (mRotateRadianY / mMaxRotateRadian));
                     }
                 }
@@ -90,8 +90,8 @@ public class GyroscopeObserver implements SensorEventListener {
             } else if (mRotateRadianX < -mMaxRotateRadian) {
                 mRotateRadianX = -mMaxRotateRadian;
             } else {
-                for (PanoramaImageView view : mViews) {
-                    if (view != null && view.getOrientation() == PanoramaImageView.ORIENTATION_VERTICAL) {
+                for (LPanoramaImageView view : mViews) {
+                    if (view != null && view.getOrientation() == LPanoramaImageView.ORIENTATION_VERTICAL) {
                         view.updateProgress((float) (mRotateRadianX / mMaxRotateRadian));
                     }
                 }

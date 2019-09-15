@@ -1,4 +1,4 @@
-package com.views.imageview.scrollparallaximageview;
+package com.views.imageview.scrollparallax;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,21 +10,21 @@ import android.widget.ImageView;
  * Created by gjz on 25/11/2016.
  */
 
-public class ScrollParallaxImageView extends ImageView implements ViewTreeObserver.OnScrollChangedListener {
+public class LScrollParallaxImageView extends ImageView implements ViewTreeObserver.OnScrollChangedListener {
     private int[] viewLocation = new int[2];
     private boolean enableScrollParallax = true;
 
     private ParallaxStyle parallaxStyles;
 
-    public ScrollParallaxImageView(Context context) {
+    public LScrollParallaxImageView(Context context) {
         this(context, null);
     }
 
-    public ScrollParallaxImageView(Context context, AttributeSet attrs) {
+    public LScrollParallaxImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ScrollParallaxImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LScrollParallaxImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -75,10 +75,10 @@ public class ScrollParallaxImageView extends ImageView implements ViewTreeObserv
     }
 
     public interface ParallaxStyle {
-        void onAttachedToImageView(ScrollParallaxImageView view);
+        void onAttachedToImageView(LScrollParallaxImageView view);
 
-        void onDetachedFromImageView(ScrollParallaxImageView view);
+        void onDetachedFromImageView(LScrollParallaxImageView view);
 
-        void transform(ScrollParallaxImageView view, Canvas canvas, int x, int y);
+        void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y);
     }
 }

@@ -1,4 +1,4 @@
-package com.views.imageview.strectchyimageview;
+package com.views.imageview.strectchy;
 
 /**
  * Created by www.muathu@gmail.com on 10/21/2017.

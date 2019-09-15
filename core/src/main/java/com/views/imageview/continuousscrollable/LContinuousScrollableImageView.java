@@ -1,4 +1,4 @@
-package com.views.imageview.continuousscrollableimageview;
+package com.views.imageview.continuousscrollable;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
@@ -14,7 +14,7 @@ import com.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-public class ContinuousScrollableImageView extends LinearLayout {
+public class LContinuousScrollableImageView extends LinearLayout {
 
     //<editor-fold desc="DEFAULT_DIRECTION = LEFT">
     public static final int UP = 0;
@@ -90,18 +90,18 @@ public class ContinuousScrollableImageView extends LinearLayout {
     private boolean isBuilt = false;
 
 
-    public static final String TAG = ContinuousScrollableImageView.class.getSimpleName();
+    public static final String TAG = LContinuousScrollableImageView.class.getSimpleName();
 
-    public ContinuousScrollableImageView(Context context) {
+    public LContinuousScrollableImageView(Context context) {
         super(context);
         init(context);
     }
 
-    public ContinuousScrollableImageView(Context context, AttributeSet attrs) {
+    public LContinuousScrollableImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ContinuousScrollableImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LContinuousScrollableImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setViewAttributes(context, attrs, defStyleAttr);
         init(context);
@@ -110,12 +110,12 @@ public class ContinuousScrollableImageView extends LinearLayout {
     private void setViewAttributes(Context context, AttributeSet attrs, int defStyleAttr) {
 
 
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ContinuousScrollableImageView, defStyleAttr, 0);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.LContinuousScrollableImageView, defStyleAttr, 0);
 
-        resourceId = array.getResourceId(R.styleable.ContinuousScrollableImageView_imageSrc, DEFAULT_RESOURCE_ID);
-        direction = array.getInt(R.styleable.ContinuousScrollableImageView_direction, DEFAULT_DIRECTION);
-        duration = array.getInt(R.styleable.ContinuousScrollableImageView_duration, DEFAULT_DURATION);
-        scaleType = array.getInt(R.styleable.ContinuousScrollableImageView_scaleType, DEFAULT_SCALE_TYPE);
+        resourceId = array.getResourceId(R.styleable.LContinuousScrollableImageView_imageSrc, DEFAULT_RESOURCE_ID);
+        direction = array.getInt(R.styleable.LContinuousScrollableImageView_direction, DEFAULT_DIRECTION);
+        duration = array.getInt(R.styleable.LContinuousScrollableImageView_duration, DEFAULT_DURATION);
+        scaleType = array.getInt(R.styleable.LContinuousScrollableImageView_scaleType, DEFAULT_SCALE_TYPE);
         setDirectionFlags(direction);
         array.recycle();
 
@@ -319,10 +319,10 @@ public class ContinuousScrollableImageView extends LinearLayout {
 
     public static final class Builder {
 
-        private ContinuousScrollableImageView scrollableImageView;
+        private LContinuousScrollableImageView scrollableImageView;
 
         public Builder(Activity activity) {
-            scrollableImageView = new ContinuousScrollableImageView(activity);
+            scrollableImageView = new LContinuousScrollableImageView(activity);
         }
 
         public Builder setDuration(int duration) {
@@ -345,7 +345,7 @@ public class ContinuousScrollableImageView extends LinearLayout {
             return this;
         }
 
-        public ContinuousScrollableImageView build() {
+        public LContinuousScrollableImageView build() {
 
             return scrollableImageView;
         }

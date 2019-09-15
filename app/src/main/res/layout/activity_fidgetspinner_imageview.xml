@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.imageview.fidgetspinnerimageview.FidgetSpinner
+    <com.views.imageview.fidgetspinner.LFidgetSpinner
         android:id="@+id/fidgetspinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

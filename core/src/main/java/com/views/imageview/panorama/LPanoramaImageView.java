@@ -1,4 +1,4 @@
-package com.views.imageview.panoramaimageview;
+package com.views.imageview.panorama;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,7 +11,7 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 import com.R;
 
-public class PanoramaImageView extends ImageView {
+public class LPanoramaImageView extends ImageView {
 
     // Image's scroll orientation
     public final static byte ORIENTATION_NONE = -1;
@@ -48,22 +48,22 @@ public class PanoramaImageView extends ImageView {
     // Observe scroll state
     private OnPanoramaScrollListener mOnPanoramaScrollListener;
 
-    public PanoramaImageView(Context context) {
+    public LPanoramaImageView(Context context) {
         this(context, null);
     }
 
-    public PanoramaImageView(Context context, AttributeSet attrs) {
+    public LPanoramaImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PanoramaImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LPanoramaImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         super.setScaleType(ScaleType.CENTER_CROP);
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PanoramaImageView);
-        mEnablePanoramaMode = typedArray.getBoolean(R.styleable.PanoramaImageView_piv_enablePanoramaMode, true);
-        mInvertScrollDirection = typedArray.getBoolean(R.styleable.PanoramaImageView_piv_invertScrollDirection, false);
-        mEnableScrollbar = typedArray.getBoolean(R.styleable.PanoramaImageView_piv_show_scrollbar, true);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LPanoramaImageView);
+        mEnablePanoramaMode = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_enablePanoramaMode, true);
+        mInvertScrollDirection = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_invertScrollDirection, false);
+        mEnableScrollbar = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_show_scrollbar, true);
         typedArray.recycle();
 
         if (mEnableScrollbar) {
@@ -238,7 +238,7 @@ public class PanoramaImageView extends ImageView {
          *                       -1 means the image scrolls to show its left(top) bound,
          *                       1 means the image scrolls to show its right(bottom) bound.
          */
-        void onScrolled(PanoramaImageView view, float offsetProgress);
+        void onScrolled(LPanoramaImageView view, float offsetProgress);
     }
 
     public void setOnPanoramaScrollListener(OnPanoramaScrollListener listener) {

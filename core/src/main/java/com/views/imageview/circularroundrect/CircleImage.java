@@ -1,8 +1,4 @@
-package com.views.imageview.circularroundrectimageview;
-
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
+package com.views.imageview.circularroundrect;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,9 +1,9 @@
-package com.views.imageview.scrollparallaximageview.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle;
 
 import android.graphics.Canvas;
 import android.widget.ImageView;
 
-import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
+import com.views.imageview.scrollparallax.LScrollParallaxImageView;
 
 /**
  * When the imageView is scrolling horizontally, the image in imageView will be
@@ -16,20 +16,20 @@ import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
  * Created by gjz on 26/11/2016.
  */
 
-public class HorizontalMovingStyle implements ScrollParallaxImageView.ParallaxStyle {
+public class HorizontalMovingStyle implements LScrollParallaxImageView.ParallaxStyle {
     @Override
-    public void onAttachedToImageView(ScrollParallaxImageView view) {
+    public void onAttachedToImageView(LScrollParallaxImageView view) {
         // only supports CENTER_CROP
         view.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     @Override
-    public void onDetachedFromImageView(ScrollParallaxImageView view) {
+    public void onDetachedFromImageView(LScrollParallaxImageView view) {
 
     }
 
     @Override
-    public void transform(ScrollParallaxImageView view, Canvas canvas, int x, int y) {
+    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
         if (view.getScaleType() != ImageView.ScaleType.CENTER_CROP) {
             return;
         }

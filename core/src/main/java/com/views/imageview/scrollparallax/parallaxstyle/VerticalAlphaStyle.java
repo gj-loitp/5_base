@@ -1,8 +1,8 @@
-package com.views.imageview.scrollparallaximageview.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle;
 
 import android.graphics.Canvas;
 
-import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
+import com.views.imageview.scrollparallax.LScrollParallaxImageView;
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will change its alpha.
@@ -14,7 +14,7 @@ import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
  * Created by gjz on 25/11/2016.
  */
 
-public class VerticalAlphaStyle implements ScrollParallaxImageView.ParallaxStyle {
+public class VerticalAlphaStyle implements LScrollParallaxImageView.ParallaxStyle {
     private float finalAlpha = 0.3f;
 
     public VerticalAlphaStyle() {
@@ -32,7 +32,7 @@ public class VerticalAlphaStyle implements ScrollParallaxImageView.ParallaxStyle
     }
 
     @Override
-    public void transform(ScrollParallaxImageView view, Canvas canvas, int x, int y) {
+    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
         // view's height
         int vHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
         // device's height
@@ -54,12 +54,12 @@ public class VerticalAlphaStyle implements ScrollParallaxImageView.ParallaxStyle
     }
 
     @Override
-    public void onAttachedToImageView(ScrollParallaxImageView view) {
+    public void onAttachedToImageView(LScrollParallaxImageView view) {
 
     }
 
     @Override
-    public void onDetachedFromImageView(ScrollParallaxImageView view) {
+    public void onDetachedFromImageView(LScrollParallaxImageView view) {
 
     }
 }

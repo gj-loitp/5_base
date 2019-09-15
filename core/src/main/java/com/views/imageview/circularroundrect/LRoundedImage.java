@@ -1,4 +1,4 @@
-package com.views.imageview.circularroundrectimageview;
+package com.views.imageview.circularroundrect;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.R;
 
-public class RoundedImage extends AppCompatImageView {
+public class LRoundedImage extends AppCompatImageView {
 
     private RectF rect;
     private Path path = new Path();
@@ -17,23 +17,23 @@ public class RoundedImage extends AppCompatImageView {
     private float radius = DEFAULT_RADIUS;
     private final ScaleType scaleType = ScaleType.FIT_XY;
 
-    public RoundedImage(Context context) {
+    public LRoundedImage(Context context) {
         super(context);
         setScaleType(scaleType);
         init();
     }
 
-    public RoundedImage(Context context, AttributeSet attrs) {
+    public LRoundedImage(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         setScaleType(scaleType);
         init();
     }
 
-    public RoundedImage(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LRoundedImage(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setScaleType(scaleType);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RoundedImage, defStyleAttr, 0);
-        radius = a.getFloat(R.styleable.RoundedImage_rounded_radius, DEFAULT_RADIUS);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LRoundedImage, defStyleAttr, 0);
+        radius = a.getFloat(R.styleable.LRoundedImage_rounded_radius, DEFAULT_RADIUS);
         init();
     }
 

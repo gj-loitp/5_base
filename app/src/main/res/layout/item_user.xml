@@ -9,7 +9,7 @@
 	android:orientation="horizontal"
 	android:padding="@dimen/padding_5">
 
-	<com.views.imageview.circleimageview.LCircleImageView
+	<com.views.imageview.circle.LCircleImageView
 		android:id="@+id/avt"
 		android:layout_width="@dimen/w_70"
 		android:layout_height="@dimen/w_70"

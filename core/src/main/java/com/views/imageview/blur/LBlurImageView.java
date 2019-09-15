@@ -1,4 +1,4 @@
-package com.views.imageview.blurimageview;
+package com.views.imageview.blur;
 
 import android.content.Context;
 import android.graphics.Bitmap;

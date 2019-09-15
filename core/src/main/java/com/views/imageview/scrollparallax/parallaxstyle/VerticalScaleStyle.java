@@ -1,8 +1,8 @@
-package com.views.imageview.scrollparallaximageview.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle;
 
 import android.graphics.Canvas;
 
-import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
+import com.views.imageview.scrollparallax.LScrollParallaxImageView;
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will be scaled.
@@ -14,7 +14,7 @@ import com.views.imageview.scrollparallaximageview.ScrollParallaxImageView;
  * Created by gjz on 25/11/2016.
  */
 
-public class VerticalScaleStyle implements ScrollParallaxImageView.ParallaxStyle {
+public class VerticalScaleStyle implements LScrollParallaxImageView.ParallaxStyle {
     private float finalScaleRatio = 0.7f;
 
     public VerticalScaleStyle() {
@@ -29,7 +29,7 @@ public class VerticalScaleStyle implements ScrollParallaxImageView.ParallaxStyle
     }
 
     @Override
-    public void transform(ScrollParallaxImageView view, Canvas canvas, int x, int y) {
+    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
         // view's width and height
         int vWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
         int vHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
@@ -53,12 +53,12 @@ public class VerticalScaleStyle implements ScrollParallaxImageView.ParallaxStyle
     }
 
     @Override
-    public void onAttachedToImageView(ScrollParallaxImageView view) {
+    public void onAttachedToImageView(LScrollParallaxImageView view) {
 
     }
 
     @Override
-    public void onDetachedFromImageView(ScrollParallaxImageView view) {
+    public void onDetachedFromImageView(LScrollParallaxImageView view) {
 
     }
 }

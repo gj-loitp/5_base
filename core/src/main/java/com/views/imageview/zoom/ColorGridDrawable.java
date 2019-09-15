@@ -1,8 +1,4 @@
-package com.views.imageview.zoomimageview;
-
-/**
- * Created by www.muathu@gmail.com on 10/31/2017.
- */
+package com.views.imageview.zoom;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Random;
-
 
 public class ColorGridDrawable extends Drawable {
 
