@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.typewritertextview.TypeWriterTextView;
+import com.views.textview.typewriter.LTypeWriterTextView;
 
 import loitp.basemaster.R;
 
@@ -14,7 +14,7 @@ public class TypeWriterTextViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Button btn = (Button) findViewById(R.id.btn);
-        TypeWriterTextView tv = (TypeWriterTextView) findViewById(R.id.tv);
+        LTypeWriterTextView tv = (LTypeWriterTextView) findViewById(R.id.tv);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

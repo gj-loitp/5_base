@@ -23,7 +23,7 @@ import androidx.annotation.RequiresApi;
 
 import com.R;
 
-public class TreeView extends AdapterView<TreeAdapter> implements GestureDetector.OnGestureListener {
+public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetector.OnGestureListener {
 
     private static final int DEFAULT_LINE_LENGTH = 100;
     private static final int DEFAULT_LINE_THICKNESS = 5;
@@ -48,31 +48,31 @@ public class TreeView extends AdapterView<TreeAdapter> implements GestureDetecto
 
     private GestureDetector mGestureDetector;
 
-    public TreeView(Context context) {
+    public LTreeView(Context context) {
         this(context, null);
     }
 
-    public TreeView(Context context, AttributeSet attrs) {
+    public LTreeView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TreeView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LTreeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public TreeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public LTreeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
     }
 
     private void initAttrs(Context context, AttributeSet attrs) {
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.TreeView, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.LTreeView, 0, 0);
         try {
-            mLevelSeparation = a.getDimensionPixelSize(R.styleable.TreeView_level_separation, DEFAULT_LINE_LENGTH);
-            mLineThickness = a.getDimensionPixelSize(R.styleable.TreeView_line_thickness, DEFAULT_LINE_THICKNESS);
-            mLineColor = a.getColor(R.styleable.TreeView_line_color, DEFAULT_LINE_COLOR);
+            mLevelSeparation = a.getDimensionPixelSize(R.styleable.LTreeView_level_separation, DEFAULT_LINE_LENGTH);
+            mLineThickness = a.getDimensionPixelSize(R.styleable.LTreeView_line_thickness, DEFAULT_LINE_THICKNESS);
+            mLineColor = a.getColor(R.styleable.LTreeView_line_color, DEFAULT_LINE_COLOR);
         } finally {
             a.recycle();
         }

@@ -129,7 +129,7 @@
         <attr name="number_size" format="integer" />
         <!--<attr name="number_color" format="color"/>-->
     </declare-styleable>
-    <declare-styleable name="VerticalMarqueeTextView">
+    <declare-styleable name="LVerticalMarqueeTextView">
         <attr name="autoStartMarquee" format="boolean" />
         <attr name="marqueeSpeed" format="reference|integer" />
         <attr name="text" format="reference|string" />
@@ -148,7 +148,7 @@
             <enum name="monospace" value="3" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="TranslucentView">
+    <declare-styleable name="LTranslucentView">
         <attr name="translucentBackgroundColor" format="color" />
     </declare-styleable>
     <declare-styleable name="LMaterialTextField">
@@ -318,7 +318,7 @@
         <attr name="enable_click_to_minimize_view" format="boolean" />
         <attr name="top_view_resize" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="TreeView">
+    <declare-styleable name="LTreeView">
         <attr name="level_separation" format="dimension" />
         <attr name="line_thickness" format="dimension" />
         <attr name="line_color" format="color" />

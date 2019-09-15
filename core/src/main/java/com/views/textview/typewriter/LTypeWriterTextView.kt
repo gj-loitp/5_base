@@ -1,4 +1,4 @@
-package com.views.textview.typewritertextview
+package com.views.textview.typewriter
 
 import android.content.Context
 import android.os.Handler
@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatTextView
  * Created by www.muathu@gmail.com on 11/2/2017.
  */
 
-class TypeWriterTextView : AppCompatTextView {
+class LTypeWriterTextView : AppCompatTextView {
     private var mText: CharSequence? = null
     private var mIndex: Int = 0
     private var mDelay: Long = 150 // in ms

@@ -1,4 +1,4 @@
-package com.views.textview.zoomtextview
+package com.views.textview.zoom
 
 /**
  * Created by www.muathu@gmail.com on 11/1/2017.
@@ -15,7 +15,7 @@ import android.widget.TextView
 import kotlin.math.max
 import kotlin.math.min
 
-class ZoomTextView : TextView {
+class LZoomTextView : TextView {
     private var mScaleDetector: ScaleGestureDetector? = null
     private var mScaleFactor = 1f
     private var defaultSize: Float = 0.toFloat()
@@ -71,6 +71,6 @@ class ZoomTextView : TextView {
     }
 
     companion object {
-        private const val TAG = "ZoomTextView"
+        private const val TAG = "LZoomTextView"
     }
 }

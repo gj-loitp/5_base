@@ -1,4 +1,4 @@
-package com.views.textview.translucentview;
+package com.views.textview.translucent;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +20,7 @@ import com.R;
 
 //guide https://github.com/mallethugo/translucent-android
 
-public class TranslucentView extends TextView {
+public class LTranslucentView extends TextView {
 
     // region static properties
     private final static int DEFAULT_FONT_SIZE = 22;
@@ -54,7 +54,7 @@ public class TranslucentView extends TextView {
     // endregion
 
     // region constructors
-    public TranslucentView(Context context, AttributeSet attrs) {
+    public LTranslucentView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         if (!isInEditMode()) {
@@ -63,7 +63,7 @@ public class TranslucentView extends TextView {
         }
     }
 
-    public TranslucentView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LTranslucentView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
         if (!isInEditMode()) {
@@ -117,7 +117,7 @@ public class TranslucentView extends TextView {
         Log.d("Translucent", "init");
         TypedArray attributesArray = mContext.getTheme().obtainStyledAttributes(
                 attrs,
-                R.styleable.TranslucentView,
+                R.styleable.LTranslucentView,
                 0, 0);
 
         final TypedArray defaultAttributesArray = mContext.obtainStyledAttributes(attrs, DEFAULT_ATTRS);
@@ -130,7 +130,7 @@ public class TranslucentView extends TextView {
                 mText = "";
             }
             fontSize = defaultAttributesArray.getDimensionPixelSize(DEFAULT_ATTR_TEXT_SIZE, DEFAULT_FONT_SIZE);
-            backgroundColor = attributesArray.getColor(R.styleable.TranslucentView_translucentBackgroundColor, Color.WHITE);
+            backgroundColor = attributesArray.getColor(R.styleable.LTranslucentView_translucentBackgroundColor, Color.WHITE);
         } finally {
             attributesArray.recycle();
             defaultAttributesArray.recycle();

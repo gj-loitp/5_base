@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import com.core.base.BaseFontActivity;
 import com.views.treeview.BaseTreeAdapter;
 import com.views.treeview.TreeNode;
-import com.views.treeview.TreeView;
+import com.views.treeview.LTreeView;
 
 import loitp.basemaster.R;
 
@@ -20,7 +20,7 @@ public class TreeViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TreeView treeView = findViewById(R.id.treeview);
+        LTreeView LTreeView = findViewById(R.id.treeview);
 
         BaseTreeAdapter adapter = new BaseTreeAdapter<ViewHolder>(this, R.layout.node) {
             @NonNull
@@ -34,7 +34,7 @@ public class TreeViewActivity extends BaseFontActivity {
                 viewHolder.mTextView.setText(data.toString());
             }
         };
-        treeView.setAdapter(adapter);
+        LTreeView.setAdapter(adapter);
 
         // example tree
         TreeNode rootNode = new TreeNode(getNodeText());
