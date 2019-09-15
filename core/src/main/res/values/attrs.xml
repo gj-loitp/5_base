@@ -32,7 +32,7 @@
         <attr name="dividerColor" format="reference" />
         <attr name="spanNumber" format="integer" />
     </declare-styleable>
-    <declare-styleable name="ParallaxViewPager">
+    <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
             <enum name="left_overlay" value="0" />
             <enum name="right_overlay" value="1" />
@@ -204,7 +204,7 @@
         <attr name="realtimeDownsampleFactor" format="float" />
         <attr name="realtimeOverlayColor" format="color" />
     </declare-styleable>
-    <declare-styleable name="AutoViewPager">
+    <declare-styleable name="LAutoViewPager">
         <attr name="avp_indeterminate" format="boolean" />
         <attr name="avp_autoScroll" format="boolean" />
         <attr name="avp_duration" format="integer" />
@@ -368,9 +368,9 @@
         <attr name="animateMarkersOnStillHighlight" format="boolean" />
         <!-- Flag that determine if this object's drawable should fit inside of the center circle. -->
         <attr name="fitToCircle" format="boolean" />
-        <!-- Attribute to display markers when in edit mode. -->
+        <!-- Attribute to display markers when in edit parrallaxMode. -->
         <attr name="editMode_markerCount" format="integer" />
-        <!-- Set the marker radius for edit mode only. -->
+        <!-- Set the marker radius for edit parrallaxMode only. -->
         <attr name="editMode_markerRadius" format="integer" />
     </declare-styleable>
     <declare-styleable name="Toggle">

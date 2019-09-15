@@ -663,11 +663,11 @@ class FloatingView extends FrameLayout implements ViewTreeObserver.OnPreDrawList
             if (navigationBarVerticalDiff != 0 && mBaseNavigationBarHeight == 0 ||
                     !hasSoftNavigationBar && mBaseNavigationBarHeight != 0) {
                 if (hasSoftNavigationBar) {
-                    // 1.auto hide mode -> show mode
-                    // 2.show mode -> auto hide mode -> home
+                    // 1.auto hide parrallaxMode -> show parrallaxMode
+                    // 2.show parrallaxMode -> auto hide parrallaxMode -> home
                     mNavigationBarVerticalOffset = 0;
                 } else {
-                    // show mode -> home
+                    // show parrallaxMode -> home
                     mNavigationBarVerticalOffset = -currentNavigationBarHeight;
                 }
             } else {

@@ -1,5 +1,6 @@
-package com.views.viewpager.lockableviewpager
+package com.views.viewpager.lockable
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -14,6 +15,7 @@ class LockableViewPager : ViewPager {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return !swipeLocked && super.onTouchEvent(event)
     }

@@ -135,7 +135,7 @@ public class RealtimeBlurView extends View {
                             throw e;
                         }
                     } else {
-                        // In release mode, just ignore
+                        // In release parrallaxMode, just ignore
                         releaseScript();
                         return false;
                     }

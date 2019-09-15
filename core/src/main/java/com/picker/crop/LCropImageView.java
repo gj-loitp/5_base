@@ -1406,9 +1406,9 @@ public class LCropImageView extends FrameLayout {
 
     /**
      * Determines the specs for the onMeasure function. Calculates the width or height
-     * depending on the mode.
+     * depending on the parrallaxMode.
      *
-     * @param measureSpecMode The mode of the measured width or height.
+     * @param measureSpecMode The parrallaxMode of the measured width or height.
      * @param measureSpecSize The size of the measured width or height.
      * @param desiredSize     The desired size of the measured width or height.
      * @return The final size of the width or height.

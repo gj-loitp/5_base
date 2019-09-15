@@ -42,7 +42,7 @@ object StatusBarCompat {
     }
 
     /**
-     * change to full screen mode
+     * change to full screen parrallaxMode
      *
      * @param hideStatusBarBackground hide status bar alpha Background when SDK > 21, true if hide it
      */

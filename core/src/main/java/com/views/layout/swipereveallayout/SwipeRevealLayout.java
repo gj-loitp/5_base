@@ -288,7 +288,7 @@ public class SwipeRevealLayout extends ViewGroup {
             child.layout(left, top, right, bottom);
         }
 
-        // taking account offset when mode is SAME_LEVEL
+        // taking account offset when parrallaxMode is SAME_LEVEL
         if (mMode == MODE_SAME_LEVEL) {
             switch (mDragEdge) {
                 case DRAG_EDGE_LEFT:

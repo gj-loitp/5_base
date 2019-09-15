@@ -83,14 +83,14 @@ public class CircularProgressBar extends View {
     }
 
     /**
-     * Get current progress value for non-indeterminate mode
+     * Get current progress value for non-indeterminate parrallaxMode
      */
     public float getProgress() {
         return mProgress;
     }
 
     /**
-     * Set current progress value for non-indeterminate mode
+     * Set current progress value for non-indeterminate parrallaxMode
      */
     @MainThread
     public void setProgress(float progress) {
@@ -415,7 +415,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Maximum progress value for non-indeterminate mode
+         * Maximum progress value for non-indeterminate parrallaxMode
          */
         @NonNull
         public Configurator maximum(float value) {
@@ -424,7 +424,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Current progress value for non-indeterminate mode
+         * Current progress value for non-indeterminate parrallaxMode
          */
         @NonNull
         public Configurator progress(float value) {
@@ -433,7 +433,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Start angle for non-indeterminate mode
+         * Start angle for non-indeterminate parrallaxMode
          */
         @NonNull
         public Configurator startAngle(float value) {
@@ -442,7 +442,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Minimum angle for indeterminate mode
+         * Minimum angle for indeterminate parrallaxMode
          */
         @NonNull
         public Configurator indeterminateMinimumAngle(float value) {
@@ -451,21 +451,21 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Grow animation duration in milliseconds for indeterminate mode
+         * Grow animation duration in milliseconds for indeterminate parrallaxMode
          */
         public void indeterminateRotationAnimationDuration(long value) {
             indeterminateRotationAnimationDuration = value;
         }
 
         /**
-         * Sweep animation duration in milliseconds for indeterminate mode
+         * Sweep animation duration in milliseconds for indeterminate parrallaxMode
          */
         public void indeterminateArcAnimationDuration(long value) {
             indeterminateArcAnimationDuration = value;
         }
 
         /**
-         * Set indeterminate mode enabled or disabled
+         * Set indeterminate parrallaxMode enabled or disabled
          */
         @NonNull
         public Configurator indeterminate(boolean value) {
@@ -474,7 +474,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Animate progress change or not for non-indeterminate mode
+         * Animate progress change or not for non-indeterminate parrallaxMode
          */
         @NonNull
         public Configurator animateProgress(boolean value) {
@@ -483,7 +483,7 @@ public class CircularProgressBar extends View {
         }
 
         /**
-         * Progress change animation duration in milliseconds for non-indeterminate mode
+         * Progress change animation duration in milliseconds for non-indeterminate parrallaxMode
          */
         @NonNull
         public Configurator progressAnimationDuration(long value) {

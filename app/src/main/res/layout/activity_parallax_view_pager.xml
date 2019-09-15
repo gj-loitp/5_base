@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.viewpager.parrallaxviewpager.ParallaxViewPager
+    <com.views.viewpager.parrallax.LParallaxViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

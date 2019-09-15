@@ -237,9 +237,9 @@ object LUIUtil {
                 item.setChecked(item.getItemData().isChecked());
             }
         } catch (NoSuchFieldException e) {
-            LLog.d(TAG, "Unable to get shift mode field");
+            LLog.d(TAG, "Unable to get shift parrallaxMode field");
         } catch (IllegalAccessException e) {
-            LLog.d(TAG, "Unable to change value of shift mode");
+            LLog.d(TAG, "Unable to change value of shift parrallaxMode");
         }
     }*/
 

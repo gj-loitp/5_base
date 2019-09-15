@@ -1,12 +1,13 @@
-package com.views.viewpager.autoviewpager
+package com.views.viewpager.auto
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
 import com.R
 
-class AutoViewPager : ViewPager {
+class LAutoViewPager : ViewPager {
     private var duration = DEFAULT_DURATION
     private var startX: Float = 0.toFloat()
     private var autoScrollEnabled: Boolean = false
@@ -36,11 +37,11 @@ class AutoViewPager : ViewPager {
     }
 
     private fun init(attrs: AttributeSet) {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.AutoViewPager)
+        val a = context.obtainStyledAttributes(attrs, R.styleable.LAutoViewPager)
         try {
-            setAutoScrollEnabled(a.getBoolean(R.styleable.AutoViewPager_avp_autoScroll, false))
-            setIndeterminate(a.getBoolean(R.styleable.AutoViewPager_avp_indeterminate, false))
-            setDuration(a.getInteger(R.styleable.AutoViewPager_avp_duration, DEFAULT_DURATION))
+            setAutoScrollEnabled(a.getBoolean(R.styleable.LAutoViewPager_avp_autoScroll, false))
+            setIndeterminate(a.getBoolean(R.styleable.LAutoViewPager_avp_indeterminate, false))
+            setDuration(a.getInteger(R.styleable.LAutoViewPager_avp_duration, DEFAULT_DURATION))
         } finally {
             a.recycle()
         }
@@ -87,6 +88,7 @@ class AutoViewPager : ViewPager {
         return false
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         try {
             if (indeterminate) {
@@ -111,7 +113,7 @@ class AutoViewPager : ViewPager {
     }
 
     companion object {
-        private val TAG = AutoViewPager::class.java.simpleName
+        private val TAG = LAutoViewPager::class.java.simpleName
         private const val DEFAULT_DURATION = 1000
     }
 }

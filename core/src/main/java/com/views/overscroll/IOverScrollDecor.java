@@ -26,8 +26,8 @@ public interface IOverScrollDecor {
      * {@link #setOverScrollStateListener(IOverScrollStateListener)}.</p>
      *
      * <p>Note: Upon detachment completion, the view in question will return to the default
-     * Android over-scroll configuration (i.e. {@link View.OVER_SCROLL_ALWAYS} mode). This can be
-     * overridden by calling <code>View.setOverScrollMode(mode)</code> immediately thereafter.</p>
+     * Android over-scroll configuration (i.e. {@link View.OVER_SCROLL_ALWAYS} parrallaxMode). This can be
+     * overridden by calling <code>View.setOverScrollMode(parrallaxMode)</code> immediately thereafter.</p>
      */
     void detach();
 }

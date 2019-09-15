@@ -192,7 +192,7 @@ public class PdfDemoActivity extends BaseFontActivity {
 //                .pageFitPolicy(FitPolicy.WIDTH)
 //                .pageSnap(true) // snap pages to screen boundaries
 //                .pageFling(false) // make a fling change only a single page like ViewPager
-//                .nightMode(false) // toggle night mode
+//                .nightMode(false) // toggle night parrallaxMode
 //                .load();
 
 
@@ -227,7 +227,7 @@ public class PdfDemoActivity extends BaseFontActivity {
                 .pageFitPolicy(FitPolicy.WIDTH)
                 .pageSnap(true) // snap pages to screen boundaries
                 .pageFling(true) // make a fling change only a single page like ViewPager
-                .nightMode(false) // toggle night mode
+                .nightMode(false) // toggle night parrallaxMode
                 .load();
     }
 

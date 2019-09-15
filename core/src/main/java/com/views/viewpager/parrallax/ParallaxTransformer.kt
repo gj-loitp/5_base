@@ -1,4 +1,4 @@
-package com.views.viewpager.parrallaxviewpager
+package com.views.viewpager.parrallax
 
 import android.animation.FloatEvaluator
 import android.os.Build
@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
 class ParallaxTransformer : ViewPager.PageTransformer {
-    var mode: Mode? = null
+    var parrallaxMode: ParrallaxMode? = null
     var interpolator: Interpolator = LinearInterpolator()
     private val mEvaluator: FloatEvaluator = FloatEvaluator()
     var outset: Int = 0
@@ -26,18 +26,18 @@ class ParallaxTransformer : ViewPager.PageTransformer {
         if (position == 0f) {
             return
         }
-        when (mode) {
-            Mode.LEFT_OVERLAY -> if (position > 0) {
+        when (parrallaxMode) {
+            ParrallaxMode.LEFT_OVERLAY -> if (position > 0) {
                 transform(page, position)
             } else if (position < 0) {
                 bringViewToFront(page)
             }
-            Mode.RIGHT_OVERLAY -> if (position < 0) {
+            ParrallaxMode.RIGHT_OVERLAY -> if (position < 0) {
                 transform(page, position)
             } else if (position > 0) {
                 bringViewToFront(page)
             }
-            Mode.NONE -> {
+            ParrallaxMode.NONE -> {
             }
         }
     }

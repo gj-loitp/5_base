@@ -577,9 +577,9 @@ public class LWWLVideo extends ViewGroup {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.EXACTLY) {
-            throw new IllegalStateException("WatchWhileLayout can only be used in EXACTLY mode.");
+            throw new IllegalStateException("WatchWhileLayout can only be used in EXACTLY parrallaxMode.");
         } else if (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.EXACTLY) {
-            throw new IllegalStateException("WatchWhileLayout can only be used in EXACTLY mode.");
+            throw new IllegalStateException("WatchWhileLayout can only be used in EXACTLY parrallaxMode.");
         } else {
             int sizeW = MeasureSpec.getSize(widthMeasureSpec);
             int sizeH = MeasureSpec.getSize(heightMeasureSpec);

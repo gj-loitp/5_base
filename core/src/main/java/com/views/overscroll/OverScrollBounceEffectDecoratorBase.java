@@ -78,7 +78,7 @@ public abstract class OverScrollBounceEffectDecoratorBase implements IOverScroll
     protected IOverScrollUpdateListener mUpdateListener = new ListenerStubs.OverScrollUpdateListenerStub();
 
     /**
-     * When in over-scroll mode, keep track of dragging velocity to provide a smooth slow-down
+     * When in over-scroll parrallaxMode, keep track of dragging velocity to provide a smooth slow-down
      * for the bounce-back effect.
      */
     protected float mVelocity;

@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
-import com.views.viewpager.autoviewpager.AutoViewPager;
+import com.views.viewpager.auto.LAutoViewPager;
 
 import loitp.basemaster.R;
 
@@ -18,7 +18,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AutoViewPager viewPager = findViewById(R.id.view_pager);
+        LAutoViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         //viewPager.setIndeterminate(true);
         viewPager.setAutoScrollEnabled(true);
