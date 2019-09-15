@@ -1,4 +1,4 @@
-package com.views.button.buttonloading;
+package com.views.button.loading;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -22,18 +22,18 @@ import android.widget.ImageButton;
 import androidx.core.view.animation.PathInterpolatorCompat;
 
 import com.R;
-import com.views.button.buttonloading.utils.DeviceScreenUtils;
-import com.views.button.buttonloading.utils.FontUtils;
+import com.views.button.loading.utils.DeviceScreenUtils;
+import com.views.button.loading.utils.FontUtils;
 
-import static com.views.button.buttonloading.ButtonLoadingAttribute.STATE_ANIMATION_FINISH;
-import static com.views.button.buttonloading.ButtonLoadingAttribute.STATE_ANIMATION_START;
-import static com.views.button.buttonloading.ButtonLoadingAttribute.STATE_PROGRESS;
+import static com.views.button.loading.ButtonLoadingAttribute.STATE_ANIMATION_FINISH;
+import static com.views.button.loading.ButtonLoadingAttribute.STATE_ANIMATION_START;
+import static com.views.button.loading.ButtonLoadingAttribute.STATE_PROGRESS;
 
 /**
  * Created by Rasoul Miri on 10/25/2017 .
  */
 
-public class ButtonLoading extends View {
+public class LButtonLoading extends View {
 
     private ButtonLoadingAttribute attribute = new ButtonLoadingAttribute();
     private OnButtonLoadingListener onButtonLoadingListener;
@@ -63,17 +63,17 @@ public class ButtonLoading extends View {
     ViewGroup.LayoutParams layoutParams;
     ImageButton buttonGetTouch;
 
-    public ButtonLoading(Context context) {
+    public LButtonLoading(Context context) {
         super(context);
         initView(context, null);
     }
 
-    public ButtonLoading(Context context, AttributeSet attrs) {
+    public LButtonLoading(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView(context, attrs);
     }
 
-    public ButtonLoading(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LButtonLoading(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }

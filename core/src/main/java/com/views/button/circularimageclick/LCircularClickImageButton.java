@@ -36,7 +36,7 @@ import android.widget.ImageButton;
  * Created by ahmed-basyouni on 3/4/17.
  */
 
-public class CircularClickImageButton extends ImageButton {
+public class LCircularClickImageButton extends ImageButton {
 
     //center x of Image
     private float centerX;
@@ -48,15 +48,15 @@ public class CircularClickImageButton extends ImageButton {
     //the circle view on click listener
     private OnCircleClickListener onCircleClickListener;
 
-    public CircularClickImageButton(Context context) {
+    public LCircularClickImageButton(Context context) {
         super(context);
     }
 
-    public CircularClickImageButton(Context context, AttributeSet attrs) {
+    public LCircularClickImageButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CircularClickImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LCircularClickImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

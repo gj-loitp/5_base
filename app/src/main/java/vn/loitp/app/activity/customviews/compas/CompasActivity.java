@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.views.compass.Compass;
+import com.views.compass.LCompass;
 import com.views.compass.CompassListener;
 
 import loitp.basemaster.R;
@@ -17,8 +17,8 @@ public class CompasActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Compass compass = findViewById(R.id.compass_view);
-        compass.setListener(new CompassListener() {
+        LCompass LCompass = findViewById(R.id.compass_view);
+        LCompass.setListener(new CompassListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
                 LLog.INSTANCE.d(getTAG(), "onSensorChanged : " + event);

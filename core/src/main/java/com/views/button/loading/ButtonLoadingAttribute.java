@@ -1,4 +1,4 @@
-package com.views.button.buttonloading;
+package com.views.button.loading;
 
 /**
  * Created by Rasoul Miri on 8/20/17.

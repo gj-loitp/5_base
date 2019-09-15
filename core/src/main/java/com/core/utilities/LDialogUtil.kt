@@ -20,7 +20,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.views.dialog.iosdialog.iOSDialog
-import com.views.dialog.slideimages.SlideAdapter
+import com.views.dialog.slideimages.LSlideAdapter
 import java.util.*
 
 /**
@@ -267,7 +267,7 @@ object LDialogUtil {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.l_dlg_slide_images)
         dialog.setCanceledOnTouchOutside(true);
-        val slideAdapter = SlideAdapter(context, imgList, isShowIconClose, object : SlideAdapter.Callback {
+        val slideAdapter = LSlideAdapter(context, imgList, isShowIconClose, object : LSlideAdapter.Callback {
             override fun onClickClose() {
                 dialog.cancel()
             }

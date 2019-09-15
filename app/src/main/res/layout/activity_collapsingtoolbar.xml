@@ -68,7 +68,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-                    <com.views.button.circularimageclick.CircularClickImageButton
+                    <com.views.button.circularimageclick.LCircularClickImageButton
                         android:id="@+id/bt_menu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"

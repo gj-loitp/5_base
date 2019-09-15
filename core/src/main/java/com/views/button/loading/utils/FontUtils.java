@@ -1,4 +1,4 @@
-package com.views.button.buttonloading.utils;
+package com.views.button.loading.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;

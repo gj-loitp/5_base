@@ -37,7 +37,7 @@ import android.widget.TextView;
  *
  * @author venshine
  */
-public class GoodView extends PopupWindow implements IGoodView {
+public class LGoodView extends PopupWindow implements IGoodView {
 
     private String mText = TEXT;
 
@@ -65,7 +65,7 @@ public class GoodView extends PopupWindow implements IGoodView {
 
     private TextView mGood = null;
 
-    public GoodView(Context context) {
+    public LGoodView(Context context) {
         super(context);
         mContext = context;
         initView();

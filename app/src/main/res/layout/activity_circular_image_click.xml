@@ -17,7 +17,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.button.circularimageclick.CircularClickImageButton
+            <com.views.button.circularimageclick.LCircularClickImageButton
                 android:id="@+id/circleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

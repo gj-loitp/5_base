@@ -27,9 +27,9 @@ import java.text.DecimalFormat;
 
 import static android.content.Context.SENSOR_SERVICE;
 
-public class Compass extends RelativeLayout implements SensorEventListener {
+public class LCompass extends RelativeLayout implements SensorEventListener {
 
-    private final static String TAG = Compass.class.getSimpleName();
+    private final static String TAG = LCompass.class.getSimpleName();
 
     private static final float NEEDLE_PADDING = 0.17f;
     private static final String DEGREE = "\u00b0";
@@ -63,17 +63,17 @@ public class Compass extends RelativeLayout implements SensorEventListener {
 
     private CompassListener mCompassListener;
 
-    public Compass(Context context) {
+    public LCompass(Context context) {
         super(context);
         init(context, null);
     }
 
-    public Compass(Context context, @Nullable AttributeSet attrs) {
+    public LCompass(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public Compass(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LCompass(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -93,22 +93,22 @@ public class Compass extends RelativeLayout implements SensorEventListener {
         SensorManager mSensorManager = (SensorManager) getContext().getSystemService(SENSOR_SERVICE);
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);
 
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Compass, 0, 0);
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.LCompass, 0, 0);
 
         if (typedArray != null) {
 
-            mShowBorder = typedArray.getBoolean(R.styleable.Compass_show_border, DEFAULT_SHOW_BORDER);
-            mBorderColor = typedArray.getColor(R.styleable.Compass_border_color_compass, DEFAULT_BORDER_COLOR);
+            mShowBorder = typedArray.getBoolean(R.styleable.LCompass_show_border, DEFAULT_SHOW_BORDER);
+            mBorderColor = typedArray.getColor(R.styleable.LCompass_border_color_compass, DEFAULT_BORDER_COLOR);
 
-            mDegreesColor = typedArray.getColor(R.styleable.Compass_degree_color, Color.BLACK);
-            mShowOrientationLabels = typedArray.getBoolean(R.styleable.Compass_show_orientation_labels, DEFAULT_SHOW_ORIENTATION_LABEL);
-            mOrientationLabelsColor = typedArray.getColor(R.styleable.Compass_orientation_labels_color, DEFAULT_ORIENTATION_LABEL_COLOR);
+            mDegreesColor = typedArray.getColor(R.styleable.LCompass_degree_color, Color.BLACK);
+            mShowOrientationLabels = typedArray.getBoolean(R.styleable.LCompass_show_orientation_labels, DEFAULT_SHOW_ORIENTATION_LABEL);
+            mOrientationLabelsColor = typedArray.getColor(R.styleable.LCompass_orientation_labels_color, DEFAULT_ORIENTATION_LABEL_COLOR);
 
-            mDegreeValueColor = typedArray.getColor(R.styleable.Compass_degree_value_color, Color.BLACK);
-            mShowDegreeValue = typedArray.getBoolean(R.styleable.Compass_show_degree_value, DEFAULT_SHOW_DEGREE_VALUE);
+            mDegreeValueColor = typedArray.getColor(R.styleable.LCompass_degree_value_color, Color.BLACK);
+            mShowDegreeValue = typedArray.getBoolean(R.styleable.LCompass_show_degree_value, DEFAULT_SHOW_DEGREE_VALUE);
 
-            mDegreesStep = typedArray.getInt(R.styleable.Compass_degrees_step, DEFAULT_DEGREES_STEP);
-            mNeedle = typedArray.getDrawable(R.styleable.Compass_needle);
+            mDegreesStep = typedArray.getInt(R.styleable.LCompass_degrees_step, DEFAULT_DEGREES_STEP);
+            mNeedle = typedArray.getDrawable(R.styleable.LCompass_needle);
             typedArray.recycle();
         }
 

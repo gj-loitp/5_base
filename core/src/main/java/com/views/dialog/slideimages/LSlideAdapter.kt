@@ -10,9 +10,9 @@ import com.R
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 
-class SlideAdapter(private val mContext: Context, private val stringList: List<String>?,
-                   private val isShowIconClose: Boolean,
-                   private val callback: Callback?) : PagerAdapter() {
+class LSlideAdapter(private val mContext: Context, private val stringList: List<String>?,
+                    private val isShowIconClose: Boolean,
+                    private val callback: Callback?) : PagerAdapter() {
     private val screenW: Int = LScreenUtil.screenWidth
 
     interface Callback {

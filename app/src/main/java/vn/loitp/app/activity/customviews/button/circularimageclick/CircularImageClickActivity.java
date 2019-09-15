@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.core.base.BaseFontActivity;
-import com.views.button.circularimageclick.CircularClickImageButton;
+import com.views.button.circularimageclick.LCircularClickImageButton;
 
 import loitp.basemaster.R;
 
@@ -14,7 +14,7 @@ public class CircularImageClickActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((CircularClickImageButton) findViewById(R.id.circleButton)).setOnCircleClickListener(new CircularClickImageButton.OnCircleClickListener() {
+        ((LCircularClickImageButton) findViewById(R.id.circleButton)).setOnCircleClickListener(new LCircularClickImageButton.OnCircleClickListener() {
             @Override
             public void onClick(View v) {
                 showShort("onClick");
