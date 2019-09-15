@@ -16,17 +16,17 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 /**
  * 고정된 row, column 을 갖는 그리드 형태의 레이아웃.
  */
-public class FixedGridLayout extends ViewGroup {
+public class LFixedGridLayout extends ViewGroup {
 
-    public FixedGridLayout(Context context) {
+    public LFixedGridLayout(Context context) {
         this(context, null);
     }
 
-    public FixedGridLayout(Context context, AttributeSet attrs) {
+    public LFixedGridLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public FixedGridLayout(Context context, AttributeSet attrs, int defStyle) {
+    public LFixedGridLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
 

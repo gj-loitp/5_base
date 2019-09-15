@@ -14,11 +14,11 @@ import com.R
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.utils.util.ConvertUtils
-import com.views.layout.relativepopupwindow.RelativePopupWindow
+import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import kotlin.math.hypot
 import kotlin.math.max
 
-class SuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : RelativePopupWindow() {
+class SuggestPopupViewL(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
     private val TAG = javaClass.simpleName;
     private var ll: LinearLayout
     private var sv: ScrollView

@@ -13,7 +13,6 @@ import androidx.customview.widget.ViewDragHelper;
 import com.R;
 import com.core.utilities.LLog;
 
-
 public class YoutubeLayout extends ViewGroup {
     private final String TAG = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;

@@ -6,21 +6,21 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.R;
 
-public class HeartLayout extends RelativeLayout {
+public class LHeartLayout extends RelativeLayout {
 
     private AbstractPathAnimator mAnimator;
 
-    public HeartLayout(Context context) {
+    public LHeartLayout(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public HeartLayout(Context context, AttributeSet attrs) {
+    public LHeartLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public HeartLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LHeartLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs, defStyleAttr);
     }
@@ -28,7 +28,7 @@ public class HeartLayout extends RelativeLayout {
     private void init(AttributeSet attrs, int defStyleAttr) {
 
         final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.HeartLayout, defStyleAttr, 0);
+                attrs, R.styleable.LHeartLayout, defStyleAttr, 0);
 
         mAnimator = new PathAnimator(AbstractPathAnimator.Config.fromTypeArray(a));
 

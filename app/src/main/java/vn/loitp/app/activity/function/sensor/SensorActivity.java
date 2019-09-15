@@ -12,13 +12,13 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
-import com.views.layout.rotatelayout.RotateLayout;
+import com.views.layout.rotatelayout.LRotateLayout;
 
 import loitp.basemaster.R;
 import vn.loitp.app.common.Constants;
 
 public class SensorActivity extends BaseFontActivity {
-    private RotateLayout rotateLayout;
+    private LRotateLayout LRotateLayout;
     private TextView tv;
     private ImageView iv;
     private OrientationListener orientationListener;
@@ -27,7 +27,7 @@ public class SensorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.INSTANCE.d(getTAG(), "onCreate");
-        rotateLayout = (RotateLayout) findViewById(R.id.rotate_layout);
+        LRotateLayout = (LRotateLayout) findViewById(R.id.rotate_layout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
         LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);
@@ -41,7 +41,7 @@ public class SensorActivity extends BaseFontActivity {
 
         int w = LScreenUtil.INSTANCE.getScreenWidth();
         int h = w * 9 / 16;
-        setSizeRelativeLayout(rotateLayout, w, h);
+        setSizeRelativeLayout(LRotateLayout, w, h);
 
         orientationListener = new OrientationListener(this);
     }
@@ -118,10 +118,10 @@ public class SensorActivity extends BaseFontActivity {
             if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
                 rotation = ROTATION_O;
                 LLog.INSTANCE.d(getTAG(), "ROTATION_O");
-                rotateLayout.setAngle(0);
+                LRotateLayout.setAngle(0);
                 int w = LScreenUtil.INSTANCE.getScreenWidth();
                 int h = w * 9 / 16;
-                setSizeRelativeLayout(rotateLayout, w, h);
+                setSizeRelativeLayout(LRotateLayout, w, h);
                 LScreenUtil.INSTANCE.toggleFullscreen(getActivity(), false);
             } else if (orientation > 145 && orientation < 215 && rotation != ROTATION_180) { // REVERSE PORTRAIT
                 rotation = ROTATION_180;
@@ -130,18 +130,18 @@ public class SensorActivity extends BaseFontActivity {
             } else if (orientation > 55 && orientation < 125 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
                 rotation = ROTATION_270;
                 LLog.INSTANCE.d(getTAG(), "ROTATION_270");
-                rotateLayout.setAngle(90);
+                LRotateLayout.setAngle(90);
                 int w = LScreenUtil.INSTANCE.getScreenWidth();
                 int h = LScreenUtil.INSTANCE.getScreenHeightIncludeNavigationBar(getActivity());
-                setSizeRelativeLayout(rotateLayout, w, h);
+                setSizeRelativeLayout(LRotateLayout, w, h);
                 LScreenUtil.INSTANCE.toggleFullscreen(getActivity(), true);
             } else if (orientation > 235 && orientation < 305 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90;
                 LLog.INSTANCE.d(getTAG(), "ROTATION_90");
-                rotateLayout.setAngle(-90);
+                LRotateLayout.setAngle(-90);
                 int w = LScreenUtil.INSTANCE.getScreenWidth();
                 int h = LScreenUtil.INSTANCE.getScreenHeightIncludeNavigationBar(getActivity());
-                setSizeRelativeLayout(rotateLayout, w, h);
+                setSizeRelativeLayout(LRotateLayout, w, h);
                 LScreenUtil.INSTANCE.toggleFullscreen(getActivity(), true);
             }
         }

@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.views.LToast;
-import com.views.layout.swipereveallayout.SwipeRevealLayout;
+import com.views.layout.swipereveallayout.LSwipeRevealLayout;
 import com.views.layout.swipereveallayout.ViewBinderHelper;
 
 import org.jetbrains.annotations.NotNull;
@@ -82,7 +82,7 @@ public class ListAdapter extends ArrayAdapter<String> {
     }
 
     private class ViewHolder {
-        SwipeRevealLayout swipeLayout;
+        LSwipeRevealLayout swipeLayout;
         View frontView;
         View deleteView;
         TextView textView;

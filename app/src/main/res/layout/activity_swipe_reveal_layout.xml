@@ -15,7 +15,7 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="@android:color/white" />
 
-    <com.views.layout.swipereveallayout.SwipeRevealLayout
+    <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:id="@+id/swipe_layout_1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -60,9 +60,9 @@
                 android:gravity="center"
                 android:text="@string/my_awesome_layout_1" />
         </FrameLayout>
-    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+    </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
-    <com.views.layout.swipereveallayout.SwipeRevealLayout
+    <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:id="@+id/swipe_layout_2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -108,9 +108,9 @@
                 android:gravity="center"
                 android:text="@string/my_awesome_layout_2" />
         </FrameLayout>
-    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+    </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
-    <com.views.layout.swipereveallayout.SwipeRevealLayout
+    <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:id="@+id/swipe_layout_3"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -147,9 +147,9 @@
                 android:gravity="center"
                 android:text="@string/my_awesome_layout_3" />
         </FrameLayout>
-    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+    </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
-    <com.views.layout.swipereveallayout.SwipeRevealLayout
+    <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:id="@+id/swipe_layout_4"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -186,5 +186,5 @@
                 android:gravity="center"
                 android:text="@string/my_awesome_layout_4" />
         </FrameLayout>
-    </com.views.layout.swipereveallayout.SwipeRevealLayout>
+    </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 </LinearLayout>

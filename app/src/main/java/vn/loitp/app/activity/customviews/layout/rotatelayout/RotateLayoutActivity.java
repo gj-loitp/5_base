@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDeviceUtil;
-import com.views.layout.rotatelayout.RotateLayout;
+import com.views.layout.rotatelayout.LRotateLayout;
 
 import loitp.basemaster.R;
 
@@ -14,11 +14,11 @@ public class RotateLayoutActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final RotateLayout rotateLayout = findViewById(R.id.rotate_layout);
+        final LRotateLayout LRotateLayout = findViewById(R.id.rotate_layout);
 
         findViewById(R.id.bt).setOnClickListener(v -> {
             final int angle = LDeviceUtil.Companion.getRandomNumber(360);
-            rotateLayout.setAngle(angle);
+            LRotateLayout.setAngle(angle);
         });
     }
 

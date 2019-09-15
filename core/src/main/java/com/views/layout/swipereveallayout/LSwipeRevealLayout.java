@@ -21,7 +21,7 @@ import com.R;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressLint("RtlHardcoded")
-public class SwipeRevealLayout extends ViewGroup {
+public class LSwipeRevealLayout extends ViewGroup {
     // These states are used only for ViewBindHelper
     protected static final int STATE_CLOSE = 0;
     protected static final int STATE_CLOSING = 1;
@@ -120,19 +120,19 @@ public class SwipeRevealLayout extends ViewGroup {
         /**
          * Called when the main view becomes completely closed.
          */
-        void onClosed(SwipeRevealLayout view);
+        void onClosed(LSwipeRevealLayout view);
 
         /**
          * Called when the main view becomes completely opened.
          */
-        void onOpened(SwipeRevealLayout view);
+        void onOpened(LSwipeRevealLayout view);
 
         /**
          * Called when the main view's position changes.
          *
          * @param slideOffset The new offset of the main view within its range, from 0-1
          */
-        void onSlide(SwipeRevealLayout view, float slideOffset);
+        void onSlide(LSwipeRevealLayout view, float slideOffset);
     }
 
     /**
@@ -141,29 +141,29 @@ public class SwipeRevealLayout extends ViewGroup {
      */
     public static class SimpleSwipeListener implements SwipeListener {
         @Override
-        public void onClosed(SwipeRevealLayout view) {
+        public void onClosed(LSwipeRevealLayout view) {
         }
 
         @Override
-        public void onOpened(SwipeRevealLayout view) {
+        public void onOpened(LSwipeRevealLayout view) {
         }
 
         @Override
-        public void onSlide(SwipeRevealLayout view, float slideOffset) {
+        public void onSlide(LSwipeRevealLayout view, float slideOffset) {
         }
     }
 
-    public SwipeRevealLayout(Context context) {
+    public LSwipeRevealLayout(Context context) {
         super(context);
         init(context, null);
     }
 
-    public SwipeRevealLayout(Context context, AttributeSet attrs) {
+    public LSwipeRevealLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public SwipeRevealLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LSwipeRevealLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -448,7 +448,7 @@ public class SwipeRevealLayout extends ViewGroup {
             );
         }
 
-        ViewCompat.postInvalidateOnAnimation(SwipeRevealLayout.this);
+        ViewCompat.postInvalidateOnAnimation(LSwipeRevealLayout.this);
     }
 
     /**
@@ -488,7 +488,7 @@ public class SwipeRevealLayout extends ViewGroup {
             );
         }
 
-        ViewCompat.postInvalidateOnAnimation(SwipeRevealLayout.this);
+        ViewCompat.postInvalidateOnAnimation(LSwipeRevealLayout.this);
     }
 
     /**
@@ -735,16 +735,16 @@ public class SwipeRevealLayout extends ViewGroup {
         if (attrs != null && context != null) {
             TypedArray a = context.getTheme().obtainStyledAttributes(
                     attrs,
-                    R.styleable.SwipeRevealLayout,
+                    R.styleable.LSwipeRevealLayout,
                     0, 0
             );
 
-            mDragEdge = a.getInteger(R.styleable.SwipeRevealLayout_dragEdge, DRAG_EDGE_LEFT);
-            mMinFlingVelocity = a.getInteger(R.styleable.SwipeRevealLayout_flingVelocity, DEFAULT_MIN_FLING_VELOCITY);
-            mMode = a.getInteger(R.styleable.SwipeRevealLayout_srl_mode, MODE_NORMAL);
+            mDragEdge = a.getInteger(R.styleable.LSwipeRevealLayout_dragEdge, DRAG_EDGE_LEFT);
+            mMinFlingVelocity = a.getInteger(R.styleable.LSwipeRevealLayout_flingVelocity, DEFAULT_MIN_FLING_VELOCITY);
+            mMode = a.getInteger(R.styleable.LSwipeRevealLayout_srl_mode, MODE_NORMAL);
 
             mMinDistRequestDisallowParent = a.getDimensionPixelSize(
-                    R.styleable.SwipeRevealLayout_minDistRequestDisallowParent,
+                    R.styleable.LSwipeRevealLayout_minDistRequestDisallowParent,
                     dpToPx(DEFAULT_MIN_DIST_REQUEST_DISALLOW_PARENT)
             );
         }
@@ -1008,17 +1008,17 @@ public class SwipeRevealLayout extends ViewGroup {
             boolean isMoved = (mMainView.getLeft() != mLastMainLeft) || (mMainView.getTop() != mLastMainTop);
             if (mSwipeListener != null && isMoved) {
                 if (mMainView.getLeft() == mRectMainClose.left && mMainView.getTop() == mRectMainClose.top) {
-                    mSwipeListener.onClosed(SwipeRevealLayout.this);
+                    mSwipeListener.onClosed(LSwipeRevealLayout.this);
                 } else if (mMainView.getLeft() == mRectMainOpen.left && mMainView.getTop() == mRectMainOpen.top) {
-                    mSwipeListener.onOpened(SwipeRevealLayout.this);
+                    mSwipeListener.onOpened(LSwipeRevealLayout.this);
                 } else {
-                    mSwipeListener.onSlide(SwipeRevealLayout.this, getSlideOffset());
+                    mSwipeListener.onSlide(LSwipeRevealLayout.this, getSlideOffset());
                 }
             }
 
             mLastMainLeft = mMainView.getLeft();
             mLastMainTop = mMainView.getTop();
-            ViewCompat.postInvalidateOnAnimation(SwipeRevealLayout.this);
+            ViewCompat.postInvalidateOnAnimation(LSwipeRevealLayout.this);
         }
 
         private float getSlideOffset() {

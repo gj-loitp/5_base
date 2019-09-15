@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-public class RippleLayout extends FrameLayout {
+public class LRippleLayout extends FrameLayout {
 
     //图片横向、纵向的格数
     private final int MESH_WIDTH = 20;
@@ -36,15 +36,15 @@ public class RippleLayout extends FrameLayout {
     //水波动画是否执行中
     private boolean isRippling;
 
-    public RippleLayout(Context context) {
+    public LRippleLayout(Context context) {
         super(context);
     }
 
-    public RippleLayout(Context context, AttributeSet attrs) {
+    public LRippleLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public RippleLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LRippleLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

@@ -58,25 +58,25 @@ public abstract class AbstractPathAnimator {
         static Config fromTypeArray(TypedArray typedArray) {
             Config config = new Config();
             Resources res = typedArray.getResources();
-            config.initX = (int) typedArray.getDimension(R.styleable.HeartLayout_initX,
+            config.initX = (int) typedArray.getDimension(R.styleable.LHeartLayout_initX,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_init_x));
-            config.initY = (int) typedArray.getDimension(R.styleable.HeartLayout_initY,
+            config.initY = (int) typedArray.getDimension(R.styleable.LHeartLayout_initY,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_init_y));
-            config.xRand = (int) typedArray.getDimension(R.styleable.HeartLayout_xRand,
+            config.xRand = (int) typedArray.getDimension(R.styleable.LHeartLayout_xRand,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_bezier_x_rand));
-            config.animLength = (int) typedArray.getDimension(R.styleable.HeartLayout_animLength,
+            config.animLength = (int) typedArray.getDimension(R.styleable.LHeartLayout_animLength,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_length));
-            config.animLengthRand = (int) typedArray.getDimension(R.styleable.HeartLayout_animLengthRand,
+            config.animLengthRand = (int) typedArray.getDimension(R.styleable.LHeartLayout_animLengthRand,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_length_rand));
-            config.bezierFactor = typedArray.getInteger(R.styleable.HeartLayout_bezierFactor,
+            config.bezierFactor = typedArray.getInteger(R.styleable.LHeartLayout_bezierFactor,
                     res.getInteger(R.integer.heart_anim_bezier_factor));
-            config.xPointFactor = (int) typedArray.getDimension(R.styleable.HeartLayout_xPointFactor,
+            config.xPointFactor = (int) typedArray.getDimension(R.styleable.LHeartLayout_xPointFactor,
                     res.getDimensionPixelOffset(R.dimen.heart_anim_x_point_factor));
-            config.heartWidth = (int) typedArray.getDimension(R.styleable.HeartLayout_heart_width,
+            config.heartWidth = (int) typedArray.getDimension(R.styleable.LHeartLayout_heart_width,
                     res.getDimensionPixelOffset(R.dimen.heart_size_width));
-            config.heartHeight = (int) typedArray.getDimension(R.styleable.HeartLayout_heart_height,
+            config.heartHeight = (int) typedArray.getDimension(R.styleable.LHeartLayout_heart_height,
                     res.getDimensionPixelOffset(R.dimen.heart_size_height));
-            config.animDuration = typedArray.getInteger(R.styleable.HeartLayout_anim_duration,
+            config.animDuration = typedArray.getInteger(R.styleable.LHeartLayout_anim_duration,
                     res.getInteger(R.integer.anim_duration));
             return config;
         }

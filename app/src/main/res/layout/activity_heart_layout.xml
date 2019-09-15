@@ -16,7 +16,7 @@
         android:text="Touch anything"
         android:textSize="@dimen/txt_32" />
 
-    <com.views.layout.heartlayout.HeartLayout
+    <com.views.layout.heartlayout.LHeartLayout
         android:id="@+id/heart_layout"
         android:layout_width="@dimen/w_100"
         android:layout_height="match_parent"

@@ -15,7 +15,7 @@ import androidx.core.view.ViewCompat;
 
 import com.R;
 
-public class ShadowLayout extends FrameLayout {
+public class LShadowLayout2 extends FrameLayout {
 
     public static final int ALL = 0x1111;
 
@@ -63,29 +63,29 @@ public class ShadowLayout extends FrameLayout {
 
     private ShadowDrawable mShadowDrawable;
 
-    public ShadowLayout(@NonNull Context context) {
+    public LShadowLayout2(@NonNull Context context) {
         this(context, null, 0);
     }
 
-    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LShadowLayout2(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LShadowLayout2(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize(attrs);
     }
 
     private void initialize(@Nullable AttributeSet attrs) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ShadowLayout);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LShadowLayout);
         if (typedArray != null) {
-            mShadowShape = typedArray.getInt(R.styleable.ShadowLayout_shadowShape, SHAPE_RECTANGLE);
-            mShadowRadius = typedArray.getDimension(R.styleable.ShadowLayout_shadowRadius, 0);
-            mShadowColor = typedArray.getColor(R.styleable.ShadowLayout_shadowColor,
+            mShadowShape = typedArray.getInt(R.styleable.LShadowLayout_shadowShape, SHAPE_RECTANGLE);
+            mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, 0);
+            mShadowColor = typedArray.getColor(R.styleable.LShadowLayout_shadowColor,
                     getContext().getResources().getColor(android.R.color.black));
-            mShadowDx = typedArray.getDimension(R.styleable.ShadowLayout_shadowDx, 0);
-            mShadowDy = typedArray.getDimension(R.styleable.ShadowLayout_shadowDy, 0);
-            mShadowSide = typedArray.getInt(R.styleable.ShadowLayout_shadowSide, ALL);
+            mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, 0);
+            mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, 0);
+            mShadowSide = typedArray.getInt(R.styleable.LShadowLayout_shadowSide, ALL);
 
             typedArray.recycle();
         }
@@ -135,7 +135,7 @@ public class ShadowLayout extends FrameLayout {
     protected void dispatchDraw(Canvas canvas) {
         //Log.i("ShadowLayout", "ShadowLayout dispatchDraw");
         super.dispatchDraw(canvas);
-        ViewCompat.setBackground(ShadowLayout.this, mShadowDrawable);
+        ViewCompat.setBackground(LShadowLayout2.this, mShadowDrawable);
     }
 
     @Override

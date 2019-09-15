@@ -14,13 +14,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.views.LToast;
-import com.views.layout.relativepopupwindow.RelativePopupWindow;
+import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import loitp.basemaster.R;
 
-public class ExampleCardPopup extends RelativePopupWindow {
+public class ExampleCardPopupL extends LRelativePopupWindow {
 
-    public ExampleCardPopup(Context context) {
+    public ExampleCardPopupL(Context context) {
         View layout = LayoutInflater.from(context).inflate(R.layout.popup_card, null);
         setContentView(layout);
         setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);

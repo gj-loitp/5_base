@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <com.views.layout.ripplelayout.RippleLayout
+        <com.views.layout.ripplelayout.LRippleLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,7 +21,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/iv" />
 
-        </com.views.layout.ripplelayout.RippleLayout>>
+        </com.views.layout.ripplelayout.LRippleLayout>>
     </ScrollView>
 </RelativeLayout>
 

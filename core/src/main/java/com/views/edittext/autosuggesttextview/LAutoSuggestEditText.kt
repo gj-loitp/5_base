@@ -10,7 +10,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.R
 import com.core.utilities.LUIUtil
-import com.views.layout.relativepopupwindow.RelativePopupWindow
+import com.views.layout.relativepopupwindow.LRelativePopupWindow
 
 class LAutoSuggestEditText : RelativeLayout {
     private val TAG = javaClass.simpleName
@@ -19,10 +19,10 @@ class LAutoSuggestEditText : RelativeLayout {
     lateinit var pb: ProgressBar
 
     private var resultList = ArrayList<String>()
-    private var popup: SuggestPopupView? = null
+    private var popup: SuggestPopupViewL? = null
 
-    var vertPos: Int = RelativePopupWindow.VerticalPosition.BELOW
-    var horizPos: Int = RelativePopupWindow.HorizontalPosition.CENTER
+    var vertPos: Int = LRelativePopupWindow.VerticalPosition.BELOW
+    var horizPos: Int = LRelativePopupWindow.HorizontalPosition.CENTER
     var popupWidth: Int = 0
     var popupHeight: Int = 0
 
@@ -105,7 +105,7 @@ class LAutoSuggestEditText : RelativeLayout {
     fun showSuggestPopup() {
         hideProgress()
         if (popup == null) {
-            popup = SuggestPopupView(context, false, object : SuggestPopupView.Callback {
+            popup = SuggestPopupViewL(context, false, object : SuggestPopupViewL.Callback {
                 override fun onClick(s: String) {
                     hideSuggestPopup()
                     et.setText(s)

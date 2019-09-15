@@ -384,7 +384,7 @@
         <attr name="android:textSize" />
         <attr name="android:enabled" />
     </declare-styleable>
-    <declare-styleable name="AutoLinearLayout">
+    <declare-styleable name="LAutoLinearLayout">
         <!-- Standard orientation constant. -->
         <attr name="auto_orientation">
             <!-- Defines an horizontal widget. -->
@@ -530,7 +530,7 @@
         <attr name="show_border" format="boolean" />
         <attr name="border_color_compass" format="color" />
     </declare-styleable>
-    <declare-styleable name="HeartLayout">
+    <declare-styleable name="LHeartLayout">
         <attr name="initX" format="dimension" />
         <attr name="initY" format="dimension" />
         <attr name="xRand" format="dimension" />
@@ -558,7 +558,7 @@
     <declare-styleable name="FixedAspectRatioRelativeLayout">
         <attr name="aspectRatioRelativeLayout" format="fraction" />
     </declare-styleable>
-    <declare-styleable name="RotateLayout">
+    <declare-styleable name="LRotateLayout">
         <!-- Child view of this layout will be rotated by this angle. -->
         <attr name="angle" format="integer" />
     </declare-styleable>
@@ -644,7 +644,7 @@
         <attr name="ext_txt_idleTint" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="SwipeRevealLayout">
+    <declare-styleable name="LSwipeRevealLayout">
         <attr name="dragEdge">
             <flag name="left" value="1" />
             <flag name="right" value="2" />
@@ -668,7 +668,7 @@
     </declare-styleable>
 
     <!-- ShadowLayout 阴影 -->
-    <declare-styleable name="ShadowLayout">
+    <declare-styleable name="LShadowLayout">
         <attr name="shadowColor" format="color" />
         <attr name="shadowRadius" format="dimension" />
         <attr name="shadowDx" format="dimension" />

@@ -20,7 +20,7 @@ import java.lang.annotation.RetentionPolicy;
  * @author kakajika
  * @since 2016/07/01
  */
-public class RelativePopupWindow extends PopupWindow {
+public class LRelativePopupWindow extends PopupWindow {
 
     @IntDef({
             VerticalPosition.CENTER,
@@ -54,40 +54,40 @@ public class RelativePopupWindow extends PopupWindow {
         int ALIGN_RIGHT = 4;
     }
 
-    public RelativePopupWindow(Context context) {
+    public LRelativePopupWindow(Context context) {
         super(context);
     }
 
-    public RelativePopupWindow(Context context, AttributeSet attrs) {
+    public LRelativePopupWindow(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public RelativePopupWindow(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LRelativePopupWindow(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public RelativePopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public LRelativePopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public RelativePopupWindow() {
+    public LRelativePopupWindow() {
         super();
     }
 
-    public RelativePopupWindow(View contentView) {
+    public LRelativePopupWindow(View contentView) {
         super(contentView);
     }
 
-    public RelativePopupWindow(int width, int height) {
+    public LRelativePopupWindow(int width, int height) {
         super(width, height);
     }
 
-    public RelativePopupWindow(View contentView, int width, int height) {
+    public LRelativePopupWindow(View contentView, int width, int height) {
         super(contentView, width, height);
     }
 
-    public RelativePopupWindow(View contentView, int width, int height, boolean focusable) {
+    public LRelativePopupWindow(View contentView, int width, int height, boolean focusable) {
         super(contentView, width, height, focusable);
     }
 

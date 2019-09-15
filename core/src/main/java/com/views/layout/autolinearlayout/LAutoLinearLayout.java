@@ -11,7 +11,7 @@ import androidx.core.view.GravityCompat;
 import com.R;
 import java.util.ArrayList;
 
-public class AutoLinearLayout extends FrameLayout {
+public class LAutoLinearLayout extends FrameLayout {
 
     private int mOrientation;
     private int mGravity = Gravity.TOP | GravityCompat.START;
@@ -21,32 +21,32 @@ public class AutoLinearLayout extends FrameLayout {
 
     private ArrayList<ViewPosition> mListPositions = new ArrayList<>();
 
-    public AutoLinearLayout(Context context) {
+    public LAutoLinearLayout(Context context) {
         super(context);
         init(context, null, 0, 0);
     }
 
-    public AutoLinearLayout(Context context, AttributeSet attrs) {
+    public LAutoLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0, 0);
     }
 
-    public AutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LAutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(21)
-    public AutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public LAutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoLinearLayout, defStyleAttr, defStyleRes);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LAutoLinearLayout, defStyleAttr, defStyleRes);
         try {
-            mOrientation = a.getInt(R.styleable.AutoLinearLayout_auto_orientation, HORIZONTAL);
-            int gravity = a.getInt(R.styleable.AutoLinearLayout_auto_gravity, -1);
+            mOrientation = a.getInt(R.styleable.LAutoLinearLayout_auto_orientation, HORIZONTAL);
+            int gravity = a.getInt(R.styleable.LAutoLinearLayout_auto_gravity, -1);
             if (gravity >= 0) {
                 setGravity(gravity);
             }

@@ -30,7 +30,7 @@ import static java.lang.Math.sin;
  * XML attributes
  * See com.github.rongi.rotate_layout.R.styleable#RotateLayout RotateLayout Attributes,
  */
-public class RotateLayout extends ViewGroup {
+public class LRotateLayout extends ViewGroup {
 
     private int angle;
 
@@ -46,19 +46,19 @@ public class RotateLayout extends ViewGroup {
 
     private boolean angleChanged = true;
 
-    public RotateLayout(Context context) {
+    public LRotateLayout(Context context) {
         this(context, null);
     }
 
-    public RotateLayout(Context context, AttributeSet attrs) {
+    public LRotateLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RotateLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LRotateLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs);
 
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RotateLayout);
-        angle = a.getInt(R.styleable.RotateLayout_angle, 0);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LRotateLayout);
+        angle = a.getInt(R.styleable.LRotateLayout_angle, 0);
         a.recycle();
 
         setWillNotDraw(false);
