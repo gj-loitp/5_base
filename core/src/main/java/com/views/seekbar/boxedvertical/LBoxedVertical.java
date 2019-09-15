@@ -1,4 +1,4 @@
-package com.views.seekbar.boxedverticalseekbar;
+package com.views.seekbar.boxedvertical;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -19,8 +19,8 @@ import androidx.core.content.ContextCompat;
 
 import com.R;
 
-public class BoxedVertical extends View {
-    private static final String TAG = BoxedVertical.class.getSimpleName();
+public class LBoxedVertical extends View {
+    private static final String TAG = LBoxedVertical.class.getSimpleName();
 
     private static final int MAX = 100;
     private static final int MIN = 0;
@@ -92,12 +92,12 @@ public class BoxedVertical extends View {
         backgroundColor = color;
     }
 
-    public BoxedVertical(Context context) {
+    public LBoxedVertical(Context context) {
         super(context);
         init(context, null);
     }
 
-    public BoxedVertical(Context context, AttributeSet attrs) {
+    public LBoxedVertical(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -125,37 +125,37 @@ public class BoxedVertical extends View {
 
         if (attrs != null) {
             final TypedArray a = context.obtainStyledAttributes(attrs,
-                    R.styleable.BoxedVertical, 0, 0);
+                    R.styleable.LBoxedVertical, 0, 0);
 
-            mPoints = a.getInteger(R.styleable.BoxedVertical_points, mPoints);
-            mMax = a.getInteger(R.styleable.BoxedVertical_max_boxed, mMax);
-            mMin = a.getInteger(R.styleable.BoxedVertical_min_boxed, mMin);
-            mStep = a.getInteger(R.styleable.BoxedVertical_step, mStep);
-            mDefaultValue = a.getInteger(R.styleable.BoxedVertical_defaultValueBoxedVertical, mDefaultValue);
-            mCornerRadius = a.getInteger(R.styleable.BoxedVertical_cornerRadius_boxed, mCornerRadius);
-            mtextBottomPadding = a.getInteger(R.styleable.BoxedVertical_textBottomPadding, mtextBottomPadding);
+            mPoints = a.getInteger(R.styleable.LBoxedVertical_points, mPoints);
+            mMax = a.getInteger(R.styleable.LBoxedVertical_max_boxed, mMax);
+            mMin = a.getInteger(R.styleable.LBoxedVertical_min_boxed, mMin);
+            mStep = a.getInteger(R.styleable.LBoxedVertical_step, mStep);
+            mDefaultValue = a.getInteger(R.styleable.LBoxedVertical_defaultValueBoxedVertical, mDefaultValue);
+            mCornerRadius = a.getInteger(R.styleable.LBoxedVertical_cornerRadius_boxed, mCornerRadius);
+            mtextBottomPadding = a.getInteger(R.styleable.LBoxedVertical_textBottomPadding, mtextBottomPadding);
             //Images
-            mImageEnabled = a.getBoolean(R.styleable.BoxedVertical_imageEnabled_boxed, mImageEnabled);
+            mImageEnabled = a.getBoolean(R.styleable.LBoxedVertical_imageEnabled_boxed, mImageEnabled);
 
             if (mImageEnabled) {
                 //Assert.assertNotNull("When images are enabled, defaultImage can not be null. Please assign a drawable in the layout XML file", a.getDrawable(R.styleable.BoxedVertical_defaultImage));
                 //Assert.assertNotNull("When images are enabled, minImage can not be null. Please assign a drawable in the layout XML file", a.getDrawable(R.styleable.BoxedVertical_minImage));
                 //Assert.assertNotNull("When images are enabled, maxImage can not be null. Please assign a drawable in the layout XML file", a.getDrawable(R.styleable.BoxedVertical_maxImage));
 
-                mDefaultImage = ((BitmapDrawable) a.getDrawable(R.styleable.BoxedVertical_defaultImage)).getBitmap();
-                mMinImage = ((BitmapDrawable) a.getDrawable(R.styleable.BoxedVertical_minImage)).getBitmap();
-                mMaxImage = ((BitmapDrawable) a.getDrawable(R.styleable.BoxedVertical_maxImage)).getBitmap();
+                mDefaultImage = ((BitmapDrawable) a.getDrawable(R.styleable.LBoxedVertical_defaultImage)).getBitmap();
+                mMinImage = ((BitmapDrawable) a.getDrawable(R.styleable.LBoxedVertical_minImage)).getBitmap();
+                mMaxImage = ((BitmapDrawable) a.getDrawable(R.styleable.LBoxedVertical_maxImage)).getBitmap();
             }
 
-            progressColor = a.getColor(R.styleable.BoxedVertical_progressColor, progressColor);
-            backgroundColor = a.getColor(R.styleable.BoxedVertical_backgroundColor, backgroundColor);
+            progressColor = a.getColor(R.styleable.LBoxedVertical_progressColor, progressColor);
+            backgroundColor = a.getColor(R.styleable.LBoxedVertical_backgroundColor, backgroundColor);
 
-            mTextSize = (int) a.getDimension(R.styleable.BoxedVertical_textSize_boxed, mTextSize);
-            textColor = a.getColor(R.styleable.BoxedVertical_textColor_boxed, textColor);
+            mTextSize = (int) a.getDimension(R.styleable.LBoxedVertical_textSize_boxed, mTextSize);
+            textColor = a.getColor(R.styleable.LBoxedVertical_textColor_boxed, textColor);
 
-            mEnabled = a.getBoolean(R.styleable.BoxedVertical_enabled_boxed, mEnabled);
-            mTouchDisabled = a.getBoolean(R.styleable.BoxedVertical_touchDisabled_boxed, mTouchDisabled);
-            mtextEnabled = a.getBoolean(R.styleable.BoxedVertical_textEnabled_boxed, mtextEnabled);
+            mEnabled = a.getBoolean(R.styleable.LBoxedVertical_enabled_boxed, mEnabled);
+            mTouchDisabled = a.getBoolean(R.styleable.LBoxedVertical_touchDisabled_boxed, mTouchDisabled);
+            mtextEnabled = a.getBoolean(R.styleable.LBoxedVertical_textEnabled_boxed, mtextEnabled);
 
             mPoints = mDefaultValue;
 
@@ -372,11 +372,11 @@ public class BoxedVertical extends View {
          * @param boxedPoints The SwagPoints view whose value has changed
          * @param points      The current point value.
          */
-        void onPointsChanged(BoxedVertical boxedPoints, int points);
+        void onPointsChanged(LBoxedVertical boxedPoints, int points);
 
-        void onStartTrackingTouch(BoxedVertical boxedPoints);
+        void onStartTrackingTouch(LBoxedVertical boxedPoints);
 
-        void onStopTrackingTouch(BoxedVertical boxedPoints);
+        void onStopTrackingTouch(LBoxedVertical boxedPoints);
     }
 
     public void setValue(int points) {

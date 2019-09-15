@@ -1,4 +1,4 @@
-package com.views.seekbar.circularseekbar;
+package com.views.seekbar.circular;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,23 +24,23 @@ import com.R;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-public class CircularSeekBar extends View {
+public class LCircularSeekBar extends View {
     /**
      * Listen for touch-events on the ring area
      */
     public interface OnCircularSeekBarChangeListener {
-        void onProgressChanged(CircularSeekBar seekBar, float progress, boolean fromUser);
+        void onProgressChanged(LCircularSeekBar seekBar, float progress, boolean fromUser);
 
-        void onStartTrackingTouch(CircularSeekBar seekBar);
+        void onStartTrackingTouch(LCircularSeekBar seekBar);
 
-        void onStopTrackingTouch(CircularSeekBar seekBar);
+        void onStopTrackingTouch(LCircularSeekBar seekBar);
     }
 
     /**
      * Listen for singletap-events on the inner circle area
      */
     public interface OnCenterClickedListener {
-        void onCenterClicked(CircularSeekBar seekBar, float progress);
+        void onCenterClicked(LCircularSeekBar seekBar, float progress);
     }
 
     // settable by the client through attributes and programmatically
@@ -86,17 +86,17 @@ public class CircularSeekBar extends View {
     private AngularVelocityTracker mAngularVelocityTracker;
 
     //region Constructor
-    public CircularSeekBar(Context context) {
+    public LCircularSeekBar(Context context) {
         super(context);
         init(context, null, 0);
     }
 
-    public CircularSeekBar(Context context, @Nullable AttributeSet attrs) {
+    public LCircularSeekBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
-    public CircularSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LCircularSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -105,24 +105,24 @@ public class CircularSeekBar extends View {
     private void init(Context context, @Nullable AttributeSet attrs, int defStyle) {
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
-                R.styleable.CircularSeekBar,
+                R.styleable.LCircularSeekBar,
                 0,
                 0);
         try {
-            mEnabled = a.getBoolean(R.styleable.CircularSeekBar_enabled, mEnabled);
-            mShowIndicator = a.getBoolean(R.styleable.CircularSeekBar_showIndicator_circular_seekbar, mShowIndicator);
-            mMinValue = a.getFloat(R.styleable.CircularSeekBar_minCircularSeekBar, mMinValue);
-            mMaxValue = a.getFloat(R.styleable.CircularSeekBar_maxCircularSeekBar, mMaxValue);
-            mSpeedMultiplier = a.getFloat(R.styleable.CircularSeekBar_speedMultiplier, mSpeedMultiplier);
-            mProgress = a.getFloat(R.styleable.CircularSeekBar_progressCircularSeekBar, mProgress);
-            mShowText = a.getBoolean(R.styleable.CircularSeekBar_showProgressText, mShowText);
-            mRingWidthFactor = a.getFloat(R.styleable.CircularSeekBar_ringWidth, mRingWidthFactor);
-            mProgressText = a.getString(R.styleable.CircularSeekBar_progressText);
-            mShowInnerCircle = a.getBoolean(R.styleable.CircularSeekBar_showInnerCircle, mShowInnerCircle);
-            mRingColor = a.getColor(R.styleable.CircularSeekBar_ringColor, mRingColor);
-            mInnerCircleColor = a.getColor(R.styleable.CircularSeekBar_innerCircleColor, mInnerCircleColor);
-            mProgressTextColor = a.getColor(R.styleable.CircularSeekBar_progressTextColor, mProgressTextColor);
-            mProgressTextSize = Utils.convertDpToPixel(getResources(), a.getFloat(R.styleable.CircularSeekBar_progressTextSize, mProgressTextSize));
+            mEnabled = a.getBoolean(R.styleable.LCircularSeekBar_enabled, mEnabled);
+            mShowIndicator = a.getBoolean(R.styleable.LCircularSeekBar_showIndicator_circular_seekbar, mShowIndicator);
+            mMinValue = a.getFloat(R.styleable.LCircularSeekBar_minCircularSeekBar, mMinValue);
+            mMaxValue = a.getFloat(R.styleable.LCircularSeekBar_maxCircularSeekBar, mMaxValue);
+            mSpeedMultiplier = a.getFloat(R.styleable.LCircularSeekBar_speedMultiplier, mSpeedMultiplier);
+            mProgress = a.getFloat(R.styleable.LCircularSeekBar_progressCircularSeekBar, mProgress);
+            mShowText = a.getBoolean(R.styleable.LCircularSeekBar_showProgressText, mShowText);
+            mRingWidthFactor = a.getFloat(R.styleable.LCircularSeekBar_ringWidth, mRingWidthFactor);
+            mProgressText = a.getString(R.styleable.LCircularSeekBar_progressText);
+            mShowInnerCircle = a.getBoolean(R.styleable.LCircularSeekBar_showInnerCircle, mShowInnerCircle);
+            mRingColor = a.getColor(R.styleable.LCircularSeekBar_ringColor, mRingColor);
+            mInnerCircleColor = a.getColor(R.styleable.LCircularSeekBar_innerCircleColor, mInnerCircleColor);
+            mProgressTextColor = a.getColor(R.styleable.LCircularSeekBar_progressTextColor, mProgressTextColor);
+            mProgressTextSize = Utils.convertDpToPixel(getResources(), a.getFloat(R.styleable.LCircularSeekBar_progressTextSize, mProgressTextSize));
         } finally {
             a.recycle();
         }
@@ -252,7 +252,7 @@ public class CircularSeekBar extends View {
             // touch gestures only work when touches are made exactly on the bar/arc
             if (mOnCenterClickedListener != null
                     && distance <= r - r * mRingWidthFactor) {
-                mOnCenterClickedListener.onCenterClicked(CircularSeekBar.this, mProgress);
+                mOnCenterClickedListener.onCenterClicked(LCircularSeekBar.this, mProgress);
             }
             return false;
         }

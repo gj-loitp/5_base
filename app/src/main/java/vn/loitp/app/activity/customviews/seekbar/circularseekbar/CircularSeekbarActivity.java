@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.core.base.BaseFontActivity;
 import com.google.android.material.snackbar.Snackbar;
-import com.views.seekbar.circularseekbar.CircularSeekBar;
+import com.views.seekbar.circular.LCircularSeekBar;
 
 import java.text.DecimalFormat;
 
@@ -18,21 +18,21 @@ public class CircularSeekbarActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CircularSeekBar seekBar = (CircularSeekBar) findViewById(R.id.seekbar);
+        LCircularSeekBar seekBar = (LCircularSeekBar) findViewById(R.id.seekbar);
         seekBar.setProgressTextFormat(new DecimalFormat("###,###,###,##0.00"));
         seekBar.setProgress(0);
         seekBar.setRingColor(Color.DKGRAY);
 
-        seekBar.setOnCenterClickedListener(new CircularSeekBar.OnCenterClickedListener() {
+        seekBar.setOnCenterClickedListener(new LCircularSeekBar.OnCenterClickedListener() {
             @Override
-            public void onCenterClicked(CircularSeekBar seekBar, float progress) {
+            public void onCenterClicked(LCircularSeekBar seekBar, float progress) {
                 Snackbar.make(seekBar, "Reset", Snackbar.LENGTH_SHORT).show();
                 seekBar.setProgress(0);
             }
         });
-        seekBar.setOnCircularSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
+        seekBar.setOnCircularSeekBarChangeListener(new LCircularSeekBar.OnCircularSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(CircularSeekBar seekBar, float progress, boolean fromUser) {
+            public void onProgressChanged(LCircularSeekBar seekBar, float progress, boolean fromUser) {
                 if (progress < 20) {
                     seekBar.setRingColor(Color.GRAY);
                 } else if (progress < 40) {
@@ -47,12 +47,12 @@ public class CircularSeekbarActivity extends BaseFontActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(CircularSeekBar seekBar) {
+            public void onStartTrackingTouch(LCircularSeekBar seekBar) {
                 // Nothing
             }
 
             @Override
-            public void onStopTrackingTouch(CircularSeekBar seekBar) {
+            public void onStopTrackingTouch(LCircularSeekBar seekBar) {
                 // Nothing
             }
         });

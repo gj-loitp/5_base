@@ -18,7 +18,7 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <com.views.seekbar.boxedverticalseekbar.BoxedVertical
+            <com.views.seekbar.boxedvertical.LBoxedVertical
                 android:id="@+id/boxed_vertical"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"

@@ -6,7 +6,7 @@ import android.widget.SeekBar;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.views.seekbar.verticalseekbar.VerticalSeekBar;
+import com.views.seekbar.vertical.LVerticalSeekBar;
 
 import loitp.basemaster.R;
 
@@ -16,7 +16,7 @@ public class VerticalSeekbarActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final VerticalSeekBar seekBar1 = (VerticalSeekBar) findViewById(R.id.seekBar1);
+        final LVerticalSeekBar seekBar1 = (LVerticalSeekBar) findViewById(R.id.seekBar1);
         seekBar1.setMax(100);
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

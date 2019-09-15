@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.views.seekbar.boxedverticalseekbar.BoxedVertical;
+import com.views.seekbar.boxedvertical.LBoxedVertical;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,26 +21,26 @@ public class BoxedVerticalSeekBarActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BoxedVertical bv = (BoxedVertical) findViewById(R.id.boxed_vertical);
+        LBoxedVertical bv = (LBoxedVertical) findViewById(R.id.boxed_vertical);
         tv = (TextView) findViewById(R.id.tv);
 
-        bv.setOnBoxedPointsChangeListener(new BoxedVertical.OnValuesChangeListener() {
+        bv.setOnBoxedPointsChangeListener(new LBoxedVertical.OnValuesChangeListener() {
             @Override
-            public void onPointsChanged(BoxedVertical boxedPoints, final int value) {
+            public void onPointsChanged(LBoxedVertical boxedPoints, final int value) {
                 LLog.INSTANCE.d(getTAG(), "onPointsChanged " + value);
                 stringList.add(0, "onPointsChanged " + value);
                 print();
             }
 
             @Override
-            public void onStartTrackingTouch(BoxedVertical boxedPoints) {
+            public void onStartTrackingTouch(LBoxedVertical boxedPoints) {
                 LLog.INSTANCE.d(getTAG(), "onStartTrackingTouch");
                 stringList.add(0, "onStartTrackingTouch");
                 print();
             }
 
             @Override
-            public void onStopTrackingTouch(BoxedVertical boxedPoints) {
+            public void onStopTrackingTouch(LBoxedVertical boxedPoints) {
                 LLog.INSTANCE.d(getTAG(), "onStopTrackingTouch");
                 stringList.add(0, "onStopTrackingTouch");
                 print();

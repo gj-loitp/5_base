@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.core.base.BaseFontActivity;
-import com.views.sticker.lib.StickerImageView;
-import com.views.sticker.lib.StickerTextView;
+import com.views.sticker.StickerImageView;
+import com.views.sticker.StickerTextView;
 
 import loitp.basemaster.R;
 

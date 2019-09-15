@@ -1,9 +1,5 @@
 package com.views.smoothtransition;
 
-/**
- * Created by LENOVO on 5/19/2018.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;

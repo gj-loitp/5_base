@@ -1,4 +1,4 @@
-package com.views.sticker.lib;
+package com.views.sticker;
 
 import android.content.Context;
 import android.content.res.Resources;

@@ -1,4 +1,4 @@
-package com.views.seekbar.verticalseekbar
+package com.views.seekbar.vertical
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,7 +15,7 @@ import com.R
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 
-class VerticalSeekBar : AppCompatSeekBar {
+class LVerticalSeekBar : AppCompatSeekBar {
 
     private var mIsDragging: Boolean = false
     private var mThumb: Drawable? = null
@@ -36,18 +36,18 @@ class VerticalSeekBar : AppCompatSeekBar {
             mRotationAngle = angle
 
             if (useViewRotation()) {
-                val wrapper = wrapper
+                val wrapper = wrapperL
                 wrapper?.applyViewRotation()
             } else {
                 requestLayout()
             }
         }
 
-    private val wrapper: VerticalSeekBarWrapper?
+    private val wrapperL: LVerticalSeekBarWrapper?
         get() {
             val parent = parent
 
-            return if (parent is VerticalSeekBarWrapper) {
+            return if (parent is LVerticalSeekBarWrapper) {
                 parent
             } else {
                 null
@@ -70,8 +70,8 @@ class VerticalSeekBar : AppCompatSeekBar {
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR)
 
         if (attrs != null) {
-            val a = context.obtainStyledAttributes(attrs, R.styleable.VerticalSeekBar, defStyleAttr, defStyleRes)
-            val rotationAngle = a.getInteger(R.styleable.VerticalSeekBar_VSseekBarRotation, 0)
+            val a = context.obtainStyledAttributes(attrs, R.styleable.LVerticalSeekBar, defStyleAttr, defStyleRes)
+            val rotationAngle = a.getInteger(R.styleable.LVerticalSeekBar_VSseekBarRotation, 0)
             if (isValidRotationAngle(rotationAngle)) {
                 mRotationAngle = rotationAngle
             }

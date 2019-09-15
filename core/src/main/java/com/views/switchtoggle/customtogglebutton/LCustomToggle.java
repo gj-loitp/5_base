@@ -27,7 +27,7 @@ import androidx.annotation.NonNull;
 
 import com.R;
 
-public class CustomToggle extends View {
+public class LCustomToggle extends View {
 
     /* This paint is used to draw button */
     private Paint roundPaint = new Paint();
@@ -77,28 +77,28 @@ public class CustomToggle extends View {
     private Context context;
 
 
-    public CustomToggle(Context context) {
+    public LCustomToggle(Context context) {
         super(context);
         this.context = context;
     }
 
-    public CustomToggle(Context context, AttributeSet attrs) {
+    public LCustomToggle(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         this.context = context;
     }
 
 
-    public CustomToggle(Context context, AttributeSet attrs, int i) {
+    public LCustomToggle(Context context, AttributeSet attrs, int i) {
         super(context, attrs, i);
 
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomToggle);
-        drawable = array.getDrawable(R.styleable.CustomToggle_ctg_addLeftIcon);
-        secondDrawable = array.getDrawable(R.styleable.CustomToggle_ctg_addRightIcon);
-        slideBackgroundColor = array.getColor(R.styleable.CustomToggle_ctg_addSlideBackgroundColor, Color.DKGRAY);
-        slideColor = array.getColor(R.styleable.CustomToggle_ctg_addSlideColor, Color.BLUE);
-        magnification = array.getInt(R.styleable.CustomToggle_ctg_addMagnification, magnification);
-        animationTime = array.getInt(R.styleable.CustomToggle_ctg_addAnimationTime, animationTime);
-        animationType = array.getInt(R.styleable.CustomToggle_ctg_addAnimationType, 0);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.LCustomToggle);
+        drawable = array.getDrawable(R.styleable.LCustomToggle_ctg_addLeftIcon);
+        secondDrawable = array.getDrawable(R.styleable.LCustomToggle_ctg_addRightIcon);
+        slideBackgroundColor = array.getColor(R.styleable.LCustomToggle_ctg_addSlideBackgroundColor, Color.DKGRAY);
+        slideColor = array.getColor(R.styleable.LCustomToggle_ctg_addSlideColor, Color.BLUE);
+        magnification = array.getInt(R.styleable.LCustomToggle_ctg_addMagnification, magnification);
+        animationTime = array.getInt(R.styleable.LCustomToggle_ctg_addAnimationTime, animationTime);
+        animationType = array.getInt(R.styleable.LCustomToggle_ctg_addAnimationType, 0);
         array.recycle();
         init();
         if (magnification != 8)

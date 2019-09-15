@@ -170,7 +170,7 @@
             <enum name="flydown" value="1" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="CustomToggle">
+    <declare-styleable name="LCustomToggle">
         <attr name="ctg_addLeftIcon" format="reference" type="drawable" />
         <attr name="ctg_addRightIcon" format="reference" />
         <attr name="ctg_addSlideBackgroundColor" format="color" />
@@ -224,7 +224,7 @@
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="CircularSeekBar">
+    <declare-styleable name="LCircularSeekBar">
         <attr name="enabled" format="boolean" />
         <attr name="showIndicator_circular_seekbar" format="boolean" />
         <attr name="minCircularSeekBar" format="float" />
@@ -449,7 +449,7 @@
         <attr name="android:title" />
         <attr name="android:adjustViewBounds" />
     </declare-styleable>
-    <declare-styleable name="BoxedVertical">
+    <declare-styleable name="LBoxedVertical">
         <attr name="points" format="integer" />
         <attr name="max_boxed" format="integer" />
         <attr name="min_boxed" format="integer" />
@@ -511,7 +511,7 @@
         <attr name="centerScale" format="float" />
         <attr name="moveSpeed" format="float" />
     </declare-styleable>
-    <declare-styleable name="VerticalSeekBar">
+    <declare-styleable name="LVerticalSeekBar">
         <attr name="VSseekBarRotation">
             <!-- Clock wise - 90 deg; top = min, bottom = max -->
             <enum name="CW90" value="90" />

@@ -1,4 +1,4 @@
-package com.views.seekbar.circularseekbar;
+package com.views.seekbar.circular;
 
 /**
  * Created by www.muathu@gmail.com on 1/4/2018.
