@@ -120,8 +120,8 @@
 #for realm
 
 ##for loading view
--keep class com.views.progressloadingview.avloadingindicatorview.lib.avi.** { *; }
--keep class com.views.progressloadingview.avloadingindicatorview.indicators.** { *; }
+-keep class com.views.progressloadingview.avl.** { *; }
+-keep class com.views.progressloadingview.av.indicators.** { *; }
 ##for loading view
 
 # Basic ProGuard rules for Firebase Android SDK 2.0.0+
