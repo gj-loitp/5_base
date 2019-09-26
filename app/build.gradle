@@ -141,6 +141,9 @@ dependencies {
 
     //https://github.com/ParkSangGwon/TedImagePicker
     api 'gun0912.ted:tedimagepicker:1.0.2'
+
+    //https://github.com/alirezat775/downloader
+    api 'com.github.alirezat775:downloader:1.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

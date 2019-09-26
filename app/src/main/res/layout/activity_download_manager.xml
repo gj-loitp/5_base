@@ -2,12 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/padding_10">
+
+    <TextView
+        android:id="@+id/current_status_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btDownload"
-        android:layout_width="wrap_content"
-        android:text="Download"
+        android:id="@+id/start_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start download" />
+
+    <Button
+        android:id="@+id/cancel_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cancel download" />
+
+    <Button
+        android:id="@+id/pause_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pause download" />
+
+    <Button
+        android:id="@+id/resume_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="resume download" />
+
+    <ProgressBar
+        android:id="@+id/download_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="false" />
+
+    <TextView
+        android:id="@+id/percent_txt"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/size_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/total_size_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
