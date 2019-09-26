@@ -21,17 +21,17 @@ class DownloadManagerActivity : BaseFontActivity() {
 
         getDownloader()
 
-        start_download_btn.setOnClickListener {
+        btStartDownload.setOnClickListener {
             getDownloader()
             downloader?.download()
         }
-        cancel_download_btn.setOnClickListener {
+        btCancelDownload.setOnClickListener {
             downloader?.cancelDownload()
         }
-        pause_download_btn.setOnClickListener {
+        btPauseDownload.setOnClickListener {
             downloader?.pauseDownload()
         }
-        resume_download_btn.setOnClickListener {
+        btResumeDownload.setOnClickListener {
             getDownloader()
             downloader?.resumeDownload()
         }
@@ -64,43 +64,43 @@ class DownloadManagerActivity : BaseFontActivity() {
                 //.timeOut(10000)
                 .downloadListener(object : OnDownloadListener {
                     override fun onStart() {
-                        handler.post { current_status_txt.text = "onStart" }
+                        handler.post { tvCurrentStatus.text = "onStart" }
                         LLog.d(TAG, "onStart")
                     }
 
                     override fun onPause() {
-                        handler.post { current_status_txt.text = "onPause" }
+                        handler.post { tvCurrentStatus.text = "onPause" }
                         LLog.d(TAG, "onPause")
                     }
 
                     override fun onResume() {
-                        handler.post { current_status_txt.text = "onResume" }
+                        handler.post { tvCurrentStatus.text = "onResume" }
                         LLog.d(TAG, "onResume")
                     }
 
                     override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
                         handler.post {
-                            current_status_txt.text = "onProgressUpdate"
-                            percent_txt.text = percent.toString().plus("%")
-                            size_txt.text = getSize(downloadedSize)
-                            total_size_txt.text = getSize(totalSize)
-                            download_progress.progress = percent
+                            tvCurrentStatus.text = "onProgressUpdate"
+                            tvPercent.text = percent.toString().plus("%")
+                            tvSize.text = getSize(downloadedSize)
+                            tvTotalSize.text = getSize(totalSize)
+                            sbDownloadProgress.progress = percent
                         }
                         LLog.d(TAG, "onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
                     }
 
                     override fun onCompleted(file: File?) {
-                        handler.post { current_status_txt.text = "onCompleted" }
+                        handler.post { tvCurrentStatus.text = "onCompleted ${file?.path}" }
                         LLog.d(TAG, "onCompleted: file --> $file")
                     }
 
                     override fun onFailure(reason: String?) {
-                        handler.post { current_status_txt.text = "onFailure: reason --> $reason" }
+                        handler.post { tvCurrentStatus.text = "onFailure: reason --> $reason" }
                         LLog.d(TAG, "onFailure: reason --> $reason")
                     }
 
                     override fun onCancel() {
-                        handler.post { current_status_txt.text = "onCancel" }
+                        handler.post { tvCurrentStatus.text = "onCancel" }
                         LLog.d(TAG, "onCancel")
                     }
                 }).build()

@@ -6,53 +6,53 @@
     android:padding="@dimen/padding_10">
 
     <TextView
-        android:id="@+id/current_status_txt"
+        android:id="@+id/tvCurrentStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/start_download_btn"
+        android:id="@+id/btStartDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="start download" />
 
     <Button
-        android:id="@+id/cancel_download_btn"
+        android:id="@+id/btCancelDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="cancel download" />
 
     <Button
-        android:id="@+id/pause_download_btn"
+        android:id="@+id/btPauseDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="pause download" />
 
     <Button
-        android:id="@+id/resume_download_btn"
+        android:id="@+id/btResumeDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="resume download" />
 
     <ProgressBar
-        android:id="@+id/download_progress"
+        android:id="@+id/sbDownloadProgress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminateOnly="false" />
 
     <TextView
-        android:id="@+id/percent_txt"
+        android:id="@+id/tvPercent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/size_txt"
+        android:id="@+id/tvSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/total_size_txt"
+        android:id="@+id/tvTotalSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
