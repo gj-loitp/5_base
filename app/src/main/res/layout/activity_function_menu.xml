@@ -32,6 +32,12 @@
                 android:text="@string/activity_service_comunicate" />
 
             <Button
+                android:id="@+id/btDownloadManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Download manager" />
+
+            <Button
                 android:id="@+id/bt_drag_drop_sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

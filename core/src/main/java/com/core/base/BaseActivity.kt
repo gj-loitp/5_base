@@ -70,6 +70,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        EventBus.getDefault().register(this)
+
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         if (setLayoutResourceId() != 0) {
             setContentView(setLayoutResourceId())
@@ -122,6 +124,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         LDialogUtil.clearAll()
         super.onDestroy()
@@ -264,7 +267,6 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     public override fun onStart() {
-        EventBus.getDefault().register(this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val startServiceIntent = Intent(this, LConectifyService::class.java)
             startService(startServiceIntent)
@@ -273,7 +275,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     public override fun onStop() {
-        EventBus.getDefault().unregister(this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             stopService(Intent(this, LConectifyService::class.java))
         }
