@@ -34,8 +34,10 @@ import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.utils.util.ConvertUtils
 import com.views.overscroll.OverScrollDecoratorHelper
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils
+import io.github.inflationx.calligraphy3.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor
+import io.github.inflationx.calligraphy3.CalligraphyUtils
+import io.github.inflationx.viewpump.ViewPump
 import java.io.InputStream
 import java.util.*
 
@@ -58,7 +60,14 @@ object LUIUtil {
     var fontForAll: String? = null
         set(fontForAll) {
             field = fontForAll
-            CalligraphyConfig.initDefault(CalligraphyConfig.Builder().setDefaultFontPath(fontForAll).setFontAttrId(R.attr.fontPath).build())
+            //CalligraphyConfig.initDefault(CalligraphyConfig.Builder().setDefaultFontPath(fontForAll).setFontAttrId(R.attr.fontPath).build())
+            ViewPump.init(ViewPump.builder()
+                    .addInterceptor(CalligraphyInterceptor(
+                            CalligraphyConfig.Builder()
+                                    .setDefaultFontPath(fontForAll)
+                                    .setFontAttrId(R.attr.fontPath)
+                                    .build()))
+                    .build())
         }
 
     fun createAdBanner(activity: Activity, adViewId: Int): AdView {
