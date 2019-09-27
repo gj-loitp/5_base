@@ -80,14 +80,14 @@ dependencies {
     api 'io.realm:realm-android:0.82.1'//realm
 
     // [START gradle_play_config]
-    api 'com.google.firebase:firebase-ads:17.2.0'
+    api 'com.google.firebase:firebase-ads:18.2.0'
 
     // Firebase Authentication
-    api 'com.google.firebase:firebase-auth:16.2.0'
-    api 'com.google.firebase:firebase-core:16.0.7'
+    api 'com.google.firebase:firebase-auth:19.1.0'
+    api 'com.google.firebase:firebase-core:17.2.0'
 
     // Google Sign In SDK (only required for Google Sign In)
-    api 'com.google.android.gms:play-services-auth:16.0.1'
+    api 'com.google.android.gms:play-services-auth:17.0.0'
 
     // Firebase UI
     // Used in FirebaseUIActivity.
@@ -98,31 +98,26 @@ dependencies {
     api 'com.facebook.android:facebook-login:4.34.0'
 
     //remote config
-    api 'com.google.firebase:firebase-config:16.4.0'
+    api 'com.google.firebase:firebase-config:19.0.2'
 
     //database
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
-    api 'com.google.firebase:firebase-database:16.1.0'
+    api 'com.google.firebase:firebase-database:19.1.0'
 
     // Needed to fix a dependency conflict with FirebaseUI'
-    api 'androidx.arch.core:core-runtime:2.0.0-beta01'
+    api 'androidx.arch.core:core-runtime:2.1.0'
 
     //invites
-    api 'com.google.firebase:firebase-invites:16.1.0'
+    api 'com.google.firebase:firebase-invites:17.0.0'
 
     /*fcm*/
     //compile 'com.google.android.gms:play-services:12.0.1'
-    api 'com.google.firebase:firebase-messaging:17.4.0'
+    api 'com.google.firebase:firebase-messaging:20.0.0'
 
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     //implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
-
-    //for playing video VOD, LIVE
-    //implementation 'com.github.uizaio.uiza-android-sdk-player:uizacoresdk:3.0.8'
-    //for live broadcaster
-    //implementation 'com.github.uizaio.uiza-android-sdk-player:uizalivestream:3.0.8'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
 
     //https://github.com/siralam/BSImagePicker
     implementation 'com.asksira.android:bsimagepicker:1.1.0'
@@ -141,6 +136,9 @@ dependencies {
 
     //https://github.com/ParkSangGwon/TedImagePicker
     api 'gun0912.ted:tedimagepicker:1.0.2'
+
+    //https://github.com/alirezat775/downloader
+    api 'com.github.alirezat775:downloader:1.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

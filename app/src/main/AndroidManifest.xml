@@ -1000,11 +1000,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="vn.loitp.app.activity.demo.firebase.fcm.FirebaseInstanceIdService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
         <service
             android:name="vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService"
             android:exported="false" />
@@ -1045,5 +1040,8 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

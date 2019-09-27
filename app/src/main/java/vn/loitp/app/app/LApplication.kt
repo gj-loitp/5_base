@@ -14,6 +14,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
+//TODO compass
 //TODO bug database ->  read sqlite  asset
 //TODO bug custom view -> button -> loading button
 
@@ -41,7 +42,7 @@ class LApplication : MultiDexApplication() {
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)
         //config activity transition default
-        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
+        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
 
         //config realm
         val realmConfiguration = RealmConfiguration.Builder(this)

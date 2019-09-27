@@ -6,9 +6,11 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_function_menu.*
 
 import loitp.basemaster.R
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
+import vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity
 import vn.loitp.app.activity.function.gesto.GestoActivity
@@ -45,6 +47,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_sensor).setOnClickListener(this)
         findViewById<View>(R.id.bt_glide).setOnClickListener(this)
         findViewById<View>(R.id.bt_keyboard).setOnClickListener(this)
+        btDownloadManager.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -77,6 +80,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_sensor -> intent = Intent(activity, SensorActivity::class.java)
             R.id.bt_glide -> intent = Intent(activity, GlideActivity::class.java)
             R.id.bt_keyboard -> intent = Intent(activity, KeyboardActivity::class.java)
+            R.id.btDownloadManager -> intent = Intent(activity, DownloadManagerActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
