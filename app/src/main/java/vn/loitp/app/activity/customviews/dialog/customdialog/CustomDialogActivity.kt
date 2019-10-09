@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.dialog.customdialog
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
-import com.views.dialog.imersivedialog.ImmersiveDialogFragment
 import kotlinx.android.synthetic.main.activity_custom_dialog.*
 import loitp.basemaster.R
 
@@ -18,8 +17,7 @@ class CustomDialogActivity : BaseFontActivity() {
             LScreenUtil.toggleFullscreen(activity, isFullScreen)
         }
         btShowDialog1.setOnClickListener { v ->
-            PositionDialog().showImmersive(activity)
-            //ImmersiveDialogFragment().showImmersive(activity)
+            PositionDialog().showImmersiveCenter(activity)
         }
     }
 

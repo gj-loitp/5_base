@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -16,6 +17,8 @@ import loitp.basemaster.R
 
 class PositionDialog : DialogFragment() {
     private val TAG = javaClass.simpleName
+    private var posX: Int? = null
+    private var posY: Int? = null
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -27,7 +30,16 @@ class PositionDialog : DialogFragment() {
         isCancelable = true
         init(dialogView)
         val d = dialogBuilder.create()
-        d.window?.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+        d.window?.let { w ->
+            w.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+            if (posX != null && posY != null) {
+                w.attributes?.let { a ->
+                    a.gravity = Gravity.TOP or Gravity.START
+                    a.x = posX!!
+                    a.y = posY!!
+                }
+            }
+        }
         return d
     }
 
@@ -38,8 +50,23 @@ class PositionDialog : DialogFragment() {
         btCancel.setOnClickListener { dismiss() }
     }
 
-    fun showImmersive(activity: Activity) {
+    fun showImmersiveCenter(activity: Activity) {
+        if (activity is BaseActivity) {
+            activity.supportFragmentManager.let { fm ->
+                show(fm, TAG)
+                fm.executePendingTransactions()
+                dialog?.window?.let { w ->
+                    w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility
+                    w.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+                }
+            }
+        }
+    }
+
+    fun showImmersivePos(activity: Activity, posX: Int, posY: Int) {
         LLog.d(TAG, "showImmersive")
+        this.posX = posX
+        this.posY = posY
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)
