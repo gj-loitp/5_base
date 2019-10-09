@@ -50,7 +50,7 @@ class PositionDialog : DialogFragment() {
         btCancel.setOnClickListener { dismiss() }
     }
 
-    fun showImmersiveCenter(activity: Activity) {
+    fun showImmersiveCenter(activity: Activity, sizeWidthPx: Int?, sizeHeightPx: Int?) {
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)
@@ -58,12 +58,15 @@ class PositionDialog : DialogFragment() {
                 dialog?.window?.let { w ->
                     w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility
                     w.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+                    if (sizeWidthPx != null && sizeHeightPx != null) {
+                        w.setLayout(sizeWidthPx, sizeHeightPx)
+                    }
                 }
             }
         }
     }
 
-    fun showImmersivePos(activity: Activity, posX: Int, posY: Int) {
+    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?) {
         LLog.d(TAG, "showImmersive")
         this.posX = posX
         this.posY = posY
@@ -74,6 +77,9 @@ class PositionDialog : DialogFragment() {
                 dialog?.window?.let { w ->
                     w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility
                     w.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+                    if (sizeWidthPx != null && sizeHeightPx != null) {
+                        w.setLayout(sizeWidthPx, sizeHeightPx)
+                    }
                 }
             }
         }

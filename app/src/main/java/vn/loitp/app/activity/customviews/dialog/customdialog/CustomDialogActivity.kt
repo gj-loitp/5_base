@@ -17,7 +17,7 @@ class CustomDialogActivity : BaseFontActivity() {
             LScreenUtil.toggleFullscreen(activity, isFullScreen)
         }
         btShowDialog1.setOnClickListener { v ->
-            PositionDialog().showImmersiveCenter(activity)
+            PositionDialog().showImmersiveCenter(activity, null, null)
         }
     }
 
