@@ -26,6 +26,12 @@
                 android:textSize="@dimen/txt_20" />
 
             <Button
+                android:id="@+id/btCustomDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom dialog" />
+
+            <Button
                 android:id="@+id/bt_custom_progress_dialog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
