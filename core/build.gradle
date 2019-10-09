@@ -121,7 +121,6 @@ dependencies {
     api 'com.karumi:dexter:5.0.0'
 
     //font
-    //api 'uk.co.chrisjenx:calligraphy:2.3.0'
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
 

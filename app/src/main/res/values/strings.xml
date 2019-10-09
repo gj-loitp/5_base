@@ -544,4 +544,17 @@ Likewise may someone love you next.
     <string name="text_color">Text color</string>
     <string name="dot_color">Dot color</string>
     <string name="apply">Apply</string>
+    <string name="menu_imageview">Menu ImageView</string>
+    <string name="big_imageview">Big ImageView</string>
+    <string name="big_imageview_with_scrollview">Big ImageView With ScrollView</string>
+    <string name="blur_imageview">Blur ImageView</string>
+    <string name="circle_imageview">Circle ImageView</string>
+    <string name="circular_roundrect_imageview">Circular Roundrect ImageView</string>
+    <string name="continuous_scrollable_imageview">Continuous Scrollable ImageView</string>
+    <string name="fidgetspinner_imageview">FidgetSpinner ImageView</string>
+    <string name="panorama_imageview">Panorama Imageview</string>
+    <string name="scroll_parallax_imageview">Scroll Parallax Imageview</string>
+    <string name="touch_imageview">Touch ImageView</string>
+    <string name="stretchy_imageview">Stretchy ImageView</string>
+    <string name="zoomimageview">ZoomImageView</string>
 </resources>
