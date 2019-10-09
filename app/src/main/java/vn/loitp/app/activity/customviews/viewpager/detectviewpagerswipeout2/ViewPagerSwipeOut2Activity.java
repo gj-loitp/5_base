@@ -21,24 +21,24 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (LSwipeOutViewPager) findViewById(R.id.vp);
+        viewPager = findViewById(R.id.vp);
 
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         viewPager.setOnSwipeOutListener(new LSwipeOutViewPager.OnSwipeOutListener() {
             @Override
             public void onSwipeOutAtStart() {
-                LToast.INSTANCE.show(getActivity(), "onSwipeOutAtStart");
+                LToast.show(getActivity(), "onSwipeOutAtStart");
             }
 
             @Override
             public void onSwipeOutAtEnd() {
-                LToast.INSTANCE.show(getActivity(), "onSwipeOutAtEnd");
+                LToast.show(getActivity(), "onSwipeOutAtEnd");
             }
         });
 
         LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }

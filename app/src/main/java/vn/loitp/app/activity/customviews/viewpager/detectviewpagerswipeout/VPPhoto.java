@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex;
+package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout;
 
 import java.io.Serializable;
 

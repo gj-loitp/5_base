@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex;
+package vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout;
 
 import android.os.Bundle;
 import android.view.View;
@@ -32,10 +32,10 @@ public class FrmPhoto extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        LLog.INSTANCE.d(TAG, "onViewCreated");
+        LLog.d(TAG, "onViewCreated");
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = (TextView) getFrmRootView().findViewById(R.id.tv);
-        RelativeLayout bkg = (RelativeLayout) getFrmRootView().findViewById(R.id.bkg);
+        TextView tv = getFrmRootView().findViewById(R.id.tv);
+        RelativeLayout bkg = getFrmRootView().findViewById(R.id.bkg);
         Bundle bundle = getArguments();
         if (bundle != null) {
             VPPhoto vpPhoto = (VPPhoto) bundle.getSerializable("vpphoto");

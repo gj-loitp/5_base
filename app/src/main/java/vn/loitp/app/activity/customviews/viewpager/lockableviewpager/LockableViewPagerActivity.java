@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.viewpager.lockableviewpager;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,6 +11,8 @@ import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.views.viewpager.lockable.LockableViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
 
@@ -21,25 +22,15 @@ public class LockableViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (LockableViewPager) findViewById(R.id.vp);
+        viewPager = findViewById(R.id.vp);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 
-        findViewById(R.id.bt_enable).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewPager.setSwipeLocked(false);
-            }
-        });
-        findViewById(R.id.bt_disable).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewPager.setSwipeLocked(true);
-            }
-        });
+        findViewById(R.id.bt_enable).setOnClickListener(view -> viewPager.setSwipeLocked(false));
+        findViewById(R.id.bt_disable).setOnClickListener(view -> viewPager.setSwipeLocked(true));
     }
 
     @Override
@@ -63,6 +54,7 @@ public class LockableViewPagerActivity extends BaseFontActivity {
             super(fm);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
             return FrmIv.newInstance();
