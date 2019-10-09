@@ -33,9 +33,12 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.utils.util.ConvertUtils
+import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
 import com.views.overscroll.OverScrollDecoratorHelper
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils
+import io.github.inflationx.calligraphy3.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor
+import io.github.inflationx.calligraphy3.CalligraphyUtils
+import io.github.inflationx.viewpump.ViewPump
 import java.io.InputStream
 import java.util.*
 
@@ -58,7 +61,13 @@ object LUIUtil {
     var fontForAll: String? = null
         set(fontForAll) {
             field = fontForAll
-            CalligraphyConfig.initDefault(CalligraphyConfig.Builder().setDefaultFontPath(fontForAll).setFontAttrId(R.attr.fontPath).build())
+            ViewPump.init(ViewPump.builder()
+                    .addInterceptor(CalligraphyInterceptor(
+                            CalligraphyConfig.Builder()
+                                    .setDefaultFontPath(fontForAll)
+                                    .setFontAttrId(R.attr.fontPath)
+                                    .build()))
+                    .build())
         }
 
     fun createAdBanner(activity: Activity, adViewId: Int): AdView {
@@ -106,12 +115,12 @@ object LUIUtil {
 
     @JvmOverloads
     fun displayInterstitial(interstitial: InterstitialAd?, maxNumber: Int = 100) {
-        interstitial?.let {
-            if (it.isLoaded) {
+        interstitial?.let { i ->
+            if (i.isLoaded) {
                 val r = Random()
                 val x = r.nextInt(100)
                 if (x < maxNumber) {
-                    it.show()
+                    i.show()
                 } else {
                     //dont use LLog here
                     Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
@@ -127,9 +136,9 @@ object LUIUtil {
      * settext marquee
      */
     fun setMarquee(tv: TextView?, text: String?) {
-        tv?.let {
-            it.text = text
-            setMarquee(it)
+        tv?.let { t ->
+            t.text = text
+            setMarquee(t)
         }
     }
 
@@ -137,7 +146,7 @@ object LUIUtil {
         tv?.let {
             it.isSelected = true
             it.ellipsize = TextUtils.TruncateAt.MARQUEE
-            it.setSingleLine(true)
+            it.isSingleLine = true
             it.marqueeRepeatLimit = -1//no limit loop
         }
     }
@@ -673,18 +682,18 @@ object LUIUtil {
 
     //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
     fun playYoutube(activity: Activity?, url: String) {
-        activity?.let {
+        activity?.let { a ->
             if (url.isEmpty()) {
                 return
             }
-            it.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-            LActivityUtil.tranIn(it)
+            a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            LActivityUtil.tranIn(a)
         }
     }
 
     fun playYoutubeWithId(activity: Activity?, id: String) {
-        activity?.let {
-            playYoutube(it, "http://www.youtube.com/watch?v=$id")
+        activity?.let { a ->
+            playYoutube(activity = a, url = "http://www.youtube.com/watch?v=$id")
         }
     }
 
@@ -697,12 +706,17 @@ object LUIUtil {
 
     @SuppressLint("ObsoleteSdkInt")
     fun setRipple(context: Context?, view: View) {
-        context?.let {
+        context?.let { c ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                val outValue = TypedValue();
-                context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
-                view.setBackgroundResource(outValue.resourceId);
+                val outValue = TypedValue()
+                c.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                view.setBackgroundResource(outValue.resourceId)
             }
         }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun setImageViewZoom(iv: ImageView?) {
+        iv?.setOnTouchListener(ImageMatrixTouchHandler(iv.context))
     }
 }

@@ -21,6 +21,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import java.io.File
+import java.util.*
 
 /**
  * Created by www.muathu@gmail.com on 17/7/2019.
@@ -47,7 +48,7 @@ object LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .into(imageView)
@@ -57,7 +58,7 @@ object LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(drawableRequestListener)
@@ -70,7 +71,7 @@ object LImageUtil {
                 .transition(withCrossFade())
                 .apply(RequestOptions()
                         .placeholder(resPlaceHolder)
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .into(imageView)
@@ -117,7 +118,7 @@ object LImageUtil {
                 .transition(withCrossFade())
                 .apply(RequestOptions()
                         .placeholder(resPlaceHolder)
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .error(resError)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
@@ -134,7 +135,7 @@ object LImageUtil {
                 .transition(withCrossFade())
                 .apply(RequestOptions()
                         .placeholder(resPlaceHolder)
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .error(resError)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
@@ -178,7 +179,7 @@ object LImageUtil {
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                 )
                 .listener(object : RequestListener<Drawable> {
@@ -221,7 +222,7 @@ object LImageUtil {
                 )
                 .apply(RequestOptions()
                         .placeholder(R.drawable.trans)
-                        .override(Target.SIZE_ORIGINAL)
+                        //.override(Target.SIZE_ORIGINAL)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .dontTransform()
@@ -252,7 +253,7 @@ object LImageUtil {
         if (linkUrlM.isEmpty()) {
             return null
         }
-        linkUrlM = linkUrlM.toLowerCase()
+        linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
             linkUrlM = linkUrlM.replace(".jpg", "_t.jpg")
         } else if (linkUrlM.contains(".png")) {
@@ -283,7 +284,7 @@ object LImageUtil {
         if (linkUrlM.isEmpty()) {
             return null
         }
-        linkUrlM = linkUrlM.toLowerCase()
+        linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
             linkUrlM = linkUrlM.replace(".jpg", "_z.jpg")
         } else if (linkUrlM.contains(".png")) {
@@ -314,7 +315,7 @@ object LImageUtil {
         if (linkUrlM.isEmpty()) {
             return null
         }
-        linkUrlM = linkUrlM.toLowerCase()
+        linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
             linkUrlM = linkUrlM.replace(".jpg", "_n.jpg")
         } else if (linkUrlM.contains(".png")) {
@@ -345,7 +346,7 @@ object LImageUtil {
         if (linkUrlM.isEmpty()) {
             return null
         }
-        linkUrlM = linkUrlM.toLowerCase()
+        linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
             linkUrlM = linkUrlM.replace(".jpg", "_b.jpg")
         } else if (linkUrlM.contains(".png")) {

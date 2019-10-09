@@ -20,8 +20,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.views.LToast
+import io.github.inflationx.calligraphy3.CalligraphyUtils
 import loitp.basemaster.R
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
 
