@@ -491,7 +491,6 @@ Likewise may someone love you next.
     <string name="function_menu">Function Menu</string>
     <string name="activity_service_comunicate">Activity Service Comunicate</string>
     <string name="drag_drop_sample">Drag drop sample</string>
-    <string name="toggle_fullscreen">Toggle fullscreen</string>
     <string name="gesto">Gesto</string>
     <string name="glide">Glide</string>
     <string name="hashmap">Hashmap</string>
@@ -557,4 +556,6 @@ Likewise may someone love you next.
     <string name="touch_imageview">Touch ImageView</string>
     <string name="stretchy_imageview">Stretchy ImageView</string>
     <string name="zoomimageview">ZoomImageView</string>
+    <string name="toggle_fullscreen">Toggle fullscreen</string>
+    <string name="show_dialog_without_show_system_bar_if_fullscreen">Show dialog without show system bar if fullscreen</string>
 </resources>

@@ -6,6 +6,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -13,20 +14,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/bt_toggle_fullscreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toggle fullscreen" />
+                android:text="@string/toggle_fullscreen" />
 
             <Button
                 android:id="@+id/bt_show_dialog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Show dialog without show system bar if fullscreen" />
+                android:text="@string/show_dialog_without_show_system_bar_if_fullscreen" />
 
             <TextView
                 android:layout_width="match_parent"
