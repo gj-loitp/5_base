@@ -68,19 +68,23 @@ class PositionDialog : DialogFragment() {
                         posY = (av.top + av.bottom) / 2
                     }
                     Position.BOTTOM_LEFT -> {
+                        posX = av.left
+                        posY = av.bottom
                     }
                     Position.BOTTOM_CENTER -> {
+                        posX = (av.left + av.right) / 2
+                        posY = av.bottom
                     }
                     Position.BOTTOM_RIGHT -> {
+                        posX = av.right
+                        posY = av.bottom
                     }
                 }
                 LLog.d(TAG, "posX: $posX, posY: $posY")
-                if (posX != null && posY != null) {
-                    w.attributes?.let { a ->
-                        a.gravity = Gravity.TOP or Gravity.START
-                        a.x = posX
-                        a.y = posY
-                    }
+                w.attributes?.let { a ->
+                    a.gravity = Gravity.TOP or Gravity.START
+                    a.x = posX
+                    a.y = posY
                 }
             }
         }

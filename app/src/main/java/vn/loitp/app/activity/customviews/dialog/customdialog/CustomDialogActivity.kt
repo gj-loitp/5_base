@@ -34,6 +34,15 @@ class CustomDialogActivity : BaseFontActivity() {
         btCenterRight.setOnClickListener { v ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_RIGHT)
         }
+        btBottomLeft.setOnClickListener { v ->
+            PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_LEFT)
+        }
+        btBottomCenter.setOnClickListener { v ->
+            PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_CENTER)
+        }
+        btBottomRight.setOnClickListener { v ->
+            PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_RIGHT)
+        }
     }
 
     override fun setFullScreen(): Boolean {
