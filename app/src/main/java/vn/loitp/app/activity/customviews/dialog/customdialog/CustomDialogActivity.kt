@@ -39,6 +39,11 @@ class CustomDialogActivity : BaseFontActivity() {
             val posY = v.top
             PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = false, isAlignTop = true)
         }
+        btShowDialog6.setOnClickListener { v ->
+            val posX = (v.left + v.right) / 2
+            val posY = (v.top + v.bottom) / 2
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = true, isAlignTop = false)
+        }
     }
 
     override fun setFullScreen(): Boolean {
