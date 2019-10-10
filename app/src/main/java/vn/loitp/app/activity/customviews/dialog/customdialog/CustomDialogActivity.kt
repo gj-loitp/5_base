@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.dialog.customdialog
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
+import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_custom_dialog.*
 import loitp.basemaster.R
@@ -22,7 +23,13 @@ class CustomDialogActivity : BaseFontActivity() {
         btShowDialog2.setOnClickListener { v ->
             val posX = v.right
             val posY = v.bottom
-            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null)
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = true)
+        }
+        btShowDialog3.setOnClickListener { v ->
+            LLog.d(TAG, "loitpp ${v.left} ")
+            val posX = v.left
+            val posY = v.bottom
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = false)
         }
     }
 
@@ -31,7 +38,7 @@ class CustomDialogActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String? {
-        return javaClass.simpleName
+        return "TAG" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

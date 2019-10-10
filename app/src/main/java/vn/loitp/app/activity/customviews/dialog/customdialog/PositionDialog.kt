@@ -13,16 +13,18 @@ import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import loitp.basemaster.R
 
 class PositionDialog : DialogFragment() {
     private val TAG = javaClass.simpleName
     private var posX: Int? = null
     private var posY: Int? = null
+    private var isAlignLeft = true
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        LLog.d(TAG, "onCreateDialog")
+        //LLog.d(TAG, "onCreateDialog")
         val dialogBuilder = AlertDialog.Builder(context, R.style.FullDialogTheme)
         val inflater = LayoutInflater.from(context)
         val dialogView = inflater.inflate(R.layout.dialog_position, null)
@@ -35,7 +37,13 @@ class PositionDialog : DialogFragment() {
             if (posX != null && posY != null) {
                 w.attributes?.let { a ->
                     a.gravity = Gravity.TOP or Gravity.START
-                    a.x = posX!!
+                    if (isAlignLeft) {
+                        a.x = posX!!
+                    } else {
+                        val tmp = posX!! - LUIUtil.getWidthOfView(dialogView)
+                        a.x = tmp
+                        LLog.d(TAG, "loitpp $posX, ${LUIUtil.getWidthOfView(dialogView)}, $tmp")
+                    }
                     a.y = posY!!
                 }
             }
@@ -66,10 +74,11 @@ class PositionDialog : DialogFragment() {
         }
     }
 
-    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?) {
-        LLog.d(TAG, "showImmersive")
+    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?, isAlignLeft: Boolean) {
+        //LLog.d(TAG, "showImmersive")
         this.posX = posX
         this.posY = posY
+        this.isAlignLeft = isAlignLeft
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)

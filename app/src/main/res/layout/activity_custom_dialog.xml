@@ -8,6 +8,7 @@
         android:id="@+id/btToggleFullScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bt_primary"
         android:text="@string/toggle_fullscreen" />
 
     <Button
@@ -15,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:background="@drawable/bt_primary"
         android:text="Show" />
 
     <Button
@@ -22,6 +24,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btToggleFullScreen"
+        android:background="@drawable/bt_primary"
+        android:text="Show" />
+
+    <Button
+        android:id="@+id/btShowDialog3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btToggleFullScreen"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bt_primary"
         android:text="Show" />
 </RelativeLayout>
 
