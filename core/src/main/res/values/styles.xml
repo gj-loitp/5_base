@@ -209,5 +209,11 @@
 
         <!--<item name="android:windowNoTitle">true</item>-->
         <item name="android:windowFullscreen">true</item>
+        <!--<item name="android:windowAnimationStyle">@style/FullDialogTheme.Anim</item>-->
+    </style>
+
+    <style name="FullDialogTheme.Anim" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/l_anim_in_dialog</item>
+        <item name="android:windowExitAnimation">@anim/l_anim_out_dialog</item>
     </style>
 </resources>

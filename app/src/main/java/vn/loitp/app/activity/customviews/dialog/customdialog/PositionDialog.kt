@@ -43,7 +43,6 @@ class PositionDialog : DialogFragment() {
                 var posX: Int? = null
                 var posY: Int? = null
                 when (position) {
-                    // val tmp = posX!! - LUIUtil.getWidthOfView(dialogView)
                     Position.TOP_LEFT -> {
                         posX = av.left
                         posY = av.top
@@ -90,6 +89,7 @@ class PositionDialog : DialogFragment() {
                         a.gravity = Gravity.TOP or Gravity.START
                         a.x = posX
                         a.y = posY
+                        a.windowAnimations = R.style.FullDialogTheme_Anim
                     }
                 }
             }
