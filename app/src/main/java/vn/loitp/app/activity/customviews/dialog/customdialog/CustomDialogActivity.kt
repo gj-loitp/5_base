@@ -14,13 +14,15 @@ class CustomDialogActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         btToggleFullScreen.setOnClickListener { v ->
             isFullScreen = !isFullScreen
-            LScreenUtil.toggleFullscreen(activity, isFullScreen)
+            LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = isFullScreen)
         }
         btShowDialog1.setOnClickListener { v ->
-            PositionDialog().showImmersiveCenter(activity, null, null)
+            PositionDialog().showImmersiveCenter(activity = activity, sizeWidthPx = null, sizeHeightPx = null)
         }
         btShowDialog2.setOnClickListener { v ->
-            PositionDialog().showImmersivePos(activity, 0, 0, null, null)
+            val posX = v.right
+            val posY = v.bottom
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null)
         }
     }
 
