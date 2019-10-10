@@ -716,4 +716,20 @@
             <enum name="sweep" value="3" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="WP7ProgressBar">
+        <attr name="wpInterval" format="integer" />
+        <attr name="wpAnimationDuration" format="integer" />
+        <attr name="wpIndicatorHeight" format="integer" />
+        <attr name="wpIndicatorColor" format="color" />
+        <attr name="wpIndicatorRadius" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="WP10ProgressBar" parent="WP7ProgressBar">
+        <attr name="wpIterval" />
+        <attr name="wpAnimationDuration" />
+        <attr name="wpIndicatorHeight" />
+        <attr name="wpIndicatorColor" />
+        <attr name="wpIndicatorRadius" />
+    </declare-styleable>
 </resources>

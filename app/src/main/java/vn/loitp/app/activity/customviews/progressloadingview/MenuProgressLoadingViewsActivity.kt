@@ -12,6 +12,7 @@ import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity
+import vn.loitp.app.activity.customviews.progressloadingview.window.WindowProgressActivity
 
 class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -20,6 +21,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
         btAvloadingIndicatorView.setOnClickListener(this)
         btCircularProgressBar.setOnClickListener(this)
         btCircularProgressIndicator.setOnClickListener(this)
+        btWindow.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -40,6 +42,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
             btAvloadingIndicatorView -> intent = Intent(activity, AVLoadingIndicatorActivity::class.java)
             btCircularProgressBar -> intent = Intent(activity, CircularProgressBarActivity::class.java)
             btCircularProgressIndicator -> intent = Intent(activity, CircularProgressIndicatorActivity::class.java)
+            btWindow -> intent = Intent(activity, WindowProgressActivity::class.java)
         }
         intent?.let {
             startActivity(it)
