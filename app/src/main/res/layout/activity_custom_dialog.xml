@@ -45,11 +45,32 @@
                 android:text="Top Center" />
 
             <Button
+                android:id="@+id/btTopRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_primary"
+                android:text="Top Right" />
+
+            <Button
+                android:id="@+id/btCenterLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_primary"
+                android:text="Center left" />
+
+            <Button
                 android:id="@+id/btCenterCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Center center" />
+
+            <Button
+                android:id="@+id/btCenterRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_primary"
+                android:text="Center right" />
         </LinearLayout>
     </HorizontalScrollView>
 </RelativeLayout>

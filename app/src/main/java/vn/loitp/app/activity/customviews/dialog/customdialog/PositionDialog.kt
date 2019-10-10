@@ -9,7 +9,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
 import com.core.utilities.LLog
@@ -53,12 +52,20 @@ class PositionDialog : DialogFragment() {
                         posY = av.top
                     }
                     Position.TOP_RIGHT -> {
+                        posX = av.right
+                        posY = av.top
                     }
                     Position.CENTER_LEFT -> {
+                        posX = av.left
+                        posY = (av.top + av.bottom) / 2
                     }
                     Position.CENTER_CENTER -> {
+                        posX = (av.left + av.right) / 2
+                        posY = (av.top + av.bottom) / 2
                     }
                     Position.CENTER_RIGHT -> {
+                        posX = av.right
+                        posY = (av.top + av.bottom) / 2
                     }
                     Position.BOTTOM_LEFT -> {
                     }
