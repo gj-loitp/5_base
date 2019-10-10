@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/White">
+    android:background="@drawable/bkg_et">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -29,23 +29,24 @@
             android:textSize="@dimen/txt_16" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_15"
             android:gravity="end"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/btOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:text="OK" />
 
-            <Button
+            <TextView
                 android:id="@+id/btCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
                 android:background="?selectableItemBackground"
                 android:text="Cancel" />
         </LinearLayout>

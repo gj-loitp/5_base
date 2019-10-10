@@ -12,15 +12,20 @@ import android.view.WindowManager
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
-import com.core.utilities.LUIUtil
+import com.core.utilities.LLog
 import loitp.basemaster.R
 
 class PositionDialog : DialogFragment() {
-    private val TAG = javaClass.simpleName
-    private var posX: Int? = null
-    private var posY: Int? = null
-    private var isAlignLeft = true
-    private var isAlignTop = true
+    private val TAG = "TAG" + javaClass.simpleName
+    private var anchorView: View? = null
+
+    enum class Position {
+        TOP_LEFT, TOP_CENTER, TOP_RIGHT,
+        CENTER_LEFT, CENTER_CENTER, CENTER_RIGHT,
+        BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT
+    }
+
+    private var position = Position.CENTER_CENTER
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -34,20 +39,40 @@ class PositionDialog : DialogFragment() {
         val d = dialogBuilder.create()
         d.window?.let { w ->
             w.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
-            if (posX != null && posY != null) {
-                w.attributes?.let { a ->
-                    a.gravity = Gravity.TOP or Gravity.START
-                    if (isAlignLeft) {
-                        a.x = posX!!
-                    } else {
-                        val tmp = posX!! - LUIUtil.getWidthOfView(dialogView)
-                        a.x = tmp
+            anchorView?.let { av ->
+                var posX: Int? = null
+                var posY: Int? = null
+                when (position) {
+                    // val tmp = posX!! - LUIUtil.getWidthOfView(dialogView)
+                    Position.TOP_LEFT -> {
+                        posX = av.left
+                        posY = av.top
                     }
-                    if (isAlignTop) {
-                        val tmp = posY!! - LUIUtil.getHeightOfView(dialogView)
-                        a.y = tmp
-                    } else {
-                        a.y = posY!!
+                    Position.TOP_CENTER -> {
+                        posX = (av.left + av.right) / 2
+                        posY = av.top
+                    }
+                    Position.TOP_RIGHT -> {
+                    }
+                    Position.CENTER_LEFT -> {
+                    }
+                    Position.CENTER_CENTER -> {
+                    }
+                    Position.CENTER_RIGHT -> {
+                    }
+                    Position.BOTTOM_LEFT -> {
+                    }
+                    Position.BOTTOM_CENTER -> {
+                    }
+                    Position.BOTTOM_RIGHT -> {
+                    }
+                }
+                LLog.d(TAG, "posX: $posX, posY: $posY")
+                if (posX != null && posY != null) {
+                    w.attributes?.let { a ->
+                        a.gravity = Gravity.TOP or Gravity.START
+                        a.x = posX
+                        a.y = posY
                     }
                 }
             }
@@ -56,13 +81,13 @@ class PositionDialog : DialogFragment() {
     }
 
     private fun init(v: View) {
-        val btOK = v.findViewById(R.id.btOK) as Button
-        val btCancel = v.findViewById(R.id.btCancel) as Button
+        val btOK = v.findViewById(R.id.btOK) as View
+        val btCancel = v.findViewById(R.id.btCancel) as View
         btOK.setOnClickListener { dismiss() }
         btCancel.setOnClickListener { dismiss() }
     }
 
-    fun showImmersiveCenter(activity: Activity, sizeWidthPx: Int?, sizeHeightPx: Int?) {
+    /*fun showImmersiveCenter(activity: Activity, sizeWidthPx: Int?, sizeHeightPx: Int?) {
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)
@@ -76,14 +101,11 @@ class PositionDialog : DialogFragment() {
                 }
             }
         }
-    }
+    }*/
 
-    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?, isAlignLeft: Boolean, isAlignTop: Boolean) {
-        //LLog.d(TAG, "showImmersive")
-        this.posX = posX
-        this.posY = posY
-        this.isAlignLeft = isAlignLeft
-        this.isAlignTop = isAlignTop
+    fun showImmersivePos(activity: Activity, anchorView: View, sizeWidthPx: Int?, sizeHeightPx: Int?, position: Position) {
+        this.position = position
+        this.anchorView = anchorView
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)
