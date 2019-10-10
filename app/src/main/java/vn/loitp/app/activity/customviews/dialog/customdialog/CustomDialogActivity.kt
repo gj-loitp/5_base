@@ -23,13 +23,18 @@ class CustomDialogActivity : BaseFontActivity() {
         btShowDialog2.setOnClickListener { v ->
             val posX = v.right
             val posY = v.bottom
-            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = true)
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = true, isAlignTop = false)
         }
         btShowDialog3.setOnClickListener { v ->
-            LLog.d(TAG, "loitpp ${v.left} ")
             val posX = v.left
             val posY = v.bottom
-            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = false)
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = false, isAlignTop = false)
+        }
+        btShowDialog4.setOnClickListener { v ->
+            val posX = v.right
+            val posY = v.top
+            LLog.d(TAG, "posX $posX, posY $posY")
+            PositionDialog().showImmersivePos(activity = activity, posX = posX, posY = posY, sizeWidthPx = null, sizeHeightPx = null, isAlignLeft = true, isAlignTop = true)
         }
     }
 

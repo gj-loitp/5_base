@@ -12,7 +12,6 @@ import android.view.WindowManager
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import loitp.basemaster.R
 
@@ -21,6 +20,7 @@ class PositionDialog : DialogFragment() {
     private var posX: Int? = null
     private var posY: Int? = null
     private var isAlignLeft = true
+    private var isAlignTop = true
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -42,9 +42,13 @@ class PositionDialog : DialogFragment() {
                     } else {
                         val tmp = posX!! - LUIUtil.getWidthOfView(dialogView)
                         a.x = tmp
-                        LLog.d(TAG, "loitpp $posX, ${LUIUtil.getWidthOfView(dialogView)}, $tmp")
                     }
-                    a.y = posY!!
+                    if (isAlignTop) {
+                        val tmp = posY!! - LUIUtil.getHeightOfView(dialogView)
+                        a.y = tmp
+                    } else {
+                        a.y = posY!!
+                    }
                 }
             }
         }
@@ -74,11 +78,12 @@ class PositionDialog : DialogFragment() {
         }
     }
 
-    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?, isAlignLeft: Boolean) {
+    fun showImmersivePos(activity: Activity, posX: Int, posY: Int, sizeWidthPx: Int?, sizeHeightPx: Int?, isAlignLeft: Boolean, isAlignTop: Boolean) {
         //LLog.d(TAG, "showImmersive")
         this.posX = posX
         this.posY = posY
         this.isAlignLeft = isAlignLeft
+        this.isAlignTop = isAlignTop
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)
