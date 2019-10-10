@@ -19,6 +19,7 @@ class PositionDialog : DialogFragment() {
     private var anchorView: View? = null
 
     enum class Position {
+        DEFAULT,
         TOP_LEFT, TOP_CENTER, TOP_RIGHT,
         CENTER_LEFT, CENTER_CENTER, CENTER_RIGHT,
         BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT
@@ -79,12 +80,17 @@ class PositionDialog : DialogFragment() {
                         posX = av.right
                         posY = av.bottom
                     }
+                    Position.DEFAULT -> {
+                        //do nothing
+                    }
                 }
                 LLog.d(TAG, "posX: $posX, posY: $posY")
-                w.attributes?.let { a ->
-                    a.gravity = Gravity.TOP or Gravity.START
-                    a.x = posX
-                    a.y = posY
+                if (posX != null && posY != null) {
+                    w.attributes?.let { a ->
+                        a.gravity = Gravity.TOP or Gravity.START
+                        a.x = posX
+                        a.y = posY
+                    }
                 }
             }
         }
