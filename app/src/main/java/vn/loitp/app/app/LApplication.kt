@@ -14,6 +14,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
+//TODO gallery from core album only fragment
 //TODO compass
 //TODO bug database ->  read sqlite  asset
 //TODO bug custom view -> button -> loading button

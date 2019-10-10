@@ -22,8 +22,6 @@ import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
-import vn.loitp.app.activity.demo.gallery.FlicrkFrmActivity
-import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
@@ -39,7 +37,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_alarm).setOnClickListener(this)
         findViewById<View>(R.id.bt_butter_knife).setOnClickListener(this)
         findViewById<View>(R.id.bt_ebook_with_realm).setOnClickListener(this)
-        findViewById<View>(R.id.bt_gallery).setOnClickListener(this)
         findViewById<View>(R.id.bt_video).setOnClickListener(this)
         findViewById<View>(R.id.bt_sound).setOnClickListener(this)
         findViewById<View>(R.id.bt_text_to_speech).setOnClickListener(this)
@@ -93,7 +90,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_alarm -> intent = Intent(activity, AlarmMeActivity::class.java)
             R.id.bt_butter_knife -> intent = Intent(activity, ButterKnifeActivity::class.java)
             R.id.bt_ebook_with_realm -> intent = Intent(activity, EbookWithRealmActivity::class.java)
-            R.id.bt_gallery -> intent = Intent(activity, GalleryDemoSplashActivity::class.java)
             R.id.bt_video -> intent = Intent(activity, VideoActivity::class.java)
             R.id.bt_sound -> intent = Intent(activity, SoundActivity::class.java)
             R.id.bt_text_to_speech -> intent = Intent(activity, TextToSpeechActivity::class.java)
@@ -125,7 +121,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
             }
-            R.id.bt_gallery_core_album_frm -> intent = Intent(activity, FlicrkFrmActivity::class.java)
             R.id.bt_gallery_member -> {
                 intent = Intent(activity, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))

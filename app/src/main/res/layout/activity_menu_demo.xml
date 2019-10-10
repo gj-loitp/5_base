@@ -98,12 +98,6 @@
                 android:text="@string/fragment_navigation" />
 
             <Button
-                android:id="@+id/bt_gallery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/gallery" />
-
-            <Button
                 android:id="@+id/btPdf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

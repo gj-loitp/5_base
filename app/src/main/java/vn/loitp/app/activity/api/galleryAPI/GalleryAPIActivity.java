@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.api.galleryAPI;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.restapi.flickr.FlickrConst;
@@ -25,7 +23,6 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import loitp.basemaster.R;
-import vn.loitp.app.activity.demo.gallery.GalleryDemoSplashActivity;
 import vn.loitp.app.app.LApplication;
 
 public class GalleryAPIActivity extends BaseFontActivity {
@@ -44,11 +41,6 @@ public class GalleryAPIActivity extends BaseFontActivity {
         bt2 = findViewById(R.id.bt_2);
         bt1.setOnClickListener(v -> photosetsGetList());
         bt2.setOnClickListener(v -> showDialogSelectPhotoset());
-        findViewById(R.id.bt_demo).setOnClickListener(v -> {
-            final Intent intent = new Intent(getActivity(), GalleryDemoSplashActivity.class);
-            startActivity(intent);
-            LActivityUtil.tranIn(getActivity());
-        });
     }
 
     @Override
