@@ -55,6 +55,12 @@
                 android:layout_height="wrap_content"
                 android:text="big picture notification" />
 
+            <Button
+                android:id="@+id/btNotificationHeadsup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notifcation headsup" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
