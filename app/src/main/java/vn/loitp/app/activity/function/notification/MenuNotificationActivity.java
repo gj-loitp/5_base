@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 
 import androidx.core.app.NotificationCompat;
@@ -32,6 +34,7 @@ import vn.loitp.app.activity.SplashActivity;
 
 public class MenuNotificationActivity extends BaseFontActivity implements View.OnClickListener {
     private Notti notti;
+    private String channelId = "my_package_channel";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,44 @@ public class MenuNotificationActivity extends BaseFontActivity implements View.O
         findViewById(R.id.inboxNotification).setOnClickListener(this);
         findViewById(R.id.bigPictureNotification).setOnClickListener(this);
         findViewById(R.id.btNotificationHeadsup).setOnClickListener(this);
+
+        goToNotificationSettings(activity);
     }
+
+    private void goToNotificationSettings(Context context) {
+        String packageName = context.getPackageName();
+        try {
+            Intent intent = new Intent();
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+                //intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                //intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                intent = new Intent("android.settings.CHANNEL_NOTIFICATION_SETTINGS");
+                intent.putExtra("android.provider.extra.CHANNEL_ID", channelId);
+                intent.putExtra("android.provider.extra.APP_PACKAGE", getPackageName());
+            } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O) {
+                intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                intent.putExtra("app_package", packageName);
+                intent.putExtra("app_uid", context.getApplicationInfo().uid);
+            } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                intent.setData(Uri.parse("package:" + packageName));
+            } else {
+                return;
+            }
+
+            startActivity(intent);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     protected boolean setFullScreen() {
@@ -113,7 +153,7 @@ public class MenuNotificationActivity extends BaseFontActivity implements View.O
         final int NOTIFY_ID = 1002;
 
         // There are hardcoding only for show it's just strings
-        String name = "my_package_channel";
+        String name = channelId;
         String id = "my_package_channel_1"; // The user-visible name of the channel.
         String description = "my_package_first_channel"; // The user-visible description of the channel.
 
