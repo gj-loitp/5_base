@@ -142,7 +142,7 @@ public class MenuNotificationActivity extends BaseFontActivity implements View.O
                         .setBigPicture(iconBig).setLargeIcon(icon));
                 break;
             case R.id.btNotificationHeadsup:
-                createNotification("Loitpppppppppppppppppppppppppppp");
+                createNotification("Testttttttttttttttttttttttttt");
                 break;
         }
     }

@@ -15,6 +15,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
+import com.views.LToast
 import loitp.basemaster.BuildConfig
 import loitp.basemaster.R
 import okhttp3.*
@@ -40,6 +41,13 @@ class SplashActivity : BaseFontActivity() {
         tvPolicy.setOnClickListener { LSocialUtil.openBrowserPolicy(activity) }
 
         getSettingFromGGDrive()
+
+        startIdleTimeHandler(10 * 1000)
+    }
+
+    override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long) {
+        super.onActivityUserIdleAfterTime(delayMlsIdleTime)
+        LToast.showLong(activity, "onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime")
     }
 
     override fun onResume() {
