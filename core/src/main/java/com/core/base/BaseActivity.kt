@@ -44,6 +44,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
+    protected var isIdleTime = false
 
     protected var rootView: RelativeLayout? = null
         private set
@@ -117,8 +118,8 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    open fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long) {
-        LLog.d(TAG, "onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime")
+    open fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
+        LLog.d(TAG, "onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
     open fun startIdleTimeHandler(delayMls: Long) {
@@ -126,10 +127,12 @@ abstract class BaseActivity : AppCompatActivity() {
         delayMlsIdleTime = delayMls
         handlerIdleTime = Handler()
         runnableIdleTime = Runnable {
-            onActivityUserIdleAfterTime(delayMlsIdleTime)
+            isIdleTime = true
+            onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
         }
         handlerIdleTime?.let { h ->
             runnableIdleTime?.let { r ->
+                isIdleTime = false
                 h.postDelayed(r, delayMls)
             }
         }

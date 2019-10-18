@@ -45,9 +45,9 @@ class SplashActivity : BaseFontActivity() {
         startIdleTimeHandler(10 * 1000)
     }
 
-    override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long) {
-        super.onActivityUserIdleAfterTime(delayMlsIdleTime)
-        LToast.showLong(activity, "onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime")
+    override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
+        super.onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
+        LToast.showLong(activity, "onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
     override fun onResume() {
