@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
+import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
@@ -134,6 +135,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
             R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
             R.id.btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
+            R.id.bt_gallery_core_album_frm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
