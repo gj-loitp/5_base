@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -39,6 +40,11 @@ abstract class BaseActivity : AppCompatActivity() {
     protected lateinit var activity: Activity
     protected lateinit var TAG: String
     //protected boolean isShowTvConnectStt = false;
+
+    protected var delayMlsIdleTime: Long = 60 * 1000//60s
+    private var handlerIdleTime: Handler? = null
+    private var runnableIdleTime: Runnable? = null
+    protected var isIdleTime = false
 
     protected var rootView: RelativeLayout? = null
         private set
@@ -98,6 +104,40 @@ abstract class BaseActivity : AppCompatActivity() {
         scheduleJob()
     }
 
+    override fun onUserInteraction() {
+        super.onUserInteraction()
+        stopIdleTimeHandler()//stop first and then start
+        startIdleTimeHandler(delayMlsIdleTime)
+    }
+
+    open fun stopIdleTimeHandler() {
+        handlerIdleTime?.let { h ->
+            runnableIdleTime?.let { r ->
+                h.removeCallbacks(r)
+            }
+        }
+    }
+
+    open fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
+        LLog.d(TAG, "onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
+    }
+
+    open fun startIdleTimeHandler(delayMls: Long) {
+        LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
+        delayMlsIdleTime = delayMls
+        handlerIdleTime = Handler()
+        runnableIdleTime = Runnable {
+            isIdleTime = true
+            onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
+        }
+        handlerIdleTime?.let { h ->
+            runnableIdleTime?.let { r ->
+                isIdleTime = false
+                h.postDelayed(r, delayMls)
+            }
+        }
+    }
+
     protected fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
@@ -127,6 +167,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         LDialogUtil.clearAll()
+        stopIdleTimeHandler()
         super.onDestroy()
     }
 

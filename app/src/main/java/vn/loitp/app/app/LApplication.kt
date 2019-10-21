@@ -15,7 +15,6 @@ import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
 //TODO compass
-//TODO bug database ->  read sqlite  asset
 //TODO bug custom view -> button -> loading button
 
 //TODO core film plus

@@ -27,7 +27,7 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LParallaxViewPager viewPager = (LParallaxViewPager) findViewById(R.id.viewpager);
+        LParallaxViewPager viewPager = findViewById(R.id.viewpager);
         //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
             resList.add(LStoreUtil.getRandomColor());
@@ -57,11 +57,11 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             Integer res = resList.get(position);
-            LLog.INSTANCE.d(getTAG(), "res " + res);
+            LLog.d(getTAG(), "res " + res);
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_photo_slide_iv, collection, false);
 
-            ImageView imageView = (ImageView) layout.findViewById(R.id.imageView);
+            ImageView imageView = layout.findViewById(R.id.imageView);
             //imageView.setBackgroundColor(res);
             if (position % 2 == 0) {
                 imageView.setImageResource(R.drawable.iv);
@@ -69,7 +69,7 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
                 imageView.setImageResource(R.drawable.logo);
             }
 
-            TextView tv = (TextView) layout.findViewById(R.id.tv);
+            TextView tv = layout.findViewById(R.id.tv);
             tv.setText(position + "/" + resList.size());
 
             collection.addView(layout);

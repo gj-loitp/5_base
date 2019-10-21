@@ -7,6 +7,7 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -79,6 +80,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pinch to zoom" />
+
+            <Button
+                android:id="@+id/btPinchToZoomWithViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pinch to zoom with ViewPager" />
 
             <Button
                 android:id="@+id/bt_scroll_parallax_imageview"

@@ -19,13 +19,11 @@ import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActi
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity
-import vn.loitp.app.activity.customviews.keyword_hottags.KeywordHotagsActivity
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity
 import vn.loitp.app.activity.customviews.lcardview.LCardViewActivity
 import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity
-import vn.loitp.app.activity.customviews.placeholderview.PlaceHolderViewMenuActivity
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity
@@ -46,9 +44,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_ariana).setOnClickListener(this)
-        findViewById<View>(R.id.bt_place_holder_view).setOnClickListener(this)
         findViewById<View>(R.id.bt_view_pager).setOnClickListener(this)
-        findViewById<View>(R.id.bt_keyword_view).setOnClickListener(this)
         findViewById<View>(R.id.bt_button).setOnClickListener(this)
         findViewById<View>(R.id.bt_progress_loading).setOnClickListener(this)
         findViewById<View>(R.id.bt_switch).setOnClickListener(this)
@@ -96,9 +92,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         var intent: Intent? = null
         when (v.id) {
             R.id.bt_ariana -> intent = Intent(activity, ArianaMenuActivity::class.java)
-            R.id.bt_place_holder_view -> intent = Intent(activity, PlaceHolderViewMenuActivity::class.java)
             R.id.bt_view_pager -> intent = Intent(activity, ViewPagerMenuActivity::class.java)
-            R.id.bt_keyword_view -> intent = Intent(activity, KeywordHotagsActivity::class.java)
             R.id.bt_button -> intent = Intent(activity, ButtonMenuActivity::class.java)
             R.id.bt_progress_loading -> intent = Intent(activity, MenuProgressLoadingViewsActivity::class.java)
             R.id.bt_switch -> intent = Intent(activity, SwitchToggleMenuActivity::class.java)

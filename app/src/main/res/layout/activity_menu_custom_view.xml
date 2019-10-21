@@ -98,12 +98,6 @@
                 android:text="@string/imageview" />
 
             <Button
-                android:id="@+id/bt_keyword_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/keyword_hot_tags" />
-
-            <Button
                 android:id="@+id/bt_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,12 +126,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/navigation" />
-
-            <Button
-                android:id="@+id/bt_place_holder_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/place_holder_view" />
 
             <Button
                 android:id="@+id/bt_popup_menu"

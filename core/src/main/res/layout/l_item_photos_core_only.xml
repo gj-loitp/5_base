@@ -58,7 +58,8 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bt_download"
@@ -72,7 +73,8 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bt_cmt"
@@ -86,7 +88,8 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bt_share"
@@ -100,7 +103,8 @@
             app:backgroundTint="@color/White"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
 
     </LinearLayout>
 

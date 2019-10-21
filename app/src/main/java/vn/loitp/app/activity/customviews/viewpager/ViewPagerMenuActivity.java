@@ -9,7 +9,7 @@ import com.core.utilities.LActivityUtil;
 
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity;
-import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.ex.DetectViewPagerSwipeOutActivity;
+import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.DetectViewPagerSwipeOutActivity;
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity;
 import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity;
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity;

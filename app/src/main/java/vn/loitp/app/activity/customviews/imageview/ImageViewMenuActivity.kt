@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomActivity
+import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity
 import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity
@@ -40,6 +41,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_panorama_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_big_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_big_imageview_with_scroll_view).setOnClickListener(this)
+        findViewById<View>(R.id.btPinchToZoomWithViewPager).setOnClickListener(this)
         btPinchToZoom.setOnClickListener(this)
     }
 
@@ -71,6 +73,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_big_imageview -> intent = Intent(activity, BigImageViewActivity::class.java)
             R.id.bt_big_imageview_with_scroll_view -> intent = Intent(activity, BigImageViewWithScrollViewActivity::class.java)
             R.id.btPinchToZoom -> intent = Intent(activity, PinchToZoomActivity::class.java)
+            R.id.btPinchToZoomWithViewPager -> intent = Intent(activity, PinchToZoomViewPagerActivity::class.java)
         }
         intent?.let { i ->
             startActivity(i)
