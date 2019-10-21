@@ -70,6 +70,12 @@
                 android:text="@string/fidgetspinner_imageview" />
 
             <Button
+                android:id="@+id/btKenburnView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kenburn view" />
+
+            <Button
                 android:id="@+id/bt_panorama_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -132,4 +132,6 @@ dependencies {
 
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
+
+    //api 'com.flaviofaria:kenburnsview:1.0.7'
 }

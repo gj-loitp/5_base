@@ -17,6 +17,7 @@ import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageVi
 import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity
 import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomActivity
 import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity
@@ -43,6 +44,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_big_imageview_with_scroll_view).setOnClickListener(this)
         findViewById<View>(R.id.btPinchToZoomWithViewPager).setOnClickListener(this)
         btPinchToZoom.setOnClickListener(this)
+        btKenburnView.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -74,6 +76,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_big_imageview_with_scroll_view -> intent = Intent(activity, BigImageViewWithScrollViewActivity::class.java)
             R.id.btPinchToZoom -> intent = Intent(activity, PinchToZoomActivity::class.java)
             R.id.btPinchToZoomWithViewPager -> intent = Intent(activity, PinchToZoomViewPagerActivity::class.java)
+            R.id.btKenburnView -> intent = Intent(activity, KenburnViewActivity::class.java)
         }
         intent?.let { i ->
             startActivity(i)

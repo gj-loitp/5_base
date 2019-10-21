@@ -1016,5 +1016,8 @@
         <activity
             android:name="vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
