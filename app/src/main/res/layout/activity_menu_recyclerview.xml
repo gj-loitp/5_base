@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true"
-        android:paddingTop="@dimen/padding_15"
         tools:ignore="UselessParent">
 
         <LinearLayout

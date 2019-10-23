@@ -9,209 +9,175 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/menu_custom_view"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
             <Button
                 android:id="@+id/bt_action_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/action_bar" />
 
             <Button
                 android:id="@+id/bt_answer_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/answerview" />
 
             <Button
                 android:id="@+id/bt_ariana"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/ariana" />
 
             <Button
                 android:id="@+id/bt_bottom_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/bottom_navigation_bar" />
 
             <Button
                 android:id="@+id/bt_bottom_sheet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/bottomsheet" />
 
             <Button
                 android:id="@+id/bt_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/button" />
 
             <Button
                 android:id="@+id/bt_compas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/compas" />
 
             <Button
                 android:id="@+id/bt_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dialog" />
 
             <Button
                 android:id="@+id/bt_draggable_flipview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/draggable_flipview" />
 
             <Button
                 android:id="@+id/bt_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/edittext" />
 
             <Button
                 android:id="@+id/bt_fb_cmt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/facebook_comment" />
 
             <Button
                 android:id="@+id/bt_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/imageview" />
 
             <Button
                 android:id="@+id/bt_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/layout" />
 
             <Button
                 android:id="@+id/bt_l_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/lcardview" />
 
             <Button
                 android:id="@+id/bt_ldebugview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/ldebugview" />
 
             <Button
                 android:id="@+id/bt_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/menu" />
 
             <Button
                 android:id="@+id/bt_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/navigation" />
 
             <Button
                 android:id="@+id/bt_popup_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/popup_menu" />
 
             <Button
                 android:id="@+id/bt_progress_loading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/progress_loading_view" />
 
             <Button
                 android:id="@+id/bt_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/recyclerview" />
 
             <Button
                 android:id="@+id/bt_scratchview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/scratchview" />
 
             <Button
                 android:id="@+id/bt_scrollable_panel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/scrollablepanel" />
 
             <Button
                 android:id="@+id/bt_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/seekbar" />
 
             <Button
                 android:id="@+id/bt_sticker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/sticker" />
 
             <Button
                 android:id="@+id/bt_switch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/switch_toggle" />
 
             <Button
                 android:id="@+id/bt_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/textview" />
 
             <Button
                 android:id="@+id/bt_treeview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/tree_view" />
 
             <Button
                 android:id="@+id/bt_videoview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/videoview" />
 
             <Button
                 android:id="@+id/bt_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/view_pager" />
 
             <Button
                 android:id="@+id/bt_wwl_music"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/wwl_music" />
 
             <Button
                 android:id="@+id/bt_wwl_video"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/wwl_video" />
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_custom_view" />
 </RelativeLayout>
 
