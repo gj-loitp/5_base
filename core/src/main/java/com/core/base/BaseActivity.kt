@@ -29,6 +29,7 @@ import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
 import com.views.LToast
 import com.views.layout.floatdraglayout.DisplayUtil
+import com.views.smoothtransition.SwitchAnimationUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -84,7 +85,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         //autoanimation
-        //new SwitchAnimationUtil().startAnimation(getWindow().getDecorView(), SwitchAnimationUtil.AnimationType.SCALE);
+        SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         interstitialAd = LUIUtil.createAdFull(activity)
 
@@ -93,7 +94,7 @@ abstract class BaseActivity : AppCompatActivity() {
             if (view is ScrollView) {
                 LUIUtil.setPullLikeIOSVertical(view)
             } else if (view is NestedScrollView) {
-                LUIUtil.setPullLikeIOSVertical(view);
+                LUIUtil.setPullLikeIOSVertical(view)
             }
         }
         try {
