@@ -7,97 +7,84 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
         android:fillViewport="true"
-        android:padding="@dimen/padding_5"
+        android:paddingTop="@dimen/padding_15"
         tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="RecyclerView Menu"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
             <Button
                 android:id="@+id/bt_bookview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Bookview" />
 
             <Button
                 android:id="@+id/bt_diff_util"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Diff Util" />
 
             <Button
                 android:id="@+id/bt_gallery_layout_manager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Horizontal" />
 
             <Button
                 android:id="@+id/bt_gallery_layout_manager_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Vertical" />
 
             <Button
                 android:id="@+id/bt_normal_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Animation" />
 
             <Button
                 android:id="@+id/bt_normal_recyclerview_with_singleton_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Singleton Data" />
 
             <Button
                 android:id="@+id/bt_normal_recyclerview_with_spansize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Spansize" />
 
             <Button
                 android:id="@+id/bt_parallax_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="ParallaxRecyclerView" />
 
             <Button
                 android:id="@+id/bt_overflying_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Overflying RecyclerView" />
 
             <Button
                 android:id="@+id/bt_parallax_recyclerview_yayandroid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="ParallaxRecyclerView Yayandroid" />
 
             <Button
                 android:id="@+id/bt_recyclerview_banner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="RecyclerBanner" />
 
             <Button
                 android:id="@+id/btRecyclerTabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Recycler Tab Layout" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="RecyclerView Menu" />
 </RelativeLayout>
 
