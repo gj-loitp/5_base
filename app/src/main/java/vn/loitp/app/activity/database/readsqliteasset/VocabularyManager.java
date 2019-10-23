@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.core.utilities.LLog;
+import com.utils.util.AppUtils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.basemaster/databases/";
     private final static String DB_NAME = "vocabulary.sqlite";
-    private final static int DATABASE_VERSION = 1;
+    private final static int DATABASE_VERSION = AppUtils.getAppVersionCode();
 
     private final static String TABLE_NAME = "word";
     private final static String KEY_ID = "_id";

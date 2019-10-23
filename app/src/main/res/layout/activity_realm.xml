@@ -12,26 +12,22 @@
 
         <Button
             android:id="@+id/btRealm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/demo_ebook_app_with_realm" />
 
         <Button
             android:id="@+id/btClearAll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/clear_all" />
 
         <Button
             android:id="@+id/btAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/add_dummy_mybook" />
 
         <Button
             android:id="@+id/btSearchById"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/search_book_by_id" />
     </LinearLayout>
 

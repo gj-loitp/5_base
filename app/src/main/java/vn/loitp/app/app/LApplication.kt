@@ -17,6 +17,7 @@ import loitp.basemaster.R
 //TODO compass
 //TODO bug custom view -> button -> loading button
 //TODO crash FloatingViewActivity -> demo app -> floating view
+//TODO crash read sqlite android 9 -> VocabularyManager
 
 //TODO core film plus
 //TODO is debug

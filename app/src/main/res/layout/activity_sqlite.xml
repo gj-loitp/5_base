@@ -12,24 +12,22 @@
 
         <Button
             android:id="@+id/bt_clear_all"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Clear all" />
 
         <Button
             android:id="@+id/bt_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Add Dummy Contact" />
 
         <Button
             android:id="@+id/bt_getcontact_with_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Get Contact With ID=2" />
     </LinearLayout>
 
     <ScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_buttons"
@@ -38,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView

@@ -71,7 +71,10 @@ class RealmController(application: Application) {
         const val FIELD_AUTHOR = "author"
         private var ins: RealmController? = null
 
-        fun getInstance(): RealmController {
+        fun getInstance(activity: Activity): RealmController {
+            if (ins == null) {
+                ins = RealmController(activity.application)
+            }
             return ins!!
         }
 

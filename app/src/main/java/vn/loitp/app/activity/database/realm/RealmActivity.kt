@@ -43,7 +43,7 @@ class RealmActivity : BaseFontActivity() {
         btClearAll.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
                 clearUI()
-                RealmController.getInstance().clearAllMyBook()
+                RealmController.getInstance(activity).clearAllMyBook()
                 getAllMyBook()
             }
         })
@@ -110,14 +110,14 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun getAllMyBook() {
-        val myBookList = RealmController.getInstance().myBookListSortByID
+        val myBookList = RealmController.getInstance(activity).myBookListSortByID
         printUI(myBookList)
         printTotalSize()
     }
 
     private fun removeMyBook(myBook: MyBook, button: Button) {
         mRealm.beginTransaction()
-        val mb = RealmController.getInstance().getMyBook(myBook)
+        val mb = RealmController.getInstance(activity).getMyBook(myBook)
         if (!mb.isEmpty()) {
             for (i in mb.indices.reversed()) {
                 mb[i].removeFromRealm()
@@ -130,7 +130,7 @@ class RealmActivity : BaseFontActivity() {
 
     private fun updateMyBook(myBook: MyBook, button: Button) {
         mRealm.beginTransaction()
-        val mb = RealmController.getInstance().getMyBook(myBook.id)
+        val mb = RealmController.getInstance(activity).getMyBook(myBook.id)
         mb.title = "Title ${System.currentTimeMillis()}"
         mb.author = "Author ${System.currentTimeMillis()}"
         mRealm.commitTransaction()
@@ -138,7 +138,7 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun printTotalSize() {
-        LToast.showShort(activity, "Total size: " + RealmController.getInstance().myBookList.size)
+        LToast.showShort(activity, "Total size: " + RealmController.getInstance(activity).myBookList.size)
     }
 
     private fun showInputDialog(ipb: InputCallback) {
@@ -165,7 +165,7 @@ class RealmActivity : BaseFontActivity() {
                     LLog.d(TAG, "searchById $it")
                     try {
                         val id: Long = it.toLong()
-                        val mb = RealmController.getInstance().getMyBook(id)
+                        val mb = RealmController.getInstance(activity).getMyBook(id)
                         LToast.showLong(activity, "searchById -> ${mb.title}")
                     } catch (e: Exception) {
                         LToast.showShort(activity, "searchById $e")

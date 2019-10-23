@@ -353,4 +353,16 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun showLong(msg: String) {
         LToast.showLong(activity, msg, R.drawable.l_bkg_horizontal)
     }
+
+    protected fun showShortDebug(msg: String) {
+        if (Constants.IS_DEBUG) {
+            showShort(msg)
+        }
+    }
+
+    protected fun showLongDebug(msg: String) {
+        if (Constants.IS_DEBUG) {
+            showLong(msg)
+        }
+    }
 }

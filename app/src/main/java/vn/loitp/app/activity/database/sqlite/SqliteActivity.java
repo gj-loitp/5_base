@@ -72,20 +72,14 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addButton(Contact contact) {
         Button button = new Button(getActivity());
-        button.setText(contact.getID() + " " + contact.getName());
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //LLog.d(TAG, "onClick " + button.getText().toString());
-                updateContact(contact, button);
-            }
+        button.setText(contact.getId() + " " + contact.getName());
+        button.setOnClickListener(v -> {
+            //LLog.d(TAG, "onClick " + button.getText().toString());
+            updateContact(contact, button);
         });
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                deleteContact(contact, button);
-                return true;
-            }
+        button.setOnLongClickListener(v -> {
+            deleteContact(contact, button);
+            return true;
         });
         ll.addView(button);
     }
@@ -94,20 +88,14 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         Button button = new Button(getActivity());
         Contact contact = db.getContact(db.getContactsCount());
         if (contact != null) {
-            button.setText(contact.getID() + " - " + contact.getName());
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //LLog.d(TAG, "onClick " + button.getText().toString());
-                    updateContact(contact, button);
-                }
+            button.setText(contact.getId() + " - " + contact.getName());
+            button.setOnClickListener(v -> {
+                //LLog.d(TAG, "onClick " + button.getText().toString());
+                updateContact(contact, button);
             });
-            button.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    deleteContact(contact, button);
-                    return true;
-                }
+            button.setOnLongClickListener(v -> {
+                deleteContact(contact, button);
+                return true;
             });
             ll.addView(button);
         }
@@ -135,7 +123,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         if (contact == null) {
             showShort("Contact with ID=" + id + " not found");
         } else {
-            showShort("Found: " + contact.getID() + " " + contact.getName() + " " + contact.getPhoneNumber());
+            showShort("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber());
         }
     }
 
@@ -143,7 +131,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
         LLog.d(getTAG(), "updateContact result " + result);
-        button.setText(contact.getID() + " " + contact.getName());
+        button.setText(contact.getId() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
