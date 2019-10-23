@@ -85,7 +85,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         //autoanimation
-        SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
+        //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         interstitialAd = LUIUtil.createAdFull(activity)
 
