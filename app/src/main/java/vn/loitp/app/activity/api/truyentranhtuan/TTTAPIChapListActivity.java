@@ -21,10 +21,10 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        btSelect = (Button) findViewById(R.id.bt_select);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        tv = (TextView) findViewById(R.id.tv);
-        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
+        btSelect = findViewById(R.id.bt_select);
+        tvTitle = findViewById(R.id.tv_title);
+        tv = findViewById(R.id.tv);
+        avi = findViewById(R.id.avi);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {

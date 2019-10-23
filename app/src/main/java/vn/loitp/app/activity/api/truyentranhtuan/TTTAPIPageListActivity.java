@@ -20,9 +20,9 @@ public class TTTAPIPageListActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
+        tv = findViewById(R.id.tv);
+        tvTitle = findViewById(R.id.tv_title);
+        avi = findViewById(R.id.avi);
 
         String currentLink = "http://truyentranhtuan.com/one-piece-chuong-69/";
         new GetReadImgTask(currentLink, avi, new GetReadImgTask.Callback() {
