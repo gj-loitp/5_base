@@ -29,7 +29,7 @@ class SplashActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LUIUtil.setDelay(2500, Runnable {
+        LUIUtil.setDelay(mls = 2500, runnable = Runnable {
             isAnimDone = true
             goToHome()
         })
