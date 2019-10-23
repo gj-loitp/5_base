@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.tutorial.rxjava2;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,12 +27,7 @@ public class IntervalExampleActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         btn = findViewById(R.id.btn);
         textView = findViewById(R.id.textView);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                doSomeWork();
-            }
-        });
+        btn.setOnClickListener(view -> doSomeWork());
     }
 
     @Override
@@ -79,19 +73,19 @@ public class IntervalExampleActivity extends BaseFontActivity {
             @Override
             public void onNext(Long value) {
                 textView.append(" onNext : value : " + value + "\n");
-                LLog.INSTANCE.d(getTAG(), " onNext : value : " + value);
+                LLog.d(getTAG(), " onNext : value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
+                LLog.d(getTAG(), " onError : " + e.getMessage());
             }
 
             @Override
             public void onComplete() {
                 textView.append(" onComplete\n");
-                LLog.INSTANCE.d(getTAG(), " onComplete");
+                LLog.d(getTAG(), " onComplete");
             }
         };
     }

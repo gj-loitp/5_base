@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.tutorial.rxjava2;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,12 +23,7 @@ public class SingleObserverExampleActivity extends BaseFontActivity {
         btn = findViewById(R.id.btn);
         textView = findViewById(R.id.textView);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                doSomeWork();
-            }
-        });
+        btn.setOnClickListener(view -> doSomeWork());
     }
 
     /*
@@ -43,19 +37,19 @@ public class SingleObserverExampleActivity extends BaseFontActivity {
         return new SingleObserver<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.INSTANCE.d(getTAG(), " onSubscribe : " + d.isDisposed());
+                LLog.d(getTAG(), " onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onSuccess(String value) {
                 textView.append(" onNext : value : " + value + "\n");
-                LLog.INSTANCE.d(getTAG(), " onNext value : " + value);
+                LLog.d(getTAG(), " onNext value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
+                LLog.d(getTAG(), " onError : " + e.getMessage());
             }
         };
     }

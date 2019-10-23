@@ -11,7 +11,6 @@ import com.core.utilities.LLog;
 import io.reactivex.Flowable;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
 import loitp.basemaster.R;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
@@ -38,12 +37,7 @@ public class FlowableExampleActivity extends BaseFontActivity {
      */
     private void doSomeWork() {
         Flowable<Integer> observable = Flowable.just(1, 2, 3, 4, 1);
-        observable.reduce(50, new BiFunction<Integer, Integer, Integer>() {
-            @Override
-            public Integer apply(Integer t1, Integer t2) {
-                return t1 + t2;
-            }
-        }).subscribe(getObserver());
+        observable.reduce(50, (t1, t2) -> t1 + t2).subscribe(getObserver());
 
     }
 
@@ -51,19 +45,19 @@ public class FlowableExampleActivity extends BaseFontActivity {
         return new SingleObserver<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.INSTANCE.d(getTAG(), " onSubscribe : " + d.isDisposed());
+                LLog.d(getTAG(), " onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onSuccess(Integer value) {
                 textView.append(" onSuccess : value : " + value + "\n");
-                LLog.INSTANCE.d(getTAG(), " onSuccess : value : " + value);
+                LLog.d(getTAG(), " onSuccess : value : " + value);
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
+                LLog.d(getTAG(), " onError : " + e.getMessage());
             }
         };
     }
