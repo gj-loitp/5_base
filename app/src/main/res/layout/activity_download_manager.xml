@@ -2,36 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/padding_10">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvCurrentStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15" />
 
     <Button
         android:id="@+id/btStartDownload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="start download" />
 
     <Button
         android:id="@+id/btCancelDownload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="cancel download" />
 
     <Button
         android:id="@+id/btPauseDownload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="pause download" />
 
     <Button
         android:id="@+id/btResumeDownload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="resume download" />
 
     <ProgressBar
@@ -39,21 +35,25 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminateOnly="false" />
+        android:indeterminateOnly="false"
+        android:padding="@dimen/padding_15" />
 
     <TextView
         android:id="@+id/tvPercent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15" />
 
     <TextView
         android:id="@+id/tvSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15" />
 
     <TextView
         android:id="@+id/tvTotalSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15" />
 
 </LinearLayout>

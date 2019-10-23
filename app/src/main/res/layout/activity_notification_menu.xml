@@ -6,62 +6,54 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Notification Menu"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
             <Button
                 android:id="@+id/simpleNotification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="simple notification" />
 
             <Button
                 android:id="@+id/simpleNotificationActions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="simple notification with actions" />
 
 
             <Button
                 android:id="@+id/bigTextNotification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="big text notification" />
 
             <Button
                 android:id="@+id/inboxNotification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="inbox notification" />
 
             <Button
                 android:id="@+id/bigPictureNotification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="big picture notification" />
 
             <Button
                 android:id="@+id/btNotificationHeadsup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Notifcation headsup" />
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Notification Menu" />
 </RelativeLayout>
 

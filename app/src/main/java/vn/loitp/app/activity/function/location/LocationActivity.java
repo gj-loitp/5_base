@@ -82,10 +82,10 @@ public class LocationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        txtLocationResult = (TextView) findViewById(R.id.location_result);
-        txtUpdatedOn = (TextView) findViewById(R.id.updated_on);
-        btnStartUpdates = (Button) findViewById(R.id.btn_start_location_updates);
-        btnStopUpdates = (Button) findViewById(R.id.btn_stop_location_updates);
+        txtLocationResult = findViewById(R.id.location_result);
+        txtUpdatedOn = findViewById(R.id.updated_on);
+        btnStartUpdates = findViewById(R.id.btn_start_location_updates);
+        btnStopUpdates = findViewById(R.id.btn_stop_location_updates);
 
         // initialize the necessary libraries
         init();
@@ -93,25 +93,10 @@ public class LocationActivity extends BaseActivity {
         // restore the values from saved instance state
         restoreValuesFromBundle(savedInstanceState);
 
-        btnStartUpdates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startLocationButtonClick();
-            }
-        });
-        btnStopUpdates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stopLocationButtonClick();
-            }
-        });
+        btnStartUpdates.setOnClickListener(v -> startLocationButtonClick());
+        btnStopUpdates.setOnClickListener(v -> stopLocationButtonClick());
 
-        findViewById(R.id.btn_get_last_location).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showLastKnownLocation();
-            }
-        });
+        findViewById(R.id.btn_get_last_location).setOnClickListener(v -> showLastKnownLocation());
     }
 
     @Override
@@ -229,9 +214,9 @@ public class LocationActivity extends BaseActivity {
                     @SuppressLint("MissingPermission")
                     @Override
                     public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
-                        LLog.INSTANCE.d(getTAG(), "All location settings are satisfied.");
+                        LLog.d(getTAG(), "All location settings are satisfied.");
 
-                        LToast.INSTANCE.show(getActivity(), "Started location updates!");
+                        LToast.show(getActivity(), "Started location updates!");
 
                         //noinspection MissingPermission
                         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
@@ -245,22 +230,22 @@ public class LocationActivity extends BaseActivity {
                         int statusCode = ((ApiException) e).getStatusCode();
                         switch (statusCode) {
                             case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                                LLog.INSTANCE.d(getTAG(), "Location settings are not satisfied. Attempting to upgrade location settings ");
+                                LLog.d(getTAG(), "Location settings are not satisfied. Attempting to upgrade location settings ");
                                 try {
                                     // Show the dialog by calling startResolutionForResult(), and check the
                                     // result in onActivityResult().
                                     ResolvableApiException rae = (ResolvableApiException) e;
                                     rae.startResolutionForResult(getActivity(), REQUEST_CHECK_SETTINGS);
                                 } catch (IntentSender.SendIntentException sie) {
-                                    LLog.INSTANCE.d(getTAG(), "PendingIntent unable to execute request.");
+                                    LLog.d(getTAG(), "PendingIntent unable to execute request.");
                                 }
                                 break;
                             case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
                                 String errorMessage = "Location settings are inadequate, and cannot be " +
                                         "fixed here. Fix in Settings.";
-                                LLog.INSTANCE.d(getTAG(), errorMessage);
+                                LLog.d(getTAG(), errorMessage);
 
-                                LToast.INSTANCE.show(getActivity(), errorMessage);
+                                LToast.show(getActivity(), errorMessage);
                         }
 
                         updateLocationUI();
@@ -307,7 +292,7 @@ public class LocationActivity extends BaseActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        LToast.INSTANCE.show(getActivity(), "Location updates stopped!");
+                        LToast.show(getActivity(), "Location updates stopped!");
                         toggleButtons();
                     }
                 });
@@ -315,25 +300,26 @@ public class LocationActivity extends BaseActivity {
 
     public void showLastKnownLocation() {
         if (mCurrentLocation != null) {
-            LToast.INSTANCE.show(getActivity(), "Lat: " + mCurrentLocation.getLatitude()
+            LToast.show(getActivity(), "Lat: " + mCurrentLocation.getLatitude()
                     + ",Lng: " + mCurrentLocation.getLongitude());
         } else {
-            LToast.INSTANCE.show(getActivity(), "Last known location is not available!");
+            LToast.show(getActivity(), "Last known location is not available!");
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             // Check for the integer request code originally supplied to startResolutionForResult().
             case REQUEST_CHECK_SETTINGS:
                 switch (resultCode) {
                     case Activity.RESULT_OK:
-                        LLog.INSTANCE.e(getTAG(), "User agreed to make required location settings changes.");
+                        LLog.e(getTAG(), "User agreed to make required location settings changes.");
                         // Nothing to do. startLocationupdates() gets called in onResume again.
                         break;
                     case Activity.RESULT_CANCELED:
-                        LLog.INSTANCE.e(getTAG(), "User chose not to make required location settings changes.");
+                        LLog.e(getTAG(), "User chose not to make required location settings changes.");
                         mRequestingLocationUpdates = false;
                         break;
                 }
