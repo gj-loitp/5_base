@@ -31,11 +31,11 @@ public class MenuLottieActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        sb = (SeekBar) findViewById(R.id.sb);
+        viewPager = findViewById(R.id.view_pager);
+        sb = findViewById(R.id.sb);
         slidePagerAdapter = new SlidePagerAdapter();
         viewPager.setAdapter(slidePagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -123,8 +123,8 @@ public class MenuLottieActivity extends BaseFontActivity {
             LottieItem lottieItem = lottieItemList.get(position);
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.item_lottie_view, collection, false);
-            RelativeLayout rl = (RelativeLayout) layout.findViewById(R.id.rl);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) layout.findViewById(R.id.animation_view);
+            RelativeLayout rl = layout.findViewById(R.id.rl);
+            LottieAnimationView lottieAnimationView = layout.findViewById(R.id.animation_view);
 
             lottieAnimationView.setAnimation(lottieItem.getPathAsset());
             //lottieAnimationView.useHardwareAcceleration();
@@ -133,12 +133,9 @@ public class MenuLottieActivity extends BaseFontActivity {
             //lottieAnimationView.playAnimation();
             lottieAnimationView.loop(true);
 
-            rl.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    lottieAnimationView.playAnimation();
-                    //lottieAnimationView.loop(true);
-                }
+            rl.setOnClickListener(view -> {
+                lottieAnimationView.playAnimation();
+                //lottieAnimationView.loop(true);
             });
 
             collection.addView(layout);

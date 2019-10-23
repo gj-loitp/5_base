@@ -20,8 +20,7 @@
 
     <Button
         android:id="@+id/bt_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Start" />

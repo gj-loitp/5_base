@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/padding_15"
                 android:text="Android BasicTransition Sample
 A basic app showing how to use the Transition framework introduced in KitKat. The app shows radioboxes to select between different Scenes, and uses various ways to transition between them.
 

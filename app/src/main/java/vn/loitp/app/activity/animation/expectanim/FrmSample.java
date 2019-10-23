@@ -44,13 +44,13 @@ public class FrmSample extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        name = (View) getFrmRootView().findViewById(R.id.name);
-        avatar = (View) getFrmRootView().findViewById(R.id.avatar);
-        subname = (View) getFrmRootView().findViewById(R.id.subname);
-        follow = (View) getFrmRootView().findViewById(R.id.follow);
-        message = (View) getFrmRootView().findViewById(R.id.message);
-        bottomLayout = (View) getFrmRootView().findViewById(R.id.bottomLayout);
-        content = (View) getFrmRootView().findViewById(R.id.content);
+        name = getFrmRootView().findViewById(R.id.name);
+        avatar = getFrmRootView().findViewById(R.id.avatar);
+        subname = getFrmRootView().findViewById(R.id.subname);
+        follow = getFrmRootView().findViewById(R.id.follow);
+        message = getFrmRootView().findViewById(R.id.message);
+        bottomLayout = getFrmRootView().findViewById(R.id.bottomLayout);
+        content = getFrmRootView().findViewById(R.id.content);
 
         new ExpectAnim()
                 .expect(bottomLayout)
@@ -116,18 +116,8 @@ public class FrmSample extends BaseFragment {
                 .toAnimation()
                 .setDuration(1500);
 
-        message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expectAnimMove.start();
-            }
-        });
-        follow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expectAnimMove.reset();
-            }
-        });
+        message.setOnClickListener(v -> expectAnimMove.start());
+        follow.setOnClickListener(v -> expectAnimMove.reset());
     }
 
     @Override
