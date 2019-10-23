@@ -22,38 +22,23 @@ public class AnswerViewActivity extends BaseFontActivity {
     }
 
     private void useXML() {
-        LAnswerView LAnswerView1 = (LAnswerView) findViewById(R.id.av_1);
+        LAnswerView LAnswerView1 = findViewById(R.id.av_1);
         LAnswerView1.setNumber(1);
-        LAnswerView1.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
-            @Override
-            public void onAnswerChange(LAnswerView view, int index) {
-                LToast.INSTANCE.show(getActivity(), "Click: " + index);
-            }
-        });
+        LAnswerView1.setOnAnswerChange((view, index) -> LToast.show(getActivity(), "Click: " + index));
         LAnswerView1.setActiveChar('A');
         //answerView1.resize(2);
 
-        LAnswerView LAnswerView2 = (LAnswerView) findViewById(R.id.av_2);
+        LAnswerView LAnswerView2 = findViewById(R.id.av_2);
         LAnswerView2.setNumber(2);
-        LAnswerView2.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
-            @Override
-            public void onAnswerChange(LAnswerView view, int index) {
-                LToast.INSTANCE.show(getActivity(), "Click: " + index);
-            }
-        });
+        LAnswerView2.setOnAnswerChange((view, index) -> LToast.show(getActivity(), "Click: " + index));
     }
 
     private void useJava() {
-        LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
+        LinearLayout ll = findViewById(R.id.ll);
         for (int i = 0; i < 10; i++) {
             LAnswerView LAnswerView = new LAnswerView(getActivity());
             LAnswerView.init(i + 3, 6, true, true, true, true);
-            LAnswerView.setOnAnswerChange(new LAnswerView.OnAnswerChange() {
-                @Override
-                public void onAnswerChange(LAnswerView view, int index) {
-                    LToast.INSTANCE.show(getActivity(), "Click: " + index);
-                }
-            });
+            LAnswerView.setOnAnswerChange((view, index) -> LToast.show(getActivity(), "Click: " + index));
             ll.addView(LAnswerView);
         }
     }
