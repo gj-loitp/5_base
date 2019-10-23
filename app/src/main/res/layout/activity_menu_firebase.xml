@@ -50,6 +50,16 @@
                 android:id="@+id/bt_invite"
                 style="@style/ButtonMenu"
                 android:text="Invite" />
+
+            <Button
+                android:id="@+id/btGetFCMToken"
+                style="@style/ButtonMenu"
+                android:text="Get FCM Token" />
+
+            <Button
+                android:id="@+id/btResetInstanceId"
+                style="@style/ButtonMenu"
+                android:text="Reset Instance Id (FCM Token)" />
         </LinearLayout>
     </ScrollView>
 
