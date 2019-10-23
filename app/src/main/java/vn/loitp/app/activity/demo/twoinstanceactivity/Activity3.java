@@ -24,39 +24,30 @@ public class Activity3 extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LLog.INSTANCE.d(getTAG(), "suzuki onCreate");
-        findViewById(R.id.bt_go_to_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Activity3.this, Activity1.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-            }
+        LLog.d(getTAG(), "suzuki onCreate");
+        findViewById(R.id.bt_go_to_1).setOnClickListener(view -> {
+            Intent intent = new Intent(Activity3.this, Activity1.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
         });
-        findViewById(R.id.bt_go_to_2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Activity3.this, Activity2.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-            }
+        findViewById(R.id.bt_go_to_2).setOnClickListener(view -> {
+            Intent intent = new Intent(Activity3.this, Activity2.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
         });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             askPermission();
         }
-        findViewById(R.id.bt_go_to_float).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    startService(new Intent(Activity3.this, FloatingViewService.class));
-                    //finish();
-                } else if (Settings.canDrawOverlays(Activity3.this)) {
-                    startService(new Intent(Activity3.this, FloatingViewService.class));
-                    //finish();
-                } else {
-                    askPermission();
-                    Toast.makeText(Activity3.this, "You need System Alert Window Permission to do this", Toast.LENGTH_SHORT).show();
-                }
+        findViewById(R.id.bt_go_to_float).setOnClickListener(view -> {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                startService(new Intent(Activity3.this, FloatingViewService.class));
+                //finish();
+            } else if (Settings.canDrawOverlays(Activity3.this)) {
+                startService(new Intent(Activity3.this, FloatingViewService.class));
+                //finish();
+            } else {
+                askPermission();
+                Toast.makeText(Activity3.this, "You need System Alert Window Permission to do this", Toast.LENGTH_SHORT).show();
             }
         });
     }

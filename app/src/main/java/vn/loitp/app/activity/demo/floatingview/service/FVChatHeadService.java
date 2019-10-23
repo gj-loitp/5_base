@@ -21,9 +21,6 @@ import com.views.floatingview.FloatingViewManager;
 
 import loitp.basemaster.R;
 
-/**
- * ChatHead Service
- */
 public class FVChatHeadService extends Service implements FloatingViewListener {
     private static final String TAG = "FVChatHeadService";
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";
@@ -41,16 +38,11 @@ public class FVChatHeadService extends Service implements FloatingViewListener {
         windowManager.getDefaultDisplay().getMetrics(metrics);
         final LayoutInflater inflater = LayoutInflater.from(this);
         final RelativeLayout relativeLayout = (RelativeLayout) inflater.inflate(R.layout.fv_widget_chathead, null, false);
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.INSTANCE.show(getBaseContext(), getString(R.string.chathead_click_message));
-            }
-        });
+        relativeLayout.setOnClickListener(v -> LToast.show(getBaseContext(), getString(R.string.chathead_click_message)));
         mFloatingViewManager = new FloatingViewManager(this, this);
         mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
-        mFloatingViewManager.setSafeInsetRect((Rect) intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
+        mFloatingViewManager.setSafeInsetRect(intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         final FloatingViewManager.Options options = new FloatingViewManager.Options();
         options.overMargin = (int) (16 * metrics.density);
         mFloatingViewManager.addViewToWindow(relativeLayout, options);

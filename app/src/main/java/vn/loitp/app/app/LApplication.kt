@@ -16,6 +16,7 @@ import loitp.basemaster.R
 
 //TODO compass
 //TODO bug custom view -> button -> loading button
+//TODO crash FloatingViewActivity -> demo app -> floating view
 
 //TODO core film plus
 //TODO is debug

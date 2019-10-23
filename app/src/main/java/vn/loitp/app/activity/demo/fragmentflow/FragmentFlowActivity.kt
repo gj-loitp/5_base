@@ -17,7 +17,7 @@ class FragmentFlowActivity : BaseFontActivity() {
     private fun getListener(): FragmentManager.OnBackStackChangedListener {
         return FragmentManager.OnBackStackChangedListener {
             //print("OnBackStackChangedListener")
-            supportFragmentManager?.let {
+            supportFragmentManager.let {
                 val currFrag = it.findFragmentById(R.id.flContainer) as FrmFlowBase?
                 currFrag?.onFragmentResume()
             }

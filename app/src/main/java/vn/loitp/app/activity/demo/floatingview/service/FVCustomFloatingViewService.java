@@ -48,13 +48,13 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LToast.INSTANCE.show(getBaseContext(), getString(R.string.chathead_click_message));
+                LToast.show(getBaseContext(), getString(R.string.chathead_click_message));
             }
         });
         mFloatingViewManager = new FloatingViewManager(this, this);
         mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
-        mFloatingViewManager.setSafeInsetRect((Rect) intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
+        mFloatingViewManager.setSafeInsetRect(intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         // Setting Options(you can change options at any time)
         loadDynamicOptions();
         // Initial Setting Options (you can't change options after created.)
@@ -147,8 +147,8 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
         } else {
             // Init X/Y
             final int offset = (int) (48 + 8 * metrics.density);
-            options.floatingViewX = (int) (metrics.widthPixels * 50 - offset);
-            options.floatingViewY = (int) (metrics.heightPixels * 100 - offset);
+            options.floatingViewX = metrics.widthPixels * 50 - offset;
+            options.floatingViewY = metrics.heightPixels * 100 - offset;
         }
         // Initial Animation
         options.animateInitialMove = true;
