@@ -9,58 +9,49 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/swipe_away_dialog"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
             <Button
                 android:id="@+id/bt_show_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dialog_1" />
 
             <Button
                 android:id="@+id/bt_show_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dialog_2" />
 
             <Button
                 android:id="@+id/bt_show_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dialog_3" />
 
             <Button
                 android:id="@+id/bt_show_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dialog_list" />
 
             <Button
                 android:id="@+id/bt_progress_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/progress_dialog" />
 
             <Button
                 android:id="@+id/bt_custom_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/custom_dialog" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/swipe_away_dialog" />
 </RelativeLayout>
 

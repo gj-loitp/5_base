@@ -9,64 +9,54 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/menu_dialog"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
             <Button
                 android:id="@+id/btCustomDialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Custom dialog" />
 
             <Button
                 android:id="@+id/bt_custom_progress_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/custom_progress_dialog" />
 
             <Button
                 android:id="@+id/bt_ios_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/ios_dialog" />
 
             <Button
                 android:id="@+id/bt_original_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/original_dialog" />
 
             <Button
                 android:id="@+id/bt_pretty_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/pretty_dialog" />
 
             <Button
                 android:id="@+id/btSlideImages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/slide_images" />
 
             <Button
                 android:id="@+id/bt_swipe_away_dialog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/swipe_away_dialog" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_dialog" />
 </RelativeLayout>
 
