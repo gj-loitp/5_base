@@ -1,22 +1,3 @@
-/**************************************************************************
- *
- * Copyright (C) 2012-2015 Alex Taradov <alex@taradov.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *************************************************************************/
-
 package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
 import android.content.Intent;
@@ -58,9 +39,9 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.INSTANCE.d(getTAG(), "AlarmMeActivity.onCreate()");
+        LLog.d(getTAG(), "AlarmMeActivity.onCreate()");
 
-        mAlarmList = (ListView) findViewById(R.id.lv_alarm);
+        mAlarmList = findViewById(R.id.lv_alarm);
         LUIUtil.INSTANCE.setPullLikeIOSVertical(mAlarmList);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
@@ -74,7 +55,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.INSTANCE.d(getTAG(), "AlarmMeActivity.onDestroy()");
+        LLog.d(getTAG(), "AlarmMeActivity.onDestroy()");
     }
 
     @Override
@@ -95,7 +76,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onResume() {
         super.onResume();
-        LLog.INSTANCE.d(getTAG(), "AlarmMeActivity.onResume()");
+        LLog.d(getTAG(), "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 
@@ -104,7 +85,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
-        LActivityUtil.INSTANCE.tranIn(getActivity());
+        LActivityUtil.tranIn(getActivity());
     }
 
     @Override
@@ -138,7 +119,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -168,7 +149,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -191,7 +172,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
         }
     };
 

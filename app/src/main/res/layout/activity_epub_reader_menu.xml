@@ -13,6 +13,7 @@
 
     <GridView
         android:id="@+id/grid_book_info"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2"

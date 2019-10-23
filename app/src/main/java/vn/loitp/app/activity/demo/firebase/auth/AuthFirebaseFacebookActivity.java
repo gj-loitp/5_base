@@ -75,13 +75,13 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                LLog.INSTANCE.d(getTAG(), "facebook:onSuccess:" + loginResult);
+                LLog.d(getTAG(), "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
             public void onCancel() {
-                LLog.INSTANCE.d(getTAG(), "facebook:onCancel");
+                LLog.d(getTAG(), "facebook:onCancel");
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -89,7 +89,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             @Override
             public void onError(FacebookException error) {
-                LLog.INSTANCE.d(getTAG(), "facebook:onError " + error.toString());
+                LLog.d(getTAG(), "facebook:onError " + error.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -134,32 +134,29 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
     // [START auth_with_facebook]
     private void handleFacebookAccessToken(AccessToken token) {
-        LLog.INSTANCE.d(getTAG(), "handleFacebookAccessToken:" + token);
+        LLog.d(getTAG(), "handleFacebookAccessToken:" + token);
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
 
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:failure " + task.getException());
-                            LToast.INSTANCE.show(getActivity(), "Authentication failed " + task.getException());
-                            updateUI(null);
-                        }
-
-                        // [START_EXCLUDE]
-                        hideProgressDialog();
-                        // [END_EXCLUDE]
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        LLog.d(getTAG(), "signInWithCredential:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        LLog.d(getTAG(), "signInWithCredential:failure " + task.getException());
+                        LToast.show(getActivity(), "Authentication failed " + task.getException());
+                        updateUI(null);
                     }
+
+                    // [START_EXCLUDE]
+                    hideProgressDialog();
+                    // [END_EXCLUDE]
                 });
     }
     // [END auth_with_facebook]
@@ -179,10 +176,10 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
 
-            LLog.INSTANCE.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
-            LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
+            LLog.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
+            LLog.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
-                LImageUtil.INSTANCE.load(getActivity(), user.getPhotoUrl() + "?height=500", (ImageView) findViewById(R.id.icon));
+                LImageUtil.INSTANCE.load(getActivity(), user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
             } catch (Exception e) {
                 //who cares?
             }
@@ -245,10 +242,10 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 String hashKey = new String(Base64.encode(md.digest(), 0));
-                LLog.INSTANCE.d(getTAG(), "printHashKey() Hash Key: " + hashKey);
+                LLog.d(getTAG(), "printHashKey() Hash Key: " + hashKey);
             }
         } catch (Exception e) {
-            LLog.INSTANCE.e(getTAG(), "printHashKey() " + e.toString());
+            LLog.e(getTAG(), "printHashKey() " + e.toString());
         }
     }
 }

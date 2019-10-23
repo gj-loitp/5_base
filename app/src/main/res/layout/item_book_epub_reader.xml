@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         android:src="@android:drawable/alert_light_frame" />
 

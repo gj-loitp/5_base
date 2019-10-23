@@ -29,12 +29,9 @@ public class EpubReaderMenuActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((GridView) findViewById(R.id.grid_book_info)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                BookInfo bookInfo = (BookInfo) adapterView.getAdapter().getItem(i);
-                LReaderUtil.INSTANCE.readEpub(getActivity(), bookInfo, getString(R.string.str_b));
-            }
+        ((GridView) findViewById(R.id.grid_book_info)).setOnItemClickListener((adapterView, view, i, l) -> {
+            BookInfo bookInfo = (BookInfo) adapterView.getAdapter().getItem(i);
+            LReaderUtil.INSTANCE.readEpub(getActivity(), bookInfo, getString(R.string.str_b));
         });
         progressBar = findViewById(R.id.progressbar);
         LUIUtil.INSTANCE.setDelay(1000, this::ask);

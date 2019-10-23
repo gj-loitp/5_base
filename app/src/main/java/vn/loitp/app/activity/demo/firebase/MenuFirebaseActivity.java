@@ -74,7 +74,7 @@ public class MenuFirebaseActivity extends BaseFontActivity implements View.OnCli
         }
         if (intent != null) {
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
         }
     }
 }

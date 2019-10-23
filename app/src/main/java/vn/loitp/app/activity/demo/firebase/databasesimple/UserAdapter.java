@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
-/**
- * Created by www.muathu@gmail.com on 12/8/2017.
- */
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +13,8 @@ import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
 import com.views.imageview.circle.LCircleImageView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -25,9 +23,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private final String TAG = getClass().getSimpleName();
 
     public interface Callback {
-        public void onClick(User user, int position);
+        void onClick(User user, int position);
 
-        public void onLongClick(User user, int position);
+        void onLongClick(User user, int position);
     }
 
     private Context context;
@@ -41,11 +39,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         public UserViewHolder(View view) {
             super(view);
-            tvName = (TextView) view.findViewById(R.id.tv_name);
-            tvTime = (TextView) view.findViewById(R.id.tv_time);
-            tvMsg = (TextView) view.findViewById(R.id.tv_msg);
-            avt = (LCircleImageView) view.findViewById(R.id.avt);
-            rootView = (LinearLayout) view.findViewById(R.id.root_view);
+            tvName = view.findViewById(R.id.tv_name);
+            tvTime = view.findViewById(R.id.tv_time);
+            tvMsg = view.findViewById(R.id.tv_msg);
+            avt = view.findViewById(R.id.avt);
+            rootView = view.findViewById(R.id.root_view);
         }
     }
 
@@ -55,6 +53,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         this.callback = callback;
     }
 
+    @NotNull
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user, parent, false);
@@ -73,7 +72,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LLog.INSTANCE.d(TAG, "onClick");
+                LLog.d(TAG, "onClick");
                 if (callback != null) {
                     callback.onClick(user, position);
                 }
@@ -82,7 +81,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LLog.INSTANCE.d(TAG, "onLongClick");
+                LLog.d(TAG, "onLongClick");
                 if (callback != null) {
                     callback.onLongClick(user, position);
                 }

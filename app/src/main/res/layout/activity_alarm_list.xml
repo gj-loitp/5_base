@@ -11,13 +11,15 @@
         android:orientation="vertical">
 
         <Button
-            style="@style/widget"
+            style="@style/ButtonMenu"
             android:onClick="onAddAlarmClick"
             android:text="Add alarm" />
 
         <ListView
             android:id="@+id/lv_alarm"
-            style="@style/widget" />
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </RelativeLayout>

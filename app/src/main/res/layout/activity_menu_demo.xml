@@ -9,155 +9,129 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/menu_demo"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
             <Button
                 android:id="@+id/bt_alarm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/alarm" />
 
             <Button
                 android:id="@+id/bt_butter_knife"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/butter_knife" />
 
             <Button
                 android:id="@+id/btDeepLinks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Deep links" />
 
             <Button
                 android:id="@+id/bt_ebook_with_realm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/ebook_with_realm" />
 
             <Button
                 android:id="@+id/bt_epub_reader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/epub_reader" />
 
             <Button
                 android:id="@+id/bt_film"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/film" />
 
             <Button
                 android:id="@+id/bt_firebase"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/firebase" />
 
             <Button
                 android:id="@+id/bt_floating_video"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/android_floating_video" />
 
             <Button
                 android:id="@+id/bt_floating_widget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/android_floating_widget_like_facebook_chat_head" />
 
             <Button
                 android:id="@+id/bt_floating_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/floating_view" />
 
             <Button
                 android:id="@+id/btFragmentFlow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/fragment_flow" />
 
             <Button
                 android:id="@+id/bt_fragment_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/fragment_navigation" />
 
             <Button
                 android:id="@+id/btPdf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/pdf" />
 
             <Button
                 android:id="@+id/bt_gallery_core"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core" />
 
             <Button
                 android:id="@+id/bt_gallery_core_album"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core_album_only" />
 
             <Button
                 android:id="@+id/bt_gallery_core_album_frm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core_album_only_fragment" />
 
             <Button
                 android:id="@+id/bt_gallery_member"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/gallery_member" />
 
             <Button
                 android:id="@+id/bt_sound"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/sound" />
 
             <Button
                 android:id="@+id/bt_text_to_speech"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/text_to_speech" />
 
             <Button
                 android:id="@+id/bt_2_instance_activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/_2_instance_activity_parallel" />
 
             <Button
                 android:id="@+id/bt_video"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/video" />
 
             <Button
                 android:id="@+id/bt_youtube_parser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/youtube_parser" />
         </LinearLayout>
     </ScrollView>
 
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_demo" />
 </RelativeLayout>
 
