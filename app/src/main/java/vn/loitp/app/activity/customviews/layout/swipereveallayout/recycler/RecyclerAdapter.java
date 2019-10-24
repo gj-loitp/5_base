@@ -65,18 +65,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         return mDataSet.size();
     }
 
-    /**
-     * Only if you need to restore open/close state when the orientation is changed.
-     * Call this method in {@link android.app.Activity#onSaveInstanceState(Bundle)}
-     */
     public void saveStates(Bundle outState) {
         binderHelper.saveStates(outState);
     }
 
-    /**
-     * Only if you need to restore open/close state when the orientation is changed.
-     * Call this method in {@link android.app.Activity#onRestoreInstanceState(Bundle)}
-     */
     public void restoreStates(Bundle inState) {
         binderHelper.restoreStates(inState);
     }
