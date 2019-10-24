@@ -90,7 +90,7 @@ class FbCommentActivity : BaseFontActivity() {
                     //LToast.show(activity, "onClickMenu");
                 }
             })
-            hideMenuIcon()
+            inviMenuIcon()
             hideBlurView()
             setTvTitle("Facebook Comment")
         }

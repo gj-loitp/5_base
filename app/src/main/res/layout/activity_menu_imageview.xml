@@ -10,8 +10,8 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
         android:fillViewport="true"
-        android:padding="@dimen/padding_5"
         tools:ignore="UselessParent">
 
         <LinearLayout
@@ -19,104 +19,86 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/menu_imageview"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
-
             <Button
                 android:id="@+id/bt_big_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/big_imageview" />
 
             <Button
                 android:id="@+id/bt_big_imageview_with_scroll_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/big_imageview_with_scrollview" />
 
             <Button
                 android:id="@+id/bt_blur_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/blur_imageview" />
 
             <Button
                 android:id="@+id/bt_cirle_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/circle_imageview" />
 
             <Button
                 android:id="@+id/bt_cirlularroundrect_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/circular_roundrect_imageview" />
 
             <Button
                 android:id="@+id/bt_continuous_scrollable_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/continuous_scrollable_imageview" />
 
             <Button
                 android:id="@+id/bt_fidgetspinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/fidgetspinner_imageview" />
 
             <Button
                 android:id="@+id/btKenburnView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Kenburn view" />
 
             <Button
                 android:id="@+id/bt_panorama_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/panorama_imageview" />
 
             <Button
                 android:id="@+id/btPinchToZoom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Pinch to zoom" />
 
             <Button
                 android:id="@+id/btPinchToZoomWithViewPager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Pinch to zoom with ViewPager" />
 
             <Button
                 android:id="@+id/bt_scroll_parallax_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/scroll_parallax_imageview" />
 
             <Button
                 android:id="@+id/bt_touch_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/touch_imageview" />
 
             <Button
                 android:id="@+id/bt_stretchy_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/stretchy_imageview" />
 
             <Button
                 android:id="@+id/bt_zoom_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/zoomimageview" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_imageview" />
 </RelativeLayout>
 
