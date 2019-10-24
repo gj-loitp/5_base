@@ -2,27 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/padding_15"
                 android:text="@string/large_text" />
         </LinearLayout>
     </ScrollView>
 
-    <com.views.layout.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
+    <com.views.layout.draggablepanel.DraggableView xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/draggable_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -42,13 +43,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_5"
+                    android:padding="@dimen/padding_15"
                     android:text="@string/hello_world" />
             </LinearLayout>
         </ScrollView>
@@ -59,6 +60,7 @@
             android:layout_height="@dimen/w_200"
             android:layout_alignParentTop="true"
             android:background="@color/White"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />
 
