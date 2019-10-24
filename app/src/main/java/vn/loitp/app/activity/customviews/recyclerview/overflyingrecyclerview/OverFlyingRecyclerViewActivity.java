@@ -13,16 +13,14 @@ import com.views.recyclerview.banner.layoutmanager.OverFlyingLayoutManager;
 import loitp.basemaster.R;
 
 public class OverFlyingRecyclerViewActivity extends BaseFontActivity {
-    private RecyclerView recyclerView;
     private OverFlyingLayoutManager mOverFlyingLayoutManager;
     private Handler mHandler;
-    private Runnable mRunnable;
     private int currentPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_banner);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_banner);
         mOverFlyingLayoutManager = new OverFlyingLayoutManager(0.75f, 385, OverFlyingLayoutManager.HORIZONTAL);
 
         recyclerView.setAdapter(new LocalDataAdapter());
@@ -41,7 +39,8 @@ public class OverFlyingRecyclerViewActivity extends BaseFontActivity {
             }
         });
         mHandler = new Handler();
-        mRunnable = new Runnable() {
+        //  recyclerView.smoothScrollToPosition(currentPosition);
+        Runnable mRunnable = new Runnable() {
             @Override
             public void run() {
                 currentPosition++;

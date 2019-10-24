@@ -1,8 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -33,7 +31,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
         recyclerView = findViewById(R.id.rv);
         tvType = findViewById(R.id.tv_type);
 
-        mAdapter = new MoviesAdapter(getActivity(), DummyData.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(getActivity(), DummyData.Companion.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 LToast.show(getActivity(), "Click " + movie.getTitle());
@@ -41,10 +39,10 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
 
             @Override
             public void onLongClick(Movie movie, int position) {
-                boolean isRemoved = DummyData.getInstance().getMovieList().remove(movie);
+                boolean isRemoved = DummyData.Companion.getInstance().getMovieList().remove(movie);
                 if (isRemoved) {
                     mAdapter.notifyItemRemoved(position);
-                    mAdapter.notifyItemRangeChanged(position, DummyData.getInstance().getMovieList().size());
+                    mAdapter.notifyItemRangeChanged(position, DummyData.Companion.getInstance().getMovieList().size());
                 }
             }
 
@@ -62,39 +60,31 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
 
         prepareMovieData();
 
-        findViewById(R.id.bt_setting).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_recycler_view, new LPopupMenu.CallBack() {
-                    @Override
-                    public void clickOnItem(MenuItem menuItem) {
-                        tvType.setText(menuItem.getTitle().toString());
-                        switch (menuItem.getItemId()) {
-                            case R.id.menu_linear_vertical:
-                                RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
-                                recyclerView.setLayoutManager(lmVertical);
-                                break;
-                            case R.id.menu_linear_horizontal:
-                                RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                                recyclerView.setLayoutManager(lmHorizontal);
-                                break;
-                            case R.id.menu_gridlayoutmanager_2:
-                                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                                break;
-                            case R.id.menu_gridlayoutmanager_3:
-                                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-                                break;
-                            case R.id.menu_staggeredgridlayoutmanager_2:
-                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-                                break;
-                            case R.id.menu_staggeredgridlayoutmanager_4:
-                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
-                                break;
-                        }
-                    }
-                });
+        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_recycler_view, menuItem -> {
+            tvType.setText(menuItem.getTitle().toString());
+            switch (menuItem.getItemId()) {
+                case R.id.menu_linear_vertical:
+                    RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
+                    recyclerView.setLayoutManager(lmVertical);
+                    break;
+                case R.id.menu_linear_horizontal:
+                    RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                    recyclerView.setLayoutManager(lmHorizontal);
+                    break;
+                case R.id.menu_gridlayoutmanager_2:
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    break;
+                case R.id.menu_gridlayoutmanager_3:
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+                    break;
+                case R.id.menu_staggeredgridlayoutmanager_2:
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                    break;
+                case R.id.menu_staggeredgridlayoutmanager_4:
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
+                    break;
             }
-        });
+        }));
     }
 
     private void loadMore() {
@@ -105,7 +95,7 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
                 int newSize = 5;
                 for (int i = 0; i < newSize; i++) {
                     Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
-                    DummyData.getInstance().getMovieList().add(movie);
+                    DummyData.Companion.getInstance().getMovieList().add(movie);
                 }
                 mAdapter.notifyDataSetChanged();
                 LToast.show(getActivity(), "Finish loadMore");
@@ -129,10 +119,10 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     }
 
     private void prepareMovieData() {
-        if (DummyData.getInstance().getMovieList().isEmpty()) {
+        if (DummyData.Companion.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 10; i++) {
                 Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
-                DummyData.getInstance().getMovieList().add(movie);
+                DummyData.Companion.getInstance().getMovieList().add(movie);
             }
         }
         mAdapter.notifyDataSetChanged();

@@ -25,7 +25,7 @@ public class DemoColorPagerAdapter extends PagerAdapter {
                 .inflate(R.layout.layout_page, container, false);
 
         TextView textView = view.findViewById(R.id.title);
-        textView.setText("Page: " + mItems.get(position).hex);
+        textView.setText("Page: " + mItems.get(position).getHex());
         container.addView(view);
 
         return view;
@@ -48,7 +48,7 @@ public class DemoColorPagerAdapter extends PagerAdapter {
 
     @Override
     public String getPageTitle(int position) {
-        return mItems.get(position).name;
+        return mItems.get(position).getName();
     }
 
     public ColorItem getColorItem(int position) {

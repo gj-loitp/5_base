@@ -43,12 +43,7 @@ public class DemoRtlActivity extends DemoBasicActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         List<ColorItem> items = DemoData.loadDemoColorItems(this);
-        Collections.sort(items, new Comparator<ColorItem>() {
-            @Override
-            public int compare(ColorItem lhs, ColorItem rhs) {
-                return lhs.name.compareTo(rhs.name);
-            }
-        });
+        Collections.sort(items, (lhs, rhs) -> lhs.getName().compareTo(rhs.getName()));
 
         DemoColorPagerAdapter adapter = new DemoColorPagerAdapter();
         adapter.addAll(items);

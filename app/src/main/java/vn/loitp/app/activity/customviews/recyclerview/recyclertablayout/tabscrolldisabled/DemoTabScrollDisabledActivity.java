@@ -46,12 +46,7 @@ public class DemoTabScrollDisabledActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         List<ColorItem> items = DemoData.loadDemoColorItems(this);
-        Collections.sort(items, new Comparator<ColorItem>() {
-            @Override
-            public int compare(ColorItem lhs, ColorItem rhs) {
-                return lhs.name.compareTo(rhs.name);
-            }
-        });
+        Collections.sort(items, (lhs, rhs) -> lhs.getName().compareTo(rhs.getName()));
 
         DemoColorPagerAdapter adapter = new DemoColorPagerAdapter();
         adapter.addAll(items);
@@ -65,10 +60,9 @@ public class DemoTabScrollDisabledActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.viewpager.widget.PagerAdapter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class DemoImagePagerAdapter extends PagerAdapter {
     public DemoImagePagerAdapter() {
     }
 
+    @NotNull
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(container.getContext())
@@ -33,7 +36,7 @@ public class DemoImagePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, @NotNull Object object) {
         container.removeView((View) object);
     }
 
@@ -43,7 +46,7 @@ public class DemoImagePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NotNull View view, @NotNull Object object) {
         return view == object;
     }
 

@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-
-
     <ListView
         android:id="@+id/list"
         style="@style/ScrollVertical"

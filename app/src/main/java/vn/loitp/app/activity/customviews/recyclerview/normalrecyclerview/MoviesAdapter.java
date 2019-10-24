@@ -1,19 +1,15 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview;
 
-/**
- * Created by www.muathu@gmail.com on 12/8/2017.
- */
-
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.ViewPropertyAnimatorListener;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -24,11 +20,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     private int lastPosition = -1;
 
     public interface Callback {
-        public void onClick(Movie movie, int position);
+        void onClick(Movie movie, int position);
 
-        public void onLongClick(Movie movie, int position);
+        void onLongClick(Movie movie, int position);
 
-        public void onLoadMore();
+        void onLoadMore();
     }
 
     private Context context;
@@ -41,10 +37,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
         public MovieViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            genre = (TextView) view.findViewById(R.id.genre);
-            year = (TextView) view.findViewById(R.id.year);
-            rootView = (LinearLayout) view.findViewById(R.id.root_view);
+            title = view.findViewById(R.id.title);
+            genre = view.findViewById(R.id.genre);
+            year = view.findViewById(R.id.year);
+            rootView = view.findViewById(R.id.root_view);
         }
     }
 
@@ -54,6 +50,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         this.callback = callback;
     }
 
+    @NotNull
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_row, parent, false);
@@ -67,22 +64,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         holder.genre.setText(movie.getGenre());
         holder.year.setText(movie.getYear());
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(movie, position);
-                }
+        holder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(movie, position);
             }
         });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(movie, position);
-                }
-                return true;
+        holder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(movie, position);
             }
+            return true;
         });
         if (position == moviesList.size() - 1) {
             if (callback != null) {

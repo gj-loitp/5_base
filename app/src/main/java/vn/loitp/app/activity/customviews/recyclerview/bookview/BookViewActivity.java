@@ -17,14 +17,12 @@ import vn.loitp.app.common.Constants;
 
 public class BookViewActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
-    private RecyclerView recyclerView;
     private BookAdapter mAdapter;
-    private final int COLUMN = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
 
         /*findViewById(R.id.bt_add_3).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +43,7 @@ public class BookViewActivity extends BaseFontActivity {
             }
         });*/
 
+        int COLUMN = 3;
         mAdapter = new BookAdapter(getActivity(), COLUMN, movieList, new BookAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {

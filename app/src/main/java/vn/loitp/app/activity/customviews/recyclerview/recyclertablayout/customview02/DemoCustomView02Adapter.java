@@ -16,6 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter;
 
@@ -27,11 +29,12 @@ public class DemoCustomView02Adapter
 
     private DemoImagePagerAdapter mAdapater;
 
-    public DemoCustomView02Adapter(ViewPager viewPager) {
+    DemoCustomView02Adapter(ViewPager viewPager) {
         super(viewPager);
         mAdapater = (DemoImagePagerAdapter) mViewPager.getAdapter();
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -70,12 +73,7 @@ public class DemoCustomView02Adapter
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getViewPager().setCurrentItem(getAdapterPosition());
-                }
-            });
+            itemView.setOnClickListener(v -> getViewPager().setCurrentItem(getAdapterPosition()));
         }
     }
 }

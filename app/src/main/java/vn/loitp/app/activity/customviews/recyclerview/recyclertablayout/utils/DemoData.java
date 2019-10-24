@@ -36,10 +36,10 @@ public class DemoData {
                 String key = keys.next();
                 JSONObject value = obj.getJSONObject(key);
                 ColorItem colorItem = new ColorItem();
-                colorItem.name = value.getString("name");
-                colorItem.hex = value.getString("hex");
+                colorItem.setName(value.getString("name"));
+                colorItem.setHex(value.getString("hex"));
                 JSONArray rgb = value.getJSONArray("rgb");
-                colorItem.color = Color.rgb(rgb.getInt(0), rgb.getInt(1), rgb.getInt(2));
+                colorItem.setColor(Color.rgb(rgb.getInt(0), rgb.getInt(1), rgb.getInt(2)));
                 items.add(colorItem);
             }
         } catch (IOException | JSONException e) {

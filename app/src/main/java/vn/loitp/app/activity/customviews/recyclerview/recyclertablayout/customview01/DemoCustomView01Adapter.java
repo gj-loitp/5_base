@@ -13,6 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.ColorItem;
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter;
@@ -24,11 +26,12 @@ public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCusto
 
     private DemoColorPagerAdapter mAdapater;
 
-    public DemoCustomView01Adapter(ViewPager viewPager) {
+    DemoCustomView01Adapter(ViewPager viewPager) {
         super(viewPager);
         mAdapater = (DemoColorPagerAdapter) mViewPager.getAdapter();
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -39,10 +42,10 @@ public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCusto
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ColorItem colorItem = mAdapater.getColorItem(position);
-        holder.title.setText(colorItem.name);
-        holder.color.setBackgroundColor(colorItem.color);
+        holder.title.setText(colorItem.getName());
+        holder.color.setBackgroundColor(colorItem.getColor());
 
-        SpannableString name = new SpannableString(colorItem.name);
+        SpannableString name = new SpannableString(colorItem.getName());
         if (position == getCurrentIndicatorPosition()) {
             name.setSpan(new StyleSpan(Typeface.BOLD), 0, name.length(), 0);
         }
@@ -64,12 +67,7 @@ public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCusto
             title = itemView.findViewById(R.id.title);
             color = itemView.findViewById(R.id.color);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getViewPager().setCurrentItem(getAdapterPosition());
-                }
-            });
+            itemView.setOnClickListener(v -> getViewPager().setCurrentItem(getAdapterPosition()));
         }
     }
 }
