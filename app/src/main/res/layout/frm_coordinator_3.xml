@@ -4,6 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -31,6 +32,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:behavior_overlapTop="100dp"
@@ -40,18 +42,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/padding_15">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:cardElevation="@dimen/w_3">
+                app:cardElevation="@dimen/w_3"
+                app:cardUseCompatPadding="true">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:padding="@dimen/padding_15"
                     android:text="@string/large_text" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
