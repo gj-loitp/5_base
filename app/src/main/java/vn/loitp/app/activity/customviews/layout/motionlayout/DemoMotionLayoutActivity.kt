@@ -34,7 +34,7 @@ class DemoMotionLayoutActivity : BaseFontActivity() {
         //setContentView(layout)
         container = findViewById(R.id.motionLayout)
 
-        var layout = intent.getIntExtra("layout_file_id", R.layout.motion_01_basic);
+        val layout = intent.getIntExtra("layout_file_id", R.layout.motion_01_basic);
         if (layout == R.layout.motion_11_coordinatorlayout) {
             val icon = findViewById<ImageView>(R.id.icon)
             icon?.clipToOutline = true

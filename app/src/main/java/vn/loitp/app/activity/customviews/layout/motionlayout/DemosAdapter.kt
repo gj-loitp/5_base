@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout
 
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
 import loitp.basemaster.R
 
 class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) : RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
