@@ -24,12 +24,12 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        btStart = (Button) findViewById(R.id.bt_start);
-        btStop = (Button) findViewById(R.id.bt_stop);
-        btSendD = (Button) findViewById(R.id.bt_send_d);
-        btSendI = (Button) findViewById(R.id.bt_send_i);
-        btSendE = (Button) findViewById(R.id.bt_send_e);
-        btSendObjectD = (Button) findViewById(R.id.bt_send_object_d);
+        btStart = findViewById(R.id.bt_start);
+        btStop = findViewById(R.id.bt_stop);
+        btSendD = findViewById(R.id.bt_send_d);
+        btSendI = findViewById(R.id.bt_send_i);
+        btSendE = findViewById(R.id.bt_send_e);
+        btSendObjectD = findViewById(R.id.bt_send_object_d);
         btStart.setOnClickListener(this);
         btStop.setOnClickListener(this);
         btSendD.setOnClickListener(this);

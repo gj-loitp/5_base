@@ -2,10 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White">
+    android:background="@color/WhiteSmoke">
 
     <ListView
         android:id="@+id/listView"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

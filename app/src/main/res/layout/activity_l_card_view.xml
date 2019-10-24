@@ -2,29 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_5">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/demo_lcardview"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
+            android:padding="@dimen/padding_15">
 
             <com.views.card.LCardView
                 android:id="@+id/lCardView0"
@@ -39,4 +32,9 @@
                 android:layout_marginTop="@dimen/margin_25" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextMenu"
+        android:text="@string/demo_lcardview" />
 </RelativeLayout>

@@ -36,5 +36,8 @@
         <item name="android:layout_marginStart">@dimen/margin_15</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:layout_marginEnd">@dimen/margin_15</item>
+        <item name="android:layout_marginTop">@dimen/margin_5</item>
+        <item name="android:layout_marginBottom">@dimen/margin_5</item>
+        <item name="android:background">@drawable/bt_tag</item>
     </style>
 </resources>

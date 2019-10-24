@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white">
+    android:background="@color/WhiteSmoke">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -17,6 +17,7 @@
             android:layout_width="60dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
             android:scaleType="fitCenter"
             android:src="@drawable/l_gesture" />
 
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="@dimen/padding_15"
             android:text="This is an ignored view，you can’t use gesture to operate menu here."
             android:textColor="#9a9a9a"
             android:textSize="17sp" />
