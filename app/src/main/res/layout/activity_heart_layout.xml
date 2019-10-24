@@ -2,17 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_15"
         android:text="Touch anything"
         android:textSize="@dimen/txt_32" />
 
@@ -20,6 +22,6 @@
         android:id="@+id/heart_layout"
         android:layout_width="@dimen/w_100"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
 

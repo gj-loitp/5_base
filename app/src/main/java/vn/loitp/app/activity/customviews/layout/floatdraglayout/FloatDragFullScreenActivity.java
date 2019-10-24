@@ -31,12 +31,7 @@ public class FloatDragFullScreenActivity extends BaseActivity {
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         rootView.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
-            }
-        });
+        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
     }
 
     @Override
