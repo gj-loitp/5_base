@@ -15,8 +15,8 @@ public class BlurImageViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ImageView imageView = (ImageView) findViewById(R.id.iv);
-        ImageView imageView2 = (ImageView) findViewById(R.id.iv_2);
+        ImageView imageView = findViewById(R.id.iv);
+        ImageView imageView2 = findViewById(R.id.iv_2);
         LBlurImageView.with(getApplicationContext())
                 .load(R.drawable.iv)
                 .intensity(20)

@@ -14,7 +14,7 @@ public class ZoomImageViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ZoomImageView zoomImageView = (ZoomImageView) findViewById(R.id.zoom_iv);
+        ZoomImageView zoomImageView = findViewById(R.id.zoom_iv);
         zoomImageView.setImageDrawable(new ColorGridDrawable());
 
         /*zoomImageView.getEngine().panTo(x, y, true);

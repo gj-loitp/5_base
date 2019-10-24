@@ -22,7 +22,7 @@ public class PanoramaImageViewActivity extends BaseFontActivity {
         // It should be set between 0 and π/2.
         // The default value is π/9.
         gyroscopeObserver.setMaxRotateRadian(Math.PI / 9);
-        LPanoramaImageView = (LPanoramaImageView) findViewById(R.id.panorama_image_view);
+        LPanoramaImageView = findViewById(R.id.panorama_image_view);
 
         //panoramaImageView.setEnablePanoramaMode(true);
         //panoramaImageView.setEnableScrollbar(true);
@@ -31,12 +31,7 @@ public class PanoramaImageViewActivity extends BaseFontActivity {
         // Set GyroscopeObserver for PanoramaImageView.
         LPanoramaImageView.setGyroscopeObserver(gyroscopeObserver);
 
-        LPanoramaImageView.setOnPanoramaScrollListener(new LPanoramaImageView.OnPanoramaScrollListener() {
-            @Override
-            public void onScrolled(LPanoramaImageView view, float offsetProgress) {
-                LLog.INSTANCE.d(getTAG(), "onScrolled offsetProgress " + offsetProgress);
-            }
-        });
+        LPanoramaImageView.setOnPanoramaScrollListener((view, offsetProgress) -> LLog.d(getTAG(), "onScrolled offsetProgress " + offsetProgress));
     }
 
     @Override
