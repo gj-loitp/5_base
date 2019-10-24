@@ -16,28 +16,28 @@ public class DraggablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        draggablePanel = (DraggablePanel) findViewById(R.id.draggable_panel);
+        draggablePanel = findViewById(R.id.draggable_panel);
         initializeDraggablePanel();
 
         draggablePanel.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
-                LLog.INSTANCE.d(getTAG(), "onMaximized");
+                LLog.d(getTAG(), "onMaximized");
             }
 
             @Override
             public void onMinimized() {
-                LLog.INSTANCE.d(getTAG(), "onMinimized");
+                LLog.d(getTAG(), "onMinimized");
             }
 
             @Override
             public void onClosedToLeft() {
-                LLog.INSTANCE.d(getTAG(), "onClosedToLeft");
+                LLog.d(getTAG(), "onClosedToLeft");
             }
 
             @Override
             public void onClosedToRight() {
-                LLog.INSTANCE.d(getTAG(), "onClosedToRight");
+                LLog.d(getTAG(), "onClosedToRight");
             }
         });
     }
