@@ -2,7 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <RelativeLayout
         android:id="@+id/root_view"
@@ -13,8 +14,7 @@
 
     <Button
         android:id="@+id/showSnackbarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:layout_gravity="center"
         android:text="Show snackbar" />
 
@@ -22,8 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:src="@drawable/l_ic_play_arrow_black_48dp"
         android:tint="@color/White" />
 
@@ -31,6 +31,7 @@
         android:layout_width="@dimen/w_300"
         android:layout_height="@dimen/w_150"
         android:layout_gravity="bottom"
+        android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
         android:src="@drawable/iv" />
 

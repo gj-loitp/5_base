@@ -10,6 +10,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.core.utilities.LLog;
 import com.views.imageview.circle.LCircleImageView;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Created by Obaro on 18/07/2016.
  */
@@ -22,12 +24,12 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<LCircleImageView>
     }
 
     @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, LCircleImageView child, View dependency) {
+    public boolean layoutDependsOn(@NotNull CoordinatorLayout parent, @NotNull LCircleImageView child, @NotNull View dependency) {
         return dependency instanceof Toolbar;
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, LCircleImageView child, View dependency) {
+    public boolean onDependentViewChanged(@NotNull CoordinatorLayout parent, LCircleImageView child, View dependency) {
         int[] dependencyLocation = new int[2];
         int[] childLocation = new int[2];
 
@@ -37,7 +39,7 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<LCircleImageView>
         float diff = childLocation[1] - dependencyLocation[1];
         if (diff > 0) {
             float scale = diff / (float) childLocation[1];
-            LLog.INSTANCE.d(TAG, "scale == " + scale);
+            LLog.d(TAG, "scale == " + scale);
             child.setScaleX(1 + scale);
             child.setScaleY(1 + scale);
         }
