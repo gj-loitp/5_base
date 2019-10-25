@@ -8,11 +8,8 @@ import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
-import java.util.List;
-
 import loitp.basemaster.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 
 public class TTTAPIFavListActivity extends BaseFontActivity {
     private TextView tv;
@@ -22,9 +19,9 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
+        tv = findViewById(R.id.tv);
+        tvTitle = findViewById(R.id.tv_title);
+        avi = findViewById(R.id.avi);
         avi.hide();
 
         getFavList();
@@ -46,13 +43,10 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
     }
 
     private void getFavList() {
-        new GetFavListTask(getActivity(), avi, new GetFavListTask.Callback() {
-            @Override
-            public void onSuccess(List<Comic> comicList) {
-                LLog.INSTANCE.d(getTAG(), "onSuccess " + comicList.size());
-                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                tvTitle.setText("Danh sách yêu thích: " + comicList.size());
-            }
+        new GetFavListTask(getActivity(), avi, comicList -> {
+            LLog.d(getTAG(), "onSuccess " + comicList.size());
+            LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+            tvTitle.setText("Danh sách yêu thích: " + comicList.size());
         }).execute();
     }
 }

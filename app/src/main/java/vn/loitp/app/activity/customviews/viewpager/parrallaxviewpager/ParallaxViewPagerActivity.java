@@ -15,6 +15,8 @@ import com.core.utilities.LStoreUtil;
 import com.views.viewpager.parrallax.ParrallaxMode;
 import com.views.viewpager.parrallax.LParallaxViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +56,9 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
 
     private class SlidePagerAdapter extends PagerAdapter {
 
+        @NotNull
         @Override
-        public Object instantiateItem(ViewGroup collection, int position) {
+        public Object instantiateItem(@NotNull ViewGroup collection, int position) {
             Integer res = resList.get(position);
             LLog.d(getTAG(), "res " + res);
             LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -77,7 +80,7 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         }
 
         @Override
-        public void destroyItem(ViewGroup collection, int position, Object view) {
+        public void destroyItem(ViewGroup collection, int position, @NotNull Object view) {
             collection.removeView((View) view);
         }
 
@@ -87,7 +90,7 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NotNull View view, @NotNull Object object) {
             return view == object;
         }
     }

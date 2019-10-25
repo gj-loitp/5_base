@@ -13,21 +13,20 @@ import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import loitp.basemaster.R;
 
 public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
-    private ViewPager viewPager;
-    private ViewPagerAdapter adapter;
-
     private List<VPPhoto> vpPhotoList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
 
         int max = 3;
         for (int i = 0; i < max; i++) {
@@ -61,7 +60,7 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
             }
         });
 
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
     }
@@ -83,10 +82,11 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
+        ViewPagerAdapter(FragmentManager fm) {
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
             Bundle bundle = new Bundle();

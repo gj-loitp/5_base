@@ -19,20 +19,19 @@ import vn.loitp.app.common.Constants;
 
 //https://github.com/BCsl/GalleryLayoutManager
 public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
-    private RecyclerView recyclerView;
     private GalleryAdapter mAdapter;
     private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        tv = (TextView) findViewById(R.id.tv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
+        tv = findViewById(R.id.tv);
 
-        mAdapter = new GalleryAdapter(getActivity(), DummyData.getInstance().getMovieList(), new GalleryAdapter.Callback() {
+        mAdapter = new GalleryAdapter(getActivity(), DummyData.Companion.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(getActivity(), "Click " + movie.getTitle());
+                LToast.show(getActivity(), "Click " + movie.getTitle());
             }
 
             @Override
@@ -88,10 +87,10 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
     }
 
     private void prepareMovieData() {
-        if (DummyData.getInstance().getMovieList().isEmpty()) {
+        if (DummyData.Companion.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 50; i++) {
                 Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
-                DummyData.getInstance().getMovieList().add(movie);
+                DummyData.Companion.getInstance().getMovieList().add(movie);
             }
         }
         mAdapter.notifyDataSetChanged();

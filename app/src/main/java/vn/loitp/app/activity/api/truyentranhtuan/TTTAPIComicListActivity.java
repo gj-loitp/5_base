@@ -1,9 +1,7 @@
 package vn.loitp.app.activity.api.truyentranhtuan;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -33,20 +31,15 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        btSelect = (Button) findViewById(R.id.bt_select);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        tv = (TextView) findViewById(R.id.tv);
-        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
+        btSelect = findViewById(R.id.bt_select);
+        tvTitle = findViewById(R.id.tv_title);
+        tv = findViewById(R.id.tv);
+        avi = findViewById(R.id.avi);
         avi.hide();
 
         comicTypeList = ComicUtils.getComicTypeList();
 
-        btSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialogSelect();
-            }
-        });
+        btSelect.setOnClickListener(v -> showDialogSelect());
     }
 
     @Override
@@ -74,25 +67,22 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
             items[i] = comicTypeList.get(i).getType();
         }
 
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int position) {
-                LLog.INSTANCE.d(getTAG(), "onClick " + position);
-                tv.setText("");
-                tvTitle.setText("");
-                new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
-                    @Override
-                    public void onSuccess(List<Comic> comicList) {
-                        LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                        tvTitle.setText("Danh sách truyện: " + comicList.size());
-                    }
+        builder.setItems(items, (dialog, position) -> {
+            LLog.d(getTAG(), "onClick " + position);
+            tv.setText("");
+            tvTitle.setText("");
+            new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+                @Override
+                public void onSuccess(List<Comic> comicList) {
+                    LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                    tvTitle.setText("Danh sách truyện: " + comicList.size());
+                }
 
-                    @Override
-                    public void onError() {
-                        LToast.showShort(activity, "Error");
-                    }
-                }).execute();
-            }
+                @Override
+                public void onError() {
+                    LToast.showShort(activity, "Error");
+                }
+            }).execute();
         });
         AlertDialog dialog = builder.create();
         dialog.show();

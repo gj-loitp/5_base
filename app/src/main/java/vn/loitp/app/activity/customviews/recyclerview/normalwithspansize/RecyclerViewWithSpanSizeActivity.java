@@ -21,13 +21,12 @@ import vn.loitp.app.common.Constants;
 
 public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
     private List<Movie> movieList = new ArrayList<>();
-    private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
 
         mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
             @Override

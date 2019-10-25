@@ -61,12 +61,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 
-        findViewById(R.id.bt_anim).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialogAnim();
-            }
-        });
+        findViewById(R.id.bt_anim).setOnClickListener(v -> showDialogAnim());
     }
 
     private final String AccordionTransformer = "AccordionTransformer";
@@ -109,66 +104,63 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         stringList.add(ZoomOutSlideTransformer);
         stringList.add(ZoomOutTranformer);
         String[] arr = stringList.toArray(new String[stringList.size()]);
-        LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select", arr, new LDialogUtil.CallbackList() {
-            @Override
-            public void onClick(int position) {
-                LToast.show(getActivity(), "Click position " + position + ", item: " + arr[position]);
-                switch (stringList.get(position)) {
-                    case AccordionTransformer:
-                        viewPager.setPageTransformer(true, new AccordionTransformer());
-                        break;
-                    case BackgroundToForegroundTransformer:
-                        viewPager.setPageTransformer(true, new BackgroundToForegroundTransformer());
-                        break;
-                    case CubeInTransformer:
-                        viewPager.setPageTransformer(true, new CubeInTransformer());
-                        break;
-                    case CubeOutTransformer:
-                        viewPager.setPageTransformer(true, new CubeOutTransformer());
-                        break;
-                    case DefaultTransformer:
-                        viewPager.setPageTransformer(true, new DefaultTransformer());
-                        break;
-                    case DepthPageTransformer:
-                        viewPager.setPageTransformer(true, new DepthPageTransformer());
-                        break;
-                    case DrawFromBackTransformer:
-                        viewPager.setPageTransformer(true, new DrawFromBackTransformer());
-                        break;
-                    case FlipHorizontalTransformer:
-                        viewPager.setPageTransformer(true, new FlipHorizontalTransformer());
-                        break;
-                    case FlipVerticalTransformer:
-                        viewPager.setPageTransformer(true, new FlipVerticalTransformer());
-                        break;
-                    case ForegroundToBackgroundTransformer:
-                        viewPager.setPageTransformer(true, new ForegroundToBackgroundTransformer());
-                        break;
-                    /*case ParallaxPageTransformer:
-                        viewPager.setPageTransformer(true, new ParallaxPageTransformer());
-                        break;*/
-                    case RotateDownTransformer:
-                        viewPager.setPageTransformer(true, new RotateDownTransformer());
-                        break;
-                    case RotateUpTransformer:
-                        viewPager.setPageTransformer(true, new RotateUpTransformer());
-                        break;
-                    case StackTransformer:
-                        viewPager.setPageTransformer(true, new StackTransformer());
-                        break;
-                    case TabletTransformer:
-                        viewPager.setPageTransformer(true, new TabletTransformer());
-                        break;
-                    case ZoomInTransformer:
-                        viewPager.setPageTransformer(true, new ZoomInTransformer());
-                        break;
-                    case ZoomOutSlideTransformer:
-                        viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
-                        break;
-                    case ZoomOutTranformer:
-                        viewPager.setPageTransformer(true, new ZoomOutTranformer());
-                        break;
-                }
+        LDialogUtil.INSTANCE.showDialogList(getActivity(), "Select", arr, position -> {
+            LToast.show(getActivity(), "Click position " + position + ", item: " + arr[position]);
+            switch (stringList.get(position)) {
+                case AccordionTransformer:
+                    viewPager.setPageTransformer(true, new AccordionTransformer());
+                    break;
+                case BackgroundToForegroundTransformer:
+                    viewPager.setPageTransformer(true, new BackgroundToForegroundTransformer());
+                    break;
+                case CubeInTransformer:
+                    viewPager.setPageTransformer(true, new CubeInTransformer());
+                    break;
+                case CubeOutTransformer:
+                    viewPager.setPageTransformer(true, new CubeOutTransformer());
+                    break;
+                case DefaultTransformer:
+                    viewPager.setPageTransformer(true, new DefaultTransformer());
+                    break;
+                case DepthPageTransformer:
+                    viewPager.setPageTransformer(true, new DepthPageTransformer());
+                    break;
+                case DrawFromBackTransformer:
+                    viewPager.setPageTransformer(true, new DrawFromBackTransformer());
+                    break;
+                case FlipHorizontalTransformer:
+                    viewPager.setPageTransformer(true, new FlipHorizontalTransformer());
+                    break;
+                case FlipVerticalTransformer:
+                    viewPager.setPageTransformer(true, new FlipVerticalTransformer());
+                    break;
+                case ForegroundToBackgroundTransformer:
+                    viewPager.setPageTransformer(true, new ForegroundToBackgroundTransformer());
+                    break;
+                /*case ParallaxPageTransformer:
+                    viewPager.setPageTransformer(true, new ParallaxPageTransformer());
+                    break;*/
+                case RotateDownTransformer:
+                    viewPager.setPageTransformer(true, new RotateDownTransformer());
+                    break;
+                case RotateUpTransformer:
+                    viewPager.setPageTransformer(true, new RotateUpTransformer());
+                    break;
+                case StackTransformer:
+                    viewPager.setPageTransformer(true, new StackTransformer());
+                    break;
+                case TabletTransformer:
+                    viewPager.setPageTransformer(true, new TabletTransformer());
+                    break;
+                case ZoomInTransformer:
+                    viewPager.setPageTransformer(true, new ZoomInTransformer());
+                    break;
+                case ZoomOutSlideTransformer:
+                    viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
+                    break;
+                case ZoomOutTranformer:
+                    viewPager.setPageTransformer(true, new ZoomOutTranformer());
+                    break;
             }
         });
     }

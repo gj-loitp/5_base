@@ -2,11 +2,12 @@ package vn.loitp.app.activity.customviews.layout.motionlayout.helpers;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import androidx.constraintlayout.widget.ConstraintHelper;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
+
+import androidx.constraintlayout.widget.ConstraintHelper;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ExampleFlyinBounceHelper extends ConstraintHelper {
     protected ConstraintLayout mContainer;
@@ -23,10 +24,6 @@ public class ExampleFlyinBounceHelper extends ConstraintHelper {
         super(context, attrs, defStyleAttr);
     }
 
-    /**
-     * @param container
-     * @hide
-     */
     @Override
     public void updatePreLayout(ConstraintLayout container) {
         if (mContainer != container) {

@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_view"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:background="@color/white">
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
-	<androidx.core.widget.NestedScrollView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-			<Button
-				android:id="@+id/bt"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/bt"
+                style="@style/ButtonMenu" />
 
-			<Button
-				android:id="@+id/bt_click"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/click" />
+            <Button
+                android:id="@+id/bt_click"
+                style="@style/ButtonMenu"
+                android:text="@string/click" />
 
-			<TextView
-				android:id="@+id/tv123"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content" />
-		</LinearLayout>
-	</androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/tv123"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
 

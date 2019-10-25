@@ -11,22 +11,14 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/rounded_button"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
             <com.views.button.roundedbutton.LRoundedButton
                 android:id="@+id/bt_0"
@@ -93,5 +85,10 @@
                 app:buttonRippleColor="@color/colorPrimary" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/rounded_button" />
 </RelativeLayout>
 

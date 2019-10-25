@@ -38,7 +38,7 @@ public class HomeFragment extends BaseFragment {
 
         getFrmRootView().findViewById(R.id.btn_open_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
 
-        FrameLayout ignored_view = (FrameLayout) getFrmRootView().findViewById(R.id.ignored_view);
+        FrameLayout ignored_view = getFrmRootView().findViewById(R.id.ignored_view);
         resideMenu.addIgnoredView(ignored_view);
     }
 

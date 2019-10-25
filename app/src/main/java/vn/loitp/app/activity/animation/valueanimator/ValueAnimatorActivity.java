@@ -20,14 +20,9 @@ public class ValueAnimatorActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvDebug = (TextView) findViewById(R.id.tv_debug);
-        view = (View) findViewById(R.id.view);
-        findViewById(R.id.bt_start).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAnim();
-            }
-        });
+        tvDebug = findViewById(R.id.tv_debug);
+        view = findViewById(R.id.view);
+        findViewById(R.id.bt_start).setOnClickListener(view -> startAnim());
     }
 
     @Override
@@ -57,14 +52,11 @@ public class ValueAnimatorActivity extends BaseFontActivity {
         valueAnimator.setInterpolator(new DecelerateInterpolator());
         float spaceW = (LScreenUtil.INSTANCE.getScreenWidth() - view.getWidth()) / range;
         float spaceH = (LScreenUtil.INSTANCE.getScreenHeight() - LScreenUtil.INSTANCE.getStatusBarHeight(getActivity()) - LScreenUtil.INSTANCE.getBottomBarHeight(getActivity()) - view.getHeight()) / range;
-        LLog.INSTANCE.d(getTAG(), "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (int) animation.getAnimatedValue();
-                tvDebug.setText("onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value);
-                updateUI(view, spaceW * value, spaceH * value);
-            }
+        LLog.d(getTAG(), "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
+        valueAnimator.addUpdateListener(animation -> {
+            int value = (int) animation.getAnimatedValue();
+            tvDebug.setText("onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value);
+            updateUI(view, spaceW * value, spaceH * value);
         });
         valueAnimator.start();
     }

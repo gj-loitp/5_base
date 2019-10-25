@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.views.LToast;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
 public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.ViewHolder> {
@@ -16,6 +18,7 @@ public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.View
             R.drawable.plane, R.drawable.iv, R.drawable.buildings, R.drawable.iv,
             R.drawable.buildings, R.drawable.iv, R.drawable.buildings};
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false));
@@ -37,13 +40,8 @@ public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.View
 
         ViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.image);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LToast.INSTANCE.show(v.getContext(), "Click " + v.getTag());
-                }
-            });
+            imageView = itemView.findViewById(R.id.image);
+            imageView.setOnClickListener(v -> LToast.show(v.getContext(), "Click " + v.getTag()));
         }
     }
 }

@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,10 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="#cccccc"
-            android:paddingBottom="10dp"
             android:paddingLeft="50dp"
+            android:paddingTop="10dp"
             android:paddingRight="50dp"
-            android:paddingTop="10dp">
+            android:paddingBottom="10dp">
 
             <!-- Clock wise - 90 -->
             <com.views.seekbar.vertical.LVerticalSeekBarWrapper
@@ -55,10 +55,8 @@
             <com.views.seekbar.vertical.LVerticalSeekBarWrapper
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_toEndOf="@+id/seekBarContainer1"
-                android:layout_toRightOf="@+id/seekBarContainer1"
                 android:minWidth="10dp">
 
                 <com.views.seekbar.vertical.LVerticalSeekBar
@@ -87,10 +85,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="100dp"
                 android:paddingLeft="50dp"
+                android:paddingTop="100dp"
                 android:paddingRight="50dp"
-                android:paddingTop="100dp">
+                android:paddingBottom="100dp">
 
                 <!-- Clock wise - 90 -->
                 <com.views.seekbar.vertical.LVerticalSeekBarWrapper
@@ -109,10 +107,8 @@
                 <com.views.seekbar.vertical.LVerticalSeekBarWrapper
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="50dp"
                     android:layout_marginStart="50dp"
-                    android:layout_toEndOf="@+id/seekBarContainer3"
-                    android:layout_toRightOf="@+id/seekBarContainer3">
+                    android:layout_toEndOf="@+id/seekBarContainer3">
 
                     <com.views.seekbar.vertical.LVerticalSeekBar
                         android:layout_width="0dp"
@@ -124,6 +120,5 @@
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>
-
 
 </RelativeLayout>

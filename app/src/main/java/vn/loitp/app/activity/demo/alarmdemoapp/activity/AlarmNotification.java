@@ -1,22 +1,3 @@
-/**************************************************************************
- *
- * Copyright (C) 2012-2015 Alex Taradov <alex@taradov.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *************************************************************************/
-
 package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
 import android.app.Notification;
@@ -71,7 +52,7 @@ public class AlarmNotification extends BaseFontActivity {
                         WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         mDateTime = new DateTime(this);
-        mTextView = (TextView) findViewById(R.id.alarm_title_text);
+        mTextView = findViewById(R.id.alarm_title_text);
 
         readPreferences();
 
@@ -85,7 +66,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LLog.INSTANCE.d(getTAG(), "AlarmNotification.onDestroy()");
+        LLog.d(getTAG(), "AlarmNotification.onDestroy()");
 
         stop();
     }
@@ -93,7 +74,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        LLog.INSTANCE.d(getTAG(), "AlarmNotification.onNewIntent()");
+        LLog.d(getTAG(), "AlarmNotification.onNewIntent()");
 
         addNotification(mAlarm);
 
@@ -105,7 +86,7 @@ public class AlarmNotification extends BaseFontActivity {
         mAlarm = new Alarm(this);
         mAlarm.fromIntent(intent);
 
-        LLog.INSTANCE.d(getTAG(), "AlarmNotification.start('" + mAlarm.getTitle() + "')");
+        LLog.d(getTAG(), "AlarmNotification.start('" + mAlarm.getTitle() + "')");
 
         mTextView.setText(mAlarm.getTitle());
 
@@ -118,7 +99,7 @@ public class AlarmNotification extends BaseFontActivity {
     }
 
     private void stop() {
-        LLog.INSTANCE.d(getTAG(), "AlarmNotification.stop()");
+        LLog.d(getTAG(), "AlarmNotification.stop()");
 
         mTimer.cancel();
         mRingtone.stop();
@@ -128,7 +109,7 @@ public class AlarmNotification extends BaseFontActivity {
 
     public void onDismissClick(View view) {
         finish();
-        LActivityUtil.INSTANCE.tranIn(getActivity());
+        LActivityUtil.tranIn(getActivity());
     }
 
     private void readPreferences() {
@@ -145,7 +126,7 @@ public class AlarmNotification extends BaseFontActivity {
         PendingIntent activity;
         Intent intent;
 
-        LLog.INSTANCE.d(getTAG(), "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
+        LLog.d(getTAG(), "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
         intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
@@ -168,16 +149,16 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     public void onBackPressed() {
         finish();
-        LActivityUtil.INSTANCE.tranIn(getActivity());
+        LActivityUtil.tranIn(getActivity());
     }
 
     private class PlayTimerTask extends TimerTask {
         @Override
         public void run() {
-            LLog.INSTANCE.d(getTAG(), "AlarmNotification.PalyTimerTask.run()");
+            LLog.d(getTAG(), "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
         }
     }
 

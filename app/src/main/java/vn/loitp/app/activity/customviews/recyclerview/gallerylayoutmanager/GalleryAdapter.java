@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager;
 
-/**
- * Created by www.muathu@gmail.com on 12/8/2017.
- */
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -25,11 +23,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieVie
     private int lastPosition = -1;
 
     public interface Callback {
-        public void onClick(Movie movie, int position);
+        void onClick(Movie movie, int position);
 
-        public void onLongClick(Movie movie, int position);
+        void onLongClick(Movie movie, int position);
 
-        public void onLoadMore();
+        void onLoadMore();
     }
 
     private Context context;
@@ -40,19 +38,20 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieVie
         public LinearLayout rootView;
         public ImageView imageView;
 
-        public MovieViewHolder(View view) {
+        MovieViewHolder(View view) {
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-            rootView = (LinearLayout) view.findViewById(R.id.root_view);
+            imageView = view.findViewById(R.id.imageView);
+            rootView = view.findViewById(R.id.root_view);
         }
     }
 
-    public GalleryAdapter(Context context, List<Movie> moviesList, Callback callback) {
+    GalleryAdapter(Context context, List<Movie> moviesList, Callback callback) {
         this.context = context;
         this.moviesList = moviesList;
         this.callback = callback;
     }
 
+    @NotNull
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
@@ -64,22 +63,16 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieVie
         Movie movie = moviesList.get(position);
         LImageUtil.INSTANCE.load(context, movie.getCover(), holder.imageView);
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(movie, position);
-                }
+        holder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(movie, position);
             }
         });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(movie, position);
-                }
-                return true;
+        holder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(movie, position);
             }
+            return true;
         });
         if (position == moviesList.size() - 1) {
             if (callback != null) {

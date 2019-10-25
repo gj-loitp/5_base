@@ -92,7 +92,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
         mWindowManager.addView(mFloatingView, params);
 
         //Set the close button
-        ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +101,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
             }
         });
 
-        simpleExoPlayerView = (SimpleExoPlayerView) mFloatingView.findViewById(R.id.player_view);
+        simpleExoPlayerView = mFloatingView.findViewById(R.id.player_view);
         playVideo();
 
         //Drag and move floating view using user's touch action.
@@ -225,22 +225,22 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-                LLog.INSTANCE.d(TAG, "Listener-onTracksChanged...");
+                LLog.d(TAG, "Listener-onTracksChanged...");
             }
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                LLog.INSTANCE.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
+                LLog.d(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
+                LLog.d(TAG, "Listener-onPlayerStateChanged..." + playbackState);
             }
 
             @Override
             public void onRepeatModeChanged(int repeatMode) {
-                LLog.INSTANCE.d(TAG, "Listener-onRepeatModeChanged...");
+                LLog.d(TAG, "Listener-onRepeatModeChanged...");
             }
 
             @Override
@@ -250,7 +250,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlayerError...");
+                LLog.d(TAG, "Listener-onPlayerError...");
                 player.stop();
                 player.prepare(loopingSource);
                 player.setPlayWhenReady(true);
@@ -263,7 +263,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-                LLog.INSTANCE.d(TAG, "Listener-onPlaybackParametersChanged...");
+                LLog.d(TAG, "Listener-onPlaybackParametersChanged...");
             }
 
             @Override
@@ -293,36 +293,36 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
 
     @Override
     public void onVideoEnabled(DecoderCounters counters) {
-        LLog.INSTANCE.d(TAG, "onVideoEnabled");
+        LLog.d(TAG, "onVideoEnabled");
     }
 
     @Override
     public void onVideoDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
-        LLog.INSTANCE.d(TAG, "onVideoDecoderInitialized");
+        LLog.d(TAG, "onVideoDecoderInitialized");
     }
 
     @Override
     public void onVideoInputFormatChanged(Format format) {
-        LLog.INSTANCE.d(TAG, "onVideoInputFormatChanged");
+        LLog.d(TAG, "onVideoInputFormatChanged");
     }
 
     @Override
     public void onDroppedFrames(int count, long elapsedMs) {
-        LLog.INSTANCE.d(TAG, "onDroppedFrames");
+        LLog.d(TAG, "onDroppedFrames");
     }
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-        LLog.INSTANCE.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
+        LLog.d(TAG, "onVideoSizeChanged [" + " width: " + width + " height: " + height + "]");
     }
 
     @Override
     public void onRenderedFirstFrame(Surface surface) {
-        LLog.INSTANCE.d(TAG, "onRenderedFirstFrame");
+        LLog.d(TAG, "onRenderedFirstFrame");
     }
 
     @Override
     public void onVideoDisabled(DecoderCounters counters) {
-        LLog.INSTANCE.d(TAG, "onVideoDisabled");
+        LLog.d(TAG, "onVideoDisabled");
     }
 }

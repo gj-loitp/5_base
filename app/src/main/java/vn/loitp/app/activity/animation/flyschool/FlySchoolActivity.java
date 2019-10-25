@@ -21,37 +21,26 @@ public class FlySchoolActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mShapeFlyer = (ShapeFlyer) findViewById(R.id.floating_container);
-        btPlay1 = (Button) findViewById(R.id.bt_play_1);
-        btPlay2 = (Button) findViewById(R.id.bt_play_2);
-        btPlay3 = (Button) findViewById(R.id.bt_play_3);
+        mShapeFlyer = findViewById(R.id.floating_container);
+        btPlay1 = findViewById(R.id.bt_play_1);
+        btPlay2 = findViewById(R.id.bt_play_2);
+        btPlay3 = findViewById(R.id.bt_play_3);
         mShapeFlyer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT);
         //mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT);
 
-        btPlay1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImgObject imgObject = new ImgObject();
-                imgObject.setAvatar("https://kenh14cdn.com/2016/photo-1-1472659093342.jpg");
-                imgObject.setUrl("https://kenh14cdn.com/2016/photo-1-1472659093342.jpg");
-                play1(imgObject);
-            }
+        btPlay1.setOnClickListener(v -> {
+            ImgObject imgObject = new ImgObject();
+            imgObject.setAvatar("https://kenh14cdn.com/2016/photo-1-1472659093342.jpg");
+            imgObject.setUrl("https://kenh14cdn.com/2016/photo-1-1472659093342.jpg");
+            play1(imgObject);
         });
-        btPlay2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImgObject imgObject = new ImgObject();
-                imgObject.setAvatar("https://kenh14cdn.com/2016/photo-9-1472659093718.jpg");
-                imgObject.setUrl("https://kenh14cdn.com/2016/photo-9-1472659093718.jpg");
-                play2(imgObject);
-            }
+        btPlay2.setOnClickListener(v -> {
+            ImgObject imgObject = new ImgObject();
+            imgObject.setAvatar("https://kenh14cdn.com/2016/photo-9-1472659093718.jpg");
+            imgObject.setUrl("https://kenh14cdn.com/2016/photo-9-1472659093718.jpg");
+            play2(imgObject);
         });
-        btPlay3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                play3();
-            }
-        });
+        btPlay3.setOnClickListener(v -> play3());
     }
 
     @Override

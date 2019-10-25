@@ -2,17 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E0E0E0"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:padding="@dimen/padding_15">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -25,6 +22,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/l_heart" />
 
         </FrameLayout>
@@ -32,7 +30,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/White"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_15">
 
             <TextView
                 android:layout_width="wrap_content"

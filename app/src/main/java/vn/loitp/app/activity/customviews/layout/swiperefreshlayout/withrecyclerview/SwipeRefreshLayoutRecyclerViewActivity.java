@@ -29,12 +29,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(this::refresh);
         LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         recyclerView = findViewById(R.id.rv);
@@ -68,31 +63,25 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private void refresh() {
         movieList.clear();
         mAdapter.notifyDataSetChanged();
-        LUIUtil.INSTANCE.setDelay(3000, new Runnable() {
-            @Override
-            public void run() {
-                prepareMovieData();
-                swipeRefreshLayout.setRefreshing(false);
-                showShort("Finish refresh");
-            }
+        LUIUtil.INSTANCE.setDelay(3000, () -> {
+            prepareMovieData();
+            swipeRefreshLayout.setRefreshing(false);
+            showShort("Finish refresh");
         });
     }
 
     private void loadMore() {
         LLog.d(getTAG(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
-        LUIUtil.INSTANCE.setDelay(2000, new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(false);
-                int newSize = 5;
-                for (int i = 0; i < newSize; i++) {
-                    Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
-                    movieList.add(movie);
-                }
-                mAdapter.notifyDataSetChanged();
-                showShort("Finish loadMore");
+        LUIUtil.INSTANCE.setDelay(2000, () -> {
+            swipeRefreshLayout.setRefreshing(false);
+            int newSize = 5;
+            for (int i = 0; i < newSize; i++) {
+                Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
+                movieList.add(movie);
             }
+            mAdapter.notifyDataSetChanged();
+            showShort("Finish loadMore");
         });
     }
 

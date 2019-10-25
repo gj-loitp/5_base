@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.layout.floatdraglayout;
 
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import com.core.base.BaseActivity;
@@ -28,12 +27,7 @@ public class FloatDragWindowModeActivity extends BaseActivity {
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         containerWindows.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
-            }
-        });
+        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
     }
 
     @Override

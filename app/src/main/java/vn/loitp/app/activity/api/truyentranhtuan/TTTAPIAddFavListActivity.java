@@ -22,39 +22,30 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
-        avi = (LAVLoadingIndicatorView) findViewById(R.id.avi);
+        tv = findViewById(R.id.tv);
+        avi = findViewById(R.id.avi);
         avi.hide();
 
-        findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Comic comic = new Comic();
-                comic.setDate("29.07.2014");
-                comic.setUrl("http://truyentranhtuan.com/vuong-phong-loi-i/");
-                comic.setTitle("Vương Phong Lôi I");
-                addComic(comic);
-            }
+        findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(v -> {
+            Comic comic = new Comic();
+            comic.setDate("29.07.2014");
+            comic.setUrl("http://truyentranhtuan.com/vuong-phong-loi-i/");
+            comic.setTitle("Vương Phong Lôi I");
+            addComic(comic);
         });
-        findViewById(R.id.bt_add_layers).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Comic comic = new Comic();
-                comic.setDate("28.06.2015");
-                comic.setUrl("http://truyentranhtuan.com/layers/");
-                comic.setTitle("Layers");
-                addComic(comic);
-            }
+        findViewById(R.id.bt_add_layers).setOnClickListener(v -> {
+            Comic comic = new Comic();
+            comic.setDate("28.06.2015");
+            comic.setUrl("http://truyentranhtuan.com/layers/");
+            comic.setTitle("Layers");
+            addComic(comic);
         });
-        findViewById(R.id.bt_add_blackhaze).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Comic comic = new Comic();
-                comic.setDate("12.03.2017");
-                comic.setUrl("http://truyentranhtuan.com/black-haze/");
-                comic.setTitle("Black Haze");
-                addComic(comic);
-            }
+        findViewById(R.id.bt_add_blackhaze).setOnClickListener(v -> {
+            Comic comic = new Comic();
+            comic.setDate("12.03.2017");
+            comic.setUrl("http://truyentranhtuan.com/black-haze/");
+            comic.setTitle("Black Haze");
+            addComic(comic);
         });
     }
 

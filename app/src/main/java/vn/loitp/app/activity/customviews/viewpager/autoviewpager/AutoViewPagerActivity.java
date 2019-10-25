@@ -23,7 +23,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
         //viewPager.setIndeterminate(true);
         viewPager.setAutoScrollEnabled(true);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
@@ -46,12 +46,12 @@ public class AutoViewPagerActivity extends BaseFontActivity {
     private class SamplePagerAdapter extends FragmentStatePagerAdapter {
 
         SamplePagerAdapter(FragmentManager fm) {
-            super(fm);
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return FrmIv.newInstance();
+            return FrmIv.Companion.newInstance();
         }
 
         @Override

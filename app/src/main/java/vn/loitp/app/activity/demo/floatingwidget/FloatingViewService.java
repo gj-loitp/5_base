@@ -67,70 +67,46 @@ public class FloatingViewService extends Service {
         final View expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
         //Set the close button
-        ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
-        closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //close the service and remove the from from the window
-                stopSelf();
-            }
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
+        closeButtonCollapsed.setOnClickListener(view -> {
+            //close the service and remove the from from the window
+            stopSelf();
         });
 
         //Set the view while floating view is expanded.
         //Set the play button.
-        ImageView playButton = (ImageView) mFloatingView.findViewById(R.id.play_btn);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(FloatingViewService.this, "Playing the song.", Toast.LENGTH_LONG).show();
-            }
-        });
+        ImageView playButton = mFloatingView.findViewById(R.id.play_btn);
+        playButton.setOnClickListener(v -> Toast.makeText(FloatingViewService.this, "Playing the song.", Toast.LENGTH_LONG).show());
 
 
         //Set the next button.
-        ImageView nextButton = (ImageView) mFloatingView.findViewById(R.id.next_btn);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(FloatingViewService.this, "Playing next song.", Toast.LENGTH_LONG).show();
-            }
-        });
+        ImageView nextButton = mFloatingView.findViewById(R.id.next_btn);
+        nextButton.setOnClickListener(v -> Toast.makeText(FloatingViewService.this, "Playing next song.", Toast.LENGTH_LONG).show());
 
 
         //Set the pause button.
-        ImageView prevButton = (ImageView) mFloatingView.findViewById(R.id.prev_btn);
-        prevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(FloatingViewService.this, "Playing previous song.", Toast.LENGTH_LONG).show();
-            }
-        });
+        ImageView prevButton = mFloatingView.findViewById(R.id.prev_btn);
+        prevButton.setOnClickListener(v -> Toast.makeText(FloatingViewService.this, "Playing previous song.", Toast.LENGTH_LONG).show());
 
 
         //Set the close button
-        ImageView closeButton = (ImageView) mFloatingView.findViewById(R.id.close_button);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                collapsedView.setVisibility(View.VISIBLE);
-                expandedView.setVisibility(View.GONE);
-            }
+        ImageView closeButton = mFloatingView.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(view -> {
+            collapsedView.setVisibility(View.VISIBLE);
+            expandedView.setVisibility(View.GONE);
         });
 
 
         //Open the application on thi button click
-        ImageView openButton = (ImageView) mFloatingView.findViewById(R.id.open_button);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Open the application  click.
-                Intent intent = new Intent(FloatingViewService.this, FloatingWidgetActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+        ImageView openButton = mFloatingView.findViewById(R.id.open_button);
+        openButton.setOnClickListener(view -> {
+            //Open the application  click.
+            Intent intent = new Intent(FloatingViewService.this, FloatingWidgetActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
 
-                //close the service and remove view from the view hierarchy
-                stopSelf();
-            }
+            //close the service and remove view from the view hierarchy
+            stopSelf();
         });
 
         //Drag and move floating view using user's touch action.
@@ -175,7 +151,6 @@ public class FloatingViewService extends Service {
                         //Calculate the X and Y coordinates of the view.
                         params.x = initialX + (int) (event.getRawX() - initialTouchX);
                         params.y = initialY + (int) (event.getRawY() - initialTouchY);
-
 
                         //Update the layout with new X & Y coordinate
                         mWindowManager.updateViewLayout(mFloatingView, params);

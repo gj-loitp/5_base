@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 import com.views.layout.swipeback.SwipeBackLayout;
@@ -39,28 +40,27 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
                 LLog.d(getTAG(), "onViewSwipeFinished");
+                finish();
+                LActivityUtil.transActivityNoAniamtion(activity);
             }
         });
 
         RadioGroup rb = findViewById(R.id.radio_group);
-        rb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.fromLeftRb:
-                        mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
-                        break;
-                    case R.id.fromTopRb:
-                        mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_TOP);
-                        break;
-                    case R.id.fromRightRb:
-                        mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_RIGHT);
-                        break;
-                    case R.id.fromBottomRb:
-                        mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_BOTTOM);
-                        break;
-                }
+        rb.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.fromLeftRb:
+                    mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
+                    break;
+                case R.id.fromTopRb:
+                    mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_TOP);
+                    break;
+                case R.id.fromRightRb:
+                    mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_RIGHT);
+                    break;
+                case R.id.fromBottomRb:
+                    mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_BOTTOM);
+                    break;
             }
-
         });
     }
 

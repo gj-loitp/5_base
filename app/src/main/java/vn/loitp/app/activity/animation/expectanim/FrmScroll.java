@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.animation.expectanim;
 
-/**
- * Created by www.muathu@gmail.com on 12/24/2017.
- */
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -27,10 +23,6 @@ import static com.function.expectanim.core.Expectations.scale;
 import static com.function.expectanim.core.Expectations.toRightOf;
 import static com.function.expectanim.core.Expectations.topOfParent;
 
-/**
- * Created by www.muathu@gmail.com on 7/26/2017.
- */
-
 public class FrmScroll extends BaseFragment {
     private final String TAG = getClass().getSimpleName();
     private View username;
@@ -44,11 +36,11 @@ public class FrmScroll extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        username = (View) getFrmRootView().findViewById(R.id.username);
-        avatar = (View) getFrmRootView().findViewById(R.id.avatar);
-        follow = (View) getFrmRootView().findViewById(R.id.follow);
-        backbground = (View) getFrmRootView().findViewById(R.id.background);
-        scrollView = (NestedScrollView) getFrmRootView().findViewById(R.id.scrollview);
+        username = getFrmRootView().findViewById(R.id.username);
+        avatar = getFrmRootView().findViewById(R.id.avatar);
+        follow = getFrmRootView().findViewById(R.id.follow);
+        backbground = getFrmRootView().findViewById(R.id.background);
+        scrollView = getFrmRootView().findViewById(R.id.scrollview);
 
         this.expectAnimMove = new ExpectAnim()
                 .expect(avatar)
@@ -75,12 +67,9 @@ public class FrmScroll extends BaseFragment {
                 )
                 .toAnimation();
 
-        scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                final float percent = (scrollY * 1f) / v.getMaxScrollAmount();
-                expectAnimMove.setPercent(percent);
-            }
+        scrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            final float percent = (scrollY * 1f) / v.getMaxScrollAmount();
+            expectAnimMove.setPercent(percent);
         });
     }
 

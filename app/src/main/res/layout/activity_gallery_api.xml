@@ -4,18 +4,16 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White">
+    android:background="@color/WhiteSmoke">
 
     <Button
         android:id="@+id/bt_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="@string/get_photoset_list" />
 
     <Button
         android:id="@+id/bt_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:layout_below="@+id/bt_1"
         android:text="@string/get_photo_list_in_photoset"
         android:visibility="gone" />
@@ -32,7 +30,7 @@
             android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/padding_15"
             android:textColor="@color/grey"
             android:textSize="@dimen/txt_10" />
     </ScrollView>

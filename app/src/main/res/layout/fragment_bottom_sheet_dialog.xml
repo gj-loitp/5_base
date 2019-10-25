@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <!-- NOTE: This list should be displayed in a list
     instead of nested layouts -->
@@ -13,17 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="8dp"
         android:paddingRight="@dimen/padding_5"
-        android:paddingTop="8dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher"
             android:tint="#737373" />
 
@@ -41,17 +43,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="8dp"
         android:paddingRight="@dimen/padding_5"
-        android:paddingTop="8dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher"
             android:tint="#737373" />
 
@@ -69,17 +73,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="8dp"
         android:paddingRight="@dimen/padding_5"
-        android:paddingTop="8dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher"
             android:tint="#737373" />
 
@@ -97,17 +103,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="8dp"
         android:paddingRight="@dimen/padding_5"
-        android:paddingTop="8dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher"
             android:tint="#737373" />
 
@@ -125,17 +133,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="8dp"
         android:paddingRight="@dimen/padding_5"
-        android:paddingTop="8dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher"
             android:tint="#737373" />
 

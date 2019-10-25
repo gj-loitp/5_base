@@ -20,13 +20,14 @@
             app:controller_layout_id="@layout/exo_playback_control_view_2" />
 
         <ScrollView
+            style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/padding_15"
                 android:text="@string/large_text"
                 android:textColor="@color/White" />
         </ScrollView>

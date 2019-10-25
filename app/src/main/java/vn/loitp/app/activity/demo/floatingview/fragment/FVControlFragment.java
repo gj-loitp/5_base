@@ -28,7 +28,6 @@ import vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewServi
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService;
 
 public class FVControlFragment extends Fragment {
-    private final String TAG = "FloatingViewControl";
     private final int REQUEST_CODE = 100;
 
     private enum SV {ONE, TWO, THREE}
@@ -36,8 +35,7 @@ public class FVControlFragment extends Fragment {
     private SV sv;
 
     public static FVControlFragment newInstance() {
-        final FVControlFragment fragment = new FVControlFragment();
-        return fragment;
+        return new FVControlFragment();
     }
 
     public FVControlFragment() {
@@ -47,26 +45,17 @@ public class FVControlFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fv_fragment_floating_view_control, container, false);
-        rootView.findViewById(R.id.show_demo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sv = SV.ONE;
-                showFloatingView(getActivity());
-            }
+        rootView.findViewById(R.id.show_demo).setOnClickListener(v -> {
+            sv = SV.ONE;
+            showFloatingView(getActivity());
         });
-        rootView.findViewById(R.id.show_customized_demo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sv = SV.TWO;
-                showFloatingView(getActivity());
-            }
+        rootView.findViewById(R.id.show_customized_demo).setOnClickListener(v -> {
+            sv = SV.TWO;
+            showFloatingView(getActivity());
         });
-        rootView.findViewById(R.id.show_customized_demo_video).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sv = SV.THREE;
-                showFloatingView(getActivity());
-            }
+        rootView.findViewById(R.id.show_customized_demo_video).setOnClickListener(v -> {
+            sv = SV.THREE;
+            showFloatingView(getActivity());
         });
         return rootView;
     }

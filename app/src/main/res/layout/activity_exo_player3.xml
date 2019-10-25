@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Black">
+    android:background="@color/DarkCyan">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,14 +13,12 @@
 
         <Button
             android:id="@+id/bt_0_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Switch 0-1" />
 
         <Button
             android:id="@+id/bt_1_0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Switch 1_0" />
 
         <TextView

@@ -1,176 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/layout_menu"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20"
-                tools:ignore="SpUsage" />
-
             <Button
                 android:id="@+id/bt_auto_linear_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/autolinearlayout" />
 
             <Button
                 android:id="@+id/bt_circular_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/circularview" />
 
             <Button
                 android:id="@+id/bt_constraint_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/constraint_layout" />
 
             <Button
                 android:id="@+id/bt_coordinator_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/coordinatorlayout" />
 
             <Button
                 android:id="@+id/bt_draggable_panel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/draggablepanel" />
 
             <Button
                 android:id="@+id/bt_draggable_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/draggableview" />
 
             <Button
                 android:id="@+id/bt_draggable_panel_free"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/draggablepanel_free" />
 
             <Button
                 android:id="@+id/bt_dragueur"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/dragueur" />
 
             <Button
                 android:id="@+id/bt_elastic_drag_dismiss_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/elasticdragdismisslayout" />
 
             <Button
                 android:id="@+id/bt_fixed_grid_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/fixed_grid_layout" />
 
             <Button
                 android:id="@+id/bt_float_drag_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/floatdraglayout_activity" />
 
             <Button
                 android:id="@+id/bt_heart_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/heart_layout" />
 
             <Button
                 android:id="@+id/bt_motion_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/motion_layout" />
 
             <Button
                 android:id="@+id/bt_relative_popup_window"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/relative_popup_window" />
 
             <Button
                 android:id="@+id/bt_ripple_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/ripple_layout" />
 
             <Button
                 android:id="@+id/bt_rotate_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/rotate_layout" />
 
             <Button
                 android:id="@+id/bt_scroll_view_2d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/scroll_view_2d" />
 
             <Button
                 android:id="@+id/bt_scroll_view_2d_advance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/scroll_view_2d_advance" />
 
             <Button
                 android:id="@+id/btShadowLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/shadow_layout" />
 
             <Button
                 android:id="@+id/bt_square_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/square_layout" />
 
             <Button
                 android:id="@+id/bt_swipeback_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/swipebacklayout" />
 
             <Button
                 android:id="@+id/bt_swipe_refresh_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/swipe_refresh_layout" />
 
             <Button
                 android:id="@+id/btSwipeRevealLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/swipe_reveal_layout" />
 
             <Button
                 android:id="@+id/bt_zoom_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/zoom_layout" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/layout_menu" />
 </RelativeLayout>
 

@@ -50,7 +50,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(getActivity(), "onClick");
+                LToast.show(getActivity(), "onClick");
                 startService(new Intent(getActivity(), FloatingViewVideoService.class));
                 onBackPressed();
             }
@@ -58,7 +58,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
         findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LToast.INSTANCE.show(getActivity(), "onClick");
+                LToast.show(getActivity(), "onClick");
                 startService(new Intent(getActivity(), FloatingViewEdgeService.class));
                 onBackPressed();
             }
@@ -72,7 +72,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                LToast.INSTANCE.show(getActivity(), "Draw over other app permission not available. Closing the application");
+                LToast.show(getActivity(), "Draw over other app permission not available. Closing the application");
                 onBackPressed();
             }
         } else {

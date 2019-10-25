@@ -31,12 +31,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 public class WWLWatchFragment extends BaseFragment implements TextureView.SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
     private final String TAG = getClass().getSimpleName();
     private TextureView mPlayerView;
-    private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayer.OnPreparedListener() {
-        @Override
-        public void onPrepared(MediaPlayer mp) {
-            mp.start();
-        }
-    };
+    private MediaPlayer.OnPreparedListener mOnPreparedListener = mp -> mp.start();
     private MediaPlayer mMediaPlayer;
     private Surface mSurfaceView;
     private String mUrl;
@@ -48,14 +43,14 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mPlayerView = (TextureView) getFrmRootView().findViewById(R.id.player_view);
+        this.mPlayerView = getFrmRootView().findViewById(R.id.player_view);
         this.mPlayerView.requestFocus();
         this.mPlayerView.setSurfaceTextureListener(this);
         this.mPlayerWWLMusicControlsOverlay = new WWLMusicControlsOverlay(getContext());
         this.mPlayerWWLMusicControlsOverlay.setListener(this);
         ((ViewGroup) getFrmRootView()).addView(this.mPlayerWWLMusicControlsOverlay);
-        this.mTitleView = (TextView) getFrmRootView().findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) getFrmRootView().findViewById(R.id.li_subtitle);
+        this.mTitleView = getFrmRootView().findViewById(R.id.li_title);
+        this.mSubTitleView = getFrmRootView().findViewById(R.id.li_subtitle);
     }
 
     @Override
@@ -146,7 +141,7 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
         }
 
         release();
-        LLog.INSTANCE.d(TAG, "openVideo " + mUrl);
+        LLog.d(TAG, "openVideo " + mUrl);
 
         AudioManager am = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
         am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
@@ -160,7 +155,7 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
             this.mMediaPlayer.setScreenOnWhilePlaying(true);
             this.mMediaPlayer.prepareAsync();
         } catch (Exception e) {
-            LLog.INSTANCE.e(TAG, "openVideo " + e.toString());
+            LLog.e(TAG, "openVideo " + e.toString());
         }
     }
 

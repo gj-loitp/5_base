@@ -18,8 +18,8 @@ public class DragueurActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        draggableView = (DraggableView) findViewById(R.id.dragueur);
-        tv = (TextView) findViewById(R.id.tv);
+        draggableView = findViewById(R.id.dragueur);
+        tv = findViewById(R.id.tv);
         draggableView.setRotationEnabled(true);
         //draggableView.setAnimating(true);
         draggableView.setRotationValue(10f);
@@ -28,19 +28,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.INSTANCE.d(getTAG(), "onDrag " + percentX + " x " + percentY);
+                LLog.d(getTAG(), "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.INSTANCE.d(getTAG(), "onDraggedStarted " + direction.name());
+                LLog.d(getTAG(), "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.INSTANCE.d(getTAG(), "onDraggedEnded " + direction.name());
+                LLog.d(getTAG(), "onDraggedEnded " + direction.name());
             }
 
             @Override

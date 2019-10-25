@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/showPaths"
@@ -17,12 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/Red"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="@dimen/padding_10"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="@dimen/padding_10"
+        android:background="@color/White"
+        android:padding="@dimen/padding_15"
         android:text="Show Paths "
-        android:textColor="@color/White" />
+        android:textColor="@color/Black" />
 
 </RelativeLayout>

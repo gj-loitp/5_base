@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:paddingLeft="@dimen/activity_horizontal_margin"
-	android:paddingTop="@dimen/activity_vertical_margin"
-	android:paddingRight="@dimen/activity_horizontal_margin"
-	android:paddingBottom="@dimen/activity_vertical_margin">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-	<Button
-		android:id="@+id/btn"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="doSomeWork"
-		android:textAllCaps="false"
-		android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/btn"
+        style="@style/ButtonMenu"
+        android:text="doSomeWork" />
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-		<TextView
-			android:id="@+id/textView"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:textColor="@android:color/black" />
-	</ScrollView>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_15"
+            android:textColor="@android:color/black" />
+    </ScrollView>
 </LinearLayout>

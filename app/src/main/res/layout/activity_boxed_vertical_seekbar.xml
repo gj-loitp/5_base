@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_5">
+        android:padding="@dimen/padding_15">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -22,10 +23,9 @@
                 android:id="@+id/boxed_vertical"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/margin_55"
                 android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginBottom="@dimen/margin_55"
                 app:backgroundColor="@color/LightBlue"
                 app:cornerRadius_boxed="20"
                 app:defaultValueBoxedVertical="50"
@@ -49,7 +49,7 @@
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_10" />
+                android:layout_marginStart="@dimen/margin_10" />
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>

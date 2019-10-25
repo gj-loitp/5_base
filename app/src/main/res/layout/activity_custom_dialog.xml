@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <Button
         android:id="@+id/btToggleFullScreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:background="@drawable/bt_primary"
         android:text="@string/toggle_fullscreen" />
 

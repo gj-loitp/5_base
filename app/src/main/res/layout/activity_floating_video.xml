@@ -7,22 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Show" />
 
         <Button
             android:id="@+id/bt_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            style="@style/ButtonMenu"
             android:text="Edge" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Floating video" />
 </RelativeLayout>
 

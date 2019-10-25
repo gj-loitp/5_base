@@ -9,8 +9,8 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,14 +19,12 @@
 
             <Button
                 android:id="@+id/startGalleryBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/start_gallery" />
 
             <Button
                 android:id="@+id/startCameraBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="@string/start_camera" />
 
             <ImageView
@@ -37,5 +35,10 @@
                 app:srcCompat="@mipmap/ic_launcher" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Image Picker with crop" />
 </RelativeLayout>
 

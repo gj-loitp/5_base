@@ -21,7 +21,7 @@ public class FrmCoordinator1 extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tl);
+        TabLayout tabLayout = view.findViewById(R.id.tl);
         // Add five tabs.  Three have icons and two have text titles
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.l_baseline_add_black_48));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.l_baseline_bug_report_black_48));
@@ -32,15 +32,15 @@ public class FrmCoordinator1 extends BaseFragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tabLayout.getSelectedTabPosition() == 0) {
-                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 1) {
-                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 2) {
-                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 3) {
-                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 } else if (tabLayout.getSelectedTabPosition() == 4) {
-                    LToast.INSTANCE.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
                 }
             }
 

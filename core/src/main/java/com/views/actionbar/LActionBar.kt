@@ -70,6 +70,10 @@ class LActionBar : RelativeLayout {
         ivIconBack?.visibility = View.INVISIBLE
     }
 
+    fun inviMenuIcon() {
+        ivIconMenu?.visibility = View.INVISIBLE
+    }
+
     fun hideMenuIcon() {
         ivIconMenu?.visibility = View.GONE
     }

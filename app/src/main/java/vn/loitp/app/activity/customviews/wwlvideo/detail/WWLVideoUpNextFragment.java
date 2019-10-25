@@ -38,7 +38,7 @@ public class WWLVideoUpNextFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = (RecyclerView) getFrmRootView().findViewById(R.id.recyclerView);
+        this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
@@ -210,8 +210,8 @@ public class WWLVideoUpNextFragment extends BaseFragment {
 
             public HeaderViewHolder(View v) {
                 super(v);
-                titleView = (TextView) v.findViewById(R.id.li_title);
-                subtitleView = (TextView) v.findViewById(R.id.li_subtitle);
+                titleView = v.findViewById(R.id.li_title);
+                subtitleView = v.findViewById(R.id.li_subtitle);
             }
 
             public TextView getTitleView() {
@@ -228,7 +228,7 @@ public class WWLVideoUpNextFragment extends BaseFragment {
 
             public TitleViewHolder(View v) {
                 super(v);
-                titleView = (TextView) v.findViewById(R.id.li_title);
+                titleView = v.findViewById(R.id.li_title);
             }
 
             public TextView getTitleView() {
@@ -242,14 +242,9 @@ public class WWLVideoUpNextFragment extends BaseFragment {
 
             public ViewHolder(View v) {
                 super(v);
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        WWLVideoUpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition()));
-                    }
-                });
-                titleView = (TextView) v.findViewById(R.id.li_title);
-                subtitleView = (TextView) v.findViewById(R.id.li_subtitle);
+                v.setOnClickListener(v1 -> WWLVideoUpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition())));
+                titleView = v.findViewById(R.id.li_title);
+                subtitleView = v.findViewById(R.id.li_subtitle);
             }
 
             public TextView getTitleView() {

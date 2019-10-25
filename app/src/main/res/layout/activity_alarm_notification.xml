@@ -23,7 +23,7 @@
             android:textSize="@dimen/txt_30"
             android:textStyle="bold" />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="0sp"
             android:layout_weight="1"

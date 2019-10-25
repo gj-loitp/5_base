@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.View;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
@@ -48,13 +47,10 @@ public class FloatingWidgetActivity extends BaseFontActivity {
     }
 
     private void initializeView() {
-        findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LToast.INSTANCE.show(getActivity(), "onClick");
-                startService(new Intent(getActivity(), FloatingViewService.class));
-                onBackPressed();
-            }
+        findViewById(R.id.notify_me).setOnClickListener(view -> {
+            LToast.show(getActivity(), "onClick");
+            startService(new Intent(getActivity(), FloatingViewService.class));
+            onBackPressed();
         });
     }
 

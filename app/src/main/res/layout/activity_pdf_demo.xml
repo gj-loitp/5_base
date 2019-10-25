@@ -3,18 +3,17 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
     android:orientation="vertical">
 
     <Button
         android:id="@+id/btFile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="@string/load_from_url_file_pdf_30mb_file" />
 
     <Button
         android:id="@+id/btStream"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="@string/load_from_url_file_pdf_30mb_stream" />
 
     <RelativeLayout

@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.customviews.ariana.vp;
 
-/**
- * Created by www.muathu@gmail.com on 1/12/2018.
- */
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +14,6 @@ import com.views.ariana.GradientAngle;
 
 import loitp.basemaster.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ScreenSlidePageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ScreenSlidePageFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     TextView textView;
@@ -51,7 +42,7 @@ public class ScreenSlidePageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
-        textView = (TextView) rootView.findViewById(R.id.textView);
+        textView = rootView.findViewById(R.id.textView);
         textView.setText(mParam1);
         ((ArianaViewPagerActivity) getActivity()).viewPager.addOnPageChangeListener(
                 new ArianaTextListener(LStoreUtil.getColors(), textView,

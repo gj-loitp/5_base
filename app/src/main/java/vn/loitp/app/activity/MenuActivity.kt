@@ -30,7 +30,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
 
         val tvPolicy = findViewById<TextView>(R.id.tv_policy)
         LUIUtil.setTextShadow(tvPolicy)

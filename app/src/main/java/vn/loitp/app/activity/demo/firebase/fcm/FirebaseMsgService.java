@@ -19,6 +19,8 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.utils.util.AppUtils;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.SplashActivity;
 
@@ -26,13 +28,13 @@ public class FirebaseMsgService extends FirebaseMessagingService {
     private final String TAG = getClass().getSimpleName();
 
     @Override
-    public void onMessageReceived(RemoteMessage remoteMessage) {
+    public void onMessageReceived(@NotNull RemoteMessage remoteMessage) {
         try {
             if (remoteMessage == null || remoteMessage.getNotification() == null) {
                 return;
             }
-            LLog.INSTANCE.d(TAG, "From: " + remoteMessage.getFrom());
-            LLog.INSTANCE.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+            LLog.d(TAG, "From: " + remoteMessage.getFrom());
+            LLog.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
             //THIS CODE BELOWS SEND A NOTIFICATION
             if (Constants.INSTANCE.getIS_DEBUG()) {
@@ -49,7 +51,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
                         .setContentAction(new ContentAction(new Intent(this, SplashActivity.class), this)));
             }
         } catch (Exception e) {
-            LLog.INSTANCE.e(TAG, "onMessageReceived Exception " + e.toString());
+            LLog.e(TAG, "onMessageReceived Exception " + e.toString());
         }
     }
 

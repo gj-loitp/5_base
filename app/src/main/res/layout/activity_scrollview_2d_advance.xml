@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/White">
+    android:background="@color/WhiteSmoke">
 
     <LinearLayout
         android:id="@+id/ll_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Light_Sky_Blue"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

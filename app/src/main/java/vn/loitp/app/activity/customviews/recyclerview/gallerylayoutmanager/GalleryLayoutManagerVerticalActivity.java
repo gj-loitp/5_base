@@ -27,19 +27,19 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        recyclerView1 = (RecyclerView) findViewById(R.id.rv_1);
-        tv = (TextView) findViewById(R.id.tv);
+        recyclerView = findViewById(R.id.rv);
+        recyclerView1 = findViewById(R.id.rv_1);
+        tv = findViewById(R.id.tv);
 
-        mAdapter = new GalleryAdapterVertical(getActivity(), DummyData.getInstance().getMovieList(), new GalleryAdapterVertical.Callback() {
+        mAdapter = new GalleryAdapterVertical(getActivity(), DummyData.Companion.getInstance().getMovieList(), new GalleryAdapterVertical.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
-                LToast.INSTANCE.show(getActivity(), "onClick " + movie.getTitle());
+                LToast.show(getActivity(), "onClick " + movie.getTitle());
             }
 
             @Override
             public void onLongClick(Movie movie, int position) {
-                LToast.INSTANCE.show(getActivity(), "onLongClick " + movie.getTitle());
+                LToast.show(getActivity(), "onLongClick " + movie.getTitle());
             }
 
             @Override
@@ -61,12 +61,7 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
         recyclerView.setAdapter(mAdapter);
 
         layoutManager.setCallbackInFling(true);//should receive callback when flinging, default is false
-        layoutManager.setOnItemSelectedListener(new GalleryLayoutManager.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(RecyclerView recyclerView, View item, int position) {
-                tv.setText(position + "/" + mAdapter.getItemCount());
-            }
-        });
+        layoutManager.setOnItemSelectedListener((recyclerView, item, position) -> tv.setText(position + "/" + mAdapter.getItemCount()));
 
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(new ScaleTransformer());
@@ -90,10 +85,10 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
     }
 
     private void prepareMovieData() {
-        if (DummyData.getInstance().getMovieList().isEmpty()) {
+        if (DummyData.Companion.getInstance().getMovieList().isEmpty()) {
             for (int i = 0; i < 50; i++) {
                 Movie movie = new Movie("Menu " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
-                DummyData.getInstance().getMovieList().add(movie);
+                DummyData.Companion.getInstance().getMovieList().add(movie);
             }
         }
         mAdapter.notifyDataSetChanged();

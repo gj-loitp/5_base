@@ -558,4 +558,13 @@ Likewise may someone love you next.
     <string name="zoomimageview">ZoomImageView</string>
     <string name="toggle_fullscreen">Toggle fullscreen</string>
     <string name="show_dialog_without_show_system_bar_if_fullscreen">Show dialog without show system bar if fullscreen</string>
+    <string name="title_basic">Basic</string>
+    <string name="title_custom_view01">Custom View - sample</string>
+    <string name="title_custom_view02">Custom View - icon</string>
+    <string name="title_imitation_loop">UseCase - Imitation of Loop</string>
+    <string name="title_years">UseCase - Years</string>
+    <string name="title_auto_select">Feature - Auto Tab Selection</string>
+    <string name="title_auto_rtl">Feature - RTL Support</string>
+    <string name="title_tab_scroll_disabled">Feature - Tab Scroll Disabled</string>
+    <string name="title_tab_on_screen_limit">Feature - OnScreen Limit</string>
 </resources>

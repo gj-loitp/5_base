@@ -14,53 +14,35 @@ public class TTTAPIMenuActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        findViewById(R.id.bt_comic_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIComicListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_comic_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIComicListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
-        findViewById(R.id.bt_chap_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIChapListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_chap_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIChapListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
-        findViewById(R.id.bt_page_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIPageListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_page_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIPageListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
-        findViewById(R.id.bt_fav_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIFavListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_fav_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIFavListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
-        findViewById(R.id.bt_add_to_fav_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIAddFavListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_add_to_fav_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIAddFavListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
-        findViewById(R.id.bt_remove_to_fav_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TTTAPIRemoveFavListActivity.class);
-                startActivity(intent);
-                LActivityUtil.INSTANCE.tranIn(getActivity());
-            }
+        findViewById(R.id.bt_remove_to_fav_list).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TTTAPIRemoveFavListActivity.class);
+            startActivity(intent);
+            LActivityUtil.tranIn(getActivity());
         });
     }
 

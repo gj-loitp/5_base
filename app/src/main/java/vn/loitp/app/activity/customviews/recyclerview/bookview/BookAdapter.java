@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.bookview;
 
-/**
- * Created by www.muathu@gmail.com on 12/8/2017.
- */
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +14,8 @@ import com.core.utilities.LImageUtil;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import loitp.basemaster.R;
@@ -29,14 +27,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
     private int lastPosition = -1;
 
     public interface Callback {
-        public void onClick(Movie movie, int position);
+        void onClick(Movie movie, int position);
 
-        public void onLongClick(Movie movie, int position);
+        void onLongClick(Movie movie, int position);
 
-        public void onLoadMore();
+        void onLoadMore();
     }
 
-    public void checkData() {
+    void checkData() {
         int indexEachColumn = getItemCount() % column;
         int missItemCount = column - indexEachColumn;
         //LLog.d(TAG, "checkData missItemCount: " + missItemCount);
@@ -64,10 +62,10 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
 
         public MovieViewHolder(View view) {
             super(view);
-            tv = (TextView) view.findViewById(R.id.tv);
-            iv = (ImageView) view.findViewById(R.id.imageView);
-            bkg = (ImageView) view.findViewById(R.id.bkg);
-            rootView = (RelativeLayout) view.findViewById(R.id.root_view);
+            tv = view.findViewById(R.id.tv);
+            iv = view.findViewById(R.id.imageView);
+            bkg = view.findViewById(R.id.bkg);
+            rootView = view.findViewById(R.id.root_view);
         }
     }
 
@@ -87,6 +85,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         this.sizeMarginTopLeftRight = sizeW / 10;
     }
 
+    @NotNull
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_book_view, parent, false);
@@ -100,8 +99,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         holder.rootView.getLayoutParams().height = sizeH;
         holder.rootView.invalidate();
 
+        if (movie == null) {
+            return;
+        }
+
         int indexEachColumn = position % column;
         holder.tv.setText(movie.getTitle());
+        holder.tv.setVisibility(View.VISIBLE);
         //holder.tv.setText(indexEachColumn + "");
         if (indexEachColumn == 0) {
             holder.bkg.setImageResource(R.drawable.l_grid_item_background_left);
@@ -112,24 +116,24 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolde
         }
 
         LUIUtil.INSTANCE.setMargins(holder.iv, sizeMarginTopLeftRight, sizeMarginTopBottom, sizeMarginTopLeftRight, sizeMarginTopBottom);
-        LImageUtil.INSTANCE.load(context, movie.getCover(), holder.iv);
+        String url = movie.getCover();
+        if (url != null) {
+            LImageUtil.INSTANCE.load(context, url, holder.iv);
+        } else {
+            holder.iv.setImageResource(0);
+            holder.tv.setVisibility(View.INVISIBLE);
+        }
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(movie, position);
-                }
+        holder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(movie, position);
             }
         });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(movie, position);
-                }
-                return true;
+        holder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(movie, position);
             }
+            return true;
         });
         if (position == moviesList.size() - 1) {
             if (callback != null) {

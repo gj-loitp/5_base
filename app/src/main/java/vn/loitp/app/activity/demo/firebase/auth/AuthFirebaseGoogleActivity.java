@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -108,7 +107,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                LLog.INSTANCE.d(getTAG(), "Google sign in failed" + e.toString());
+                LLog.d(getTAG(), "Google sign in failed" + e.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -119,7 +118,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        LLog.INSTANCE.d(getTAG(), "firebaseAuthWithGoogle:" + acct.getId());
+        LLog.d(getTAG(), "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
@@ -131,12 +130,12 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:success");
+                            LLog.d(getTAG(), "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            LLog.INSTANCE.d(getTAG(), "signInWithCredential:failure " + task.getException());
+                            LLog.d(getTAG(), "signInWithCredential:failure " + task.getException());
                             Snackbar.make(findViewById(R.id.root_view), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -192,14 +191,14 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
             //mDetailTextView.setText(LApplication.getInstance().getGson().toJson(user));
             LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
 
-            LLog.INSTANCE.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
-            LLog.INSTANCE.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
+            LLog.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
+            LLog.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
 
             try {
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.INSTANCE.load(getActivity(), url, (ImageView) findViewById(R.id.google_icon));
+                LImageUtil.INSTANCE.load(getActivity(), url, findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid;
 
-/**
- * Created by www.muathu@gmail.com on 1/2/2018.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,11 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.utilities.LImageUtil;
 import com.views.recyclerview.parallaxyay.ParallaxViewHolder;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
-/**
- * Created by yahyabayramoglu on 14/04/15.
- */
 public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapter.ViewHolder> {
 
     private Context context;
@@ -41,39 +36,34 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             "http://yayandroid.com/data/github_library/parallax_listview/test_image_5.png",
     };*/
 
-    public TestRecyclerAdapter(Context context, Callback callback) {
+    TestRecyclerAdapter(Context context, Callback callback) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.callback = callback;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int position) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int position) {
         return new ViewHolder(inflater.inflate(R.layout.row_parrallax_yayandroid, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         // viewHolder.getBackgroundImage().setImageResource(imageIds[position % imageIds.length]);
-        LImageUtil.INSTANCE.load((Activity) context, FakeData.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
+        LImageUtil.INSTANCE.load(context, FakeData.Companion.getInstance().getStringList().get(position), viewHolder.getBackgroundImage());
         viewHolder.getTextView().setText("Row " + position);
 
-        viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(position);
-                }
+        viewHolder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(position);
             }
         });
-        viewHolder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(position);
-                }
-                return true;
+        viewHolder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(position);
             }
+            return true;
         });
 
         // # CAUTION:
@@ -83,7 +73,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
 
     @Override
     public int getItemCount() {
-        return FakeData.getInstance().getStringList().size();
+        return FakeData.Companion.getInstance().getStringList().size();
     }
 
     /**
@@ -98,8 +88,8 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
         public ViewHolder(View v) {
             super(v);
 
-            textView = (TextView) v.findViewById(R.id.label);
-            rootView = (RelativeLayout) v.findViewById(R.id.root_view);
+            textView = v.findViewById(R.id.label);
+            rootView = v.findViewById(R.id.root_view);
         }
 
         @Override
@@ -113,9 +103,9 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     }
 
     public interface Callback {
-        public void onClick(int pos);
+        void onClick(int pos);
 
-        public void onLongClick(int pos);
+        void onLongClick(int pos);
     }
 
     private Callback callback;

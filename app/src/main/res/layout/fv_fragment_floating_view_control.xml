@@ -8,10 +8,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/margin_10"
-        android:layout_marginTop="@dimen/margin_10"
-        android:layout_marginRight="@dimen/margin_10"
-        android:layout_marginBottom="@dimen/margin_5"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_15"
+        android:layout_marginRight="@dimen/margin_15"
+        android:layout_marginBottom="@dimen/margin_8"
         android:layout_weight="1"
         android:background="@color/LightGreen"
         android:gravity="center"
@@ -19,18 +19,17 @@
 
         <Button
             android:id="@+id/show_demo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/show_demo" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/margin_10"
-        android:layout_marginTop="@dimen/margin_5"
-        android:layout_marginRight="@dimen/margin_10"
-        android:layout_marginBottom="@dimen/margin_10"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginRight="@dimen/margin_15"
+        android:layout_marginBottom="@dimen/margin_15"
         android:layout_weight="1"
         android:background="@color/LightPink"
         android:gravity="center"
@@ -38,14 +37,12 @@
 
         <Button
             android:id="@+id/show_customized_demo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="@string/show_customized_demo" />
 
         <Button
             android:id="@+id/show_customized_demo_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonMenu"
             android:text="Video" />
     </LinearLayout>
 </LinearLayout>

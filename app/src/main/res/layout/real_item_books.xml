@@ -4,7 +4,7 @@
     android:id="@+id/card_books"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_10"
+    android:layout_margin="@dimen/margin_15"
     card_view:cardBackgroundColor="@color/White"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="3dp">
@@ -19,6 +19,7 @@
             android:layout_width="130dp"
             android:layout_height="180dp"
             android:layout_gravity="center_vertical|start"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
         <LinearLayout

@@ -11,8 +11,6 @@ import com.core.utilities.LLog;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -64,13 +62,10 @@ public class MapExampleActivity extends BaseFontActivity {
     }
 
     private Observable<List<ApiUser>> getObservable() {
-        return Observable.create(new ObservableOnSubscribe<List<ApiUser>>() {
-            @Override
-            public void subscribe(ObservableEmitter<List<ApiUser>> listObservableEmitter) {
-                if (!listObservableEmitter.isDisposed()) {
-                    listObservableEmitter.onNext(Utils.getApiUserList());
-                    listObservableEmitter.onComplete();
-                }
+        return Observable.create(listObservableEmitter -> {
+            if (!listObservableEmitter.isDisposed()) {
+                listObservableEmitter.onNext(Utils.getApiUserList());
+                listObservableEmitter.onComplete();
             }
         });
     }
@@ -80,7 +75,7 @@ public class MapExampleActivity extends BaseFontActivity {
 
             @Override
             public void onSubscribe(Disposable d) {
-                LLog.INSTANCE.d(getTAG(), " onSubscribe : " + d.isDisposed());
+                LLog.d(getTAG(), " onSubscribe : " + d.isDisposed());
             }
 
             @Override
@@ -89,19 +84,19 @@ public class MapExampleActivity extends BaseFontActivity {
                 for (User user : userList) {
                     textView.append(" firstname : " + user.firstname + "\n");
                 }
-                LLog.INSTANCE.d(getTAG(), " onNext : " + userList.size());
+                LLog.d(getTAG(), " onNext : " + userList.size());
             }
 
             @Override
             public void onError(Throwable e) {
                 textView.append(" onError : " + e.getMessage() + "\n");
-                LLog.INSTANCE.d(getTAG(), " onError : " + e.getMessage());
+                LLog.d(getTAG(), " onError : " + e.getMessage());
             }
 
             @Override
             public void onComplete() {
                 textView.append(" onComplete\n");
-                LLog.INSTANCE.d(getTAG(), " onComplete");
+                LLog.d(getTAG(), " onComplete");
             }
         };
     }

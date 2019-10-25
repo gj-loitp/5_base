@@ -8,65 +8,64 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Menu Firebase"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
             <Button
                 android:id="@+id/bt_admob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Admob" />
 
             <Button
                 android:id="@+id/bt_auth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Auth" />
 
             <Button
                 android:id="@+id/bt_config"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Config" />
 
             <Button
                 android:id="@+id/bt_database"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Database" />
 
             <Button
                 android:id="@+id/bt_database_simple"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Database simple" />
 
             <Button
                 android:id="@+id/bt_fcm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="FCM" />
 
             <Button
                 android:id="@+id/bt_invite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Invite" />
+
+            <Button
+                android:id="@+id/btGetFCMToken"
+                style="@style/ButtonMenu"
+                android:text="Get FCM Token" />
+
+            <Button
+                android:id="@+id/btResetInstanceId"
+                style="@style/ButtonMenu"
+                android:text="Reset Instance Id (FCM Token)" />
         </LinearLayout>
     </ScrollView>
 
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Firebase" />
 </RelativeLayout>
 

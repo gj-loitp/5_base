@@ -4,6 +4,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <TextView
+        style="@style/TextMenu"
+        android:text="Custom dialog" />
+
     <Button
         android:id="@+id/bt_0"
         android:layout_width="wrap_content"

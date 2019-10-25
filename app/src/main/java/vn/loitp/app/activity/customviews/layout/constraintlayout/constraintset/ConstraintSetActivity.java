@@ -10,6 +10,8 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.core.base.BaseFontActivity;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
 public class ConstraintSetActivity extends BaseFontActivity {
@@ -22,7 +24,7 @@ public class ConstraintSetActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRootLayout = (ConstraintLayout) findViewById(R.id.activity_constraintset_example);
+        mRootLayout = findViewById(R.id.activity_constraintset_example);
         mConstraintSetNormal.clone(mRootLayout);
         mConstraintSetBig.load(this, R.layout.constraintset_example_big);
         if (savedInstanceState != null) {
@@ -33,12 +35,7 @@ public class ConstraintSetActivity extends BaseFontActivity {
             }
         }
 
-        findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleMode(view);
-            }
-        });
+        findViewById(R.id.imageView).setOnClickListener(this::toggleMode);
     }
 
     @Override
@@ -57,7 +54,7 @@ public class ConstraintSetActivity extends BaseFontActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(SHOW_BIG_IMAGE, mShowBigImage);
     }

@@ -17,7 +17,7 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LFixedGridLayout LFixedGridLayout = (LFixedGridLayout) findViewById(R.id.fgl);
+        LFixedGridLayout LFixedGridLayout = findViewById(R.id.fgl);
         for (int i = 0; i < 20; i++) {
             TextView textView = new TextView(getActivity());
             textView.setText("Item " + i);
@@ -27,22 +27,14 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
             } else {
                 textView.setBackgroundColor(Color.BLACK);
             }
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LToast.showShort(getActivity(), "Touch " + textView.getText().toString(), R.drawable.l_bkg_horizontal);
-                }
-            });
+            textView.setOnClickListener(v -> LToast.showShort(getActivity(), "Touch " + textView.getText().toString(), R.drawable.l_bkg_horizontal));
             LFixedGridLayout.addView(textView);
         }
-        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int row = LDeviceUtil.Companion.getRandomNumber(7) + 1;//+1 make sure value != 0
-                int col = LDeviceUtil.Companion.getRandomNumber(10) + 1;//+1 make sure value != 0
-                LFixedGridLayout.setGridSize(row, col);
-                LToast.showShort(getActivity(), row + "x" + col, R.drawable.l_bkg_horizontal);
-            }
+        findViewById(R.id.bt).setOnClickListener(v -> {
+            int row = LDeviceUtil.Companion.getRandomNumber(7) + 1;//+1 make sure value != 0
+            int col = LDeviceUtil.Companion.getRandomNumber(10) + 1;//+1 make sure value != 0
+            LFixedGridLayout.setGridSize(row, col);
+            LToast.showShort(getActivity(), row + "x" + col, R.drawable.l_bkg_horizontal);
         });
     }
 

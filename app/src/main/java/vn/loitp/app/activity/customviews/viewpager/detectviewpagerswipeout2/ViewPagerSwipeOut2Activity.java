@@ -12,16 +12,17 @@ import com.google.android.material.tabs.TabLayout;
 import com.views.LToast;
 import com.views.viewpager.swipeout.LSwipeOutViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
 
 public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
-    private LSwipeOutViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = findViewById(R.id.vp);
+        LSwipeOutViewPager viewPager = findViewById(R.id.vp);
 
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         viewPager.setOnSwipeOutListener(new LSwipeOutViewPager.OnSwipeOutListener() {
@@ -61,12 +62,13 @@ public class ViewPagerSwipeOut2Activity extends BaseFontActivity {
     private class SamplePagerAdapter extends FragmentStatePagerAdapter {
 
         SamplePagerAdapter(FragmentManager fm) {
-            super(fm);
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
-            return FrmIv.newInstance();
+            return FrmIv.Companion.newInstance();
         }
 
         @Override

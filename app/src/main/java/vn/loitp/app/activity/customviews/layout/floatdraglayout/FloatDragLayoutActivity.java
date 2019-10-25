@@ -33,12 +33,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         rootView.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LToast.INSTANCE.show(getActivity(), "Click on the hover and drag buttons");
-            }
-        });
+        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
 
         findViewById(R.id.bt_change_to_fullscreen).setOnClickListener(this);
         findViewById(R.id.bt_change_to_no_title).setOnClickListener(this);
@@ -94,7 +89,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            LToast.INSTANCE.show(getActivity(), "Click on FloatDragPopupWindow");
+                            LToast.show(getActivity(), "Click on FloatDragPopupWindow");
                         }
                     })
                     .build();

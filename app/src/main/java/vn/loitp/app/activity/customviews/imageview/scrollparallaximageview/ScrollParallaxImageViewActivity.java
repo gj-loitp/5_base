@@ -17,10 +17,10 @@ public class ScrollParallaxImageViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LScrollParallaxImageView iv = (LScrollParallaxImageView) findViewById(R.id.img);
+        LScrollParallaxImageView iv = findViewById(R.id.img);
         iv.setParallaxStyles(new VerticalMovingStyle()); // or other parallax styles
 
-        LinearLayout llHorizontal = (LinearLayout) findViewById(R.id.ll_horizontal);
+        LinearLayout llHorizontal = findViewById(R.id.ll_horizontal);
         for (int i = 0; i < 10; i++) {
             LScrollParallaxImageView LScrollParallaxImageView = new LScrollParallaxImageView(getActivity());
             LScrollParallaxImageView.setImageResource(i % 2 == 0 ? R.drawable.iv : R.drawable.logo);
@@ -28,7 +28,7 @@ public class ScrollParallaxImageViewActivity extends BaseFontActivity {
             llHorizontal.addView(LScrollParallaxImageView);
         }
 
-        LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
+        LinearLayout ll = findViewById(R.id.ll);
         for (int i = 0; i < 20; i++) {
             LScrollParallaxImageView LScrollParallaxImageView = new LScrollParallaxImageView(getActivity());
             LScrollParallaxImageView.setImageResource(i % 2 == 0 ? R.drawable.iv : R.drawable.logo);

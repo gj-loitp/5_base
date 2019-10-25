@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/RedTrans"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_15"
         android:text="I have used ViewPager with Fragment.
 But it loads two pages at time.
 Is there any way to load only one page in viewpager?

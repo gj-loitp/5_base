@@ -50,7 +50,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.INSTANCE.d(getTAG(), "onDataChange null => return");
+                    LLog.d(getTAG(), "onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -66,7 +66,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     }*/
                     userList.add(user);
                 }
-                LLog.INSTANCE.d(getTAG(), "userList.size: " + userList.size());
+                LLog.d(getTAG(), "userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
@@ -74,7 +74,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onCancelled(DatabaseError error) {
-                LLog.INSTANCE.e(getTAG(), "Failed to read app title value " + error.toException());
+                LLog.e(getTAG(), "Failed to read app title value " + error.toException());
             }
         });
     }
@@ -96,10 +96,8 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bt_add:
-                addData();
-                break;
+        if (v.getId() == R.id.bt_add) {
+            addData();
         }
     }
 
@@ -110,20 +108,17 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         user.setName("loitp");
         user.setMsg("dummy msg " + user.getTimestamp());
         mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        /*if (task.isSuccessful()) {
-                            LLog.d(TAG, "onClick isSuccessful");
-                        } else {
-                            LLog.d(TAG, "onClick !isSuccessful");
-                        }*/
-                    }
+                .addOnCompleteListener(task -> {
+                    /*if (task.isSuccessful()) {
+                        LLog.d(TAG, "onClick isSuccessful");
+                    } else {
+                        LLog.d(TAG, "onClick !isSuccessful");
+                    }*/
                 });
     }
 
     private void setupUI() {
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView = findViewById(R.id.rv);
 
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
@@ -133,7 +128,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(getActivity(), userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.INSTANCE.show(getActivity(), "onClick To Edit Data: " + user.getMsg());
+                LToast.show(getActivity(), "onClick To Edit Data: " + user.getMsg());
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -143,7 +138,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                LToast.INSTANCE.show(getActivity(), "onLongClick " + user.getMsg());
+                LToast.show(getActivity(), "onLongClick " + user.getMsg());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

@@ -3,10 +3,11 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightGrey">
+    android:background="@color/WhiteSmoke">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_banner"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

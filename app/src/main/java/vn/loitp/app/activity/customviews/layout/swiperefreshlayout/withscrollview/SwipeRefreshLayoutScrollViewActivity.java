@@ -18,27 +18,19 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                doTask();
-            }
-        });
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this::doTask);
         LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
-        TextView tv = (TextView) findViewById(R.id.tv);
+        TextView tv = findViewById(R.id.tv);
         String poem = LStoreUtil.readTxtFromRawFolder(getActivity(), R.raw.loitp);
         tv.setText(poem);
     }
 
     private void doTask() {
-        LUIUtil.INSTANCE.setDelay(5000, new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(false);
-                LToast.show(activity, "Finish", R.drawable.l_bkg_horizontal);
-            }
+        LUIUtil.INSTANCE.setDelay(5000, () -> {
+            swipeRefreshLayout.setRefreshing(false);
+            LToast.show(activity, "Finish", R.drawable.l_bkg_horizontal);
         });
     }
 

@@ -38,42 +38,34 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
         // Requires that an Activity is registered in AndroidManifest.xml to handle
         // deep-link URLs.
         FirebaseDynamicLinks.getInstance().getDynamicLink(getIntent())
-                .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
-                    @Override
-                    public void onSuccess(PendingDynamicLinkData data) {
-                        if (data == null) {
-                            Log.d(getTAG(), "getInvitation: no data");
-                            return;
-                        }
-
-                        // Get the deep link
-                        Uri deepLink = data.getLink();
-
-                        // Extract invite
-                        FirebaseAppInvite invite = FirebaseAppInvite.getInvitation(data);
-                        if (invite != null) {
-                            String invitationId = invite.getInvitationId();
-                        }
-
-                        // Handle the deep link
-                        // [START_EXCLUDE]
-                        Log.d(getTAG(), "deepLink:" + deepLink);
-                        if (deepLink != null) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setPackage(getPackageName());
-                            intent.setData(deepLink);
-
-                            startActivity(intent);
-                        }
-                        // [END_EXCLUDE]
+                .addOnSuccessListener(this, data -> {
+                    if (data == null) {
+                        Log.d(getTAG(), "getInvitation: no data");
+                        return;
                     }
+
+                    // Get the deep link
+                    Uri deepLink = data.getLink();
+
+                    // Extract invite
+                    FirebaseAppInvite invite = FirebaseAppInvite.getInvitation(data);
+                    if (invite != null) {
+                        String invitationId = invite.getInvitationId();
+                    }
+
+                    // Handle the deep link
+                    // [START_EXCLUDE]
+                    Log.d(getTAG(), "deepLink:" + deepLink);
+                    if (deepLink != null) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setPackage(getPackageName());
+                        intent.setData(deepLink);
+
+                        startActivity(intent);
+                    }
+                    // [END_EXCLUDE]
                 })
-                .addOnFailureListener(this, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(getTAG(), "getDynamicLink:onFailure", e);
-                    }
-                });
+                .addOnFailureListener(this, e -> Log.w(getTAG(), "getDynamicLink:onFailure", e));
     }
 
     @Override

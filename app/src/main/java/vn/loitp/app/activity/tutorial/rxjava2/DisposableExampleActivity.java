@@ -2,17 +2,13 @@ package vn.loitp.app.activity.tutorial.rxjava2;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
-import java.util.concurrent.Callable;
-
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
@@ -30,12 +26,7 @@ public class DisposableExampleActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         btn = findViewById(R.id.btn);
         textView = findViewById(R.id.textView);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                doSomeWork();
-            }
-        });
+        btn.setOnClickListener(view -> doSomeWork());
     }
 
     @Override
@@ -76,13 +67,10 @@ public class DisposableExampleActivity extends BaseFontActivity {
     }
 
     static Observable<String> sampleObservable() {
-        return Observable.defer(new Callable<ObservableSource<? extends String>>() {
-            @Override
-            public ObservableSource<? extends String> call() {
-                // Do some long running operation
-                SystemClock.sleep(2000);
-                return Observable.just("one", "two", "three", "four", "five");
-            }
+        return Observable.defer(() -> {
+            // Do some long running operation
+            SystemClock.sleep(2000);
+            return Observable.just("one", "two", "three", "four", "five");
         });
     }
 

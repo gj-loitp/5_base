@@ -2,44 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/padding_5">
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ted Image Picker"
-        android:textSize="@dimen/txt_18" />
+        style="@style/TextMenu"
+        android:text="TedImagePicker" />
 
     <Button
         android:id="@+id/btnNormalSingle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="Normal - Single" />
 
     <Button
         android:id="@+id/btnNormalMulti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="Normal - Multi" />
 
     <Button
         android:id="@+id/btnRxSingle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="Rx - Single" />
 
     <Button
         android:id="@+id/btnRxMulti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonMenu"
         android:text="Rx - Multi" />
 
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin" />
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/app_name" />
 
     <HorizontalScrollView
         android:id="@+id/hsv_image"

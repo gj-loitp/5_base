@@ -16,7 +16,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 public class SwitchAnimationUtil {
     private int mOrderIndex = 0;
     private int mDelay = 100;
-    private int mDuration = 300;
+    private int mDuration = 100;
 
     public SwitchAnimationUtil() {
 
@@ -35,7 +35,7 @@ public class SwitchAnimationUtil {
             if (type == AnimationType.HORIZON_CROSS) {
                 /*
                  * Something wrong with it... Fixing
-				 */
+                 */
 
                 for (int i = 0; i < group.getChildCount(); i++) {
                     bindAnimation(group.getChildAt(i), depth + 1,

@@ -38,7 +38,7 @@ public class WWLHomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = (RecyclerView) getFrmRootView().findViewById(R.id.recyclerView);
+        this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
         this.mRecyclerView.setLayoutManager(mLayoutManager);
         this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
@@ -115,14 +115,9 @@ public class WWLHomeFragment extends BaseFragment {
 
             public ViewHolder(View v) {
                 super(v);
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]);
-                    }
-                });
-                titleView = (TextView) v.findViewById(R.id.li_title);
-                subtitleView = (TextView) v.findViewById(R.id.li_subtitle);
+                v.setOnClickListener(v1 -> WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
+                titleView = v.findViewById(R.id.li_title);
+                subtitleView = v.findViewById(R.id.li_subtitle);
             }
 
             public TextView getTitleView() {

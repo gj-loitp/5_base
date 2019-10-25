@@ -7,52 +7,47 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tv_title"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_5">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Test add truyện"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/bt_add_vuongphongloi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Thêm truyện Vương Phong Lôi I" />
 
             <Button
                 android:id="@+id/bt_add_layers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Thêm truyện Layers" />
 
             <Button
                 android:id="@+id/bt_add_blackhaze"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Thêm truyện Black Haze" />
 
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="@dimen/padding_15"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_10" />
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextMenu"
+        android:text="Test add truyện" />
 
     <com.views.progressloadingview.avl.LAVLoadingIndicatorView
         android:id="@+id/avi"

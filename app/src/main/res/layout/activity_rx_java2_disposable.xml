@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_view"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-	<Button
-		android:id="@+id/btn"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="doSomeWork"
-		android:textAllCaps="false"
-		android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/btn"
+        style="@style/ButtonMenu"
+        android:text="doSomeWork" />
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@+id/btn">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn">
 
-		<TextView
-			android:id="@+id/textView"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:textColor="@android:color/black" />
-	</ScrollView>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_15"
+            android:textColor="@android:color/black" />
+    </ScrollView>
 </RelativeLayout>
 

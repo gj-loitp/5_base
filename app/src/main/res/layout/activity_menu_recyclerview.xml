@@ -1,95 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_view"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-	<ScrollView
-		android:id="@+id/scroll_view"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:fillViewport="true"
-		android:padding="@dimen/padding_5">
+    <ScrollView
+        android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true"
+        tools:ignore="UselessParent">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:text="RecyclerView Menu"
-				android:textColor="@color/Black"
-				android:textSize="@dimen/txt_20" />
+            <Button
+                android:id="@+id/bt_bookview"
+                style="@style/ButtonMenu"
+                android:text="Bookview" />
 
-			<Button
-				android:id="@+id/bt_bookview"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Bookview" />
+            <Button
+                android:id="@+id/bt_diff_util"
+                style="@style/ButtonMenu"
+                android:text="Diff Util" />
 
-			<Button
-				android:id="@+id/bt_diff_util"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Diff Util" />
+            <Button
+                android:id="@+id/bt_gallery_layout_manager"
+                style="@style/ButtonMenu"
+                android:text="GalleryLayoutManager Horizontal" />
 
-			<Button
-				android:id="@+id/bt_gallery_layout_manager"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="GalleryLayoutManager Horizontal" />
+            <Button
+                android:id="@+id/bt_gallery_layout_manager_vertical"
+                style="@style/ButtonMenu"
+                android:text="GalleryLayoutManager Vertical" />
 
-			<Button
-				android:id="@+id/bt_gallery_layout_manager_vertical"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="GalleryLayoutManager Vertical" />
+            <Button
+                android:id="@+id/bt_normal_recyclerview"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Animation" />
 
-			<Button
-				android:id="@+id/bt_normal_recyclerview"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Normal RecyclerView With Animation" />
+            <Button
+                android:id="@+id/bt_normal_recyclerview_with_singleton_data"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Singleton Data" />
 
-			<Button
-				android:id="@+id/bt_normal_recyclerview_with_singleton_data"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Normal RecyclerView With Singleton Data" />
+            <Button
+                android:id="@+id/bt_normal_recyclerview_with_spansize"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Spansize" />
 
-			<Button
-				android:id="@+id/bt_normal_recyclerview_with_spansize"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Normal RecyclerView With Spansize" />
+            <Button
+                android:id="@+id/bt_parallax_recyclerview"
+                style="@style/ButtonMenu"
+                android:text="ParallaxRecyclerView" />
 
-			<Button
-				android:id="@+id/bt_parallax_recyclerview"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="ParallaxRecyclerView" />
+            <Button
+                android:id="@+id/bt_overflying_recyclerview"
+                style="@style/ButtonMenu"
+                android:text="Overflying RecyclerView" />
 
-			<Button
-				android:id="@+id/bt_overflying_recyclerview"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Overflying RecyclerView" />
+            <Button
+                android:id="@+id/bt_parallax_recyclerview_yayandroid"
+                style="@style/ButtonMenu"
+                android:text="ParallaxRecyclerView Yayandroid" />
 
-			<Button
-				android:id="@+id/bt_parallax_recyclerview_yayandroid"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="ParallaxRecyclerView Yayandroid" />
+            <Button
+                android:id="@+id/bt_recyclerview_banner"
+                style="@style/ButtonMenu"
+                android:text="RecyclerBanner" />
 
-			<Button
-				android:id="@+id/bt_recyclerview_banner"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="RecyclerBanner" />
-		</LinearLayout>
-	</ScrollView>
+            <Button
+                android:id="@+id/btRecyclerTabLayout"
+                style="@style/ButtonMenu"
+                android:text="Recycler Tab Layout" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="RecyclerView Menu" />
 </RelativeLayout>
 

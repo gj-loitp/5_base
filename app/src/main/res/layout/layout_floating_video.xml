@@ -14,15 +14,15 @@
         <com.google.android.exoplayer2.ui.SimpleExoPlayerView
             android:id="@+id/player_view"
             android:layout_width="200dp"
-            app:controller_layout_id="@layout/exo_controller_default"
             android:layout_height="112dp"
-            android:focusable="true" />
+            android:focusable="true"
+            app:controller_layout_id="@layout/exo_controller_default" />
 
         <ImageView
             android:id="@+id/close_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_toRightOf="@id/player_view"
+            android:layout_toEndOf="@id/player_view"
             android:src="@drawable/ic_close"
             tools:ignore="ContentDescription" />
     </RelativeLayout>

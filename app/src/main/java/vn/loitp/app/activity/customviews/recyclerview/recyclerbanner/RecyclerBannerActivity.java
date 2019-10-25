@@ -20,7 +20,7 @@ public class RecyclerBannerActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        NestedScrollView sv = (NestedScrollView) findViewById(R.id.sv);
+        NestedScrollView sv = findViewById(R.id.sv);
         sv.setNestedScrollingEnabled(false);
 
         BannerLayout recyclerBanner = findViewById(R.id.recycler);
@@ -33,12 +33,7 @@ public class RecyclerBannerActivity extends BaseFontActivity {
         }
 
         WebBannerAdapter webBannerAdapter = new WebBannerAdapter(this, list);
-        webBannerAdapter.setOnBannerItemClickListener(new BannerLayout.OnBannerItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                LToast.INSTANCE.show(getActivity(), "Click " + position);
-            }
-        });
+        webBannerAdapter.setOnBannerItemClickListener(position -> LToast.show(getActivity(), "Click " + position));
 
         recyclerBanner.setAdapter(webBannerAdapter);
         recyclerBannerVertical.setAdapter(webBannerAdapter);

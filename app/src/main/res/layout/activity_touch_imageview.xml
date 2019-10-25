@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White">
+    android:background="@color/WhiteSmoke">
 
     <com.views.imageview.touch.LTouchImageView
         android:id="@+id/iv"
@@ -16,8 +16,10 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_5"
         android:gravity="center"
+        android:padding="@dimen/padding_15"
         android:text="Try to zoom"
-        android:textSize="@dimen/txt_20" />
+        android:textColor="@color/White"
+        android:textSize="@dimen/txt_20"
+        android:textStyle="bold" />
 </RelativeLayout>

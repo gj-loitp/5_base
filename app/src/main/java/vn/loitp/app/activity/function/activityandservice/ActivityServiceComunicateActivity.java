@@ -53,22 +53,14 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
     }
 
     private void initializeView() {
-        tv = (TextView) findViewById(R.id.tv);
-        findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LToast.INSTANCE.show(getActivity(), "onClick TestService");
-                tv.setText("");
-                startService(new Intent(getActivity(), TestService.class));
-            }
+        tv = findViewById(R.id.tv);
+        findViewById(R.id.notify_me).setOnClickListener(view -> {
+            LToast.show(getActivity(), "onClick TestService");
+            tv.setText("");
+            startService(new Intent(getActivity(), TestService.class));
         });
-        Button button0 = (Button) findViewById(R.id.bt_0);
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ComunicateMng.postFromActivity(new ComunicateMng.MsgFromActivity(button0.getText().toString()));
-            }
-        });
+        Button button0 = findViewById(R.id.bt_0);
+        button0.setOnClickListener(v -> ComunicateMng.postFromActivity(new ComunicateMng.MsgFromActivity(button0.getText().toString())));
     }
 
     @Override
@@ -78,7 +70,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
             if (resultCode == RESULT_OK) {
                 initializeView();
             } else { //Permission is not available
-                LToast.INSTANCE.show(getActivity(), "Draw over other app permission not available. Closing the application");
+                LToast.show(getActivity(), "Draw over other app permission not available. Closing the application");
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
