@@ -6,49 +6,43 @@
 
     <ScrollView
         android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Seekbar Menu"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_20" />
 
             <Button
                 android:id="@+id/bt_boxed_vertical_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="Boxed Vertical SeekBar" />
 
             <Button
                 android:id="@+id/bt_circularseekbar_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="circularseekbar seekbar" />
 
             <Button
                 android:id="@+id/bt_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="seekbar" />
 
             <Button
                 android:id="@+id/bt_vertical_seekbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ButtonMenu"
                 android:text="vertical seekbar" />
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Seekbar Menu" />
 </RelativeLayout>
 
