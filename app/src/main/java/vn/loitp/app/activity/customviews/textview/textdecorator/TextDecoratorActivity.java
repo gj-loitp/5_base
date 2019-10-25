@@ -17,7 +17,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final TextView tvContent = (TextView) findViewById(R.id.tvContent);
+        final TextView tvContent = findViewById(R.id.tvContent);
         final String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et porta ipsum. Praesent vitae libero a mi sodales accumsan. Donec tempor nulla turpis, vitae pellentesque ligula consectetur sed. Quisque commodo lorem eget ipsum pulvinar consequat. Nam erat risus, rhoncus quis ligula sed, tempor venenatis nulla. Duis quis placerat quam.";
 
         LTextDecorator.Companion
@@ -27,12 +27,7 @@ public class TextDecoratorActivity extends BaseFontActivity {
                 .strikethrough("Duis", "Praesent")
                 .underline("sodales", "quam")
                 .setSubscript("vitae")
-                .makeTextClickable(new OnTextClickListener() {
-                    @Override
-                    public void onClick(View view, String text) {
-                        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
-                    }
-                }, false, "porta", "commodo", "tempor venenatis nulla")
+                .makeTextClickable((view, text1) -> Toast.makeText(getActivity(), text1, Toast.LENGTH_SHORT).show(), false, "porta", "commodo", "tempor venenatis nulla")
                 .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build();
 

@@ -19,31 +19,23 @@ public class SelectableTextViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LSelectableView = (LSelectableView) findViewById(R.id.selectableView);
+        LSelectableView = findViewById(R.id.selectableView);
         LSelectableView.setActivity(this);
         LSelectableView.setText(getString(R.string.i_love_you));
-        LSelectableView.addOnSaveClickListener(new SelectableListener() {
-            @Override
-            public void selectedText(String text) {
-                Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
-            }
-        });
+        LSelectableView.addOnSaveClickListener(text -> Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show());
 
-        emptyBoxBtn = (TextView) findViewById(R.id.emptyBoxBtn);
+        emptyBoxBtn = findViewById(R.id.emptyBoxBtn);
         emptyBoxBtn.setTag(0);
-        emptyBoxBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int type = (int) view.getTag();
-                if (type == 0) {
-                    emptyBoxBtn.setBackgroundResource(R.drawable.selector_cancel_btn);
-                    LSelectableView.selectAll();
-                    emptyBoxBtn.setTag(1);
-                } else {
-                    emptyBoxBtn.setBackgroundResource(R.drawable.selector_emptybox);
-                    LSelectableView.hideCursor();
-                    emptyBoxBtn.setTag(0);
-                }
+        emptyBoxBtn.setOnClickListener(view -> {
+            int type = (int) view.getTag();
+            if (type == 0) {
+                emptyBoxBtn.setBackgroundResource(R.drawable.selector_cancel_btn);
+                LSelectableView.selectAll();
+                emptyBoxBtn.setTag(1);
+            } else {
+                emptyBoxBtn.setBackgroundResource(R.drawable.selector_emptybox);
+                LSelectableView.hideCursor();
+                emptyBoxBtn.setTag(0);
             }
         });
     }

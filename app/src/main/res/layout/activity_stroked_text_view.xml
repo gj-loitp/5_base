@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <com.views.textview.stroked.LStrokedTextView
         android:id="@+id/stv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
+        android:padding="@dimen/padding_15"
         android:text="@string/app_name"
         android:textColor="@color/White"
         android:textSize="@dimen/txt_25"
@@ -25,7 +26,7 @@
         <com.views.textview.stroked.LStrokedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10"
+            android:padding="@dimen/padding_15"
             android:text="@string/large_text"
             android:textColor="@color/Yellow"
             android:textSize="@dimen/txt_18"

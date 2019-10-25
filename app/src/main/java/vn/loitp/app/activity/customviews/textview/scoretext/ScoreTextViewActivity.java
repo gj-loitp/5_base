@@ -21,18 +21,15 @@ public class ScoreTextViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
-        bt = (Button) findViewById(R.id.bt);
+        tv = findViewById(R.id.tv);
+        bt = findViewById(R.id.bt);
 
         tv.setText("" + currentScore);
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentScore = 0;
-                bt.setEnabled(false);
-                updateScore(maxScore);
-            }
+        bt.setOnClickListener(v -> {
+            currentScore = 0;
+            bt.setEnabled(false);
+            updateScore(maxScore);
         });
     }
 
@@ -60,9 +57,9 @@ public class ScoreTextViewActivity extends BaseFontActivity {
             switch (msg.what) {
                 case KEY_UPDATE_SCORE:
                     tv.setText((String) msg.obj);
-                    LLog.INSTANCE.d(getTAG(), msg.obj + "");
-                    if (((String) msg.obj).equals(String.valueOf(maxScore))) {
-                        LLog.INSTANCE.d(getTAG(), "done");
+                    LLog.d(getTAG(), msg.obj + "");
+                    if (msg.obj.equals(String.valueOf(maxScore))) {
+                        LLog.d(getTAG(), "done");
                         bt.setEnabled(true);
                     }
                     break;
