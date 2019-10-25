@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <com.views.treeview.LTreeView
         android:id="@+id/treeview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:level_separation="50dp"
-        app:line_color="@color/DeepPink"
+        app:line_color="@color/colorPrimary"
         app:line_thickness="10dp">
 
     </com.views.treeview.LTreeView>

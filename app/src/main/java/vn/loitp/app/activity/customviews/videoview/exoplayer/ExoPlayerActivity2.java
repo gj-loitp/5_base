@@ -10,6 +10,8 @@ import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.views.exo.PlayerManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
 //custom UI exo_playback_control_view.xml
@@ -80,7 +82,7 @@ public class ExoPlayerActivity2 extends BaseFontActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             playerManager.updateSizePlayerView(getActivity(), playerView, exoFullscreen);
