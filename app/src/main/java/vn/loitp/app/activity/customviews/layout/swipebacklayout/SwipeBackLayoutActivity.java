@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.core.base.BaseFontActivity;
+import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 import com.views.layout.swipeback.SwipeBackLayout;
@@ -39,6 +40,8 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
                 LLog.d(getTAG(), "onViewSwipeFinished");
+                finish();
+                LActivityUtil.transActivityNoAniamtion(activity);
             }
         });
 
