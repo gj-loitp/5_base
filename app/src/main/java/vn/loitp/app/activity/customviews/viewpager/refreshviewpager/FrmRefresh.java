@@ -14,6 +14,8 @@ import com.core.utilities.LUIUtil;
 import com.views.LToast;
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
 public class FrmRefresh extends Fragment {
@@ -24,7 +26,7 @@ public class FrmRefresh extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         if (bundle != null) {
             mPosition = bundle.getInt(KEY_POSITION);
@@ -35,8 +37,8 @@ public class FrmRefresh extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tv = (TextView) view.findViewById(R.id.tv);
-        avl = (LAVLoadingIndicatorView) view.findViewById(R.id.avl);
+        tv = view.findViewById(R.id.tv);
+        avl = view.findViewById(R.id.avl);
         if (isVisibleToUser && (!isLoaded)) {
             loadData();
             isLoaded = true;

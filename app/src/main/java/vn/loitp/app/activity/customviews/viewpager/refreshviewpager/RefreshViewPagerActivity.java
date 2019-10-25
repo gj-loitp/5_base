@@ -11,18 +11,19 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import loitp.basemaster.R;
 
 public class RefreshViewPagerActivity extends BaseFontActivity {
-    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.vp);
+        ViewPager viewPager = findViewById(R.id.vp);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }
@@ -45,9 +46,10 @@ public class RefreshViewPagerActivity extends BaseFontActivity {
     private class SamplePagerAdapter extends FragmentStatePagerAdapter {
 
         SamplePagerAdapter(FragmentManager fm) {
-            super(fm);
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
             FrmRefresh frmRefresh = new FrmRefresh();

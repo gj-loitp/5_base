@@ -51,13 +51,13 @@ public class LockableViewPagerActivity extends BaseFontActivity {
     private class SamplePagerAdapter extends FragmentStatePagerAdapter {
 
         SamplePagerAdapter(FragmentManager fm) {
-            super(fm);
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         @NotNull
         @Override
         public Fragment getItem(int position) {
-            return FrmIv.newInstance();
+            return FrmIv.Companion.newInstance();
         }
 
         @Override
