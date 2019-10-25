@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="@dimen/padding_5">
+    android:background="@color/WhiteSmoke">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +12,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextMenu"
             android:gravity="center"
-            android:text="Change the color of a SwitchCompat"
-            android:textColor="@color/Black"
-            android:textSize="@dimen/txt_20" />
+            android:text="Change the color of a SwitchCompat" />
 
         <LinearLayout
             android:layout_width="match_parent"
