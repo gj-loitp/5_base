@@ -1017,7 +1017,7 @@
             android:name="vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutActivity"
+            android:name="vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.autoselect.DemoAutoSelectActivity"

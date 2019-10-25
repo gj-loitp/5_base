@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/WhiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextMenu"
+        android:text="Recycler tablayout" />
 
     <ListView
         android:id="@+id/list"
@@ -10,4 +15,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>

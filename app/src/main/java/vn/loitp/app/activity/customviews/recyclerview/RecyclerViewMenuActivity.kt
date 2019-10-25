@@ -18,7 +18,7 @@ import vn.loitp.app.activity.customviews.recyclerview.overflyingrecyclerview.Ove
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclerbanner.RecyclerBannerActivity
-import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutActivity
+import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity
 
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -64,7 +64,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_gallery_layout_manager_vertical -> intent = Intent(activity, GalleryLayoutManagerVerticalActivity::class.java)
             R.id.bt_bookview -> intent = Intent(activity, BookViewActivity::class.java)
             R.id.bt_diff_util -> intent = Intent(activity, DiffUtilActivity::class.java)
-            R.id.btRecyclerTabLayout -> intent = Intent(activity, RecyclerTabLayoutActivity::class.java)
+            R.id.btRecyclerTabLayout -> intent = Intent(activity, RecyclerTabLayoutMenuActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

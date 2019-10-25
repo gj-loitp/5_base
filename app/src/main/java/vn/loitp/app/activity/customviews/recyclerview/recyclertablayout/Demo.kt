@@ -1,11 +1,11 @@
-package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout;
+package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout
 
-import loitp.basemaster.R;
+import loitp.basemaster.R
 
 /**
  * Created by a13088 on 2015/07/21.
  */
-public enum Demo {
+enum class Demo(var titleResId: Int) {
 
     BASIC(R.string.title_basic),
     CUSTOM_VIEW01(R.string.title_custom_view01),
@@ -15,11 +15,5 @@ public enum Demo {
     AUTO_SELECT(R.string.title_auto_select),
     RTL(R.string.title_auto_rtl),
     TAB_SCROLL_DISABLED(R.string.title_tab_scroll_disabled),
-    TAB_ON_SCREEN_LIMIT(R.string.title_tab_on_screen_limit);
-
-    public int titleResId;
-
-    Demo(int titleResId) {
-        this.titleResId = titleResId;
-    }
+    TAB_ON_SCREEN_LIMIT(R.string.title_tab_on_screen_limit)
 }
