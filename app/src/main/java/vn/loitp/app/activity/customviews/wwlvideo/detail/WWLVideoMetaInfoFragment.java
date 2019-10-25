@@ -22,8 +22,8 @@ public class WWLVideoMetaInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.wwl_video_meta_info_fragment, container, false);
-        this.mTitleView = (TextView) rootView.findViewById(R.id.li_title);
-        this.mSubTitleView = (TextView) rootView.findViewById(R.id.li_subtitle);
+        this.mTitleView = rootView.findViewById(R.id.li_title);
+        this.mSubTitleView = rootView.findViewById(R.id.li_subtitle);
         return rootView;
     }
 

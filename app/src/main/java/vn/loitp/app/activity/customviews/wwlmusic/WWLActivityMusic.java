@@ -24,7 +24,7 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.LWWLMusic = (LWWLMusic) findViewById(R.id.watch_while_layout);
+        this.LWWLMusic = findViewById(R.id.watch_while_layout);
         this.LWWLMusic.setListener(this);
 
         this.watchFragment = (WWLWatchFragment) getSupportFragmentManager().findFragmentById(R.id.watch_fragment);
@@ -66,10 +66,10 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
 
     @Override
     public void WWL_onClicked() {
-        if (this.LWWLMusic.mState == LWWLMusic.STATE_MINIMIZED) {
+        if (this.LWWLMusic.mState == com.views.wwlmusic.layout.LWWLMusic.STATE_MINIMIZED) {
             this.LWWLMusic.maximize(false);
         }
-        if (this.LWWLMusic.mState == LWWLMusic.STATE_MAXIMIZED) {
+        if (this.LWWLMusic.mState == com.views.wwlmusic.layout.LWWLMusic.STATE_MAXIMIZED) {
             this.watchFragment.toggleControls();
         }
     }
@@ -98,8 +98,8 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
 
     @Override
     public void goToDetail(WWLMusicDataset.DatasetItem item) {
-        if (this.LWWLMusic.mState == LWWLMusic.STATE_HIDED) {
-            this.LWWLMusic.mState = LWWLMusic.STATE_MAXIMIZED;
+        if (this.LWWLMusic.mState == com.views.wwlmusic.layout.LWWLMusic.STATE_HIDED) {
+            this.LWWLMusic.mState = com.views.wwlmusic.layout.LWWLMusic.STATE_MAXIMIZED;
             this.LWWLMusic.mIsFullscreen = false;
             if (this.LWWLMusic.canAnimate()) {
                 this.LWWLMusic.setAnimatePos(this.LWWLMusic.mMaxY);
