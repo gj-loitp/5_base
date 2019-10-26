@@ -43,13 +43,25 @@ class LEncryptionSharedPrefsUtil private constructor() {
         when (anonymousClass) {
             String::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return value as T
+                }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getString $value\n$orginalValue")
                 return orginalValue as T
             }
             Boolean::class.java -> {
-                //LLog.d(TAG, "getBoolean $key")
-                return java.lang.Boolean.valueOf(mSharedPreferences.getBoolean(key, false)) as T
+                val value = mSharedPreferences.getString(key, "")
+                val defaultValue = false
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getBoolean $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toBoolean() as T
             }
             Float::class.java -> {
                 //LLog.d(TAG, "getFloat $key")

@@ -28,22 +28,22 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         }
 
         /*btPutStringWithDefaultValue.setOnClickListener {
-            LSharedPrefsUtil.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
+            LEncryptionSharedPrefsUtil.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetStringWithDefaultValue.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
+            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
             showLong(value)
-        }
+        }*/
 
         btPutBoolean.setOnClickListener {
-            LSharedPrefsUtil.instance.putBoolean(KEY_BOOLEAN, true)
+            LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
         }
         btGetBoolean.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
+            val value = LEncryptionSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
             showLong("Value: $value")
         }
 
-        btPutFloat.setOnClickListener {
+        /*btPutFloat.setOnClickListener {
             LSharedPrefsUtil.instance.putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setOnClickListener {
