@@ -77,8 +77,17 @@ class LEncryptionSharedPrefsUtil private constructor() {
                 return orginalValue.toFloat() as T
             }
             Int::class.java -> {
-                //LLog.d(TAG, "getInteger $key")
-                return Integer.valueOf(mSharedPreferences.getInt(key, 0)) as T
+                val value = mSharedPreferences.getString(key, "")
+                val defaultValue = 0
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toInt() as T
             }
             Long::class.java -> {
                 //LLog.d(TAG, "getLong $key")
