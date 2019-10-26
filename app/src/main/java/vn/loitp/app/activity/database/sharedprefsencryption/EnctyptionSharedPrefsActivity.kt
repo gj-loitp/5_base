@@ -43,15 +43,15 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             showLong("Value: $value")
         }
 
-        /*btPutFloat.setOnClickListener {
-            LSharedPrefsUtil.instance.putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
+        btPutFloat.setOnClickListener {
+            LEncryptionSharedPrefsUtil.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
+            val value = LEncryptionSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
             showLong("Value: $value")
         }
 
-        btPutInt.setOnClickListener {
+        /*btPutInt.setOnClickListener {
             LSharedPrefsUtil.instance.putInt(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setOnClickListener {

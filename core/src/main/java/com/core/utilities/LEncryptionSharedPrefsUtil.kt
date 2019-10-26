@@ -64,8 +64,17 @@ class LEncryptionSharedPrefsUtil private constructor() {
                 return orginalValue.toBoolean() as T
             }
             Float::class.java -> {
-                //LLog.d(TAG, "getFloat $key")
-                return java.lang.Float.valueOf(mSharedPreferences.getFloat(key, 0f)) as T
+                val value = mSharedPreferences.getString(key, "")
+                val defaultValue = 0f
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toFloat() as T
             }
             Int::class.java -> {
                 //LLog.d(TAG, "getInteger $key")
