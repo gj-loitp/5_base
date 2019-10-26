@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.security.simple;
+package com.core.utilities;
 
 import android.util.Base64;
 
@@ -14,7 +14,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Encryption {
+public class LEncryptionUtils {
     private static final int ITERATION_COUNT = 1000;
     private static final int KEY_LENGTH = 256;
     private static final String PBKDF2_DERIVATION_ALGORITHM = "PBKDF2WithHmacSHA1";
