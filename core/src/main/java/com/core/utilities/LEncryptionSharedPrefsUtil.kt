@@ -168,12 +168,25 @@ class LEncryptionSharedPrefsUtil private constructor() {
     }*/
 
     fun <T> put(key: String, data: T) {
-        val s = data.toString()
-        val newS = LEncryptionUtil.encrypt(s, pw)
-        val editor = mSharedPreferences.edit()
-        editor.putString(key, newS)
-        //LLog.d(TAG, "putString $key -> $data")
-        editor.apply()
+        if (data is String
+                || data is Boolean
+                || data is Float
+                || data is Int
+                || data is Long) {
+            val s = data.toString()
+            val newS = LEncryptionUtil.encrypt(s, pw)
+            val editor = mSharedPreferences.edit()
+            editor.putString(key, newS)
+            //LLog.d(TAG, "putString $key -> $data")
+            editor.apply()
+        } else {
+            val s = Gson().toJson(data)
+            val newS = LEncryptionUtil.encrypt(s, pw)
+            val editor = mSharedPreferences.edit()
+            editor.putString(key, newS)
+            //LLog.d(TAG, "putString $key -> $data")
+            editor.apply()
+        }
     }
 
     fun clear() {

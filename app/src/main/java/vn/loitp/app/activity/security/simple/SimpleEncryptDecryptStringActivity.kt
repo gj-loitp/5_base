@@ -5,6 +5,8 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.pattern.mvp.User
+import vn.loitp.app.app.LApplication
 
 class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
 
@@ -12,6 +14,12 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val user = User()
+        user.fullName = "Name " + System.currentTimeMillis()
+        user.email = "Mail " + System.currentTimeMillis()
+        tv0.setText(LApplication.gson.toJson(user))
+
         bt0.setOnClickListener { encrypt() }
         bt1.setOnClickListener { decrypt() }
     }

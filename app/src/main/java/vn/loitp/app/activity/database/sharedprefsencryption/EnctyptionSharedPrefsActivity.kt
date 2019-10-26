@@ -6,6 +6,7 @@ import com.core.utilities.LEncryptionSharedPrefsUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.pattern.mvp.User
+import vn.loitp.app.app.LApplication
 
 class EnctyptionSharedPrefsActivity : BaseFontActivity() {
 
@@ -76,7 +77,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         }
         btGetObject.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
-            showLong("Value: $value")
+            showLong("Value: " + LApplication.gson.toJson(value))
         }
     }
 
