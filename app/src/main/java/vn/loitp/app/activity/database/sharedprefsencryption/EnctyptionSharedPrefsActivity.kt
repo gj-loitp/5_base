@@ -3,7 +3,6 @@ package vn.loitp.app.activity.database.sharedprefsencryption
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
-import com.core.utilities.LSharedPrefsUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import loitp.basemaster.R
 
@@ -60,15 +59,15 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             showLong("Value: $value")
         }
 
-        /*btPutLong.setOnClickListener {
-            LSharedPrefsUtil.instance.putLong(KEY_LONG, System.currentTimeMillis())
+        btPutLong.setOnClickListener {
+            LEncryptionSharedPrefsUtil.instance.put(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getLong(KEY_LONG)
+            val value = LEncryptionSharedPrefsUtil.instance.getLong(KEY_LONG)
             showLong("Value: $value")
         }
 
-        btPutObject.setOnClickListener {
+        /*btPutObject.setOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
