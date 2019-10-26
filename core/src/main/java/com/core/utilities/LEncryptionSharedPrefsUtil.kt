@@ -117,7 +117,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
         }
     }
 
-    /*fun getString(key: String, defaultValue: String): String {
+    fun getString(key: String, defaultValue: String): String {
         return get(key, String::class.java, defaultValue)
     }
 
@@ -141,31 +141,76 @@ class LEncryptionSharedPrefsUtil private constructor() {
     private operator fun <T> get(key: String, anonymousClass: Class<T>, defaultValue: T): T {
         when (anonymousClass) {
             String::class.java -> {
-                //LLog.d(TAG, "getString $key")
-                return mSharedPreferences.getString(key, defaultValue as String) as T
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getString $value\n$orginalValue")
+                return orginalValue as T
             }
             Boolean::class.java -> {
-                //LLog.d(TAG, "getBoolean $key")
-                return java.lang.Boolean.valueOf(mSharedPreferences.getBoolean(key, defaultValue as Boolean)) as T
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getBoolean $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toBoolean() as T
             }
             Float::class.java -> {
-                //LLog.d(TAG, "getFloat $key")
-                return java.lang.Float.valueOf(mSharedPreferences.getFloat(key, defaultValue as Float)) as T
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toFloat() as T
             }
             Int::class.java -> {
-                //LLog.d(TAG, "getInteger $key")
-                return Integer.valueOf(mSharedPreferences.getInt(key, defaultValue as Int)) as T
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toInt() as T
             }
             Long::class.java -> {
-                //LLog.d(TAG, "getLong $key")
-                return java.lang.Long.valueOf(mSharedPreferences.getLong(key, defaultValue as Long)) as T
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return defaultValue as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return defaultValue as T
+                }
+                return orginalValue.toLong() as T
             }
             else -> {
-                val json = mSharedPreferences.getString(key, "")
-                return Gson().fromJson(json, anonymousClass)
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return null as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return null as T
+                }
+                return Gson().fromJson(orginalValue, anonymousClass)
             }
         }
-    }*/
+    }
 
     fun <T> put(key: String, data: T) {
         if (data is String

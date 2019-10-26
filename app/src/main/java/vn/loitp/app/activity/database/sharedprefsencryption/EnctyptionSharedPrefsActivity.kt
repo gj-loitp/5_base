@@ -3,7 +3,7 @@ package vn.loitp.app.activity.database.sharedprefsencryption
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
-import kotlinx.android.synthetic.main.activity_shared_prefs.*
+import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
@@ -21,6 +21,10 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        btClearAll.setOnClickListener {
+            LEncryptionSharedPrefsUtil.instance.clear()
+        }
+
         btPutString.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
         }
@@ -29,13 +33,13 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             showLong(value)
         }
 
-        /*btPutStringWithDefaultValue.setOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
+        btPutStringWithDefaultValue.setOnClickListener {
+            LEncryptionSharedPrefsUtil.instance.put(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetStringWithDefaultValue.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
             showLong(value)
-        }*/
+        }
 
         btPutBoolean.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
