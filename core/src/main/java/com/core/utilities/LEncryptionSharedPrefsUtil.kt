@@ -4,9 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.utils.util.AppUtils
+import com.utils.util.DeviceUtils
 import com.utils.util.Utils
 
-class LSharedPrefsUtil private constructor() {
+class LEncryptionSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
 
     init {
@@ -41,8 +42,10 @@ class LSharedPrefsUtil private constructor() {
     private operator fun <T> get(key: String, anonymousClass: Class<T>): T {
         when (anonymousClass) {
             String::class.java -> {
-                //LLog.d(TAG, "getString $key")
-                return mSharedPreferences.getString(key, "") as T
+                val value = mSharedPreferences.getString(key, "")
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getString $value\n$orginalValue")
+                return orginalValue as T
             }
             Boolean::class.java -> {
                 //LLog.d(TAG, "getBoolean $key")
@@ -67,7 +70,7 @@ class LSharedPrefsUtil private constructor() {
         }
     }
 
-    fun getString(key: String, defaultValue: String): String {
+    /*fun getString(key: String, defaultValue: String): String {
         return get(key, String::class.java, defaultValue)
     }
 
@@ -115,61 +118,14 @@ class LSharedPrefsUtil private constructor() {
                 return Gson().fromJson(json, anonymousClass)
             }
         }
-    }
+    }*/
 
-    fun putString(key: String, data: String) {
-        put(key, data)
-    }
-
-    fun putBoolean(key: String, data: Boolean) {
-        put(key, data)
-    }
-
-    fun putFloat(key: String, data: Float) {
-        put(key, data)
-    }
-
-    fun putInt(key: String, data: Int) {
-        put(key, data)
-    }
-
-    fun putLong(key: String, data: Long) {
-        put(key, data)
-    }
-
-    fun <T> putObject(key: String, data: T) {
-        put(key, data)
-    }
-
-    private fun <T> put(key: String, data: T) {
+    fun <T> put(key: String, data: T) {
+        val s = data.toString()
+        val newS = LEncryptionUtil.encrypt(s, pw)
         val editor = mSharedPreferences.edit()
-        when (data) {
-            is String -> {
-                editor.putString(key, data)
-                //LLog.d(TAG, "putString $key -> $data")
-            }
-            is Boolean -> {
-                editor.putBoolean(key, data)
-                //LLog.d(TAG, "putBoolean $key -> $data")
-            }
-            is Float -> {
-                editor.putFloat(key, data)
-                //LLog.d(TAG, "putFloat $key -> $data")
-            }
-            is Int -> {
-                editor.putInt(key, data)
-                //LLog.d(TAG, "putInt $key -> $data")
-            }
-            is Long -> {
-                editor.putLong(key, data)
-                //LLog.d(TAG, "putLong $key -> $data")
-            }
-            else -> {
-                val json = Gson().toJson(data)
-                editor.putString(key, json)
-                //LLog.d(TAG, "putString $key -> $data")
-            }
-        }
+        editor.putString(key, newS)
+        //LLog.d(TAG, "putString $key -> $data")
         editor.apply()
     }
 
@@ -178,14 +134,15 @@ class LSharedPrefsUtil private constructor() {
     }
 
     companion object {
-        private val TAG = "TAGLSharedPrefsUtil"
+        private val TAG = "TAGLEncryptionSharedPrefsUtil"
         private val PREFS_NAME = AppUtils.getAppPackageName() + TAG
-        private var mInstance: LSharedPrefsUtil? = null
+        private var mInstance: LEncryptionSharedPrefsUtil? = null
+        private val pw = DeviceUtils.getAndroidID()
 
-        val instance: LSharedPrefsUtil
+        val instance: LEncryptionSharedPrefsUtil
             get() {
                 if (mInstance == null) {
-                    mInstance = LSharedPrefsUtil()
+                    mInstance = LEncryptionSharedPrefsUtil()
                 }
                 return mInstance!!
             }

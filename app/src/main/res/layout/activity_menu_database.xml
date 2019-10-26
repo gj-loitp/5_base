@@ -33,6 +33,11 @@
                 android:text="SharedPrefs" />
 
             <Button
+                android:id="@+id/btSharedPrefsEncryption"
+                style="@style/ButtonMenu"
+                android:text="SharedPrefsEncryption" />
+
+            <Button
                 android:id="@+id/bt_sqlite"
                 style="@style/ButtonMenu"
                 android:text="SQLite" />

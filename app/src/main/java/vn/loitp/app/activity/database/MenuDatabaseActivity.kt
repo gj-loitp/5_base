@@ -13,6 +13,7 @@ import loitp.basemaster.R
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
 import vn.loitp.app.activity.database.sharedprefs.SharedPrefsActivity
+import vn.loitp.app.activity.database.sharedprefsencryption.EnctyptionSharedPrefsActivity
 import vn.loitp.app.activity.database.sqlite.SqliteActivity
 
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
@@ -22,6 +23,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_realm).setOnClickListener(this)
         findViewById<View>(R.id.bt_sqlite_asset).setOnClickListener(this)
         btSharedPrefs.setOnClickListener(this)
+        btSharedPrefsEncryption.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -43,6 +45,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_realm -> intent = Intent(activity, RealmActivity::class.java)
             R.id.bt_sqlite_asset -> intent = Intent(activity, ReadSqliteAssetActivity::class.java)
             R.id.btSharedPrefs -> intent = Intent(activity, SharedPrefsActivity::class.java)
+            R.id.btSharedPrefsEncryption -> intent = Intent(activity, EnctyptionSharedPrefsActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
