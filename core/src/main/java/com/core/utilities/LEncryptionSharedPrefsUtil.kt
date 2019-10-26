@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.utils.util.AppUtils
 import com.utils.util.DeviceUtils
 import com.utils.util.Utils
+import java.lang.reflect.Type
 
 class LEncryptionSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
@@ -36,6 +37,19 @@ class LEncryptionSharedPrefsUtil private constructor() {
 
     fun <T> getObject(key: String, anonymousClass: Class<T>): T {
         return get(key, anonymousClass)
+    }
+
+    fun <T> getObjectList(key: String, anonymousClass: Class<T>, typeOfT: Type): ArrayList<T> {
+        val value = mSharedPreferences.getString(key, "")
+        if (value?.isEmpty() == true) {
+            return ArrayList()
+        }
+        val orginalValue = LEncryptionUtil.decrypt(value, pw)
+        //LLog.d(TAG, "getObjectList $value\n$orginalValue")
+        if (orginalValue.isNullOrEmpty()) {
+            return ArrayList()
+        }
+        return Gson().fromJson(orginalValue, typeOfT)
     }
 
     @Suppress("UNCHECKED_CAST")
