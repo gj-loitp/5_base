@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 
-import com.core.utilities.LDateUtils
+import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -59,7 +59,7 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
 
         viewHolder.tvLabel.text = photoset.title.content
 
-        val update = LDateUtils.getDateCurrentTimeZone(photoset.dateUpdate, "dd-MM-yyyy HH:mm:ss")
+        val update = LDateUtil.getDateCurrentTimeZone(photoset.dateUpdate, "dd-MM-yyyy HH:mm:ss")
         viewHolder.tvUpdate.text = update
 
         viewHolder.tvNumber.text = photoset.photos

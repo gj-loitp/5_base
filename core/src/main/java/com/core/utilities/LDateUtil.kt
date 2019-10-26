@@ -5,8 +5,8 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-object LDateUtils {
-    private val TAG = LDateUtils::class.java.simpleName
+object LDateUtil {
+    private val TAG = LDateUtil::class.java.simpleName
     val currentDate: String
         get() {
             val c = Calendar.getInstance()

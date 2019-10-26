@@ -5,7 +5,7 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.content.pm.PackageManager
 
-object LOsUtils {
+object LOsUtil {
     /**
      * @return True if the version of Android that we're running on is at least M
      * (API level 23).

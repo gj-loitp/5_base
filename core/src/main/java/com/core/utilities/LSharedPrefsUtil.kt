@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.database.sharedprefs
+package com.core.utilities
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.utils.util.AppUtils
 import com.utils.util.Utils
 
-class SharedPrefs private constructor() {
+class LSharedPrefsUtil private constructor() {
     private val TAG = "TAG" + javaClass.simpleName
     private val mSharedPreferences: SharedPreferences
 
@@ -180,12 +180,12 @@ class SharedPrefs private constructor() {
 
     companion object {
         private val PREFS_NAME = AppUtils.getAppPackageName()
-        private var mInstance: SharedPrefs? = null
+        private var mInstance: LSharedPrefsUtil? = null
 
-        val instance: SharedPrefs
+        val instance: LSharedPrefsUtil
             get() {
                 if (mInstance == null) {
-                    mInstance = SharedPrefs()
+                    mInstance = LSharedPrefsUtil()
                 }
                 return mInstance!!
             }

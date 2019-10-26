@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LPref;
+import com.core.utilities.LPrefUtil;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.views.LToast;
@@ -45,7 +45,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPref.Companion.getPreLoad(getActivity())) {
+        if (!LPrefUtil.Companion.getPreLoad(getActivity())) {
             setRealmData();
         }
 
@@ -149,7 +149,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPref.Companion.setPreLoad(getActivity(), true);
+        LPrefUtil.Companion.setPreLoad(getActivity(), true);
     }
 
     private void addItem() {
@@ -238,7 +238,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPref.Companion.setPreLoad(getActivity(), false);
+            LPrefUtil.Companion.setPreLoad(getActivity(), false);
         }
 
         booksAdapter.notifyItemRemoved(position);
