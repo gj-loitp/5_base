@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15"
+                android:text="@string/large_dummy_text"
+                android:textSize="@dimen/txt_12"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bt0"
+                style="@style/ButtonMenu"
+                android:text="Encrypt" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_100" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15"
+                android:textSize="@dimen/txt_12"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bt1"
+                style="@style/ButtonMenu"
+                android:text="Decrypt" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Simple Encrypt/Decrypt string" />
+</RelativeLayout>
+

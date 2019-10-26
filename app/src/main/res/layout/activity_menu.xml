@@ -49,6 +49,11 @@
                 android:text="@string/picker" />
 
             <Button
+                android:id="@+id/btSecurity"
+                style="@style/ButtonMenu"
+                android:text="Security" />
+
+            <Button
                 android:id="@+id/bt_demo"
                 style="@style/ButtonMenu"
                 android:text="@string/demo_app" />
