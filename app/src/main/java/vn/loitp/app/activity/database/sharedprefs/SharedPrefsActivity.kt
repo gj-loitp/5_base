@@ -14,18 +14,18 @@ class SharedPrefsActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         btPutString.setOnClickListener {
-            SharedPrefs.getInstance().put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
+            SharedPrefs.instance.put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetString.setOnClickListener {
-            val value = SharedPrefs.getInstance().get(KEY_STRING, String::class.java)
+            val value = SharedPrefs.instance.get(KEY_STRING, String::class.java)
             showLong(value)
         }
 
         btPutBoolean.setOnClickListener {
-            SharedPrefs.getInstance().put(KEY_BOOLEAN, true)
+            SharedPrefs.instance.put(KEY_BOOLEAN, true)
         }
         btGetBoolean.setOnClickListener {
-            val value = SharedPrefs.getInstance().get(KEY_BOOLEAN, Boolean::class.java)
+            val value = SharedPrefs.instance.get(KEY_BOOLEAN, Boolean::class.java)
             showLong("Value: $value")
         }
     }

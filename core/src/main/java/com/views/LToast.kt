@@ -28,19 +28,19 @@ object LToast {
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showShort(context: Context, msg: String) {
+    fun showShort(context: Context, msg: String?) {
         show(context, msg, Toast.LENGTH_SHORT, R.drawable.l_bkg_horizontal)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showLong(context: Context, msg: String) {
+    fun showLong(context: Context, msg: String?) {
         show(context, msg, Toast.LENGTH_LONG, R.drawable.l_bkg_horizontal)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showShort(context: Context, msg: String, backgroundRes: Int) {
+    fun showShort(context: Context, msg: String?, backgroundRes: Int) {
         show(context, msg, Toast.LENGTH_SHORT, backgroundRes)
     }
 
@@ -52,7 +52,7 @@ object LToast {
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showLong(context: Context, msg: String, backgroundRes: Int) {
+    fun showLong(context: Context, msg: String?, backgroundRes: Int) {
         show(context, msg, Toast.LENGTH_LONG, backgroundRes)
     }
 
@@ -77,7 +77,10 @@ object LToast {
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
-    fun show(context: Context, msg: String, length: Int, backgroundRes: Int = R.drawable.l_bkg_horizontal) {
+    fun show(context: Context, msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_horizontal) {
+        if (msg == null) {
+            return
+        }
         clear()
         try {
             val inf = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
