@@ -103,8 +103,16 @@ class LEncryptionSharedPrefsUtil private constructor() {
                 return orginalValue.toLong() as T
             }
             else -> {
-                val json = mSharedPreferences.getString(key, "")
-                return Gson().fromJson(json, anonymousClass)
+                val value = mSharedPreferences.getString(key, "")
+                if (value?.isEmpty() == true) {
+                    return null as T
+                }
+                val orginalValue = LEncryptionUtil.decrypt(value, pw)
+                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                if (orginalValue.isNullOrEmpty()) {
+                    return null as T
+                }
+                return Gson().fromJson(orginalValue, anonymousClass)
             }
         }
     }

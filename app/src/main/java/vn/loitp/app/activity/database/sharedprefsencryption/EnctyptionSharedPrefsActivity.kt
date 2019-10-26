@@ -5,6 +5,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.pattern.mvp.User
 
 class EnctyptionSharedPrefsActivity : BaseFontActivity() {
 
@@ -67,16 +68,16 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             showLong("Value: $value")
         }
 
-        /*btPutObject.setOnClickListener {
+        btPutObject.setOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
-            LSharedPrefsUtil.instance.putObject(KEY_OBJECT, user)
+            LEncryptionSharedPrefsUtil.instance.put(KEY_OBJECT, user)
         }
         btGetObject.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
+            val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
             showLong("Value: $value")
-        }*/
+        }
     }
 
     override fun setFullScreen(): Boolean {
