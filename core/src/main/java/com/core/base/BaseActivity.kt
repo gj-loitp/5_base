@@ -124,7 +124,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun startIdleTimeHandler(delayMls: Long) {
-        LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
+        //LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
         delayMlsIdleTime = delayMls
         handlerIdleTime = Handler()
         runnableIdleTime = Runnable {

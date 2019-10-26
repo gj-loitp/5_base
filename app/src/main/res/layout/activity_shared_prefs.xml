@@ -29,6 +29,16 @@
                 style="@style/ButtonMenu"
                 android:text="Get String" />
 
+            <Button
+                android:id="@+id/btPutBoolean"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Boolean" />
+
+            <Button
+                android:id="@+id/btGetBoolean"
+                style="@style/ButtonMenu"
+                android:text="Get Boolean" />
         </LinearLayout>
     </ScrollView>
 
