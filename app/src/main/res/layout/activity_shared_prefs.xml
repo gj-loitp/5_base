@@ -50,6 +50,17 @@
                 android:id="@+id/btGetFloat"
                 style="@style/ButtonMenu"
                 android:text="Get Float" />
+
+            <Button
+                android:id="@+id/btPutInt"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Int" />
+
+            <Button
+                android:id="@+id/btGetInt"
+                style="@style/ButtonMenu"
+                android:text="Get Int" />
         </LinearLayout>
     </ScrollView>
 

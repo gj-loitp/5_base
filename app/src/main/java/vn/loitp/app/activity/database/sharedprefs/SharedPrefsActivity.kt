@@ -10,6 +10,7 @@ class SharedPrefsActivity : BaseFontActivity() {
     private val KEY_STRING = "KEY_STRING"
     private val KEY_BOOLEAN = "KEY_BOOLEAN"
     private val KEY_FLOAT = "KEY_FLOAT"
+    private val KEY_INT = "KEY_INT"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,14 @@ class SharedPrefsActivity : BaseFontActivity() {
         }
         btGetFloat.setOnClickListener {
             val value = SharedPrefs.instance.get(KEY_FLOAT, Float::class.java)
+            showLong("Value: $value")
+        }
+
+        btPutInt.setOnClickListener {
+            SharedPrefs.instance.put(KEY_INT, System.currentTimeMillis().toInt())
+        }
+        btGetInt.setOnClickListener {
+            val value = SharedPrefs.instance.get(KEY_INT, Int::class.java)
             showLong("Value: $value")
         }
     }
