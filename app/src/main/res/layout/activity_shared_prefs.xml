@@ -19,12 +19,15 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_5">
 
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/Black"
-                android:textSize="@dimen/txt_10" />
+            <Button
+                android:id="@+id/btPutString"
+                style="@style/ButtonMenu"
+                android:text="Put String" />
+
+            <Button
+                android:id="@+id/btGetString"
+                style="@style/ButtonMenu"
+                android:text="Get String" />
 
         </LinearLayout>
     </ScrollView>

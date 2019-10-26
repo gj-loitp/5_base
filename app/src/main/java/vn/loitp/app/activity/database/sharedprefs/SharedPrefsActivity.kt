@@ -1,21 +1,23 @@
 package vn.loitp.app.activity.database.sharedprefs
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnClickListener
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-
+import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
-import vn.loitp.app.activity.database.realm.RealmActivity
-import vn.loitp.app.activity.database.sqlite.SqliteActivity
 
 class SharedPrefsActivity : BaseFontActivity() {
+
+    private val KEY_STRING = "KEY_STRING"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        btPutString.setOnClickListener {
+            SharedPrefs.getInstance().put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
+        }
+        btGetString.setOnClickListener {
+            val value = SharedPrefs.getInstance().get(KEY_STRING, String::class.java)
+            showLong(value)
+        }
     }
 
     override fun setFullScreen(): Boolean {
