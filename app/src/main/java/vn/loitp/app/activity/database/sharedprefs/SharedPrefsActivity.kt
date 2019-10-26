@@ -17,42 +17,42 @@ class SharedPrefsActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         btPutString.setOnClickListener {
-            SharedPrefs.instance.put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
+            SharedPrefs.instance.putString(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetString.setOnClickListener {
-            val value = SharedPrefs.instance.get(KEY_STRING, String::class.java)
+            val value = SharedPrefs.instance.getString(KEY_STRING)
             showLong(value)
         }
 
         btPutBoolean.setOnClickListener {
-            SharedPrefs.instance.put(KEY_BOOLEAN, true)
+            SharedPrefs.instance.putBoolean(KEY_BOOLEAN, true)
         }
         btGetBoolean.setOnClickListener {
-            val value = SharedPrefs.instance.get(KEY_BOOLEAN, Boolean::class.java)
+            val value = SharedPrefs.instance.getBoolean(KEY_BOOLEAN)
             showLong("Value: $value")
         }
 
         btPutFloat.setOnClickListener {
-            SharedPrefs.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
+            SharedPrefs.instance.putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setOnClickListener {
-            val value = SharedPrefs.instance.get(KEY_FLOAT, Float::class.java)
+            val value = SharedPrefs.instance.getFloat(KEY_FLOAT)
             showLong("Value: $value")
         }
 
         btPutInt.setOnClickListener {
-            SharedPrefs.instance.put(KEY_INT, System.currentTimeMillis().toInt())
+            SharedPrefs.instance.putInt(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setOnClickListener {
-            val value = SharedPrefs.instance.get(KEY_INT, Int::class.java)
+            val value = SharedPrefs.instance.getInt(KEY_INT)
             showLong("Value: $value")
         }
 
         btPutLong.setOnClickListener {
-            SharedPrefs.instance.put(KEY_LONG, System.currentTimeMillis())
+            SharedPrefs.instance.putLong(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setOnClickListener {
-            val value = SharedPrefs.instance.get(KEY_LONG, Long::class.java)
+            val value = SharedPrefs.instance.getLong(KEY_LONG)
             showLong("Value: $value")
         }
     }

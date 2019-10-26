@@ -15,8 +15,28 @@ class SharedPrefs private constructor() {
         mSharedPreferences = Utils.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
+    fun getString(key: String): String? {
+        return get(key, String::class.java)
+    }
+
+    fun getBoolean(key: String): Boolean? {
+        return get(key, Boolean::class.java)
+    }
+
+    fun getFloat(key: String): Float? {
+        return get(key, Float::class.java)
+    }
+
+    fun getInt(key: String): Int? {
+        return get(key, Int::class.java)
+    }
+
+    fun getLong(key: String): Long? {
+        return get(key, Long::class.java)
+    }
+
     @Suppress("UNCHECKED_CAST")
-    operator fun <T> get(key: String, anonymousClass: Class<T>): T? {
+    private operator fun <T> get(key: String, anonymousClass: Class<T>): T? {
         when (anonymousClass) {
             String::class.java -> {
                 //LLog.d(TAG, "getString $key")
@@ -43,7 +63,27 @@ class SharedPrefs private constructor() {
         return null
     }
 
-    fun <T> put(key: String, data: T) {
+    fun putString(key: String, data: String) {
+        put(key, data)
+    }
+
+    fun putBoolean(key: String, data: Boolean) {
+        put(key, data)
+    }
+
+    fun putFloat(key: String, data: Float) {
+        put(key, data)
+    }
+
+    fun putInt(key: String, data: Int) {
+        put(key, data)
+    }
+
+    fun putLong(key: String, data: Long) {
+        put(key, data)
+    }
+
+    private fun <T> put(key: String, data: T) {
         val editor = mSharedPreferences.edit()
         when (data) {
             is String -> {
