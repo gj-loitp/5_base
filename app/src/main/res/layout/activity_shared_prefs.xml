@@ -72,6 +72,17 @@
                 android:id="@+id/btGetLong"
                 style="@style/ButtonMenu"
                 android:text="Get Long" />
+
+            <Button
+                android:id="@+id/btPutObject"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Object" />
+
+            <Button
+                android:id="@+id/btGetObject"
+                style="@style/ButtonMenu"
+                android:text="Get Object" />
         </LinearLayout>
     </ScrollView>
 

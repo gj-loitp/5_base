@@ -2,8 +2,7 @@ package vn.loitp.app.activity.database.sharedprefs
 
 import android.content.Context
 import android.content.SharedPreferences
-
-import com.core.utilities.LLog
+import com.google.gson.Gson
 import com.utils.util.AppUtils
 import com.utils.util.Utils
 
@@ -15,28 +14,32 @@ class SharedPrefs private constructor() {
         mSharedPreferences = Utils.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
-    fun getString(key: String): String? {
+    fun getString(key: String): String {
         return get(key, String::class.java)
     }
 
-    fun getBoolean(key: String): Boolean? {
+    fun getBoolean(key: String): Boolean {
         return get(key, Boolean::class.java)
     }
 
-    fun getFloat(key: String): Float? {
+    fun getFloat(key: String): Float {
         return get(key, Float::class.java)
     }
 
-    fun getInt(key: String): Int? {
+    fun getInt(key: String): Int {
         return get(key, Int::class.java)
     }
 
-    fun getLong(key: String): Long? {
+    fun getLong(key: String): Long {
         return get(key, Long::class.java)
     }
 
+    fun <T> getObject(key: String, anonymousClass: Class<T>): T {
+        return get(key, anonymousClass)
+    }
+
     @Suppress("UNCHECKED_CAST")
-    private operator fun <T> get(key: String, anonymousClass: Class<T>): T? {
+    private operator fun <T> get(key: String, anonymousClass: Class<T>): T {
         when (anonymousClass) {
             String::class.java -> {
                 //LLog.d(TAG, "getString $key")
@@ -58,9 +61,11 @@ class SharedPrefs private constructor() {
                 //LLog.d(TAG, "getLong $key")
                 return java.lang.Long.valueOf(mSharedPreferences.getLong(key, 0)) as T
             }
-            else -> LLog.d(TAG, "get -> do nothing: " + anonymousClass.simpleName)
+            else -> {
+                val json = mSharedPreferences.getString(key, "")
+                return Gson().fromJson(json, anonymousClass)
+            }
         }
-        return null
     }
 
     fun putString(key: String, data: String) {
@@ -80,6 +85,10 @@ class SharedPrefs private constructor() {
     }
 
     fun putLong(key: String, data: Long) {
+        put(key, data)
+    }
+
+    fun <T> putObject(key: String, data: T) {
         put(key, data)
     }
 
@@ -106,7 +115,11 @@ class SharedPrefs private constructor() {
                 editor.putLong(key, data)
                 //LLog.d(TAG, "putLong $key -> $data")
             }
-            else -> LLog.d(TAG, "put -> do nothing")
+            else -> {
+                val json = Gson().toJson(data)
+                editor.putString(key, json)
+                //LLog.d(TAG, "putString $key -> $data")
+            }
         }
         editor.apply()
     }

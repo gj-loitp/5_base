@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.pattern.mvp.User
 
 class SharedPrefsActivity : BaseFontActivity() {
 
@@ -12,6 +13,7 @@ class SharedPrefsActivity : BaseFontActivity() {
     private val KEY_FLOAT = "KEY_FLOAT"
     private val KEY_INT = "KEY_INT"
     private val KEY_LONG = "KEY_LONG"
+    private val KEY_OBJECT = "KEY_OBJECT"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +55,17 @@ class SharedPrefsActivity : BaseFontActivity() {
         }
         btGetLong.setOnClickListener {
             val value = SharedPrefs.instance.getLong(KEY_LONG)
+            showLong("Value: $value")
+        }
+
+        btPutObject.setOnClickListener {
+            val user = User()
+            user.email = "Email ${System.currentTimeMillis()}"
+            user.fullName = "Name ${System.currentTimeMillis()}"
+            SharedPrefs.instance.putObject(KEY_OBJECT, user)
+        }
+        btGetObject.setOnClickListener {
+            val value = SharedPrefs.instance.getObject(KEY_OBJECT, User::class.java)
             showLong("Value: $value")
         }
     }
