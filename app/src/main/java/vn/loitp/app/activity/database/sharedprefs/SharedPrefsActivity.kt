@@ -9,6 +9,7 @@ import vn.loitp.app.activity.pattern.mvp.User
 class SharedPrefsActivity : BaseFontActivity() {
 
     private val KEY_STRING = "KEY_STRING"
+    private val KEY_STRING_WITH_DEFAULT_VALUE = "KEY_STRING_WITH_DEFAULT_VALUE"
     private val KEY_BOOLEAN = "KEY_BOOLEAN"
     private val KEY_FLOAT = "KEY_FLOAT"
     private val KEY_INT = "KEY_INT"
@@ -23,6 +24,14 @@ class SharedPrefsActivity : BaseFontActivity() {
         }
         btGetString.setOnClickListener {
             val value = SharedPrefs.instance.getString(KEY_STRING)
+            showLong(value)
+        }
+
+        btPutStringWithDefaultValue.setOnClickListener {
+            SharedPrefs.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
+        }
+        btGetStringWithDefaultValue.setOnClickListener {
+            val value = SharedPrefs.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
             showLong(value)
         }
 

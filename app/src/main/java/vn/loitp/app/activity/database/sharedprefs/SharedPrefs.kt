@@ -68,6 +68,56 @@ class SharedPrefs private constructor() {
         }
     }
 
+    fun getString(key: String, defaultValue: String): String {
+        return get(key, String::class.java, defaultValue)
+    }
+
+    fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+        return get(key, Boolean::class.java, defaultValue)
+    }
+
+    fun getFloat(key: String, defaultValue: Float): Float {
+        return get(key, Float::class.java, defaultValue)
+    }
+
+    fun getInt(key: String, defaultValue: Int): Int {
+        return get(key, Int::class.java, defaultValue)
+    }
+
+    fun getLong(key: String, defaultValue: Long): Long {
+        return get(key, Long::class.java, defaultValue)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private operator fun <T> get(key: String, anonymousClass: Class<T>, defaultValue: T): T {
+        when (anonymousClass) {
+            String::class.java -> {
+                //LLog.d(TAG, "getString $key")
+                return mSharedPreferences.getString(key, defaultValue as String) as T
+            }
+            Boolean::class.java -> {
+                //LLog.d(TAG, "getBoolean $key")
+                return java.lang.Boolean.valueOf(mSharedPreferences.getBoolean(key, defaultValue as Boolean)) as T
+            }
+            Float::class.java -> {
+                //LLog.d(TAG, "getFloat $key")
+                return java.lang.Float.valueOf(mSharedPreferences.getFloat(key, defaultValue as Float)) as T
+            }
+            Int::class.java -> {
+                //LLog.d(TAG, "getInteger $key")
+                return Integer.valueOf(mSharedPreferences.getInt(key, defaultValue as Int)) as T
+            }
+            Long::class.java -> {
+                //LLog.d(TAG, "getLong $key")
+                return java.lang.Long.valueOf(mSharedPreferences.getLong(key, defaultValue as Long)) as T
+            }
+            else -> {
+                val json = mSharedPreferences.getString(key, "")
+                return Gson().fromJson(json, anonymousClass)
+            }
+        }
+    }
+
     fun putString(key: String, data: String) {
         put(key, data)
     }
