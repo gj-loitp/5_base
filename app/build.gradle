@@ -11,8 +11,8 @@ android {
         applicationId "loitp.basemaster"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 9
-        versionName "1.0.9"
+        versionCode 10
+        versionName "1.1.0"
         multiDexEnabled true
 
         renderscriptTargetApi 19
