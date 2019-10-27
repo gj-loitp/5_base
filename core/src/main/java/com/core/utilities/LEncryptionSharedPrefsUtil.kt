@@ -157,7 +157,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
             String::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
                 if (value?.isEmpty() == true) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getString $value\n$orginalValue")
@@ -166,48 +166,48 @@ class LEncryptionSharedPrefsUtil private constructor() {
             Boolean::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
                 if (value?.isEmpty() == true) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getBoolean $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 return orginalValue.toBoolean() as T
             }
             Float::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
                 if (value?.isEmpty() == true) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 return orginalValue.toFloat() as T
             }
             Int::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
                 if (value?.isEmpty() == true) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 return orginalValue.toInt() as T
             }
             Long::class.java -> {
                 val value = mSharedPreferences.getString(key, "")
                 if (value?.isEmpty() == true) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
                 LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
-                    return defaultValue as T
+                    return defaultValue
                 }
                 return orginalValue.toLong() as T
             }
@@ -253,7 +253,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
     }
 
     companion object {
-        private val TAG = "TAGLEncryptionSharedPrefsUtil"
+        private const val TAG = "TAGLEncryptionSharedPrefsUtil"
         private val PREFS_NAME = AppUtils.getAppPackageName() + TAG
         private var mInstance: LEncryptionSharedPrefsUtil? = null
         private val pw = DeviceUtils.getAndroidID()
