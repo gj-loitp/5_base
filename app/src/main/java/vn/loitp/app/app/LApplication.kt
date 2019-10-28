@@ -38,7 +38,7 @@ class LApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        Constants.setIsDebug(false)
+        Constants.setIsDebug(true)
         Utils.init(this)
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)

@@ -103,4 +103,23 @@ public class LEncryptionUtil {
     private static byte[] fromBase64(String base64) {
         return Base64.decode(base64, Base64.NO_WRAP);
     }
+
+    /**
+     * @param message the message to be encoded
+     * @return the enooded from of the message
+     */
+    public static String encodeBase64(String message) {
+        byte[] data;
+        data = message.getBytes(StandardCharsets.UTF_8);
+        return Base64.encodeToString(data, Base64.DEFAULT);
+    }
+
+    /**
+     * @param message the encoded message
+     * @return the decoded message
+     */
+    public static String decodeBase64(String message) {
+        byte[] data = Base64.decode(message, Base64.DEFAULT);
+        return new String(data, StandardCharsets.UTF_8);
+    }
 }
