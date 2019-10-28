@@ -61,7 +61,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return value as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getString $value\n$orginalValue")
+                //LLog.d(TAG, "getString $value\n$orginalValue")
                 return orginalValue as T
             }
             Boolean::class.java -> {
@@ -71,7 +71,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getBoolean $value\n$orginalValue")
+                //LLog.d(TAG, "getBoolean $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue as T
                 }
@@ -84,7 +84,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue as T
                 }
@@ -97,7 +97,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue as T
                 }
@@ -110,7 +110,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue as T
                 }
@@ -122,7 +122,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return null as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return null as T
                 }
@@ -160,7 +160,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getString $value\n$orginalValue")
+                //LLog.d(TAG, "getString $value\n$orginalValue")
                 return orginalValue as T
             }
             Boolean::class.java -> {
@@ -169,7 +169,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getBoolean $value\n$orginalValue")
+                //LLog.d(TAG, "getBoolean $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue
                 }
@@ -181,7 +181,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue
                 }
@@ -193,7 +193,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue
                 }
@@ -205,7 +205,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return defaultValue
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return defaultValue
                 }
@@ -217,7 +217,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
                     return null as T
                 }
                 val orginalValue = LEncryptionUtil.decrypt(value, pw)
-                LLog.d(TAG, "getFloat $value\n$orginalValue")
+                //LLog.d(TAG, "getFloat $value\n$orginalValue")
                 if (orginalValue.isNullOrEmpty()) {
                     return null as T
                 }
