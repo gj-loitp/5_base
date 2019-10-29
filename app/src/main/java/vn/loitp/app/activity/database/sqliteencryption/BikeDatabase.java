@@ -28,6 +28,8 @@ public class BikeDatabase extends SQLiteOpenHelper {
     private static final String KEY_IMG_PATH_0 = "imgPath0";
     private static final String KEY_IMG_PATH_1 = "imgPath1";
     private static final String KEY_IMG_PATH_2 = "imgPath2";
+    public static final long RESULT_SUCCESS = 1;
+    public static final long RESULT_FAILED = -1;
 
     public BikeDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,10 +61,11 @@ public class BikeDatabase extends SQLiteOpenHelper {
     }
 
     // Adding new bike
-    public void addBike(Bike bike) {
+    //return id
+    public long addBike(Bike bike) {
         LLog.d(TAG, "addBike " + LApplication.Companion.getGson().toJson(bike));
         if (bike == null) {
-            return;
+            return RESULT_FAILED;
         }
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -73,12 +76,13 @@ public class BikeDatabase extends SQLiteOpenHelper {
         values.put(KEY_IMG_PATH_0, bike.getImgPath0());
         values.put(KEY_IMG_PATH_1, bike.getImgPath1());
         values.put(KEY_IMG_PATH_2, bike.getImgPath2());
-        db.insert(TABLE_BIKE, null, values);
-        LLog.d(TAG, "->addBike success");
+        long result = db.insert(TABLE_BIKE, null, values);
+        LLog.d(TAG, "->addBike success result: " + result);
         db.close();
+        return result;
     }
 
-    public Bike getBike(int id) {
+    public Bike getBike(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_BIKE,
                 new String[]{KEY_ID, KEY_NAME, KEY_BRANCH, KEY_HP, KEY_PRICE, KEY_IMG_PATH_0, KEY_IMG_PATH_1, KEY_IMG_PATH_2},
@@ -133,9 +137,12 @@ public class BikeDatabase extends SQLiteOpenHelper {
     }
 
     // Updating single bike
-    public int updateBike(Bike bike) {
+    //return 1 if success
+    //return -1 if input is null
+    public long updateBike(Bike bike) {
+        LLog.d(TAG, "updateBike " + LApplication.Companion.getGson().toJson(bike));
         if (bike == null) {
-            return -1;
+            return RESULT_FAILED;
         }
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -150,9 +157,9 @@ public class BikeDatabase extends SQLiteOpenHelper {
     }
 
     // Deleting single bike
-    public int deleteBike(Bike bike) {
+    public long deleteBike(Bike bike) {
         if (bike == null) {
-            return -1;
+            return RESULT_FAILED;
         }
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete(TABLE_BIKE, KEY_ID + " = ?", new String[]{String.valueOf(bike.getId())});

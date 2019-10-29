@@ -51,11 +51,11 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun getAllBike() {
         val bikeList = db.allBike
         for (bike in bikeList) {
-            addButton(bike)
+            addButtonByBike(bike)
         }
     }
 
-    private fun addButton(bike: Bike) {
+    private fun addButtonByBike(bike: Bike) {
         val button = Button(activity)
         val text = LApplication.gson.toJson(bike)
         button.text = text
@@ -70,9 +70,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         ll.addView(button)
     }
 
-    private fun addButton() {
+    private fun addButtonById(idBike: Long) {
         val button = Button(activity)
-        val bike = db.getBike(db.bikeCount)
+        val bike = db.getBike(idBike)
+        LLog.d(TAG, "addButton bike " + LApplication.gson.toJson(bike))
         if (bike != null) {
             val text = LApplication.gson.toJson(bike)
             button.text = text
@@ -99,8 +100,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.imgPath0 = "path0 " + System.currentTimeMillis()
         bike.imgPath1 = "path1 " + System.currentTimeMillis()
         bike.imgPath2 = "path2 " + System.currentTimeMillis()
-        db.addBike(bike)
-        addButton()
+        val idBike = db.addBike(bike)
+        if (idBike != BikeDatabase.RESULT_FAILED) {
+            addButtonById(idBike)
+        }
     }
 
     private fun clearAllBike() {
@@ -110,7 +113,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         getAllBike()
     }
 
-    private fun getBikeWithId(id: Int) {
+    private fun getBikeWithId(id: Long) {
         val bike = db.getBike(id)
         if (bike == null) {
             showShort("Bike with ID=$id not found")
@@ -120,10 +123,13 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun updateBike(bike: Bike, button: Button) {
-        bike.name = "Updated " + bike.name
+        bike.branch = "Ducati"
+        bike.name = "Monster " + System.currentTimeMillis()
         val result = db.updateBike(bike)
-        LLog.d(TAG, "updateContact result $result")
-        button.text = bike.id.toString() + " " + bike.name
+        if (result == BikeDatabase.RESULT_SUCCESS) {
+            val text = LApplication.gson.toJson(bike)
+            button.text = text
+        }
     }
 
     private fun deleteBike(bike: Bike, button: Button) {
