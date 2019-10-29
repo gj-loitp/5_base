@@ -41,6 +41,11 @@
                 android:id="@+id/bt_sqlite"
                 style="@style/ButtonMenu"
                 android:text="SQLite" />
+
+            <Button
+                android:id="@+id/btSqliteEncryption"
+                style="@style/ButtonMenu"
+                android:text="SQLite Encryption" />
         </LinearLayout>
     </ScrollView>
 

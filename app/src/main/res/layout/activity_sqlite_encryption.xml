@@ -11,17 +11,17 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/bt_clear_all"
+            android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="Clear all" />
 
         <Button
-            android:id="@+id/bt_add"
+            android:id="@+id/btAdd"
             style="@style/ButtonMenu"
             android:text="Add Dummy Contact" />
 
         <Button
-            android:id="@+id/bt_getcontact_with_id"
+            android:id="@+id/btGetContactWithId"
             style="@style/ButtonMenu"
             android:text="Get Contact With ID=2" />
     </LinearLayout>
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/demo_sqlite_nclick_to_edit_long_click_to_delete"
+                android:text="@string/demo_sqlite_encryption_nclick_to_edit_long_click_to_delete"
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_20" />
 

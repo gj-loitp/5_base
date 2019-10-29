@@ -1058,5 +1058,8 @@
         <activity
             android:name="vn.loitp.app.activity.database.sharedprefsencryption.EnctyptionSharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name="vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
