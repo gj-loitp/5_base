@@ -112,6 +112,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun addBike() {
+        showProgress()
         val size = db.bikeCount
         LLog.d(TAG, "size: $size")
         val bike = Bike()
@@ -122,10 +123,32 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.imgPath0 = "path0 " + System.currentTimeMillis()
         bike.imgPath1 = "path1 " + System.currentTimeMillis()
         bike.imgPath2 = "path2 " + System.currentTimeMillis()
-        val idBike = db.addBike(bike)
+        /*val idBike = db.addBike(bike)
         if (idBike != BikeDatabase.RESULT_FAILED) {
             addButtonById(idBike)
-        }
+        }*/
+        compositeDisposable.add(
+                Single.create<Long> {
+                    val id = db.addBike(bike)
+                    if (id == BikeDatabase.RESULT_FAILED) {
+                        it.onError(Throwable("id == BikeDatabase.RESULT_FAILED"))
+                    } else {
+                        it.onSuccess(id)
+                    }
+                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                { idBike ->
+                                    if (idBike != BikeDatabase.RESULT_FAILED) {
+                                        addButtonById(idBike)
+                                    }
+                                    hideProgress()
+                                },
+                                { t ->
+                                    LLog.e(TAG, "addBike failed: $t")
+                                    hideProgress()
+                                }
+                        ))
+
     }
 
     private fun clearAllBike() {
