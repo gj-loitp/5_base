@@ -123,10 +123,6 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.imgPath0 = "path0 " + System.currentTimeMillis()
         bike.imgPath1 = "path1 " + System.currentTimeMillis()
         bike.imgPath2 = "path2 " + System.currentTimeMillis()
-        /*val idBike = db.addBike(bike)
-        if (idBike != BikeDatabase.RESULT_FAILED) {
-            addButtonById(idBike)
-        }*/
         compositeDisposable.add(
                 Single.create<Long> {
                     val id = db.addBike(bike)
@@ -159,12 +155,27 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun getBikeWithId(id: Long) {
-        val bike = db.getBike(id)
-        if (bike == null) {
-            showShort("Bike with ID=$id not found")
-        } else {
-            showShort("Found: " + LApplication.gson.toJson(bike))
-        }
+        showProgress()
+        compositeDisposable.add(
+                Single.create<Bike> {
+                    val bike = db.getBike(id)
+                    if (bike == null) {
+                        it.onError(Throwable("Bike with ID=$id not found"))
+                    } else {
+                        it.onSuccess(bike)
+                    }
+                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                { bike ->
+                                    showShort("Found: " + LApplication.gson.toJson(bike))
+                                    hideProgress()
+                                },
+                                { t ->
+                                    LLog.e(TAG, "addBike failed: $t")
+                                    showShort("addBike failed: $t")
+                                    hideProgress()
+                                }
+                        ))
     }
 
     private fun updateBike(bike: Bike, button: Button) {
