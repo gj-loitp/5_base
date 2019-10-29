@@ -7,20 +7,19 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.database.sqlite.Contact
-import vn.loitp.app.activity.database.sqlite.DatabaseHandler
+import vn.loitp.app.app.LApplication
 
 class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
-    private lateinit var db: DatabaseHandler
+    private lateinit var db: BikeDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        db = DatabaseHandler(this)
-        btAdd.setOnClickListener(this)
+        db = BikeDatabase(this)
+        btAddBike.setOnClickListener(this)
         btClearAll.setOnClickListener(this)
-        btGetContactWithId.setOnClickListener(this)
+        btGetBikeWithId.setOnClickListener(this)
 
-        //getAllContact();
+        getAllBike();
     }
 
     override fun setFullScreen(): Boolean {
@@ -37,34 +36,33 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btAdd -> {
-                //addContact();
+            R.id.btAddBike -> {
+                addBike()
             }
             R.id.btClearAll -> {
-                //clearAllContact();
+                clearAllBike()
             }
-            R.id.btGetContactWithId -> {
-                //getContactWithId(2);
+            R.id.btGetBikeWithId -> {
+                getBikeWithId(2)
             }
         }
     }
 
-    private fun getAllContact() {
-        val contactList = db.allContacts
-        for (contact in contactList) {
-            addButton(contact)
+    private fun getAllBike() {
+        val bikeList = db.allBike
+        for (bike in bikeList) {
+            addButton(bike)
         }
     }
 
-    private fun addButton(contact: Contact) {
+    private fun addButton(bike: Bike) {
         val button = Button(activity)
-        button.text = contact.id.toString() + " " + contact.name
+        button.text = bike.id.toString() + " " + bike.branch + " - " + bike.name
         button.setOnClickListener { v ->
-            //LLog.d(TAG, "onClick " + button.getText().toString());
-            updateContact(contact, button)
+            updateBike(bike, button)
         }
         button.setOnLongClickListener { v ->
-            deleteContact(contact, button)
+            deleteBike(bike, button)
             true
         }
         ll.addView(button)
@@ -72,56 +70,55 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun addButton() {
         val button = Button(activity)
-        val contact = db.getContact(db.contactsCount)
-        if (contact != null) {
-            button.text = contact.id.toString() + " - " + contact.name
+        val bike = db.getBike(db.bikeCount)
+        if (bike != null) {
+            button.text = bike.id.toString() + " " + bike.branch + " - " + bike.name
             button.setOnClickListener { v ->
-                //LLog.d(TAG, "onClick " + button.getText().toString());
-                updateContact(contact, button)
+                updateBike(bike, button)
             }
             button.setOnLongClickListener { v ->
-                deleteContact(contact, button)
+                deleteBike(bike, button)
                 true
             }
             ll.addView(button)
         }
     }
 
-    private fun addContact() {
-        val size = db.contactsCount
+    private fun addBike() {
+        val size = db.bikeCount
         LLog.d(TAG, "size: $size")
-        val contact = Contact()
-        contact.name = "name " + (size + 1)
-        contact.phoneNumber = "phone: " + (size + 1)
-        db.addContact(contact)
+        val bike = Bike()
+        bike.name = "GSX " + (size + 1)
+        bike.branch = "Suzuki " + (size + 1)
+        db.addBike(bike)
         addButton()
     }
 
-    private fun clearAllContact() {
+    private fun clearAllBike() {
         LLog.d(TAG, "clearAllContact")
         ll.removeAllViews()
-        db.clearAllContact()
-        getAllContact()
+        db.clearAllBike()
+        getAllBike()
     }
 
-    private fun getContactWithId(id: Int) {
-        val contact = db.getContact(id)
-        if (contact == null) {
-            showShort("Contact with ID=$id not found")
+    private fun getBikeWithId(id: Int) {
+        val bike = db.getBike(id)
+        if (bike == null) {
+            showShort("Bike with ID=$id not found")
         } else {
-            showShort("Found: " + contact.id + " " + contact.name + " " + contact.phoneNumber)
+            showShort("Found: " + LApplication.gson.toJson(bike))
         }
     }
 
-    private fun updateContact(contact: Contact, button: Button) {
-        contact.name = "Updated " + contact.name
-        val result = db.updateContact(contact)
+    private fun updateBike(bike: Bike, button: Button) {
+        bike.name = "Updated " + bike.name
+        val result = db.updateBike(bike)
         LLog.d(TAG, "updateContact result $result")
-        button.text = contact.id.toString() + " " + contact.name
+        button.text = bike.id.toString() + " " + bike.name
     }
 
-    private fun deleteContact(contact: Contact?, button: Button) {
-        val result = db.deleteContact(contact)
+    private fun deleteBike(bike: Bike, button: Button) {
+        val result = db.deleteBike(bike)
         LLog.d(TAG, "deleteContact result $result")
         ll.removeView(button)
     }

@@ -13,17 +13,17 @@
         <Button
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
-            android:text="Clear all" />
+            android:text="Clear all bike" />
 
         <Button
-            android:id="@+id/btAdd"
+            android:id="@+id/btAddBike"
             style="@style/ButtonMenu"
-            android:text="Add Dummy Contact" />
+            android:text="Add Dummy Bike" />
 
         <Button
-            android:id="@+id/btGetContactWithId"
+            android:id="@+id/btGetBikeWithId"
             style="@style/ButtonMenu"
-            android:text="Get Contact With ID=2" />
+            android:text="Get bike With ID=2" />
     </LinearLayout>
 
     <ScrollView
