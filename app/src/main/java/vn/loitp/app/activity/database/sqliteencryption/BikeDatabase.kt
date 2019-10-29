@@ -22,14 +22,24 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             if (cursor.moveToFirst()) {
                 do {
                     val bike = Bike()
-                    bike.id = cursor.getString(0).toLong()
-                    bike.name = cursor.getString(1)
-                    bike.branch = cursor.getString(2)
-                    bike.hp = cursor.getString(3).toInt()
-                    bike.price = cursor.getString(4).toInt()
-                    bike.imgPath0 = cursor.getString(5)
-                    bike.imgPath1 = cursor.getString(6)
-                    bike.imgPath2 = cursor.getString(7)
+
+                    val id = cursor.getString(0).toLong()
+                    val decryptName = LEncryptionUtil.decrypt(cursor.getString(1), pw)
+                    val decryptBranch = LEncryptionUtil.decrypt(cursor.getString(2), pw)
+                    val decryptHp = LEncryptionUtil.decrypt(cursor.getString(3), pw)
+                    val decryptPrice = LEncryptionUtil.decrypt(cursor.getString(4), pw)
+                    val decryptImgPath0 = LEncryptionUtil.decrypt(cursor.getString(5), pw)
+                    val decryptImgPath1 = LEncryptionUtil.decrypt(cursor.getString(6), pw)
+                    val decryptImgPath2 = LEncryptionUtil.decrypt(cursor.getString(7), pw)
+
+                    bike.id = id
+                    bike.name = decryptName
+                    bike.branch = decryptBranch
+                    bike.hp = decryptHp.toInt()
+                    bike.price = decryptPrice.toInt()
+                    bike.imgPath0 = decryptImgPath0
+                    bike.imgPath1 = decryptImgPath1
+                    bike.imgPath2 = decryptImgPath2
                     bikeList.add(bike)
                 } while (cursor.moveToNext())
             }
