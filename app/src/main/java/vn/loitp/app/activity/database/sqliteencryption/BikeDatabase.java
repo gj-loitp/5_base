@@ -167,6 +167,14 @@ public class BikeDatabase extends SQLiteOpenHelper {
         return result;
     }
 
+    // Deleting single bike
+    public long deleteBike(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete(TABLE_BIKE, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return result;
+    }
+
     // Getting bike Count
     public int getBikeCount() {
         String countQuery = "SELECT  * FROM " + TABLE_BIKE;
