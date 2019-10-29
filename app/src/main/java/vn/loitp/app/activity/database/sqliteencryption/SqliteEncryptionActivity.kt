@@ -57,7 +57,9 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun addButton(bike: Bike) {
         val button = Button(activity)
-        button.text = bike.id.toString() + " " + bike.branch + " - " + bike.name
+        val text = LApplication.gson.toJson(bike)
+        button.text = text
+        button.isAllCaps = false
         button.setOnClickListener { v ->
             updateBike(bike, button)
         }
@@ -72,7 +74,9 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         val button = Button(activity)
         val bike = db.getBike(db.bikeCount)
         if (bike != null) {
-            button.text = bike.id.toString() + " " + bike.branch + " - " + bike.name
+            val text = LApplication.gson.toJson(bike)
+            button.text = text
+            button.isAllCaps = false
             button.setOnClickListener { v ->
                 updateBike(bike, button)
             }
@@ -90,6 +94,11 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         val bike = Bike()
         bike.name = "GSX " + (size + 1)
         bike.branch = "Suzuki " + (size + 1)
+        bike.hp = size
+        bike.price = size * 2
+        bike.imgPath0 = "path0 " + System.currentTimeMillis()
+        bike.imgPath1 = "path1 " + System.currentTimeMillis()
+        bike.imgPath2 = "path2 " + System.currentTimeMillis()
         db.addBike(bike)
         addButton()
     }
