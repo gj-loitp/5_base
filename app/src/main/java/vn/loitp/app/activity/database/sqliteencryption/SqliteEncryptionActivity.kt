@@ -7,6 +7,9 @@ import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import loitp.basemaster.R
 import vn.loitp.app.app.LApplication
@@ -24,12 +27,20 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         getAllBike();
     }
 
+    private fun showProgress() {
+        pb.visibility = View.VISIBLE
+    }
+
+    private fun hideProgress() {
+        pb.visibility = View.GONE
+    }
+
     override fun setFullScreen(): Boolean {
         return false
     }
 
     override fun setTag(): String? {
-        return javaClass.simpleName
+        return "TAG" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
@@ -51,10 +62,30 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun getAllBike() {
-        val bikeList = db.allBike
-        for (bike in bikeList) {
-            addButtonByBike(bike)
-        }
+        LLog.d(TAG, "getAllBike")
+        showProgress()
+        compositeDisposable.add(
+                Single.create<List<Bike>> {
+                    val bikeList = db.allBike
+                    if (bikeList.isNullOrEmpty()) {
+                        it.onError(Throwable("bikeList isNullOrEmpty"))
+                    } else {
+                        it.onSuccess(bikeList)
+                    }
+                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                {
+                                    LLog.d(TAG, "getAllBike success " + it.size)
+                                    for (bike in it) {
+                                        addButtonByBike(bike)
+                                    }
+                                    hideProgress()
+                                },
+                                {
+                                    LLog.e(TAG, "getAllBike failed: $it")
+                                    hideProgress()
+                                }
+                        ))
     }
 
     private fun addButtonByBike(bike: Bike) {
