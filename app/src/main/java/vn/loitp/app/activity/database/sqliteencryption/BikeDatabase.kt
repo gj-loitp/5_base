@@ -4,12 +4,13 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.core.utilities.LLog
-import vn.loitp.app.app.LApplication
+import com.core.utilities.LEncryptionUtil
+import com.utils.util.DeviceUtils
 import java.util.*
 
 class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val TAG = javaClass.simpleName
+    private val pw = LEncryptionUtil.encodeBase64(TAG + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress())
 
     // Getting All Bike
     val allBike: List<Bike>
@@ -56,8 +57,8 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT NOT NULL, "
                 + KEY_BRANCH + " TEXT NOT NULL, "
-                + KEY_HP + " INTEGER, "
-                + KEY_PRICE + " INTEGER, "
+                + KEY_HP + " TEXT NOT NULL, "
+                + KEY_PRICE + " TEXT NOT NULL, "
                 + KEY_IMG_PATH_0 + " TEXT NOT NULL, "
                 + KEY_IMG_PATH_1 + " TEXT NOT NULL, "
                 + KEY_IMG_PATH_2 + " TEXT NOT NULL "
@@ -76,43 +77,61 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     // Adding new bike
     //return id
     fun addBike(bike: Bike?): Long {
-        LLog.d(TAG, "addBike " + LApplication.gson.toJson(bike))
+        //LLog.d(TAG, "addBike " + LApplication.gson.toJson(bike))
         if (bike == null) {
             return RESULT_FAILED
         }
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(KEY_NAME, bike.name)
-        values.put(KEY_BRANCH, bike.branch)
-        values.put(KEY_HP, bike.hp)
-        values.put(KEY_PRICE, bike.price)
-        values.put(KEY_IMG_PATH_0, bike.imgPath0)
-        values.put(KEY_IMG_PATH_1, bike.imgPath1)
-        values.put(KEY_IMG_PATH_2, bike.imgPath2)
+
+        val encryptName = LEncryptionUtil.encrypt(bike.name, pw)
+        val encryptBranch = LEncryptionUtil.encrypt(bike.branch, pw)
+        val encryptHp = LEncryptionUtil.encrypt(bike.hp.toString(), pw)
+        val encryptPrice = LEncryptionUtil.encrypt(bike.price.toString(), pw)
+        val encryptImgPath0 = LEncryptionUtil.encrypt(bike.imgPath0, pw)
+        val encryptImgPath1 = LEncryptionUtil.encrypt(bike.imgPath1, pw)
+        val encryptImgPath2 = LEncryptionUtil.encrypt(bike.imgPath2, pw)
+
+        values.put(KEY_NAME, encryptName)
+        values.put(KEY_BRANCH, encryptBranch)
+        values.put(KEY_HP, encryptHp)
+        values.put(KEY_PRICE, encryptPrice)
+        values.put(KEY_IMG_PATH_0, encryptImgPath0)
+        values.put(KEY_IMG_PATH_1, encryptImgPath1)
+        values.put(KEY_IMG_PATH_2, encryptImgPath2)
         val result = db.insert(TABLE_BIKE, null, values)
-        LLog.d(TAG, "->addBike success result: $result")
+        //LLog.d(TAG, "->addBike success result: $result")
         db.close()
         return result
     }
 
-    fun getBike(id: Long): Bike? {
+    fun getBike(idBike: Long): Bike? {
         val db = this.readableDatabase
         val cursor = db.query(TABLE_BIKE,
                 arrayOf(KEY_ID, KEY_NAME, KEY_BRANCH, KEY_HP, KEY_PRICE, KEY_IMG_PATH_0, KEY_IMG_PATH_1, KEY_IMG_PATH_2),
                 "$KEY_ID=?",
-                arrayOf(id.toString()), null, null, null, null)
+                arrayOf(idBike.toString()), null, null, null, null)
         if (cursor != null) {
             cursor.moveToFirst()
             if (cursor.count >= 1) {
                 val bike = Bike()
-                bike.id = cursor.getString(0).toLong()
-                bike.name = cursor.getString(1)
-                bike.branch = cursor.getString(2)
-                bike.hp = cursor.getString(3).toInt()
-                bike.price = cursor.getString(4).toInt()
-                bike.imgPath0 = cursor.getString(5)
-                bike.imgPath1 = cursor.getString(6)
-                bike.imgPath2 = cursor.getString(7)
+                val id = cursor.getString(0).toLong()
+                val decryptName = LEncryptionUtil.decrypt(cursor.getString(1), pw)
+                val decryptBranch = LEncryptionUtil.decrypt(cursor.getString(2), pw)
+                val decryptHp = LEncryptionUtil.decrypt(cursor.getString(3), pw)
+                val decryptPrice = LEncryptionUtil.decrypt(cursor.getString(4), pw)
+                val decryptImgPath0 = LEncryptionUtil.decrypt(cursor.getString(5), pw)
+                val decryptImgPath1 = LEncryptionUtil.decrypt(cursor.getString(6), pw)
+                val decryptImgPath2 = LEncryptionUtil.decrypt(cursor.getString(7), pw)
+
+                bike.id = id
+                bike.name = decryptName
+                bike.branch = decryptBranch
+                bike.hp = decryptHp.toInt()
+                bike.price = decryptPrice.toInt()
+                bike.imgPath0 = decryptImgPath0
+                bike.imgPath1 = decryptImgPath1
+                bike.imgPath2 = decryptImgPath2
                 cursor.close()
                 return bike
             }
@@ -125,19 +144,29 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     //return 1 if success
     //return -1 if input is null
     fun updateBike(bike: Bike?): Long {
-        LLog.d(TAG, "updateBike " + LApplication.gson.toJson(bike))
+        //LLog.d(TAG, "updateBike " + LApplication.gson.toJson(bike))
         if (bike == null) {
             return RESULT_FAILED
         }
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(KEY_NAME, bike.name)
-        values.put(KEY_BRANCH, bike.branch)
-        values.put(KEY_HP, bike.hp)
-        values.put(KEY_PRICE, bike.price)
-        values.put(KEY_IMG_PATH_0, bike.imgPath0)
-        values.put(KEY_IMG_PATH_1, bike.imgPath1)
-        values.put(KEY_IMG_PATH_2, bike.imgPath2)
+
+        val encryptName = LEncryptionUtil.encrypt(bike.name, pw)
+        val encryptBranch = LEncryptionUtil.encrypt(bike.branch, pw)
+        val encryptHp = LEncryptionUtil.encrypt(bike.hp.toString(), pw)
+        val encryptPrice = LEncryptionUtil.encrypt(bike.price.toString(), pw)
+        val encryptImgPath0 = LEncryptionUtil.encrypt(bike.imgPath0, pw)
+        val encryptImgPath1 = LEncryptionUtil.encrypt(bike.imgPath1, pw)
+        val encryptImgPath2 = LEncryptionUtil.encrypt(bike.imgPath2, pw)
+
+        values.put(KEY_NAME, encryptName)
+        values.put(KEY_BRANCH, encryptBranch)
+        values.put(KEY_HP, encryptHp)
+        values.put(KEY_PRICE, encryptPrice)
+        values.put(KEY_IMG_PATH_0, encryptImgPath0)
+        values.put(KEY_IMG_PATH_1, encryptImgPath1)
+        values.put(KEY_IMG_PATH_2, encryptImgPath2)
+
         return db.update(TABLE_BIKE, values, "$KEY_ID = ?", arrayOf(bike.id.toString())).toLong()
     }
 
@@ -167,20 +196,20 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     companion object {
-        private val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 1
         private val DATABASE_NAME = BikeDatabase::class.java.simpleName
         private val TABLE_BIKE = Bike::class.java.simpleName
 
         // Contacts Table Columns names
-        private val KEY_ID = "id"
-        private val KEY_NAME = "name"
-        private val KEY_BRANCH = "branch"
-        private val KEY_HP = "hp"
-        private val KEY_PRICE = "price"
-        private val KEY_IMG_PATH_0 = "imgPath0"
-        private val KEY_IMG_PATH_1 = "imgPath1"
-        private val KEY_IMG_PATH_2 = "imgPath2"
-        val RESULT_SUCCESS: Long = 1
-        val RESULT_FAILED: Long = -1
+        private const val KEY_ID = "id"
+        private const val KEY_NAME = "name"
+        private const val KEY_BRANCH = "branch"
+        private const val KEY_HP = "hp"
+        private const val KEY_PRICE = "price"
+        private const val KEY_IMG_PATH_0 = "imgPath0"
+        private const val KEY_IMG_PATH_1 = "imgPath1"
+        private const val KEY_IMG_PATH_2 = "imgPath2"
+        const val RESULT_SUCCESS: Long = 1
+        const val RESULT_FAILED: Long = -1
     }
 }
