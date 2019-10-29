@@ -183,10 +183,27 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.branch = "Ducati"
         bike.hp += 1
         bike.price += 2
-        val result = db.updateBike(bike)
-        if (result == BikeDatabase.RESULT_SUCCESS) {
-            LUIUtil.printBeautyJson(bike, button)
-        }
+        showProgress()
+        compositeDisposable.add(
+                Single.create<Long> {
+                    val id = db.updateBike(bike)
+                    if (id == BikeDatabase.RESULT_FAILED) {
+                        it.onError(Throwable("updateBike id == BikeDatabase.RESULT_FAILED"))
+                    } else {
+                        it.onSuccess(id)
+                    }
+                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                { id ->
+                                    LUIUtil.printBeautyJson(bike, button)
+                                    hideProgress()
+                                },
+                                { t ->
+                                    LLog.e(TAG, "updateBike failed: $t")
+                                    showShort("updateBike failed: $t")
+                                    hideProgress()
+                                }
+                        ))
     }
 
     private fun deleteBike(bike: Bike, button: Button) {
