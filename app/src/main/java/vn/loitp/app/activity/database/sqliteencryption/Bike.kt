@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.database.sqliteencryption
 
 class Bike {
-    var id: Int = 0
+    var id: Long = 0
     var name: String = ""
     var branch: String = ""
     var hp: Int = 0

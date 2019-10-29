@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.database.sqliteencryption
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import loitp.basemaster.R
 import vn.loitp.app.app.LApplication
@@ -56,18 +58,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun addButtonByBike(bike: Bike) {
-        val button = Button(activity)
-        val text = LApplication.gson.toJson(bike)
-        button.text = text
-        button.isAllCaps = false
-        button.setOnClickListener { v ->
-            updateBike(bike, button)
-        }
-        button.setOnLongClickListener { v ->
-            deleteBike(bike, button)
-            true
-        }
-        ll.addView(button)
+        addButtonById(bike.id)
     }
 
     private fun addButtonById(idBike: Long) {
@@ -75,9 +66,9 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         val bike = db.getBike(idBike)
         LLog.d(TAG, "addButton bike " + LApplication.gson.toJson(bike))
         if (bike != null) {
-            val text = LApplication.gson.toJson(bike)
-            button.text = text
+            LUIUtil.printBeautyJson(bike, button)
             button.isAllCaps = false
+            button.gravity = Gravity.START
             button.setOnClickListener { v ->
                 updateBike(bike, button)
             }
@@ -123,12 +114,13 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun updateBike(bike: Bike, button: Button) {
-        bike.branch = "Ducati"
         bike.name = "Monster " + System.currentTimeMillis()
+        bike.branch = "Ducati"
+        bike.hp += 1
+        bike.price += 2
         val result = db.updateBike(bike)
         if (result == BikeDatabase.RESULT_SUCCESS) {
-            val text = LApplication.gson.toJson(bike)
-            button.text = text
+            LUIUtil.printBeautyJson(bike, button)
         }
     }
 
