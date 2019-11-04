@@ -6,11 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.core.utilities.LLog;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+import vn.loitp.app.app.LApplication;
 
+public class DatabaseHandler extends SQLiteOpenHelper {
+    private final String TAG = getClass().getSimpleName();
     // Database Version
     private static final int DATABASE_VERSION = 1;
 
@@ -71,12 +75,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 return new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
             }
         }
+        if (cursor != null) {
+            cursor.close();
+        }
         return null;
     }
 
     // Getting All Contacts
     public List<Contact> getAllContacts() {
-        List<Contact> contactList = new ArrayList<Contact>();
+        List<Contact> contactList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -91,6 +98,64 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 contactList.add(contact);
             } while (cursor.moveToNext());
         }
+        cursor.close();
+        return contactList;
+    }
+
+    public List<Contact> getContactListWithPage(int page, int pageSize) {
+        if (pageSize < 0) {
+            throw new IllegalArgumentException("pagseSize <0 is invalid");
+        }
+        List<Contact> contactList = new ArrayList<>();
+        if (page < 0) {
+            return contactList;
+        }
+        int rowCount = getContactsCount();
+        //LLog.d(TAG, "getContactListWithPage rowCount: " + rowCount);
+        int pageCount;
+        if (rowCount % pageSize == 0) {
+            pageCount = rowCount / pageSize;
+        } else {
+            pageCount = rowCount / pageSize + 1;
+        }
+        //LLog.d(TAG, "getContactListWithPage pageCount: " + pageCount);
+        /*for (int i = 0; i < pageCount; i++) {
+            page = i;
+            int indexStart = pageSize * page;
+            int indexEnd = indexStart + pageSize;
+            if (indexEnd >= rowCount) {
+                indexEnd = rowCount;
+            }
+            LLog.d(TAG, "getContactListWithPage " + page + " -> " + indexStart + " - " + indexEnd);
+        }*/
+        int indexStart = pageSize * page;
+        int indexEnd = indexStart + pageSize;
+        if (indexEnd >= rowCount) {
+            indexEnd = rowCount;
+        }
+        LLog.d(TAG, "getContactListWithPage " + page + " -> " + indexStart + " - " + indexEnd);
+
+        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        List<Contact> tmpContactList = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            do {
+                Contact contact = new Contact();
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setPhoneNumber(cursor.getString(2));
+                tmpContactList.add(contact);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        for (int i = indexStart; i < indexEnd; i++) {
+            Contact contact = tmpContactList.get(i);
+            contactList.add(contact);
+        }
+        //LLog.d(TAG, ">>>getContactListWithPage " + LApplication.Companion.getGson().toJson(contactList));
         return contactList;
     }
 
