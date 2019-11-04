@@ -112,13 +112,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         int rowCount = getContactsCount();
         //LLog.d(TAG, "getContactListWithPage rowCount: " + rowCount);
-        int pageCount;
+
+        /*int pageCount;
         if (rowCount % pageSize == 0) {
             pageCount = rowCount / pageSize;
         } else {
             pageCount = rowCount / pageSize + 1;
         }
-        //LLog.d(TAG, "getContactListWithPage pageCount: " + pageCount);
+        LLog.d(TAG, "getContactListWithPage pageCount: " + pageCount);*/
+
         /*for (int i = 0; i < pageCount; i++) {
             page = i;
             int indexStart = pageSize * page;
