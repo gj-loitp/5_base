@@ -7,7 +7,6 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import com.google.ads.interactivemedia.v3.internal.id
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
@@ -28,6 +27,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btGetActionList.setOnClickListener(this)
         btCreateInspection.setOnClickListener(this)
         btGetInspection.setOnClickListener(this)
+        btUpdateInspection.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -89,6 +89,17 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             R.id.btGetInspection -> {
                 val inspection = db.getInspection(2)
                 showMsg("getInspection id = 2 -> " + LApplication.gson.toJson(inspection))
+            }
+            R.id.btUpdateInspection -> {
+                val inspection = db.getInspection(1)
+                if (inspection == null) {
+                    showMsg("updateInspection failed because inspection == null")
+                } else {
+                    inspection.inspectionId = "update inspectionId " + System.currentTimeMillis()
+                    inspection.content = "update content inspection " + System.currentTimeMillis()
+                    val id = db.updateInspection(inspection)
+                    showMsg("updateInspection success with id = 1 -> " + LApplication.gson.toJson(inspection))
+                }
             }
         }
         db.closeDB()

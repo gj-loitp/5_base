@@ -52,6 +52,11 @@
                 style="@style/ButtonMenu"
                 android:text="GetInspection with id = 2" />
 
+            <Button
+                android:id="@+id/btUpdateInspection"
+                style="@style/ButtonMenu"
+                android:text="UpdateInspection with id = 1" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"

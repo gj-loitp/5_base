@@ -150,52 +150,42 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return null
     }
 
-
-    /*fun getAllNoteByTag(tagName: String?): List<Inspection> {
+    /*fun getAllInspectionByAction(actionType: String?): List<Inspection> {
         val noteList = ArrayList<Inspection>()
 
-        val selectQuery = "SELECT  * FROM " + TABLE_INSPECTION + " td, " + TABLE_ACTION + " tg, " + TABLE_INSPECTION_ACTION + " tt " +
-                "WHERE tg." + KEY_ACTION_TYPE + " = '" + tagName + "'"
-        " AND tg." + KEY_ID + " = " + "tt." + KEY_ACTION_ID_FK +
-                " AND td." + KEY_ID + " = " + "tt." + KEY_INSPECTION_ID_FK
-
-        //LLog.d(TAG, selectQuery);
+        val selectQuery = "SELECT  * FROM " + TABLE_ACTION +
+                "WHERE " + KEY_ACTION_TYPE + " = '" + actionType + "'"
 
         val db = this.readableDatabase
         val c = db.rawQuery(selectQuery, null)
 
-        // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
                 val td = Inspection()
                 td.id = c.getInt(c.getColumnIndex(KEY_ID))
-                td.note = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
-                td.createdAt = c.getString(c.getColumnIndex(KEY_CREATED_AT))
+                td.inspectionId = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
+                td.content = c.getString(c.getColumnIndex(KEY_INSPECTION_CONTENT))
                 noteList.add(td)
             } while (c.moveToNext())
         }
 
         c.close()
         return noteList
-    }
+    }*/
 
-    */
-    /**
-     * Updating a inspection
-     *//*
-    fun updateNote(inspection: Inspection): Int {
+
+    fun updateInspection(inspection: Inspection): Int {
         val db = this.writableDatabase
 
         val values = ContentValues()
-        values.put(KEY_INSPECTION_ID, inspection.note)
-        values.put(KEY_INSPECTION_CONTENT, inspection.status)
+        values.put(KEY_INSPECTION_ID, inspection.inspectionId)
+        values.put(KEY_INSPECTION_CONTENT, inspection.content)
 
-        // updating row
         return db.update(TABLE_INSPECTION, values, "$KEY_ID = ?",
                 arrayOf(inspection.id.toString()))
     }
 
-    fun deleteNote(noteId: Long) {
+    /*fun deleteNote(noteId: Long) {
         val db = this.writableDatabase
         db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
                 arrayOf(noteId.toString()))
