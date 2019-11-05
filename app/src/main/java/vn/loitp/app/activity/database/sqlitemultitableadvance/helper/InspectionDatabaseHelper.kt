@@ -47,8 +47,9 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         db.execSQL(queryCreateTableInspection)
         // Action table create statement
         val queryCreateTableAction = ("CREATE TABLE " + TABLE_ACTION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_ACTION_TYPE + " INTEGER"
+                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_ACTION_TYPE + " INTEGER, "
+                + KEY_ACTION_INSPECTION + " TEXT "
                 + ")")
         db.execSQL(queryCreateTableAction)
     }
@@ -192,18 +193,15 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 arrayOf(id.toString()))
     }
 
-    /*fun createTag(tag: Action): Long {
+    fun createAction(action: Action): Long {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(KEY_ACTION_TYPE, tag.tagName)
-        values.put(KEY_CREATED_AT, getDateTime())
+        values.put(KEY_ACTION_TYPE, action.actionType)
+        values.put(KEY_ACTION_INSPECTION, LApplication.gson.toJson(action.inspection))
         return db.insert(TABLE_ACTION, null, values)
     }
 
-    */
-    /**
-     * Updating a tag
-     *//*
+    /*
     fun updateTag(tag: Action): Int {
         val db = this.writableDatabase
         val values = ContentValues()

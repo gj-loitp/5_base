@@ -10,6 +10,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
+import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 import vn.loitp.app.app.LApplication
 
@@ -29,6 +30,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btGetInspection.setOnClickListener(this)
         btUpdateInspection.setOnClickListener(this)
         btDeleteInspection.setOnClickListener(this)
+        btCreateAction.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -44,7 +46,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     }
 
     private fun showMsg(msg: String) {
-        LLog.d(TAG, msg)
+        LLog.d(TAG, "\n" + msg)
         val tv = TextView(activity)
         tv.text = msg
         LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 10)
@@ -105,6 +107,17 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             R.id.btDeleteInspection -> {
                 val id = db.deleteInspection(1)
                 showMsg("deleteInspection id: $id")
+            }
+            R.id.btCreateAction -> {
+                val action = Action()
+                action.actionType = Action.ACTION_CREATE
+                val inspection = Inspection()
+                inspection.inspectionId = "inspectionId " + System.currentTimeMillis()
+                inspection.content = "content " + System.currentTimeMillis()
+                action.inspection = inspection
+
+                val id = db.createAction(action)
+                showMsg("createAction with id = $id -> " + LApplication.gson.toJson(action))
             }
         }
         db.closeDB()

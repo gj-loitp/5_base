@@ -74,6 +74,11 @@
                 style="@style/ButtonMenu"
                 android:text="GetActionList" />
 
+            <Button
+                android:id="@+id/btCreateAction"
+                style="@style/ButtonMenu"
+                android:text="createAction" />
+
             <LinearLayout
                 android:id="@+id/ll"
                 android:layout_width="match_parent"
