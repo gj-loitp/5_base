@@ -12,4 +12,5 @@ class Action {
 
     var id: Int = 0
     var actionType: Int? = null
+    var inspection: Inspection? = null
 }

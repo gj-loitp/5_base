@@ -30,6 +30,18 @@
                 style="@style/ButtonMenu"
                 android:text="GetInspectionCount" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btGetActionList"
+                style="@style/ButtonMenu"
+                android:text="GetActionList" />
+
             <LinearLayout
                 android:id="@+id/ll"
                 android:layout_width="match_parent"

@@ -5,7 +5,9 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.core.utilities.LLog
 import com.utils.util.AppUtils
+import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
+import vn.loitp.app.app.LApplication
 
 class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val TAG = InspectionDatabaseHelper::class.java.name
@@ -26,10 +28,11 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
         // INSPECTION Table - column nmaes
         private const val KEY_INSPECTION_ID = "inspection_id"
-        private const val KEY_CONTENT = "content"
+        private const val KEY_INSPECTION_CONTENT = "inspection_content"
 
         // ACTION Table - column names
         private const val KEY_ACTION_TYPE = "action_type"
+        private const val KEY_ACTION_INSPECTION = "action_inspection"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -38,7 +41,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         val queryCreateTableInspection = ("CREATE TABLE " + TABLE_INSPECTION + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_INSPECTION_ID + " TEXT,"
-                + KEY_CONTENT + " TEXT"
+                + KEY_INSPECTION_CONTENT + " TEXT"
                 + ")")
         db.execSQL(queryCreateTableInspection)
         // Action table create statement
@@ -77,7 +80,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 val inspection = Inspection()
                 inspection.id = c.getInt(c.getColumnIndex(KEY_ID))
                 inspection.inspectionId = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
-                inspection.content = c.getString(c.getColumnIndex(KEY_CONTENT))
+                inspection.content = c.getString(c.getColumnIndex(KEY_INSPECTION_CONTENT))
                 inspectionList.add(inspection)
             } while (c.moveToNext())
         }
@@ -94,29 +97,29 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return count
     }
 
-    /*fun getTagList(): List<Action> {
-        val tagList = ArrayList<Action>()
+    fun getActionList(): List<Action> {
+        val actionList = ArrayList<Action>()
         val selectQuery = "SELECT  * FROM $TABLE_ACTION"
 
         val db = this.readableDatabase
         val c = db.rawQuery(selectQuery, null)
         if (c.moveToFirst()) {
             do {
-                val tag = Action()
-                tag.id = c.getInt(c.getColumnIndex(KEY_ID))
-                tag.tagName = c.getString(c.getColumnIndex(KEY_ACTION_TYPE))
-                tagList.add(tag)
+                val action = Action()
+                action.id = c.getInt(c.getColumnIndex(KEY_ID))
+                action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
+                val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
+                val inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+                action.inspection = inspection
+                actionList.add(action)
             } while (c.moveToNext())
         }
         c.close()
-        return tagList
+        return actionList
     }
 
-    */
-    /**
-     * get datetime
-     *//*
-    private fun getDateTime(): String {
+
+    /*private fun getDateTime(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         val date = Date()
         return dateFormat.format(date)
@@ -129,7 +132,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
         val values = ContentValues()
         values.put(KEY_INSPECTION_ID, inspection.note)
-        values.put(KEY_CONTENT, inspection.status)
+        values.put(KEY_INSPECTION_CONTENT, inspection.status)
         values.put(KEY_CREATED_AT, getDateTime())
 
         // insert row
@@ -207,7 +210,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
         val values = ContentValues()
         values.put(KEY_INSPECTION_ID, inspection.note)
-        values.put(KEY_CONTENT, inspection.status)
+        values.put(KEY_INSPECTION_CONTENT, inspection.status)
 
         // updating row
         return db.update(TABLE_INSPECTION, values, "$KEY_ID = ?",
