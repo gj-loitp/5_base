@@ -98,7 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * Creating
      */
-    public long createToDo(Note todo, long[] tagIdList) {
+    public long createNote(Note todo, long[] tagIdList) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -110,7 +110,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long todoId = db.insert(TABLE_TODO, null, values);
         // insert tagId
         for (long tagId : tagIdList) {
-            createTodoTag(todoId, tagId);
+            createNoteTag(todoId, tagId);
         }
         db.close();
         return todoId;
@@ -143,7 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * getting all todos
      */
-    public List<Note> getToDoList() {
+    public List<Note> getNoteList() {
         List<Note> todos = new ArrayList<Note>();
         String selectQuery = "SELECT  * FROM " + TABLE_TODO;
 
@@ -171,7 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * getting all todos under single tag
      */
-    public List<Note> getAllToDosByTag(String tag_name) {
+    public List<Note> getAllNoteByTag(String tag_name) {
         List<Note> todos = new ArrayList<Note>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_TODO + " td, " + TABLE_TAG + " tg, " + TABLE_TODO_TAG + " tt " +
@@ -202,7 +202,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * getting to do count
      */
-    public int getToDoCount() {
+    public int getNoteCount() {
         String countQuery = "SELECT  * FROM " + TABLE_TODO;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
@@ -226,7 +226,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(todo.getId())});
     }
 
-    public void deleteToDo(long todoId) {
+    public void deleteNote(long todoId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TODO, KEY_ID + " = ?",
                 new String[]{String.valueOf(todoId)});
@@ -298,11 +298,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // check if todos under this tag should also be deleted
         if (shouldDeleteAllTagTodos) {
             // get all todos under this tag
-            List<Note> allTagToDos = getAllToDosByTag(tag.getTagName());
+            List<Note> allTagToDos = getAllNoteByTag(tag.getTagName());
 
             // delete all todos
             for (Note todo : allTagToDos) {
-                deleteToDo(todo.getId());
+                deleteNote(todo.getId());
             }
         }
 
@@ -317,7 +317,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * Creating todo_tag
      */
-    public long createTodoTag(long todoId, long tagId) {
+    public long createNoteTag(long todoId, long tagId) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
