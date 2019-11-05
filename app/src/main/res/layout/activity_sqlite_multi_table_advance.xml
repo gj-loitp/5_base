@@ -25,6 +25,11 @@
                 style="@style/ButtonMenu"
                 android:text="GetInspectionList" />
 
+            <Button
+                android:id="@+id/btGetInspectionCount"
+                style="@style/ButtonMenu"
+                android:text="GetInspectionCount" />
+
             <LinearLayout
                 android:id="@+id/ll"
                 android:layout_width="match_parent"

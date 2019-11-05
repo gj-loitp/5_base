@@ -85,7 +85,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return inspectionList
     }
 
-    /*fun getNoteCount(): Int {
+    fun getInspectionCount(): Int {
         val countQuery = "SELECT  * FROM $TABLE_INSPECTION"
         val db = this.readableDatabase
         val cursor = db.rawQuery(countQuery, null)
@@ -94,11 +94,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return count
     }
 
-    */
-    /**
-     * getting all tags
-     *//*
-    fun getTagList(): List<Action> {
+    /*fun getTagList(): List<Action> {
         val tagList = ArrayList<Action>()
         val selectQuery = "SELECT  * FROM $TABLE_ACTION"
 

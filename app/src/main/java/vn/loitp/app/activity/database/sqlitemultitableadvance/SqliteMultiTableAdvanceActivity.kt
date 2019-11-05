@@ -21,6 +21,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         db = InspectionDatabaseHelper(applicationContext)
         btDeleteAllDatabase.setOnClickListener(this)
         btGetInspectionList.setOnClickListener(this)
+        btGetInspectionCount.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -56,6 +57,10 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     val inspection = inspectionList[i]
                     showMsg("$i -> " + LApplication.gson.toJson(inspection))
                 }
+            }
+            R.id.btGetInspectionCount -> {
+                val inspectionCount = db.getInspectionCount()
+                showMsg("inspectionCount: $inspectionCount")
             }
         }
         db.closeDB()
