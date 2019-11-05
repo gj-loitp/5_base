@@ -14,6 +14,34 @@ import java.util.*
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val TAG = DatabaseHelper::class.java.name
 
+    companion object {
+        // Database Version
+        private val DATABASE_VERSION = AppUtils.getAppVersionCode()
+
+        // Database Name
+        private val DATABASE_NAME = DatabaseHelper::class.java.name
+
+        // Table Names
+        private const val TABLE_NOTE = "notes"
+        private const val TABLE_TAG = "tags"
+        private const val TABLE_NOTE_TAG = "note_tags"
+
+        // Common column names
+        private const val KEY_ID = "id"
+        private const val KEY_CREATED_AT = "created_at"
+
+        // NOTES Table - column nmaes
+        private const val KEY_NOTE = "note"
+        private const val KEY_STATUS = "status"
+
+        // TAGS Table - column names
+        private const val KEY_TAG_NAME = "tag_name"
+
+        // NOTE_TAGS Table - column names
+        private const val KEY_NOTE_ID = "note_id"
+        private const val KEY_TAG_ID = "tag_id"
+    }
+
     /**
      * getting all note
      */
@@ -314,33 +342,5 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val db = this.readableDatabase
         if (db != null && db.isOpen)
             db.close()
-    }
-
-    companion object {
-        // Database Version
-        private val DATABASE_VERSION = AppUtils.getAppVersionCode()
-
-        // Database Name
-        private val DATABASE_NAME = DatabaseHelper::class.java.name
-
-        // Table Names
-        private const val TABLE_NOTE = "notes"
-        private const val TABLE_TAG = "tags"
-        private const val TABLE_NOTE_TAG = "note_tags"
-
-        // Common column names
-        private const val KEY_ID = "id"
-        private const val KEY_CREATED_AT = "created_at"
-
-        // NOTES Table - column nmaes
-        private const val KEY_NOTE = "note"
-        private const val KEY_STATUS = "status"
-
-        // TAGS Table - column names
-        private const val KEY_TAG_NAME = "tag_name"
-
-        // NOTE_TAGS Table - column names
-        private const val KEY_NOTE_ID = "note_id"
-        private const val KEY_TAG_ID = "tag_id"
     }
 }
