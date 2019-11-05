@@ -54,7 +54,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         showMsg("tag3Id: $tag3Id")
         showMsg("tag4Id: $tag4Id")
 
-        val tagList = db.tagList
+        val tagList = db.getTagList()
         showMsg("tagList size: " + tagList.size)
         for (i in tagList.indices) {
             val t = tagList[i]
@@ -101,10 +101,10 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         // Now this will have - "Androidhive" and "Important" Tags
         db.createNoteTag(note10Id, tag2Id)
 
-        val noteCount = db.noteCount
+        val noteCount = db.getNoteCount()
         showMsg("getNoteCount: $noteCount")
 
-        val noteList = db.noteList
+        val noteList = db.getNoteList()
         showMsg("noteList size: " + noteList.size)
         for (i in noteList.indices) {
             val td = noteList[i]
@@ -119,14 +119,14 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         }
 
         // Deleting
-        showMsg("Tag Count Before Deleting: " + db.noteCount)
+        showMsg("Tag Count Before Deleting: " + db.getNoteCount())
         db.deleteNote(note8Id)
-        showMsg("Tag Count After Deleting: " + db.noteCount)
+        showMsg("Tag Count After Deleting: " + db.getNoteCount())
 
         // Deleting all note under "Shopping" tag
-        showMsg("Tag Count Before Deleting 'Shopping' note: " + db.noteCount)
+        showMsg("Tag Count Before Deleting 'Shopping' note: " + db.getNoteCount())
         db.deleteTag(tag1, true)
-        showMsg("Tag Count After Deleting 'Shopping' note: " + db.noteCount)
+        showMsg("Tag Count After Deleting 'Shopping' note: " + db.getNoteCount())
 
         // Updating tag name
         tag3.tagName = "Movies to watch"
