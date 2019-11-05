@@ -57,6 +57,11 @@
                 style="@style/ButtonMenu"
                 android:text="UpdateInspection with id = 1" />
 
+            <Button
+                android:id="@+id/btDeleteInspection"
+                style="@style/ButtonMenu"
+                android:text="DeleteInspection with id =1" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"

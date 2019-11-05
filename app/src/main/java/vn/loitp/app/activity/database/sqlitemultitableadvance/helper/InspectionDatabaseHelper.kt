@@ -185,20 +185,14 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 arrayOf(inspection.id.toString()))
     }
 
-    /*fun deleteNote(noteId: Long) {
+    //This function returns the number of rows modified
+    fun deleteInspection(id: Long): Int {
         val db = this.writableDatabase
-        db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
-                arrayOf(noteId.toString()))
+        return db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
+                arrayOf(id.toString()))
     }
 
-    // ------------------------ "tags" table methods ----------------//
-
-    */
-    /**
-     * Creating tag
-     * Return id of record
-     *//*
-    fun createTag(tag: Action): Long {
+    /*fun createTag(tag: Action): Long {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_TYPE, tag.tagName)

@@ -28,6 +28,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btCreateInspection.setOnClickListener(this)
         btGetInspection.setOnClickListener(this)
         btUpdateInspection.setOnClickListener(this)
+        btDeleteInspection.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -98,8 +99,12 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     inspection.inspectionId = "update inspectionId " + System.currentTimeMillis()
                     inspection.content = "update content inspection " + System.currentTimeMillis()
                     val id = db.updateInspection(inspection)
-                    showMsg("updateInspection success with id = 1 -> " + LApplication.gson.toJson(inspection))
+                    showMsg("updateInspection success with id = $id -> " + LApplication.gson.toJson(inspection))
                 }
+            }
+            R.id.btDeleteInspection -> {
+                val id = db.deleteInspection(1)
+                showMsg("deleteInspection id: $id")
             }
         }
         db.closeDB()
