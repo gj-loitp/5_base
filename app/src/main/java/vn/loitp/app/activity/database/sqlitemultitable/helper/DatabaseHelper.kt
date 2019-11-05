@@ -80,11 +80,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     /**
      * getting all tags
      */
-    //LLog.d(TAG, selectQuery);
-    // looping through all rows and adding to list
-    // adding to tags list
     fun getTagList(): List<Tag> {
-        val tags = ArrayList<Tag>()
+        val tagList = ArrayList<Tag>()
         val selectQuery = "SELECT  * FROM $TABLE_TAG"
 
         val db = this.readableDatabase
@@ -94,11 +91,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 val tag = Tag()
                 tag.id = c.getInt(c.getColumnIndex(KEY_ID))
                 tag.tagName = c.getString(c.getColumnIndex(KEY_TAG_NAME))
-                tags.add(tag)
+                tagList.add(tag)
             } while (c.moveToNext())
         }
         c.close()
-        return tags
+        return tagList
     }
 
     /**
@@ -188,7 +185,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         //LLog.d(TAG, selectQuery);
 
         val c = db.rawQuery(selectQuery, null)
-
         c?.moveToFirst() ?: return null
 
         val note = Note()
@@ -207,8 +203,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val noteList = ArrayList<Note>()
 
         val selectQuery = "SELECT  * FROM " + TABLE_NOTE + " td, " + TABLE_TAG + " tg, " + TABLE_NOTE_TAG + " tt " +
-                "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'" + " " +
-                "AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
+                "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'"
+        " AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
                 " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
 
         //LLog.d(TAG, selectQuery);
@@ -271,10 +267,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
      */
     fun updateTag(tag: Tag): Int {
         val db = this.writableDatabase
-
         val values = ContentValues()
         values.put(KEY_TAG_NAME, tag.tagName)
-
         // updating row
         return db.update(TABLE_TAG, values, "$KEY_ID = ?",
                 arrayOf(tag.id.toString()))
@@ -322,16 +316,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     fun updateNoteTag(id: Long, tagId: Long): Int {
         val db = this.writableDatabase
-
         val values = ContentValues()
         values.put(KEY_TAG_ID, tagId)
-
         // updating row
         return db.update(TABLE_NOTE, values, "$KEY_ID = ?",
                 arrayOf(id.toString()))
     }
 
-    fun deleteToDoTag(id: Long) {
+    fun deleteNoteTag(id: Long) {
         val db = this.writableDatabase
         db.delete(TABLE_NOTE, "$KEY_ID = ?",
                 arrayOf(id.toString()))
@@ -340,7 +332,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // closing database
     fun closeDB() {
         val db = this.readableDatabase
-        if (db != null && db.isOpen)
+        if (db != null && db.isOpen) {
             db.close()
+        }
     }
 }
