@@ -16,6 +16,18 @@
             android:padding="@dimen/padding_10">
 
             <Button
+                android:id="@+id/btClearUI"
+                style="@style/ButtonMenu"
+                android:text="Clear UI" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:background="@color/colorPrimary" />
+
+            <Button
                 android:id="@+id/btDeleteAllDatabase"
                 style="@style/ButtonMenu"
                 android:text="DeleteAllDatabase" />
@@ -29,6 +41,11 @@
                 android:id="@+id/btGetInspectionCount"
                 style="@style/ButtonMenu"
                 android:text="GetInspectionCount" />
+
+            <Button
+                android:id="@+id/btCreateInspection"
+                style="@style/ButtonMenu"
+                android:text="CreateInspection" />
 
             <View
                 android:layout_width="match_parent"

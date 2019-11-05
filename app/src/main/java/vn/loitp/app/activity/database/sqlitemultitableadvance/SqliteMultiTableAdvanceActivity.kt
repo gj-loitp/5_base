@@ -10,6 +10,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
+import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 import vn.loitp.app.app.LApplication
 
 class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener {
@@ -19,10 +20,12 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         db = InspectionDatabaseHelper(applicationContext)
+        btClearUI.setOnClickListener(this)
         btDeleteAllDatabase.setOnClickListener(this)
         btGetInspectionList.setOnClickListener(this)
         btGetInspectionCount.setOnClickListener(this)
         btGetActionList.setOnClickListener(this)
+        btCreateInspection.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -47,6 +50,9 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btClearUI -> {
+                ll.removeAllViews()
+            }
             R.id.btDeleteAllDatabase -> {
                 db.deleteAllDatabase()
                 showMsg("deleteAllDatabase success")
@@ -70,6 +76,13 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     val action = actionList[i]
                     showMsg("actionList $i -> " + LApplication.gson.toJson(action))
                 }
+            }
+            R.id.btCreateInspection -> {
+                val inspection = Inspection()
+                inspection.inspectionId = "inspectionId " + System.currentTimeMillis()
+                inspection.content = "dummy content inspection " + System.currentTimeMillis()
+                val id = db.createInspection(inspection)
+                showMsg("createInspection id: $id -> " + LApplication.gson.toJson(inspection))
             }
         }
         db.closeDB()
@@ -178,7 +191,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     }
 
     override fun onDestroy() {
-        db.deleteAllDatabase()
+        //db.deleteAllDatabase()
         db.closeDB()
         super.onDestroy()
     }

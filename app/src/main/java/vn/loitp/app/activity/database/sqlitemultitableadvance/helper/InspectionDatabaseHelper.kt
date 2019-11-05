@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.database.sqlitemultitableadvance.helper
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -39,9 +40,9 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         LLog.d(TAG, "onCreate")
         // Table Create Statements
         val queryCreateTableInspection = ("CREATE TABLE " + TABLE_INSPECTION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_INSPECTION_ID + " TEXT,"
-                + KEY_INSPECTION_CONTENT + " TEXT"
+                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_INSPECTION_ID + " TEXT, "
+                + KEY_INSPECTION_CONTENT + " TEXT "
                 + ")")
         db.execSQL(queryCreateTableInspection)
         // Action table create statement
@@ -118,38 +119,20 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return actionList
     }
 
-
-    /*private fun getDateTime(): String {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-        val date = Date()
-        return dateFormat.format(date)
-    }
-
-    // ------------------------ "note" table methods ----------------//
-
-    fun createNote(inspection: Inspection, tagIdList: LongArray): Long {
+    fun createInspection(inspection: Inspection): Long {
         val db = this.writableDatabase
 
         val values = ContentValues()
-        values.put(KEY_INSPECTION_ID, inspection.note)
-        values.put(KEY_INSPECTION_CONTENT, inspection.status)
-        values.put(KEY_CREATED_AT, getDateTime())
+        values.put(KEY_INSPECTION_ID, inspection.inspectionId)
+        values.put(KEY_INSPECTION_CONTENT, inspection.content)
 
-        // insert row
         val noteId = db.insert(TABLE_INSPECTION, null, values)
-        // insert tagId
-        for (tagId in tagIdList) {
-            createNoteTag(noteId, tagId)
-        }
+
         db.close()
         return noteId
     }
 
-    */
-    /**
-     * get single note
-     *//*
-    fun getNote(noteId: Long): Inspection? {
+    /*ffun getNote(noteId: Long): Inspection? {
         val db = this.readableDatabase
 
         val selectQuery = ("SELECT  * FROM " + TABLE_INSPECTION + " WHERE "
@@ -279,18 +262,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
     // ------------------------ "todo_tags" table methods ----------------//
 
-    fun createNoteTag(noteId: Long, tagId: Long): Long {
-        val db = this.writableDatabase
 
-        val values = ContentValues()
-        values.put(KEY_INSPECTION_ID_FK, noteId)
-        values.put(KEY_ACTION_ID_FK, tagId)
-        values.put(KEY_CREATED_AT, getDateTime())
-
-        val id = db.insert(TABLE_INSPECTION_ACTION, null, values)
-        db.close()
-        return id
-    }
 
     fun updateNoteTag(id: Long, tagId: Long): Int {
         val db = this.writableDatabase
