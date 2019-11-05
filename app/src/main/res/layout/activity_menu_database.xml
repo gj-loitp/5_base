@@ -51,6 +51,10 @@
                 android:id="@+id/btSqliteMultiTable"
                 style="@style/ButtonMenu"
                 android:text="SQLite Multi Table" />
+            <Button
+                android:id="@+id/btSqliteMultiTableAdvance"
+                style="@style/ButtonMenu"
+                android:text="SQLite Multi Table Advance" />
         </LinearLayout>
     </ScrollView>
 

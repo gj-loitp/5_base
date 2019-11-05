@@ -17,6 +17,7 @@ import vn.loitp.app.activity.database.sharedprefsencryption.EnctyptionSharedPref
 import vn.loitp.app.activity.database.sqlite.SqliteActivity
 import vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity
 import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
+import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
 
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
         btSharedPrefsEncryption.setOnClickListener(this)
         btSqliteEncryption.setOnClickListener(this)
         btSqliteMultiTable.setOnClickListener(this)
+        btSqliteMultiTableAdvance.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -52,6 +54,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             R.id.btSharedPrefsEncryption -> intent = Intent(activity, EnctyptionSharedPrefsActivity::class.java)
             R.id.btSqliteEncryption -> intent = Intent(activity, SqliteEncryptionActivity::class.java)
             R.id.btSqliteMultiTable -> intent = Intent(activity, SqliteMultiTableActivity::class.java)
+            R.id.btSqliteMultiTableAdvance -> intent = Intent(activity, SqliteMultiTableAdvanceActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

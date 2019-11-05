@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.database.sqlitemultitable
+package vn.loitp.app.activity.database.sqlitemultitableadvance
 
 import android.os.Bundle
 import android.util.TypedValue
@@ -6,15 +6,14 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
+import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.DatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Note
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Tag
 import vn.loitp.app.app.LApplication
 
-//https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
-class SqliteMultiTableActivity : BaseFontActivity() {
+class SqliteMultiTableAdvanceActivity : BaseFontActivity() {
     private lateinit var db: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_multi_table
+        return R.layout.activity_sqlite_multi_table_advance
     }
 
     private fun test() {
