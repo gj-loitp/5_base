@@ -20,6 +20,11 @@
                 style="@style/ButtonMenu"
                 android:text="DeleteAllDatabase" />
 
+            <Button
+                android:id="@+id/btGetInspectionList"
+                style="@style/ButtonMenu"
+                android:text="GetInspectionList" />
+
             <LinearLayout
                 android:id="@+id/ll"
                 android:layout_width="match_parent"

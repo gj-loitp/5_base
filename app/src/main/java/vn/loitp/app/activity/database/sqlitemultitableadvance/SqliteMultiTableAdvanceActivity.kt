@@ -10,6 +10,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
+import vn.loitp.app.app.LApplication
 
 class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -19,6 +20,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         super.onCreate(savedInstanceState)
         db = InspectionDatabaseHelper(applicationContext)
         btDeleteAllDatabase.setOnClickListener(this)
+        btGetInspectionList.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -46,6 +48,14 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             R.id.btDeleteAllDatabase -> {
                 db.deleteAllDatabase()
                 showMsg("deleteAllDatabase success")
+            }
+            R.id.btGetInspectionList -> {
+                val inspectionList = db.getInspectionList()
+                showMsg("inspectionList size: " + inspectionList.size)
+                for (i in inspectionList.indices) {
+                    val inspection = inspectionList[i]
+                    showMsg("$i -> " + LApplication.gson.toJson(inspection))
+                }
             }
         }
         db.closeDB()
