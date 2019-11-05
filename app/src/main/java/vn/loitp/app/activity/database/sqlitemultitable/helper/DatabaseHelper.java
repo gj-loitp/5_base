@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag;
-import vn.loitp.app.activity.database.sqlitemultitable.model.Todo;
+import vn.loitp.app.activity.database.sqlitemultitable.model.Note;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private final String TAG = DatabaseHelper.class.getName();
@@ -98,7 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * Creating
      */
-    public long createToDo(Todo todo, long[] tagIdList) {
+    public long createToDo(Note todo, long[] tagIdList) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -119,7 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * get single todo
      */
-    public Todo getTodo(long todo_id) {
+    public Note getTodo(long todo_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_TODO + " WHERE "
@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (c != null)
             c.moveToFirst();
 
-        Todo td = new Todo();
+        Note td = new Note();
         td.setId(c.getInt(c.getColumnIndex(KEY_ID)));
         td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
         td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
@@ -143,8 +143,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * getting all todos
      */
-    public List<Todo> getToDoList() {
-        List<Todo> todos = new ArrayList<Todo>();
+    public List<Note> getToDoList() {
+        List<Note> todos = new ArrayList<Note>();
         String selectQuery = "SELECT  * FROM " + TABLE_TODO;
 
         Log.e(TAG, selectQuery);
@@ -155,7 +155,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                Todo td = new Todo();
+                Note td = new Note();
                 td.setId(c.getInt((c.getColumnIndex(KEY_ID))));
                 td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
                 td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
@@ -164,15 +164,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 todos.add(td);
             } while (c.moveToNext());
         }
-
+        c.close();
         return todos;
     }
 
     /**
      * getting all todos under single tag
      */
-    public List<Todo> getAllToDosByTag(String tag_name) {
-        List<Todo> todos = new ArrayList<Todo>();
+    public List<Note> getAllToDosByTag(String tag_name) {
+        List<Note> todos = new ArrayList<Note>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_TODO + " td, " + TABLE_TAG + " tg, " + TABLE_TODO_TAG + " tt " +
                 "WHERE tg." + KEY_TAG_NAME + " = '" + tag_name + "'" + " " +
@@ -187,7 +187,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                Todo td = new Todo();
+                Note td = new Note();
                 td.setId(c.getInt((c.getColumnIndex(KEY_ID))));
                 td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
                 td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
@@ -214,7 +214,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * Updating a todo
      */
-    public int updateToDo(Todo todo) {
+    public int updateToDo(Note todo) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -298,10 +298,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // check if todos under this tag should also be deleted
         if (shouldDeleteAllTagTodos) {
             // get all todos under this tag
-            List<Todo> allTagToDos = getAllToDosByTag(tag.getTagName());
+            List<Note> allTagToDos = getAllToDosByTag(tag.getTagName());
 
             // delete all todos
-            for (Todo todo : allTagToDos) {
+            for (Note todo : allTagToDos) {
                 deleteToDo(todo.getId());
             }
         }

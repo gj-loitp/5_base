@@ -10,7 +10,7 @@ import java.util.List;
 import loitp.basemaster.R;
 import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper;
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag;
-import vn.loitp.app.activity.database.sqlitemultitable.model.Todo;
+import vn.loitp.app.activity.database.sqlitemultitable.model.Note;
 import vn.loitp.app.app.LApplication;
 
 //https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
@@ -67,20 +67,20 @@ public class SqliteMultiTableActivity extends BaseFontActivity {
         }
 
         // Creating ToDos
-        Todo todo1 = new Todo("iPhone 5S", 0);
-        Todo todo2 = new Todo("Galaxy Note II", 0);
-        Todo todo3 = new Todo("Whiteboard", 0);
+        Note todo1 = new Note("iPhone 5S", 0);
+        Note todo2 = new Note("Galaxy Note II", 0);
+        Note todo3 = new Note("Whiteboard", 0);
 
-        Todo todo4 = new Todo("Riddick", 0);
-        Todo todo5 = new Todo("Prisoners", 0);
-        Todo todo6 = new Todo("The Croods", 0);
-        Todo todo7 = new Todo("Insidious: Chapter 2", 0);
+        Note todo4 = new Note("Riddick", 0);
+        Note todo5 = new Note("Prisoners", 0);
+        Note todo6 = new Note("The Croods", 0);
+        Note todo7 = new Note("Insidious: Chapter 2", 0);
 
-        Todo todo8 = new Todo("Don't forget to call MOM", 0);
-        Todo todo9 = new Todo("Collect money from John", 0);
+        Note todo8 = new Note("Don't forget to call MOM", 0);
+        Note todo9 = new Note("Collect money from John", 0);
 
-        Todo todo10 = new Todo("Post new Article", 0);
-        Todo todo11 = new Todo("Take database backup", 0);
+        Note todo10 = new Note("Post new Article", 0);
+        Note todo11 = new Note("Take database backup", 0);
 
         // Inserting todos in db
         // Inserting todos under "Shopping" Tag
@@ -110,17 +110,17 @@ public class SqliteMultiTableActivity extends BaseFontActivity {
         int toDoCount = db.getToDoCount();
         LLog.d(TAG, "toDoCount getToDoCount: " + toDoCount);
 
-        List<Todo> todoList = db.getToDoList();
+        List<Note> todoList = db.getToDoList();
         LLog.d(TAG, "todoList size: " + todoList.size());
         for (int i = 0; i < todoList.size(); i++) {
-            Todo td = todoList.get(i);
+            Note td = todoList.get(i);
             LLog.d(TAG, ">todoList " + i + " -> " + LApplication.Companion.getGson().toJson(td));
         }
 
         // Getting todos under "Watchlist" tag name
-        List<Todo> tagsWatchList = db.getAllToDosByTag(tag3.getTagName());
+        List<Note> tagsWatchList = db.getAllToDosByTag(tag3.getTagName());
         for (int i = 0; i < tagsWatchList.size(); i++) {
-            Todo td = tagsWatchList.get(i);
+            Note td = tagsWatchList.get(i);
             LLog.d(TAG, ">tagsWatchList " + i + " -> " + LApplication.Companion.getGson().toJson(td));
         }
 
