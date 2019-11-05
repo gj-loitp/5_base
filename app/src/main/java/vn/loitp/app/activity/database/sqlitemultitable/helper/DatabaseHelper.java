@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.core.utilities.LLog;
+import com.utils.util.AppUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,36 +15,36 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import vn.loitp.app.activity.database.sqlitemultitable.model.Tag;
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note;
+import vn.loitp.app.activity.database.sqlitemultitable.model.Tag;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private final String TAG = DatabaseHelper.class.getName();
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = AppUtils.getAppVersionCode();
 
     // Database Name
     private static final String DATABASE_NAME = DatabaseHelper.class.getName();
 
     // Table Names
-    private static final String TABLE_TODO = "todos";
+    private static final String TABLE_NOTE = "notes";
     private static final String TABLE_TAG = "tags";
-    private static final String TABLE_TODO_TAG = "todo_tags";
+    private static final String TABLE_NOTE_TAG = "note_tags";
 
     // Common column names
     private static final String KEY_ID = "id";
     private static final String KEY_CREATED_AT = "created_at";
 
     // NOTES Table - column nmaes
-    private static final String KEY_TODO = "todo";
+    private static final String KEY_NOTE = "note";
     private static final String KEY_STATUS = "status";
 
     // TAGS Table - column names
     private static final String KEY_TAG_NAME = "tag_name";
 
     // NOTE_TAGS Table - column names
-    private static final String KEY_TODO_ID = "todo_id";
+    private static final String KEY_NOTE_ID = "note_id";
     private static final String KEY_TAG_ID = "tag_id";
 
     public DatabaseHelper(Context context) {
@@ -55,21 +55,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         LLog.d(TAG, "onCreate");
         // Table Create Statements
-        String CREATE_TABLE_TODO = "CREATE TABLE "
-                + TABLE_TODO + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TODO
-                + " TEXT," + KEY_STATUS + " INTEGER," + KEY_CREATED_AT
-                + " DATETIME" + ")";
+        String CREATE_TABLE_TODO = "CREATE TABLE " + TABLE_NOTE + "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_NOTE + " TEXT,"
+                + KEY_STATUS + " INTEGER,"
+                + KEY_CREATED_AT + " DATETIME"
+                + ")";
         db.execSQL(CREATE_TABLE_TODO);
         // Tag table create statement
-        String CREATE_TABLE_TAG = "CREATE TABLE " + TABLE_TAG
-                + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TAG_NAME + " TEXT,"
-                + KEY_CREATED_AT + " DATETIME" + ")";
+        String CREATE_TABLE_TAG = "CREATE TABLE " + TABLE_TAG + "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_TAG_NAME + " TEXT,"
+                + KEY_CREATED_AT + " DATETIME"
+                + ")";
         db.execSQL(CREATE_TABLE_TAG);
         // todo_tag table create statement
-        String CREATE_TABLE_TODO_TAG = "CREATE TABLE "
-                + TABLE_TODO_TAG + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_TODO_ID + " INTEGER," + KEY_TAG_ID + " INTEGER,"
-                + KEY_CREATED_AT + " DATETIME" + ")";
+        String CREATE_TABLE_TODO_TAG = "CREATE TABLE " + TABLE_NOTE_TAG + "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_NOTE_ID + " INTEGER,"
+                + KEY_TAG_ID + " INTEGER,"
+                + KEY_CREATED_AT + " DATETIME"
+                + ")";
         db.execSQL(CREATE_TABLE_TODO_TAG);
     }
 
@@ -77,9 +83,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         LLog.d(TAG, "onUpgrade oldVersion: " + oldVersion + ", newVersion: " + newVersion);
         // on upgrade drop older tables
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TODO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TAG);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TODO_TAG);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE_TAG);
 
         // create new tables
         onCreate(db);
@@ -87,67 +93,68 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void deleteAllDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_TODO);
+        db.execSQL("DELETE FROM " + TABLE_NOTE);
         db.execSQL("DELETE FROM " + TABLE_TAG);
-        db.execSQL("DELETE FROM " + TABLE_TODO_TAG);
+        db.execSQL("DELETE FROM " + TABLE_NOTE_TAG);
         db.close();
     }
 
-    // ------------------------ "todos" table methods ----------------//
+    // ------------------------ "note" table methods ----------------//
 
-    /**
-     * Creating
-     */
-    public long createNote(Note todo, long[] tagIdList) {
+    public long createNote(Note note, long[] tagIdList) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TODO, todo.getNote());
-        values.put(KEY_STATUS, todo.getStatus());
+        values.put(KEY_NOTE, note.getNote());
+        values.put(KEY_STATUS, note.getStatus());
         values.put(KEY_CREATED_AT, getDateTime());
 
         // insert row
-        long todoId = db.insert(TABLE_TODO, null, values);
+        long noteId = db.insert(TABLE_NOTE, null, values);
         // insert tagId
         for (long tagId : tagIdList) {
-            createNoteTag(todoId, tagId);
+            createNoteTag(noteId, tagId);
         }
         db.close();
-        return todoId;
+        return noteId;
     }
 
     /**
-     * get single todo
+     * get single note
      */
-    public Note getTodo(long todo_id) {
+    public Note getNote(long noteId) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT  * FROM " + TABLE_TODO + " WHERE "
-                + KEY_ID + " = " + todo_id;
+        String selectQuery = "SELECT  * FROM " + TABLE_NOTE + " WHERE "
+                + KEY_ID + " = " + noteId;
 
-        Log.e(TAG, selectQuery);
+        //LLog.d(TAG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
 
-        if (c != null)
+        if (c != null) {
             c.moveToFirst();
+        } else {
+            return null;
+        }
 
-        Note td = new Note();
-        td.setId(c.getInt(c.getColumnIndex(KEY_ID)));
-        td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
-        td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+        Note note = new Note();
+        note.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+        note.setNote((c.getString(c.getColumnIndex(KEY_NOTE))));
+        note.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
 
-        return td;
+        c.close();
+        return note;
     }
 
     /**
-     * getting all todos
+     * getting all note
      */
     public List<Note> getNoteList() {
-        List<Note> todos = new ArrayList<Note>();
-        String selectQuery = "SELECT  * FROM " + TABLE_TODO;
+        List<Note> noteList = new ArrayList<Note>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NOTE;
 
-        Log.e(TAG, selectQuery);
+        //LLog.d(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -155,31 +162,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                Note td = new Note();
-                td.setId(c.getInt((c.getColumnIndex(KEY_ID))));
-                td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
-                td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
-
-                // adding to todo list
-                todos.add(td);
+                Note note = new Note();
+                note.setId(c.getInt((c.getColumnIndex(KEY_ID))));
+                note.setNote((c.getString(c.getColumnIndex(KEY_NOTE))));
+                note.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+                noteList.add(note);
             } while (c.moveToNext());
         }
         c.close();
-        return todos;
+        return noteList;
     }
 
     /**
-     * getting all todos under single tag
+     * getting all note under single tag
      */
-    public List<Note> getAllNoteByTag(String tag_name) {
-        List<Note> todos = new ArrayList<Note>();
+    public List<Note> getAllNoteByTag(String tagName) {
+        List<Note> noteList = new ArrayList<>();
 
-        String selectQuery = "SELECT  * FROM " + TABLE_TODO + " td, " + TABLE_TAG + " tg, " + TABLE_TODO_TAG + " tt " +
-                "WHERE tg." + KEY_TAG_NAME + " = '" + tag_name + "'" + " " +
+        String selectQuery = "SELECT  * FROM " + TABLE_NOTE + " td, " + TABLE_TAG + " tg, " + TABLE_NOTE_TAG + " tt " +
+                "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'" + " " +
                 "AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
-                " AND td." + KEY_ID + " = " + "tt." + KEY_TODO_ID;
+                " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID;
 
-        Log.e(TAG, selectQuery);
+        //LLog.d(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -189,21 +194,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 Note td = new Note();
                 td.setId(c.getInt((c.getColumnIndex(KEY_ID))));
-                td.setNote((c.getString(c.getColumnIndex(KEY_TODO))));
+                td.setNote((c.getString(c.getColumnIndex(KEY_NOTE))));
                 td.setCreatedAt(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
-                todos.add(td);
+                noteList.add(td);
             } while (c.moveToNext());
         }
 
         c.close();
-        return todos;
+        return noteList;
     }
 
     /**
-     * getting to do count
+     * getting note list count
      */
     public int getNoteCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_TODO;
+        String countQuery = "SELECT  * FROM " + TABLE_NOTE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         int count = cursor.getCount();
@@ -212,24 +217,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Updating a todo
+     * Updating a note
      */
-    public int updateToDo(Note todo) {
+    public int updateNote(Note note) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TODO, todo.getNote());
-        values.put(KEY_STATUS, todo.getStatus());
+        values.put(KEY_NOTE, note.getNote());
+        values.put(KEY_STATUS, note.getStatus());
 
         // updating row
-        return db.update(TABLE_TODO, values, KEY_ID + " = ?",
-                new String[]{String.valueOf(todo.getId())});
+        return db.update(TABLE_NOTE, values, KEY_ID + " = ?",
+                new String[]{String.valueOf(note.getId())});
     }
 
-    public void deleteNote(long todoId) {
+    public void deleteNote(long noteId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TODO, KEY_ID + " = ?",
-                new String[]{String.valueOf(todoId)});
+        db.delete(TABLE_NOTE, KEY_ID + " = ?",
+                new String[]{String.valueOf(noteId)});
     }
 
     // ------------------------ "tags" table methods ----------------//
@@ -253,7 +258,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Tag> tags = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_TAG;
 
-        Log.e(TAG, selectQuery);
+        //LLog.d(TAG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -261,12 +266,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                Tag t = new Tag();
-                t.setId(c.getInt((c.getColumnIndex(KEY_ID))));
-                t.setTagName(c.getString(c.getColumnIndex(KEY_TAG_NAME)));
+                Tag tag = new Tag();
+                tag.setId(c.getInt((c.getColumnIndex(KEY_ID))));
+                tag.setTagName(c.getString(c.getColumnIndex(KEY_TAG_NAME)));
 
                 // adding to tags list
-                tags.add(t);
+                tags.add(tag);
             } while (c.moveToNext());
         }
         c.close();
@@ -289,19 +294,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Deleting a tag
-     * return list todo deleted
+     * return list note deleted
      */
-    public void deleteTag(Tag tag, boolean shouldDeleteAllTagTodos) {
+    public void deleteTag(Tag tag, boolean shouldDeleteAllTagNotes) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         // before deleting tag
         // check if todos under this tag should also be deleted
-        if (shouldDeleteAllTagTodos) {
-            // get all todos under this tag
-            List<Note> allTagToDos = getAllNoteByTag(tag.getTagName());
+        if (shouldDeleteAllTagNotes) {
+            // get all notes under this tag
+            List<Note> allTagNotes = getAllNoteByTag(tag.getTagName());
 
             // delete all todos
-            for (Note todo : allTagToDos) {
+            for (Note todo : allTagNotes) {
                 deleteNote(todo.getId());
             }
         }
@@ -314,42 +319,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // ------------------------ "todo_tags" table methods ----------------//
 
-    /**
-     * Creating todo_tag
-     */
-    public long createNoteTag(long todoId, long tagId) {
+    public long createNoteTag(long noteId, long tagId) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TODO_ID, todoId);
+        values.put(KEY_NOTE_ID, noteId);
         values.put(KEY_TAG_ID, tagId);
         values.put(KEY_CREATED_AT, getDateTime());
 
-        long id = db.insert(TABLE_TODO_TAG, null, values);
+        long id = db.insert(TABLE_NOTE_TAG, null, values);
         db.close();
         return id;
     }
 
-    /**
-     * Updating a todo tag
-     */
-    public int updateNoteTag(long id, long tag_id) {
+    public int updateNoteTag(long id, long tagId) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TAG_ID, tag_id);
+        values.put(KEY_TAG_ID, tagId);
 
         // updating row
-        return db.update(TABLE_TODO, values, KEY_ID + " = ?",
+        return db.update(TABLE_NOTE, values, KEY_ID + " = ?",
                 new String[]{String.valueOf(id)});
     }
 
-    /**
-     * Deleting a todo tag
-     */
     public void deleteToDoTag(long id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TODO, KEY_ID + " = ?",
+        db.delete(TABLE_NOTE, KEY_ID + " = ?",
                 new String[]{String.valueOf(id)});
     }
 
@@ -364,8 +360,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * get datetime
      */
     private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
