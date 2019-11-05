@@ -201,22 +201,18 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return db.insert(TABLE_ACTION, null, values)
     }
 
-    /*
-    fun updateTag(tag: Action): Int {
+
+    fun updateAction(action: Action): Int {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(KEY_ACTION_TYPE, tag.tagName)
-        // updating row
+        values.put(KEY_ACTION_TYPE, action.actionType)
+        val sInspection = LApplication.gson.toJson(action.inspection)
+        values.put(KEY_ACTION_INSPECTION, sInspection)
         return db.update(TABLE_ACTION, values, "$KEY_ID = ?",
-                arrayOf(tag.id.toString()))
+                arrayOf(action.id.toString()))
     }
 
-    */
-    /**
-     * Deleting a tag
-     * return list note deleted
-     *//*
-    fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
+    /*fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
         val db = this.writableDatabase
 
         // before deleting tag

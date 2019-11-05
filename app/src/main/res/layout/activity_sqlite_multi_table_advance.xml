@@ -77,7 +77,12 @@
             <Button
                 android:id="@+id/btCreateAction"
                 style="@style/ButtonMenu"
-                android:text="createAction" />
+                android:text="CreateAction" />
+
+            <Button
+                android:id="@+id/btUpdateAction"
+                style="@style/ButtonMenu"
+                android:text="UpdateAction with id = 1" />
 
             <LinearLayout
                 android:id="@+id/ll"
