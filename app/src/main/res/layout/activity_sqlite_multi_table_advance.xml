@@ -47,6 +47,11 @@
                 style="@style/ButtonMenu"
                 android:text="CreateInspection" />
 
+            <Button
+                android:id="@+id/btGetInspection"
+                style="@style/ButtonMenu"
+                android:text="GetInspection with id = 2" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"

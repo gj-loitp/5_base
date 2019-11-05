@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import com.google.ads.interactivemedia.v3.internal.id
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
@@ -26,6 +27,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btGetInspectionCount.setOnClickListener(this)
         btGetActionList.setOnClickListener(this)
         btCreateInspection.setOnClickListener(this)
+        btGetInspection.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -62,7 +64,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("inspectionList size: " + inspectionList.size)
                 for (i in inspectionList.indices) {
                     val inspection = inspectionList[i]
-                    showMsg("inspectionList $i -> " + LApplication.gson.toJson(inspection))
+                    showMsg("inspectionList: -> " + LApplication.gson.toJson(inspection))
                 }
             }
             R.id.btGetInspectionCount -> {
@@ -74,7 +76,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("actionList size: " + actionList.size)
                 for (i in actionList.indices) {
                     val action = actionList[i]
-                    showMsg("actionList $i -> " + LApplication.gson.toJson(action))
+                    showMsg("actionList: -> " + LApplication.gson.toJson(action))
                 }
             }
             R.id.btCreateInspection -> {
@@ -83,6 +85,10 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 inspection.content = "dummy content inspection " + System.currentTimeMillis()
                 val id = db.createInspection(inspection)
                 showMsg("createInspection id: $id -> " + LApplication.gson.toJson(inspection))
+            }
+            R.id.btGetInspection -> {
+                val inspection = db.getInspection(2)
+                showMsg("getInspection id = 2 -> " + LApplication.gson.toJson(inspection))
             }
         }
         db.closeDB()

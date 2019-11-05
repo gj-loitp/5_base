@@ -132,31 +132,26 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return noteId
     }
 
-    /*ffun getNote(noteId: Long): Inspection? {
+    fun getInspection(inspectionId: Long): Inspection? {
         val db = this.readableDatabase
 
         val selectQuery = ("SELECT  * FROM " + TABLE_INSPECTION + " WHERE "
-                + KEY_ID + " = " + noteId)
-
-        //LLog.d(TAG, selectQuery);
+                + KEY_ID + " = " + inspectionId)
 
         val c = db.rawQuery(selectQuery, null)
-        c?.moveToFirst() ?: return null
-
-        val note = Inspection()
-        note.id = c.getInt(c.getColumnIndex(KEY_ID))
-        note.note = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
-        note.createdAt = c.getString(c.getColumnIndex(KEY_CREATED_AT))
-
-        c.close()
-        return note
+        if (c != null && c.moveToFirst()) {
+            val inspection = Inspection()
+            inspection.id = c.getInt(c.getColumnIndex(KEY_ID))
+            inspection.inspectionId = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
+            inspection.content = c.getString(c.getColumnIndex(KEY_INSPECTION_CONTENT))
+            c.close()
+            return inspection
+        }
+        return null
     }
 
-    */
-    /**
-     * getting all note under single tag
-     *//*
-    fun getAllNoteByTag(tagName: String?): List<Inspection> {
+
+    /*fun getAllNoteByTag(tagName: String?): List<Inspection> {
         val noteList = ArrayList<Inspection>()
 
         val selectQuery = "SELECT  * FROM " + TABLE_INSPECTION + " td, " + TABLE_ACTION + " tg, " + TABLE_INSPECTION_ACTION + " tt " +
