@@ -8,9 +8,9 @@ import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.DatabaseHelper
-import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Note
-import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Tag
+import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper
+import vn.loitp.app.activity.database.sqlitemultitable.model.Note
+import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 import vn.loitp.app.app.LApplication
 
 //https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/

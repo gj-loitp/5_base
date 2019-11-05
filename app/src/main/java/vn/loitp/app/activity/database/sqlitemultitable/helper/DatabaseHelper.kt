@@ -6,9 +6,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.core.utilities.LLog
 import com.utils.util.AppUtils
-import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.DatabaseHelper
-import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Note
-import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Tag
+import vn.loitp.app.activity.database.sqlitemultitable.model.Note
+import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.database.sqlitemultitable
+package vn.loitp.app.activity.database.sqlitemultitable.model
 
 class Note {
     var id: Int = 0
