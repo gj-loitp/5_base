@@ -1,8 +1,12 @@
 package vn.loitp.app.activity.database.sqlitemultitable
 
 import android.os.Bundle
+import android.util.TypedValue
+import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
@@ -45,16 +49,16 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         val tag3Id = db.createTag(tag3)
         val tag4Id = db.createTag(tag4)
 
-        LLog.d(TAG, "tag1Id: $tag1Id")
-        LLog.d(TAG, "tag2Id: $tag2Id")
-        LLog.d(TAG, "tag3Id: $tag3Id")
-        LLog.d(TAG, "tag4Id: $tag4Id")
+        showMsg("tag1Id: $tag1Id")
+        showMsg("tag2Id: $tag2Id")
+        showMsg("tag3Id: $tag3Id")
+        showMsg("tag4Id: $tag4Id")
 
         val tagList = db.tagList
-        LLog.d(TAG, "tagList size: " + tagList.size)
+        showMsg("tagList size: " + tagList.size)
         for (i in tagList.indices) {
             val t = tagList[i]
-            LLog.d(TAG, "tagList -> " + i + " -> " + LApplication.gson.toJson(t))
+            showMsg("tagList -> " + i + " -> " + LApplication.gson.toJson(t))
         }
 
         // Creating note
@@ -98,31 +102,31 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         db.createNoteTag(note10Id, tag2Id)
 
         val noteCount = db.noteCount
-        LLog.d(TAG, "getNoteCount: $noteCount")
+        showMsg("getNoteCount: $noteCount")
 
         val noteList = db.noteList
-        LLog.d(TAG, "noteList size: " + noteList.size)
+        showMsg("noteList size: " + noteList.size)
         for (i in noteList.indices) {
             val td = noteList[i]
-            LLog.d(TAG, ">noteList " + i + " -> " + LApplication.gson.toJson(td))
+            showMsg(">noteList " + i + " -> " + LApplication.gson.toJson(td))
         }
 
         // Getting note under "Watchlist" tag name
         val tagsWatchList = db.getAllNoteByTag(tag3.tagName)
         for (i in tagsWatchList.indices) {
             val td = tagsWatchList[i]
-            LLog.d(TAG, ">tagsWatchList " + i + " -> " + LApplication.gson.toJson(td))
+            showMsg(">tagsWatchList " + i + " -> " + LApplication.gson.toJson(td))
         }
 
         // Deleting
-        LLog.d(TAG, "Tag Count Before Deleting: " + db.noteCount)
+        showMsg("Tag Count Before Deleting: " + db.noteCount)
         db.deleteNote(note8Id)
-        LLog.d(TAG, "Tag Count After Deleting: " + db.noteCount)
+        showMsg("Tag Count After Deleting: " + db.noteCount)
 
         // Deleting all note under "Shopping" tag
-        LLog.d(TAG, "Tag Count Before Deleting 'Shopping' note: " + db.noteCount)
+        showMsg("Tag Count Before Deleting 'Shopping' note: " + db.noteCount)
         db.deleteTag(tag1, true)
-        LLog.d(TAG, "Tag Count After Deleting 'Shopping' note: " + db.noteCount)
+        showMsg("Tag Count After Deleting 'Shopping' note: " + db.noteCount)
 
         // Updating tag name
         tag3.tagName = "Movies to watch"
@@ -136,5 +140,13 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         db.deleteAllDatabase()
         db.closeDB()
         super.onDestroy()
+    }
+
+    private fun showMsg(msg: String) {
+        LLog.d(TAG, msg)
+        val tv = TextView(activity)
+        tv.text = msg
+        LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 10)
+        ll.addView(tv)
     }
 }
