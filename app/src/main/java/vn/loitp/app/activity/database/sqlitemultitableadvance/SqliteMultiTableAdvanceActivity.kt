@@ -122,7 +122,15 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("createAction with id = $id -> " + LApplication.gson.toJson(action))
             }
             R.id.btUpdateAction -> {
-
+                val action = db.getAction(1)
+                if (action == null) {
+                    showMsg("Cannot update action id = 1 because action == null")
+                } else {
+                    action.actionType = Action.ACTION_EDIT
+                    action.inspection?.content = "Update content " + System.currentTimeMillis()
+                    val number = db.updateAction(action)
+                    showMsg("updateAction number: $number -> " + LApplication.gson.toJson(action))
+                }
             }
             R.id.btGetAction -> {
                 val action = db.getAction(1)

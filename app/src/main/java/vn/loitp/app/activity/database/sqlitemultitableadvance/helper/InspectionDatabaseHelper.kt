@@ -218,7 +218,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return null
     }
 
-    /*fun updateAction(action: Action): Int {
+    fun updateAction(action: Action): Int {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_TYPE, action.actionType)
@@ -226,7 +226,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         values.put(KEY_ACTION_INSPECTION, sInspection)
         return db.update(TABLE_ACTION, values, "$KEY_ID = ?",
                 arrayOf(action.id.toString()))
-    }*/
+    }
 
     /*fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
         val db = this.writableDatabase
