@@ -40,8 +40,10 @@ public class SwipeBackLayoutActivity extends BaseFontActivity {
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
                 LLog.d(getTAG(), "onViewSwipeFinished");
-                finish();
-                LActivityUtil.transActivityNoAniamtion(activity);
+                if(isEnd){
+                    finish();
+                    LActivityUtil.transActivityNoAniamtion(activity);
+                }
             }
         });
 

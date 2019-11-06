@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.core.utilities.LDateUtils;
+import com.core.utilities.LDateUtil;
 import com.core.utilities.LLog;
 
 import java.io.File;
@@ -130,7 +130,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
             if (callback != null) {
                 final long endTime = System.currentTimeMillis();
                 final long durationSec = (endTime - startTime) / 1000;
-                final String duration = LDateUtils.INSTANCE.convertSToFormat(durationSec, "HH:mm:ss");
+                final String duration = LDateUtil.INSTANCE.convertSToFormat(durationSec, "HH:mm:ss");
                 LLog.d(TAG, "onPostExecute duration: " + duration);
                 callback.onSuccess(durationSec, duration, file);
             }

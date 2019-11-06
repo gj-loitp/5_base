@@ -12,7 +12,7 @@ import com.utils.util.AppUtils
  *
  * @author loitp
  */
-class LPref {
+class LPrefUtil {
     private val TAG = javaClass.simpleName
 
     companion object {

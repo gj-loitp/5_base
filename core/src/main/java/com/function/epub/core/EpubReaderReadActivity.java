@@ -32,7 +32,7 @@ import com.core.common.Constants;
 import com.core.utilities.LAnimationUtil;
 import com.core.utilities.LConnectivityUtil;
 import com.core.utilities.LLog;
-import com.core.utilities.LPref;
+import com.core.utilities.LPrefUtil;
 import com.core.utilities.LReaderUtil;
 import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
@@ -467,7 +467,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             webView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null);
             webView.setScrollBarSize(ConvertUtils.dp2px(2));
             webView.setLayoutParams(layoutParams);
-            int size = LPref.Companion.getTextSizeEpub(getActivity());
+            int size = LPrefUtil.Companion.getTextSizeEpub(getActivity());
             updateUIWevViewSize(webView, size);
             return webView;
         } else {
@@ -526,7 +526,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 size = 250;
             }
             //LLog.d(TAG, "webView size " + size);
-            LPref.Companion.setTextSizeEpub(getActivity(), size);
+            LPrefUtil.Companion.setTextSizeEpub(getActivity(), size);
             updateUIWevViewSize(webView, size);
         }
     }
@@ -551,7 +551,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 size = 50;
             }
             //LLog.d(TAG, "webView size " + size);
-            LPref.Companion.setTextSizeEpub(getActivity(), size);
+            LPrefUtil.Companion.setTextSizeEpub(getActivity(), size);
             updateUIWevViewSize(webView, size);
         }
     }

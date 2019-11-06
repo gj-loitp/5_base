@@ -148,7 +148,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkReady() {
-        if (LPref.getCheckAppReady(activity)) {
+        if (LPrefUtil.getCheckAppReady(activity)) {
             isCheckReadyDone = true
             goToHome()
             return
@@ -171,7 +171,7 @@ class SplashActivity : BaseFontActivity() {
                     LLog.d(TAG, "onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
-                        LPref.setCheckAppReady(activity, true)
+                        LPrefUtil.setCheckAppReady(activity, true)
                         goToHome()
                     } else {
                         showDialogNotReady()
@@ -234,7 +234,7 @@ class SplashActivity : BaseFontActivity() {
 
             override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
                 LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
-                //LPref.setGGAppSetting(activity, app);
+                //LPrefUtil.setGGAppSetting(activity, app);
             }
         })
     }

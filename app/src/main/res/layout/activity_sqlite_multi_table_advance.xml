@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/WhiteSmoke">
+
+    <ScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_10">
+
+            <Button
+                android:id="@+id/btClearUI"
+                style="@style/ButtonMenu"
+                android:text="Clear UI" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btDeleteAllDatabase"
+                style="@style/ButtonMenu"
+                android:text="DeleteAllDatabase" />
+
+            <Button
+                android:id="@+id/btGetInspectionList"
+                style="@style/ButtonMenu"
+                android:text="GetInspectionList" />
+
+            <Button
+                android:id="@+id/btGetInspectionCount"
+                style="@style/ButtonMenu"
+                android:text="GetInspectionCount" />
+
+            <Button
+                android:id="@+id/btCreateInspection"
+                style="@style/ButtonMenu"
+                android:text="CreateInspection" />
+
+            <Button
+                android:id="@+id/btGetInspection"
+                style="@style/ButtonMenu"
+                android:text="GetInspection with id = 2" />
+
+            <Button
+                android:id="@+id/btUpdateInspection"
+                style="@style/ButtonMenu"
+                android:text="UpdateInspection with id = 1" />
+
+            <Button
+                android:id="@+id/btDeleteInspection"
+                style="@style/ButtonMenu"
+                android:text="DeleteInspection with id =1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btGetActionList"
+                style="@style/ButtonMenu"
+                android:text="GetActionList" />
+
+            <Button
+                android:id="@+id/btCreateAction"
+                style="@style/ButtonMenu"
+                android:text="CreateAction" />
+
+            <Button
+                android:id="@+id/btUpdateAction"
+                style="@style/ButtonMenu"
+                android:text="UpdateAction with id = 1" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btClearAll"
+                style="@style/ButtonMenu"
+                android:text="Clear all" />
+
+            <Button
+                android:id="@+id/btPutString"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put String" />
+
+            <Button
+                android:id="@+id/btGetString"
+                style="@style/ButtonMenu"
+                android:text="Get String" />
+
+            <Button
+                android:id="@+id/btPutStringWithDefaultValue"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put String WithDefaultValue" />
+
+            <Button
+                android:id="@+id/btGetStringWithDefaultValue"
+                style="@style/ButtonMenu"
+                android:text="Get String WithDefaultValue" />
+
+            <Button
+                android:id="@+id/btPutBoolean"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Boolean" />
+
+            <Button
+                android:id="@+id/btGetBoolean"
+                style="@style/ButtonMenu"
+                android:text="Get Boolean" />
+
+            <Button
+                android:id="@+id/btPutFloat"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Float" />
+
+            <Button
+                android:id="@+id/btGetFloat"
+                style="@style/ButtonMenu"
+                android:text="Get Float" />
+
+            <Button
+                android:id="@+id/btPutInt"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Int" />
+
+            <Button
+                android:id="@+id/btGetInt"
+                style="@style/ButtonMenu"
+                android:text="Get Int" />
+
+            <Button
+                android:id="@+id/btPutLong"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Long" />
+
+            <Button
+                android:id="@+id/btGetLong"
+                style="@style/ButtonMenu"
+                android:text="Get Long" />
+
+            <Button
+                android:id="@+id/btPutObject"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Object" />
+
+            <Button
+                android:id="@+id/btGetObject"
+                style="@style/ButtonMenu"
+                android:text="Get Object" />
+
+            <Button
+                android:id="@+id/btPutListObject"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put List Object" />
+
+            <Button
+                android:id="@+id/btListGetObject"
+                style="@style/ButtonMenu"
+                android:text="Get List Object" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="SharedPrefs Encryption" />
+</RelativeLayout>

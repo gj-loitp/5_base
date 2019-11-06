@@ -16,7 +16,7 @@ import com.R;
 import com.core.base.BaseFragment;
 import com.core.common.Constants;
 import com.core.utilities.LLog;
-import com.core.utilities.LPref;
+import com.core.utilities.LPrefUtil;
 import com.core.utilities.LUIUtil;
 import com.function.youtubeparser.models.utubechannel.UItem;
 import com.function.youtubeparser.models.utubechannel.UtubeChannel;
@@ -101,7 +101,7 @@ public class FrmYoutubeChannel extends BaseFragment {
     }
 
     private void getListChannel() {
-        final long lastTime = LPref.Companion.getTimeGetYoutubeChannelListSuccess(getActivity());
+        final long lastTime = LPrefUtil.Companion.getTimeGetYoutubeChannelListSuccess(getActivity());
         LLog.d(TAG, "lastTime " + lastTime);
         if (lastTime == 0) {
             LLog.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
@@ -114,7 +114,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                 LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
                 LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
-                final UtubeChannel utubeChannel = LPref.Companion.getYoutubeChannelList(getActivity());
+                final UtubeChannel utubeChannel = LPrefUtil.Companion.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
             }
@@ -142,8 +142,8 @@ public class FrmYoutubeChannel extends BaseFragment {
                         getListYoutubeChannelFailed();
                         return;
                     }
-                    LPref.Companion.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
-                    LPref.Companion.setYoutubeChannelList(getActivity(), utubeChannel);
+                    LPrefUtil.Companion.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
+                    LPrefUtil.Companion.setYoutubeChannelList(getActivity(), utubeChannel);
                     getListYoutubeChannelSuccess(utubeChannel);
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());

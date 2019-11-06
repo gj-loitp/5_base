@@ -24,6 +24,7 @@ import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.network.NetworkActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
 import vn.loitp.app.activity.picker.MenuPickerActivity
+import vn.loitp.app.activity.security.SecurityMenuActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
@@ -54,6 +55,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_tutorial).setOnClickListener(this)
         findViewById<View>(R.id.bt_picker).setOnClickListener(this)
         btNetwork.setOnClickListener(this)
+        btSecurity.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -93,6 +95,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_tutorial -> intent = Intent(activity, MenuTutorialActivity::class.java)
             R.id.bt_picker -> intent = Intent(activity, MenuPickerActivity::class.java)
             R.id.btNetwork -> intent = Intent(activity, NetworkActivity::class.java)
+            R.id.btSecurity -> intent = Intent(activity, SecurityMenuActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

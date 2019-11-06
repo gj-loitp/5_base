@@ -6,7 +6,7 @@ import android.util.Patterns
 import java.util.*
 import java.util.regex.Pattern
 
-object LValidateUtils {
+object LValidateUtil {
     private val TAG = javaClass.simpleName
 
     val MSG_0 = "pw_must_length_more_8_character"

@@ -18,11 +18,6 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_sqlite"
-                style="@style/ButtonMenu"
-                android:text="SQLite" />
-
-            <Button
                 android:id="@+id/bt_sqlite_asset"
                 style="@style/ButtonMenu"
                 android:text="Read SQLite Asset" />
@@ -32,6 +27,34 @@
                 style="@style/ButtonMenu"
                 android:text="Realm" />
 
+            <Button
+                android:id="@+id/btSharedPrefs"
+                style="@style/ButtonMenu"
+                android:text="SharedPrefs" />
+
+            <Button
+                android:id="@+id/btSharedPrefsEncryption"
+                style="@style/ButtonMenu"
+                android:text="SharedPrefsEncryption" />
+
+            <Button
+                android:id="@+id/bt_sqlite"
+                style="@style/ButtonMenu"
+                android:text="SQLite" />
+
+            <Button
+                android:id="@+id/btSqliteEncryption"
+                style="@style/ButtonMenu"
+                android:text="SQLite Encryption" />
+
+            <Button
+                android:id="@+id/btSqliteMultiTable"
+                style="@style/ButtonMenu"
+                android:text="SQLite Multi Table" />
+            <Button
+                android:id="@+id/btSqliteMultiTableAdvance"
+                style="@style/ButtonMenu"
+                android:text="SQLite Multi Table Advance" />
         </LinearLayout>
     </ScrollView>
 

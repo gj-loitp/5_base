@@ -5,7 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 
-class LDisplayUtils private constructor() {
+class LDisplayUtil private constructor() {
     init {
         throw Error("Do not need instantiate!")
     }

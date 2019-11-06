@@ -124,7 +124,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun startIdleTimeHandler(delayMls: Long) {
-        LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
+        //LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
         delayMlsIdleTime = delayMls
         handlerIdleTime = Handler()
         runnableIdleTime = Runnable {
@@ -347,21 +347,21 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    protected fun showShort(msg: String) {
+    protected fun showShort(msg: String?) {
         LToast.showShort(activity, msg, R.drawable.l_bkg_horizontal)
     }
 
-    protected fun showLong(msg: String) {
+    protected fun showLong(msg: String?) {
         LToast.showLong(activity, msg, R.drawable.l_bkg_horizontal)
     }
 
-    protected fun showShortDebug(msg: String) {
+    protected fun showShortDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
             showShort(msg)
         }
     }
 
-    protected fun showLongDebug(msg: String) {
+    protected fun showLongDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
             showLong(msg)
         }

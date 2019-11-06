@@ -21,9 +21,19 @@
             android:text="Add Dummy Contact" />
 
         <Button
+            android:id="@+id/btAdd100"
+            style="@style/ButtonMenu"
+            android:text="Add 100 Dummy Contact" />
+
+        <Button
             android:id="@+id/bt_getcontact_with_id"
             style="@style/ButtonMenu"
             android:text="Get Contact With ID=2" />
+
+        <Button
+            android:id="@+id/btGetContactListPage1"
+            style="@style/ButtonMenu"
+            android:text="Get Contact List Page 1" />
     </LinearLayout>
 
     <ScrollView
@@ -31,8 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_buttons"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -142,7 +142,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
     /*public List<Vocabulary> getFavVocabulary() {
         List<Vocabulary> vocabularyList = getAllVocabulary();
         List<Vocabulary> favVocabularyList = new ArrayList<>();
-        String jsonFavVocabulary = LPref.getJsonFavVocabulary(context);
+        String jsonFavVocabulary = LPrefUtil.getJsonFavVocabulary(context);
         if (jsonFavVocabulary != null && !jsonFavVocabulary.isEmpty()) {
             List<Integer> idList = LApplication.getGson().fromJson(jsonFavVocabulary, new TypeToken<List<Integer>>() {
             }.getType());

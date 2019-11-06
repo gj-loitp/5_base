@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btClearAll"
+            style="@style/ButtonMenu"
+            android:text="Clear all bike" />
+
+        <Button
+            android:id="@+id/btAddBike"
+            style="@style/ButtonMenu"
+            android:text="Add Dummy Bike" />
+
+        <Button
+            android:id="@+id/btGetBikeWithId"
+            style="@style/ButtonMenu"
+            android:text="Get bike With ID=2" />
+    </LinearLayout>
+
+    <ScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_buttons"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/demo_sqlite_encryption_nclick_to_edit_long_click_to_delete"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_20" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

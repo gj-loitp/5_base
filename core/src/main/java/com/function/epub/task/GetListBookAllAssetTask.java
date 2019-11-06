@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
-import com.core.utilities.LPref;
+import com.core.utilities.LPrefUtil;
 import com.function.epub.Reader;
 import com.function.epub.exception.ReadingException;
 import com.function.epub.model.BookInfo;
@@ -53,7 +53,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         LLog.INSTANCE.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
-        String jsonBookAsset = LPref.Companion.getJsonBookAsset(context);
+        String jsonBookAsset = LPrefUtil.Companion.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
             bookInfoList.addAll(searchForFiles());
         } else {
