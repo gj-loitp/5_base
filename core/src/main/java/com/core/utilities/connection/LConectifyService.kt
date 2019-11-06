@@ -9,6 +9,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
 import com.core.utilities.LConnectivityUtil
+import com.core.utilities.LLog
 import com.data.EventBusData
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -43,8 +44,7 @@ class LConectifyService : JobService(), ConnectivityReceiver.ConnectivityReceive
     }
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
-        //String message = isConnected ? "Good! Connected to Internet" : "Sorry! Not connected to internet";
-        //LLog.d(TAG, "onNetworkConnectionChanged " + message);
+        //LLog.d(TAG, "onNetworkConnectionChanged $isConnected");
         if (isConnected) {
             var isConnectedMobile = false
             var isConnectedWifi = false

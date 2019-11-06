@@ -4,6 +4,8 @@
     package="loitp.basemaster">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name="vn.loitp.app.app.LApplication"
         android:allowBackup="true"
@@ -1072,5 +1074,25 @@
             android:name="vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.service.MenuServiceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.service.endlessservice.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="vn.loitp.app.activity.service.endlessservice.EndlessService"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="vn.loitp.app.activity.service.endlessservice.StartReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
