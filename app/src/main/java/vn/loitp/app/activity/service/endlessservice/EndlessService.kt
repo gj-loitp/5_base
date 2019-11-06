@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.service.endlessservice
 
+import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
 import android.content.Intent
@@ -7,7 +8,6 @@ import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
-import android.widget.Toast
 import com.views.LToast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -49,22 +49,23 @@ class EndlessService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        log("The service has been created".toUpperCase())
+        log("The service has been created")
         val notification = createNotification()
         startForeground(1, notification)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        log("The service has been destroyed".toUpperCase())
-        Toast.makeText(this, "Service destroyed", Toast.LENGTH_SHORT).show()
+        log("The service has been destroyed")
+        LToast.showShort(applicationContext, "Service destroyed")
         disposable?.dispose()
     }
 
+    @SuppressLint("WakelockTimeout")
     private fun startService() {
         if (isServiceStarted) return
         log("Starting the foreground service task")
-        Toast.makeText(this, "Service starting its task", Toast.LENGTH_SHORT).show()
+        LToast.showShort(this, "Service starting its task")
         isServiceStarted = true
         setServiceState(this, ServiceState.STARTED)
 
@@ -75,7 +76,7 @@ class EndlessService : Service() {
                         acquire()
                     }
                 }
-        val timeInSec = 2L
+        val timeInSec = 5L
         disposable = Observable.interval(timeInSec, timeInSec, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -86,6 +87,9 @@ class EndlessService : Service() {
                     override fun onNext(value: Long) {
                         log("onNext value $value")
                         LToast.showShort(applicationContext, "onNext value $value")
+                        /*if (value == 5L) {
+                            stopService()
+                        }*/
                     }
 
                     override fun onError(e: Throwable) {
@@ -98,7 +102,7 @@ class EndlessService : Service() {
 
     private fun stopService() {
         log("Stopping the foreground service")
-        Toast.makeText(this, "Service stopping", Toast.LENGTH_SHORT).show()
+        LToast.showShort(this, "Service stopping")
         try {
             wakeLock?.let {
                 if (it.isHeld) {
