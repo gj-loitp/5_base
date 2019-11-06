@@ -151,30 +151,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return null
     }
 
-    /*fun getAllInspectionByAction(actionType: String?): List<Inspection> {
-        val noteList = ArrayList<Inspection>()
-
-        val selectQuery = "SELECT  * FROM " + TABLE_ACTION +
-                "WHERE " + KEY_ACTION_TYPE + " = '" + actionType + "'"
-
-        val db = this.readableDatabase
-        val c = db.rawQuery(selectQuery, null)
-
-        if (c.moveToFirst()) {
-            do {
-                val td = Inspection()
-                td.id = c.getInt(c.getColumnIndex(KEY_ID))
-                td.inspectionId = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
-                td.content = c.getString(c.getColumnIndex(KEY_INSPECTION_CONTENT))
-                noteList.add(td)
-            } while (c.moveToNext())
-        }
-
-        c.close()
-        return noteList
-    }*/
-
-
     fun updateInspection(inspection: Inspection): Int {
         val db = this.writableDatabase
 
@@ -236,22 +212,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         db.close()
         return number
     }
-
-
-    /*fun updateNoteTag(id: Long, tagId: Long): Int {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(KEY_ACTION_ID_FK, tagId)
-        // updating row
-        return db.update(TABLE_INSPECTION, values, "$KEY_ID = ?",
-                arrayOf(id.toString()))
-    }
-
-    fun deleteNoteTag(id: Long) {
-        val db = this.writableDatabase
-        db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
-                arrayOf(id.toString()))
-    }*/
 
     fun closeDB() {
         val db = this.readableDatabase

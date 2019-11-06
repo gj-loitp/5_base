@@ -139,6 +139,9 @@ dependencies {
 
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
+
+    //https://github.com/amitshekhariitbhu/Android-Debug-Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }
 apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
