@@ -228,32 +228,17 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 arrayOf(action.id.toString()))
     }
 
-    /*fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
+    //This function returns the number of rows modified
+    fun deleteAction(action: Action): Int {
         val db = this.writableDatabase
-
-        // before deleting tag
-        // check if todos under this tag should also be deleted
-        if (shouldDeleteAllTagNotes) {
-            // get all notes under this tag
-            val allTagNotes = getAllNoteByTag(tag.tagName)
-
-            // delete all todos
-            for (todo in allTagNotes) {
-                deleteNote(todo.id.toLong())
-            }
-        }
-
-        // now delete the tag
-        db.delete(TABLE_ACTION, "$KEY_ID = ?",
-                arrayOf(tag.id.toString()))
+        val number = db.delete(TABLE_ACTION, "$KEY_ID = ?",
+                arrayOf(action.id.toString()))
         db.close()
+        return number
     }
 
-    // ------------------------ "todo_tags" table methods ----------------//
 
-
-
-    fun updateNoteTag(id: Long, tagId: Long): Int {
+    /*fun updateNoteTag(id: Long, tagId: Long): Int {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_ID_FK, tagId)

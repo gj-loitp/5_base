@@ -33,6 +33,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btCreateAction.setOnClickListener(this)
         btUpdateAction.setOnClickListener(this)
         btGetAction.setOnClickListener(this)
+        btDeleteAction.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -135,6 +136,15 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             R.id.btGetAction -> {
                 val action = db.getAction(1)
                 showMsg("getAction: " + LApplication.gson.toJson(action))
+            }
+            R.id.btDeleteAction -> {
+                val action = db.getAction(1)
+                if (action == null) {
+                    showMsg("Cannot delete action id = 1 because action == null")
+                } else {
+                    val number = db.deleteAction(action)
+                    showMsg("deleteAction number: $number")
+                }
             }
         }
         db.closeDB()
