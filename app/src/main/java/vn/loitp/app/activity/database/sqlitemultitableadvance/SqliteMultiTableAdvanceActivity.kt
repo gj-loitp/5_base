@@ -121,6 +121,10 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
 
                 val id = db.createAction(action)
                 showMsg("createAction with id = $id -> " + LApplication.gson.toJson(action))
+
+                //add to inspection table
+                val inspectionId = db.createInspection(inspection)
+                showMsg("then add to inspection table -> inspectionId: $inspectionId")
             }
             R.id.btUpdateAction -> {
                 val action = db.getAction(1)
