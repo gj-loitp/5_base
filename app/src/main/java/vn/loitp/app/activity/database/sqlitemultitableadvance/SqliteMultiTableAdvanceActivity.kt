@@ -121,7 +121,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("createAction with id = $id -> " + LApplication.gson.toJson(action))
             }
             R.id.btUpdateAction -> {
-                
+
             }
         }
         db.closeDB()
