@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Endless service" />
+
     <Button
         android:id="@+id/btnStartService"
         style="@style/ButtonMenu"

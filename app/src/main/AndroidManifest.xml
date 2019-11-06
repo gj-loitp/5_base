@@ -1079,7 +1079,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.service.endlessservice.MainActivity"
+            android:name="vn.loitp.app.activity.service.endlessservice.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
 
@@ -1088,7 +1088,7 @@
             android:enabled="true"
             android:exported="false" />
         <receiver
-            android:name="vn.loitp.app.activity.service.endlessservice.StartReceiver"
+            android:name="vn.loitp.app.activity.service.endlessservice.RebootDeviceReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

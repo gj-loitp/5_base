@@ -136,7 +136,7 @@ class EndlessService : Service() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val pendingIntent: PendingIntent = Intent(this, MainActivity::class.java).let { notificationIntent ->
+        val pendingIntent: PendingIntent = Intent(this, EndlessServiceActivity::class.java).let { notificationIntent ->
             PendingIntent.getActivity(this, 0, notificationIntent, 0)
         }
 

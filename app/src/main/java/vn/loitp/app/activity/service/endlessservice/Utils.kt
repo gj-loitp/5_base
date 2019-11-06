@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.service.endlessservice
 
-import android.util.Log
+import com.core.utilities.LLog
 
 fun log(msg: String) {
-    Log.d("ENDLESS-SERVICE", msg)
+    LLog.d("ENDLESS-SERVICE", msg)
 }
