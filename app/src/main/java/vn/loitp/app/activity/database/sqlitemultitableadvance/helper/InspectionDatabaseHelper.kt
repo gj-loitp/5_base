@@ -201,8 +201,24 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return db.insert(TABLE_ACTION, null, values)
     }
 
+    fun getAction(actionId: Long): Action? {
+        val db = this.readableDatabase
+        val selectQuery = ("SELECT  * FROM " + TABLE_ACTION + " WHERE "
+                + KEY_ID + " = " + actionId)
+        val c = db.rawQuery(selectQuery, null)
+        if (c != null && c.moveToFirst()) {
+            val action = Action()
+            action.id = c.getInt(c.getColumnIndex(KEY_ID))
+            action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
+            val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
+            action.inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+            c.close()
+            return action
+        }
+        return null
+    }
 
-    fun updateAction(action: Action): Int {
+    /*fun updateAction(action: Action): Int {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_TYPE, action.actionType)
@@ -210,7 +226,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         values.put(KEY_ACTION_INSPECTION, sInspection)
         return db.update(TABLE_ACTION, values, "$KEY_ID = ?",
                 arrayOf(action.id.toString()))
-    }
+    }*/
 
     /*fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
         val db = this.writableDatabase

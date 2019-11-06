@@ -32,6 +32,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         btDeleteInspection.setOnClickListener(this)
         btCreateAction.setOnClickListener(this)
         btUpdateAction.setOnClickListener(this)
+        btGetAction.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -122,6 +123,10 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             }
             R.id.btUpdateAction -> {
 
+            }
+            R.id.btGetAction -> {
+                val action = db.getAction(1)
+                showMsg("getAction: " + LApplication.gson.toJson(action))
             }
         }
         db.closeDB()

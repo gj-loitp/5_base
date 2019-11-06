@@ -80,6 +80,11 @@
                 android:text="CreateAction" />
 
             <Button
+                android:id="@+id/btGetAction"
+                style="@style/ButtonMenu"
+                android:text="GetAction with id = 1" />
+
+            <Button
                 android:id="@+id/btUpdateAction"
                 style="@style/ButtonMenu"
                 android:text="UpdateAction with id = 1" />
