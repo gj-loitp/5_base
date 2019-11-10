@@ -94,6 +94,11 @@
                 android:id="@+id/btDeleteAction"
                 style="@style/ButtonMenu"
                 android:text="DeleteAction with id = 1" />
+
+            <Button
+                android:id="@+id/btGetActionListByPage"
+                style="@style/ButtonMenu"
+                android:text="Get action list by page (pageSize=5)" />
         </LinearLayout>
     </ScrollView>
 

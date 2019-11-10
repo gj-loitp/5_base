@@ -120,6 +120,68 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return actionList
     }
 
+    fun getActionCount(): Int {
+        val countQuery = "SELECT  * FROM $TABLE_ACTION"
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(countQuery, null)
+        val count = cursor.count
+        cursor.close()
+        return count
+    }
+
+    fun getTotalPageAction(pageSize: Int): Int {
+        val count = getActionCount()
+        return if (count % pageSize == 0) {
+            count / pageSize
+        } else {
+            count / pageSize + 1
+        }
+    }
+
+    //page 1 -> getActionListByPage(0, 50)
+    //page 2 -> getActionListByPage(1, 50)
+    fun getActionListByPage(page: Int, pageSize: Int): List<Action> {
+//        SELECT * FROM table limit 100` -- get 1st 100 records
+//        SELECT * FROM table limit 100, 200` -- get 200 records beginning with row 101
+
+
+        //for test
+        /*val count = getActionCount()
+        LLog.d(TAG, "page: $page, pageSize: $pageSize")
+        LLog.d(TAG, "getActionCount: $count ")
+
+        val totalPage = if (count % pageSize == 0) {
+            count / pageSize
+        } else {
+            count / pageSize + 1
+        }
+        LLog.d(TAG, "totalPage: $totalPage")
+        for (i in 0 until totalPage) {
+            val startIndexByPage = i * pageSize
+            LLog.d(TAG, "i: $i -> startIndexByPage: $startIndexByPage")
+        }*/
+
+        val startIndexByPage = page * pageSize
+        val actionList = ArrayList<Action>()
+        val selectQuery = "SELECT  * FROM $TABLE_ACTION LIMIT $startIndexByPage, $pageSize "
+
+        val db = this.readableDatabase
+        val c = db.rawQuery(selectQuery, null)
+        if (c.moveToFirst()) {
+            do {
+                val action = Action()
+                action.id = c.getInt(c.getColumnIndex(KEY_ID))
+                action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
+                val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
+                val inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+                action.inspection = inspection
+                actionList.add(action)
+            } while (c.moveToNext())
+        }
+        c.close()
+        return actionList
+    }
+
     fun createInspection(inspection: Inspection): Long {
         val db = this.writableDatabase
 
