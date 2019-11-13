@@ -18,20 +18,20 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btDemoService"
+                android:id="@+id/btStartService"
                 style="@style/ButtonMenu"
-                android:text="Demo service" />
+                android:text="Start service" />
 
             <Button
-                android:id="@+id/btEndlessService"
+                android:id="@+id/btStopService"
                 style="@style/ButtonMenu"
-                android:text="Endless service" />
+                android:text="Stop service" />
         </LinearLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="@string/picker_menu" />
+        android:text="Demo service" />
 </RelativeLayout>
 
