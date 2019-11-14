@@ -11,8 +11,13 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.R
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LSharedPrefsUtil
+import com.data.EventBusData
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * Created by loitp on 2019/7/12
@@ -33,6 +38,7 @@ abstract class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
         TAG = "TAG" + setTag()
+        EventBus.getDefault().register(this)
         return frmRootView
     }
 
@@ -42,6 +48,7 @@ abstract class BaseFragment : Fragment() {
     override fun onDestroyView() {
         LDialogUtil.clearAll()
         compositeDisposable.clear()
+        EventBus.getDefault().unregister(this)
         super.onDestroyView()
     }
 
@@ -121,5 +128,23 @@ abstract class BaseFragment : Fragment() {
 
     open fun showShort(msg: String) {
         activity?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onMessageEvent(event: EventBusData.ConnectEvent) {
+        //TAG = "onMessageEvent"
+        //LLog.d(TAG, "onMessageEvent " + event.isConnected())
+        val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+        //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
+        val isConnected = event.isConnected
+        if (prevIsConnectedNetwork != isConnected) {
+            //LLog.d(TAG, "onNetworkChange")
+            LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, isConnected)
+            onNetworkChange(event)
+        }
+    }
+
+    open fun onNetworkChange(event: EventBusData.ConnectEvent) {
+        //showToastLongDebug("onNetworkChange isConnected: ${event.isConnected}")
     }
 }
