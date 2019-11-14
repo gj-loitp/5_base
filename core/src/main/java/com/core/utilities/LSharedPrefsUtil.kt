@@ -182,8 +182,7 @@ class LSharedPrefsUtil private constructor() {
         private val PREFS_NAME = AppUtils.getAppPackageName() + TAG
         private var mInstance: LSharedPrefsUtil? = null
 
-        val KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY = "KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY"
-        val KEY_BOOLEAN_IS_CONNECTED_NETWORK_FRAGMENT = "KEY_BOOLEAN_IS_CONNECTED_NETWORK_FRAGMENT"
+        val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
 
         val instance: LSharedPrefsUtil
             get() {

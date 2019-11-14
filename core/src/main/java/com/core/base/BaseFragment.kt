@@ -134,14 +134,7 @@ abstract class BaseFragment : Fragment() {
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
         //LLog.d(TAG, "onMessageEvent " + event.isConnected())
-        val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_FRAGMENT)
-        //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
-        val isConnected = event.isConnected
-        if (prevIsConnectedNetwork != isConnected) {
-            //LLog.d(TAG, "onNetworkChange")
-            LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_FRAGMENT, isConnected)
-            onNetworkChange(event)
-        }
+        onNetworkChange(event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {

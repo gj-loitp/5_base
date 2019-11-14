@@ -20,7 +20,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.R
 import com.core.common.Constants
-import com.core.utilities.*
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import com.core.utilities.connection.LConectifyService
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
@@ -293,14 +296,7 @@ abstract class BaseActivity : AppCompatActivity() {
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
         //LLog.d(TAG, "onMessageEvent " + event.isConnected())
-        val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY)
-        //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
-        val isConnected = event.isConnected
-        if (prevIsConnectedNetwork != isConnected) {
-            //LLog.d(TAG, "onNetworkChange")
-            LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY, isConnected)
-            onNetworkChange(event)
-        }
+        onNetworkChange(event)
         /*if (!event.isConnected()) {
             //no network
             showTvNoConnect()
