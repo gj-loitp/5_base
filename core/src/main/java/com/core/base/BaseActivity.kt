@@ -293,12 +293,12 @@ abstract class BaseActivity : AppCompatActivity() {
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
         //LLog.d(TAG, "onMessageEvent " + event.isConnected())
-        val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+        val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY)
         //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
         val isConnected = event.isConnected
         if (prevIsConnectedNetwork != isConnected) {
             //LLog.d(TAG, "onNetworkChange")
-            LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, isConnected)
+            LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY, isConnected)
             onNetworkChange(event)
         }
         /*if (!event.isConnected()) {

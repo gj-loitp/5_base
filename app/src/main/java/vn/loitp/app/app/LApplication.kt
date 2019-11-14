@@ -2,6 +2,7 @@ package vn.loitp.app.app
 
 import androidx.multidex.MultiDexApplication
 import com.core.common.Constants
+import com.core.utilities.LConnectivityUtil
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
@@ -61,5 +62,7 @@ class LApplication : MultiDexApplication() {
 
         //big imageview
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
+
+        LConnectivityUtil.initOnNetworkChange(applicationContext)
     }
 }

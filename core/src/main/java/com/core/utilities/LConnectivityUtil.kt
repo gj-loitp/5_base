@@ -7,6 +7,12 @@ import android.telephony.TelephonyManager
 
 object LConnectivityUtil {
 
+    fun initOnNetworkChange(context: Context) {
+        val isConnected = isConnected(context)
+        LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_ACTIVITY, isConnected)
+        LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK_FRAGMENT, isConnected)
+    }
+
     /**
      * Get the network info
      *
