@@ -24,6 +24,9 @@ public class LEncryptionUtil {
     private static final SecureRandom random = new SecureRandom();
 
     public static String encrypt(String plaintext, String password) {
+        if (plaintext == null) {
+            return null;
+        }
         byte[] salt = generateSalt();
         SecretKey key = deriveKey(password, salt);
 
@@ -53,6 +56,9 @@ public class LEncryptionUtil {
     }
 
     public static String decrypt(String cipherText, String password) {
+        if (cipherText == null) {
+            return null;
+        }
         String[] fields = cipherText.split(DELIMITER);
         if (fields.length != 3) {
             throw new IllegalArgumentException("Invalid encypted text format");
@@ -109,6 +115,9 @@ public class LEncryptionUtil {
      * @return the enooded from of the message
      */
     public static String encodeBase64(String message) {
+        if (message == null) {
+            return null;
+        }
         byte[] data;
         data = message.getBytes(StandardCharsets.UTF_8);
         return Base64.encodeToString(data, Base64.DEFAULT);
@@ -119,6 +128,9 @@ public class LEncryptionUtil {
      * @return the decoded message
      */
     public static String decodeBase64(String message) {
+        if (message == null) {
+            return null;
+        }
         byte[] data = Base64.decode(message, Base64.DEFAULT);
         return new String(data, StandardCharsets.UTF_8);
     }
