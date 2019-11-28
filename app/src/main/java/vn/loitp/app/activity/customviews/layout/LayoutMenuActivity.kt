@@ -23,6 +23,7 @@ import vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutAct
 import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity
+import vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
@@ -59,6 +60,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_scroll_view_2d).setOnClickListener(this)
         findViewById<View>(R.id.bt_scroll_view_2d_advance).setOnClickListener(this)
         btSwipeRevealLayout.setOnClickListener(this)
+        btRoundableLayout.setOnClickListener(this)
         btShadowLayout.setOnClickListener(this)
     }
 
@@ -101,6 +103,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_scroll_view_2d_advance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
             R.id.btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)
             R.id.btShadowLayout -> intent = Intent(activity, ShadowLayoutActivity::class.java)
+            R.id.btRoundableLayout -> intent = Intent(activity, RoundableLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

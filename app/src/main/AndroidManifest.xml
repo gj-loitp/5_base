@@ -1095,8 +1095,13 @@
             </intent-filter>
         </receiver>
         <service android:name="vn.loitp.app.activity.service.demoservice.DemoService" />
+
         <activity
             android:name="vn.loitp.app.activity.service.demoservice.DemoServiceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
     </application>
