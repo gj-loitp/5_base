@@ -87,11 +87,58 @@
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/margin_50"
+                android:elevation="5dp"
+                app:lrl_backgroundColor="@color/White"
+                app:lrl_cornerLeftTop="40dp"
+                app:lrl_cornerRightBottom="40dp"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="10dp"
+                app:lrl_strokeLineColor="@color/colorPrimary"
+                app:lrl_strokeLineWidth="5dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.views.layout.roundablelayout.LRoundableLayout>
+
+            <com.views.layout.roundablelayout.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/margin_50"
                 android:elevation="0dp"
                 app:lrl_backgroundColor="@color/White"
                 app:lrl_cornerLeftBottom="90dp"
                 app:lrl_cornerLeftTop="90dp"
                 app:lrl_cornerRightBottom="90dp" />
+
+            <com.views.layout.roundablelayout.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/margin_50"
+                android:elevation="0dp"
+                app:lrl_backgroundColor="@color/White"
+                app:lrl_cornerLeftBottom="90dp"
+                app:lrl_cornerLeftTop="90dp"
+                app:lrl_cornerRightBottom="90dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.views.layout.roundablelayout.LRoundableLayout>
 
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
@@ -110,6 +157,36 @@
                 app:lrl_dashLineWidth="15dp"
                 app:lrl_strokeLineColor="@color/Red"
                 app:lrl_strokeLineWidth="5dp" />
+
+            <com.views.layout.roundablelayout.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/margin_50"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:lrl_backgroundColor="@color/White"
+                app:lrl_cornerLeftBottom="@dimen/w_200"
+                app:lrl_cornerLeftSide="@dimen/w_100"
+                app:lrl_cornerLeftTop="@dimen/w_200"
+                app:lrl_cornerRightBottom="@dimen/w_200"
+                app:lrl_cornerRightSide="@dimen/w_100"
+                app:lrl_cornerRightTop="@dimen/w_200"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="15dp"
+                app:lrl_strokeLineColor="@color/Red"
+                app:lrl_strokeLineWidth="5dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.views.layout.roundablelayout.LRoundableLayout>
 
             <View
                 android:layout_width="match_parent"
