@@ -39,6 +39,11 @@
                 android:text="LButton" />
 
             <Button
+                android:id="@+id/btQButton"
+                style="@style/ButtonMenu"
+                android:text="QButton" />
+
+            <Button
                 android:id="@+id/bt_rounded_button"
                 style="@style/ButtonMenu"
                 android:text="Rounded Button" />

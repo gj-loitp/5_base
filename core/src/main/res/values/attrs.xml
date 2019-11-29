@@ -763,4 +763,13 @@
         <attr name="lrl_cornerLeftSide" format="dimension" />
         <attr name="lrl_cornerRightSide" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="QButton">
+        <attr name="qb_backgroundColor" format="color" />
+        <attr name="qb_radius" format="integer" />
+        <attr name="qb_strokeColor" format="color" />
+        <attr name="qb_strokeWidth" format="integer" />
+        <attr name="qb_strokeDashWidth" format="integer" />
+        <attr name="qb_strokeDashGap" format="integer" />
+    </declare-styleable>
 </resources>

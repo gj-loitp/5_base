@@ -7,12 +7,14 @@ import android.view.View.OnClickListener
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_button_menu.*
 
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity
 import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity
+import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
 import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
@@ -26,6 +28,7 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_l_button).setOnClickListener(this)
         findViewById<View>(R.id.bt_auto_size_button).setOnClickListener(this)
         findViewById<View>(R.id.bt_rounded_button).setOnClickListener(this)
+        btQButton.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -49,6 +52,7 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_l_button -> intent = Intent(activity, LButtonActivity::class.java)
             R.id.bt_auto_size_button -> intent = Intent(activity, AutoSizeButtonActivity::class.java)
             R.id.bt_rounded_button -> intent = Intent(activity, RoundedButtonActivity::class.java)
+            R.id.btQButton -> intent = Intent(activity, QButtonActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
