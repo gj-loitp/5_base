@@ -15,8 +15,6 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
-//TODO compass
-//TODO bug custom view -> button -> loading button
 //TODO crash FloatingViewActivity -> demo app -> floating view
 //TODO crash read sqlite android 9 -> VocabularyManager
 
