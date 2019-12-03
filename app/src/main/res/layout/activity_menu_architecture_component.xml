@@ -20,7 +20,7 @@
             <Button
                 android:id="@+id/btViewModel"
                 style="@style/ButtonMenu"
-                android:text="View model" />
+                android:text="View model - Live Data" />
 
         </LinearLayout>
     </ScrollView>

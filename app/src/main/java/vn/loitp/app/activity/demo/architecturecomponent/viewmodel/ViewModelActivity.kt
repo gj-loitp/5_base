@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
+import com.core.utilities.LDateUtil
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_view_model.*
 import loitp.basemaster.R
@@ -17,6 +18,7 @@ class ViewModelActivity : BaseFontActivity() {
 
     private lateinit var colorChangerViewModel: ColorChangerViewModel
     private lateinit var userViewModel: UserViewModel
+    private lateinit var timeChangerViewModel: TimeChangerViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,11 @@ class ViewModelActivity : BaseFontActivity() {
             userViewModel.mUser = user
             tv.text = LApplication.gson.toJson(userViewModel.mUser)
         }
+
+        timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)
+        timeChangerViewModel.timerValue.observe(this, Observer {
+            tvTime.text = "$it -> " + LDateUtil.getDateCurrentTimeZoneMls(it, "yyyy-MM-dd HH:mm:ss")
+        })
     }
 
     override fun setFullScreen(): Boolean {

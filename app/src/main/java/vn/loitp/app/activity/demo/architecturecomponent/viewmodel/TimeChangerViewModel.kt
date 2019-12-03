@@ -14,7 +14,7 @@ class TimeChangerViewModel : ViewModel() {
     }
 
     private fun startTimer() {
-        val disposable = Observable.interval(2, 2, TimeUnit.SECONDS)
+        val disposable = Observable.interval(1, 1, TimeUnit.SECONDS)
                 .subscribe({
                     timerValue.postValue(System.currentTimeMillis())
                 }, Throwable::printStackTrace)
