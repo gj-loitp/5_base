@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.architecturecomponent.viewmodel
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_view_model.*
@@ -21,7 +21,7 @@ class ViewModelActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         LLog.d(TAG, "onCreate")
 
-        colorChangerViewModel = ViewModelProviders.of(this).get(ColorChangerViewModel::class.java)
+        colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
 
         ll.setBackgroundColor(colorChangerViewModel.getColorResource())
         btChangeColor.setOnClickListener {
@@ -34,7 +34,7 @@ class ViewModelActivity : BaseFontActivity() {
         defUser.fullName = "Loitp"
         defUser.email = "www.muathu@gmail.com"
         val factory = UserViewModel.CustomViewModelFactory(defUser)
-        userViewModel = ViewModelProviders.of(this, factory).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
         tv.text = LApplication.gson.toJson(userViewModel.mUser)
         btChangeUser.setOnClickListener {
             val user = User()
