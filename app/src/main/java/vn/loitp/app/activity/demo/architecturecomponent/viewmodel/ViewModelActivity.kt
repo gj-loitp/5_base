@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.architecturecomponent.viewmodel
 
 import android.graphics.Color
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
@@ -22,12 +23,11 @@ class ViewModelActivity : BaseFontActivity() {
         LLog.d(TAG, "onCreate")
 
         colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
-
-        ll.setBackgroundColor(colorChangerViewModel.getColorResource())
+        colorChangerViewModel.colorResource.observe(this, Observer {
+            ll.setBackgroundColor(it)
+        })
         btChangeColor.setOnClickListener {
-            val color = generateRandomColor()
-            ll.setBackgroundColor(color)
-            colorChangerViewModel.setColorResource(color)
+            colorChangerViewModel.colorResource.value = generateRandomColor()
         }
 
         val defUser = User()

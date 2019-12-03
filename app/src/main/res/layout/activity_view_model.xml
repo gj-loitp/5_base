@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvMenu"
@@ -12,20 +13,25 @@
     <Button
         android:id="@+id/btChangeColor"
         style="@style/ButtonMenu"
-        android:layout_below="@+id/tvMenu"
         android:text="Change color" />
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:gravity="center"
         android:padding="@dimen/padding_10"
         android:textSize="@dimen/txt_18" />
 
     <Button
         android:id="@+id/btChangeUser"
         style="@style/ButtonMenu"
-        android:layout_below="@+id/tv"
         android:text="Change user" />
-</RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_10"
+        android:textSize="@dimen/txt_18" />
+</LinearLayout>
