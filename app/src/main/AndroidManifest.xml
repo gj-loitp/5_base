@@ -1108,5 +1108,10 @@
             android:name="vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity" />
     </application>
 </manifest>

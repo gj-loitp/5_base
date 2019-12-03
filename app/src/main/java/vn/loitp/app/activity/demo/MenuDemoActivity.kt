@@ -12,6 +12,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
+import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
@@ -71,6 +72,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
         btDeepLinks.setOnClickListener(this)
+        btArchitectureComponent.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -136,6 +138,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
             R.id.btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
             R.id.bt_gallery_core_album_frm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
+            R.id.btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

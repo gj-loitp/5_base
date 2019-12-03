@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextMenu"
+        android:text="View model" />
+
+    <Button
+        android:id="@+id/btChangeColor"
+        style="@style/ButtonMenu"
+        android:text="Change color" />
+</LinearLayout>

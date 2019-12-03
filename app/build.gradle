@@ -117,13 +117,13 @@ dependencies {
 
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     //implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
 
     //https://github.com/siralam/BSImagePicker
-    implementation 'com.asksira.android:bsimagepicker:1.1.0'
+    api 'com.asksira.android:bsimagepicker:1.1.0'
 
     //https://github.com/JakeWharton/butterknife
-    implementation 'com.jakewharton:butterknife:10.1.0'
+    api 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
     //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
@@ -135,7 +135,7 @@ dependencies {
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
     //https://github.com/ParkSangGwon/TedImagePicker
-    api 'gun0912.ted:tedimagepicker:1.0.2'
+    api 'gun0912.ted:tedimagepicker:1.0.4'
 
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
