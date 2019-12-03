@@ -47,8 +47,17 @@ class ViewModelActivity : BaseFontActivity() {
         }
 
         timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)
+        var countToStop = 0
         timeChangerViewModel.timerValue.observe(this, Observer {
-            tvTime.text = "$it -> " + LDateUtil.getDateCurrentTimeZoneMls(it, "yyyy-MM-dd HH:mm:ss")
+            countToStop++
+            LLog.d(TAG, "countToStop $countToStop")
+            if (countToStop >= 15) {
+                LLog.d(TAG, "countToStop $countToStop -> STOP")
+                tvTime.text = "countToStop: $countToStop -> STOP"
+                timeChangerViewModel.timerValue.removeObservers(this)
+                return@Observer
+            }
+            tvTime.text = "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(it, "yyyy-MM-dd HH:mm:ss")
         })
     }
 
