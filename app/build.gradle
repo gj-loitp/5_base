@@ -63,9 +63,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    /*packagingOptions {
-        exclude 'META-INF/core_release.kotlin_module'
-    }*/
+    packagingOptions {
+        //exclude 'META-INF/core_release.kotlin_module'
+
+        //exclude the atomic functions module from the package and prevent warnings.
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
 }
 
 repositories {

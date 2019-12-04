@@ -61,7 +61,7 @@ class LDeviceUtil {
             } else {
                 val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
                 val clip = android.content.ClipData.newPlainText("Copy", text)
-                clipboard.primaryClip = clip
+                clipboard.setPrimaryClip(clip)
             }
         }
 
