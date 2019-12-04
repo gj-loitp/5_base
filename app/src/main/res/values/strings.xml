@@ -568,4 +568,13 @@ Likewise may someone love you next.
     <string name="title_auto_rtl">Feature - RTL Support</string>
     <string name="title_tab_scroll_disabled">Feature - Tab Scroll Disabled</string>
     <string name="title_tab_on_screen_limit">Feature - OnScreen Limit</string>
+    <string name="read_sqlite_asset">Read SQLite Asset</string>
+    <string name="realm">Realm</string>
+    <string name="sharedprefs">SharedPrefs</string>
+    <string name="sharedprefsencryption">SharedPrefsEncryption</string>
+    <string name="sqlite">SQLite</string>
+    <string name="sqlite_encryption">SQLite Encryption</string>
+    <string name="sqlite_multi_table">SQLite Multi Table</string>
+    <string name="sqlite_multi_table_advance">SQLite Multi Table Advance</string>
+    <string name="menu_databse">Menu Databse</string>
 </resources>

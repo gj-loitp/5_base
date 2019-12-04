@@ -17,15 +17,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <!--<Button
                 android:id="@+id/btRoom"
                 style="@style/ButtonMenu"
-                android:text="Room" />
-
-            <Button
-                android:id="@+id/btViewModel"
-                style="@style/ButtonMenu"
-                android:text="View model - Live Data" />
+                android:text="Room" />-->
 
         </LinearLayout>
     </ScrollView>
@@ -33,5 +28,5 @@
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Menu Architecture Component" />
+        android:text="Room" />
 </RelativeLayout>

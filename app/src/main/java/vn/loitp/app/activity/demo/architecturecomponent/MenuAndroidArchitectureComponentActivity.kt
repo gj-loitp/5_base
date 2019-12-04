@@ -7,12 +7,14 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_architecture_component.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.demo.architecturecomponent.room.RoomActivity
 import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity
 
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        btRoom.setOnClickListener(this)
         btViewModel.setOnClickListener(this)
     }
 
@@ -31,6 +33,7 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
     override fun onClick(v: View?) {
         var intent: Intent? = null
         when (v?.id) {
+            R.id.btRoom -> intent = Intent(this, RoomActivity::class.java)
             R.id.btViewModel -> intent = Intent(this, ViewModelActivity::class.java)
         }
         intent?.let { i ->

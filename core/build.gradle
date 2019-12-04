@@ -48,6 +48,8 @@ android {
 
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //image loader
     api 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     //bigimageview https://github.com/Piasy/BigImageViewer
@@ -57,6 +59,7 @@ dependencies {
     api 'jp.wasabeef:glide-transformations:2.0.2'
 
     api fileTree(dir: 'libs', include: ['*.jar'])
+    //retrofit
     api 'com.squareup.retrofit2:retrofit:2.5.0'
     api 'com.squareup.retrofit2:converter-gson:2.5.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
@@ -64,6 +67,7 @@ dependencies {
     api 'com.j256.ormlite:ormlite-core:4.48'
     api 'com.j256.ormlite:ormlite-android:4.48'
 
+    //rx
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.8'
 
@@ -78,10 +82,16 @@ dependencies {
     api 'androidx.cardview:cardview:1.0.0-beta01'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
 
+    //jsoup
     api 'org.jsoup:jsoup:1.10.2'
+
+    //multidex
     api 'androidx.multidex:multidex:2.0.1'
+
+    //event bus
     api 'org.greenrobot:eventbus:3.1.1'
 
+    //fragment navigation
     api "android.arch.navigation:navigation-fragment:1.0.0-alpha07"
     api "android.arch.navigation:navigation-ui:1.0.0-alpha07"
 
@@ -90,7 +100,10 @@ dependencies {
     api 'com.daimajia.androidanimations:library:2.2@aar'
     api 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
 
-    //google
+    //animation
+    api 'com.airbnb.android:lottie:3.0.6'
+
+    //google service
     api 'com.google.code.gson:gson:2.8.5'
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
@@ -124,10 +137,7 @@ dependencies {
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
 
-    //animation
-    api 'com.airbnb.android:lottie:3.0.6'
-
-    //crop
+    //crop image
     api 'com.yalantis:ucrop:2.2.0'
 
     //https://github.com/ParkSangGwon/TedKeyboardObserver
