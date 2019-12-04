@@ -3,7 +3,7 @@ package vn.loitp.app.activity.demo.architecturecomponent.viewmodel
 import android.graphics.Color
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
 import com.core.utilities.LLog
@@ -24,7 +24,7 @@ class ViewModelActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         LLog.d(TAG, "onCreate")
 
-        colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
+        colorChangerViewModel = ViewModelProviders.of(this).get(ColorChangerViewModel::class.java)
         colorChangerViewModel.colorResource.observe(this, Observer {
             ll.setBackgroundColor(it)
         })
@@ -36,7 +36,7 @@ class ViewModelActivity : BaseFontActivity() {
         defUser.fullName = "Loitp"
         defUser.email = "www.muathu@gmail.com"
         val factory = UserViewModel.CustomViewModelFactory(defUser)
-        userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
+        userViewModel = ViewModelProviders.of(this, factory).get(UserViewModel::class.java)
         tv.text = LApplication.gson.toJson(userViewModel.mUser)
         btChangeUser.setOnClickListener {
             val user = User()
@@ -46,7 +46,7 @@ class ViewModelActivity : BaseFontActivity() {
             tv.text = LApplication.gson.toJson(userViewModel.mUser)
         }
 
-        timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)
+        timeChangerViewModel = ViewModelProviders.of(this).get(TimeChangerViewModel::class.java)
         var countToStop = 0
         timeChangerViewModel.timerValue.observe(this, Observer {
             countToStop++

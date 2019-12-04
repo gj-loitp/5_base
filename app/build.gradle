@@ -77,11 +77,11 @@ dependencies {
     api project(':core')
     //api 'com.github.tplloi:basemaster:3.8.6'
 
-    api 'io.realm:realm-android:0.82.1'//realm
+    //realm
+    api 'io.realm:realm-android:0.82.1'
 
-    // [START gradle_play_config]
+    //Firebase
     api 'com.google.firebase:firebase-ads:18.2.0'
-
     // Firebase Authentication
     api 'com.google.firebase:firebase-auth:19.1.0'
     api 'com.google.firebase:firebase-core:17.2.0'
@@ -89,18 +89,17 @@ dependencies {
     // Google Sign In SDK (only required for Google Sign In)
     api 'com.google.android.gms:play-services-auth:17.0.0'
 
-    // Firebase UI
-    // Used in FirebaseUIActivity.
+    // Firebase UI, used in FirebaseUIActivity.
     api 'com.firebaseui:firebase-ui-auth:4.0.0'
 
     // Facebook Android SDK (only required for Facebook Login)
     // Used in FacebookLoginActivity.
     api 'com.facebook.android:facebook-login:4.34.0'
 
-    //remote config
+    //Firebase remote config
     api 'com.google.firebase:firebase-config:19.0.2'
 
-    //database
+    //Firebasedatabase
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
     api 'com.google.firebase:firebase-database:19.1.0'
@@ -108,21 +107,19 @@ dependencies {
     // Needed to fix a dependency conflict with FirebaseUI'
     api 'androidx.arch.core:core-runtime:2.1.0'
 
-    //invites
+    //Firebase invites
     api 'com.google.firebase:firebase-invites:17.0.0'
 
-    /*fcm*/
+    //Firebase FCM
     //compile 'com.google.android.gms:play-services:12.0.1'
     api 'com.google.firebase:firebase-messaging:20.0.0'
 
-    //api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    //implementation 'com.airbnb.android:lottie:2.5.1'
-    api 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
+//    api 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
     //api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05'
 
     //implementation "android.arch.lifecycle:runtime:1.1.1"
-    //implementation "android.arch.lifecycle:extensions:1.1.1"
-    //annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 
     //https://github.com/siralam/BSImagePicker
     api 'com.asksira.android:bsimagepicker:1.1.0'
@@ -130,11 +127,6 @@ dependencies {
     //https://github.com/JakeWharton/butterknife
     api 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
-
-    //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
-
-    //data binding
-    //kapt 'com.android.databinding:compiler:3.1.4'
 
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
@@ -149,4 +141,3 @@ dependencies {
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }
 apply plugin: 'com.google.gms.google-services'
-//com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
