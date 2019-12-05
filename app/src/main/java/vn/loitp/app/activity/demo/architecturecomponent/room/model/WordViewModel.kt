@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import vn.loitp.app.activity.demo.architecturecomponent.db.WordRoomDatabase
+import vn.loitp.app.activity.demo.architecturecomponent.room.db.WordRoomDatabase
 import vn.loitp.app.activity.demo.architecturecomponent.room.repository.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
@@ -21,5 +21,9 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insert(word: Word) = viewModelScope.launch {
         repository.insert(word)
+    }
+
+    fun deleteAll() = viewModelScope.launch {
+        repository.deleteAll()
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.room.adapter
+package vn.loitp.app.activity.demo.architecturecomponent.room
 
 import android.view.LayoutInflater
 import android.view.View

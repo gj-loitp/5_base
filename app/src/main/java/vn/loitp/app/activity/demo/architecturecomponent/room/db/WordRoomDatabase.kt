@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.db
+package vn.loitp.app.activity.demo.architecturecomponent.room.db
 
 import android.content.Context
 import androidx.room.Database
@@ -39,8 +39,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
 
         private class WordDatabaseCallback(
                 private val scope: CoroutineScope
-        ) : RoomDatabase.Callback() {
-        }
+        ) : RoomDatabase.Callback()
 
         /**
          * Populate the database in a new coroutine.

@@ -18,7 +18,7 @@ import vn.loitp.app.activity.database.sqlite.SqliteActivity
 import vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity
 import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
 import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
-import vn.loitp.app.activity.demo.architecturecomponent.room.activity.WordActivity
+import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

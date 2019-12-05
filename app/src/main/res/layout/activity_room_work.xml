@@ -22,10 +22,10 @@
             android:text="Add" />
 
         <Button
-            android:id="@+id/btClearAll"
+            android:id="@+id/btDeleteAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clear All" />
+            android:text="Delete All" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

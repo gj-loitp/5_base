@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.room.activity
+package vn.loitp.app.activity.demo.architecturecomponent.room
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_room_work.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.demo.architecturecomponent.room.adapter.WordListAdapter
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
 
@@ -43,8 +42,8 @@ class WordActivity : BaseFontActivity() {
             wordViewModel.insert(word)
         }
 
-        btClearAll.setOnClickListener {
-
+        btDeleteAll.setOnClickListener {
+            wordViewModel.deleteAll()
         }
     }
 
