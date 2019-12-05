@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.room
+package vn.loitp.app.activity.demo.architecturecomponent.room.activity
 
 import android.app.Activity
 import android.content.Intent

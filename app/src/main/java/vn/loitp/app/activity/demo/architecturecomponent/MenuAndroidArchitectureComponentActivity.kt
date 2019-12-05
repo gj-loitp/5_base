@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_architecture_component.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.demo.architecturecomponent.room.RoomActivity
+import vn.loitp.app.activity.demo.architecturecomponent.room.activity.RoomActivity
 import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity
 
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {

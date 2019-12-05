@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.room
+package vn.loitp.app.activity.demo.architecturecomponent.db
 
 import android.content.Context
 import androidx.room.Database
@@ -8,6 +8,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import vn.loitp.app.activity.demo.architecturecomponent.room.dao.WordDao
+import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase : RoomDatabase() {
@@ -24,7 +26,8 @@ abstract class WordRoomDatabase : RoomDatabase() {
         ): WordRoomDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
-            return INSTANCE ?: synchronized(lock = this) {
+            return INSTANCE
+                    ?: synchronized(lock = this) {
                 val instance = Room.databaseBuilder(
                         context.applicationContext,
                         WordRoomDatabase::class.java,
@@ -65,9 +68,12 @@ abstract class WordRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             wordDao.deleteAll()
 
-            var word = Word("Hello")
+            var word = Word()
+            word.word = "Hello world!"
             wordDao.insert(word)
-            word = Word("World!")
+
+            word = Word()
+            word.word = "Hello Loitpp!"
             wordDao.insert(word)
         }
     }

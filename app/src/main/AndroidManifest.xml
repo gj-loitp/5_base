@@ -1114,11 +1114,11 @@
             android:screenOrientation="portrait" />
         <activity android:name="vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity" />
         <activity
-            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.RoomActivity"
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.activity.RoomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.NewNoteActivity"
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.activity.NewNoteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
     </application>
