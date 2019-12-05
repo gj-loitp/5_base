@@ -23,7 +23,8 @@ class WordActivity : BaseFontActivity() {
 
         val adapter = WordListAdapter(object : WordListAdapter.Callback {
             override fun onUpdate(word: Word) {
-
+                word.word = "Update " + System.currentTimeMillis()
+                wordViewModel.update(word)
             }
 
             override fun onDelete(word: Word) {

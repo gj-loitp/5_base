@@ -19,4 +19,8 @@ class WordRepository(private val wordDao: WordDao) {
     suspend fun delete(word: Word) {
         wordDao.delete(word)
     }
+
+    suspend fun update(word: Word) {
+        wordDao.update(word)
+    }
 }

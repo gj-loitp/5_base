@@ -8,7 +8,8 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 @Dao
 interface WordDao : BaseDao<Word> {
 
-    @Query("SELECT * from ${Word.TABLE_WORD} ORDER BY ${Word.COL_WORD} ASC")
+    //@Query("SELECT * from ${Word.TABLE_WORD} ORDER BY ${Word.COL_WORD} ASC")
+    @Query("SELECT * from ${Word.TABLE_WORD} ORDER BY ${Word.COL_ID} ASC")
     fun getAlphabetizedWords(): LiveData<List<Word>>
 
     @Query("DELETE FROM ${Word.TABLE_WORD}")
