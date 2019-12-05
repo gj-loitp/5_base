@@ -1114,7 +1114,7 @@
             android:screenOrientation="portrait" />
         <activity android:name="vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity" />
         <activity
-            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.activity.RoomActivity"
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.activity.WordActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

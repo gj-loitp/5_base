@@ -7,6 +7,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 @Dao
 interface WordDao : BaseDao<Word> {
+
     @Query("SELECT * from word_table ORDER BY word ASC")
     fun getAlphabetizedWords(): LiveData<List<Word>>
 

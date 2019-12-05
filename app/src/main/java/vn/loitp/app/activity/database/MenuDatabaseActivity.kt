@@ -18,7 +18,7 @@ import vn.loitp.app.activity.database.sqlite.SqliteActivity
 import vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity
 import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
 import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
-import vn.loitp.app.activity.demo.architecturecomponent.room.activity.RoomActivity
+import vn.loitp.app.activity.demo.architecturecomponent.room.activity.WordActivity
 
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +57,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             R.id.btSqliteEncryption -> intent = Intent(activity, SqliteEncryptionActivity::class.java)
             R.id.btSqliteMultiTable -> intent = Intent(activity, SqliteMultiTableActivity::class.java)
             R.id.btSqliteMultiTableAdvance -> intent = Intent(activity, SqliteMultiTableAdvanceActivity::class.java)
-            R.id.btRoom -> intent = Intent(activity, RoomActivity::class.java)
+            R.id.btRoom -> intent = Intent(activity, WordActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)
