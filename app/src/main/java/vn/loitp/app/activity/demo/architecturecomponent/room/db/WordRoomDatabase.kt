@@ -25,16 +25,16 @@ abstract class WordRoomDatabase : RoomDatabase() {
             // if it is, then create the database
             return INSTANCE
                     ?: synchronized(lock = this) {
-                val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        WordRoomDatabase::class.java,
-                        "word_database"
-                )
-                        .addCallback(WordDatabaseCallback(scope))
-                        .build()
-                INSTANCE = instance
-                instance
-            }
+                        val instance = Room.databaseBuilder(
+                                context.applicationContext,
+                                WordRoomDatabase::class.java,
+                                Word.DB_NAME_WORD
+                        )
+                                .addCallback(WordDatabaseCallback(scope))
+                                .build()
+                        INSTANCE = instance
+                        instance
+                    }
         }
 
         private class WordDatabaseCallback(
