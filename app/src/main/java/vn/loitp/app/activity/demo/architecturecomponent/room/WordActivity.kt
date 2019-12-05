@@ -19,19 +19,20 @@ class WordActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+
         val adapter = WordListAdapter(object : WordListAdapter.Callback {
             override fun onUpdate(word: Word) {
 
             }
 
             override fun onDelete(word: Word) {
-
+                wordViewModel.delete(word)
             }
         })
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         wordViewModel.allWords.observe(this, Observer { words ->
             words?.let { adapter.setWords(it) }
         })
