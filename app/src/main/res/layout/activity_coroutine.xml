@@ -31,6 +31,11 @@
                 android:id="@+id/btTestJoin"
                 style="@style/ButtonMenu"
                 android:text="Test Join" />
+
+            <Button
+                android:id="@+id/btTestCancel"
+                style="@style/ButtonMenu"
+                android:text="Test Cancel" />
         </LinearLayout>
     </ScrollView>
 

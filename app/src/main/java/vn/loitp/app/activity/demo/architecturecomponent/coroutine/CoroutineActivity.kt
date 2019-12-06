@@ -37,6 +37,9 @@ class CoroutineActivity : BaseFontActivity() {
         btTestJoin.setOnClickListener {
             testJoin()
         }
+        btTestCancel.setOnClickListener {
+            testCancel()
+        }
     }
 
     //test blocking
@@ -90,6 +93,21 @@ class CoroutineActivity : BaseFontActivity() {
             LLog.d(TAG, "Hello,")
             job.join() // wait until child coroutine completes
             LLog.d(TAG, "Kotlin")
+        }
+    }
+
+    private fun testCancel() {
+        runBlocking {
+            val job = launch {
+                repeat(1000) { i ->
+                    LLog.d(TAG, "I'm sleeping $i")
+                    delay(500L)
+                }
+            }
+            delay(1300L) // delay a bit
+            LLog.d(TAG, "I'm tired of waiting!")
+            job.cancel() // cancels the job
+            LLog.d(TAG, "Now I can quit.")
         }
     }
 }
