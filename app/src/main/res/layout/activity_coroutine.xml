@@ -17,6 +17,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btTestBlocking"
+                style="@style/ButtonMenu"
+                android:text="Test Blocking" />
+
+            <Button
+                android:id="@+id/btTestWithContext"
+                style="@style/ButtonMenu"
+                android:text="Test withContext" />
+
+            <Button
+                android:id="@+id/btTestJoin"
+                style="@style/ButtonMenu"
+                android:text="Test Join" />
         </LinearLayout>
     </ScrollView>
 

@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
+import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import kotlinx.android.synthetic.main.activity_coroutine.*
 import kotlinx.coroutines.*
 import loitp.basemaster.R
 
@@ -21,6 +23,20 @@ class CoroutineActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_coroutine
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        btTestBlocking.setOnClickListener {
+            testBlocking()
+        }
+        btTestWithContext.setOnClickListener {
+            testWithContext()
+        }
+        btTestJoin.setOnClickListener {
+            testJoin()
+        }
     }
 
     //test blocking
