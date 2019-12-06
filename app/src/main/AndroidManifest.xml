@@ -1118,7 +1118,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.activity.NewNoteActivity"
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
     </application>

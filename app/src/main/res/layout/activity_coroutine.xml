@@ -17,26 +17,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btCoroutine"
-                style="@style/ButtonMenu"
-                android:text="Coroutine" />
-
-            <Button
-                android:id="@+id/btRoom"
-                style="@style/ButtonMenu"
-                android:text="Room" />
-
-            <Button
-                android:id="@+id/btViewModel"
-                style="@style/ButtonMenu"
-                android:text="View model - Live Data" />
-
         </LinearLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Menu Architecture Component" />
+        android:text="Coroutine" />
 </RelativeLayout>
