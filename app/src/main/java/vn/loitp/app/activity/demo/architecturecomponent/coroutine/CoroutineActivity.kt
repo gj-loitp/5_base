@@ -132,9 +132,9 @@ class CoroutineActivity : BaseFontActivity() {
         }
         runBlocking {
             val time = measureTimeMillis {
-                val one = getOne()
-                val two = getTwo()
-                LLog.d(TAG, "total: ${one + two}")
+                val one = async { getOne() }
+                val two = async { getTwo() }
+                LLog.d(TAG, "total: ${one.await() + two.await()}")
             }
             LLog.d(TAG, "testCompose time: $time ms")
         }
