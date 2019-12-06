@@ -2,15 +2,13 @@ package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import loitp.basemaster.R
 
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-1-gioi-thieu-kotlin-coroutine-va-ky-thuat-lap-trinh-bat-dong-bo-gGJ59xajlX2
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-2-build-first-coroutine-with-kotlin-Do7544Ee5M6
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-3-coroutine-context-va-dispatcher-Qbq5QkDzZD8
+//https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-4-job-join-cancellation-and-timeouts-Do75463QZM6
 class CoroutineActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -64,5 +62,18 @@ class CoroutineActivity : BaseFontActivity() {
             LLog.d(TAG, "out of ctx2 block - ${Thread.currentThread().name}")
         }
         LLog.d(TAG, "out of ctx1 block - ${Thread.currentThread().name}")
+    }
+
+    private fun testJoin() {
+        runBlocking {
+            val job = GlobalScope.launch {
+                // launch a new coroutine and keep a reference to its Job
+                delay(5000L)
+                LLog.d(TAG, "World!")
+            }
+            LLog.d(TAG, "Hello,")
+            job.join() // wait until child coroutine completes
+            LLog.d(TAG, "Kotlin")
+        }
     }
 }
