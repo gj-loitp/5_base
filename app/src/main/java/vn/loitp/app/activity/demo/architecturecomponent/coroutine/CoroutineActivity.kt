@@ -99,9 +99,14 @@ class CoroutineActivity : BaseFontActivity() {
     private fun testCancel() {
         runBlocking {
             val job = launch {
-                repeat(1000) { i ->
-                    LLog.d(TAG, "I'm sleeping $i")
-                    delay(500L)
+                try {
+                    repeat(1000) { i ->
+                        LLog.d(TAG, "I'm sleeping $i")
+                        delay(500L)
+                    }
+                } finally {
+                    // Tranh thủ close resource trong này đi nha :D
+                    LLog.d(TAG, "I'm running finally")
                 }
             }
             delay(1300L) // delay a bit
