@@ -6,6 +6,7 @@ import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_coroutine.*
 import kotlinx.coroutines.*
 import loitp.basemaster.R
+import kotlin.system.measureTimeMillis
 
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-1-gioi-thieu-kotlin-coroutine-va-ky-thuat-lap-trinh-bat-dong-bo-gGJ59xajlX2
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-2-build-first-coroutine-with-kotlin-Do7544Ee5M6
@@ -39,6 +40,9 @@ class CoroutineActivity : BaseFontActivity() {
         }
         btTestCancel.setOnClickListener {
             testCancel()
+        }
+        btTestCompose.setOnClickListener {
+            testCompose()
         }
     }
 
@@ -113,6 +117,26 @@ class CoroutineActivity : BaseFontActivity() {
             LLog.d(TAG, "I'm tired of waiting!")
             job.cancel() // cancels the job
             LLog.d(TAG, "Now I can quit.")
+        }
+    }
+
+    private fun testCompose() {
+        suspend fun getOne(): Int {
+            delay(1000)
+            return 10
+        }
+
+        suspend fun getTwo(): Int {
+            delay(1000)
+            return 20
+        }
+        runBlocking {
+            val time = measureTimeMillis {
+                val one = getOne()
+                val two = getTwo()
+                LLog.d(TAG, "total: ${one + two}")
+            }
+            LLog.d(TAG, "testCompose time: $time ms")
         }
     }
 }
