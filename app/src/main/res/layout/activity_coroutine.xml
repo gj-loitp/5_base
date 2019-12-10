@@ -41,6 +41,11 @@
                 android:id="@+id/btTestCompose"
                 style="@style/ButtonMenu"
                 android:text="Test Compose" />
+
+            <Button
+                android:id="@+id/btTestTimeOut"
+                style="@style/ButtonMenu"
+                android:text="Test TimeOut" />
         </LinearLayout>
     </ScrollView>
 

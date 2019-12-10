@@ -44,6 +44,9 @@ class CoroutineActivity : BaseFontActivity() {
         btTestCompose.setOnClickListener {
             testCompose()
         }
+        btTestTimeOut.setOnClickListener {
+            testTimeOut()
+        }
     }
 
     //test blocking
@@ -137,6 +140,18 @@ class CoroutineActivity : BaseFontActivity() {
                 LLog.d(TAG, "total: ${one.await() + two.await()}")
             }
             LLog.d(TAG, "testCompose time: $time ms")
+        }
+    }
+
+    private fun testTimeOut() {
+        runBlocking {
+            val result = withTimeoutOrNull(timeMillis = 10000) {
+                repeat(1000) { i ->
+                    LLog.d(TAG, "testTimeOut $i: " + System.currentTimeMillis())
+                    delay(500)
+                }
+            }
+            LLog.d(TAG, "testTimeOut result: $result")
         }
     }
 }
