@@ -208,7 +208,7 @@
     <color name="Green">#00FF00</color>
     <color name="GreenTrans">#5500FF00</color>
 
-    <!--region cosmocalendar-->
+    <!--region default cosmocalendar-->
     <color name="default_calendar_background_color">@color/White</color>
     <color name="default_month_text_color">@color/Black</color>
     <color name="default_other_day_text_color">@color/Gray</color>
