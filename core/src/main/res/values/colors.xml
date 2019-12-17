@@ -207,4 +207,23 @@
     <color name="Light_Cyan">#E0FFFF</color>
     <color name="Green">#00FF00</color>
     <color name="GreenTrans">#5500FF00</color>
+
+    <!--region cosmocalendar-->
+    <color name="default_calendar_background_color">@color/White</color>
+    <color name="default_month_text_color">@color/Black</color>
+    <color name="default_other_day_text_color">@color/Gray</color>
+    <color name="default_day_text_color">@color/Black</color>
+    <color name="default_weekend_day_text_color">@color/Red</color>
+    <color name="default_week_day_title_text_color">@color/Blue</color>
+    <color name="default_selected_day_text_color">@color/White</color>
+    <color name="default_selected_day_background_color">@color/colorPrimary</color>
+    <color name="default_selected_day_background_start_color">@color/DeepPink</color>
+    <color name="default_selected_day_background_end_color">@color/DarkRed</color>
+    <!--<color name="default_connected_day_text_color">#f00</color>-->
+    <!--<color name="default_connected_day_selected_text_color">#f00</color>-->
+    <color name="default_disabled_day_text_color">@color/Green</color>
+    <color name="default_border_color">@color/LightGrey</color>
+    <color name="default_selection_bar_month_title_text_color">@color/Brown</color>
+    <!--endregion cosmocalendar-->
+
 </resources>
