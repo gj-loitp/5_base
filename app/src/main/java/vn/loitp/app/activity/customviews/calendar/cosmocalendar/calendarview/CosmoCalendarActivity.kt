@@ -7,6 +7,7 @@ import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
 import com.core.base.BaseFontActivity
+import com.core.utilities.LLog
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
 import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.WeekDayCriteria
@@ -16,6 +17,7 @@ import com.views.calendar.cosmocalendar.selection.criteria.month.PreviousMonthCr
 import com.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
 import loitp.basemaster.R
+import vn.loitp.app.app.LApplication
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -154,6 +156,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun logSelectedDaysMenuClick() {
         showShort("Selected " + calendarView.selectedDays.size)
+        LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
     }
 
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {
