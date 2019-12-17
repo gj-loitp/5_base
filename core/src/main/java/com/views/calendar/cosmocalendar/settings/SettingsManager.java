@@ -168,6 +168,11 @@ public class SettingsManager implements AppearanceInterface, DateInterface, Cale
     }
 
     @Override
+    public boolean isShowFlBottomSelectionBar() {
+        return appearanceModel.isShowFlBottomSelectionBar();
+    }
+
+    @Override
     public void setCalendarBackgroundColor(int calendarBackgroundColor) {
         appearanceModel.setCalendarBackgroundColor(calendarBackgroundColor);
     }
@@ -280,6 +285,11 @@ public class SettingsManager implements AppearanceInterface, DateInterface, Cale
     @Override
     public void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle) {
         appearanceModel.setShowDaysOfWeekTitle(showDaysOfWeekTitle);
+    }
+
+    @Override
+    public void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar) {
+        appearanceModel.setShowFlBottomSelectionBar(showFlBottomSelectionBar);
     }
 
     @Override

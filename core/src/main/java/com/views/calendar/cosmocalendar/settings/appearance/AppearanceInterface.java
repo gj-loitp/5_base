@@ -48,6 +48,8 @@ public interface AppearanceInterface {
 
     boolean isShowDaysOfWeekTitle();
 
+    boolean isShowFlBottomSelectionBar();
+
     void setCalendarBackgroundColor(int calendarBackgroundColor);
 
     void setMonthTextColor(int monthTextColor);
@@ -93,4 +95,6 @@ public interface AppearanceInterface {
     void setShowDaysOfWeek(boolean showDaysOfWeek);
 
     void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle);
+
+    void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar);
 }

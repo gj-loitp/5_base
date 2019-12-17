@@ -154,6 +154,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         int selectionType = typedArray.getInteger(R.styleable.CalendarView_selectionType, SettingsManager.DEFAULT_SELECTION_TYPE);
         boolean showDaysOfWeekTitle = orientation != LinearLayoutManager.HORIZONTAL;
         boolean showDaysOfWeek = orientation == LinearLayoutManager.HORIZONTAL;
+        boolean showFlBottomSelectionBar = orientation == LinearLayoutManager.HORIZONTAL;
         int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.default_calendar_background_color));
         int monthTextColor = typedArray.getColor(R.styleable.CalendarView_monthTextColor, ContextCompat.getColor(getContext(), R.color.default_month_text_color));
         int otherDayTextColor = typedArray.getColor(R.styleable.CalendarView_otherDayTextColor, ContextCompat.getColor(getContext(), R.color.default_other_day_text_color));
@@ -201,6 +202,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         settingsManager.setSelectionType(selectionType);
         settingsManager.setPreviousMonthIconRes(previousMonthIconRes);
         settingsManager.setNextMonthIconRes(nextMonthIconRes);
+        settingsManager.setShowFlBottomSelectionBar(showFlBottomSelectionBar);
     }
 
     private void handleWeekendDaysAttributes(TypedArray typedArray) {
@@ -714,7 +716,8 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
      * Sets selection bar layout visibility
      */
     private void setSelectionBarVisibility() {
-        flBottomSelectionBar.setVisibility(getCalendarOrientation() == OrientationHelper.HORIZONTAL ? View.VISIBLE : View.GONE);
+        //LLog.d(TAG, "setSelectionBarVisibility isShowFlBottomSelectionBar: " + settingsManager.isShowFlBottomSelectionBar());
+        flBottomSelectionBar.setVisibility((getCalendarOrientation() == OrientationHelper.HORIZONTAL && settingsManager.isShowFlBottomSelectionBar()) ? View.VISIBLE : View.GONE);
         rvMultipleSelectedList.setVisibility(getCalendarOrientation() == OrientationHelper.HORIZONTAL && getSelectionType() == SelectionType.MULTIPLE ? View.VISIBLE : View.GONE);
         llRangeSelection.setVisibility(needToShowSelectedDaysRange() ? View.VISIBLE : View.GONE);
     }
@@ -855,6 +858,11 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     @Override
     public boolean isShowDaysOfWeekTitle() {
         return settingsManager.isShowDaysOfWeekTitle();
+    }
+
+    @Override
+    public boolean isShowFlBottomSelectionBar() {
+        return settingsManager.isShowFlBottomSelectionBar();
     }
 
     @Override
@@ -1021,6 +1029,12 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         } else {
             hideDaysOfWeekTitle();
         }
+    }
+
+    @Override
+    public void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar) {
+        settingsManager.setShowFlBottomSelectionBar(showFlBottomSelectionBar);
+        setSelectionBarVisibility();
     }
 
     @Override

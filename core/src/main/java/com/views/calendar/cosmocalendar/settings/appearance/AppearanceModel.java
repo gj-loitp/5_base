@@ -5,6 +5,8 @@ public class AppearanceModel implements AppearanceInterface {
     //Background color of whole calendar
     private int calendarBackgroundColor;
 
+    private boolean showFlBottomSelectionBar;
+
     //Text color of month title
     private int monthTextColor;
 
@@ -305,5 +307,15 @@ public class AppearanceModel implements AppearanceInterface {
     @Override
     public void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle) {
         this.showDaysOfWeekTitle = showDaysOfWeekTitle;
+    }
+
+    @Override
+    public boolean isShowFlBottomSelectionBar() {
+        return showFlBottomSelectionBar;
+    }
+
+    @Override
+    public void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar) {
+        this.showFlBottomSelectionBar = showFlBottomSelectionBar;
     }
 }

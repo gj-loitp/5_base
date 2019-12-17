@@ -230,6 +230,11 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
     }
 
     @Override
+    public boolean isShowFlBottomSelectionBar() {
+        return calendarView.isShowFlBottomSelectionBar();
+    }
+
+    @Override
     public void setCalendarBackgroundColor(int calendarBackgroundColor) {
         calendarView.setCalendarBackgroundColor(calendarBackgroundColor);
     }
@@ -342,6 +347,11 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
     @Override
     public void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle) {
         calendarView.setShowDaysOfWeekTitle(showDaysOfWeekTitle);
+    }
+
+    @Override
+    public void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar) {
+        calendarView.setShowFlBottomSelectionBar(showFlBottomSelectionBar);
     }
 
     @Override

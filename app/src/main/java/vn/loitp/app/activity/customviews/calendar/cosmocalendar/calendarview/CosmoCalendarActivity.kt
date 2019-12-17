@@ -52,6 +52,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     }
 
     private fun initViews() {
+        (findViewById<RadioGroup>(R.id.rgShowHideFlBottomSelectionBar)).setOnCheckedChangeListener(this)
         (findViewById<RadioGroup>(R.id.rg_orientation)).setOnCheckedChangeListener(this)
         (findViewById<RadioGroup>(R.id.rg_selection_type)).setOnCheckedChangeListener(this)
     }
@@ -162,6 +163,12 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {
         clearSelectionsMenuClick()
         when (checkedId) {
+            R.id.rbShowFlBottomSelectionBar -> {
+                calendarView.isShowFlBottomSelectionBar = true
+            }
+            R.id.rbHideFlBottomSelectionBar -> {
+                calendarView.isShowFlBottomSelectionBar = false
+            }
             R.id.rb_horizontal -> calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
             R.id.rb_vertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
             R.id.rb_single -> {

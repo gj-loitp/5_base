@@ -17,64 +17,86 @@
         android:layout_above="@+id/ll_settings"
         android:layout_below="@id/toolbar" />
 
-    <LinearLayout
+    <HorizontalScrollView
         android:id="@+id/ll_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true">
 
-        <RadioGroup
-            android:id="@+id/rg_orientation"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checkedButton="@+id/rb_vertical">
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_horizontal"
+            <RadioGroup
+                android:id="@+id/rgShowHideFlBottomSelectionBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="horizontal" />
+                android:checkedButton="@+id/rbHideFlBottomSelectionBar">
 
-            <RadioButton
-                android:id="@+id/rb_vertical"
+                <RadioButton
+                    android:id="@+id/rbShowFlBottomSelectionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show FlBottomSelectionBar" />
+
+                <RadioButton
+                    android:id="@+id/rbHideFlBottomSelectionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hide FlBottomSelectionBar" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_orientation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vertical" />
+                android:checkedButton="@+id/rb_vertical">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rb_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="horizontal" />
 
-        <RadioGroup
-            android:id="@+id/rg_selection_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checkedButton="@+id/rb_single">
+                <RadioButton
+                    android:id="@+id/rb_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="vertical" />
 
-            <RadioButton
-                android:id="@+id/rb_single"
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_selection_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="single" />
+                android:checkedButton="@+id/rb_single">
 
-            <RadioButton
-                android:id="@+id/rb_multiple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="multiple" />
+                <RadioButton
+                    android:id="@+id/rb_single"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="single" />
 
-            <RadioButton
-                android:id="@+id/rb_range"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="range" />
+                <RadioButton
+                    android:id="@+id/rb_multiple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="multiple" />
 
-            <RadioButton
-                android:id="@+id/rb_none"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="none" />
-        </RadioGroup>
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/rb_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="range" />
+
+                <RadioButton
+                    android:id="@+id/rb_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="none" />
+            </RadioGroup>
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>
