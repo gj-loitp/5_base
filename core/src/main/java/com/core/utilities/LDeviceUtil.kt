@@ -18,12 +18,10 @@ import java.util.*
  *
  * @author loitp
  */
-class LDeviceUtil {
+object LDeviceUtil {
 
-    /*
-    check device has navigation bar
-     */
-    //LLog.dialog(TAG, "isNavigationBarAvailable: " + (!(hasBackKey && hasHomeKey)));
+    private val TAG = LDeviceUtil::class.java.simpleName
+
     val isNavigationBarAvailable: Boolean
         get() {
             val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
@@ -31,61 +29,68 @@ class LDeviceUtil {
             return !(hasBackKey && hasHomeKey)
         }
 
-    companion object {
-        private val TAG = LDeviceUtil::class.java.simpleName
+    fun isTablet(activity: Activity): Boolean {
+        return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
+    }
 
-        fun isTablet(activity: Activity): Boolean {
-            return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
+    /*
+    get current android version
+    @return int
+    */
+    fun getCurrentAndroidVersion(activity: Activity): Int {
+        val thisVersion: Int
+        thisVersion = try {
+            val pi = activity.packageManager.getPackageInfo(activity.packageName, 0)
+            pi.versionCode
+        } catch (e: PackageManager.NameNotFoundException) {
+            1
         }
+        return thisVersion
+    }
 
-        /*
-        get current android version
-        @return int
-        */
-        fun getCurrentAndroidVersion(activity: Activity): Int {
-            val thisVersion: Int
-            thisVersion = try {
-                val pi = activity.packageManager.getPackageInfo(activity.packageName, 0)
-                pi.versionCode
-            } catch (e: PackageManager.NameNotFoundException) {
-                1
-            }
-            return thisVersion
+    @SuppressLint("ObsoleteSdkInt")
+    fun setClipboard(context: Context, text: String) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
+            clipboard.text = text
+        } else {
+            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+            val clip = android.content.ClipData.newPlainText("Copy", text)
+            clipboard.setPrimaryClip(clip)
         }
+    }
 
-        @SuppressLint("ObsoleteSdkInt")
-        fun setClipboard(context: Context, text: String) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-                clipboard.text = text
-            } else {
-                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                val clip = android.content.ClipData.newPlainText("Copy", text)
-                clipboard.setPrimaryClip(clip)
-            }
-        }
+    @JvmStatic
+    fun vibrate(context: Context, length: Int = 300) {
+        val v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        v.vibrate(length.toLong())
+    }
 
-        @JvmStatic
-        fun vibrate(context: Context, length: Int = 300) {
-            val v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            v.vibrate(length.toLong())
-        }
+    @JvmStatic
+    fun vibrate(context: Context) {
+        vibrate(context, 200)
+    }
 
-        @JvmStatic
-        fun vibrate(context: Context) {
-            vibrate(context, 200)
-        }
+    fun getRandomNumber(max: Int): Int {
+        val r = Random()
+        return r.nextInt(max)
+    }
 
-        fun getRandomNumber(max: Int): Int {
-            val r = Random()
-            return r.nextInt(max)
+    fun isCanOverlay(activity: Activity?): Boolean {
+        if (activity == null) {
+            return false
         }
+        return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity))
+    }
 
-        fun isCanOverlay(activity: Activity?): Boolean {
-            if (activity == null) {
-                return false
-            }
-            return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity))
-        }
+    fun isEmulator(): Boolean {
+        return (Build.FINGERPRINT.startsWith("generic")
+                || Build.FINGERPRINT.startsWith("unknown")
+                || Build.MODEL.contains("google_sdk")
+                || Build.MODEL.contains("Emulator")
+                || Build.MODEL.contains("Android SDK built for x86")
+                || Build.MANUFACTURER.contains("Genymotion")
+                || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
+                || "google_sdk" == Build.PRODUCT)
     }
 }
