@@ -107,7 +107,7 @@ public class FVControlFragment extends Fragment {
             service = FVCustomUZVideoService.class;
             key = FVCustomFloatingViewService.EXTRA_CUTOUT_SAFE_AREA;
         }
-        if (service != null || key != null) {
+        if (service != null) {
             final Intent intent = new Intent(activity, service);
             intent.putExtra(key, FloatingViewManager.findCutoutSafeArea(activity));
             ContextCompat.startForegroundService(activity, intent);

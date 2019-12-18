@@ -15,12 +15,11 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
-//TODO crash FloatingViewActivity -> demo app -> floating view
-//TODO crash read sqlite android 9 -> VocabularyManager
-
-//TODO core film plus
+//TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
 //TODO is debug
-//TODO https://github.com/hackware1993/MagicIndicator
+
+//need add nice repo
+//https://github.com/hackware1993/MagicIndicator
 
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
