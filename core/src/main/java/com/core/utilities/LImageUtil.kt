@@ -19,6 +19,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
+import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import java.io.File
 import java.util.*
@@ -108,6 +109,15 @@ object LImageUtil {
                 .load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions.circleCropTransform().placeholder(resPlaceHolder).error(resError)
+                )
+                .into(imageView)
+    }
+
+    fun loadCircleImageResources(res: Int, imageView: ImageView) {
+        Glide.with(imageView.context)
+                .load(res)
+                .transition(withCrossFade())
+                .apply(RequestOptions.circleCropTransform().placeholder(R.color.transparent).error(R.color.colorPrimary)
                 )
                 .into(imageView)
     }
@@ -353,5 +363,10 @@ object LImageUtil {
             linkUrlM = linkUrlM.replace(".png", "_b.png")
         }
         return linkUrlM
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun setImageViewZoom(iv: ImageView?) {
+        iv?.setOnTouchListener(ImageMatrixTouchHandler(iv.context))
     }
 }

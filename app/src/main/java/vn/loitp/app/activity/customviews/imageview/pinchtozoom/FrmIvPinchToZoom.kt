@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.fragment_iv.*
 import loitp.basemaster.R
 
@@ -27,7 +26,7 @@ class FrmIvPinchToZoom : Fragment() {
         urlIv = arguments?.getString(KEY_URL)
         urlIv?.let { u ->
             LImageUtil.load(view.context, u, iv)
-            LUIUtil.setImageViewZoom(iv)
+            LImageUtil.setImageViewZoom(iv)
         }
     }
 }
