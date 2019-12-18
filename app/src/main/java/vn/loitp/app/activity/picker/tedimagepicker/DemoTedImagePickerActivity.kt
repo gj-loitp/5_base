@@ -4,14 +4,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import android.widget.LinearLayout
 import com.core.base.BaseFontActivity
+import com.core.utilities.LImageUtil
 import com.core.utilities.LLog
+import com.utils.util.ConvertUtils
 import gun0912.tedimagepicker.builder.TedImagePicker
 import gun0912.tedimagepicker.builder.TedRxImagePicker
 import kotlinx.android.synthetic.main.activity_ted_image_picker_demo.*
-import loitp.basemaster.R
 
 class DemoTedImagePickerActivity : BaseFontActivity() {
     private var selectedUriList: List<Uri>? = null
@@ -33,7 +33,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ted_image_picker_demo
+        return loitp.basemaster.R.layout.activity_ted_image_picker_demo
     }
 
     private fun setNormalSingleButton() {
@@ -78,7 +78,8 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     private fun showSingleImage(uri: Uri) {
         ivImage.visibility = View.VISIBLE
         containerSelectedPhotos.visibility = View.GONE
-        Glide.with(this).load(uri).into(ivImage)
+        //Glide.with(this).load(uri).into(ivImage)
+        LImageUtil.load(this, uri, ivImage)
     }
 
     private fun showMultiImage(uriList: List<Uri>) {
@@ -89,10 +90,10 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
 
         uriList.forEach {
             val img = ImageView(this)
-            Glide.with(this)
-                    .load(it)
-                    .apply(RequestOptions().fitCenter())
-                    .into(img)
+            val size = ConvertUtils.dp2px(200f)
+            val layoutParams = LinearLayout.LayoutParams(size, size)
+            img.layoutParams = layoutParams
+            LImageUtil.load(this, it, img)
             containerSelectedPhotos.addView(img)
         }
     }
