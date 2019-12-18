@@ -108,7 +108,7 @@ class SADilog : SwipeAwayDialogFragment() {
                 return null
             }
 
-            protected override fun onProgressUpdate(vararg values: Int?) {
+            override fun onProgressUpdate(vararg values: Int?) {
                 super.onProgressUpdate(*values)
                 values[0]?.let {
                     progressDialog.progress = it
