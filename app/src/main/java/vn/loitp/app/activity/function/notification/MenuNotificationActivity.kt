@@ -15,6 +15,7 @@ import android.provider.Settings
 import android.view.View
 import androidx.core.app.NotificationCompat
 import com.core.base.BaseFontActivity
+import com.core.utilities.LNotification
 import com.function.notification.Notti
 import com.function.notification.NottiFactory
 import com.function.notification.actions.ContentAction
@@ -28,6 +29,10 @@ import vn.loitp.app.activity.SplashActivity
 import java.util.*
 
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
+    companion object {
+        val KEY_NOTI_DATA_INTENT = "KEY_NOTI_DATA_INTENT"
+    }
+
     private var notti: Notti? = null
     private val channelId = "my_package_channel"
 
@@ -35,6 +40,12 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val notiData = intent.getStringExtra(KEY_NOTI_DATA_INTENT)
+        notiData?.let { d ->
+            tvMenu.text = d
+        }
+
         notti = Notti(this, NottiConf(R.mipmap.ic_launcher,
                 VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
         simpleNotification.setOnClickListener(this)
@@ -43,6 +54,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         inboxNotification.setOnClickListener(this)
         bigPictureNotification.setOnClickListener(this)
         btNotificationHeadsup.setOnClickListener(this)
+        btNotificationHeadsupNice.setOnClickListener(this)
 
         goToNotificationSettings(activity)
     }
@@ -136,6 +148,16 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             }
             R.id.btNotificationHeadsup -> {
                 createNotification("Testttttttttttttttttttttttttt")
+            }
+            R.id.btNotificationHeadsupNice -> {
+                val title = "This is title " + System.currentTimeMillis()
+                val body = "This is body " + System.currentTimeMillis()
+                val iconRes = R.mipmap.ic_launcher
+                val pendingIntent = Intent(this, MenuNotificationActivity::class.java)
+                pendingIntent.putExtra(KEY_NOTI_DATA_INTENT, "KEY_NOTI_DATA_INTENT " + System.currentTimeMillis())
+                //pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                pendingIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                LNotification.showNotification(context = this, title = title, body = body, iconRes = iconRes, intent = pendingIntent)
             }
         }
     }
