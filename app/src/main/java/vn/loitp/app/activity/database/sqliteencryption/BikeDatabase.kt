@@ -10,7 +10,7 @@ import java.util.*
 
 class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val TAG = javaClass.simpleName
-    private val pw = LEncryptionUtil.encodeBase64(TAG + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress())
+    private val pw = LEncryptionUtil.encodeBase64(TAG + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
 
     // Getting All Bike
     val allBike: List<Bike>
@@ -35,8 +35,8 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                     bike.id = id
                     bike.name = decryptName
                     bike.branch = decryptBranch
-                    bike.hp = decryptHp.toInt()
-                    bike.price = decryptPrice.toInt()
+                    bike.hp = decryptHp?.toInt()
+                    bike.price = decryptPrice?.toInt()
                     bike.imgPath0 = decryptImgPath0
                     bike.imgPath1 = decryptImgPath1
                     bike.imgPath2 = decryptImgPath2
@@ -115,7 +115,10 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return result
     }
 
-    fun getBike(idBike: Long): Bike? {
+    fun getBike(idBike: Long?): Bike? {
+        if (idBike == null) {
+            return null
+        }
         val db = this.readableDatabase
         val cursor = db.query(TABLE_BIKE,
                 arrayOf(KEY_ID, KEY_NAME, KEY_BRANCH, KEY_HP, KEY_PRICE, KEY_IMG_PATH_0, KEY_IMG_PATH_1, KEY_IMG_PATH_2),
@@ -137,8 +140,8 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 bike.id = id
                 bike.name = decryptName
                 bike.branch = decryptBranch
-                bike.hp = decryptHp.toInt()
-                bike.price = decryptPrice.toInt()
+                bike.hp = decryptHp?.toInt()
+                bike.price = decryptPrice?.toInt()
                 bike.imgPath0 = decryptImgPath0
                 bike.imgPath1 = decryptImgPath1
                 bike.imgPath2 = decryptImgPath2

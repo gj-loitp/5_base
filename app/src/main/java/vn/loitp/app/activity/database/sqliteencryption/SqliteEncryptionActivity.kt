@@ -24,7 +24,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         btClearAll.setOnClickListener(this)
         btGetBikeWithId.setOnClickListener(this)
 
-        getAllBike();
+        getAllBike()
     }
 
     private fun showProgress() {
@@ -92,7 +92,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         addButtonById(bike.id)
     }
 
-    private fun addButtonById(idBike: Long) {
+    private fun addButtonById(idBike: Long?) {
         val button = Button(activity)
         val bike = db.getBike(idBike)
         LLog.d(TAG, "addButton bike " + LApplication.gson.toJson(bike))
@@ -181,8 +181,8 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun updateBike(bike: Bike, button: Button) {
         bike.name = "Monster " + System.currentTimeMillis()
         bike.branch = "Ducati"
-        bike.hp += 1
-        bike.price += 2
+        bike.hp = bike.hp?.plus(1)
+        bike.price = bike.price?.plus(2)
         showProgress()
         compositeDisposable.add(
                 Single.create<Long> {
