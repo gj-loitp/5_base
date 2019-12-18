@@ -13,14 +13,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO convert rx
 public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object, List<BookInfo>> {
     private Callback callback;
     private Activity activity;
 
     public interface Callback {
-        public void onPreExecute();
+        void onPreExecute();
 
-        public void onPostExecute(List<BookInfo> bookInfoList);
+        void onPostExecute(List<BookInfo> bookInfoList);
     }
 
     public GetListBookFromDeviceAndAssetTask(Activity activity, Callback callback) {
@@ -72,8 +73,8 @@ public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object,
         List<BookInfo> bookInfoList = null;
         if (isSDPresent) {
             bookInfoList = new ArrayList<>();
-            List<File> files = LStoreUtil.getListEpubFiles(new File(Environment.getExternalStorageDirectory().getAbsolutePath()));
-            File sampleFile = LStoreUtil.getFileFromAssets(activity, "a (1).sqlite");
+            List<File> files = LStoreUtil.INSTANCE.getListEpubFiles(new File(Environment.getExternalStorageDirectory().getAbsolutePath()));
+            File sampleFile = LStoreUtil.INSTANCE.getFileFromAssets(activity, "a (1).sqlite");
             files.add(0, sampleFile);
             for (File file : files) {
                 if (file == null) {

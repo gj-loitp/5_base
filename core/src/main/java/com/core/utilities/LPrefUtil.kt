@@ -69,7 +69,7 @@ object LPrefUtil {
         return pref.getString(GG_APP_MSG, "")
     }
 
-    fun setGGAppMsg(context: Context, value: String) {
+    fun setGGAppMsg(context: Context, value: String?) {
         val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
         editor.putString(GG_APP_MSG, value)
         editor.apply()

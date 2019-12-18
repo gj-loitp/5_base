@@ -154,7 +154,7 @@ object LUIUtil {
     }
 
     fun createGradientDrawableWithRandomColor(): GradientDrawable {
-        val color = LStoreUtil.getRandomColor()
+        val color = LStoreUtil.randomColor
         val gradientDrawable = GradientDrawable()
         gradientDrawable.setColor(color)
         gradientDrawable.cornerRadius = 0f
@@ -210,8 +210,8 @@ object LUIUtil {
         val layers = arrayOfNulls<Drawable>(1)
         val sf = object : ShapeDrawable.ShaderFactory() {
             override fun resize(width: Int, height: Int): Shader {
-                return LinearGradient(0f, 0f, 0f, v.height.toFloat(), intArrayOf(LStoreUtil.getRandomColor(),
-                        LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor()),
+                return LinearGradient(0f, 0f, 0f, v.height.toFloat(), intArrayOf(LStoreUtil.randomColor,
+                        LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor),
                         floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP)
             }
         }

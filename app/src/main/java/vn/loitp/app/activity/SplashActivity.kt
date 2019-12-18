@@ -235,7 +235,7 @@ class SplashActivity : BaseFontActivity() {
             override fun onGGFailure(call: Call, e: IOException) {
             }
 
-            override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
+            override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
                 LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
                 //LPrefUtil.setGGAppSetting(activity, app);
             }

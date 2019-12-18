@@ -33,7 +33,7 @@ public class Utils {
         imageView.getLayoutParams().height = size;
         imageView.getLayoutParams().width = size;
         imageView.requestLayout();
-        int color = LStoreUtil.getRandomColor();
+        int color = LStoreUtil.INSTANCE.getRandomColor();
         imageView.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 }

@@ -14,10 +14,7 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LApplication;
 
-/**
- * Created by www.muathu@gmail.com on 11/2/2017.
- */
-
+//TODO convert rx
 public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
 
@@ -27,7 +24,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     private List<Comic> comicList = new ArrayList<>();
 
     public interface Callback {
-        public void onSuccess(List<Comic> comicList);
+        void onSuccess(List<Comic> comicList);
     }
 
     private Callback callback;
@@ -46,15 +43,15 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.INSTANCE.d(TAG, "doInBackground");
-        String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
+        LLog.d(TAG, "doInBackground");
+        String json = LStoreUtil.INSTANCE.readTxtFromFolder(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE());
         if (json == null || json.isEmpty()) {
-            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
+            LLog.d(TAG, "json == null || json.isEmpty()");
         } else {
             comicList = LApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
         }
-        LLog.INSTANCE.d(TAG, "comicList size: " + comicList);
+        LLog.d(TAG, "comicList size: " + comicList);
         return null;
     }
 

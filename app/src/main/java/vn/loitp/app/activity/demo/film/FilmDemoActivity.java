@@ -120,7 +120,7 @@ public class FilmDemoActivity extends BaseFontActivity implements View.OnClickLi
     private void addDummyTextView() {
         final TextView textView = new TextView(getActivity());
         textView.setText("Dummy " + System.currentTimeMillis());
-        textView.setTextColor(LStoreUtil.getRandomColor());
+        textView.setTextColor(LStoreUtil.INSTANCE.getRandomColor());
         LUIUtil.INSTANCE.setTextShadow(textView);
         LUIUtil.INSTANCE.setMarginsDp(textView, 10, 3, 3, 10);
         LUIUtil.INSTANCE.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 18);

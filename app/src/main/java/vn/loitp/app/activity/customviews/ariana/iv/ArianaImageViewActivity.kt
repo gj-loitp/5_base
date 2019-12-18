@@ -16,7 +16,7 @@ class ArianaImageViewActivity : BaseFontActivity() {
 
         val iv = findViewById<ImageView>(R.id.iv)
 
-        val drawable = Ariana.drawable(LStoreUtil.getColors(), GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP)
+        val drawable = Ariana.drawable(LStoreUtil.colors, GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP)
         iv.background = drawable
     }
 

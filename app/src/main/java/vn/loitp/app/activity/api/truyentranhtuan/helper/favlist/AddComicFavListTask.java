@@ -18,6 +18,7 @@ import vn.loitp.app.app.LApplication;
  * Created by www.muathu@gmail.com on 11/2/2017.
  */
 
+//TODO convert rx
 public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
     private Activity mActivity;
@@ -30,11 +31,11 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
     private final int RESULT_ADD_COMIC_ERROR = 66;
 
     public interface Callback {
-        public void onAddComicSuccess(Comic mComic, List<Comic> comicList);
+        void onAddComicSuccess(Comic mComic, List<Comic> comicList);
 
-        public void onComicIsExist(Comic mComic, List<Comic> comicList);
+        void onComicIsExist(Comic mComic, List<Comic> comicList);
 
-        public void onAddComicError();
+        void onAddComicError();
     }
 
     private Callback callback;
@@ -52,15 +53,15 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.INSTANCE.d(TAG, "doInBackground");
-        String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
+        LLog.d(TAG, "doInBackground");
+        String json = LStoreUtil.INSTANCE.readTxtFromFolder(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE());
 
         if (json == null || json.isEmpty()) {
-            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
+            LLog.d(TAG, "json == null || json.isEmpty()");
             comicList.add(mComic);
 
             String newJson = LApplication.Companion.getGson().toJson(comicList);
-            boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
+            boolean isSaved = LStoreUtil.INSTANCE.writeToFile(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE(), newJson);
             if (isSaved) {
                 mResult = RESULT_ADD_COMIC_SUCCESS;
             } else {
@@ -69,13 +70,13 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
         } else {
             comicList = LApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
-            LLog.INSTANCE.d(TAG, "comicList size: " + comicList);
+            LLog.d(TAG, "comicList size: " + comicList);
             boolean isExist = ComicUtils.isComicExistIn(mComic, comicList);
             if (!isExist) {
                 comicList.add(mComic);
 
                 String newJson = LApplication.Companion.getGson().toJson(comicList);
-                boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
+                boolean isSaved = LStoreUtil.INSTANCE.writeToFile(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE(), newJson);
                 if (isSaved) {
                     mResult = RESULT_ADD_COMIC_SUCCESS;
                 } else {
@@ -101,6 +102,4 @@ public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
         }
         super.onPostExecute(aVoid);
     }
-
-
 }

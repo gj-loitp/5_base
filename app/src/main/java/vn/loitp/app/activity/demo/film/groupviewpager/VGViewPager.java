@@ -74,8 +74,8 @@ public class VGViewPager extends RelativeLayout {
         LLog.d(TAG, "genData max " + max);
         for (int i = 0; i < max; i++) {
             final Page page = new Page();
-            page.setColor(LStoreUtil.getRandomColor());
-            page.setName("Loitp " + i + "/" + (max));
+            page.setColor(LStoreUtil.INSTANCE.getRandomColor());
+            page.setName("genData " + i + "/" + (max));
             if (i % 2 == 0) {
                 page.setUrlImg(Constants.INSTANCE.getURL_IMG_1());
             } else {
