@@ -555,9 +555,9 @@ public class LStoreUtil {
                             ggSettingCallback.onGGResponse(null, false);
                         }
                     } else {
-                        String localMsg = LPrefUtil.Companion.getGGAppMsg(context);
+                        String localMsg = LPrefUtil.INSTANCE.getGGAppMsg(context);
                         String serverMsg = app.getConfig().getMsg();
-                        LPrefUtil.Companion.setGGAppMsg(context, serverMsg);
+                        LPrefUtil.INSTANCE.setGGAppMsg(context, serverMsg);
                         boolean isNeedToShowMsg;
                         if (serverMsg == null || serverMsg.isEmpty()) {
                             isNeedToShowMsg = false;

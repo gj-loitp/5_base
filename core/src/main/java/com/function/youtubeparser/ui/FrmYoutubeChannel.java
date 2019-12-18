@@ -27,6 +27,7 @@ import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -101,7 +102,7 @@ public class FrmYoutubeChannel extends BaseFragment {
     }
 
     private void getListChannel() {
-        final long lastTime = LPrefUtil.Companion.getTimeGetYoutubeChannelListSuccess(getActivity());
+        final long lastTime = LPrefUtil.INSTANCE.getTimeGetYoutubeChannelListSuccess(getActivity());
         LLog.d(TAG, "lastTime " + lastTime);
         if (lastTime == 0) {
             LLog.d(TAG, "lastTime == 0 -> day la lan dau -> se call gg drive de lay list moi");
@@ -114,7 +115,7 @@ public class FrmYoutubeChannel extends BaseFragment {
                 LLog.d(TAG, "neu durationS >" + range + " phut -> se call gg drive de lay list moi");
             } else {
                 LLog.d(TAG, "do durationS <=" + range + " phut nen se lay list cu da luu");
-                final UtubeChannel utubeChannel = LPrefUtil.Companion.getYoutubeChannelList(getActivity());
+                final UtubeChannel utubeChannel = LPrefUtil.INSTANCE.getYoutubeChannelList(getActivity());
                 getListYoutubeChannelSuccess(utubeChannel);
                 return;
             }
@@ -142,8 +143,8 @@ public class FrmYoutubeChannel extends BaseFragment {
                         getListYoutubeChannelFailed();
                         return;
                     }
-                    LPrefUtil.Companion.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
-                    LPrefUtil.Companion.setYoutubeChannelList(getActivity(), utubeChannel);
+                    LPrefUtil.INSTANCE.setTimeGetYoutubeChannelListSuccess(getActivity(), System.currentTimeMillis());
+                    LPrefUtil.INSTANCE.setYoutubeChannelList(getActivity(), utubeChannel);
                     getListYoutubeChannelSuccess(utubeChannel);
                 } else {
                     LLog.d(TAG, "onResponse !isSuccessful: " + response.toString());
