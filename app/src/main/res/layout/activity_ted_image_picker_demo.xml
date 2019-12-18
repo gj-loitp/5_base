@@ -30,6 +30,11 @@
                 android:text="Rx - Single" />
 
             <Button
+                android:id="@+id/btnRxSingleThenResize"
+                style="@style/ButtonMenu"
+                android:text="Rx - Single then Resize" />
+
+            <Button
                 android:id="@+id/btnRxMulti"
                 style="@style/ButtonMenu"
                 android:text="Rx - Multi" />

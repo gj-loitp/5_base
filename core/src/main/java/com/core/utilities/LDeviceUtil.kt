@@ -2,6 +2,7 @@ package com.core.utilities
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -10,6 +11,7 @@ import android.os.Vibrator
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
+import java.io.File
 import java.util.*
 
 
@@ -92,5 +94,23 @@ object LDeviceUtil {
                 || Build.MANUFACTURER.contains("Genymotion")
                 || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
                 || "google_sdk" == Build.PRODUCT)
+    }
+
+    fun getAvailableSpaceInMb(context: Context): Int {
+        val freeBytesExternal = File(context.getExternalFilesDir(null).toString()).freeSpace
+        val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
+        //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
+        //val totalMb = (totalSize / (1024 * 1024)).toInt()
+        return freeMb
+    }
+
+    fun getAvailableRAM(context: Context): Long {
+        val memoryInfo = ActivityManager.MemoryInfo()
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        activityManager.getMemoryInfo(memoryInfo)
+        val availableMegs = memoryInfo.availMem / 1048576L
+        val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
+        //LLog.d(TAG, "percentAvail $percentAvail")
+        return availableMegs
     }
 }

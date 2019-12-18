@@ -62,6 +62,7 @@
     <dimen name="round_45">45dp</dimen>
     <dimen name="round_50">50dp</dimen>
     <dimen name="round_80">80dp</dimen>
+    <dimen name="round_90">90dp</dimen>
 
     <dimen name="w_1">1dp</dimen>
     <dimen name="w_3">3dp</dimen>

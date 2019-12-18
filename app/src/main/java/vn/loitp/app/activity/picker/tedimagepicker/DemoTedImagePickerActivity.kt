@@ -21,6 +21,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         setNormalSingleButton()
         setNormalMultiButton()
         setRxSingleButton()
+        setRxSingleButtonThenResize()
         setRxMultiButton()
     }
 
@@ -67,6 +68,16 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         }
     }
 
+    private fun setRxSingleButtonThenResize() {
+        btnRxSingleThenResize.setOnClickListener {
+            TedRxImagePicker.with(this)
+                    .start()
+                    .subscribe({ uri ->
+                        resize(uri)
+                    }, Throwable::printStackTrace)
+        }
+    }
+
     private fun setRxMultiButton() {
         btnRxMulti.setOnClickListener {
             TedRxImagePicker.with(this)
@@ -78,7 +89,6 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     private fun showSingleImage(uri: Uri) {
         ivImage.visibility = View.VISIBLE
         containerSelectedPhotos.visibility = View.GONE
-        //Glide.with(this).load(uri).into(ivImage)
         LImageUtil.load(this, uri, ivImage)
     }
 
@@ -96,5 +106,11 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
             LImageUtil.load(this, it, img)
             containerSelectedPhotos.addView(img)
         }
+    }
+
+    private fun resize(uri: Uri) {
+        ivImage.visibility = View.VISIBLE
+        containerSelectedPhotos.visibility = View.GONE
+        LImageUtil.load(this, uri, ivImage)
     }
 }
