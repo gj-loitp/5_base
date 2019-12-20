@@ -40,7 +40,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             LEncryptionSharedPrefsUtil.instance.put(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetStringWithDefaultValue.setOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
+            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLong(value)
         }
 

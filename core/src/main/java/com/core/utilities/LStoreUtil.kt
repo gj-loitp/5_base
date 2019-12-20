@@ -80,10 +80,14 @@ object LStoreUtil {
         if (isSdPresent) {
             try {
                 //val sdPath = File(Environment.getExternalStorageDirectory().absolutePath + "/" + mfolderName)
-                ///storage/emulated/0/ZZZTestDownloader
+                ///storage/emulated/0/Loitpzloitpbestcomic/
 
                 val sdPath = File(context.getExternalFilesDir(null)?.absolutePath + "/" + mfolderName)
-                ///storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
+                ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+
+                //val sdPath = File(context.getExternalFilesDir(null)?.path + "/" + mfolderName)
+                ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+
                 if (!sdPath.exists()) {
                     sdPath.mkdirs()
                     folderPath = sdPath.absolutePath
@@ -109,6 +113,7 @@ object LStoreUtil {
             }
 
         }
+        //LLog.d(TAG, "isSdPresent: $isSdPresent, getFolderPath: $folderPath")
         return folderPath
     }
 
@@ -130,29 +135,29 @@ object LStoreUtil {
             if (folder != null) {
                 path = "$path$folder/"
             }
-            LLog.d(TAG, "writeToFile path: $path")
+            //LLog.d(TAG, "writeToFile path: $path")
             val dir = File(path)
             val dirExist = dir.exists()
-            LLog.d(TAG, "writeToFile dirExist: $dirExist")
+            //LLog.d(TAG, "writeToFile dirExist: $dirExist")
             if (!dirExist) {
                 if (!dir.mkdirs()) {
-                    LLog.d(TAG, "writeToFile could not create the directories")
+                    //LLog.d(TAG, "writeToFile could not create the directories")
                     return false
                 }
             }
             val myFile = File(dir, fileName)
             val myFileExist = myFile.exists()
-            LLog.d(TAG, "writeToFile myFileExist: $myFileExist")
+            //LLog.d(TAG, "writeToFile myFileExist: $myFileExist")
             if (!myFileExist) {
                 val isSuccess = myFile.createNewFile()
-                LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
+                //LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
             }
             fos = FileOutputStream(myFile)
             fos.write(body.toByteArray())
             fos.close()
             return true
         } catch (e: IOException) {
-            LLog.e(TAG, "writeToFile $e")
+            //LLog.e(TAG, "writeToFile $e")
             e.printStackTrace()
             return false
         }
@@ -326,11 +331,11 @@ object LStoreUtil {
             }
             br.close()
             ins.close()
-            LLog.d(TAG, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
+            //LLog.d(TAG, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
             writeToFile(context as Activity, folderName, fileName, stringBuilder.toString())
             state = true
         } catch (e: Exception) {
-            LLog.e(TAG, "writeToFile saveHTMLCodeFromURLToSDCard $e")
+            //LLog.e(TAG, "writeToFile saveHTMLCodeFromURLToSDCard $e")
             e.printStackTrace()
         }
 

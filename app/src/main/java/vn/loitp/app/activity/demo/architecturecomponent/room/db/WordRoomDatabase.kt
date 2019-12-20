@@ -56,7 +56,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
             wordDao.insert(word)
 
             word = Word()
-            word.word = "Hello Loitpp!"
+            word.word = "Hello Room!"
             wordDao.insert(word)
         }*/
     }

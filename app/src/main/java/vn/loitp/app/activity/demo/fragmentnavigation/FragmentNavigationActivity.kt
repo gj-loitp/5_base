@@ -11,7 +11,7 @@ import loitp.basemaster.R
 
 class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    val T = "loitpp"
+    val T = "FragmentNavigationActivity"
 
     val navController: NavController
         get() = Navigation.findNavController(activity, R.id.my_nav_host_fragment)
