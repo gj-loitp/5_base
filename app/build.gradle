@@ -23,6 +23,23 @@ android {
                 includeCompileClasspath true
             }
         }
+
+        buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
+
+        buildConfigField("String", "PATH_MAIN", '"api/"')
+        buildConfigField("String", "PATH_LOGIN", '"authentication/login/mobile"')
+        buildConfigField("String", "PATH_LOGOUT", '"authentication/logout"')
+        buildConfigField("String", "PATH_ME", '"authentication/me"')
+
+        buildConfigField("String", "PATH_PRODUCT_ODER", '"ProductOrder"')
+        buildConfigField("String", "PATH_PRODUCT_ODER_SEARCH", '"ProductOrder/search"')
+
+        buildConfigField("String", "PATH_PLANT", '"SAPData/Plants"')
+        buildConfigField("String", "PATH_LOTCELL", '"SAPData/LotCells"')
+        buildConfigField("String", "PATH_MATERIAL_DATA", '"SAPData/MaterialDatas"')
+
+        buildConfigField("String", "PATH_MATERIAL_REQUEST", '"MaterialRequest"')
+        buildConfigField("String", "PATH_MATERIAL_REQUEST_SEARCH", '"MaterialRequest/search"')
     }
 
     dataBinding {
@@ -73,6 +90,27 @@ android {
 
         //exclude the atomic functions module from the package and prevent warnings.
         exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
+    flavorDimensions "type"
+    productFlavors {
+
+        production {
+            dimension "type"
+            resValue "string", "app_name", "Base Master Release"
+
+            buildConfigField("String", "API_ENDPOINT", '"https://vef-manufacture-api.dev.cloudhms.io/"')
+            buildConfigField("String", "API_AUTHEN_ENDPOINT", '"https://vef-authentication-api.dev.cloudhms.io/"')
+        }
+
+        devVinEcoFarm {
+            dimension "type"
+            resValue "string", "app_name", "Base Master Dev"
+
+            buildConfigField("String", "API_ENDPOINT", '"https://vef-manufacture-api.dev.cloudhms.io/"')
+            buildConfigField("String", "API_AUTHEN_ENDPOINT", '"https://vef-authentication-api.dev.cloudhms.io/"')
+        }
+
     }
 }
 
@@ -151,6 +189,9 @@ dependencies {
     api "androidx.room:room-ktx:2.2.2"
     kapt "androidx.room:room-compiler:2.2.2"
     androidTestImplementation "androidx.room:room-testing:2.2.2"
+
+    //retrofit
+    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     //endregion
 }
 apply plugin: 'com.google.gms.google-services'

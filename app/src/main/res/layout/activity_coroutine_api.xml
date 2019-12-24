@@ -18,9 +18,9 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btCoroutineAPI"
+                android:id="@+id/btCallAPI"
                 style="@style/ButtonMenu"
-                android:text="Coroutine API" />
+                android:text="Call API" />
 
         </LinearLayout>
     </ScrollView>
