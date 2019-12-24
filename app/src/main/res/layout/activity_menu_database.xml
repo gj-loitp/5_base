@@ -20,47 +20,52 @@
             <Button
                 android:id="@+id/bt_sqlite_asset"
                 style="@style/ButtonMenu"
-                android:text="Read SQLite Asset" />
+                android:text="@string/read_sqlite_asset" />
 
             <Button
                 android:id="@+id/bt_realm"
                 style="@style/ButtonMenu"
-                android:text="Realm" />
+                android:text="@string/realm" />
+
+            <Button
+                android:id="@+id/btRoom"
+                style="@style/ButtonMenu"
+                android:text="Room" />
 
             <Button
                 android:id="@+id/btSharedPrefs"
                 style="@style/ButtonMenu"
-                android:text="SharedPrefs" />
+                android:text="@string/sharedprefs" />
 
             <Button
                 android:id="@+id/btSharedPrefsEncryption"
                 style="@style/ButtonMenu"
-                android:text="SharedPrefsEncryption" />
+                android:text="@string/sharedprefsencryption" />
 
             <Button
                 android:id="@+id/bt_sqlite"
                 style="@style/ButtonMenu"
-                android:text="SQLite" />
+                android:text="@string/sqlite" />
 
             <Button
                 android:id="@+id/btSqliteEncryption"
                 style="@style/ButtonMenu"
-                android:text="SQLite Encryption" />
+                android:text="@string/sqlite_encryption" />
 
             <Button
                 android:id="@+id/btSqliteMultiTable"
                 style="@style/ButtonMenu"
-                android:text="SQLite Multi Table" />
+                android:text="@string/sqlite_multi_table" />
+
             <Button
                 android:id="@+id/btSqliteMultiTableAdvance"
                 style="@style/ButtonMenu"
-                android:text="SQLite Multi Table Advance" />
+                android:text="@string/sqlite_multi_table_advance" />
         </LinearLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Menu Databse" />
+        android:text="@string/menu_databse" />
 </RelativeLayout>
-

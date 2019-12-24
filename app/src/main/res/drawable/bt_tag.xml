@@ -7,7 +7,7 @@
 
             <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
 
-            <corners android:radius="@dimen/round_15" />
+            <corners android:radius="@dimen/round_45" />
 
             <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_5" android:right="@dimen/padding_5" android:top="@dimen/padding_5" />
         </shape>
@@ -18,7 +18,7 @@
 
             <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
 
-            <corners android:radius="@dimen/round_15" />
+            <corners android:radius="@dimen/round_45" />
 
             <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />
         </shape>

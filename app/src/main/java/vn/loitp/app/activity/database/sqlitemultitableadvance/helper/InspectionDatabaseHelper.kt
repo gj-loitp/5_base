@@ -120,6 +120,68 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return actionList
     }
 
+    fun getActionCount(): Int {
+        val countQuery = "SELECT  * FROM $TABLE_ACTION"
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(countQuery, null)
+        val count = cursor.count
+        cursor.close()
+        return count
+    }
+
+    fun getTotalPageAction(pageSize: Int): Int {
+        val count = getActionCount()
+        return if (count % pageSize == 0) {
+            count / pageSize
+        } else {
+            count / pageSize + 1
+        }
+    }
+
+    //page 1 -> getActionListByPage(0, 50)
+    //page 2 -> getActionListByPage(1, 50)
+    fun getActionListByPage(page: Int, pageSize: Int): List<Action> {
+//        SELECT * FROM table limit 100` -- get 1st 100 records
+//        SELECT * FROM table limit 100, 200` -- get 200 records beginning with row 101
+
+
+        //for test
+        /*val count = getActionCount()
+        LLog.d(TAG, "page: $page, pageSize: $pageSize")
+        LLog.d(TAG, "getActionCount: $count ")
+
+        val totalPage = if (count % pageSize == 0) {
+            count / pageSize
+        } else {
+            count / pageSize + 1
+        }
+        LLog.d(TAG, "totalPage: $totalPage")
+        for (i in 0 until totalPage) {
+            val startIndexByPage = i * pageSize
+            LLog.d(TAG, "i: $i -> startIndexByPage: $startIndexByPage")
+        }*/
+
+        val startIndexByPage = page * pageSize
+        val actionList = ArrayList<Action>()
+        val selectQuery = "SELECT  * FROM $TABLE_ACTION LIMIT $startIndexByPage, $pageSize "
+
+        val db = this.readableDatabase
+        val c = db.rawQuery(selectQuery, null)
+        if (c.moveToFirst()) {
+            do {
+                val action = Action()
+                action.id = c.getInt(c.getColumnIndex(KEY_ID))
+                action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
+                val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
+                val inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+                action.inspection = inspection
+                actionList.add(action)
+            } while (c.moveToNext())
+        }
+        c.close()
+        return actionList
+    }
+
     fun createInspection(inspection: Inspection): Long {
         val db = this.writableDatabase
 
@@ -151,30 +213,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return null
     }
 
-    /*fun getAllInspectionByAction(actionType: String?): List<Inspection> {
-        val noteList = ArrayList<Inspection>()
-
-        val selectQuery = "SELECT  * FROM " + TABLE_ACTION +
-                "WHERE " + KEY_ACTION_TYPE + " = '" + actionType + "'"
-
-        val db = this.readableDatabase
-        val c = db.rawQuery(selectQuery, null)
-
-        if (c.moveToFirst()) {
-            do {
-                val td = Inspection()
-                td.id = c.getInt(c.getColumnIndex(KEY_ID))
-                td.inspectionId = c.getString(c.getColumnIndex(KEY_INSPECTION_ID))
-                td.content = c.getString(c.getColumnIndex(KEY_INSPECTION_CONTENT))
-                noteList.add(td)
-            } while (c.moveToNext())
-        }
-
-        c.close()
-        return noteList
-    }*/
-
-
     fun updateInspection(inspection: Inspection): Int {
         val db = this.writableDatabase
 
@@ -201,6 +239,22 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         return db.insert(TABLE_ACTION, null, values)
     }
 
+    fun getAction(actionId: Long): Action? {
+        val db = this.readableDatabase
+        val selectQuery = ("SELECT  * FROM " + TABLE_ACTION + " WHERE "
+                + KEY_ID + " = " + actionId)
+        val c = db.rawQuery(selectQuery, null)
+        if (c != null && c.moveToFirst()) {
+            val action = Action()
+            action.id = c.getInt(c.getColumnIndex(KEY_ID))
+            action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
+            val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
+            action.inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+            c.close()
+            return action
+        }
+        return null
+    }
 
     fun updateAction(action: Action): Int {
         val db = this.writableDatabase
@@ -212,45 +266,14 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 arrayOf(action.id.toString()))
     }
 
-    /*fun deleteTag(tag: Action, shouldDeleteAllTagNotes: Boolean) {
+    //This function returns the number of rows modified
+    fun deleteAction(action: Action): Int {
         val db = this.writableDatabase
-
-        // before deleting tag
-        // check if todos under this tag should also be deleted
-        if (shouldDeleteAllTagNotes) {
-            // get all notes under this tag
-            val allTagNotes = getAllNoteByTag(tag.tagName)
-
-            // delete all todos
-            for (todo in allTagNotes) {
-                deleteNote(todo.id.toLong())
-            }
-        }
-
-        // now delete the tag
-        db.delete(TABLE_ACTION, "$KEY_ID = ?",
-                arrayOf(tag.id.toString()))
+        val number = db.delete(TABLE_ACTION, "$KEY_ID = ?",
+                arrayOf(action.id.toString()))
         db.close()
+        return number
     }
-
-    // ------------------------ "todo_tags" table methods ----------------//
-
-
-
-    fun updateNoteTag(id: Long, tagId: Long): Int {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(KEY_ACTION_ID_FK, tagId)
-        // updating row
-        return db.update(TABLE_INSPECTION, values, "$KEY_ID = ?",
-                arrayOf(id.toString()))
-    }
-
-    fun deleteNoteTag(id: Long) {
-        val db = this.writableDatabase
-        db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
-                arrayOf(id.toString()))
-    }*/
 
     fun closeDB() {
         val db = this.readableDatabase

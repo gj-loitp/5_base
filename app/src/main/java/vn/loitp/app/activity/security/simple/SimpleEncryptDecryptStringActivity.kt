@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.security.simple
 
 import android.os.Bundle
+import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
@@ -18,10 +19,25 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
         val user = User()
         user.fullName = "Name " + System.currentTimeMillis()
         user.email = "Mail " + System.currentTimeMillis()
-        tv0.setText(LApplication.gson.toJson(user))
+        tv0.text = LApplication.gson.toJson(user)
 
         bt0.setOnClickListener { encrypt() }
         bt1.setOnClickListener { decrypt() }
+
+        btEncodeBase64.setOnClickListener {
+            val str = tvBase64.text.toString()
+            val newStr = LEncryptionUtil.encodeBase64(str)
+            tvBase64.text = newStr
+            btEncodeBase64.visibility = View.GONE
+            btDecodeBase64.visibility = View.VISIBLE
+        }
+        btDecodeBase64.setOnClickListener {
+            val str = tvBase64.text.toString()
+            val newStr = LEncryptionUtil.decodeBase64(str)
+            tvBase64.text = newStr
+            btEncodeBase64.visibility = View.VISIBLE
+            btDecodeBase64.visibility = View.GONE
+        }
     }
 
     override fun setFullScreen(): Boolean {

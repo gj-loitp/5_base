@@ -17,7 +17,7 @@ class ArianaTextViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val tv = findViewById<TextView>(R.id.tv)
-        Ariana.setGradient(tv, LStoreUtil.getColors(), GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP)
+        Ariana.setGradient(tv, LStoreUtil.colors, GradientAngle.LEFT_BOTTOM_TO_RIGHT_TOP)
     }
 
     override fun setFullScreen(): Boolean {

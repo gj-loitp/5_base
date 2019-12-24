@@ -31,7 +31,7 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
         int max = 3;
         for (int i = 0; i < max; i++) {
             VPPhoto vpPhoto = new VPPhoto();
-            vpPhoto.setColor(LStoreUtil.getRandomColor());
+            vpPhoto.setColor(LStoreUtil.INSTANCE.getRandomColor());
             vpPhoto.setString("Page " + i + "/" + (max - 1));
             vpPhotoList.add(vpPhoto);
         }

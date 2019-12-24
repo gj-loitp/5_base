@@ -7,5 +7,5 @@ import java.io.IOException
 interface GGSettingCallback {
     fun onGGFailure(call: Call, e: IOException)
 
-    fun onGGResponse(app: App, isNeedToShowMsg: Boolean)
+    fun onGGResponse(app: App?, isNeedToShowMsg: Boolean)
 }

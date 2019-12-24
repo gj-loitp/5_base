@@ -54,6 +54,11 @@
                 android:text="Security" />
 
             <Button
+                android:id="@+id/btService"
+                style="@style/ButtonMenu"
+                android:text="Service" />
+
+            <Button
                 android:id="@+id/bt_demo"
                 style="@style/ButtonMenu"
                 android:text="@string/demo_app" />

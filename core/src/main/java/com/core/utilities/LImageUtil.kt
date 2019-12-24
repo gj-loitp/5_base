@@ -2,12 +2,15 @@ package com.core.utilities
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.exifinterface.media.ExifInterface
 import com.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -19,15 +22,19 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
+import com.utils.util.FileUtils
+import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import java.io.File
 import java.util.*
+import kotlin.math.min
 
 /**
  * Created by www.muathu@gmail.com on 17/7/2019.
  */
 
 object LImageUtil {
+    private val TAG = javaClass.simpleName
 
     val randomUrlFlickr: String
         get() {
@@ -108,6 +115,15 @@ object LImageUtil {
                 .load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions.circleCropTransform().placeholder(resPlaceHolder).error(resError)
+                )
+                .into(imageView)
+    }
+
+    fun loadCircleImageResources(res: Int, imageView: ImageView) {
+        Glide.with(imageView.context)
+                .load(res)
+                .transition(withCrossFade())
+                .apply(RequestOptions.circleCropTransform().placeholder(R.color.transparent).error(R.color.colorPrimary)
                 )
                 .into(imageView)
     }
@@ -353,5 +369,65 @@ object LImageUtil {
             linkUrlM = linkUrlM.replace(".png", "_b.png")
         }
         return linkUrlM
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun setImageViewZoom(iv: ImageView?) {
+        iv?.setOnTouchListener(ImageMatrixTouchHandler(iv.context))
+    }
+
+    fun resizeImage(context: Context?, file: File?, scaleTo: Int = 1024, folderPath: String?): File? {
+        if (context == null || file == null || folderPath.isNullOrEmpty()) {
+            return null
+        }
+        if (!file.exists()) {
+            return null
+        }
+        try {
+            val srcFilePath = file.path
+            val destFilePath = LStoreUtil.getFolderPath(context, folderPath) + "/" + file.name
+            val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
+            //LLog.d(TAG, "resizeImage srcFilePath: $srcFilePath")
+            //LLog.d(TAG, "resizeImage destFilePath: $destFilePath")
+            //LLog.d(TAG, "resizeImage -> resultCopy: $resultCopy")
+
+            val copiedFile = File(destFilePath)
+            if (!copiedFile.exists()) {
+                return null
+            }
+
+            val ei = ExifInterface(copiedFile.path)
+            val o = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+
+            val bmOptions = BitmapFactory.Options()
+            bmOptions.inJustDecodeBounds = true
+            BitmapFactory.decodeFile(copiedFile.absolutePath, bmOptions)
+
+            val photoW = bmOptions.outWidth
+            val photoH = bmOptions.outHeight
+
+            // Determine how much to scale down the image
+            val scaleFactor = min(a = photoW / scaleTo, b = photoH / scaleTo)
+
+            bmOptions.inJustDecodeBounds = false
+            bmOptions.inSampleSize = scaleFactor
+
+            val resized = BitmapFactory.decodeFile(copiedFile.absolutePath, bmOptions)
+                    ?: return null
+            copiedFile.outputStream().use {
+                resized.compress(Bitmap.CompressFormat.JPEG, 75, it)
+
+                val ei2 = ExifInterface(copiedFile.path)
+                ei2.setAttribute(ExifInterface.TAG_ORIENTATION, o.toString())
+                ei2.saveAttributes()
+
+                resized.recycle()
+            }
+            return copiedFile
+        } catch (e: Exception) {
+            e.printStackTrace()
+            //LLog.e(TAG, "resizeImage $e")
+            return null
+        }
     }
 }

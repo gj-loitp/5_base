@@ -53,7 +53,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         viewPager = findViewById(R.id.view_pager);
         //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
-            resList.add(LStoreUtil.getRandomColor());
+            resList.add(LStoreUtil.INSTANCE.getRandomColor());
         }
         viewPager.setAdapter(new SlidePagerAdapter());
 

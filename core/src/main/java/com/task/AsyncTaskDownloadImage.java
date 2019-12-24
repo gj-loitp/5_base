@@ -13,12 +13,12 @@ import com.views.LToast;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+//TODO convert rx
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private Context mContext;
     private String mURL;
@@ -55,7 +55,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private void downloadImagesToSdCard(final String downloadUrl, final String imageName) {
         try {
             final URL url = new URL(downloadUrl);
-            sdCard = LStoreUtil.getFolderPath(mContext);
+            sdCard = LStoreUtil.INSTANCE.getFolderPath(mContext);
             final File myDir = new File(sdCard + "/Photo");
 
             /* if specified not exist create new */
@@ -97,14 +97,9 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
             fos.close();
             // LLog.d(TAG, "Image Saved in sdcard..");
-        } catch (IOException io) {
-            downComplete = false;
-
-            io.printStackTrace();
-            // LLog.d(TAG, "IOException" + io.toString());
         } catch (Exception e) {
             downComplete = false;
-            // LLog.d(TAG, "Exception" + e.toString());
+            e.printStackTrace();
         }
     }
 

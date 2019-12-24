@@ -58,14 +58,22 @@ android {
         }
     }
 
+    /*dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }*/
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    /*packagingOptions {
-        exclude 'META-INF/core_release.kotlin_module'
-    }*/
+    packagingOptions {
+        //exclude 'META-INF/core_release.kotlin_module'
+
+        //exclude the atomic functions module from the package and prevent warnings.
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
 }
 
 repositories {
@@ -75,13 +83,13 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:3.8.6'
+    //api 'com.github.tplloi:basemaster:4.1.6'
 
-    api 'io.realm:realm-android:0.82.1'//realm
+    //realm
+    api 'io.realm:realm-android:0.82.1'
 
-    // [START gradle_play_config]
+    //Firebase
     api 'com.google.firebase:firebase-ads:18.2.0'
-
     // Firebase Authentication
     api 'com.google.firebase:firebase-auth:19.1.0'
     api 'com.google.firebase:firebase-core:17.2.0'
@@ -89,18 +97,17 @@ dependencies {
     // Google Sign In SDK (only required for Google Sign In)
     api 'com.google.android.gms:play-services-auth:17.0.0'
 
-    // Firebase UI
-    // Used in FirebaseUIActivity.
+    // Firebase UI, used in FirebaseUIActivity.
     api 'com.firebaseui:firebase-ui-auth:4.0.0'
 
     // Facebook Android SDK (only required for Facebook Login)
     // Used in FacebookLoginActivity.
     api 'com.facebook.android:facebook-login:4.34.0'
 
-    //remote config
+    //Firebase remote config
     api 'com.google.firebase:firebase-config:19.0.2'
 
-    //database
+    //Firebasedatabase
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
     api 'com.google.firebase:firebase-database:19.1.0'
@@ -108,38 +115,49 @@ dependencies {
     // Needed to fix a dependency conflict with FirebaseUI'
     api 'androidx.arch.core:core-runtime:2.1.0'
 
-    //invites
+    //Firebase invites
     api 'com.google.firebase:firebase-invites:17.0.0'
 
-    /*fcm*/
+    //Firebase FCM
     //compile 'com.google.android.gms:play-services:12.0.1'
     api 'com.google.firebase:firebase-messaging:20.0.0'
 
-    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    //implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
+    //api 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
+    //api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05'
 
     //https://github.com/siralam/BSImagePicker
-    implementation 'com.asksira.android:bsimagepicker:1.1.0'
+    api 'com.asksira.android:bsimagepicker:1.1.0'
 
     //https://github.com/JakeWharton/butterknife
-    implementation 'com.jakewharton:butterknife:10.1.0'
+    api 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
-
-    //api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'//motion layout
-
-    //data binding
-    //kapt 'com.android.databinding:compiler:3.1.4'
 
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
     //https://github.com/ParkSangGwon/TedImagePicker
-    api 'gun0912.ted:tedimagepicker:1.0.2'
+    api 'gun0912.ted:tedimagepicker:1.0.4'
 
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
+
+    //https://github.com/amitshekhariitbhu/Android-Debug-Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    //TODO try to put all dependencies of architecture component inside core library
+    //region architecture component
+    api "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-rc03"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    //Room components
+    api "androidx.room:room-runtime:2.2.2"
+    api "androidx.room:room-ktx:2.2.2"
+    kapt "androidx.room:room-compiler:2.2.2"
+    androidTestImplementation "androidx.room:room-testing:2.2.2"
+    //ViewModel Kotlin support
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
+    //Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
+    //endregion
 }
 apply plugin: 'com.google.gms.google-services'
-//com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
-

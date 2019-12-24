@@ -21,30 +21,22 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comics;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.TTTComic;
 import vn.loitp.app.app.LApplication;
 
-/**
- * Created by www.muathu@gmail.com on 11/2/2017.
- */
-
+//TODO convert rx
 public class GetComicTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
-
     private int numberOfParseDataTryAgain = 0;
     private int numberOfDoTaskTryAgain = 0;
     private final int MAX_TRY_AGAIN = 4;
-
     private boolean getComicSuccess = false;
-
     private String link;
-
     private List<Comic> comicList = new ArrayList<>();
-
     private LAVLoadingIndicatorView avi;
     private Activity activity;
 
     public interface Callback {
-        public void onSuccess(List<Comic> comicList);
+        void onSuccess(List<Comic> comicList);
 
-        public void onError();
+        void onError();
     }
 
     private Callback callback;
@@ -58,38 +50,39 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPreExecute() {
-        LLog.INSTANCE.d(TAG, "GetComicTask onPreExecute");
+        LLog.d(TAG, "GetComicTask onPreExecute");
         avi.smoothToShow();
         super.onPreExecute();
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.INSTANCE.d(TAG, "GetComicTask doInBackground");
+        LLog.d(TAG, "GetComicTask doInBackground");
         comicList = doTask(link);
+        //LLog.d(TAG, "doInBackground comicList size: " + comicList.size());
         if (comicList.size() < 1) {
             getComicSuccess = false;
         } else {
             //restore comic list with img cover url
-            String jsonTTTComic = LStoreUtil.readTxtFromFolder(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST);
+            String jsonTTTComic = LStoreUtil.INSTANCE.readTxtFromFolder(activity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST());
             if (jsonTTTComic == null || jsonTTTComic.isEmpty()) {
-                LLog.INSTANCE.d(TAG, ">>>1 jsonTTTComic is null or empty >> first to create comic list");
+                LLog.d(TAG, ">>>1 jsonTTTComic is null or empty >> first to create comic list");
 
                 TTTComic tttComic = new TTTComic();
                 Comics comics = new Comics();
                 comics.setComic(comicList);
                 tttComic.setComics(comics);
                 jsonTTTComic = LApplication.Companion.getGson().toJson(tttComic);
-                LLog.INSTANCE.d(TAG, "jsonTTTComic: " + jsonTTTComic);
-                LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
+                LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
+                LStoreUtil.INSTANCE.writeToFile(activity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST(), jsonTTTComic);
                 getComicSuccess = true;
             } else {
-                LLog.INSTANCE.d(TAG, "restore readTxtFromFolder jsonTTTComic: " + jsonTTTComic);
+                LLog.d(TAG, "restore readTxtFromFolder jsonTTTComic: " + jsonTTTComic);
                 if (jsonTTTComic != null && !jsonTTTComic.isEmpty()) {
                     TTTComic tttComic = LApplication.Companion.getGson().fromJson(jsonTTTComic, TTTComic.class);
                     try {
                         List<Comic> oldComicList = tttComic.getComics().getComic();
-                        LLog.INSTANCE.d(TAG, ">>>2 oldComicList size: " + oldComicList.size());
+                        LLog.d(TAG, ">>>2 oldComicList size: " + oldComicList.size());
                         if (!oldComicList.isEmpty()) {
                             //restore url img cover
                             //lay tat ca nhung comic da co san img cover url trong oldComicList
@@ -99,7 +92,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                                     savedInfoComicList.add(comic);
                                 }
                             }
-                            LLog.INSTANCE.d(TAG, "urlCoverComicList size: " + savedInfoComicList.size());
+                            LLog.d(TAG, "urlCoverComicList size: " + savedInfoComicList.size());
 
                             //gan du lieu url img cover cho comic list moi vua tai ve
                             for (int i = 0; i < savedInfoComicList.size(); i++) {
@@ -111,24 +104,24 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                                 }
                             }
                             //end restore url img cover
-                            LLog.INSTANCE.d(TAG, "restore success!");
+                            LLog.d(TAG, "restore success!");
                         }
                         getComicSuccess = true;
-                        LLog.INSTANCE.d(TAG, "restore success >> set getComicSuccess = true");
+                        LLog.d(TAG, "restore success >> set getComicSuccess = true");
                     } catch (NullPointerException e) {
-                        LLog.INSTANCE.d(TAG, "NullPointerException " + e.toString());
+                        LLog.d(TAG, "NullPointerException " + e.toString());
                         getComicSuccess = false;
                     }
                 } else {
-                    LLog.INSTANCE.d(TAG, ">>>3 tttComic is null or empty >> first to create comic list");
+                    LLog.d(TAG, ">>>3 tttComic is null or empty >> first to create comic list");
 
                     TTTComic tttComic = new TTTComic();
                     Comics comics = new Comics();
                     comics.setComic(comicList);
                     tttComic.setComics(comics);
                     jsonTTTComic = LApplication.Companion.getGson().toJson(tttComic);
-                    LLog.INSTANCE.d(TAG, "jsonTTTComic: " + jsonTTTComic);
-                    LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, jsonTTTComic, null);
+                    LLog.d(TAG, "jsonTTTComic: " + jsonTTTComic);
+                    LStoreUtil.INSTANCE.writeToFile(activity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST(), jsonTTTComic);
                     getComicSuccess = true;
                 }
             }
@@ -138,7 +131,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.INSTANCE.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
+        LLog.d(TAG, "GetComicTask onPostExecute getComicSuccess: " + getComicSuccess);
         if (getComicSuccess) {
             if (callback != null) {
                 callback.onSuccess(comicList);
@@ -153,9 +146,9 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     }
 
     private List<Comic> doTask(String link) {
-        List<Comic> comicList = new ArrayList<Comic>();
+        List<Comic> comicList = new ArrayList<>();
         //luu tru danh sach truyen duoi dang html code
-        boolean state = LStoreUtil.saveHTMLCodeFromURLToSDCard(activity, link, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_HTML_CODE);
+        boolean state = LStoreUtil.INSTANCE.saveHTMLCodeFromURLToSDCard(activity, link, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_HTML_CODE());
         //state = true -> luu tru thanh cong
         //state = false -> luu tru that bai
         if (state) {
@@ -182,9 +175,10 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
             //document = Jsoup.connect(link).get();
 
             /*parse jsoup from sdcard*/
-            String pathMainComicsListHTMLCode = LStoreUtil.getPathOfFileNameMainComicsListHTMLCode(activity);
-            LLog.INSTANCE.d(TAG, "pathMainComicsListHTMLCode: " + pathMainComicsListHTMLCode);
+            String pathMainComicsListHTMLCode = LStoreUtil.INSTANCE.getPathOfFileNameMainComicsListHTMLCode(activity);
+            LLog.d(TAG, "parseData pathMainComicsListHTMLCode: " + pathMainComicsListHTMLCode);
             File input = new File(pathMainComicsListHTMLCode);
+            LLog.d(TAG, "file input is exist: " + input.exists());
             document = Jsoup.parse(input, "UTF-8", "http://example.com/");
 
             for (Element eMangaFocus : document.select("div[class=manga-focus]")) {
@@ -208,7 +202,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
             if (numberOfParseDataTryAgain > MAX_TRY_AGAIN) {
                 return comicList;//return list empty
             }
-            LLog.INSTANCE.d(TAG, "err : " + e.toString() + " doTask again");
+            LLog.e(TAG, "parseData err : " + e.toString() + " doTask again");
             parseData();
         }
         return comicList;

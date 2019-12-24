@@ -82,7 +82,9 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
 
         gradientType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                circularProgress.setGradient(Integer.parseInt(gradients[position]["value"]), Color.MAGENTA)
+                gradients[position]["value"]?.let { v ->
+                    circularProgress.setGradient(Integer.parseInt(v), Color.MAGENTA)
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}

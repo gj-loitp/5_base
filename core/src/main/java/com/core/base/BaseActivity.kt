@@ -29,7 +29,6 @@ import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
 import com.views.LToast
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.smoothtransition.SwitchAnimationUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -295,14 +294,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
-        //TAG = "onMessageEvent";
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected());
+        //TAG = "onMessageEvent"
+        //LLog.d(TAG, "onMessageEvent " + event.isConnected())
         onNetworkChange(event)
         /*if (!event.isConnected()) {
             //no network
-            showTvNoConnect();
+            showTvNoConnect()
         } else {
-            hideTvNoConnect();
+            hideTvNoConnect()
         }*/
     }
 

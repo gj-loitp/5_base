@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.layout.fixedgridlayout;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
@@ -31,8 +30,8 @@ public class FixedGridLayoutActivity extends BaseFontActivity {
             LFixedGridLayout.addView(textView);
         }
         findViewById(R.id.bt).setOnClickListener(v -> {
-            int row = LDeviceUtil.Companion.getRandomNumber(7) + 1;//+1 make sure value != 0
-            int col = LDeviceUtil.Companion.getRandomNumber(10) + 1;//+1 make sure value != 0
+            int row = LDeviceUtil.INSTANCE.getRandomNumber(7) + 1;//+1 make sure value != 0
+            int col = LDeviceUtil.INSTANCE.getRandomNumber(10) + 1;//+1 make sure value != 0
             LFixedGridLayout.setGridSize(row, col);
             LToast.showShort(getActivity(), row + "x" + col, R.drawable.l_bkg_horizontal);
         });

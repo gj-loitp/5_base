@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.tplloi'
@@ -48,58 +49,75 @@ android {
 
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    api 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    //region image loader
+    api 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     //bigimageview https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.5.6'
     api 'com.github.piasy:GlideImageLoader:1.5.6'
     api 'com.github.piasy:GlideImageViewFactory:1.5.6'
     api 'jp.wasabeef:glide-transformations:2.0.2'
+    //endregion
 
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.squareup.retrofit2:retrofit:2.5.0'
-    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    //region retrofit
+    api 'com.squareup.retrofit2:retrofit:2.6.2'
+    api 'com.squareup.retrofit2:converter-gson:2.6.2'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.12.0'
     api 'com.j256.ormlite:ormlite-core:4.48'
     api 'com.j256.ormlite:ormlite-android:4.48'
+    //endregion
 
+    //region rx
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.8'
+    //endregion
 
-    api 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
-    api 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha02'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
 
-    //for com.views.floatingview.FloatingView
-    api 'com.android.support:appcompat-v7:28.0.0'
+    //region view
     api 'androidx.appcompat:appcompat:1.1.0'
-    api 'com.google.android.material:material:1.0.0-beta01'
-    api 'androidx.recyclerview:recyclerview:1.1.0-beta04'
-    api 'androidx.cardview:cardview:1.0.0-beta01'
+    api 'com.google.android.material:material:1.2.0-alpha02'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.cardview:cardview:1.0.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    //endregion
 
-    api 'org.jsoup:jsoup:1.10.2'
-    api 'androidx.multidex:multidex:2.0.1'
-    api 'org.greenrobot:eventbus:3.1.1'
-
+    //fragment navigation
     api "android.arch.navigation:navigation-fragment:1.0.0-alpha07"
     api "android.arch.navigation:navigation-ui:1.0.0-alpha07"
 
-    //animation
+    //jsoup
+    api 'org.jsoup:jsoup:1.10.2'
+
+    //multidex
+    api 'androidx.multidex:multidex:2.0.1'
+
+    //event bus
+    api 'org.greenrobot:eventbus:3.1.1'
+
+    //region animation
     api 'com.daimajia.easing:library:2.0@aar'
     api 'com.daimajia.androidanimations:library:2.2@aar'
     api 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
 
-    //google
-    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.airbnb.android:lottie:3.0.6'
+    //endregion
+
+    //region google service
+    api 'com.google.code.gson:gson:2.8.6'
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-ads:18.2.0'
+    api 'com.google.android.gms:play-services-ads:18.3.0'
     api 'com.google.android.gms:play-services-location:17.0.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
+    //endregion
 
-    //exoplayer
+    //region exoplayer
     api 'com.google.android.exoplayer:exoplayer:2.9.5'
     //compile 'com.google.android.exoplayer:exoplayer-core:2.9.2'
     api 'com.google.android.exoplayer:extension-ima:2.9.5'
@@ -113,25 +131,19 @@ dependencies {
     //https://github.com/rubensousa/PreviewSeekBar
     //api 'com.github.rubensousa:previewseekbar:2.0.0'
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
-
-    //https://github.com/juliome10/DoubleViewPager
-    //api 'com.github.juliome10:DoubleViewPager:1.0.4@aar'
+    //endregion
 
     //runtime permission https://github.com/Karumi/Dexter
     api 'com.karumi:dexter:5.0.0'
 
-    //font
+    //region font
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
+    //endregion
 
-    //animation
-    api 'com.airbnb.android:lottie:3.0.6'
-
-    //crop
+    //crop image
     api 'com.yalantis:ucrop:2.2.0'
 
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
-
-    //api 'com.flaviofaria:kenburnsview:1.0.7'
 }

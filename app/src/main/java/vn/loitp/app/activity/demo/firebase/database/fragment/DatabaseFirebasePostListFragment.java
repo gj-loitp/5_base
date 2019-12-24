@@ -31,7 +31,7 @@ import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
 
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
-    private static final String TAG = "DatabaseFirebasePostListFragment";
+    private static final String TAG = "DbFbPostListFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -152,8 +152,7 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
             }
 
             @Override
-            public void onComplete(DatabaseError databaseError, boolean b,
-                                   DataSnapshot dataSnapshot) {
+            public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
                 // Transaction completed
                 Log.d(TAG, "postTransaction:onComplete:" + databaseError);
             }
@@ -183,7 +182,7 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Intent intent = new Intent(getActivity(), AuthFirebaseMenuActivity.class);
             startActivity(intent);
-            LActivityUtil.INSTANCE.tranIn(getActivity());
+            LActivityUtil.tranIn(getActivity());
             return "";
         }
         return FirebaseAuth.getInstance().getCurrentUser().getUid();

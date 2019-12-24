@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.LToast;
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
@@ -23,15 +22,13 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
     private LAVLoadingIndicatorView avi;
-    private Button btSelect;
-
     private List<ComicType> comicTypeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        btSelect = findViewById(R.id.bt_select);
+        Button btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
         tv = findViewById(R.id.tv);
         avi = findViewById(R.id.avi);
@@ -80,7 +77,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
 
                 @Override
                 public void onError() {
-                    LToast.showShort(activity, "Error");
+                    showShort("Error");
                 }
             }).execute();
         });

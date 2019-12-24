@@ -45,7 +45,7 @@ public class ScreenSlidePageFragment extends Fragment {
         textView = rootView.findViewById(R.id.textView);
         textView.setText(mParam1);
         ((ArianaViewPagerActivity) getActivity()).viewPager.addOnPageChangeListener(
-                new ArianaTextListener(LStoreUtil.getColors(), textView,
+                new ArianaTextListener(LStoreUtil.INSTANCE.getColors(), textView,
                         ((ArianaViewPagerActivity) getActivity()).viewPager,
                         GradientAngle.RIGHT_TOP_TO_LEFT_BOTTOM));
 

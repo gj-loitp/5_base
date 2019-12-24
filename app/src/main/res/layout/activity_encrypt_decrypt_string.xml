@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:animateLayoutChanges="true">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -16,40 +16,79 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv0"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15"
-                android:text="@string/large_dummy_text"
-                android:textSize="@dimen/txt_12"
-                android:textStyle="bold" />
+                android:layout_margin="@dimen/margin_10"
+                android:background="@drawable/bkg_et"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_10">
 
-            <Button
-                android:id="@+id/bt0"
-                style="@style/ButtonMenu"
-                android:text="Encrypt" />
+                <TextView
+                    android:id="@+id/tvBase64"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/large_dummy_text"
+                    android:textSize="@dimen/txt_12"
+                    android:textStyle="bold" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_100" />
+                <Button
+                    android:id="@+id/btEncodeBase64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="encodeBase64" />
 
-            <TextView
-                android:id="@+id/tv1"
+                <Button
+                    android:id="@+id/btDecodeBase64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="decodeBase64"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15"
-                android:textSize="@dimen/txt_12"
-                android:textStyle="bold" />
+                android:layout_margin="@dimen/margin_10"
+                android:background="@drawable/bkg_et"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_10">
 
-            <Button
-                android:id="@+id/bt1"
-                style="@style/ButtonMenu"
-                android:text="Decrypt" />
+                <TextView
+                    android:id="@+id/tv0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/large_dummy_text"
+                    android:textSize="@dimen/txt_12"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/bt0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Encrypt" />
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_15"
+                    android:textSize="@dimen/txt_12"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/bt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decrypt" />
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"

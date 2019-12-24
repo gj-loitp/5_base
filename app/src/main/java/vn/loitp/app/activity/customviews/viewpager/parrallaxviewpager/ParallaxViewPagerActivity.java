@@ -12,8 +12,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
-import com.views.viewpager.parrallax.ParrallaxMode;
 import com.views.viewpager.parrallax.LParallaxViewPager;
+import com.views.viewpager.parrallax.ParrallaxMode;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -32,7 +32,7 @@ public class ParallaxViewPagerActivity extends BaseFontActivity {
         LParallaxViewPager viewPager = findViewById(R.id.viewpager);
         //LUIUtil.setPullLikeIOSVertical(viewPager);
         for (int i = 0; i < 20; i++) {
-            resList.add(LStoreUtil.getRandomColor());
+            resList.add(LStoreUtil.INSTANCE.getRandomColor());
         }
 
         viewPager.setParrallaxMode(ParrallaxMode.RIGHT_OVERLAY);

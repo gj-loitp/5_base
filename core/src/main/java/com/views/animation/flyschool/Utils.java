@@ -29,11 +29,11 @@ public class Utils {
     }
 
     public static void setHeart(ImageView imageView) {
-        int size = LDeviceUtil.Companion.getRandomNumber(150) + 80;
+        int size = LDeviceUtil.INSTANCE.getRandomNumber(150) + 80;
         imageView.getLayoutParams().height = size;
         imageView.getLayoutParams().width = size;
         imageView.requestLayout();
-        int color = LStoreUtil.getRandomColor();
+        int color = LStoreUtil.INSTANCE.getRandomColor();
         imageView.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 }

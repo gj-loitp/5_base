@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_10"
+    android:layout_marginTop="@dimen/margin_10"
+    android:layout_marginEnd="@dimen/margin_10"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@color/White"
+    app:cardCornerRadius="@dimen/round_5"
+    app:cardElevation="@dimen/w_5"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_10">
+
+        <TextView
+            android:id="@+id/tvNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_10"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/txt_10"
+            android:textStyle="bold"
+            tools:text="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:contentDescription="@string/app_name"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/l_baseline_remove_black_48" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

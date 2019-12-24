@@ -6,6 +6,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
+import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
 import vn.loitp.app.activity.customviews.compas.CompasActivity
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
@@ -74,6 +76,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_ldebugview).setOnClickListener(this)
         findViewById<View>(R.id.bt_menu).setOnClickListener(this)
         findViewById<View>(R.id.bt_l_card_view).setOnClickListener(this)
+        btCalendar.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -122,6 +125,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_ldebugview -> intent = Intent(activity, LDebugViewActivity::class.java)
             R.id.bt_menu -> intent = Intent(activity, MenuMenuActivity::class.java)
             R.id.bt_l_card_view -> intent = Intent(activity, LCardViewActivity::class.java)
+            R.id.btCalendar -> intent = Intent(activity, CalendarMenuActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

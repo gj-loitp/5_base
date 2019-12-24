@@ -32,7 +32,7 @@ class SharedPrefsActivity : BaseFontActivity() {
             LSharedPrefsUtil.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetStringWithDefaultValue.setOnClickListener {
-            val value = LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value is Loitppp ahihi")
+            val value = LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLong(value)
         }
 

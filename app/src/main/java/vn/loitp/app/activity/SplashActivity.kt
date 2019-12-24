@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.TextView
+import com.amitshekhar.DebugDB
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.GGSettingCallback
@@ -43,6 +44,8 @@ class SplashActivity : BaseFontActivity() {
         getSettingFromGGDrive()
 
         startIdleTimeHandler(10 * 1000)
+        val getAddressLog = DebugDB.getAddressLog()
+        LLog.d(TAG, "getAddressLog $getAddressLog")
     }
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
@@ -232,7 +235,7 @@ class SplashActivity : BaseFontActivity() {
             override fun onGGFailure(call: Call, e: IOException) {
             }
 
-            override fun onGGResponse(app: App, isNeedToShowMsg: Boolean) {
+            override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
                 LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
                 //LPrefUtil.setGGAppSetting(activity, app);
             }

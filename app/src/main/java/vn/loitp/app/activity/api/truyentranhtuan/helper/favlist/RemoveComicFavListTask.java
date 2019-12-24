@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.favlist;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.core.common.Constants;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.google.gson.reflect.TypeToken;
@@ -18,6 +19,7 @@ import vn.loitp.app.app.LApplication;
  * Created by www.muathu@gmail.com on 11/2/2017.
  */
 
+//TODO convert rx
 public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
     private Activity mActivity;
@@ -30,11 +32,11 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
     private final int RESULT_ADD_COMIC_ERROR = 66;
 
     public interface Callback {
-        public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList);
+        void onRemoveComicSuccess(Comic mComic, List<Comic> comicList);
 
-        public void onComicIsNotExist(Comic mComic, List<Comic> comicList);
+        void onComicIsNotExist(Comic mComic, List<Comic> comicList);
 
-        public void onRemoveComicError();
+        void onRemoveComicError();
     }
 
     private Callback callback;
@@ -52,22 +54,22 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        String json = LStoreUtil.readTxtFromFolder(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE);
+        String json = LStoreUtil.INSTANCE.readTxtFromFolder(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE());
 
         if (json == null || json.isEmpty()) {
-            LLog.INSTANCE.d(TAG, "json == null || json.isEmpty()");
+            LLog.d(TAG, "json == null || json.isEmpty()");
             mResult = RESULT_COMIC_IS_NOT_EXIST;
         } else {
             comicList = LApplication.Companion.getGson().fromJson(json, new TypeToken<List<Comic>>() {
             }.getType());
-            LLog.INSTANCE.d(TAG, "comicList size: " + comicList.size());
+            LLog.d(TAG, "comicList size: " + comicList.size());
             int pos = ComicUtils.isComicExistAt(mComic, comicList);
-            LLog.INSTANCE.d(TAG, "pos " + pos);
-            if (pos != com.core.common.Constants.INSTANCE.getNOT_FOUND()) {
+            LLog.d(TAG, "pos " + pos);
+            if (pos != Constants.getNOT_FOUND()) {
                 comicList.remove(pos);
 
                 String newJson = LApplication.Companion.getGson().toJson(comicList);
-                boolean isSaved = LStoreUtil.writeToFile(mActivity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, newJson);
+                boolean isSaved = LStoreUtil.INSTANCE.writeToFile(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE(), newJson);
                 if (isSaved) {
                     mResult = RESULT_REMOVE_COMIC_SUCCESS;
                 } else {
@@ -93,6 +95,4 @@ public class RemoveComicFavListTask extends AsyncTask<Void, Void, Void> {
         }
         super.onPostExecute(aVoid);
     }
-
-
 }

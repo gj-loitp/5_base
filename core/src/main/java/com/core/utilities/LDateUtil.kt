@@ -10,21 +10,21 @@ object LDateUtil {
     val currentDate: String
         get() {
             val c = Calendar.getInstance()
-            val df = SimpleDateFormat("ddMM_HHmm")
+            val df = SimpleDateFormat("ddMM_HHmm", Locale.getDefault())
             return df.format(c.time)
         }
 
     val currentYearMonth: String
         get() {
             val c = Calendar.getInstance()
-            val df = SimpleDateFormat("yyyy-MM")
+            val df = SimpleDateFormat("yyyy-MM", Locale.getDefault())
             return df.format(c.time)
         }
 
     val currentMonth: String
         get() {
             val c = Calendar.getInstance()
-            val df = SimpleDateFormat("MM")
+            val df = SimpleDateFormat("MM", Locale.getDefault())
             return df.format(c.time)
         }
 
@@ -74,7 +74,7 @@ object LDateUtil {
         cal.set(year, month, day)
         val date = cal.time
         //SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        val sdf = SimpleDateFormat(format)
+        val sdf = SimpleDateFormat(format, Locale.getDefault())
         return sdf.format(date)
     }
 
@@ -82,7 +82,7 @@ object LDateUtil {
         val cal = Calendar.getInstance()
         cal.set(Calendar.HOUR_OF_DAY, hr)
         cal.set(Calendar.MINUTE, min)
-        val formatter = SimpleDateFormat("h:mm a")
+        val formatter = SimpleDateFormat("h:mm a", Locale.getDefault())
         return formatter.format(cal.time)
     }
 
@@ -92,7 +92,7 @@ object LDateUtil {
 
     @JvmOverloads
     fun getDate(dateString: String, format: String = "dd/MM/yyyy hh:mm aa"): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         formatter.timeZone = TimeZone.getTimeZone("UTC")
         var value: Date? = null
         try {
@@ -100,7 +100,6 @@ object LDateUtil {
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-
         val dateFormatter = SimpleDateFormat(format, Locale.ENGLISH)
         dateFormatter.timeZone = TimeZone.getDefault()
         return dateFormatter.format(value)
@@ -108,7 +107,7 @@ object LDateUtil {
 
     //date ex: 14-09-2017
     fun convertDateToTimestamp(d: String): Long {
-        val formatter = SimpleDateFormat("dd-MM-yyyy")
+        val formatter = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val date: Date?
         return try {
             date = formatter.parse(d) as Date
@@ -137,7 +136,7 @@ object LDateUtil {
     private fun convertDateToTimeStamp(d: String, h: Int, m: Int): Long {
         //String lstart = dd + "/" + mm + "/" + yyyy + " " + h + ":" + m;
         val lstart = "$d $h:$m"
-        val format = SimpleDateFormat("dd/MM/yyyy hh:mm")
+        val format = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.getDefault())
         return try {
             val date = format.parse(lstart)
             date.time / 1000
@@ -149,7 +148,7 @@ object LDateUtil {
     }
 
     fun convertDateToTimeStamp(datetime: String): Long {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         val date: Date?
         return try {
@@ -171,7 +170,7 @@ object LDateUtil {
     }
 
     fun convertStringToCalendar(yyyymmdd: String): Calendar {
-        val df = SimpleDateFormat("yyyy-MM-dd")
+        val df = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val cal = Calendar.getInstance()
         val date: Date?
         try {
@@ -185,7 +184,7 @@ object LDateUtil {
     }
 
     fun convertStringDate(yyyymmdd: String, format: String): Calendar {
-        val df = SimpleDateFormat(format)
+        val df = SimpleDateFormat(format, Locale.getDefault())
         val cal = Calendar.getInstance()
         val date: Date?
         try {
@@ -209,7 +208,7 @@ object LDateUtil {
             val tz = TimeZone.getTimeZone("UTC")
             calendar.timeInMillis = timestamp * 1000
             calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
-            val sdf = SimpleDateFormat(format)
+            val sdf = SimpleDateFormat(format, Locale.getDefault())
             val currenTimeZone = calendar.time as Date
             sdf.format(currenTimeZone)
         } catch (e: Exception) {
@@ -229,7 +228,7 @@ object LDateUtil {
             val tz = TimeZone.getTimeZone("UTC")
             calendar.timeInMillis = timestampMls
             calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
-            val sdf = SimpleDateFormat(format)
+            val sdf = SimpleDateFormat(format, Locale.getDefault())
             val currenTimeZone = calendar.time as Date
             sdf.format(currenTimeZone)
         } catch (e: Exception) {
@@ -240,7 +239,7 @@ object LDateUtil {
     fun convertDate(dateInMilliseconds: String, dateFormat: String): String? {
         return try {
             val timeStamp = java.lang.Long.parseLong(dateInMilliseconds)
-            val objFormatter = SimpleDateFormat(dateFormat)
+            val objFormatter = SimpleDateFormat(dateFormat, Locale.getDefault())
             objFormatter.timeZone = TimeZone.getDefault()
             val objCalendar = Calendar.getInstance(TimeZone.getDefault())
             objCalendar.timeInMillis = timeStamp * 1000
@@ -256,7 +255,7 @@ object LDateUtil {
 
     fun convertSToFormat(second: Long, format: String): String? {
         val d = Date(second * 1000L)
-        val df = SimpleDateFormat(format)
+        val df = SimpleDateFormat(format, Locale.getDefault())
         df.timeZone = TimeZone.getTimeZone("GMT")
         val time = df.format(d)
         return time

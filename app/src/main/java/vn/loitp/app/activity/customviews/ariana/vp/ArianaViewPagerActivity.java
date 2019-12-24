@@ -24,12 +24,12 @@ public class ArianaViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        viewPager = findViewById(R.id.viewPager);
+        imageView = findViewById(R.id.imageView);
 
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mPagerAdapter);
-        viewPager.addOnPageChangeListener(new ArianaBackgroundListener(LStoreUtil.getColors(), imageView, viewPager));
+        viewPager.addOnPageChangeListener(new ArianaBackgroundListener(LStoreUtil.INSTANCE.getColors(), imageView, viewPager));
     }
 
     @Override
@@ -59,6 +59,7 @@ public class ArianaViewPagerActivity extends BaseFontActivity {
         }
     }
 
+    //TODO derecated
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -66,7 +67,7 @@ public class ArianaViewPagerActivity extends BaseFontActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return ScreenSlidePageFragment.newInstance(LStoreUtil.getTexts()[position]);
+            return ScreenSlidePageFragment.newInstance(LStoreUtil.INSTANCE.getTexts()[position]);
         }
 
         @Override

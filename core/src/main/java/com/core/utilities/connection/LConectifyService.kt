@@ -9,6 +9,8 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
 import com.core.utilities.LConnectivityUtil
+import com.core.utilities.LLog
+import com.core.utilities.LSharedPrefsUtil
 import com.data.EventBusData
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -43,8 +45,7 @@ class LConectifyService : JobService(), ConnectivityReceiver.ConnectivityReceive
     }
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
-        //String message = isConnected ? "Good! Connected to Internet" : "Sorry! Not connected to internet";
-        //LLog.d(TAG, "onNetworkConnectionChanged " + message);
+        //LLog.d(TAG, "onNetworkConnectionChanged $isConnected");
         if (isConnected) {
             var isConnectedMobile = false
             var isConnectedWifi = false
@@ -61,11 +62,24 @@ class LConectifyService : JobService(), ConnectivityReceiver.ConnectivityReceive
                 //LLog.d(TAG, "isConnectedFast")
                 isConnectedFast = true
             }
-            EventBusData.instance.sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile)
+
+            val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
+            if (prevIsConnectedNetwork != isConnected) {
+                //LLog.d(TAG, "onNetworkChange")
+                LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, isConnected)
+                EventBusData.instance.sendConnectChange(true, isConnectedFast, isConnectedWifi, isConnectedMobile)
+            }
         } else {
             //LLog.d(TAG, "!isConnected")
-            EventBusData.instance.sendConnectChange(isConnected = false, isConnectedFast = false,
-                    isConnectedWifi = false, isConnectedMobile = false)
+            val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
+            if (prevIsConnectedNetwork != isConnected) {
+                //LLog.d(TAG, "onNetworkChange")
+                LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, isConnected)
+                EventBusData.instance.sendConnectChange(isConnected = false, isConnectedFast = false,
+                        isConnectedWifi = false, isConnectedMobile = false)
+            }
         }
     }
 }

@@ -4,6 +4,8 @@
     package="loitp.basemaster">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name="vn.loitp.app.app.LApplication"
         android:allowBackup="true"
@@ -1070,6 +1072,61 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.service.MenuServiceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.service.endlessservice.EndlessServiceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="vn.loitp.app.activity.service.endlessservice.EndlessService"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="vn.loitp.app.activity.service.endlessservice.RebootDeviceReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="vn.loitp.app.activity.service.demoservice.DemoService" />
+
+        <activity
+            android:name="vn.loitp.app.activity.service.demoservice.DemoServiceActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity android:name="vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="vn.loitp.app.activity.customviews.calendar.cosmocalendar.calendarview.CosmoCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
     </application>

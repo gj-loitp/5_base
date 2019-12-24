@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btTestBlocking"
+                style="@style/ButtonMenu"
+                android:text="Test Blocking" />
+
+            <Button
+                android:id="@+id/btTestWithContext"
+                style="@style/ButtonMenu"
+                android:text="Test withContext" />
+
+            <Button
+                android:id="@+id/btTestJoin"
+                style="@style/ButtonMenu"
+                android:text="Test Join" />
+
+            <Button
+                android:id="@+id/btTestCancel"
+                style="@style/ButtonMenu"
+                android:text="Test Cancel" />
+
+            <Button
+                android:id="@+id/btTestCompose"
+                style="@style/ButtonMenu"
+                android:text="Test Compose" />
+
+            <Button
+                android:id="@+id/btTestTimeOut"
+                style="@style/ButtonMenu"
+                android:text="Test TimeOut" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Coroutine" />
+</RelativeLayout>

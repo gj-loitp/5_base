@@ -29,11 +29,11 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
         // all side shadow
         ShadowProperty sp = new ShadowProperty()
                 .setShadowColor(0x77000000)
-                .setShadowDy(LDisplayUtil.Companion.dip2px(this, 0.5f))
-                .setShadowRadius(LDisplayUtil.Companion.dip2px(this, 3))
+                .setShadowDy(LDisplayUtil.INSTANCE.dip2px(this, 0.5f))
+                .setShadowRadius(LDisplayUtil.INSTANCE.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getALL());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.WHITE, 0, 0);
-        LinearLayout ll0 = (LinearLayout) findViewById(R.id.ll_0);
+        LinearLayout ll0 = findViewById(R.id.ll_0);
         ViewCompat.setBackground(ll0, sd);
         ViewCompat.setLayerType(ll0, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }
@@ -42,11 +42,11 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
         // only all sides except top shadow
         ShadowProperty sp = new ShadowProperty()
                 .setShadowColor(0x77ff0000)
-                .setShadowDy(LDisplayUtil.Companion.dip2px(this, 0.5f))
-                .setShadowRadius(LDisplayUtil.Companion.dip2px(this, 3))
+                .setShadowDy(LDisplayUtil.INSTANCE.dip2px(this, 0.5f))
+                .setShadowRadius(LDisplayUtil.INSTANCE.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getLEFT() | ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
-        LinearLayout ll1 = (LinearLayout) findViewById(R.id.ll_1);
+        LinearLayout ll1 = findViewById(R.id.ll_1);
         ViewCompat.setBackground(ll1, sd);
         ViewCompat.setLayerType(ll1, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }
@@ -55,11 +55,11 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
         // only all sides except top shadow
         ShadowProperty sp = new ShadowProperty()
                 .setShadowColor(0x7700ff00)
-                .setShadowDy(LDisplayUtil.Companion.dip2px(this, 0.5f))
-                .setShadowRadius(LDisplayUtil.Companion.dip2px(this, 3))
+                .setShadowDy(LDisplayUtil.INSTANCE.dip2px(this, 0.5f))
+                .setShadowRadius(LDisplayUtil.INSTANCE.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
-        ImageView iv = (ImageView) findViewById(R.id.iv);
+        ImageView iv = findViewById(R.id.iv);
         ViewCompat.setBackground(iv, sd);
         ViewCompat.setLayerType(iv, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }

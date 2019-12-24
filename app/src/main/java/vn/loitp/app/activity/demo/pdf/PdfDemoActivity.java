@@ -117,7 +117,7 @@ public class PdfDemoActivity extends BaseFontActivity {
         if (asyncTaskDownloadPdf != null) {
             asyncTaskDownloadPdf.cancel(true);
         }
-        final String folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF");
+        final String folderPath = LStoreUtil.INSTANCE.getFolderPath(activity, "ZZZDemoPDF");
         //final String url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
         //final String url = "http://www.pdf995.com/samples/pdf.pdf";
         //final String url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";

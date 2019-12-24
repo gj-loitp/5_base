@@ -734,19 +734,107 @@
     </declare-styleable>
 
     <declare-styleable name="rtl_RecyclerTabLayout">
-        <attr name="rtl_tabIndicatorColor" format="color"/>
-        <attr name="rtl_tabIndicatorHeight" format="dimension"/>
-        <attr name="rtl_tabBackground" format="reference"/>
-        <attr name="rtl_tabTextAppearance" format="reference"/>
-        <attr name="rtl_tabSelectedTextColor" format="color"/>
-        <attr name="rtl_tabOnScreenLimit" format="integer"/>
-        <attr name="rtl_tabMinWidth" format="dimension"/>
-        <attr name="rtl_tabMaxWidth" format="dimension"/>
-        <attr name="rtl_tabPaddingStart" format="dimension"/>
-        <attr name="rtl_tabPaddingTop" format="dimension"/>
-        <attr name="rtl_tabPaddingEnd" format="dimension"/>
-        <attr name="rtl_tabPaddingBottom" format="dimension"/>
-        <attr name="rtl_tabPadding" format="dimension"/>
-        <attr name="rtl_scrollEnabled" format="boolean"/>
+        <attr name="rtl_tabIndicatorColor" format="color" />
+        <attr name="rtl_tabIndicatorHeight" format="dimension" />
+        <attr name="rtl_tabBackground" format="reference" />
+        <attr name="rtl_tabTextAppearance" format="reference" />
+        <attr name="rtl_tabSelectedTextColor" format="color" />
+        <attr name="rtl_tabOnScreenLimit" format="integer" />
+        <attr name="rtl_tabMinWidth" format="dimension" />
+        <attr name="rtl_tabMaxWidth" format="dimension" />
+        <attr name="rtl_tabPaddingStart" format="dimension" />
+        <attr name="rtl_tabPaddingTop" format="dimension" />
+        <attr name="rtl_tabPaddingEnd" format="dimension" />
+        <attr name="rtl_tabPaddingBottom" format="dimension" />
+        <attr name="rtl_tabPadding" format="dimension" />
+        <attr name="rtl_scrollEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LRoundableLayout">
+        <attr name="lrl_cornerLeftTop" format="dimension" />
+        <attr name="lrl_cornerRightTop" format="dimension" />
+        <attr name="lrl_cornerLeftBottom" format="dimension" />
+        <attr name="lrl_cornerRightBottom" format="dimension" />
+        <attr name="lrl_backgroundColor" format="color" />
+        <attr name="lrl_strokeLineWidth" format="dimension" />
+        <attr name="lrl_strokeLineColor" format="color" />
+        <attr name="lrl_dashLineWidth" format="dimension" />
+        <attr name="lrl_dashLineGap" format="dimension" />
+        <attr name="lrl_cornerLeftSide" format="dimension" />
+        <attr name="lrl_cornerRightSide" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="QButton">
+        <attr name="qb_backgroundColor" format="color" />
+        <attr name="qb_radius" format="integer" />
+        <attr name="qb_strokeColor" format="color" />
+        <attr name="qb_strokeWidth" format="integer" />
+        <attr name="qb_strokeDashWidth" format="integer" />
+        <attr name="qb_strokeDashGap" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CalendarView">
+
+        <attr name="firstDayOfTheWeek" format="enum">
+            <enum name="sunday" value="1" />
+            <enum name="monday" value="2" />
+            <enum name="tuesday" value="3" />
+            <enum name="wednesday" value="4" />
+            <enum name="thursday" value="5" />
+            <enum name="friday" value="6" />
+            <enum name="saturday" value="7" />
+        </attr>
+
+        <attr name="selectionType" format="enum">
+            <enum name="single" value="0" />
+            <enum name="multiple" value="1" />
+            <enum name="range" value="2" />
+            <enum name="none" value="3" />
+        </attr>
+
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="calendarBackgroundColor" format="color" />
+        <attr name="monthTextColor" format="color" />
+        <attr name="otherDayTextColor" format="color" />
+        <attr name="dayTextColor" format="color" />
+        <attr name="weekDayTitleTextColor" format="color" />
+        <attr name="disabledDayTextColor" format="color" />
+        <attr name="selectionBarMonthTextColor" format="color" />
+
+        <attr name="selectedDayTextColor" format="color" />
+        <attr name="selectedDayBackgroundColor" format="color" />
+        <attr name="selectedDayBackgroundStartColor" format="color" />
+        <attr name="selectedDayBackgroundEndColor" format="color" />
+
+        <attr name="currentDayTextColor" format="color" />
+        <attr name="currentDayIconRes" format="reference" />
+        <attr name="currentDaySelectedIconRes" format="reference" />
+
+        <attr name="connectedDayIconRes" format="reference" />
+        <attr name="connectedDaySelectedIconRes" format="reference" />
+        <attr name="connectedDayIconPosition" format="enum">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+
+        <attr name="previousMonthIconRes" format="reference" />
+        <attr name="nextMonthIconRes" format="reference" />
+
+        <attr name="weekendDayTextColor" format="color" />
+        <attr name="weekendDays">
+            <flag name="none" value="0" />
+            <flag name="monday" value="1" />
+            <flag name="tuesday" value="2" />
+            <flag name="wednesday" value="4" />
+            <flag name="thursday" value="8" />
+            <flag name="friday" value="16" />
+            <flag name="saturday" value="32" />
+            <flag name="sunday" value="64" />
+        </attr>
+
     </declare-styleable>
 </resources>

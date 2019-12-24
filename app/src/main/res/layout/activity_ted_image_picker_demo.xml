@@ -1,53 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        style="@style/TextMenu"
-        android:text="TedImagePicker" />
-
-    <Button
-        android:id="@+id/btnNormalSingle"
-        style="@style/ButtonMenu"
-        android:text="Normal - Single" />
-
-    <Button
-        android:id="@+id/btnNormalMulti"
-        style="@style/ButtonMenu"
-        android:text="Normal - Multi" />
-
-    <Button
-        android:id="@+id/btnRxSingle"
-        style="@style/ButtonMenu"
-        android:text="Rx - Single" />
-
-    <Button
-        android:id="@+id/btnRxMulti"
-        style="@style/ButtonMenu"
-        android:text="Rx - Multi" />
-
-    <ImageView
-        android:id="@+id/ivImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:contentDescription="@string/app_name" />
-
-    <HorizontalScrollView
-        android:id="@+id/hsv_image"
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu">
 
         <LinearLayout
-            android:id="@+id/containerSelectedPhotos"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:animateLayoutChanges="true"
-            android:gravity="start"
-            android:orientation="horizontal"
-            android:visibility="visible" />
-    </HorizontalScrollView>
-</LinearLayout>
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnNormalSingle"
+                style="@style/ButtonMenu"
+                android:text="Normal - Single" />
+
+            <Button
+                android:id="@+id/btnNormalMulti"
+                style="@style/ButtonMenu"
+                android:text="Normal - Multi" />
+
+            <Button
+                android:id="@+id/btnRxSingle"
+                style="@style/ButtonMenu"
+                android:text="Rx - Single" />
+
+            <Button
+                android:id="@+id/btnRxSingleThenResize"
+                style="@style/ButtonMenu"
+                android:text="Rx - Single then Resize" />
+
+            <Button
+                android:id="@+id/btnRxMulti"
+                style="@style/ButtonMenu"
+                android:text="Rx - Multi" />
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside" />
+
+            <HorizontalScrollView
+                android:id="@+id/hsv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/containerSelectedPhotos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/padding_5" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="TedImagePicker" />
+</RelativeLayout>

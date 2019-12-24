@@ -48,4 +48,26 @@ object LFCMUtil {
                     LLog.d(TAG, "onError $it")
                 })
     }
+
+    /*fun getFCMToken(context: Context) {
+        FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        return@OnCompleteListener
+                    }
+                    val fcmToken = task.result?.token
+                    VinPref.setFCMToken(fcmToken)
+                })
+    }*/
+
+    /*fun resetInstanceId() {
+        Thread(Runnable {
+            try {
+                FirebaseInstanceId.getInstance().deleteInstanceId()
+                FirebaseInstanceId.getInstance().instanceId
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }).start()
+    }*/
 }

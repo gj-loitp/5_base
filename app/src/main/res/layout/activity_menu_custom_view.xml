@@ -48,6 +48,11 @@
                 android:text="@string/button" />
 
             <Button
+                android:id="@+id/btCalendar"
+                style="@style/ButtonMenu"
+                android:text="Calendar" />
+
+            <Button
                 android:id="@+id/bt_compas"
                 style="@style/ButtonMenu"
                 android:text="@string/compas" />

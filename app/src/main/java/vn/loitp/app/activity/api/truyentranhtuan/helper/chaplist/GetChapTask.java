@@ -36,9 +36,9 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
     private boolean getChapSuccess = false;
 
     public interface Callback {
-        public void onSuccess(TTTChap tttChap);
+        void onSuccess(TTTChap tttChap);
 
-        public void onError();
+        void onError();
     }
 
     private Callback callback;
@@ -76,7 +76,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 }
 
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
-                getChapSuccess = LStoreUtil.writeToFile(activity, LStoreUtil.FOLDER_TRUYENTRANHTUAN, LStoreUtil.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
+                getChapSuccess = LStoreUtil.INSTANCE.writeToFile(activity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
             }
 
             //save url img cover to list comic -> tttChap.getInfo().getCover()

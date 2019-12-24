@@ -17,8 +17,10 @@ import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -32,8 +34,8 @@ import com.google.android.gms.ads.InterstitialAd
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
+import com.interfaces.RecyclerViewCallback
 import com.utils.util.ConvertUtils
-import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
 import com.views.overscroll.OverScrollDecoratorHelper
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
@@ -152,7 +154,7 @@ object LUIUtil {
     }
 
     fun createGradientDrawableWithRandomColor(): GradientDrawable {
-        val color = LStoreUtil.getRandomColor()
+        val color = LStoreUtil.randomColor
         val gradientDrawable = GradientDrawable()
         gradientDrawable.setColor(color)
         gradientDrawable.cornerRadius = 0f
@@ -208,8 +210,8 @@ object LUIUtil {
         val layers = arrayOfNulls<Drawable>(1)
         val sf = object : ShapeDrawable.ShaderFactory() {
             override fun resize(width: Int, height: Int): Shader {
-                return LinearGradient(0f, 0f, 0f, v.height.toFloat(), intArrayOf(LStoreUtil.getRandomColor(),
-                        LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor(), LStoreUtil.getRandomColor()),
+                return LinearGradient(0f, 0f, 0f, v.height.toFloat(), intArrayOf(LStoreUtil.randomColor,
+                        LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor),
                         floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP)
             }
         }
@@ -715,8 +717,51 @@ object LUIUtil {
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    fun setImageViewZoom(iv: ImageView?) {
-        iv?.setOnTouchListener(ImageMatrixTouchHandler(iv.context))
+    @SuppressLint("RestrictedApi")
+    fun setCheckBoxColor(checkBox: AppCompatCheckBox, uncheckedColor: Int, checkedColor: Int) {
+        val colorStateList = ColorStateList(
+                arrayOf(intArrayOf(-android.R.attr.state_checked), //unchecked
+                        intArrayOf(android.R.attr.state_checked)  //checked
+                ),
+                intArrayOf(uncheckedColor, checkedColor)
+        )
+        checkBox.supportButtonTintList = colorStateList
+    }
+
+    fun setChangeStatusBarTintToDark(window: Window, shouldChangeStatusBarTintToDark: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val decor = window.decorView
+            if (shouldChangeStatusBarTintToDark) {
+                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                // We want to change tint color to white again.
+                // You can also record the flags in advance so that you can turn UI back completely if
+                // you have set other flags before, such as translucent or full screen.
+                decor.systemUiVisibility = 0
+            }
+        }
+    }
+
+    fun setHeightOfView(view: View?, height: Int) {
+        view?.let {
+            it.layoutParams.height = height
+            it.requestLayout()
+        }
+    }
+
+    fun setScrollChange(recyclerView: RecyclerView, recyclerViewCallback: RecyclerViewCallback) {
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (!recyclerView.canScrollVertically(1)) {
+                        recyclerViewCallback.onBottom()
+                    }
+                    if (!recyclerView.canScrollVertically(-1)) {
+                        recyclerViewCallback.onTop()
+                    }
+                }
+            }
+        })
     }
 }

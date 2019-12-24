@@ -99,6 +99,11 @@
                 android:text="@string/rotate_layout" />
 
             <Button
+                android:id="@+id/btRoundableLayout"
+                style="@style/ButtonMenu"
+                android:text="Roundable layout" />
+
+            <Button
                 android:id="@+id/bt_scroll_view_2d"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_view_2d" />
