@@ -2,8 +2,6 @@ package vn.loitp.app.activity.api.coroutine
 
 import android.app.Application
 import com.core.utilities.LLog
-import com.restapi.flickr.FlickrConst
-import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
 import kotlinx.coroutines.launch
 import vn.loitp.app.app.LApplication
 
@@ -19,7 +17,7 @@ class AuthenViewModel(application: Application) : BaseAndroidViewModel(applicati
     private val repository: ApiRepository = ApiRepository(ApiAuthenClient.apiService)
 
     // action
-    val photosetAction: ActionLiveData<ActionData<WrapperPhotosetGetlist>> = ActionLiveData()
+    val userAction: ActionLiveData<ActionData<List<UserTest>>> = ActionLiveData()
 
     init {
         //loginVinEcoFarm()
@@ -27,29 +25,14 @@ class AuthenViewModel(application: Application) : BaseAndroidViewModel(applicati
 
     // login
     fun getPhotoset() {
-        photosetAction.set(ActionData(isDoing = true))
+        userAction.set(ActionData(isDoing = true))
 
         ioScope.launch {
-            val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
-            val apiKey = FlickrConst.API_KEY
-            val userID = FlickrConst.USER_KEY
             val page = 1
-            val perPage = 500
-            val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0
-            val format = FlickrConst.FORMAT
-            val noJsonCallback = FlickrConst.NO_JSON_CALLBACK
-            val response = repository.photosetsGetList(
-                    method = method,
-                    apiKey = apiKey,
-                    userId = userID,
-                    page = page,
-                    perPage = perPage,
-                    primaryPhotoExtras = primaryPhotoExtras,
-                    format = format,
-                    noJsonCallback = noJsonCallback)
+            val response = repository.getUserTest(page = page)
             LLog.d("loitpp", "getPhotoset " + LApplication.gson.toJson(response))
             if (response.data != null) {
-                photosetAction.post(
+                userAction.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
@@ -57,7 +40,7 @@ class AuthenViewModel(application: Application) : BaseAndroidViewModel(applicati
                         )
                 )
             } else {
-                photosetAction.postAction(getErrorRequest(response))
+                userAction.postAction(getErrorRequest(response))
             }
         }
 

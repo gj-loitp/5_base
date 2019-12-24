@@ -1,7 +1,5 @@
 package vn.loitp.app.activity.api.coroutine
 
-import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
-
 /**
  * Created by Loitp on 24,December,2019
  * HMS Ltd
@@ -9,7 +7,7 @@ import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
  * www.muathu@gmail.com
  */
 class ApiRepository(private val apiService: ApiService) : BaseRepository() {
-    suspend fun photosetsGetList(method: String,
+    /*suspend fun photosetsGetList(method: String,
                                  apiKey: String,
                                  userId: String,
                                  page: Int,
@@ -25,5 +23,9 @@ class ApiRepository(private val apiService: ApiService) : BaseRepository() {
                 primaryPhotoExtras,
                 format,
                 noJsonCallback).await()
+    }*/
+
+    suspend fun getUserTest(page: Int): ApiResponse<List<UserTest>> = makeApiCall {
+        apiService.getUserTest(page).await()
     }
 }

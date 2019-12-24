@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import com.views.OnSingleClickListener
 import kotlinx.android.synthetic.main.activity_coroutine_api.*
 import loitp.basemaster.R
@@ -28,18 +29,20 @@ class CoroutineAPIActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel(AuthenViewModel::class.java)
-        viewModel.photosetAction.observe(this, Observer { action ->
+        viewModel.userAction.observe(this, Observer { action ->
 
             action.isDoing?.let { isDoing ->
                 LLog.d(TAG, "loitpp observe isDoing $isDoing")
             }
 
-            action.data?.let {
-                LLog.d(TAG, "loitpp observe data " + LApplication.gson.toJson(it))
+            action.data?.let { userTestList ->
+                LLog.d(TAG, "loitpp observe data " + LApplication.gson.toJson(userTestList))
+                LUIUtil.printBeautyJson(userTestList, tvJson)
             }
 
             action.errorResponse?.let { error ->
                 LLog.e(TAG, "loitpp observe error " + LApplication.gson.toJson(error))
+                LUIUtil.printBeautyJson(error, tvJson)
             }
         })
 

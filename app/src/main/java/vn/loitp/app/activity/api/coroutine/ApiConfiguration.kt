@@ -8,7 +8,7 @@ package vn.loitp.app.activity.api.coroutine
  */
 object ApiConfiguration {
     // authentication
-    const val BASE_AUTHEN_URL = "https://api.flickr.com/services/"
+    const val BASE_AUTHEN_URL = "https://reqres.in/api/"
 
     // API Param
     const val AUTHORIZATION_HEADER = "Authorization"

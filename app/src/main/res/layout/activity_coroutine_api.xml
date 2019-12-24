@@ -22,6 +22,11 @@
                 style="@style/ButtonMenu"
                 android:text="Call API" />
 
+            <TextView
+                android:id="@+id/tvJson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15" />
         </LinearLayout>
     </ScrollView>
 

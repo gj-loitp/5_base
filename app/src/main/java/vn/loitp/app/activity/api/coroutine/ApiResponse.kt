@@ -19,6 +19,10 @@ data class ApiResponse<T>(
         @Expose
         val status: Boolean? = null,
 
+        @SerializedName("page")
+        @Expose
+        val page: Int? = null,
+
         @SerializedName("data")
         @Expose
         val data: T? = null,
@@ -34,6 +38,10 @@ data class ApiResponse<T>(
         @SerializedName("total")
         @Expose
         val total: Int? = null,
+
+        @SerializedName("total_page")
+        @Expose
+        val totalPage: Int? = null,
 
         @SerializedName("errors")
         @Expose
