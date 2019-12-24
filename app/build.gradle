@@ -91,27 +91,6 @@ android {
         //exclude the atomic functions module from the package and prevent warnings.
         exclude 'META-INF/atomicfu.kotlin_module'
     }
-
-    flavorDimensions "type"
-    productFlavors {
-
-        production {
-            dimension "type"
-            resValue "string", "app_name", "Base Master Release"
-
-            buildConfigField("String", "API_ENDPOINT", '"https://vef-manufacture-api.dev.cloudhms.io/"')
-            buildConfigField("String", "API_AUTHEN_ENDPOINT", '"https://vef-authentication-api.dev.cloudhms.io/"')
-        }
-
-        devVinEcoFarm {
-            dimension "type"
-            resValue "string", "app_name", "Base Master Dev"
-
-            buildConfigField("String", "API_ENDPOINT", '"https://vef-manufacture-api.dev.cloudhms.io/"')
-            buildConfigField("String", "API_AUTHEN_ENDPOINT", '"https://vef-authentication-api.dev.cloudhms.io/"')
-        }
-
-    }
 }
 
 repositories {

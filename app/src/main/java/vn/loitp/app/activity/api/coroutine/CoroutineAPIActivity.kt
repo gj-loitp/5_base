@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.api.coroutine
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.views.OnSingleClickListener
 import kotlinx.android.synthetic.main.activity_coroutine_api.*
 import loitp.basemaster.R
 import vn.loitp.app.app.LApplication
@@ -28,27 +28,25 @@ class CoroutineAPIActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel(AuthenViewModel::class.java)
-        viewModel.loginAction.observe(this, Observer { action ->
+        viewModel.photosetAction.observe(this, Observer { action ->
 
             action.isDoing?.let { isDoing ->
-                LLog.d(TAG, "loitpp isDoing $isDoing")
+                LLog.d(TAG, "loitpp observe isDoing $isDoing")
             }
 
             action.data?.let {
-                LLog.d(TAG, "loitpp data " + LApplication.gson.toJson(it))
+                LLog.d(TAG, "loitpp observe data " + LApplication.gson.toJson(it))
             }
 
             action.errorResponse?.let { error ->
-                LLog.e(TAG, "loitpp error " + LApplication.gson.toJson(error))
+                LLog.e(TAG, "loitpp observe error " + LApplication.gson.toJson(error))
             }
         })
 
-        btCallAPI.setOnClickListener {
-            viewModel.loginVinEcoFarm()
-        }
-    }
-
-    private fun <T : ViewModel> getViewModel(className: Class<T>): T {
-        return ViewModelProvider(this).get(className)
+        btCallAPI.setOnClickListener(object : OnSingleClickListener() {
+            override fun onSingleClick(v: View) {
+                viewModel.getPhotoset()
+            }
+        })
     }
 }

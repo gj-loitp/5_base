@@ -18,6 +18,8 @@ import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
@@ -47,7 +49,6 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var isIdleTime = false
 
     protected var rootView: RelativeLayout? = null
-        private set
     private var interstitialAd: InterstitialAd? = null
     protected var isShowAdWhenExit = false
     protected var isShowAnimWhenExit = true
@@ -86,14 +87,16 @@ abstract class BaseActivity : AppCompatActivity() {
         //autoanimation
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
-        interstitialAd = LUIUtil.createAdFull(activity)
+        if (isShowAdWhenExit) {
+            interstitialAd = LUIUtil.createAdFull(activity)
+        }
 
         val view = activity.findViewById<View>(R.id.scroll_view)
-        view?.let {
-            if (view is ScrollView) {
-                LUIUtil.setPullLikeIOSVertical(view)
-            } else if (view is NestedScrollView) {
-                LUIUtil.setPullLikeIOSVertical(view)
+        view?.let { v ->
+            if (v is ScrollView) {
+                LUIUtil.setPullLikeIOSVertical(v)
+            } else if (v is NestedScrollView) {
+                LUIUtil.setPullLikeIOSVertical(v)
             }
         }
         try {
@@ -171,14 +174,14 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    fun startActivity(clazz: Class<out Activity>) {
+    /*fun startActivity(clazz: Class<out Activity>) {
         val intent = Intent(this, clazz)
         startActivity(intent)
         LActivityUtil.tranIn(activity)
-    }
+    }*/
 
     protected fun handleException(throwable: Throwable) {
-        LLog.e("handleException", throwable.toString())
+        LLog.e(TAG, "handleException: $throwable")
         showDialogError("Error: $throwable")
     }
 
@@ -216,7 +219,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         } else {
             //dont use LLog here
-            Log.d("interstitial", "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
+            Log.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
 
@@ -364,5 +367,9 @@ abstract class BaseActivity : AppCompatActivity() {
         if (Constants.IS_DEBUG) {
             showLong(msg)
         }
+    }
+
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+        return ViewModelProvider(this).get(className)
     }
 }

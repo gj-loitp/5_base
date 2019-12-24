@@ -1,7 +1,11 @@
 package vn.loitp.app.activity.api.coroutine
 
 import android.app.Application
+import com.core.utilities.LLog
+import com.restapi.flickr.FlickrConst
+import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
 import kotlinx.coroutines.launch
+import vn.loitp.app.app.LApplication
 
 /**
  * Created by Loitp on 24,December,2019
@@ -15,39 +19,45 @@ class AuthenViewModel(application: Application) : BaseAndroidViewModel(applicati
     private val repository: ApiRepository = ApiRepository(ApiAuthenClient.apiService)
 
     // action
-    val loginAction: ActionLiveData<ActionData<LoginResponse>> = ActionLiveData()
-
-    private var tokenFirebase: String? = null
+    val photosetAction: ActionLiveData<ActionData<WrapperPhotosetGetlist>> = ActionLiveData()
 
     init {
-        //initAzure()
-        //getTokenFirebase()
         //loginVinEcoFarm()
     }
 
     // login
-    fun loginVinEcoFarm() {
-        loginAction.set(ActionData(isDoing = true))
+    fun getPhotoset() {
+        photosetAction.set(ActionData(isDoing = true))
 
         ioScope.launch {
-            val request = LoginRequest(
-                    token = null,
-                    firebaseRegistrationKey = tokenFirebase,
-                    platform = "Android"
-            )
-
-            val response = repository.login(request)
+            val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
+            val apiKey = FlickrConst.API_KEY
+            val userID = FlickrConst.USER_KEY
+            val page = 1
+            val perPage = 500
+            val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0
+            val format = FlickrConst.FORMAT
+            val noJsonCallback = FlickrConst.NO_JSON_CALLBACK
+            val response = repository.photosetsGetList(
+                    method = method,
+                    apiKey = apiKey,
+                    userId = userID,
+                    page = page,
+                    perPage = perPage,
+                    primaryPhotoExtras = primaryPhotoExtras,
+                    format = format,
+                    noJsonCallback = noJsonCallback)
+            LLog.d("loitpp", "getPhotoset " + LApplication.gson.toJson(response))
             if (response.data != null) {
-                loginAction.post(
+                photosetAction.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
                                 data = response.data
                         )
                 )
-
             } else {
-                loginAction.postAction(getErrorRequest(response))
+                photosetAction.postAction(getErrorRequest(response))
             }
         }
 

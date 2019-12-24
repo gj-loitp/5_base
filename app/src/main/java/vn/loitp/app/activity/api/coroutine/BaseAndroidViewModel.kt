@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.core.utilities.LLog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -14,6 +15,7 @@ import kotlinx.coroutines.Job
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
+
 open class BaseAndroidViewModel(application: Application) : AndroidViewModel(application) {
     protected fun <T> LiveData<T>.post(data: T) = (this as MutableLiveData<T>).postValue(data)
     protected fun <T> LiveData<T>.set(data: T) {
@@ -33,7 +35,9 @@ open class BaseAndroidViewModel(application: Application) : AndroidViewModel(app
     }
 
     fun <T> getErrorRequest(response: ApiResponse<T>): ActionData<T> {
-        return when (response.errorCode) {
+        val errorCode = response.errorCode
+        LLog.d("loitpp", "getErrorRequest errorCode $errorCode")
+        return when (errorCode) {
             RequestStatus.NO_INTERNET_CONNECTION.value -> {
                 ActionData(
                         isNetworkOffline = true,
@@ -49,13 +53,7 @@ open class BaseAndroidViewModel(application: Application) : AndroidViewModel(app
                 )
             }
             RequestStatus.NO_AUTHENTICATION.value -> {
-                /*EventBus.sendEvent(
-                        ActionData(
-                                loginRequired = true
-                        )
-                )*/
                 ActionData<T>(
-                        loginRequired = true,
                         isDoing = false,
                         isSuccess = false,
                         message = "error_login"
@@ -63,7 +61,6 @@ open class BaseAndroidViewModel(application: Application) : AndroidViewModel(app
 
             }
             else -> {
-
                 val error = response.errors?.let {
                     it
                 } ?: ErrorResponse(message = "error_occur")
