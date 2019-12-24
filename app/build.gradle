@@ -146,18 +146,11 @@ dependencies {
 
     //TODO try to put all dependencies of architecture component inside core library
     //region architecture component
-    api "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
-    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-rc03"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     //Room components
     api "androidx.room:room-runtime:2.2.2"
     api "androidx.room:room-ktx:2.2.2"
     kapt "androidx.room:room-compiler:2.2.2"
     androidTestImplementation "androidx.room:room-testing:2.2.2"
-    //ViewModel Kotlin support
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
-    //Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
     //endregion
 }
 apply plugin: 'com.google.gms.google-services'
