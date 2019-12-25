@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,6 +8,10 @@ import com.core.utilities.LLog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import vn.loitp.app.activity.api.coroutine.livedata.ActionData
+import vn.loitp.app.activity.api.coroutine.model.ApiResponse
+import vn.loitp.app.activity.api.coroutine.model.ErrorResponse
+import vn.loitp.app.activity.api.coroutine.service.RequestStatus
 
 /**
  * Created by Loitp on 24,December,2019
@@ -16,7 +20,8 @@ import kotlinx.coroutines.Job
  * www.muathu@gmail.com
  */
 
-open class BaseAndroidViewModel(application: Application) : AndroidViewModel(application) {
+open class BaseViewModel(application: Application) : AndroidViewModel(application) {
+    private val TAG = "loitpp" + javaClass.simpleName
     protected fun <T> LiveData<T>.post(data: T) = (this as MutableLiveData<T>).postValue(data)
     protected fun <T> LiveData<T>.set(data: T) {
         (this as MutableLiveData<T>).value = data
@@ -36,7 +41,7 @@ open class BaseAndroidViewModel(application: Application) : AndroidViewModel(app
 
     fun <T> getErrorRequest(response: ApiResponse<T>): ActionData<T> {
         val errorCode = response.errorCode
-        LLog.d("loitpp", "getErrorRequest errorCode $errorCode")
+        LLog.d(TAG, "getErrorRequest errorCode $errorCode")
         return when (errorCode) {
             RequestStatus.NO_INTERNET_CONNECTION.value -> {
                 ActionData(

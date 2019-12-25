@@ -1,4 +1,8 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.repository
+
+import vn.loitp.app.activity.api.coroutine.model.ApiResponse
+import vn.loitp.app.activity.api.coroutine.model.UserTest
+import vn.loitp.app.activity.api.coroutine.service.ApiService
 
 /**
  * Created by Loitp on 24,December,2019
@@ -6,7 +10,7 @@ package vn.loitp.app.activity.api.coroutine
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class ApiRepository(private val apiService: ApiService) : BaseRepository() {
+class TestRepository(private val apiService: ApiService) : BaseRepository() {
     /*suspend fun photosetsGetList(method: String,
                                  apiKey: String,
                                  userId: String,

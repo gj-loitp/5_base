@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.service
 
 /**
  * Created by Loitp on 24,December,2019

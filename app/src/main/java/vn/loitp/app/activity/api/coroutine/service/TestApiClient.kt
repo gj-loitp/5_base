@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-object ApiAuthenClient {
+object TestApiClient {
 
     private fun getBaseUrl() = ApiConfiguration.BASE_AUTHEN_URL
     private var restRequestInterceptor: RestRequestInterceptor? = null

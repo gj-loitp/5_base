@@ -1,6 +1,10 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.repository
 
 import retrofit2.Response
+import vn.loitp.app.activity.api.coroutine.model.ApiResponse
+import vn.loitp.app.activity.api.coroutine.model.ErrorJson
+import vn.loitp.app.activity.api.coroutine.model.ErrorResponse
+import vn.loitp.app.activity.api.coroutine.service.RequestStatus
 import vn.loitp.app.app.LApplication
 
 /**

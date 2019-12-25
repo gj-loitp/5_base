@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.activity
 
 import android.os.Bundle
 import android.view.View
@@ -9,17 +9,18 @@ import com.core.utilities.LUIUtil
 import com.views.OnSingleClickListener
 import kotlinx.android.synthetic.main.activity_coroutine_api.*
 import loitp.basemaster.R
+import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.app.LApplication
 
 class CoroutineAPIActivity : BaseFontActivity() {
-    lateinit var viewModel: AuthenViewModel
+    lateinit var testViewModel: TestViewModel
 
     override fun setFullScreen(): Boolean {
         return false
     }
 
     override fun setTag(): String {
-        return javaClass.simpleName
+        return "loitpp" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
@@ -28,27 +29,27 @@ class CoroutineAPIActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel(AuthenViewModel::class.java)
-        viewModel.userAction.observe(this, Observer { action ->
+        testViewModel = getViewModel(TestViewModel::class.java)
+        testViewModel.userAction.observe(this, Observer { action ->
 
             action.isDoing?.let { isDoing ->
-                LLog.d(TAG, "loitpp observe isDoing $isDoing")
+                LLog.d(TAG, "observe isDoing $isDoing")
             }
 
             action.data?.let { userTestList ->
-                LLog.d(TAG, "loitpp observe data " + LApplication.gson.toJson(userTestList))
+                LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
                 LUIUtil.printBeautyJson(userTestList, tvJson)
             }
 
             action.errorResponse?.let { error ->
-                LLog.e(TAG, "loitpp observe error " + LApplication.gson.toJson(error))
+                LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
                 LUIUtil.printBeautyJson(error, tvJson)
             }
         })
 
         btCallAPI.setOnClickListener(object : OnSingleClickListener() {
             override fun onSingleClick(v: View) {
-                viewModel.getPhotoset()
+                testViewModel.getUserList()
             }
         })
     }

@@ -1,8 +1,13 @@
-package vn.loitp.app.activity.api.coroutine
+package vn.loitp.app.activity.api.coroutine.viewmodel
 
 import android.app.Application
 import com.core.utilities.LLog
 import kotlinx.coroutines.launch
+import vn.loitp.app.activity.api.coroutine.livedata.ActionData
+import vn.loitp.app.activity.api.coroutine.livedata.ActionLiveData
+import vn.loitp.app.activity.api.coroutine.model.UserTest
+import vn.loitp.app.activity.api.coroutine.repository.TestRepository
+import vn.loitp.app.activity.api.coroutine.service.TestApiClient
 import vn.loitp.app.app.LApplication
 
 /**
@@ -12,25 +17,24 @@ import vn.loitp.app.app.LApplication
  * www.muathu@gmail.com
  */
 
-class AuthenViewModel(application: Application) : BaseAndroidViewModel(application) {
-
-    private val repository: ApiRepository = ApiRepository(ApiAuthenClient.apiService)
+class TestViewModel(application: Application) : BaseViewModel(application) {
+    private val TAG = "loitpp" + javaClass.simpleName
+    private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
     val userAction: ActionLiveData<ActionData<List<UserTest>>> = ActionLiveData()
 
     init {
-        //loginVinEcoFarm()
+        //getUserList()
     }
 
-    // login
-    fun getPhotoset() {
+    fun getUserList() {
         userAction.set(ActionData(isDoing = true))
 
         ioScope.launch {
             val page = 1
             val response = repository.getUserTest(page = page)
-            LLog.d("loitpp", "getPhotoset " + LApplication.gson.toJson(response))
+            LLog.d(TAG, "getUserList " + LApplication.gson.toJson(response))
             if (response.data != null) {
                 userAction.post(
                         ActionData(
