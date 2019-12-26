@@ -13,17 +13,17 @@
         <action
             android:id="@+id/action_fn1_to_fn2"
             app:destination="@id/fn_2"
-            app:enterAnim="@anim/fui_slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/l_slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
         <action
             android:id="@+id/action_fn1_to_fn4"
             app:destination="@id/fn_4"
-            app:enterAnim="@anim/fui_slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/l_slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
     </fragment>
 
     <fragment
@@ -34,10 +34,10 @@
         <action
             android:id="@+id/action_fn2_to_fn3"
             app:destination="@id/fn_3"
-            app:enterAnim="@anim/fui_slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/l_slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
     </fragment>
 
     <fragment
@@ -48,10 +48,10 @@
         <action
             android:id="@+id/action_fn3_to_fn1"
             app:destination="@id/fn_1"
-            app:enterAnim="@anim/fui_slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/l_slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/fn_4"
