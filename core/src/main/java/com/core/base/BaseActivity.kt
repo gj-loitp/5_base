@@ -1,11 +1,7 @@
 package com.core.base
 
 import android.app.Activity
-import android.app.job.JobInfo
-import android.app.job.JobScheduler
-import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -25,7 +21,6 @@ import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
-import com.veyo.autorefreshnetworkconnection.AutoRefreshNetworkUtil
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
@@ -315,7 +310,7 @@ abstract class BaseActivity : AppCompatActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
-        LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
+        //LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
         onNetworkChange(event)
         /*if (event.isConnected) {
             hideTvNoConnect()
