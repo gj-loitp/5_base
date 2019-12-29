@@ -13,6 +13,7 @@ import vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSugges
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity
+import vn.loitp.app.activity.customviews.edittext.textwatcher.EditTextTextWatcherActivity
 
 class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -24,6 +25,7 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_biu_edit_text).setOnClickListener(this)
         btAutoSuggestEditText.setOnClickListener(this)
         btLEditText.setOnClickListener(this)
+        btEditextTextWatcher.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -47,6 +49,7 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_biu_edit_text -> intent = Intent(activity, BiuEditTextActivity::class.java)
             R.id.btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
             R.id.btLEditText -> intent = Intent(activity, LEditTextActivity::class.java)
+            R.id.btEditextTextWatcher -> intent = Intent(activity, EditTextTextWatcherActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

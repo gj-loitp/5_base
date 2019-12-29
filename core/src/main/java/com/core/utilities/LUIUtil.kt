@@ -11,8 +11,10 @@ import android.graphics.drawable.shapes.RectShape
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.text.Editable
 import android.text.Html
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -763,5 +765,35 @@ object LUIUtil {
                 }
             }
         })
+    }
+
+    fun addTextChangedListener(editText: EditText?, delayInMls: Long, afterTextChanged: (String) -> Unit) {
+        if (delayInMls > 0) {
+            editText?.let { et ->
+                et.addTextChangedListener(object : TextWatcher {
+                    private var timer = Timer()
+                    override fun afterTextChanged(editable: Editable?) {
+                        timer.cancel()
+                        timer = Timer()
+                        timer.schedule(object : TimerTask() {
+                            override fun run() {
+                                editable?.let { e ->
+                                    et.post {
+                                        afterTextChanged.invoke(e.toString())
+                                    }
+                                }
+                            }
+                        }, delayInMls)
+                    }
+
+                    override fun beforeTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    }
+
+                    override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    }
+                }
+                )
+            }
+        }
     }
 }

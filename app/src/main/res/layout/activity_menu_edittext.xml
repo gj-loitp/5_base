@@ -33,9 +33,9 @@
                 android:text="@string/autosuggestedittext" />
 
             <Button
-                android:id="@+id/btLEditText"
+                android:id="@+id/bt_biu_edit_text"
                 style="@style/ButtonMenu"
-                android:text="@string/ledittext" />
+                android:text="@string/biuedittext" />
 
             <Button
                 android:id="@+id/bt_material_text_field"
@@ -43,9 +43,15 @@
                 android:text="@string/materialtextfield" />
 
             <Button
-                android:id="@+id/bt_biu_edit_text"
+                android:id="@+id/btLEditText"
                 style="@style/ButtonMenu"
-                android:text="@string/biuedittext" />
+                android:text="@string/ledittext" />
+
+            <Button
+                android:id="@+id/btEditextTextWatcher"
+                style="@style/ButtonMenu"
+                android:text="Text Watcher" />
+
         </LinearLayout>
     </ScrollView>
 
