@@ -22,13 +22,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.core.common.Constants
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LLog
-import com.core.utilities.LUIUtil
-import com.core.utilities.connection.LConectifyService
+import com.core.utilities.*
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
+import com.veyo.autorefreshnetworkconnection.AutoRefreshNetworkUtil
+import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
+import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
 import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.disposables.CompositeDisposable
@@ -84,6 +83,24 @@ abstract class BaseActivity : AppCompatActivity() {
             setContentView(setLayoutResourceId())
         }
 
+        CheckNetworkConnectionHelper
+                .getInstance()
+                .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+                    override fun onConnected() {
+                        //LLog.d(TAG, "OnNetworkConnectionChangeListener onConnected")
+                        LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = true)
+                    }
+
+                    override fun onDisconnected() {
+                        //LLog.d(TAG, "OnNetworkConnectionChangeListener onDisconnected")
+                        LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = false)
+                    }
+
+                    override fun getContext(): Context {
+                        return this@BaseActivity
+                    }
+                })
+
         //autoanimation
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
@@ -104,7 +121,6 @@ abstract class BaseActivity : AppCompatActivity() {
         } catch (e: ClassCastException) {
             Log.e(TAG, "ClassCastException $e")
         }
-        scheduleJob()
     }
 
     override fun onUserInteraction() {
@@ -171,6 +187,7 @@ abstract class BaseActivity : AppCompatActivity() {
         compositeDisposable.clear()
         LDialogUtil.clearAll()
         stopIdleTimeHandler()
+        //AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
     }
 
@@ -298,7 +315,7 @@ abstract class BaseActivity : AppCompatActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
-        //LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
+        LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
         onNetworkChange(event)
         /*if (event.isConnected) {
             hideTvNoConnect()
@@ -308,44 +325,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
-
-    public override fun onStart() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val startServiceIntent = Intent(this, LConectifyService::class.java)
-            startService(startServiceIntent)
-        }
-        super.onStart()
-    }
-
-    public override fun onStop() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            stopService(Intent(this, LConectifyService::class.java))
-        }
-        super.onStop()
-    }
-
-    /*@Override
-    protected void onResume() {
-        if (!LConnectivityUtil.isConnected(activity)) {
-            showTvNoConnect();
-        }
-        super.onResume();
-    }*/
-
-
-    private fun scheduleJob() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val myJob = JobInfo.Builder(0, ComponentName(this, LConectifyService::class.java))
-                    .setRequiresCharging(true)
-                    .setMinimumLatency(1000)
-                    .setOverrideDeadline(2000)
-                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                    .setPersisted(true)
-                    .build()
-            val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
-            jobScheduler.schedule(myJob)
-        }
-    }
 
     protected fun showShort(msg: String?) {
         LToast.showShort(activity, msg, R.drawable.l_bkg_horizontal)
