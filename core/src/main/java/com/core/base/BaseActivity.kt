@@ -298,13 +298,12 @@ abstract class BaseActivity : AppCompatActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected())
+        //LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
         onNetworkChange(event)
-        /*if (!event.isConnected()) {
-            //no network
-            showTvNoConnect()
-        } else {
+        /*if (event.isConnected) {
             hideTvNoConnect()
+        } else {
+            showTvNoConnect()
         }*/
     }
 
@@ -335,9 +334,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     private fun scheduleJob() {
-        val myJob: JobInfo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            myJob = JobInfo.Builder(0, ComponentName(this, LConectifyService::class.java))
+            val myJob = JobInfo.Builder(0, ComponentName(this, LConectifyService::class.java))
                     .setRequiresCharging(true)
                     .setMinimumLatency(1000)
                     .setOverrideDeadline(2000)
