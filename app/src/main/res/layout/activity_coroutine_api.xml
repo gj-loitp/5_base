@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
-        style="@style/ScrollVertical"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btCallAPI"
-                style="@style/ButtonMenu"
-                android:text="Call API" />
-
-            <TextView
-                android:id="@+id/tvJson"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15" />
-        </LinearLayout>
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Coroutine API" />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_fragment_api_coroutine" />
 </RelativeLayout>

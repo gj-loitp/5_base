@@ -9,9 +9,10 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LSharedPrefsUtil
 import com.data.EventBusData
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
@@ -139,5 +140,9 @@ abstract class BaseFragment : Fragment() {
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {
         //showToastLongDebug("onNetworkChange isConnected: ${event.isConnected}")
+    }
+
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+        return ViewModelProvider(this).get(className)
     }
 }

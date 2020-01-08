@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frmGetListUser">
+
+    <fragment
+        android:id="@+id/frmGetListUser"
+        android:name="vn.loitp.app.activity.api.coroutine.activity.FrmGetListUser"
+        android:label="frmGetListUser"
+        tools:layout="@layout/activity_coroutine_api">
+        <!--<action
+            android:id="@+id/action_fn1_to_fn2"
+            app:destination="@id/fn_2"
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />-->
+
+        <!--<action
+            android:id="@+id/action_fn1_to_fn4"
+            app:destination="@id/fn_4"
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />-->
+    </fragment>
+
+    <!--<fragment
+        android:id="@+id/fn_2"
+        android:name="vn.loitp.app.activity.demo.fragmentnavigation.FN2"
+        android:label="label_2"
+        tools:layout="@layout/fn_2">
+        <action
+            android:id="@+id/action_fn2_to_fn3"
+            app:destination="@id/fn_3"
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
+    </fragment>-->
+
+</navigation>

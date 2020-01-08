@@ -13,4 +13,3 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_fragment" />
 </RelativeLayout>
-

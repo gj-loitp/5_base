@@ -1,56 +1,19 @@
 package vn.loitp.app.activity.api.coroutine.activity
 
-import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.Observer
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
-import com.core.utilities.LUIUtil
-import com.views.OnSingleClickListener
-import kotlinx.android.synthetic.main.activity_coroutine_api.*
 import loitp.basemaster.R
-import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
-import vn.loitp.app.app.LApplication
 
 class CoroutineAPIActivity : BaseFontActivity() {
-    lateinit var testViewModel: TestViewModel
 
     override fun setFullScreen(): Boolean {
         return false
     }
 
     override fun setTag(): String {
-        return "loitpp" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_coroutine_api
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        testViewModel = getViewModel(TestViewModel::class.java)
-        testViewModel.userAction.observe(this, Observer { action ->
-
-            action.isDoing?.let { isDoing ->
-                LLog.d(TAG, "observe isDoing $isDoing")
-            }
-
-            action.data?.let { userTestList ->
-                LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
-                LUIUtil.printBeautyJson(userTestList, tvJson)
-            }
-
-            action.errorResponse?.let { error ->
-                LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
-                LUIUtil.printBeautyJson(error, tvJson)
-            }
-        })
-
-        btCallAPI.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                testViewModel.getUserList()
-            }
-        })
     }
 }
