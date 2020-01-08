@@ -44,7 +44,7 @@ public class OneAnswerView extends LinearLayout {
             this.active = active;
             if (active) {
                 if (aw.aw_ShowTextWhenActive) {
-                    ((TextView) findViewById(R.id.chooice)).setTextColor(getResources().getColor(R.color.aw_cevap_text_sel));
+                    ((TextView) findViewById(R.id.chooice)).setTextColor(getResources().getColor(R.color.colorPrimary));
                 } else {
                     findViewById(R.id.chooice).setVisibility(INVISIBLE);
                 }
@@ -52,7 +52,7 @@ public class OneAnswerView extends LinearLayout {
                 getChildAt(0).setBackgroundDrawable(getResources().getDrawable(R.drawable.l_answer_circle_ac));
             } else {
                 if (aw.aw_ShowTextWhenActive) {
-                    ((TextView) findViewById(R.id.chooice)).setTextColor(getResources().getColor(R.color.aw_cevap_text));
+                    ((TextView) findViewById(R.id.chooice)).setTextColor(getResources().getColor(R.color.Black));
                 } else {
                     findViewById(R.id.chooice).setVisibility(VISIBLE);
                 }

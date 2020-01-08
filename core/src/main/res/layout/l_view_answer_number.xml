@@ -6,6 +6,6 @@
     android:layout_weight="1"
     android:gravity="center_horizontal"
     android:padding="5dp"
-    android:textColor="@color/aw_cevap_text"
+    android:textColor="@color/Black"
     android:textSize="16sp"
     tools:text="1" />
