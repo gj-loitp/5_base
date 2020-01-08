@@ -48,6 +48,11 @@ class FrmGetListUser : BaseFragment() {
                 testViewModel.getUserList()
             }
         })
-        //findNavController().popBackStack()
+
+        btPop.setOnClickListener {
+            LLog.d(TAG, "popBackStack")
+            activity?.onBackPressed()
+            //findNavController().popBackStack()
+        }
     }
 }
