@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import com.views.OnSingleClickListener
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
@@ -43,13 +43,9 @@ class FrmGetListUser : BaseFragment() {
             }
         })
 
-        btCallAPI.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                testViewModel.getUserList()
-            }
-        })
+        btCallAPI.setSafeOnClickListener { testViewModel.getUserList() }
 
-        btPop.setOnClickListener {
+        btPop.setSafeOnClickListener {
             LLog.d(TAG, "popBackStack")
             activity?.onBackPressed()
             //findNavController().popBackStack()

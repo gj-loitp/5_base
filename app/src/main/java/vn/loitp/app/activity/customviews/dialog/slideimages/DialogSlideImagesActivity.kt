@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.dialog.slideimages
 
 import android.os.Bundle
-import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LImageUtil
-import com.views.OnSingleClickListener
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
 import loitp.basemaster.R
 
@@ -28,21 +27,15 @@ class DialogSlideImagesActivity : BaseFontActivity() {
         LImageUtil.load(activity, url1, iv1)
         LImageUtil.load(activity, url2, iv2)
 
-        iv0.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                LDialogUtil.showDialogSlide(activity, 0, imageList, 0.5f, isShowController = true, isShowIconClose = true)
-            }
-        })
-        iv1.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                LDialogUtil.showDialogSlide(activity, 1, imageList, 0.5f, isShowController = true, isShowIconClose = true)
-            }
-        })
-        iv2.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                LDialogUtil.showDialogSlide(activity, 2, imageList, 0.5f, isShowController = true, isShowIconClose = true)
-            }
-        })
+        iv0.setSafeOnClickListener {
+            LDialogUtil.showDialogSlide(activity, 0, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+        }
+        iv1.setSafeOnClickListener {
+            LDialogUtil.showDialogSlide(activity, 1, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+        }
+        iv2.setSafeOnClickListener {
+            LDialogUtil.showDialogSlide(activity, 2, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+        }
     }
 
     override fun setFullScreen(): Boolean {

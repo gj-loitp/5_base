@@ -5,7 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.core.base.BaseFontActivity
-import com.views.OnSingleClickListener
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_mvp.*
 import loitp.basemaster.R
 
@@ -44,11 +44,9 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
             }
         })
 
-        btLongTask.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                demoPresenter.doALongTask()
-            }
-        })
+        btLongTask.setSafeOnClickListener {
+            demoPresenter.doALongTask()
+        }
     }
 
     override fun setFullScreen(): Boolean {
