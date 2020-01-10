@@ -12,47 +12,43 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
 class FrmFBComment : BaseFragment() {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
 
-    private var mContainer: RelativeLayout? = null
-    private var mWebViewComments: WebView? = null
-    private var progressBar: ProgressBar? = null
     private var isLoading: Boolean = false
     private var mWebviewPop: WebView? = null
     private var postUrl: String? = null
 
+    companion object {
+        // the default number of comments should be visible
+        // on page load.
+        private const val NUMBER_OF_COMMENTS = 50
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mWebViewComments = view.findViewById(R.id.commentsView)
-        mWebViewComments?.let {
-            it.setBackgroundColor(Color.TRANSPARENT)
-            it.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
-        }
 
-        mContainer = view.findViewById(R.id.webview_frame)
-        progressBar = view.findViewById(R.id.progressBar)
-        progressBar?.let {
-            LUIUtil.setColorProgressBar(it, ContextCompat.getColor(activity!!, R.color.colorPrimary))
-        }
+        commentsWebView.setBackgroundColor(Color.TRANSPARENT)
+        commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
+
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(context!!, R.color.colorPrimary))
         val bundle = arguments ?: return
         postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)
         if (Constants.IS_DEBUG) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         }
         if (postUrl.isNullOrEmpty()) {
-            mContainer?.visibility = View.GONE
+            rlWebview.visibility = View.GONE
         } else {
             setLoading(true)
             loadComments()
@@ -65,20 +61,20 @@ class FrmFBComment : BaseFragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun loadComments() {
-        mWebViewComments?.let {
-            it.webViewClient = UriWebViewClient()
-            it.webChromeClient = UriChromeClient()
-            it.settings.javaScriptEnabled = true
-            it.settings.setAppCacheEnabled(true)
-            it.settings.domStorageEnabled = true
-            it.settings.javaScriptCanOpenWindowsAutomatically = true
-            it.settings.setSupportMultipleWindows(true)
-            it.settings.setSupportZoom(false)
-            it.settings.builtInZoomControls = false
+        commentsWebView.apply {
+            webViewClient = UriWebViewClient()
+            webChromeClient = UriChromeClient()
+            settings.javaScriptEnabled = true
+            settings.setAppCacheEnabled(true)
+            settings.domStorageEnabled = true
+            settings.javaScriptCanOpenWindowsAutomatically = true
+            settings.setSupportMultipleWindows(true)
+            settings.setSupportZoom(false)
+            settings.builtInZoomControls = false
             CookieManager.getInstance().setAcceptCookie(true)
             if (Build.VERSION.SDK_INT >= 21) {
-                it.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-                CookieManager.getInstance().setAcceptThirdPartyCookies(it, true)
+                settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
             }
 
             // facebook comment widget including the article url
@@ -88,8 +84,8 @@ class FrmFBComment : BaseFragment() {
                     "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
                     "</div> </body> </html>"
 
-            it.loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
-            it.minimumHeight = 200
+            loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
+            minimumHeight = 200
         }
     }
 
@@ -98,7 +94,7 @@ class FrmFBComment : BaseFragment() {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
-            LUIUtil.setDelay(1000, Runnable {
+            LUIUtil.setDelay(mls = 1000, runnable = Runnable {
                 LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
             })
         }
@@ -118,7 +114,7 @@ class FrmFBComment : BaseFragment() {
                 val handler = Handler()
                 handler.postDelayed({
                     //Do something after 100ms
-                    mContainer?.removeView(mWebviewPop)
+                    rlWebview.removeView(mWebviewPop)
                     loadComments()
                 }, 600)
             }
@@ -145,7 +141,7 @@ class FrmFBComment : BaseFragment() {
                 it.settings.builtInZoomControls = false
                 it.settings.setSupportMultipleWindows(true)
                 it.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                mContainer?.addView(mWebviewPop)
+                rlWebview.addView(mWebviewPop)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport
             transport.webView = mWebviewPop
@@ -159,11 +155,5 @@ class FrmFBComment : BaseFragment() {
         }
 
         override fun onCloseWindow(window: WebView) {}
-    }
-
-    companion object {
-        // the default number of comments should be visible
-        // on page load.
-        private const val NUMBER_OF_COMMENTS = 50
     }
 }

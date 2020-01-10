@@ -12,9 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFontActivity
@@ -25,22 +22,25 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.views.LToast
 import com.views.actionbar.LActionBar
+import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
 class FbCommentActivity : BaseFontActivity() {
-    private var mWebViewComments: WebView? = null
-    private var mContainer: RelativeLayout? = null
-    private var progressBar: ProgressBar? = null
     internal var isLoading: Boolean = false
-    private var mWebviewPop: WebView? = null
     private var postUrl: String? = null
     private var adView: AdView? = null
+    private var mWebviewPop: WebView? = null
+
+    companion object {
+        // the default number of comments should be visible
+        // on page load.
+        private const val NUMBER_OF_COMMENTS = 50
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         LLog.d(TAG, "adUnitId $adUnitId")
-        val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
@@ -56,9 +56,6 @@ class FbCommentActivity : BaseFontActivity() {
             }
         }
 
-        mWebViewComments = findViewById(R.id.commentsView)
-        mContainer = findViewById(R.id.webview_frame)
-        progressBar = findViewById(R.id.progressBar)
         LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary))
 
         postUrl = if (Constants.IS_DEBUG) {
@@ -74,13 +71,12 @@ class FbCommentActivity : BaseFontActivity() {
             return
         }
 
-        setLoading(true)
+        setLoading(isLoading = true)
         loadComments()
     }
 
     private fun setupActionBar() {
-        val lActionBar = findViewById<LActionBar>(R.id.l_action_bar)
-        lActionBar?.apply {
+        lActionBar.apply {
             setOnClickBack(object : LActionBar.Callback {
                 override fun onClickBack(view: View) {
                     onBackPressed()
@@ -110,20 +106,20 @@ class FbCommentActivity : BaseFontActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun loadComments() {
-        mWebViewComments?.let {
-            it.webViewClient = UriWebViewClient()
-            it.webChromeClient = UriChromeClient()
-            it.settings.javaScriptEnabled = true
-            it.settings.setAppCacheEnabled(true)
-            it.settings.domStorageEnabled = true
-            it.settings.javaScriptCanOpenWindowsAutomatically = true
-            it.settings.setSupportMultipleWindows(true)
-            it.settings.setSupportZoom(false)
-            it.settings.builtInZoomControls = false
+        commentsWebView.apply {
+            webViewClient = UriWebViewClient()
+            webChromeClient = UriChromeClient()
+            settings.javaScriptEnabled = true
+            settings.setAppCacheEnabled(true)
+            settings.domStorageEnabled = true
+            settings.javaScriptCanOpenWindowsAutomatically = true
+            settings.setSupportMultipleWindows(true)
+            settings.setSupportZoom(false)
+            settings.builtInZoomControls = false
             CookieManager.getInstance().setAcceptCookie(true)
             if (Build.VERSION.SDK_INT >= 21) {
-                it.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-                CookieManager.getInstance().setAcceptThirdPartyCookies(it, true)
+                settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
             }
 
             // facebook comment widget including the article url
@@ -133,8 +129,8 @@ class FbCommentActivity : BaseFontActivity() {
                     "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
                     "</div> </body> </html>"
 
-            it.loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
-            it.minimumHeight = 200
+            loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
+            minimumHeight = 200
         }
     }
 
@@ -160,11 +156,10 @@ class FbCommentActivity : BaseFontActivity() {
             super.onPageFinished(view, url)
             //val host = Uri.parse(url).host
             setLoading(false)
-            if (url.contains("/plugins/close_popup.php?reload")) {
+            if (url.contains(other = "/plugins/close_popup.php?reload")) {
                 val handler = Handler()
                 handler.postDelayed({
-                    //Do something after 100ms
-                    mContainer?.removeView(mWebviewPop)
+                    rlWebview.removeView(mWebviewPop)
                     loadComments()
                 }, 600)
             }
@@ -191,7 +186,7 @@ class FbCommentActivity : BaseFontActivity() {
                 it.settings.builtInZoomControls = false
                 it.settings.setSupportMultipleWindows(true)
                 it.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                mContainer?.addView(it)
+                rlWebview.addView(it)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport
             transport.webView = mWebviewPop
@@ -220,11 +215,5 @@ class FbCommentActivity : BaseFontActivity() {
     public override fun onDestroy() {
         adView?.destroy()
         super.onDestroy()
-    }
-
-    companion object {
-        // the default number of comments should be visible
-        // on page load.
-        private const val NUMBER_OF_COMMENTS = 50
     }
 }
