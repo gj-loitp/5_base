@@ -27,6 +27,7 @@ import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.l_activity_gallery_core_album.*
 import java.util.*
 
 class GalleryCoreAlbumActivity : BaseFontActivity() {

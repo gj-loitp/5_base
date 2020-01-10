@@ -14,6 +14,7 @@ import com.views.animation.confetti.ConfettiSource
 import com.views.animation.confetti.ConfettoGenerator
 import com.views.animation.confetti.confetto.BitmapConfetto
 import com.views.animation.confetti.confetto.Confetto
+import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
 import loitp.basemaster.R
 import java.util.*
 
@@ -36,8 +37,8 @@ class FallingConfettiWithListenerActivity : BaseFontActivity(), View.OnClickList
 
     private val commonConfetti: CommonConfetti
         get() {
-            val centerX = rootView?.width ?: 0 / 2
-            val centerY = rootView?.height ?: 0 / 5 * 2
+            val centerX = rootView.width
+            val centerY = rootView.height
             return CommonConfetti.explosion(rootView, centerX, centerY, colors)
         }
 

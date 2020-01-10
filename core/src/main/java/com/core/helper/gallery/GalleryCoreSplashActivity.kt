@@ -25,6 +25,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import com.views.layout.floatdraglayout.DisplayUtil
+import kotlinx.android.synthetic.main.l_activity_gallery_core_splash.*
 import java.util.*
 
 class GalleryCoreSplashActivity : BaseFontActivity() {
@@ -61,9 +62,9 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
         LLog.d(TAG, "bkgRootView $bkgRootView")
         if (bkgRootView == Constants.NOT_FOUND) {
-            rootView?.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
+            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         } else {
-            rootView?.setBackgroundResource(bkgRootView)
+            rootView.setBackgroundResource(bkgRootView)
         }
 
         val tvCopyright = findViewById<TextView>(R.id.tv_copyright)

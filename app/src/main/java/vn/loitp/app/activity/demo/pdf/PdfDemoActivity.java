@@ -49,7 +49,7 @@ public class PdfDemoActivity extends BaseFontActivity {
             //new RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
         });
 
-        showDialogMsg("You can load pdf from url, uri, file, asset, bytes, stream...");
+        showDialogMsg("You can load pdf from url, uri, file, asset, bytes, stream...", null);
     }
 
 

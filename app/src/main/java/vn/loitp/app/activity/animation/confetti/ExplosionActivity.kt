@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
+import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
 import loitp.basemaster.R
 import java.util.*
 
@@ -21,8 +22,8 @@ class ExplosionActivity : BaseFontActivity(), View.OnClickListener {
 
     private val commonConfetti: CommonConfetti
         get() {
-            val centerX = rootView?.width ?: 0 / 2
-            val centerY = rootView?.height ?: 0 / 5 * 2
+            val centerX = rootView.width
+            val centerY = rootView.height
             return CommonConfetti.explosion(rootView, centerX, centerY, colors)
         }
 

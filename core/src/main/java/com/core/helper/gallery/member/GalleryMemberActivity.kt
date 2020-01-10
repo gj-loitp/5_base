@@ -38,6 +38,7 @@ import com.views.layout.floatdraglayout.DisplayUtil
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.l_activity_gallery_core_photos_only.*
 
 class GalleryMemberActivity : BaseFontActivity() {
     private lateinit var LAVLoadingIndicatorView: LAVLoadingIndicatorView
@@ -64,7 +65,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         PhotosDataCore.getInstance().clearData()
 
         val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
-        rootView?.setBackgroundResource(resBkgRootView)
+        rootView.setBackgroundResource(resBkgRootView)
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         LLog.d(TAG, "adUnitId $adUnitId")

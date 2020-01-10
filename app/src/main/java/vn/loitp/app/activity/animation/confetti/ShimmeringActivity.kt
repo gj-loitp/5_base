@@ -12,6 +12,7 @@ import com.views.animation.confetti.ConfettoGenerator
 import com.views.animation.confetti.Utils
 import com.views.animation.confetti.confetto.Confetto
 import com.views.animation.confetti.confetto.ShimmeringConfetto
+import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
 import loitp.basemaster.R
 import java.util.*
 
@@ -31,7 +32,7 @@ class ShimmeringActivity : BaseFontActivity(), View.OnClickListener, ConfettoGen
 
     private val confettiManager: ConfettiManager
         get() {
-            val confettiSource = ConfettiSource(0, -size, rootView?.width ?: 0, -size)
+            val confettiSource = ConfettiSource(0, -size, rootView.width ?: 0, -size)
             return ConfettiManager(this, this, confettiSource, rootView)
                     .setVelocityX(0f, velocitySlow.toFloat())
                     .setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())

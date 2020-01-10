@@ -162,6 +162,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void getContactListPage(int page) {
         List<Contact> contactList = db.getContactListWithPage(page, PAGE_SIZE);
-        showDialogMsg("getContactListPage page: " + page + "\n" + LApplication.Companion.getGson().toJson(contactList));
+        showDialogMsg("getContactListPage page: " + page + "\n" + LApplication.Companion.getGson().toJson(contactList), null);
     }
 }

@@ -16,6 +16,7 @@ import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.views.LToast
+import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
 class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private var mAd: RewardedVideoAd? = null

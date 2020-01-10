@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -70,10 +71,11 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
         LLog.d(getTAG(), "bkgRootView " + bkgRootView);
+        RelativeLayout rootView = findViewById(R.id.rootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+            rootView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
-            getRootView().setBackgroundResource(bkgRootView);
+            rootView.setBackgroundResource(bkgRootView);
         }
 
         int totalPhotos;

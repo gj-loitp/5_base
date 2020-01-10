@@ -11,6 +11,7 @@ import com.views.animation.confetti.ConfettiSource
 import com.views.animation.confetti.ConfettoGenerator
 import com.views.animation.confetti.confetto.BitmapConfetto
 import com.views.animation.confetti.confetto.Confetto
+import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
 import loitp.basemaster.R
 import java.util.*
 
@@ -30,7 +31,7 @@ class FallingWithTouchActivity : BaseFontActivity(), View.OnClickListener, Confe
 
     private val confettiManager: ConfettiManager
         get() {
-            val source = ConfettiSource(0, -size, rootView?.width ?: 0, -size)
+            val source = ConfettiSource(0, -size, rootView.width ?: 0, -size)
             return ConfettiManager(this, this, source, rootView)
                     .setVelocityX(0f, velocitySlow.toFloat())
                     .setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())

@@ -42,14 +42,14 @@ abstract class BaseActivity : AppCompatActivity() {
     private var runnableIdleTime: Runnable? = null
     protected var isIdleTime = false
 
-    protected var rootView: RelativeLayout? = null
+    //protected var rootView: RelativeLayout? = null
     private var interstitialAd: InterstitialAd? = null
     protected var isShowAdWhenExit = false
     protected var isShowAnimWhenExit = true
 
-    protected fun setRootViewPadding() {
-        rootView?.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity))
-    }
+//    protected fun setRootViewPadding() {
+//        rootView?.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity))
+//    }
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -103,19 +103,20 @@ abstract class BaseActivity : AppCompatActivity() {
             interstitialAd = LUIUtil.createAdFull(activity)
         }
 
-        val view = activity.findViewById<View>(R.id.scroll_view)
-        view?.let { v ->
-            if (v is ScrollView) {
-                LUIUtil.setPullLikeIOSVertical(v)
-            } else if (v is NestedScrollView) {
-                LUIUtil.setPullLikeIOSVertical(v)
-            }
-        }
-        try {
-            rootView = activity.findViewById(R.id.root_view)
-        } catch (e: ClassCastException) {
-            Log.e(TAG, "ClassCastException $e")
-        }
+//        val view = activity.findViewById<View>(R.id.scroll_view)
+//        view?.let { v ->
+//            if (v is ScrollView) {
+//                LUIUtil.setPullLikeIOSVertical(v)
+//            } else if (v is NestedScrollView) {
+//                LUIUtil.setPullLikeIOSVertical(v)
+//            }
+//        }
+
+//        try {
+//            rootView = activity.findViewById(R.id.root_view)
+//        } catch (e: ClassCastException) {
+//            Log.e(TAG, "ClassCastException $e")
+//        }
     }
 
     override fun onUserInteraction() {
@@ -207,9 +208,10 @@ abstract class BaseActivity : AppCompatActivity() {
         alertDialog.setCancelable(false)
     }
 
-    protected fun showDialogMsg(errMsg: String) {
+    protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
         LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), object : LDialogUtil.Callback1 {
             override fun onClick1() {
+                runnable?.run()
             }
         })
     }

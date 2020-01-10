@@ -63,21 +63,23 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showDialogError(errMsg: String) {
+    open fun showDialogError(errMsg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
                         override fun onClick1() {
+                            runnable?.run()
                         }
                     })
         }
     }
 
-    open fun showDialogMsg(msg: String) {
+    open fun showDialogMsg(msg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
                         override fun onClick1() {
+                            runnable?.run()
                         }
                     }
             )
@@ -94,15 +96,15 @@ abstract class BaseFragment : Fragment() {
 
         // Apply the workaround only if this is a child fragment, and the parent
         // is being removed.
-        if (!enter && parent != null && parent.isRemoving) {
+        return if (!enter && parent != null && parent.isRemoving) {
             // This is a workaround for the bug where child fragments disappear when
             // the parent is removed (as all children are first removed from the parent)
             // See https://code.google.com/p/android/issues/detail?id=55228
             val doNothingAnim = AlphaAnimation(1f, 1f)
             doNothingAnim.duration = getNextAnimationDuration(parent, DEFAULT_CHILD_ANIMATION_DURATION.toLong())
-            return doNothingAnim
+            doNothingAnim
         } else {
-            return super.onCreateAnimation(transit, enter, nextAnim)
+            super.onCreateAnimation(transit, enter, nextAnim)
         }
     }
 
@@ -118,17 +120,20 @@ abstract class BaseFragment : Fragment() {
             // ...and if it can be loaded, return that animation's duration
             return nextAnim?.duration ?: defValue
         } catch (ex: NoSuchFieldException) {
-            //LLog.d(TAG, "Unable to load next animation from parent.", ex);
+            //LLog.d(TAG, "Unable to load next animation from parent.", ex)
+            ex.printStackTrace()
             return defValue
         } catch (ex: IllegalAccessException) {
+            ex.printStackTrace()
             return defValue
         } catch (ex: Resources.NotFoundException) {
+            ex.printStackTrace()
             return defValue
         }
     }
 
     open fun showShort(msg: String) {
-        activity?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
+        context?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

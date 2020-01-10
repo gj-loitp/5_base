@@ -7,6 +7,7 @@ import com.core.base.BaseFontActivity
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
 import com.views.animation.confetti.ConfettiSource
+import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
 import loitp.basemaster.R
 import java.util.*
 

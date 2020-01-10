@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -42,10 +43,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         int bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
         LLog.d(getTAG(), "bkgRootView " + bkgRootView);
+        RelativeLayout rootView = findViewById(R.id.rootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+            rootView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
-            getRootView().setBackgroundResource(bkgRootView);
+            rootView.setBackgroundResource(bkgRootView);
         }
 
         final TextView tvSize = findViewById(R.id.tv_size);
