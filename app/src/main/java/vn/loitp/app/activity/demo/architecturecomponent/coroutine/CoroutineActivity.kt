@@ -3,6 +3,8 @@ package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_coroutine.*
 import kotlinx.coroutines.*
 import loitp.basemaster.R
@@ -31,23 +33,26 @@ class CoroutineActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btTestBlocking.setOnClickListener {
+        btTestBlocking.setSafeOnClickListener {
             testBlocking()
         }
-        btTestWithContext.setOnClickListener {
+        btTestWithContext.setSafeOnClickListener {
             testWithContext()
         }
-        btTestJoin.setOnClickListener {
+        btTestJoin.setSafeOnClickListener {
             testJoin()
         }
-        btTestCancel.setOnClickListener {
+        btTestCancel.setSafeOnClickListener {
             testCancel()
         }
-        btTestCompose.setOnClickListener {
+        btTestCompose.setSafeOnClickListener {
             testCompose()
         }
-        btTestTimeOut.setOnClickListener {
+        btTestTimeOut.setSafeOnClickListener {
             testTimeOut()
+        }
+        btTestConvertAsyncTaskToCoroutine.setSafeOnClickListener {
+            convertAsyncTaskToCoroutine()
         }
     }
 
@@ -155,5 +160,13 @@ class CoroutineActivity : BaseFontActivity() {
             }
             LLog.d(TAG, "testTimeOut result: $result")
         }
+    }
+
+    private fun convertAsyncTaskToCoroutine() {
+        val coroutineTask = CoroutineTask()
+        coroutineTask.startTask()
+        LUIUtil.setDelay(2000, Runnable {
+            //coroutineTask.cancel()
+        })
     }
 }

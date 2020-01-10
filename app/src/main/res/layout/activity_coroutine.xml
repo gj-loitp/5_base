@@ -46,6 +46,11 @@
                 android:id="@+id/btTestTimeOut"
                 style="@style/ButtonMenu"
                 android:text="Test TimeOut" />
+
+            <Button
+                android:id="@+id/btTestConvertAsyncTaskToCoroutine"
+                style="@style/ButtonMenu"
+                android:text="Convert AsyncTask To Coroutine" />
         </LinearLayout>
     </ScrollView>
 
