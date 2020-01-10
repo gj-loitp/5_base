@@ -2,9 +2,6 @@ package com.core.helper.donate
 
 import android.os.Bundle
 import android.view.View
-import android.widget.RelativeLayout
-import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
@@ -12,6 +9,7 @@ import com.core.utilities.LUIUtil
 import com.views.animation.confetti.CommonConfetti
 import com.views.animation.confetti.ConfettiManager
 import com.views.textview.textdecorator.LTextDecorator
+import kotlinx.android.synthetic.main.l_frm_donate.*
 import java.util.*
 
 class FrmDonate : BaseFragment() {
@@ -26,14 +24,9 @@ class FrmDonate : BaseFragment() {
     private var colorPrimary: Int = 0
     private var colors: IntArray? = null
     private val activeConfettiManagers = ArrayList<ConfettiManager>()
-    private var rv: RelativeLayout? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sv = view.findViewById<ScrollView>(R.id.sv)
-        LUIUtil.setPullLikeIOSVertical(sv)
-        rv = view.findViewById(R.id.rv)
-        val tv = view.findViewById<TextView>(R.id.tv)
         val text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +
                 "\n" +
                 "❤ Vietcombank\n" +
@@ -77,7 +70,7 @@ class FrmDonate : BaseFragment() {
             colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
         }
 
-        LUIUtil.setDelay(500, Runnable {
+        LUIUtil.setDelay(mls = 500, runnable = Runnable {
             activeConfettiManagers.add(generateOnce())
         })
     }
@@ -86,15 +79,15 @@ class FrmDonate : BaseFragment() {
         return R.layout.l_frm_donate
     }
 
-    protected fun generateOnce(): ConfettiManager {
+    private fun generateOnce(): ConfettiManager {
         return CommonConfetti.rainingConfetti(rv, colors).oneShot()
     }
 
-    protected fun generateStream(): ConfettiManager {
+    private fun generateStream(): ConfettiManager {
         return CommonConfetti.rainingConfetti(rv, colors).stream(3000)
     }
 
-    protected fun generateInfinite(): ConfettiManager {
+    private fun generateInfinite(): ConfettiManager {
         return CommonConfetti.rainingConfetti(rv, colors).infinite()
     }
 }
