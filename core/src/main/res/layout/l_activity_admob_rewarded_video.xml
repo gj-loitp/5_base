@@ -1,46 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
+        android:id="@+id/animationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view_gift"
+        android:id="@+id/animationViewGift"
         android:layout_width="@dimen/w_250"
         android:layout_height="@dimen/w_250"
         android:layout_centerInParent="true" />
-
-    <!--<ImageView
-        android:layout_width="@dimen/w_150"
-        android:layout_height="@dimen/w_150"
-        android:layout_marginBottom="@dimen/margin_10"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/l_gift" />-->
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/animation_view_gift"
+        android:layout_below="@+id/animationViewGift"
         android:gravity="center"
         android:text="@string/loading"
         android:textColor="@color/White"
         android:textSize="@dimen/txt_18"
-        android:textStyle="bold" />
-
-    <!--<com.views.progressloadingview.avloadingindicatorview.AVLoadingIndicatorView
-        android:id="@+id/avi"
-        style="@style/AVLoadingIndicatorView"
-        android:layout_width="@dimen/w_40"
-        android:layout_height="@dimen/w_40"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/margin_10"
-        app:indicatorColor="@color/colorPrimary"
-        app:indicatorName="BallPulseIndicator" />-->
+        android:textStyle="bold"
+        tools:textColor="@color/Black" />
 </RelativeLayout>
+
