@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -15,7 +15,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_5"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        tools:src="@drawable/ic_launcher" />
 
     <TextView
         android:id="@+id/tv"
@@ -25,10 +26,11 @@
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/txt_22" />
+        android:textSize="@dimen/txt_22"
+        tools:text="@string/app_name" />
 
     <TextView
-        android:id="@+id/tv_msg"
+        android:id="@+id/tvMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv"
@@ -37,20 +39,11 @@
         android:padding="@dimen/padding_5"
         android:textColor="@color/Black"
         android:textSize="@dimen/txt_14"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="@string/app_name" />
 
-    <!--<Button
-        android:id="@+id/bt_okay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:l_bkg_white="@drawable/l_bt_color_primary"
-        android:textAllCaps="false"
-        android:textColor="@color/White"
-        android:textSize="@dimen/txt_18"
-        android:visibility="visible" />-->
     <com.views.button.roundedbutton.LRoundedButton
-        android:id="@+id/bt_okay"
+        android:id="@+id/btOkay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -62,5 +55,6 @@
         app:buttonGradientEndColor="@color/colorPrimary2"
         app:buttonGradientStartColor="@color/colorPrimary"
         app:buttonRippleAlpha="10"
-        app:buttonRippleColor="@color/colorPrimary" />
+        app:buttonRippleColor="@color/colorPrimary"
+        tools:text="@string/app_name" />
 </RelativeLayout>
