@@ -87,8 +87,6 @@ dependencies {
     //endregion
 
     //fragment navigation
-    //api "android.arch.navigation:navigation-fragment:1.0.0-alpha07"
-    //api "android.arch.navigation:navigation-ui:1.0.0-alpha07"
     api 'androidx.navigation:navigation-fragment:2.1.0'
     api 'androidx.navigation:navigation-fragment-ktx:2.1.0'
 
@@ -145,9 +143,6 @@ dependencies {
 
     //crop image
     api 'com.yalantis:ucrop:2.2.0'
-
-    //https://github.com/ParkSangGwon/TedKeyboardObserver
-    api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
     //https://github.com/nuonveyo/AutoRefreshNetworkConnection
     api 'com.veyo:autorefreshnetworkconnection:1.0.6'
