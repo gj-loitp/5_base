@@ -18,6 +18,8 @@ import loitp.basemaster.R
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
 //TODO is debug
 
+//TODO core flickr
+
 //need add nice repo
 //https://github.com/hackware1993/MagicIndicator
 
