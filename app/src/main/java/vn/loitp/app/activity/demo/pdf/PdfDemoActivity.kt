@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.pdf
 
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
@@ -12,13 +11,7 @@ import com.task.AsyncTaskDownloadPdf
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pdf_demo.*
 import loitp.basemaster.R
-import java.io.BufferedInputStream
 import java.io.File
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.MalformedURLException
-import java.net.URL
 
 //https://github.com/barteksc/AndroidPdfViewer
 class PdfDemoActivity : BaseFontActivity() {
@@ -31,15 +24,22 @@ class PdfDemoActivity : BaseFontActivity() {
             fromUrl()
         }
         btStream.setSafeOnClickListener {
-            RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf")
-            //new RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
+            //RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf")
+            //RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
+
+            val pdfCoroutine = PdfCoroutine()
+            pdfCoroutine.startTask(urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf",
+                    result = { inputStream ->
+                        pdfView.visibility = View.VISIBLE
+                        pdfView.fromStream(inputStream).load()
+                    })
         }
 
         showDialogMsg(errMsg = "You can load pdf from url, uri, file, asset, bytes, stream...", runnable = null)
     }
 
 
-    private inner class RetrievePDFStream : AsyncTask<String, Void, InputStream>() {
+    /*private inner class RetrievePDFStream : AsyncTask<String, Void, InputStream>() {
         override fun doInBackground(vararg strings: String): InputStream? {
             LLog.d(TAG, "doInBackground")
             var inputStream: InputStream? = null
@@ -72,8 +72,7 @@ class PdfDemoActivity : BaseFontActivity() {
             pdfView.visibility = View.VISIBLE
             pdfView.fromStream(inputStream).load()
         }
-    }
-
+    }*/
 
     override fun setFullScreen(): Boolean {
         return false
