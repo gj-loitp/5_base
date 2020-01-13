@@ -13,6 +13,11 @@
         android:text="@string/load_from_url_file_pdf_30mb_file" />
 
     <Button
+        android:id="@+id/btFileTest"
+        style="@style/ButtonMenu"
+        android:text="Test" />
+
+    <Button
         android:id="@+id/btStream"
         style="@style/ButtonMenu"
         android:text="@string/load_from_url_file_pdf_30mb_stream" />

@@ -8,6 +8,7 @@ import com.core.utilities.LStoreUtil
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.task.AsyncTaskDownloadPdf
+import com.task.GetPdfTask
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pdf_demo.*
 import loitp.basemaster.R
@@ -17,11 +18,34 @@ import java.io.File
 class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
 
+    override fun setFullScreen(): Boolean {
+        return false
+    }
+
+    override fun setTag(): String? {
+        return "loitppp" + javaClass.simpleName
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_pdf_demo
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         btFile.setSafeOnClickListener {
             fromUrl()
+        }
+        btFileTest.setSafeOnClickListener {
+            //final String urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+            //final String urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
+            //final String urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+            val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+            val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
+            val folderName = "PDFDemo"
+            GetPdfTask().startTask(urlPdf, folderPath, folderName) { file ->
+                LLog.d(TAG, "GetPdfTask ${file?.path}")
+            }
         }
         btStream.setSafeOnClickListener {
             //RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf")
@@ -74,18 +98,6 @@ class PdfDemoActivity : BaseFontActivity() {
             pdfView.fromStream(inputStream).load()
         }
     }*/
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pdf_demo
-    }
 
     override fun onDestroy() {
         asyncTaskDownloadPdf?.cancel(true)
