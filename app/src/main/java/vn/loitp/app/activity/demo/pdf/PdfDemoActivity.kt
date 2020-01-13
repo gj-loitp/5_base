@@ -26,12 +26,13 @@ class PdfDemoActivity : BaseFontActivity() {
         btStream.setSafeOnClickListener {
             //RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf")
             //RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
-
+            pb.visibility = View.VISIBLE
             val pdfCoroutine = PdfCoroutine()
             pdfCoroutine.startTask(urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf",
                     result = { inputStream ->
                         pdfView.visibility = View.VISIBLE
                         pdfView.fromStream(inputStream).load()
+                        pb.visibility = View.GONE
                     })
         }
 
