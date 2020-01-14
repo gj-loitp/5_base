@@ -28,15 +28,18 @@ class GetPdfCoroutine : CoroutineScope {
         LLog.d(TAG, "cancel " + job.isCancelled)
     }
 
-    fun startTask(urlPdf: String, folderPath: String, folderName: String, result: (File?) -> Unit) = launch {
+    fun startTask(urlPdf: String, folderPath: String, folderName: String, resultPercent: (Float?) -> Unit, resultFile: (File?) -> Unit) = launch {
         LLog.d(TAG, "startTask urlPdf: $urlPdf")
         LLog.d(TAG, "startTask folderPath: $folderPath")
         LLog.d(TAG, "startTask folderName: $folderName")
-        val file = doInBackground(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName)
-        result.invoke(file)
+        val file = doInBackground(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName, resultPercent = { percent ->
+            LLog.d(TAG, "startTask downloadFileToSdCard percent: $percent")
+            resultPercent.invoke(percent)
+        })
+        resultFile.invoke(file)
     }
 
-    private suspend fun doInBackground(urlPdf: String, folderPath: String, folderName: String): File? = withContext(Dispatchers.IO) {
+    private suspend fun doInBackground(urlPdf: String, folderPath: String, folderName: String, resultPercent: (Float?) -> Unit): File? = withContext(Dispatchers.IO) {
         val startTime = System.currentTimeMillis()
         LLog.d(TAG, "doInBackground startTime: $startTime")
         val fileName = try {
@@ -46,14 +49,18 @@ class GetPdfCoroutine : CoroutineScope {
             urlPdf
         }
         LLog.d(TAG, "doInBackground fileName: $fileName")
-        val file = downloadFileToSdCard(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName, fileName = fileName)
+        val file = downloadFileToSdCard(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName, fileName = fileName, percentResult = { percent ->
+            //LLog.d(TAG, "doInBackground downloadFileToSdCard percent: $percent")
+            resultPercent.invoke(percent)
+        })
+        LLog.d(TAG, "doInBackground downloadFileToSdCard file: ${file?.path}")
         return@withContext file
     }
 
-    private fun downloadFileToSdCard(urlPdf: String, folderPath: String, folderName: String, fileName: String): File? {
+    private fun downloadFileToSdCard(urlPdf: String, folderPath: String, folderName: String, fileName: String, percentResult: (Float?) -> Unit): File? {
         return try {
             val url = URL(urlPdf)
-            val dir = File(folderPath + "/" + folderName)
+            val dir = File("$folderPath/$folderName")
             if (!dir.exists()) {
                 val isMkDirResult: Boolean = dir.mkdir()
                 LLog.d(TAG, "downloadFileToSdCard isMkDirResult $isMkDirResult")
@@ -84,43 +91,34 @@ class GetPdfCoroutine : CoroutineScope {
             val buffer = ByteArray(1024 * 2)
             var bufferLength: Int
             while (inputStream.read(buffer).also { bufferLength = it } > 0) {
-
-                //TODO
-                /*if (isCancelled()) {
-                    LLog.d(TAG, "isCancelled -> return false")
+                if (job.isCancelled) {
+                    LLog.d(TAG, "job.isCancelled -> return null -> file.exists(): " + file.exists())
+                    if (file.exists()) {
+                        val isDelete = file.delete()
+                        LLog.d(TAG, "job.isCancelled -> return null -> file.exists() -> isDelete: $isDelete")
+                    }
                     return null
-                }*/
-
-
+                }
                 fos.write(buffer, 0, bufferLength)
                 downloadedSize += bufferLength
-                publishProgress(downloadedSize, totalSize)
+                val percent = downloadedSize.toFloat() * 100 / totalSize.toFloat()
+                percentResult.invoke(percent)
             }
             fos.close()
             LLog.d(TAG, "File saved in sdcard..")
             file
         } catch (ioException: IOException) {
-            //exception = ioException
             LLog.e(TAG, "IOException$ioException")
             null
         } catch (e: java.lang.Exception) {
-            //exception = e
             LLog.e(TAG, "Exception$e")
             null
         }
     }
 
-    private fun publishProgress(downloadedSize: Int, totalSize: Int) {
-        val percent = downloadedSize.toFloat() * 100 / totalSize.toFloat()
-        LLog.d(TAG, "onProgressUpdate downloadedSize: $downloadedSize totalSize: $totalSize -> percent: $percent%")
-        /*if (callback != null) {
-            callback.onProgressUpdate(downloadedSize, totalSize, percent)
-        }*/
-    }
-
-    interface Callback {
-        fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?)
-        fun onError(e: Exception?)
-        fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float)
-    }
+//    interface Callback {
+//        fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?)
+//        fun onError(e: Exception?)
+//        fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float)
+//    }
 }

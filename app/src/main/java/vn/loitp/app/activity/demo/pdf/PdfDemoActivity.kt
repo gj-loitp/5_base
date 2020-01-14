@@ -19,6 +19,7 @@ import java.io.File
 class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
+    private var getPdfCoroutine: GetPdfCoroutine? = null
 
     override fun setFullScreen(): Boolean {
         return false
@@ -62,6 +63,7 @@ class PdfDemoActivity : BaseFontActivity() {
     override fun onDestroy() {
         asyncTaskDownloadPdf?.cancel(true)
         asyncTaskDownloadPdfStream?.cancel(true)
+        getPdfCoroutine?.cancel()
         super.onDestroy()
     }
 
@@ -142,14 +144,21 @@ class PdfDemoActivity : BaseFontActivity() {
         //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
         val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
         val folderName = "PDFDemo"
-        GetPdfCoroutine().startTask(urlPdf, folderPath, folderName) { file ->
-            LLog.d(TAG, "GetPdfTask ${file?.path}")
-            pdfView.visibility = View.VISIBLE
-            file?.let { f ->
-                showPDF(f)
-            }
-            updateUIProgress(isLoadding = false)
-        }
+        getPdfCoroutine = GetPdfCoroutine()
+        getPdfCoroutine?.startTask(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName,
+                resultPercent = { percent ->
+                    percent?.let {
+                        pb.progress = it.toInt()
+                    }
+                },
+                resultFile = { file ->
+                    LLog.d(TAG, "GetPdfTask ${file?.path}")
+                    pdfView.visibility = View.VISIBLE
+                    file?.let { f ->
+                        showPDF(f)
+                    }
+                    updateUIProgress(isLoadding = false)
+                })
     }
 
     private fun showPDF(file: File) {
