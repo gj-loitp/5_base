@@ -22,17 +22,16 @@ class TestViewModel(application: Application) : BaseViewModel(application) {
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
-    val userAction: ActionLiveData<ActionData<List<UserTest>>> = ActionLiveData()
+    val userAction: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 
     init {
         //getUserList()
     }
 
-    fun getUserList() {
+    fun getUserList(page: Int) {
         userAction.set(ActionData(isDoing = true))
 
         ioScope.launch {
-            val page = 1
             val response = repository.getUserTest(page = page)
             LLog.d(TAG, "getUserList " + LApplication.gson.toJson(response))
             if (response.data != null) {

@@ -4,39 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btPop"
-                style="@style/ButtonMenu"
-                android:text="Pop" />
-
-            <Button
-                android:id="@+id/btCallAPI"
-                style="@style/ButtonMenu"
-                android:text="Call API" />
-
-            <TextView
-                android:id="@+id/tvJson"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/btBack"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15" />
-        </LinearLayout>
-    </ScrollView>
+                android:background="@color/transparent"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_keyboard_arrow_left_black_48dp" />
 
-    <TextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="FrmGetListUser" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUserTest"
+                style="@style/ScrollVertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
