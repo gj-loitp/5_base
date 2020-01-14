@@ -34,6 +34,11 @@ class FrmGetListUser : BaseFragment() {
 
             action.isDoing?.let { isDoing ->
                 LLog.d(TAG, "observe isDoing $isDoing")
+                if (isDoing) {
+                    avl.smoothToShow()
+                } else {
+                    avl.smoothToHide()
+                }
             }
 
             action.data?.let { userTestList ->
