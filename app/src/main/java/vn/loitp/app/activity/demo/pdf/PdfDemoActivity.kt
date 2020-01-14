@@ -39,16 +39,7 @@ class PdfDemoActivity : BaseFontActivity() {
             callAysnctaskFile()
         }
         btFileCoroutine.setSafeOnClickListener {
-            //TODO
-            val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
-            //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
-            //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-            //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-            val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
-            val folderName = "PDFDemo"
-            GetPdfCoroutine().startTask(urlPdf, folderPath, folderName) { file ->
-                LLog.d(TAG, "GetPdfTask ${file?.path}")
-            }
+            callCoroutineFile()
         }
         btStreamAsyncTask.setSafeOnClickListener {
             callAysnctaskStream()
@@ -74,6 +65,24 @@ class PdfDemoActivity : BaseFontActivity() {
         super.onDestroy()
     }
 
+    private fun updateUIProgress(isLoadding: Boolean) {
+        if (isLoadding) {
+            pb.visibility = View.VISIBLE
+            pb.progress = 0
+            pdfView.visibility = View.GONE
+            btFileAsynctask.visibility = View.GONE
+            btFileCoroutine.visibility = View.GONE
+            btStreamAsyncTask.visibility = View.GONE
+            btStreamCoroutine.visibility = View.GONE
+        } else {
+            pb.visibility = View.GONE
+            btFileAsynctask.visibility = View.VISIBLE
+            btFileCoroutine.visibility = View.VISIBLE
+            btStreamAsyncTask.visibility = View.VISIBLE
+            btStreamCoroutine.visibility = View.VISIBLE
+        }
+    }
+
     private fun callAysnctaskFile() {
         asyncTaskDownloadPdf?.cancel(true)
         val url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
@@ -82,31 +91,21 @@ class PdfDemoActivity : BaseFontActivity() {
         //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
         val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
         val folderName = "PDFDemo"
-        pb.visibility = View.VISIBLE
-        pb.progress = 0
-        pdfView.visibility = View.GONE
-        btFileAsynctask.visibility = View.GONE
-        btFileCoroutine.visibility = View.GONE
-        btStreamAsyncTask.visibility = View.GONE
-        btStreamCoroutine.visibility = View.GONE
+        updateUIProgress(isLoadding = true)
         asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, object : AsyncTaskDownloadPdf.Callback {
 
             override fun onSuccess(durationSec: Long, durationHHmmss: String, file: File) {
                 LLog.d(TAG, "onSuccess $durationSec - $durationHHmmss")
                 LLog.d(TAG, "onSuccess " + file.path)
                 showShort("onSuccess after $durationSec seconds")
-                pb.visibility = View.GONE
                 pdfView.visibility = View.VISIBLE
                 showPDF(file)
-                btFileAsynctask.visibility = View.VISIBLE
-                btFileCoroutine.visibility = View.VISIBLE
-                btStreamAsyncTask.visibility = View.VISIBLE
-                btStreamCoroutine.visibility = View.VISIBLE
+                updateUIProgress(isLoadding = false)
             }
 
             override fun onError(e: Exception) {
                 LLog.d(TAG, "onError")
-                pb.visibility = View.GONE
+                updateUIProgress(isLoadding = false)
             }
 
             override fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float) {
@@ -122,26 +121,35 @@ class PdfDemoActivity : BaseFontActivity() {
         //val url = "http://www.pdf995.com/samples/pdf.pdf";
         //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        pb.visibility = View.VISIBLE
-        pb.progress = 0
-        pdfView.visibility = View.GONE
-        btFileAsynctask.visibility = View.GONE
-        btFileCoroutine.visibility = View.GONE
-        btStreamAsyncTask.visibility = View.GONE
+        updateUIProgress(isLoadding = true)
         btStreamCoroutine.visibility = View.GONE
         asyncTaskDownloadPdfStream = AsyncTaskDownloadPdfStream(result = { inputStream ->
             pdfView?.let {
                 it.visibility = View.VISIBLE
                 it.fromStream(inputStream).load()
-                pb.visibility = View.GONE
-                btFileAsynctask.visibility = View.VISIBLE
-                btFileCoroutine.visibility = View.VISIBLE
-                btStreamAsyncTask.visibility = View.VISIBLE
-                btStreamCoroutine.visibility = View.VISIBLE
             }
+            updateUIProgress(isLoadding = false)
         })
         asyncTaskDownloadPdfStream?.execute("http://www.pdf995.com/samples/pdf.pdf")
         //asyncTaskDownloadPdfStream?.execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf")
+    }
+
+    private fun callCoroutineFile() {
+        updateUIProgress(isLoadding = true)
+        val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
+        //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+        //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+        val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
+        val folderName = "PDFDemo"
+        GetPdfCoroutine().startTask(urlPdf, folderPath, folderName) { file ->
+            LLog.d(TAG, "GetPdfTask ${file?.path}")
+            pdfView.visibility = View.VISIBLE
+            file?.let { f ->
+                showPDF(f)
+            }
+            updateUIProgress(isLoadding = false)
+        }
     }
 
     private fun showPDF(file: File) {
