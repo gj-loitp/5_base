@@ -4,23 +4,29 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/WhiteSmoke"
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btFile"
+        android:id="@+id/btFileAsynctask"
         style="@style/ButtonMenu"
-        android:text="@string/load_from_url_file_pdf_30mb_file" />
+        android:text="Load from Url File - Aysnctask" />
 
     <Button
-        android:id="@+id/btFileTest"
+        android:id="@+id/btFileCoroutine"
         style="@style/ButtonMenu"
-        android:text="Test" />
+        android:text="Load from Url File - Coroutine" />
 
     <Button
-        android:id="@+id/btStream"
+        android:id="@+id/btStreamAsyncTask"
         style="@style/ButtonMenu"
-        android:text="@string/load_from_url_file_pdf_30mb_stream" />
+        android:text="Load from Url Stream - Aysnctask" />
+
+    <Button
+        android:id="@+id/btStreamCoroutine"
+        style="@style/ButtonMenu"
+        android:text="Load from Url Stream - Coroutine" />
 
     <RelativeLayout
         android:layout_width="match_parent"
