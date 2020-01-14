@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.pdf
 
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
@@ -9,21 +8,15 @@ import com.core.utilities.LStoreUtil
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.task.AsyncTaskDownloadPdf
-import com.task.GetPdfTask
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pdf_demo.*
 import loitp.basemaster.R
-import java.io.BufferedInputStream
 import java.io.File
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.MalformedURLException
-import java.net.URL
 
 //https://github.com/barteksc/AndroidPdfViewer
 class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
+    private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
 
     override fun setFullScreen(): Boolean {
         return false
@@ -41,7 +34,7 @@ class PdfDemoActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         btFileAsynctask.setSafeOnClickListener {
-            fromUrl()
+            callAysnctaskFile()
         }
         btFileCoroutine.setSafeOnClickListener {
             //TODO
@@ -56,8 +49,7 @@ class PdfDemoActivity : BaseFontActivity() {
 //            }
         }
         btStreamAsyncTask.setSafeOnClickListener {
-            RetrievePDFStream().execute("http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf")
-            //RetrievePDFStream().execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf");
+            callAysnctaskStream()
         }
         btStreamCoroutine.setSafeOnClickListener {
             //TODO
@@ -74,55 +66,19 @@ class PdfDemoActivity : BaseFontActivity() {
         showDialogMsg(errMsg = "You can load pdf from url, uri, file, asset, bytes, stream...", runnable = null)
     }
 
-
-    private inner class RetrievePDFStream : AsyncTask<String, Void, InputStream>() {
-        override fun doInBackground(vararg strings: String): InputStream? {
-            LLog.d(TAG, "doInBackground")
-            var inputStream: InputStream? = null
-            var url: URL? = null
-            try {
-                url = URL(strings[0])
-            } catch (e: MalformedURLException) {
-                LLog.e(TAG, "doInBackground MalformedURLException $e")
-            }
-
-            try {
-                var httpURLConnection: HttpURLConnection? = null
-                if (url != null) {
-                    httpURLConnection = url.openConnection() as HttpURLConnection
-                }
-                if (httpURLConnection != null && httpURLConnection.responseCode == 200) {
-                    inputStream = BufferedInputStream(httpURLConnection.inputStream)
-                }
-            } catch (e: IOException) {
-                LLog.d(TAG, "doInBackground IOException $e")
-                return null
-            }
-
-            return inputStream
-        }
-
-        override fun onPostExecute(inputStream: InputStream) {
-            LLog.d(TAG, "onPostExecute")
-            pdfView?.let {
-                it.visibility = View.VISIBLE
-                it.fromStream(inputStream).load()
-            }
-        }
-    }
-
     override fun onDestroy() {
         asyncTaskDownloadPdf?.cancel(true)
+        asyncTaskDownloadPdfStream?.cancel(true)
         super.onDestroy()
     }
 
-    private fun fromUrl() {
+    private fun callAysnctaskFile() {
         asyncTaskDownloadPdf?.cancel(true)
-        val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
         val url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
         //val url = "http://www.pdf995.com/samples/pdf.pdf";
         //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+        val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
         val folderName = "PDFDemo"
         pb.visibility = View.VISIBLE
         pb.progress = 0
@@ -157,6 +113,33 @@ class PdfDemoActivity : BaseFontActivity() {
             }
         })
         asyncTaskDownloadPdf?.execute()
+    }
+
+    private fun callAysnctaskStream() {
+        asyncTaskDownloadPdfStream?.cancel(true)
+        //val url = "http://www.pdf995.com/samples/pdf.pdf";
+        //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+        //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+        pb.visibility = View.VISIBLE
+        pb.progress = 0
+        pdfView.visibility = View.GONE
+        btFileAsynctask.visibility = View.GONE
+        btFileCoroutine.visibility = View.GONE
+        btStreamAsyncTask.visibility = View.GONE
+        btStreamCoroutine.visibility = View.GONE
+        asyncTaskDownloadPdfStream = AsyncTaskDownloadPdfStream(result = { inputStream ->
+            pdfView?.let {
+                it.visibility = View.VISIBLE
+                it.fromStream(inputStream).load()
+                pb.visibility = View.GONE
+                btFileAsynctask.visibility = View.VISIBLE
+                btFileCoroutine.visibility = View.VISIBLE
+                btStreamAsyncTask.visibility = View.VISIBLE
+                btStreamCoroutine.visibility = View.VISIBLE
+            }
+        })
+        asyncTaskDownloadPdfStream?.execute("http://www.pdf995.com/samples/pdf.pdf")
+        //asyncTaskDownloadPdfStream?.execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf")
     }
 
     private fun showPDF(file: File) {
