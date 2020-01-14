@@ -20,6 +20,7 @@ class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
     private var getPdfCoroutine: GetPdfCoroutine? = null
+    private var pdfStreamCoroutine: PdfStreamCoroutine? = null
 
     override fun setFullScreen(): Boolean {
         return false
@@ -46,16 +47,7 @@ class PdfDemoActivity : BaseFontActivity() {
             callAysnctaskStream()
         }
         btStreamCoroutine.setSafeOnClickListener {
-            //TODO
-//            pb.visibility = View.VISIBLE
-//            pb.progress = 0
-//            val pdfCoroutine = PdfCoroutine()
-//            pdfCoroutine.startTask(urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf",
-//                    result = { inputStream ->
-//                        pdfView.visibility = View.VISIBLE
-//                        pdfView.fromStream(inputStream).load()
-//                        pb.visibility = View.GONE
-//                    })
+            callCoroutineStream()
         }
         showDialogMsg(errMsg = "You can load pdf from url, uri, file, asset, bytes, stream...", runnable = null)
     }
@@ -157,6 +149,17 @@ class PdfDemoActivity : BaseFontActivity() {
                     file?.let { f ->
                         showPDF(f)
                     }
+                    updateUIProgress(isLoadding = false)
+                })
+    }
+
+    private fun callCoroutineStream() {
+        updateUIProgress(isLoadding = true)
+        pdfStreamCoroutine = PdfStreamCoroutine()
+        pdfStreamCoroutine?.startTask(urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
+                result = { inputStream ->
+                    pdfView.visibility = View.VISIBLE
+                    pdfView.fromStream(inputStream).load()
                     updateUIProgress(isLoadding = false)
                 })
     }
