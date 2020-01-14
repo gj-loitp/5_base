@@ -8,6 +8,8 @@ import com.core.utilities.LStoreUtil
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.task.AsyncTaskDownloadPdf
+import com.task.AsyncTaskDownloadPdfStream
+import com.task.GetPdfCoroutine
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pdf_demo.*
 import loitp.basemaster.R
@@ -38,15 +40,15 @@ class PdfDemoActivity : BaseFontActivity() {
         }
         btFileCoroutine.setSafeOnClickListener {
             //TODO
-//            val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
-//            //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
-//            //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-//            //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-//            val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
-//            val folderName = "PDFDemo"
-//            GetPdfTask().startTask(urlPdf, folderPath, folderName) { file ->
-//                LLog.d(TAG, "GetPdfTask ${file?.path}")
-//            }
+            val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+            //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
+            //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+            //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+            val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
+            val folderName = "PDFDemo"
+            GetPdfCoroutine().startTask(urlPdf, folderPath, folderName) { file ->
+                LLog.d(TAG, "GetPdfTask ${file?.path}")
+            }
         }
         btStreamAsyncTask.setSafeOnClickListener {
             callAysnctaskStream()

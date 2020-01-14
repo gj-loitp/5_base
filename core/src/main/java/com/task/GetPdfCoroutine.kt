@@ -16,7 +16,7 @@ import kotlin.coroutines.CoroutineContext
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class GetPdfTask : CoroutineScope {
+class GetPdfCoroutine : CoroutineScope {
     private val TAG = "loitppp" + javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
