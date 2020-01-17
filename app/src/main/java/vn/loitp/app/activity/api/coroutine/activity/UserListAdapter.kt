@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
@@ -20,7 +20,7 @@ class UserListAdapter(private val context: Context,
     private var userTestList = ArrayList<UserTest>()
 
     inner class UserTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var rootView: LinearLayout = view.findViewById(R.id.rootView)
+        var rootView: RelativeLayout = view.findViewById(R.id.rootView)
         var ivAvt: ImageView = view.findViewById(R.id.ivAvt)
         var tvEmail: TextView = view.findViewById(R.id.tvEmail)
         var tvFirstName: TextView = view.findViewById(R.id.tvFirstName)
@@ -51,7 +51,10 @@ class UserListAdapter(private val context: Context,
         return userTestList.size
     }
 
-    fun setList(userTestList: ArrayList<UserTest>) {
+    fun setList(userTestList: ArrayList<UserTest>, isSwipeToRefresh: Boolean?) {
+        if (isSwipeToRefresh == true) {
+            this.userTestList.clear()
+        }
         this.userTestList.addAll(userTestList)
         notifyDataSetChanged()
     }

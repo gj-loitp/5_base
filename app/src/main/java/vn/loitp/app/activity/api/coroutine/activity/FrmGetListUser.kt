@@ -33,17 +33,14 @@ class FrmGetListUser : BaseFragment() {
         testViewModel.userAction.observe(viewLifecycleOwner, Observer { action ->
 
             action.isDoing?.let { isDoing ->
-                LLog.d(TAG, "observe isDoing $isDoing")
-                if (isDoing) {
-                    avl.smoothToShow()
-                } else {
-                    avl.smoothToHide()
-                }
+                //LLog.d(TAG, "observe isDoing $isDoing")
+                swipeRefreshLayout.isRefreshing = isDoing
             }
 
             action.data?.let { userTestList ->
                 LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
-                userListAdapter?.setList(userTestList)
+                userListAdapter?.setList(userTestList, action.isSwipeToRefresh)
+                showShort("Size itemCount " + userListAdapter?.itemCount)
             }
 
             action.errorResponse?.let { error ->
@@ -68,8 +65,9 @@ class FrmGetListUser : BaseFragment() {
             }
 
             override fun onBottom() {
+                LLog.d(TAG, "onBottom")
                 page += 1
-                testViewModel.getUserList(page = page)
+                testViewModel.getUserList(page = page, isRefresh = false)
             }
         })
 
@@ -79,6 +77,13 @@ class FrmGetListUser : BaseFragment() {
             //findNavController().popBackStack()
         }
 
-        testViewModel.getUserList(page = page)
+        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        swipeRefreshLayout.setOnRefreshListener {
+            LLog.d(TAG, "setOnRefreshListener")
+            page = 1
+            testViewModel.getUserList(page = page, isRefresh = true)
+        }
+
+        testViewModel.getUserList(page = page, isRefresh = false)
     }
 }

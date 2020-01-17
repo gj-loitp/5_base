@@ -1,14 +1,12 @@
 package vn.loitp.app.activity.api.coroutine.viewmodel
 
 import android.app.Application
-import com.core.utilities.LLog
 import kotlinx.coroutines.launch
 import vn.loitp.app.activity.api.coroutine.livedata.ActionData
 import vn.loitp.app.activity.api.coroutine.livedata.ActionLiveData
 import vn.loitp.app.activity.api.coroutine.model.UserTest
 import vn.loitp.app.activity.api.coroutine.repository.TestRepository
 import vn.loitp.app.activity.api.coroutine.service.TestApiClient
-import vn.loitp.app.app.LApplication
 
 /**
  * Created by Loitp on 24,December,2019
@@ -28,17 +26,18 @@ class TestViewModel(application: Application) : BaseViewModel(application) {
         //getUserList()
     }
 
-    fun getUserList(page: Int) {
+    fun getUserList(page: Int, isRefresh: Boolean) {
         userAction.set(ActionData(isDoing = true))
 
         ioScope.launch {
             val response = repository.getUserTest(page = page)
-            LLog.d(TAG, "getUserList " + LApplication.gson.toJson(response))
+            //LLog.d(TAG, "getUserList page: $page -> " + LApplication.gson.toJson(response))
             if (response.data != null) {
                 userAction.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
+                                isSwipeToRefresh = isRefresh,
                                 data = response.data
                         )
                 )
