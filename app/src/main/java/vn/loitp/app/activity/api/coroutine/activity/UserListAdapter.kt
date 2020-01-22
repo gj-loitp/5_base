@@ -51,11 +51,12 @@ class UserListAdapter(private val context: Context,
         return userTestList.size
     }
 
-    fun setList(userTestList: ArrayList<UserTest>, isSwipeToRefresh: Boolean?) {
-        if (isSwipeToRefresh == true) {
+    fun setList(userTestList: ArrayList<UserTest>?) {
+        if (userTestList.isNullOrEmpty()) {
             this.userTestList.clear()
+        } else {
+            this.userTestList = userTestList
         }
-        this.userTestList.addAll(userTestList)
         notifyDataSetChanged()
     }
 }

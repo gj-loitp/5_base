@@ -21,7 +21,7 @@ class FrmGetListUser : BaseFragment() {
     private var page = 1
 
     override fun setTag(): String? {
-        return javaClass.simpleName
+        return "loitpp" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
@@ -32,7 +32,15 @@ class FrmGetListUser : BaseFragment() {
         LLog.d(TAG, "onViewCreated")
         setupViews()
         setupViewModels()
-        testViewModel?.getUserList(page = page, isRefresh = false)
+
+        testViewModel?.let { tvm ->
+            if (tvm.userTestListLiveData.value == null) {
+                LLog.d(TAG, "tvm.userAction.value == null")
+                testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
+            } else {
+                LLog.d(TAG, "tvm.userAction.value != null")
+            }
+        }
     }
 
     private fun setupViews() {
@@ -52,7 +60,7 @@ class FrmGetListUser : BaseFragment() {
             override fun onBottom() {
                 LLog.d(TAG, "onBottom")
                 page += 1
-                testViewModel?.getUserList(page = page, isRefresh = false)
+                testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
             }
         })
 
@@ -66,33 +74,39 @@ class FrmGetListUser : BaseFragment() {
         swipeRefreshLayout.setOnRefreshListener {
             LLog.d(TAG, "setOnRefreshListener")
             page = 1
-            testViewModel?.getUserList(page = page, isRefresh = true)
+            testViewModel?.getUserTestListByPage(page = page, isRefresh = true)
         }
     }
 
     private fun setupViewModels() {
         testViewModel = getViewModel(TestViewModel::class.java)
-        testViewModel?.userAction?.observe(viewLifecycleOwner, Observer { action ->
-
-            action.isDoing?.let { isDoing ->
-                //LLog.d(TAG, "observe isDoing $isDoing")
-                swipeRefreshLayout.isRefreshing = isDoing
-            }
-
-            action.data?.let { userTestList ->
-                //LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
-                userListAdapter?.setList(userTestList, action.isSwipeToRefresh)
-                showShort("Size itemCount " + userListAdapter?.itemCount)
-            }
-
-            action.errorResponse?.let { error ->
-                LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
-                error.message?.let {
-                    showDialogError(it, Runnable {
-                        //do nothing
-                    })
+        testViewModel?.let { tvm ->
+            tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { action ->
+                LLog.d(TAG, "userAction.observe action.isDoing ${action.isDoing}")
+                action.isDoing?.let { isDoing ->
+                    //LLog.d(TAG, "observe isDoing $isDoing")
+                    swipeRefreshLayout.isRefreshing = isDoing
                 }
-            }
-        })
+
+                action.data?.let { userTestList ->
+                    //LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
+                    val isRefresh = action.isSwipeToRefresh
+                    tvm.addUserList(userTestList = userTestList, isRefresh = isRefresh)
+                }
+
+                action.errorResponse?.let { error ->
+                    LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
+                    error.message?.let {
+                        showDialogError(it, Runnable {
+                            //do nothing
+                        })
+                    }
+                }
+            })
+            tvm.userTestListLiveData.observe(viewLifecycleOwner, Observer {
+                LLog.d(TAG, "userTestList.observe size: ${it?.size}")
+                userListAdapter?.setList(it)
+            })
+        }
     }
 }

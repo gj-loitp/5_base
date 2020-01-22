@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.api.coroutine.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import vn.loitp.app.activity.api.coroutine.livedata.ActionData
 import vn.loitp.app.activity.api.coroutine.livedata.ActionLiveData
@@ -20,20 +21,17 @@ class TestViewModel(application: Application) : BaseViewModel(application) {
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
-    val userAction: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
+    val userTestListLiveData: MutableLiveData<ArrayList<UserTest>?> = MutableLiveData()
+    val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 
-    init {
-        //getUserList()
-    }
-
-    fun getUserList(page: Int, isRefresh: Boolean) {
-        userAction.set(ActionData(isDoing = true))
+    fun getUserTestListByPage(page: Int, isRefresh: Boolean) {
+        userActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {
             val response = repository.getUserTest(page = page)
             //LLog.d(TAG, "getUserList page: $page -> " + LApplication.gson.toJson(response))
             if (response.data != null) {
-                userAction.post(
+                userActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
@@ -42,9 +40,23 @@ class TestViewModel(application: Application) : BaseViewModel(application) {
                         )
                 )
             } else {
-                userAction.postAction(getErrorRequest(response))
+                userActionLiveData.postAction(getErrorRequest(response))
             }
         }
 
+    }
+
+    fun addUserList(userTestList: ArrayList<UserTest>, isRefresh: Boolean?) {
+        //LLog.d(TAG, "addUserList size: ${userTestList.size}, isRefresh: $isRefresh")
+        var currentUserTestList = userTestListLiveData.value
+        if (isRefresh == true) {
+            currentUserTestList?.clear()
+        }
+        if (currentUserTestList == null) {
+            currentUserTestList = ArrayList()
+        }
+        currentUserTestList.addAll(userTestList)
+        //LLog.d(TAG, "addUserList currentUserTestList " + LApplication.gson.toJson(currentUserTestList))
+        userTestListLiveData.post(currentUserTestList)
     }
 }
