@@ -54,6 +54,9 @@ object LDialogUtil {
         dialog.show()
         val color = ContextCompat.getColor(context, R.color.colorPrimary)
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+
         alertDialogList.add(dialog)
         return dialog
     }
@@ -87,9 +90,13 @@ object LDialogUtil {
         }
         val dialog = builder.create()
         dialog.show()
-        val color = ContextCompat.getColor(context, R.color.colorPrimary)
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+        val colorPrimary = ContextCompat.getColor(context, R.color.colorPrimary)
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
+
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+
         alertDialogList.add(dialog)
         return dialog
     }
@@ -131,6 +138,11 @@ object LDialogUtil {
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
+
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+        LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
+
         alertDialogList.add(dialog)
         return dialog
     }

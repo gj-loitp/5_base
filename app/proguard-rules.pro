@@ -135,3 +135,10 @@
 
 ##pdf view
 -keep class com.shockwave.**
+
+#renderscript
+-dontwarn androidx.renderscript.*
+-keepclassmembers class androidx.renderscript.RenderScript {
+  native *** rsn*(...);
+  native *** n*(...);
+}
