@@ -17,13 +17,13 @@
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_y"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="YES" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

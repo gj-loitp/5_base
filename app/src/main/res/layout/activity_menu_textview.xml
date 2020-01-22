@@ -18,77 +18,77 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_autofit_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/autofit_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_circle_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/circle_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_color_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/color_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_countdown"
                 style="@style/ButtonMenu"
                 android:text="@string/countdown_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExtraTextview"
                 style="@style/ButtonMenu"
                 android:text="@string/extra_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_justifield_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/justifiedtextview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_score_text"
                 style="@style/ButtonMenu"
                 android:text="@string/score_text" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scroll_number"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_number" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_selectable_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/selectabletextview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStrokedTextView"
                 style="@style/ButtonMenu"
                 android:text="@string/stroked_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_text_decorator"
                 style="@style/ButtonMenu"
                 android:text="@string/text_decorator" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_translucent_view"
                 style="@style/ButtonMenu"
                 android:text="@string/translucent_view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_type_writer_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/type_writer_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_vertical_marquee_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/vertial_marquee_textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_zoom_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom_textview" />

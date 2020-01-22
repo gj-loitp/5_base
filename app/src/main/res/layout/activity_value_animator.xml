@@ -18,7 +18,7 @@
         android:padding="@dimen/padding_5"
         android:textColor="@color/Black" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_start"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"

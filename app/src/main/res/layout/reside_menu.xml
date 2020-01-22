@@ -22,7 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/title_bar_left_menu"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
@@ -40,7 +40,7 @@
                 android:textColor="@color/White"
                 android:textSize="24sp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/title_bar_right_menu"
                 android:layout_width="28dp"
                 android:layout_height="28dp"

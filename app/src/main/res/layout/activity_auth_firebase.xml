@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fb"
                 style="@style/ButtonMenu"
                 android:text="Facebook" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gg"
                 style="@style/ButtonMenu"
                 android:text="Google" />

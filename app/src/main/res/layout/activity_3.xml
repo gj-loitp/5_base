@@ -8,17 +8,17 @@
         style="@style/TextMenu"
         android:text="Activity3" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_go_to_1"
         style="@style/ButtonMenu"
         android:text="go to Activity1" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_go_to_2"
         style="@style/ButtonMenu"
         android:text="go to Activity2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_go_to_float"
         style="@style/ButtonMenu"
         android:text="go to Float" />

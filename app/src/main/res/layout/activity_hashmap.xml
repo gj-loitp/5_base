@@ -14,17 +14,17 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_add"
                 style="@style/ButtonMenu"
                 android:text="Add" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_get_key_0"
                 style="@style/ButtonMenu"
                 android:text="Get key=0" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_remove_key_0"
                 style="@style/ButtonMenu"
                 android:text="Remove key=0" />

@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pause" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btResume"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

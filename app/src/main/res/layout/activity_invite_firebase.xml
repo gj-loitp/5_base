@@ -26,7 +26,7 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/invite_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,4 +46,3 @@
         style="@style/TextMenu"
         android:text="Invite" />
 </RelativeLayout>
-

@@ -41,81 +41,81 @@
                     android:textColor="@color/Black"
                     android:textSize="@dimen/txt_8" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_toast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Show toast" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_alpha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Enable/Disable alpha" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_revert_max"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Enable/Disable isEnableRevertMaxSize" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_maximize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Maximize" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_minimize_bottom_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize Bottom Left" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_minimize_bottom_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize Bottom Right" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_minimize_top_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize Top Right"
                     android:visibility="gone" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_minimize_top_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minimize Top Left"
                     android:visibility="gone" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_slide_to_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Slide to position" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_show_hide_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Show/Hide header" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_show_hide_body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Show/Hide body" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_appear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Appear" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_disappear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

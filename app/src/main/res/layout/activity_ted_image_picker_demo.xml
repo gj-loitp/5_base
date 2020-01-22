@@ -14,27 +14,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNormalSingle"
                 style="@style/ButtonMenu"
                 android:text="Normal - Single" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNormalMulti"
                 style="@style/ButtonMenu"
                 android:text="Normal - Multi" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxSingle"
                 style="@style/ButtonMenu"
                 android:text="Rx - Single" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxSingleThenResize"
                 style="@style/ButtonMenu"
                 android:text="Rx - Single then Resize" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxMulti"
                 style="@style/ButtonMenu"
                 android:text="Rx - Multi" />

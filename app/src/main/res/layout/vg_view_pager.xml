@@ -18,7 +18,7 @@
 			android:textSize="@dimen/txt_14"
 			android:textStyle="bold" />
 
-		<Button
+		<androidx.appcompat.widget.AppCompatButton
 			android:id="@+id/bt_remove"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

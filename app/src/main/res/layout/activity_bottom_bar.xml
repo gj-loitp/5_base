@@ -21,13 +21,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_blur_view_red"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blur_view_red" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_blur_view_green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -39,25 +39,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_count_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_count_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_count_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_count_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -69,13 +69,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btShowText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/always_show_text" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btHideText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

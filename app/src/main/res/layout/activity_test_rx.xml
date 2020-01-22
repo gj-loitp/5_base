@@ -14,32 +14,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_0"
                 style="@style/ButtonMenu"
                 android:text="Test From" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 style="@style/ButtonMenu"
                 android:text="Test Just" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 style="@style/ButtonMenu"
                 android:text="Test Defer" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_3"
                 style="@style/ButtonMenu"
                 android:text="Test Interval" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 style="@style/ButtonMenu"
                 android:text="Test Create" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_5"
                 style="@style/ButtonMenu"
                 android:text="Test Map" />

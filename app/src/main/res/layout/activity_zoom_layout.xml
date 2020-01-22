@@ -31,13 +31,13 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View hierarchy" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

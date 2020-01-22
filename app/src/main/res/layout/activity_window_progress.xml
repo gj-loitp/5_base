@@ -30,14 +30,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/showWP7Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Show WP7 bar" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/hideWP7Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,14 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/wp7Ll">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/showWP10Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Show WP10 bar" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/hideWP10Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -22,7 +22,7 @@
                 style="@style/ButtonMenu"
                 android:text="Welcome..." />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/fetchButton"
                 style="@style/ButtonMenu"
                 android:text="fetch remote welcome" />

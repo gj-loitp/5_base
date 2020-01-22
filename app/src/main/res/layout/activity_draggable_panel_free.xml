@@ -15,13 +15,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_maximize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Maximize" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_minimize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

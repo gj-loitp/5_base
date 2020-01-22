@@ -18,18 +18,18 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_start_location_updates"
                 style="@style/ButtonMenu"
                 android:text="@string/start_updates" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_stop_location_updates"
                 style="@style/ButtonMenu"
                 android:enabled="false"
                 android:text="@string/stop_updates" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_get_last_location"
                 style="@style/ButtonMenu"
                 android:text="@string/get_last_location" />

@@ -17,27 +17,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_constraint_set"
                 style="@style/ButtonMenu"
                 android:text="ConstraintSet" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_custom_behavior"
                 style="@style/ButtonMenu"
                 android:text="Custom Behavior" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_demo"
                 style="@style/ButtonMenu"
                 android:text="Demo" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fab_n_snackbar"
                 style="@style/ButtonMenu"
                 android:text="FabAndSnackbarActivity" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fab_follow_widget"
                 style="@style/ButtonMenu"
                 android:text="Fab follow widget" />

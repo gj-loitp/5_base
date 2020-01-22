@@ -17,117 +17,117 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_alarm"
                 style="@style/ButtonMenu"
                 android:text="@string/alarm" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btArchitectureComponent"
                 style="@style/ButtonMenu"
                 android:text="Architecture Component" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_butter_knife"
                 style="@style/ButtonMenu"
                 android:text="@string/butter_knife" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeepLinks"
                 style="@style/ButtonMenu"
                 android:text="Deep links" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ebook_with_realm"
                 style="@style/ButtonMenu"
                 android:text="@string/ebook_with_realm" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_epub_reader"
                 style="@style/ButtonMenu"
                 android:text="@string/epub_reader" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_film"
                 style="@style/ButtonMenu"
                 android:text="@string/film" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_firebase"
                 style="@style/ButtonMenu"
                 android:text="@string/firebase" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_floating_video"
                 style="@style/ButtonMenu"
                 android:text="@string/android_floating_video" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_floating_widget"
                 style="@style/ButtonMenu"
                 android:text="@string/android_floating_widget_like_facebook_chat_head" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_floating_view"
                 style="@style/ButtonMenu"
                 android:text="@string/floating_view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFragmentFlow"
                 style="@style/ButtonMenu"
                 android:text="@string/fragment_flow" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fragment_navigation"
                 style="@style/ButtonMenu"
                 android:text="@string/fragment_navigation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPdf"
                 style="@style/ButtonMenu"
                 android:text="@string/pdf" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_core"
                 style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_core_album"
                 style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core_album_only" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_core_album_frm"
                 style="@style/ButtonMenu"
                 android:text="@string/gallery_from_core_album_only_fragment" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_member"
                 style="@style/ButtonMenu"
                 android:text="@string/gallery_member" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_sound"
                 style="@style/ButtonMenu"
                 android:text="@string/sound" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_text_to_speech"
                 style="@style/ButtonMenu"
                 android:text="@string/text_to_speech" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2_instance_activity"
                 style="@style/ButtonMenu"
                 android:text="@string/_2_instance_activity_parallel" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_video"
                 style="@style/ButtonMenu"
                 android:text="@string/video" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_youtube_parser"
                 style="@style/ButtonMenu"
                 android:text="@string/youtube_parser" />

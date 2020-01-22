@@ -20,7 +20,7 @@
         loitp:lNumRows="5"
         loitp:lVerticalSpacing="4dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"

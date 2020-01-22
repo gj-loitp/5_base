@@ -42,7 +42,7 @@
             android:hint="Write a comment..."
             android:maxLines="1" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_post_comment"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"

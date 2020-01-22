@@ -17,37 +17,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomDialog"
                 style="@style/ButtonMenu"
                 android:text="Custom dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_custom_progress_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/custom_progress_dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ios_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/ios_dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_original_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/original_dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_pretty_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/pretty_dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSlideImages"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_images" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_swipe_away_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/swipe_away_dialog" />

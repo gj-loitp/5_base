@@ -11,12 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_0_1"
             style="@style/ButtonMenu"
             android:text="Switch 0-1" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_1_0"
             style="@style/ButtonMenu"
             android:text="Switch 1_0" />

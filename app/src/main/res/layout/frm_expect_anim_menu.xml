@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_0"
                 style="@style/ButtonMenu"
                 android:text="Scroll" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 style="@style/ButtonMenu"
                 android:text="Sample" />

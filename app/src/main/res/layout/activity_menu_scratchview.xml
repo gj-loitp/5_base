@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scratchview_image"
                 style="@style/ButtonMenu"
                 android:text="ScratchView Image" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scratchview_text"
                 style="@style/ButtonMenu"
                 android:text="ScratchView Text" />

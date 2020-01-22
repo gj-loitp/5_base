@@ -8,22 +8,22 @@
     android:background="@color/WhiteSmoke"
     android:orientation="vertical">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btFileAsynctask"
         style="@style/ButtonMenu"
         android:text="Load from Url File - Aysnctask" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btFileCoroutine"
         style="@style/ButtonMenu"
         android:text="Load from Url File - Coroutine" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btStreamAsyncTask"
         style="@style/ButtonMenu"
         android:text="Load from Url Stream - Aysnctask" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btStreamCoroutine"
         style="@style/ButtonMenu"
         android:text="Load from Url Stream - Coroutine" />

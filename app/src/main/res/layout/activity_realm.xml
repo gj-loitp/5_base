@@ -10,22 +10,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRealm"
             style="@style/ButtonMenu"
             android:text="@string/demo_ebook_app_with_realm" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="@string/clear_all" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd"
             style="@style/ButtonMenu"
             android:text="@string/add_dummy_mybook" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSearchById"
             style="@style/ButtonMenu"
             android:text="@string/search_book_by_id" />

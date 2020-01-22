@@ -18,127 +18,127 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_auto_linear_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/autolinearlayout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_circular_view"
                 style="@style/ButtonMenu"
                 android:text="@string/circularview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_constraint_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/constraint_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_coordinator_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/coordinatorlayout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_draggable_panel"
                 style="@style/ButtonMenu"
                 android:text="@string/draggablepanel" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_draggable_view"
                 style="@style/ButtonMenu"
                 android:text="@string/draggableview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_draggable_panel_free"
                 style="@style/ButtonMenu"
                 android:text="@string/draggablepanel_free" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_dragueur"
                 style="@style/ButtonMenu"
                 android:text="@string/dragueur" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_elastic_drag_dismiss_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/elasticdragdismisslayout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fixed_grid_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/fixed_grid_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_float_drag_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/floatdraglayout_activity" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_heart_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/heart_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_motion_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/motion_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_relative_popup_window"
                 style="@style/ButtonMenu"
                 android:text="@string/relative_popup_window" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ripple_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/ripple_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_rotate_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/rotate_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRoundableLayout"
                 style="@style/ButtonMenu"
                 android:text="Roundable layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scroll_view_2d"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_view_2d" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scroll_view_2d_advance"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_view_2d_advance" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShadowLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/shadow_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_square_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/square_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_swipeback_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/swipebacklayout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_swipe_refresh_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/swipe_refresh_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSwipeRevealLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/swipe_reveal_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_zoom_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom_layout" />

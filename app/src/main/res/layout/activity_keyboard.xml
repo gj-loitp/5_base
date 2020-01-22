@@ -19,13 +19,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btHide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

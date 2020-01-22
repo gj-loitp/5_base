@@ -17,17 +17,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMVP"
                 style="@style/ButtonMenu"
                 android:text="@string/mvp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_mvvm"
                 style="@style/ButtonMenu"
                 android:text="@string/mvvm" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_observer_pattern"
                 style="@style/ButtonMenu"
                 android:text="@string/observer_pattern" />

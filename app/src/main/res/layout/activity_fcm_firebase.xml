@@ -23,7 +23,7 @@
                 android:text="The Firebase Cloud Messaging Android Quickstart app demonstrates registering an Android app for notifications and handling the receipt of a message. InstanceID allows easy registration while FirebaseMessagingService and FirebaseInstanceIDService enable token refreshes and message handling on the client.
 If your application is in the foreground you should see the incoming message printed in the logs. If it is in the background, a system notification should be displayed. When the notification is tapped, the application should return to the quickstart application." />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_send_fcm"
                 style="@style/ButtonMenu"
                 android:text="Push FCM" />

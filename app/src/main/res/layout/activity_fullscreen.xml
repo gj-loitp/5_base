@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_toggle_fullscreen"
                 style="@style/ButtonMenu"
                 android:text="@string/toggle_fullscreen" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/show_dialog_without_show_system_bar_if_fullscreen" />

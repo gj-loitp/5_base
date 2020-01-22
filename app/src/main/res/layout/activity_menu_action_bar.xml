@@ -17,27 +17,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_collapsingtoolbarlayout"
                 style="@style/ButtonMenu"
                 android:text="@string/collapsing_toolbar_layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_collapsingtoolbarwithtablayout"
                 style="@style/ButtonMenu"
                 android:text="@string/collapsing_toolbar_with_tablayout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_l_actionbar"
                 style="@style/ButtonMenu"
                 android:text="@string/lactionbar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_navigation_view"
                 style="@style/ButtonMenu"
                 android:text="@string/navigation_view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_navigation_view_with_text"
                 style="@style/ButtonMenu"
                 android:text="@string/navigation_view_with_text" />

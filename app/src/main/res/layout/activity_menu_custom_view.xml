@@ -17,162 +17,162 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_action_bar"
                 style="@style/ButtonMenu"
                 android:text="@string/action_bar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_answer_view"
                 style="@style/ButtonMenu"
                 android:text="@string/answerview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ariana"
                 style="@style/ButtonMenu"
                 android:text="@string/ariana" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bottom_bar"
                 style="@style/ButtonMenu"
                 android:text="@string/bottom_navigation_bar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bottom_sheet"
                 style="@style/ButtonMenu"
                 android:text="@string/bottomsheet" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_button"
                 style="@style/ButtonMenu"
                 android:text="@string/button" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCalendar"
                 style="@style/ButtonMenu"
                 android:text="Calendar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_compas"
                 style="@style/ButtonMenu"
                 android:text="@string/compas" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_draggable_flipview"
                 style="@style/ButtonMenu"
                 android:text="@string/draggable_flipview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_edit_text"
                 style="@style/ButtonMenu"
                 android:text="@string/edittext" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fb_cmt"
                 style="@style/ButtonMenu"
                 android:text="@string/facebook_comment" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_layout"
                 style="@style/ButtonMenu"
                 android:text="@string/layout" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_l_card_view"
                 style="@style/ButtonMenu"
                 android:text="@string/lcardview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ldebugview"
                 style="@style/ButtonMenu"
                 android:text="@string/ldebugview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_menu"
                 style="@style/ButtonMenu"
                 android:text="@string/menu" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_navigation"
                 style="@style/ButtonMenu"
                 android:text="@string/navigation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_popup_menu"
                 style="@style/ButtonMenu"
                 android:text="@string/popup_menu" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_progress_loading"
                 style="@style/ButtonMenu"
                 android:text="@string/progress_loading_view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_recyclerview"
                 style="@style/ButtonMenu"
                 android:text="@string/recyclerview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scratchview"
                 style="@style/ButtonMenu"
                 android:text="@string/scratchview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scrollable_panel"
                 style="@style/ButtonMenu"
                 android:text="@string/scrollablepanel" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_seekbar"
                 style="@style/ButtonMenu"
                 android:text="@string/seekbar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_sticker"
                 style="@style/ButtonMenu"
                 android:text="@string/sticker" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_switch"
                 style="@style/ButtonMenu"
                 android:text="@string/switch_toggle" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_textview"
                 style="@style/ButtonMenu"
                 android:text="@string/textview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_treeview"
                 style="@style/ButtonMenu"
                 android:text="@string/tree_view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_videoview"
                 style="@style/ButtonMenu"
                 android:text="@string/videoview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_view_pager"
                 style="@style/ButtonMenu"
                 android:text="@string/view_pager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_wwl_music"
                 style="@style/ButtonMenu"
                 android:text="@string/wwl_music" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_wwl_video"
                 style="@style/ButtonMenu"
                 android:text="@string/wwl_video" />

@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_1"
         style="@style/ButtonMenu"
         android:text="@string/get_photoset_list" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_2"
         style="@style/ButtonMenu"
         android:layout_below="@+id/bt_1"

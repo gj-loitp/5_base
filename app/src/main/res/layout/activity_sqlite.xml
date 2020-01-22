@@ -10,27 +10,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_clear_all"
             style="@style/ButtonMenu"
             android:text="Clear all" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add"
             style="@style/ButtonMenu"
             android:text="Add Dummy Contact" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd100"
             style="@style/ButtonMenu"
             android:text="Add 100 Dummy Contact" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_getcontact_with_id"
             style="@style/ButtonMenu"
             android:text="Get Contact With ID=2" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btGetContactListPage1"
             style="@style/ButtonMenu"
             android:text="Get Contact List Page 1" />

@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_i_love_you"
                 style="@style/ButtonMenu"
                 android:text="I love you" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_i_you_love_me"
                 style="@style/ButtonMenu"
                 android:text="You love me" />
@@ -43,7 +43,7 @@
                     android:hint="Input an english sentence"
                     android:maxLines="1" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_speak"
                     style="@style/ButtonMenu"
                     android:text="Speak"

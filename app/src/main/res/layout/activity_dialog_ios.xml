@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_1"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_2"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_2" />

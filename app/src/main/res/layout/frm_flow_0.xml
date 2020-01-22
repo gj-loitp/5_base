@@ -14,7 +14,7 @@
         android:textColor="@color/White"
         android:textSize="@dimen/txt_32" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"

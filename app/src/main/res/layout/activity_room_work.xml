@@ -15,13 +15,13 @@
         android:orientation="horizontal"
         android:padding="@dimen/padding_10">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btDeleteAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

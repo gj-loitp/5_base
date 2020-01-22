@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_rx_java_2"
                 style="@style/ButtonMenu"
                 android:text="@string/rxjava_2" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_retrofit_2"
                 style="@style/ButtonMenu"
                 android:text="@string/retrofit_2" />

@@ -17,57 +17,57 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_no_anim"
                 style="@style/ButtonMenu"
                 android:text="@string/no_animation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_system_default"
                 style="@style/ButtonMenu"
                 android:text="@string/system_default" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_slide_left"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_left" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_slide_right"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_right" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_slide_down"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_down" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_slide_up"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_up" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fade"
                 style="@style/ButtonMenu"
                 android:text="@string/fade" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_zoom"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_windmill"
                 style="@style/ButtonMenu"
                 android:text="@string/windmill" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_diagonal"
                 style="@style/ButtonMenu"
                 android:text="@string/diagonal" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_spin"
                 style="@style/ButtonMenu"
                 android:text="@string/spin" />

@@ -17,32 +17,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_1"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_2"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_2" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_3"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_3" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_list"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog_list" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_progress_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/progress_dialog" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btInputDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/input_dialog" />

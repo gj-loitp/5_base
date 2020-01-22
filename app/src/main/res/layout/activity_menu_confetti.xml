@@ -17,32 +17,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_0"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_confetti_from_top" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_confetti_from_point" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 style="@style/ButtonMenu"
                 android:text="@string/explosion" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_3"
                 style="@style/ButtonMenu"
                 android:text="@string/shimmering_confetti" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_ice_flakes_with_touch" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_5"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_ice_flakes_with_listener" />

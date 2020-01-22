@@ -20,22 +20,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAvloadingIndicatorView"
                 style="@style/ButtonMenu"
                 android:text="@string/avloadingindicatorview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularProgressBar"
                 style="@style/ButtonMenu"
                 android:text="@string/circular_progress_bar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularProgressIndicator"
                 style="@style/ButtonMenu"
                 android:text="@string/circularprogressindicator" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWindow"
                 style="@style/ButtonMenu"
                 android:text="Window progress" />

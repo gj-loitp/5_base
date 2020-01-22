@@ -17,47 +17,47 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_sqlite_asset"
                 style="@style/ButtonMenu"
                 android:text="@string/read_sqlite_asset" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_realm"
                 style="@style/ButtonMenu"
                 android:text="@string/realm" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRoom"
                 style="@style/ButtonMenu"
                 android:text="Room" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefs"
                 style="@style/ButtonMenu"
                 android:text="@string/sharedprefs" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefsEncryption"
                 style="@style/ButtonMenu"
                 android:text="@string/sharedprefsencryption" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_sqlite"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSqliteEncryption"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite_encryption" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSqliteMultiTable"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite_multi_table" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSqliteMultiTableAdvance"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite_multi_table_advance" />

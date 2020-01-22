@@ -19,77 +19,77 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_big_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/big_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_big_imageview_with_scroll_view"
                 style="@style/ButtonMenu"
                 android:text="@string/big_imageview_with_scrollview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_blur_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/blur_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_cirle_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/circle_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_cirlularroundrect_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/circular_roundrect_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_continuous_scrollable_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/continuous_scrollable_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fidgetspinner"
                 style="@style/ButtonMenu"
                 android:text="@string/fidgetspinner_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btKenburnView"
                 style="@style/ButtonMenu"
                 android:text="Kenburn view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_panorama_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/panorama_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPinchToZoom"
                 style="@style/ButtonMenu"
                 android:text="Pinch to zoom" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPinchToZoomWithViewPager"
                 style="@style/ButtonMenu"
                 android:text="Pinch to zoom with ViewPager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_scroll_parallax_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_parallax_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_touch_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/touch_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_stretchy_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/stretchy_imageview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_zoom_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/zoomimageview" />

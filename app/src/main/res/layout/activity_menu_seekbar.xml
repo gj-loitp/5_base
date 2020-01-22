@@ -17,22 +17,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_boxed_vertical_seekbar"
                 style="@style/ButtonMenu"
                 android:text="Boxed Vertical SeekBar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_circularseekbar_seekbar"
                 style="@style/ButtonMenu"
                 android:text="circularseekbar seekbar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_seekbar"
                 style="@style/ButtonMenu"
                 android:text="seekbar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_vertical_seekbar"
                 style="@style/ButtonMenu"
                 android:text="vertical seekbar" />

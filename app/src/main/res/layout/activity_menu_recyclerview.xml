@@ -19,62 +19,62 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bookview"
                 style="@style/ButtonMenu"
                 android:text="Bookview" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_diff_util"
                 style="@style/ButtonMenu"
                 android:text="Diff Util" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_layout_manager"
                 style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Horizontal" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gallery_layout_manager_vertical"
                 style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Vertical" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_normal_recyclerview"
                 style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Animation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_normal_recyclerview_with_singleton_data"
                 style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Singleton Data" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_normal_recyclerview_with_spansize"
                 style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Spansize" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_parallax_recyclerview"
                 style="@style/ButtonMenu"
                 android:text="ParallaxRecyclerView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_overflying_recyclerview"
                 style="@style/ButtonMenu"
                 android:text="Overflying RecyclerView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_parallax_recyclerview_yayandroid"
                 style="@style/ButtonMenu"
                 android:text="ParallaxRecyclerView Yayandroid" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_recyclerview_banner"
                 style="@style/ButtonMenu"
                 android:text="RecyclerBanner" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRecyclerTabLayout"
                 style="@style/ButtonMenu"
                 android:text="Recycler Tab Layout" />

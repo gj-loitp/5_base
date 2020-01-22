@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/sliding_tabs" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_anim"
         style="@style/ButtonMenu"
         android:layout_centerInParent="true"

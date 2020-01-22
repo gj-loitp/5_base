@@ -17,22 +17,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bs_image_picker"
                 style="@style/ButtonMenu"
                 android:text="@string/bs_image_picker" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_image_picker_with_crop"
                 style="@style/ButtonMenu"
                 android:text="@string/image_picker_with_crop" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_crop"
                 style="@style/ButtonMenu"
                 android:text="Crop" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTedImagePicker"
                 style="@style/ButtonMenu"
                 android:text="TedImagePicker" />

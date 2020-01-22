@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bottom_bar"
                 style="@style/ButtonMenu"
                 android:text="Bottom Bar (Blur)" />

@@ -24,7 +24,7 @@
         android:textSize="@dimen/txt_30"
         android:textStyle="bold" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_select_anim"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"

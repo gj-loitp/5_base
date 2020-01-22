@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_crop_oval"
                 style="@style/ButtonMenu"
                 android:text="Crop oval" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_crop_square"
                 style="@style/ButtonMenu"
                 android:text="Crop square" />

@@ -17,38 +17,38 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/simpleNotification"
                 style="@style/ButtonMenu"
                 android:text="simple notification" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/simpleNotificationActions"
                 style="@style/ButtonMenu"
                 android:text="simple notification with actions" />
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bigTextNotification"
                 style="@style/ButtonMenu"
                 android:text="big text notification" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/inboxNotification"
                 style="@style/ButtonMenu"
                 android:text="inbox notification" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bigPictureNotification"
                 style="@style/ButtonMenu"
                 android:text="big picture notification" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNotificationHeadsup"
                 style="@style/ButtonMenu"
                 android:text="Notifcation headsup" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNotificationHeadsupNice"
                 style="@style/ButtonMenu"
                 android:text="Notifcation headsup (Nice)" />

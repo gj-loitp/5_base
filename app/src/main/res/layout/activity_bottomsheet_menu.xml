@@ -21,17 +21,17 @@
                 android:layout_below="@+id/tvMenu"
                 android:orientation="vertical">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_0"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_1"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet dialog" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_2"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet dialog fragment" />

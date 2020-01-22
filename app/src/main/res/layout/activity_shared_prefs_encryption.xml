@@ -18,95 +18,95 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btClearAll"
                 style="@style/ButtonMenu"
                 android:text="Clear all" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutString"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put String" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetString"
                 style="@style/ButtonMenu"
                 android:text="Get String" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutStringWithDefaultValue"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put String WithDefaultValue" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetStringWithDefaultValue"
                 style="@style/ButtonMenu"
                 android:text="Get String WithDefaultValue" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutBoolean"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put Boolean" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetBoolean"
                 style="@style/ButtonMenu"
                 android:text="Get Boolean" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutFloat"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put Float" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetFloat"
                 style="@style/ButtonMenu"
                 android:text="Get Float" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutInt"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put Int" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInt"
                 style="@style/ButtonMenu"
                 android:text="Get Int" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutLong"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put Long" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetLong"
                 style="@style/ButtonMenu"
                 android:text="Get Long" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutObject"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put Object" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetObject"
                 style="@style/ButtonMenu"
                 android:text="Get Object" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutListObject"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
                 android:text="Put List Object" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btListGetObject"
                 style="@style/ButtonMenu"
                 android:text="Get List Object" />

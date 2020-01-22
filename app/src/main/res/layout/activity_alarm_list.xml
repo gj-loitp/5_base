@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             style="@style/ButtonMenu"
             android:onClick="onAddAlarmClick"
             android:text="Add alarm" />

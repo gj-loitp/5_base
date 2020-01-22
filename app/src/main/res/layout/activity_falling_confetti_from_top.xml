@@ -10,7 +10,7 @@
         android:layout_above="@+id/num_confetti_txt"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_once_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_once" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_stream_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_stream" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_infinite_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_infinite" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_stop_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

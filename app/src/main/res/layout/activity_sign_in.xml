@@ -54,13 +54,13 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_sign_in"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/sign_in" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_sign_up"
             android:layout_width="150dp"
             android:layout_height="wrap_content"

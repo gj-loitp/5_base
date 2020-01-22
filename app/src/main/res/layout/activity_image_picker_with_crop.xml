@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/startGalleryBtn"
                 style="@style/ButtonMenu"
                 android:text="@string/start_gallery" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/startCameraBtn"
                 style="@style/ButtonMenu"
                 android:text="@string/start_camera" />

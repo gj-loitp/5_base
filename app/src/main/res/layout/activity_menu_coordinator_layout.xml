@@ -17,27 +17,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_0"
                 style="@style/ButtonMenu"
                 android:text="With ImageView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 style="@style/ButtonMenu"
                 android:text="Standard App bar scrolling with only Toolbar" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 style="@style/ButtonMenu"
                 android:text="App bar scrolling with tabs" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_3"
                 style="@style/ButtonMenu"
                 android:text="App bar scrolling with Flexible space" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 style="@style/ButtonMenu"
                 android:text="App bar scrolling with overlapping content in Flexible space" />

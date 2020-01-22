@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_15">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

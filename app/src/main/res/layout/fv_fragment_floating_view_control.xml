@@ -17,7 +17,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/show_demo"
             style="@style/ButtonMenu"
             android:text="@string/show_demo" />
@@ -35,12 +35,12 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/show_customized_demo"
             style="@style/ButtonMenu"
             android:text="@string/show_customized_demo" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/show_customized_demo_video"
             style="@style/ButtonMenu"
             android:text="Video" />

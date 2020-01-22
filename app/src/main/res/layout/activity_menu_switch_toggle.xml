@@ -17,17 +17,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_appcompat_switch"
                 style="@style/ButtonMenu"
                 android:text="Appcompat Switch" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_custom_toggle_button"
                 style="@style/ButtonMenu"
                 android:text="Custom Toggle Button" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_toggle"
                 style="@style/ButtonMenu"
                 android:text="Toggle" />

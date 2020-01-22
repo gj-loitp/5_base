@@ -10,22 +10,22 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_15" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btStartDownload"
         style="@style/ButtonMenu"
         android:text="start download" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btCancelDownload"
         style="@style/ButtonMenu"
         android:text="cancel download" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btPauseDownload"
         style="@style/ButtonMenu"
         android:text="pause download" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btResumeDownload"
         style="@style/ButtonMenu"
         android:text="resume download" />

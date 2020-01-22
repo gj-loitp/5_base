@@ -17,37 +17,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_auto_viewpager"
                 style="@style/ButtonMenu"
                 android:text="Auto ViewPager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_detect_viewpager_swipe_out"
                 style="@style/ButtonMenu"
                 android:text="Detect ViewPager SwipeOut" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_detect_viewpager_swipe_out_2"
                 style="@style/ButtonMenu"
                 android:text="Detect ViewPager SwipeOut 2 (Nice)" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_lockable_viewpager"
                 style="@style/ButtonMenu"
                 android:text="LockableViewPager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_parallax_viewpager"
                 style="@style/ButtonMenu"
                 android:text="Parallax ViewPager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_refresh_viewpager"
                 style="@style/ButtonMenu"
                 android:text="Refresh ViewPager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_view_pager_tablayout"
                 style="@style/ButtonMenu"
                 android:text="ViewPager With Tablayout + transformers" />

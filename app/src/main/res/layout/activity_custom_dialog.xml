@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btToggleFullScreen"
         style="@style/ButtonMenu"
         android:background="@drawable/bt_primary"
         android:text="@string/toggle_fullscreen" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/anchorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,70 +29,70 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Default" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Top left" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Top Center" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Top Right" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Center left" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Center center" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Center right" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Bottom left" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bt_primary"
                 android:text="Bottom center" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

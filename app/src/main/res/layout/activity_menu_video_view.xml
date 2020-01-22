@@ -17,27 +17,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_exoplayer2"
                 style="@style/ButtonMenu"
                 android:text="ExoPlayer2" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_exoplayer2_ima"
                 style="@style/ButtonMenu"
                 android:text="ExoPlayer2 IMA Ad" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 style="@style/ButtonMenu"
                 android:text="Place controller under the video without overlapping the video" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_3"
                 style="@style/ButtonMenu"
                 android:text="Switch target view" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_youtube"
                 style="@style/ButtonMenu"
                 android:text="Youtube" />

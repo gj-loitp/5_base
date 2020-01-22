@@ -9,7 +9,7 @@
         style="@style/TextMenu"
         android:text="@string/fn3" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         style="@style/ButtonMenu"
         android:text="@string/app_name" />
 

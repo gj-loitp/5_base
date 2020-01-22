@@ -16,21 +16,21 @@
 		android:layout_alignParentBottom="true"
 		android:orientation="horizontal">
 
-		<Button
+		<androidx.appcompat.widget.AppCompatButton
 			android:id="@+id/bt_0"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:text="Low" />
 
-		<Button
+		<androidx.appcompat.widget.AppCompatButton
 			android:id="@+id/bt_1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:text="Medium" />
 
-		<Button
+		<androidx.appcompat.widget.AppCompatButton
 			android:id="@+id/bt_2"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"

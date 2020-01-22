@@ -52,7 +52,7 @@
         android:layout_below="@id/lEditTextId"
         android:layout_marginTop="@dimen/margin_55" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

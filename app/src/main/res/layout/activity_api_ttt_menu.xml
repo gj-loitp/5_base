@@ -17,32 +17,32 @@
             android:orientation="vertical">
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_comic_list"
                 style="@style/ButtonMenu"
                 android:text="Lấy danh sách truyện" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_chap_list"
                 style="@style/ButtonMenu"
                 android:text="Danh sách chương ONEPIECE" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_page_list"
                 style="@style/ButtonMenu"
                 android:text="Danh sách trang ONEPIECE - Chap 69" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fav_list"
                 style="@style/ButtonMenu"
                 android:text="Danh sách truyện yêu thích" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_add_to_fav_list"
                 style="@style/ButtonMenu"
                 android:text="Thêm truyện vào danh sách truyện yêu thích" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_remove_to_fav_list"
                 style="@style/ButtonMenu"
                 android:text="Xóa truyện khỏi danh sách truyện yêu thích" />

@@ -8,7 +8,7 @@
         style="@style/TextMenu"
         android:text="Custom dialog" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

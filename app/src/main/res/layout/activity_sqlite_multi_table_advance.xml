@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btClearUI"
                 style="@style/ButtonMenu"
                 android:text="Clear UI" />
@@ -28,37 +28,37 @@
                 android:layout_marginBottom="@dimen/margin_10"
                 android:background="@color/colorPrimary" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteAllDatabase"
                 style="@style/ButtonMenu"
                 android:text="DeleteAllDatabase" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspectionList"
                 style="@style/ButtonMenu"
                 android:text="GetInspectionList" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspectionCount"
                 style="@style/ButtonMenu"
                 android:text="GetInspectionCount" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCreateInspection"
                 style="@style/ButtonMenu"
                 android:text="CreateInspection" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspection"
                 style="@style/ButtonMenu"
                 android:text="GetInspection with id = 2" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUpdateInspection"
                 style="@style/ButtonMenu"
                 android:text="UpdateInspection with id = 1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteInspection"
                 style="@style/ButtonMenu"
                 android:text="DeleteInspection with id =1" />
@@ -70,32 +70,32 @@
                 android:layout_marginBottom="@dimen/margin_10"
                 android:background="@color/colorPrimary" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetActionList"
                 style="@style/ButtonMenu"
                 android:text="GetActionList" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCreateAction"
                 style="@style/ButtonMenu"
                 android:text="CreateAction" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetAction"
                 style="@style/ButtonMenu"
                 android:text="GetAction with id = 1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUpdateAction"
                 style="@style/ButtonMenu"
                 android:text="UpdateAction with id = 1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteAction"
                 style="@style/ButtonMenu"
                 android:text="DeleteAction with id = 1" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetActionListByPage"
                 style="@style/ButtonMenu"
                 android:text="Get action list by page (pageSize=5)" />

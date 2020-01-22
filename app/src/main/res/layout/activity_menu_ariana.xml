@@ -25,17 +25,17 @@
                 android:textColor="@color/grey"
                 android:textSize="@dimen/txt_14" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ariana_imageview"
                 style="@style/ButtonMenu"
                 android:text="Ariana ImageView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ariana_textview"
                 style="@style/ButtonMenu"
                 android:text="Ariana TextView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ariana_viewpager"
                 style="@style/ButtonMenu"
                 android:text="Ariana ViewPager" />

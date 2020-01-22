@@ -21,12 +21,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/notify_me"
                 style="@style/ButtonMenu"
                 android:text="Click to Service" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_0"
                 style="@style/ButtonMenu"
                 android:text="Send Service Dummy Test 0" />

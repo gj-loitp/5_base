@@ -9,7 +9,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" />
 
-	<Button
+	<androidx.appcompat.widget.AppCompatButton
 		android:id="@+id/btAdd"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintLeft_toLeftOf="parent" />
 
-	<Button
+	<androidx.appcompat.widget.AppCompatButton
 		android:id="@+id/btShuffle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
 		app:layout_constraintLeft_toRightOf="@+id/btAdd"
 		app:layout_constraintRight_toLeftOf="@+id/bt" />
 
-	<Button
+	<androidx.appcompat.widget.AppCompatButton
 		android:id="@+id/bt"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

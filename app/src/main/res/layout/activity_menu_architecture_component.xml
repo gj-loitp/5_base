@@ -17,17 +17,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCoroutine"
                 style="@style/ButtonMenu"
                 android:text="Coroutine" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRoom"
                 style="@style/ButtonMenu"
                 android:text="Room" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewModel"
                 style="@style/ButtonMenu"
                 android:text="View model - Live Data" />

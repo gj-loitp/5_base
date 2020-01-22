@@ -28,7 +28,7 @@
             android:text="LinearLayoutManager vertical"
             android:textStyle="bold" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,13 +43,13 @@
         android:background="@color/WhiteSmoke"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to position 3" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_remove_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

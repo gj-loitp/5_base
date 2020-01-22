@@ -35,13 +35,13 @@
                     android:textSize="@dimen/txt_12"
                     android:textStyle="bold" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btEncodeBase64"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="encodeBase64" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btDecodeBase64"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:textSize="@dimen/txt_12"
                     android:textStyle="bold" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     android:textSize="@dimen/txt_12"
                     android:textStyle="bold" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

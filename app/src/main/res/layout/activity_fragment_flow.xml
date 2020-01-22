@@ -30,13 +30,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAddFrmFlow0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add FrmFlow0" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAllFrm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_reside_menu"
                 style="@style/ButtonMenu"
                 android:text="@string/reside_menu" />

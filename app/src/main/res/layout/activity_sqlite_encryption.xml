@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="Clear all bike" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAddBike"
             style="@style/ButtonMenu"
             android:text="Add Dummy Bike" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btGetBikeWithId"
             style="@style/ButtonMenu"
             android:text="Get bike With ID=2" />

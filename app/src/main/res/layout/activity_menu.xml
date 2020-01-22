@@ -18,107 +18,107 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_api"
                 style="@style/ButtonMenu"
                 android:text="@string/api" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ads"
                 style="@style/ButtonMenu"
                 android:text="@string/ads" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_animation"
                 style="@style/ButtonMenu"
                 android:text="@string/animation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_custom_view"
                 style="@style/ButtonMenu"
                 android:text="@string/custom_views" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_database"
                 style="@style/ButtonMenu"
                 android:text="@string/database" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_picker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSecurity"
                 style="@style/ButtonMenu"
                 android:text="Security" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btService"
                 style="@style/ButtonMenu"
                 android:text="Service" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_demo"
                 style="@style/ButtonMenu"
                 android:text="@string/demo_app" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_function"
                 style="@style/ButtonMenu"
                 android:text="@string/function" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
                 style="@style/ButtonMenu"
                 android:text="@string/network" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_pattern"
                 style="@style/ButtonMenu"
                 android:text="@string/pattern" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_tutorial"
                 style="@style/ButtonMenu"
                 android:text="@string/tutorial" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_rate_app"
                 style="@style/ButtonMenu"
                 android:text="@string/rate_app" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_more_app"
                 style="@style/ButtonMenu"
                 android:text="@string/more_app" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_chat"
                 style="@style/ButtonMenu"
                 android:text="@string/chat_with_dev" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fb_fanpage"
                 style="@style/ButtonMenu"
                 android:text="@string/fb_fanpage" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_ad_helper"
                 style="@style/ButtonMenu"
                 android:text="Vì sao bạn thấy quảng cáo?" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_frm_more"
                 style="@style/ButtonMenu"
                 android:text="@string/th_m" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_donation"
                 style="@style/ButtonMenu"
                 android:text="@string/donation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_github"
                 style="@style/ButtonMenu"
                 android:text="@string/github" />

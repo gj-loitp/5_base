@@ -18,17 +18,17 @@
         android:padding="@dimen/padding_10"
         android:textSize="@dimen/txt_18" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_0"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_first" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_1"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_last" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_2"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_2" />

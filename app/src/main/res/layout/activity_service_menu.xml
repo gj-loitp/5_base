@@ -17,12 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDemoService"
                 style="@style/ButtonMenu"
                 android:text="Demo service" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEndlessService"
                 style="@style/ButtonMenu"
                 android:text="Endless service" />

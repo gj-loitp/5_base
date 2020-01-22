@@ -17,37 +17,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestBlocking"
                 style="@style/ButtonMenu"
                 android:text="Test Blocking" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestWithContext"
                 style="@style/ButtonMenu"
                 android:text="Test withContext" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestJoin"
                 style="@style/ButtonMenu"
                 android:text="Test Join" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestCancel"
                 style="@style/ButtonMenu"
                 android:text="Test Cancel" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestCompose"
                 style="@style/ButtonMenu"
                 android:text="Test Compose" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestTimeOut"
                 style="@style/ButtonMenu"
                 android:text="Test TimeOut" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestConvertAsyncTaskToCoroutine"
                 style="@style/ButtonMenu"
                 android:text="Convert AsyncTask To Coroutine" />

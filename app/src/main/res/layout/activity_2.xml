@@ -9,12 +9,12 @@
         style="@style/TextMenu"
         android:text="Activity2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_go_to_1"
         style="@style/ButtonMenu"
         android:text="go to Activity1" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_go_to_3"
         style="@style/ButtonMenu"
         android:text="go to Activity3" />

@@ -18,37 +18,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_auto_size_button"
                 style="@style/ButtonMenu"
                 android:text="Auto size button" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_circular_image_click"
                 style="@style/ButtonMenu"
                 android:text="Circular Image Click" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_goodview"
                 style="@style/ButtonMenu"
                 android:text="GoodView" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_l_button"
                 style="@style/ButtonMenu"
                 android:text="LButton" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btQButton"
                 style="@style/ButtonMenu"
                 android:text="QButton" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_rounded_button"
                 style="@style/ButtonMenu"
                 android:text="Rounded Button" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_shine_button"
                 style="@style/ButtonMenu"
                 android:text="Shine Button" />

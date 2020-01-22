@@ -17,82 +17,82 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_activity_service_comunicate"
                 style="@style/ButtonMenu"
                 android:text="@string/activity_service_comunicate" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDownloadManager"
                 style="@style/ButtonMenu"
                 android:text="Download manager" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_drag_drop_sample"
                 style="@style/ButtonMenu"
                 android:text="@string/drag_drop_sample" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_toggle_fullscreen"
                 style="@style/ButtonMenu"
                 android:text="@string/toggle_fullscreen" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_gesto"
                 style="@style/ButtonMenu"
                 android:text="@string/gesto" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_glide"
                 style="@style/ButtonMenu"
                 android:text="@string/glide" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_hashmap"
                 style="@style/ButtonMenu"
                 android:text="@string/hashmap" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_keyboard"
                 style="@style/ButtonMenu"
                 android:text="@string/keyboard" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_location"
                 style="@style/ButtonMenu"
                 android:text="@string/location" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_notification"
                 style="@style/ButtonMenu"
                 android:text="@string/notification" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_recolor"
                 style="@style/ButtonMenu"
                 android:text="@string/recolor" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_sensor"
                 style="@style/ButtonMenu"
                 android:text="@string/sensor" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_simple_finger_gesture"
                 style="@style/ButtonMenu"
                 android:text="@string/simple_finger_gestures" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_view_drag_helper"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_view_drag_helper_simple"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper_simple" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_view_drag_helper_simple_1"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper_simple_1" />

@@ -24,12 +24,12 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_enable"
             style="@style/ButtonMenu"
             android:text="Enable" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_disable"
             style="@style/ButtonMenu"
             android:text="Disable" />

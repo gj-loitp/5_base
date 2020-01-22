@@ -17,17 +17,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_1"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_banner" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_2"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_interstitial" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_3"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_rewarded_video" />

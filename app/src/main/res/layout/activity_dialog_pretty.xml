@@ -17,22 +17,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_1"
                 style="@style/ButtonMenu"
                 android:text="@string/simple_dialog_no_customization" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_2"
                 style="@style/ButtonMenu"
                 android:text="@string/change_icon" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_3"
                 style="@style/ButtonMenu"
                 android:text="@string/add_unlimited_customized_buttons" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_4"
                 style="@style/ButtonMenu"
                 android:text="@string/fully_customize" />

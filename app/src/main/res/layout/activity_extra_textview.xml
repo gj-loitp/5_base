@@ -262,14 +262,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/waitingBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minWidth="0dp"
                         android:text="wait" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/activeBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
