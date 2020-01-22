@@ -10,35 +10,21 @@
         android:name="vn.loitp.app.activity.api.coroutine.activity.FrmGetListUser"
         android:label="frmGetListUser"
         tools:layout="@layout/activity_coroutine_api">
-        <!--<action
-            android:id="@+id/action_fn1_to_fn2"
-            app:destination="@id/fn_2"
-            app:enterAnim="@anim/fm_slide_in_right"
-            app:exitAnim="@anim/fm_slide_out_left"
-            app:popEnterAnim="@anim/fm_slide_in_left"
-            app:popExitAnim="@anim/fm_slide_out_right" />-->
-
-        <!--<action
-            android:id="@+id/action_fn1_to_fn4"
-            app:destination="@id/fn_4"
-            app:enterAnim="@anim/fm_slide_in_right"
-            app:exitAnim="@anim/fm_slide_out_left"
-            app:popEnterAnim="@anim/fm_slide_in_left"
-            app:popExitAnim="@anim/fm_slide_out_right" />-->
-    </fragment>
-
-    <!--<fragment
-        android:id="@+id/fn_2"
-        android:name="vn.loitp.app.activity.demo.fragmentnavigation.FN2"
-        android:label="label_2"
-        tools:layout="@layout/fn_2">
         <action
-            android:id="@+id/action_fn2_to_fn3"
-            app:destination="@id/fn_3"
+            android:id="@+id/action_frmGetListUser_to_frmUser"
+            app:destination="@id/frmUser"
             app:enterAnim="@anim/fm_slide_in_right"
             app:exitAnim="@anim/fm_slide_out_left"
             app:popEnterAnim="@anim/fm_slide_in_left"
             app:popExitAnim="@anim/fm_slide_out_right" />
-    </fragment>-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/frmUser"
+        android:name="vn.loitp.app.activity.api.coroutine.activity.FrmUser"
+        android:label="FrmUser"
+        tools:layout="@layout/frm_coroutine_user">
+
+    </fragment>
 
 </navigation>

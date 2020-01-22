@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.coroutine.activity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
@@ -15,8 +16,7 @@ import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.app.LApplication
 
 class FrmGetListUser : BaseFragment() {
-
-    lateinit var testViewModel: TestViewModel
+    private var testViewModel: TestViewModel? = null
     private var userListAdapter: UserListAdapter? = null
     private var page = 1
 
@@ -29,33 +29,18 @@ class FrmGetListUser : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        testViewModel = getViewModel(TestViewModel::class.java)
-        testViewModel.userAction.observe(viewLifecycleOwner, Observer { action ->
+        LLog.d(TAG, "onViewCreated")
+        setupViews()
+        setupViewModels()
+        testViewModel?.getUserList(page = page, isRefresh = false)
+    }
 
-            action.isDoing?.let { isDoing ->
-                //LLog.d(TAG, "observe isDoing $isDoing")
-                swipeRefreshLayout.isRefreshing = isDoing
-            }
-
-            action.data?.let { userTestList ->
-                LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
-                userListAdapter?.setList(userTestList, action.isSwipeToRefresh)
-                showShort("Size itemCount " + userListAdapter?.itemCount)
-            }
-
-            action.errorResponse?.let { error ->
-                LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
-                error.message?.let {
-                    showDialogError(it, Runnable {
-                        //do nothing
-                    })
-                }
-            }
-        })
-
+    private fun setupViews() {
         context?.let {
             userListAdapter = UserListAdapter(it, callback = { position, userTest ->
-                //TODO
+                val bundle = Bundle()
+                bundle.putSerializable(FrmUser.KEY_USER, userTest)
+                findNavController().navigate(R.id.action_frmGetListUser_to_frmUser, bundle)
             })
         }
         rvUserTest.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -67,7 +52,7 @@ class FrmGetListUser : BaseFragment() {
             override fun onBottom() {
                 LLog.d(TAG, "onBottom")
                 page += 1
-                testViewModel.getUserList(page = page, isRefresh = false)
+                testViewModel?.getUserList(page = page, isRefresh = false)
             }
         })
 
@@ -81,9 +66,33 @@ class FrmGetListUser : BaseFragment() {
         swipeRefreshLayout.setOnRefreshListener {
             LLog.d(TAG, "setOnRefreshListener")
             page = 1
-            testViewModel.getUserList(page = page, isRefresh = true)
+            testViewModel?.getUserList(page = page, isRefresh = true)
         }
+    }
 
-        testViewModel.getUserList(page = page, isRefresh = false)
+    private fun setupViewModels() {
+        testViewModel = getViewModel(TestViewModel::class.java)
+        testViewModel?.userAction?.observe(viewLifecycleOwner, Observer { action ->
+
+            action.isDoing?.let { isDoing ->
+                //LLog.d(TAG, "observe isDoing $isDoing")
+                swipeRefreshLayout.isRefreshing = isDoing
+            }
+
+            action.data?.let { userTestList ->
+                //LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
+                userListAdapter?.setList(userTestList, action.isSwipeToRefresh)
+                showShort("Size itemCount " + userListAdapter?.itemCount)
+            }
+
+            action.errorResponse?.let { error ->
+                LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
+                error.message?.let {
+                    showDialogError(it, Runnable {
+                        //do nothing
+                    })
+                }
+            }
+        })
     }
 }

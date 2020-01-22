@@ -43,15 +43,24 @@ object LImageUtil {
         }
 
     //for flide
-    fun clear(context: Context, target: View) {
+    fun clear(context: Context?, target: View?) {
+        if (context == null || target == null) {
+            return
+        }
         Glide.with(context).clear(target)
     }
 
-    fun load(context: Context, drawableRes: Int, imageView: ImageView) {
+    fun load(context: Context?, drawableRes: Int, imageView: ImageView?) {
+        if (context == null || imageView == null) {
+            return
+        }
         Glide.with(context).load(drawableRes).into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView) {
+    fun load(context: Context?, url: String?, imageView: ImageView?) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -61,7 +70,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView, drawableRequestListener: RequestListener<Drawable>) {
+    fun load(context: Context?, url: String?, imageView: ImageView?, drawableRequestListener: RequestListener<Drawable>) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -72,7 +84,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView, resPlaceHolder: Int) {
+    fun load(context: Context?, url: String?, imageView: ImageView?, resPlaceHolder: Int) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context)
                 .load(url)
                 .transition(withCrossFade())
@@ -84,15 +99,24 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, imageFile: File, imageView: ImageView) {
+    fun load(context: Context?, imageFile: File?, imageView: ImageView?) {
+        if (context == null || imageFile == null || imageView == null) {
+            return
+        }
         Glide.with(context).load(imageFile).into(imageView)
     }
 
-    fun load(context: Context, uri: Uri, imageView: ImageView) {
+    fun load(context: Context?, uri: Uri?, imageView: ImageView?) {
+        if (context == null || uri == null || imageView == null) {
+            return
+        }
         Glide.with(context).load(uri).into(imageView)
     }
 
-    fun loadRound(url: String, imageView: ImageView, roundingRadius: Int, resPlaceHolder: Int) {
+    fun loadRound(url: String?, imageView: ImageView?, roundingRadius: Int, resPlaceHolder: Int) {
+        if (url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         var requestOptions = RequestOptions()
         requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(roundingRadius)).placeholder(resPlaceHolder)
         Glide.with(imageView.context)
@@ -102,7 +126,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun loadCircle(url: String, imageView: ImageView) {
+    fun loadCircle(url: String?, imageView: ImageView?) {
+        if (url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(imageView.context)
                 .load(url)
                 .transition(withCrossFade())
@@ -110,7 +137,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun loadCircle(url: String, imageView: ImageView, resPlaceHolder: Int, resError: Int) {
+    fun loadCircle(url: String?, imageView: ImageView?, resPlaceHolder: Int, resError: Int) {
+        if (url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(imageView.context)
                 .load(url)
                 .transition(withCrossFade())
@@ -119,7 +149,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun loadCircleImageResources(res: Int, imageView: ImageView) {
+    fun loadCircleImageResources(res: Int, imageView: ImageView?) {
+        if (imageView == null) {
+            return
+        }
         Glide.with(imageView.context)
                 .load(res)
                 .transition(withCrossFade())
@@ -128,8 +161,11 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView,
+    fun load(context: Context?, url: String?, imageView: ImageView?,
              resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -144,9 +180,12 @@ object LImageUtil {
 
     @SuppressLint("ResourceType")
     @JvmOverloads
-    fun load(context: Context, url: String, imageView: ImageView,
+    fun load(context: Context?, url: String?, imageView: ImageView?,
              LAVLoadingIndicatorView: LAVLoadingIndicatorView?, resPlaceHolder:
              Int = Color.TRANSPARENT, resError: Int = Color.TRANSPARENT) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -169,8 +208,11 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView,
-             progressBar: ProgressBar, sizeW: Int, sizeH: Int) {
+    fun load(context: Context?, url: String?, imageView: ImageView?,
+             progressBar: ProgressBar?, sizeW: Int, sizeH: Int) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -191,7 +233,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView, progressBar: ProgressBar) {
+    fun load(context: Context?, url: String?, imageView: ImageView?, progressBar: ProgressBar) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -212,7 +257,10 @@ object LImageUtil {
                 .into(imageView)
     }
 
-    fun load(context: Context, url: String, imageView: ImageView, sizeW: Int, sizeH: Int) {
+    fun load(context: Context?, url: String?, imageView: ImageView?, sizeW: Int, sizeH: Int) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .transition(withCrossFade())
                 .apply(RequestOptions()
@@ -223,14 +271,20 @@ object LImageUtil {
     }
 
     @JvmOverloads
-    fun loadNoAmin(context: Context, url: String, imageView: ImageView,
+    fun loadNoAmin(context: Context?, url: String?, imageView: ImageView?,
                    drawableRequestListener: RequestListener<Drawable>? = null) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         loadNoAmin(context, url, "", imageView, drawableRequestListener)
     }
 
     @JvmOverloads
-    fun loadNoAmin(context: Context, url: String, urlThumbnal: String, imageView: ImageView,
+    fun loadNoAmin(context: Context?, url: String?, urlThumbnal: String?, imageView: ImageView?,
                    drawableRequestListener: RequestListener<Drawable>? = null) {
+        if (context == null || url.isNullOrEmpty() || imageView == null) {
+            return
+        }
         Glide.with(context).load(url)
                 .thumbnail(Glide.with(context)
                         .load(urlThumbnal)
@@ -393,7 +447,7 @@ object LImageUtil {
 
             val copiedFile = File(destFilePath)
             if (!copiedFile.exists()) {
-                return null
+                return copiedFile
             }
 
             val ei = ExifInterface(copiedFile.path)
