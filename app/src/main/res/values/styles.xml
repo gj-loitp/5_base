@@ -1,5 +1,10 @@
 <resources>
 
+    <style name="SplashTheme" parent="AppThemeAndroidO">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@drawable/startup</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

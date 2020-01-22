@@ -1,26 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-<!--    <style name="LTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        &lt;!&ndash;<item name="android:windowContentOverlay">@null</item>&ndash;&gt;-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--        &lt;!&ndash;<item name="android:windowIsTranslucent">true</item>&ndash;&gt;-->
-<!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-<!--        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>-->
-<!--        &lt;!&ndash;<item name="android:windowTranslucentStatus">true</item>&ndash;&gt;-->
-<!--        &lt;!&ndash;<item name="android:windowTranslucentNavigation">false</item>&ndash;&gt;-->
-<!--    </style>-->
-
-<!--    <style name="LTransparent" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        <item name="android:windowIsTranslucent">true</item>-->
-<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
-<!--        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>-->
-<!--    </style>-->
-
-    <style name="AppThemeAndroidO" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppThemeAndroidO" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -28,10 +8,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -40,7 +21,8 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
     <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -52,24 +34,27 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
-    <style name="NoTitleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:background">@color/transparent</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
-    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <!--<item name="android:windowFullscreen">true</item>-->
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowDisablePreview">true</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
@@ -82,17 +67,20 @@
 
     <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:background">@color/black_35</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
-    <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
     <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -100,21 +88,21 @@
         <item name="color">@android:color/white</item>
     </style>
 
-<!--    <style name="widget">-->
-<!--        <item name="android:layout_width">fill_parent</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--    </style>-->
+    <!--    <style name="widget">-->
+    <!--        <item name="android:layout_width">fill_parent</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--    </style>-->
 
-<!--    <style name="edit_button">-->
-<!--        <item name="android:layout_width">0sp</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--        <item name="android:layout_weight">1</item>-->
-<!--    </style>-->
+    <!--    <style name="edit_button">-->
+    <!--        <item name="android:layout_width">0sp</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="android:layout_weight">1</item>-->
+    <!--    </style>-->
 
-<!--    <style name="list_item">-->
-<!--        <item name="android:layout_width">wrap_content</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--    </style>-->
+    <!--    <style name="list_item">-->
+    <!--        <item name="android:layout_width">wrap_content</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--    </style>-->
 
     <style name="LabelTextView" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@android:color/white</item>
@@ -163,11 +151,11 @@
         <item name="android:windowExitAnimation">@null</item>
     </style>
 
-<!--    <color name="aw_cevap_1">#FFFFFF</color>-->
-<!--    <color name="aw_cevap_border">#D61D7D</color>-->
-<!--    <color name="aw_cevap_ic">#4fe0bc</color>-->
-<!--    <color name="aw_cevap_text">@color/aw_cevap_border</color>-->
-<!--    <color name="aw_cevap_text_sel">@color/aw_cevap_1</color>-->
+    <!--    <color name="aw_cevap_1">#FFFFFF</color>-->
+    <!--    <color name="aw_cevap_border">#D61D7D</color>-->
+    <!--    <color name="aw_cevap_ic">#4fe0bc</color>-->
+    <!--    <color name="aw_cevap_text">@color/aw_cevap_border</color>-->
+    <!--    <color name="aw_cevap_text_sel">@color/aw_cevap_1</color>-->
 
     <declare-styleable name="LAnswerView">
         <attr name="aw_ShowTextWhenActive" format="boolean" />
@@ -212,7 +200,7 @@
         <item name="android:scrollbarSize">@dimen/w_3</item>
     </style>
 
-    <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.AppCompat.Translucent" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:background">#33000000</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
