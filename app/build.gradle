@@ -11,8 +11,8 @@ android {
         applicationId "loitp.basemaster"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 11
-        versionName "1.1.2"
+        versionCode 12
+        versionName "1.1.12"
         multiDexEnabled true
 
         renderscriptTargetApi 19
@@ -59,8 +59,8 @@ android {
     buildTypes {
         release {
             debuggable true
-            minifyEnabled false
-            useProguard false
+            minifyEnabled true
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -86,6 +86,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
 
     packagingOptions {
         //exclude 'META-INF/core_release.kotlin_module'
