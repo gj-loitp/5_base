@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.TextView
-import com.amitshekhar.DebugDB
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.GGSettingCallback
@@ -44,8 +43,8 @@ class SplashActivity : BaseFontActivity() {
         getSettingFromGGDrive()
 
         startIdleTimeHandler(10 * 1000)
-        val getAddressLog = DebugDB.getAddressLog()
-        LLog.d(TAG, "getAddressLog $getAddressLog")
+        //val getAddressLog = DebugDB.getAddressLog()
+        //LLog.d(TAG, "getAddressLog $getAddressLog")
     }
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
