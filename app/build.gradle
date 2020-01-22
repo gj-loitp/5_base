@@ -106,7 +106,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:4.1.8'
+    //api 'com.github.tplloi:basemaster:4.2.0'
 
     //realm
     api 'io.realm:realm-android:0.82.1'
