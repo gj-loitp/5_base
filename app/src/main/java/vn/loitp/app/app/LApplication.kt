@@ -15,10 +15,19 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import loitp.basemaster.R
 
+//build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
 //TODO is debug
 
 //TODO core flickr
+
+//TODO tutorial -> retrofit 2 bi white screen
+//TODO demo -> youtube parser ko vao list video dc
+//TODO demo -> floating view crash
+//TODO demo firebase -> auth
+//TODO demo firebase -> database simple crash
+//TODO service -> ko stop service dc
+//TODO database -> read sqlite dtb crash
 
 //need add nice repo
 //https://github.com/hackware1993/MagicIndicator
@@ -38,7 +47,7 @@ class LApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        Constants.setIsDebug(isDebug = false)
+        Constants.setIsDebug(isDebug = true)
         Utils.init(this)
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)

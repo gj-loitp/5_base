@@ -91,9 +91,11 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
                 FirebaseInstanceId.getInstance().deleteInstanceId()
                 FirebaseInstanceId.getInstance().instanceId
                 LLog.d(TAG, "InstanceId removed and regenerated.")
-                showDialogMsg("resetInstanceId success")
+                runOnUiThread {
+                    showDialogMsg("resetInstanceId success")
+                }
             } catch (e: IOException) {
-                e.printStackTrace()
+                LLog.e(TAG, "resetInstanceId $e")
                 showDialogError("resetInstanceId failed: $e")
             }
         }).start()
