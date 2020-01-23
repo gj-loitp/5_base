@@ -31,7 +31,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
     private fun initRecyclerView() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        cryptocurrency_list.layoutManager = layoutManager
+        rv.layoutManager = layoutManager
     }
 
     private fun loadData() {
@@ -44,7 +44,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     retroCryptoArrayList.clear()
                     retroCryptoArrayList.addAll(it)
                     retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList, this)
-                    cryptocurrency_list.adapter = retrofit2Adapter
+                    rv.adapter = retrofit2Adapter
                 }, {
                     LLog.e(TAG, "loadData error $it")
                     LToast.show(activity, it.toString(), R.drawable.l_bkg_horizontal)

@@ -21,7 +21,6 @@ import loitp.basemaster.R
 
 //TODO core flickr
 
-//TODO tutorial -> retrofit 2 bi white screen
 //TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
