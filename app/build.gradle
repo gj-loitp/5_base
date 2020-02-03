@@ -108,10 +108,17 @@ dependencies {
     api project(':core')
     //api 'com.github.tplloi:basemaster:4.2.0'
 
+    //region database
+
     //realm
     api 'io.realm:realm-android:0.82.1'
 
-    //Firebase
+    //https://github.com/amitshekhariitbhu/Android-Debug-Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    //endregion
+
+    //region Firebase + Google service
     api 'com.google.firebase:firebase-ads:18.2.0'
     // Firebase Authentication
     api 'com.google.firebase:firebase-auth:19.1.0'
@@ -144,28 +151,34 @@ dependencies {
     //Firebase FCM
     //compile 'com.google.android.gms:play-services:12.0.1'
     api 'com.google.firebase:firebase-messaging:20.0.0'
+    //endregion
 
-    //api 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
-    //api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha05'
+    //region picker
 
     //https://github.com/siralam/BSImagePicker
     api 'com.asksira.android:bsimagepicker:1.1.0'
+
+    //https://github.com/ParkSangGwon/TedImagePicker
+    api 'gun0912.ted:tedimagepicker:1.0.4'
+
+    //endregion
 
     //https://github.com/JakeWharton/butterknife
     api 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
+    //region util
+
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
-
-    //https://github.com/ParkSangGwon/TedImagePicker
-    api 'gun0912.ted:tedimagepicker:1.0.4'
 
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
 
-    //https://github.com/amitshekhariitbhu/Android-Debug-Database
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+    //https://github.com/ParkSangGwon/TedKeyboardObserver
+    api 'gun0912.ted:tedkeyboardobserver:1.0.2'
+
+    //endregion
 
     //TODO try to put all dependencies of architecture component inside core library
     //region architecture component
@@ -178,8 +191,5 @@ dependencies {
     //retrofit
     api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     //endregion
-
-    //https://github.com/ParkSangGwon/TedKeyboardObserver
-    api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
