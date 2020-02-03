@@ -18,11 +18,6 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btZoomLayout"
-                style="@style/ButtonMenu"
-                android:text="@string/zoom_layout" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSample"
                 style="@style/ButtonMenu"
                 android:text="Sample" />

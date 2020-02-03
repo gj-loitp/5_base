@@ -164,8 +164,8 @@ dependencies {
     //endregion
 
     //https://github.com/JakeWharton/butterknife
-    api 'com.jakewharton:butterknife:10.1.0'
-    kapt 'com.jakewharton:butterknife-compiler:10.1.0'
+    //api 'com.jakewharton:butterknife:10.1.0'
+    //kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
     //region util
 

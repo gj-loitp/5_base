@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_expansion_panel.*
+import kotlinx.android.synthetic.main.activity_expansion_panel_menu.*
 import loitp.basemaster.R
 
 //https://github.com/florent37/ExpansionPanel
-class ExpansionLayoutActivity : BaseFontActivity(), View.OnClickListener {
+class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class ExpansionLayoutActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel
+        return R.layout.activity_expansion_panel_menu
     }
 
     override fun onClick(v: View?) {

@@ -28,11 +28,6 @@
                 android:text="Architecture Component" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_butter_knife"
-                style="@style/ButtonMenu"
-                android:text="@string/butter_knife" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeepLinks"
                 style="@style/ButtonMenu"
                 android:text="Deep links" />

@@ -16,7 +16,7 @@ import vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePane
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity
-import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutActivity
+import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.fixedgridlayout.FixedGridLayoutActivity
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity
@@ -100,7 +100,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btSquareLayout -> intent = Intent(activity, SquareLayoutActivity::class.java)
             btRelativePopupWindow -> intent = Intent(activity, RelativePopupWindowActivity::class.java)
             btMotionLayout -> intent = Intent(activity, MenuMotionLayoutActivity::class.java)
-            btExpansionPanel -> intent = Intent(activity, ExpansionLayoutActivity::class.java)
+            btExpansionPanel -> intent = Intent(activity, ExpansionLayoutMenuActivity::class.java)
             btFixedGridLayout -> intent = Intent(activity, FixedGridLayoutActivity::class.java)
             btScrollView2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
             btScrollView2dAdvance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)

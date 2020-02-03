@@ -1138,7 +1138,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name="vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutActivity"
+            android:name="vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

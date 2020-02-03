@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_menu_demo.*
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
@@ -37,7 +36,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_alarm).setOnClickListener(this)
-        findViewById<View>(R.id.bt_butter_knife).setOnClickListener(this)
         findViewById<View>(R.id.bt_ebook_with_realm).setOnClickListener(this)
         findViewById<View>(R.id.bt_video).setOnClickListener(this)
         findViewById<View>(R.id.bt_sound).setOnClickListener(this)
@@ -91,7 +89,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v.id) {
             R.id.bt_alarm -> intent = Intent(activity, AlarmMeActivity::class.java)
-            R.id.bt_butter_knife -> intent = Intent(activity, ButterKnifeActivity::class.java)
             R.id.bt_ebook_with_realm -> intent = Intent(activity, EbookWithRealmActivity::class.java)
             R.id.bt_video -> intent = Intent(activity, VideoActivity::class.java)
             R.id.bt_sound -> intent = Intent(activity, SoundActivity::class.java)

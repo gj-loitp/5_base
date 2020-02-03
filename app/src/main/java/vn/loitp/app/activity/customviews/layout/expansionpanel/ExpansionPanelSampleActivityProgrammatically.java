@@ -85,7 +85,7 @@ public class ExpansionPanelSampleActivityProgrammatically extends AppCompatActiv
             }
         });
 
-        layout.addView(LayoutInflater.from(this).inflate(R.layout.expansion_panel_sample_panel, layout, false));
+        layout.addView(LayoutInflater.from(this).inflate(R.layout.view_expansion_panel_sample_panel, layout, false));
 
         return expansionLayout;
     }
