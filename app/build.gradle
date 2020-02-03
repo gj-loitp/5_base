@@ -187,9 +187,6 @@ dependencies {
     api "androidx.room:room-ktx:2.2.2"
     kapt "androidx.room:room-compiler:2.2.2"
     androidTestImplementation "androidx.room:room-testing:2.2.2"
-
-    //retrofit
-    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     //endregion
 }
 apply plugin: 'com.google.gms.google-services'
