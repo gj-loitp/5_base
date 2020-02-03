@@ -161,4 +161,7 @@ dependencies {
     //Coroutines
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
     //endregion
+
+    //https://github.com/florent37/ExpansionPanel
+    api 'com.github.florent37:expansionpanel:1.2.2'
 }
