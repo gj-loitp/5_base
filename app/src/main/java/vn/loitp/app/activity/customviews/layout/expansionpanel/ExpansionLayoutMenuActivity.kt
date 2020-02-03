@@ -16,9 +16,7 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
         btSample.setOnClickListener(this)
         btSampleViewgroup.setOnClickListener(this)
-//
-//        findViewById<View>(R.id.programmatically).setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivityProgrammatically::class.java)) }
-//
+        btProgrammatically.setOnClickListener(this)
 //        findViewById<View>(R.id.recyclerView).setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivityRecycler::class.java)) }
     }
 
@@ -36,10 +34,16 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         var intent: Intent? = null
-        if (v == btSample) {
-            intent = Intent(activity, ExpansionPanelSampleActivity::class.java)
-        } else if (v == btSampleViewgroup) {
-            intent = Intent(activity, ExpansionPanelSampleActivityViewGroup::class.java)
+        when (v) {
+            btSample -> {
+                intent = Intent(activity, ExpansionPanelSampleActivity::class.java)
+            }
+            btSampleViewgroup -> {
+                intent = Intent(activity, ExpansionPanelSampleActivityViewGroup::class.java)
+            }
+            btProgrammatically -> {
+                intent = Intent(activity, ExpansionPanelSampleActivityProgrammatically::class.java)
+            }
         }
         intent?.let {
             startActivity(intent)

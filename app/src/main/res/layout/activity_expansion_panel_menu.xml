@@ -27,10 +27,9 @@
                 style="@style/ButtonMenu"
                 android:text="Sample ViewGroup" />
 
-            <Button
-                android:id="@+id/programmatically"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btProgrammatically"
+                style="@style/ButtonMenu"
                 android:text="Programmatically" />
 
             <Button
