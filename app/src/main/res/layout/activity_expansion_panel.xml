@@ -21,6 +21,29 @@
                 android:id="@+id/btZoomLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSample"
+                style="@style/ButtonMenu"
+                android:text="Sample" />
+
+            <Button
+                android:id="@+id/sample_viewgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sample ViewGroup" />
+
+            <Button
+                android:id="@+id/programmatically"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Programmatically" />
+
+            <Button
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RecyclerView" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
