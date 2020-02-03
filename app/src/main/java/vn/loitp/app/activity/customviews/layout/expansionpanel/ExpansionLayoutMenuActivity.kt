@@ -14,9 +14,8 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btSample.setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivity::class.java)) }
-
-//        findViewById<View>(R.id.sample_viewgroup).setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivityViewGroup::class.java)) }
+        btSample.setOnClickListener(this)
+        btSampleViewgroup.setOnClickListener(this)
 //
 //        findViewById<View>(R.id.programmatically).setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivityProgrammatically::class.java)) }
 //
@@ -39,6 +38,8 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         if (v == btSample) {
             intent = Intent(activity, ExpansionPanelSampleActivity::class.java)
+        } else if (v == btSampleViewgroup) {
+            intent = Intent(activity, ExpansionPanelSampleActivityViewGroup::class.java)
         }
         intent?.let {
             startActivity(intent)

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import loitp.basemaster.R
 
-class ExpansionPanelSampleActivity : BaseFontActivity() {
+class ExpansionPanelSampleActivityViewGroup : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
@@ -15,11 +15,11 @@ class ExpansionPanelSampleActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel_sample_main
+        return R.layout.activity_expansion_panel_sample_main_viewgroup
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
+
 }
