@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
+import com.views.navigationview.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
 import loitp.basemaster.R
 import java.util.*
@@ -31,7 +32,7 @@ class NavigationViewActivity : BaseFontActivity() {
         nv.apply {
             colorOn = ContextCompat.getColor(activity, R.color.Red)
             colorOff = ContextCompat.getColor(activity, R.color.Gray)
-            tv.setTextColor(Color.BLACK)
+            tv?.setTextColor(Color.BLACK)
             LUIUtil.setTextSize(textView = this.tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = 20)//20dp
         }
 
@@ -40,13 +41,15 @@ class NavigationViewActivity : BaseFontActivity() {
             stringList.add("Item $i")
         }
 
-        nv.stringList = stringList
-        nv.setNVCallback { index, s ->
-            LLog.d(TAG, "onIndexChange $index -> $s")
-            tvMsg?.text = "$index -> $s"
-        }
-        bt0.setOnClickListener { nv?.currenIndex = 0 }
-        bt1.setOnClickListener { nv?.currenIndex = stringList.size - 1 }
-        bt2.setOnClickListener { nv?.currenIndex = 2 }
+        nv.setStringList(stringList)
+        nv.setNVCallback(nvCallback = object : LNavigationView.NVCallback {
+            override fun onIndexChange(index: Int, s: String?) {
+                LLog.d(TAG, "onIndexChange $index -> $s")
+                tvMsg?.text = "$index -> $s"
+            }
+        })
+        bt0.setOnClickListener { nv.setCurrenIndex(0) }
+        bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
+        bt2.setOnClickListener { nv.setCurrenIndex(2) }
     }
 }

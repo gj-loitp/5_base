@@ -12,6 +12,7 @@ import androidx.core.app.NotificationCompat
 import com.utils.util.AppUtils
 
 object LNotification {
+    @Suppress("DEPRECATION")
     fun showNotification(context: Context, title: String, body: String, iconRes: Int, intent: Intent) {
         if (title.isEmpty() || body.isEmpty()) {
             return

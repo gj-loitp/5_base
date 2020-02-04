@@ -187,7 +187,7 @@ object LUIUtil {
         try {
             view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
         } catch (e: Exception) {
-            Log.e(TAG, "setCircleViewWithColor setBkgColor: $e")
+            e.printStackTrace()
         }
     }
 
@@ -226,6 +226,7 @@ object LUIUtil {
         v.setBackgroundDrawable(composite)
     }
 
+    @Suppress("DEPRECATION")
     fun setTextFromHTML(textView: TextView?, bodyData: String) {
         textView?.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -296,6 +297,7 @@ object LUIUtil {
         }*/
     }
 
+    @Suppress("DEPRECATION")
     fun setTextAppearance(context: Context, textView: TextView, resId: Int) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             textView.setTextAppearance(context, resId)
@@ -386,7 +388,7 @@ object LUIUtil {
         val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
         callback?.let {
             mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                val view = decor.view
+                //val view = decor.view
                 when {
                     offset > 0 -> {
                         // 'view' is currently being over-scrolled from the top.
@@ -458,39 +460,43 @@ object LUIUtil {
                 }
             });*/
             mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                val view = decor.view
-                if (offset > 0) {
-                    // 'view' is currently being over-scrolled from the top.
-                    lastOffset = offset
-                    isUp = true
-                    //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
-                } else if (offset < 0) {
-                    // 'view' is currently being over-scrolled from the bottom.
-                    lastOffset = offset
-                    isUp = false
-                    //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
-                } else {
-                    // No over-scroll is in-effect.
-                    // This is synonymous with having (state == STATE_IDLE).
-                    //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
-                    if (isUp) {
-                        //LLog.d(TAG, "________________ up " + lastOffset);
-                        if (lastOffset > 1.8f) {
-                            callback.onUpOrLeftRefresh(lastOffset)
-                            LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
-                        } else {
-                            callback.onUpOrLeft(lastOffset)
-                        }
-                    } else {
-                        //LLog.d(TAG, "________________ down " + lastOffset);
-                        if (lastOffset < -1.8f) {
-                            callback.onDownOrRightRefresh(lastOffset)
-                        } else {
-                            callback.onDownOrRight(lastOffset)
-                        }
+                //val view = decor.view
+                when {
+                    offset > 0 -> {
+                        // 'view' is currently being over-scrolled from the top.
+                        lastOffset = offset
+                        isUp = true
+                        //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                     }
-                    lastOffset = 0f
-                    isUp = false
+                    offset < 0 -> {
+                        // 'view' is currently being over-scrolled from the bottom.
+                        lastOffset = offset
+                        isUp = false
+                        //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
+                    }
+                    else -> {
+                        // No over-scroll is in-effect.
+                        // This is synonymous with having (state == STATE_IDLE).
+                        //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
+                        if (isUp) {
+                            //LLog.d(TAG, "________________ up " + lastOffset);
+                            if (lastOffset > 1.8f) {
+                                callback.onUpOrLeftRefresh(lastOffset)
+                                LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
+                            } else {
+                                callback.onUpOrLeft(lastOffset)
+                            }
+                        } else {
+                            //LLog.d(TAG, "________________ down " + lastOffset);
+                            if (lastOffset < -1.8f) {
+                                callback.onDownOrRightRefresh(lastOffset)
+                            } else {
+                                callback.onDownOrRight(lastOffset)
+                            }
+                        }
+                        lastOffset = 0f
+                        isUp = false
+                    }
                 }
             }
         }

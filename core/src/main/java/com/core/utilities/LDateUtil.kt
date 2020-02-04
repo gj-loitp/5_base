@@ -86,23 +86,26 @@ object LDateUtil {
         return formatter.format(cal.time)
     }
 
-    fun getDateWithoutTime(dateString: String): String {
+    fun getDateWithoutTime(dateString: String): String? {
         return getDate(dateString, "dd/MM/yyyy")
     }
 
     @JvmOverloads
-    fun getDate(dateString: String, format: String = "dd/MM/yyyy hh:mm aa"): String {
+    fun getDate(dateString: String, format: String = "dd/MM/yyyy hh:mm aa"): String? {
         val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         formatter.timeZone = TimeZone.getTimeZone("UTC")
-        var value: Date? = null
-        try {
-            value = formatter.parse(dateString)
+        return try {
+            val value = formatter.parse(dateString)
+            val dateFormatter = SimpleDateFormat(format, Locale.ENGLISH)
+            dateFormatter.timeZone = TimeZone.getDefault()
+            if (value == null) {
+                return null
+            }
+            dateFormatter.format(value)
         } catch (e: ParseException) {
             e.printStackTrace()
+            null
         }
-        val dateFormatter = SimpleDateFormat(format, Locale.ENGLISH)
-        dateFormatter.timeZone = TimeZone.getDefault()
-        return dateFormatter.format(value)
     }
 
     //date ex: 14-09-2017
@@ -120,7 +123,7 @@ object LDateUtil {
     }
 
     fun zeroTime(date: Date): Date {
-        return setTime(date, 0, 0, 0, 0)
+        return setTime(date = date, hourOfDay = 0, minute = 0, second = 0, ms = 0)
     }
 
     fun setTime(date: Date, hourOfDay: Int, minute: Int, second: Int, ms: Int): Date {
@@ -133,19 +136,18 @@ object LDateUtil {
         return gc.time
     }
 
-    private fun convertDateToTimeStamp(d: String, h: Int, m: Int): Long {
-        //String lstart = dd + "/" + mm + "/" + yyyy + " " + h + ":" + m;
-        val lstart = "$d $h:$m"
-        val format = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.getDefault())
-        return try {
-            val date = format.parse(lstart)
-            date.time / 1000
-        } catch (e: ParseException) {
-            e.printStackTrace()
-            0
-        }
-
-    }
+//    private fun convertDateToTimeStamp(d: String, h: Int, m: Int): Long {
+//        //String lstart = dd + "/" + mm + "/" + yyyy + " " + h + ":" + m;
+//        val lstart = "$d $h:$m"
+//        val format = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.getDefault())
+//        return try {
+//            val date = format.parse(lstart)
+//            date.time / 1000
+//        } catch (e: ParseException) {
+//            e.printStackTrace()
+//            0
+//        }
+//    }
 
     fun convertDateToTimeStamp(datetime: String): Long {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
@@ -169,32 +171,31 @@ object LDateUtil {
         return date[0]
     }
 
-    fun convertStringToCalendar(yyyymmdd: String): Calendar {
+    fun convertStringToCalendar(yyyymmdd: String): Calendar? {
         val df = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val cal = Calendar.getInstance()
-        val date: Date?
         try {
-            date = df.parse(yyyymmdd)
+            val date = df.parse(yyyymmdd) ?: return null
             cal.time = date
+            return cal
         } catch (e: ParseException) {
             e.printStackTrace()
+            return null
         }
-
-        return cal
     }
 
-    fun convertStringDate(yyyymmdd: String, format: String): Calendar {
+    fun convertStringDate(yyyymmdd: String, format: String): Calendar? {
         val df = SimpleDateFormat(format, Locale.getDefault())
         val cal = Calendar.getInstance()
         val date: Date?
         try {
-            date = df.parse(yyyymmdd)
+            date = df.parse(yyyymmdd) ?: return null
             cal.time = date
+            return cal
         } catch (e: ParseException) {
             e.printStackTrace()
+            return null
         }
-
-        return cal
     }
 
     /*

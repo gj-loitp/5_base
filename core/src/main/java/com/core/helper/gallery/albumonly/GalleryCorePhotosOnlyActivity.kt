@@ -64,7 +64,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         LLog.d(TAG, "adUnitId $adUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
-        if (adUnitId.isEmpty()) {
+        if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
             adView = AdView(activity)
@@ -131,7 +131,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
 
             override fun onClickCmt(photo: Photo, pos: Int) {
-                LSocialUtil.openFacebookComment(activity, photo.urlO, adUnitId)
+                LSocialUtil.openFacebookComment(context = activity, url = photo.urlO, adUnitId = adUnitId)
             }
         })
         recyclerView.adapter = photosOnlyAdapter

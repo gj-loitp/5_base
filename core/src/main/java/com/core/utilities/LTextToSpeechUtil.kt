@@ -32,6 +32,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
         }
     }
 
+    @Suppress("DEPRECATION")
     fun speakOut(text: String) {
         if (tts == null) {
             return
@@ -44,9 +45,9 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
     }
 
     fun destroy() {
-        if (tts != null) {
-            tts?.stop()
-            tts?.shutdown()
+        tts?.let {
+            it.stop()
+            it.shutdown()
         }
     }
 

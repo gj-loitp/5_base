@@ -116,7 +116,7 @@ internal object StatusBarCompatLollipop {
         window.statusBarColor = Color.TRANSPARENT
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
 
-        ViewCompat.setOnApplyWindowInsetsListener(collapsingToolbarLayout) { v, insets -> insets }
+        ViewCompat.setOnApplyWindowInsetsListener(collapsingToolbarLayout) { _, insets -> insets }
 
         val mContentView = window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
         val mChildView = mContentView.getChildAt(0)
