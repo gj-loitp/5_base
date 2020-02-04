@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.views.LToast
 import com.views.actionbar.LActionBar
+import kotlinx.android.synthetic.main.activity_action_bar.*
 import loitp.basemaster.R
 
 class LActionbarActivity : BaseFontActivity() {
@@ -29,8 +29,6 @@ class LActionbarActivity : BaseFontActivity() {
     }
 
     private fun setupActionBar() {
-        val lActionBar = findViewById<LActionBar>(R.id.l_action_bar)
-        val tv = findViewById<TextView>(R.id.tv)
         tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
 
         lActionBar.setOnClickBack(object : LActionBar.Callback {

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,9 +30,10 @@
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/padding_10"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/txt_10" />
+                android:textSize="@dimen/txt_10"
+                tools:text="@string/app_name" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -42,13 +42,19 @@
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_10"
+                android:text="@string/large_text"
+                android:textColor="@color/grey" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <com.views.actionbar.LActionBar
-        android:id="@+id/l_action_bar"
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>
-
