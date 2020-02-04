@@ -23,8 +23,8 @@ In order to keep modules independent, we decoupled the behavior required for eac
 
 
 
-https://github.com/zladnrms/RoundableLayout
-https://github.com/Cutta/ContinuousScrollableImageView
+- https://github.com/zladnrms/RoundableLayout
+- https://github.com/Cutta/ContinuousScrollableImageView
 
 **License**
 ```

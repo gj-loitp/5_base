@@ -1,19 +1,15 @@
 package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-import com.views.imageview.fidgetspinner.LFidgetSpinner
-
+import kotlinx.android.synthetic.main.activity_fidgetspinner_imageview.*
 import loitp.basemaster.R
 
 class FidgetSpinnerImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val f = findViewById<LFidgetSpinner>(R.id.fidgetspinner)
-        f.setImageDrawable(R.drawable.spinner)
+        fidgetSpinner.setImageDrawable(R.drawable.spinner)
     }
 
     override fun setFullScreen(): Boolean {
