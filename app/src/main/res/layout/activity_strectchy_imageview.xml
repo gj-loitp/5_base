@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -26,11 +27,11 @@
                 android:textSize="@dimen/txt_20" />
 
             <com.views.imageview.strectchy.LStretchyImageView
-                android:id="@+id/iv"
+                android:id="@+id/lStretchyImageView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                tools:src="@drawable/loitp" />
         </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>
-

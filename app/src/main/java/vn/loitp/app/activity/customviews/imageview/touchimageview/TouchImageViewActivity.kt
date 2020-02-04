@@ -1,22 +1,19 @@
 package vn.loitp.app.activity.customviews.imageview.touchimageview
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import com.views.imageview.touch.LTouchImageView
-
+import kotlinx.android.synthetic.main.activity_touch_imageview.*
 import loitp.basemaster.R
 import vn.loitp.app.common.Constants
 
-//note when use with glide, must have placeholder
 class TouchImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val lTouchImageView = findViewById<LTouchImageView>(R.id.iv)
-        LImageUtil.load(activity, Constants.URL_IMG, lTouchImageView, R.mipmap.ic_launcher)
+        //note when use with glide, must have placeholder
+        LImageUtil.load(context = activity, url = Constants.URL_IMG, imageView = lTouchImageView, resPlaceHolder = R.color.colorPrimary)
     }
 
     override fun setFullScreen(): Boolean {
