@@ -21,7 +21,7 @@ class FrmGetListUser : BaseFragment() {
     private var page = 1
 
     override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

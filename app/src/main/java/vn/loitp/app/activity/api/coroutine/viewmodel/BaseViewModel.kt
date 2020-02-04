@@ -21,7 +21,7 @@ import vn.loitp.app.activity.api.coroutine.service.RequestStatus
  */
 
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
-    private val TAG = "loitpp" + javaClass.simpleName
+    private val TAG = javaClass.simpleName
     protected fun <T> LiveData<T>.post(data: T) = (this as MutableLiveData<T>).postValue(data)
     protected fun <T> LiveData<T>.set(data: T) {
         (this as MutableLiveData<T>).value = data
