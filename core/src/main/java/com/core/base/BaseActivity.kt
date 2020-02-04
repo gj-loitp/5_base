@@ -6,14 +6,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.RelativeLayout
-import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
@@ -24,7 +20,6 @@ import com.google.android.gms.ads.InterstitialAd
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
-import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -46,10 +41,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private var interstitialAd: InterstitialAd? = null
     protected var isShowAdWhenExit = false
     protected var isShowAnimWhenExit = true
-
-//    protected fun setRootViewPadding() {
-//        rootView?.setPadding(0, DisplayUtil.getStatusHeight(activity), 0, DisplayUtil.getNavigationBarHeight(activity))
-//    }
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -187,12 +178,6 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    /*fun startActivity(clazz: Class<out Activity>) {
-        val intent = Intent(this, clazz)
-        startActivity(intent)
-        LActivityUtil.tranIn(activity)
-    }*/
-
     protected fun handleException(throwable: Throwable) {
         LLog.e(TAG, "handleException: $throwable")
         showDialogError("Error: $throwable")
@@ -236,78 +221,6 @@ abstract class BaseActivity : AppCompatActivity() {
             Log.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
-
-    //private TextView tvConnectStt;
-
-    /*private void showTvNoConnect() {
-        if (rootView != null && isShowTvConnectStt) {
-            if (tvConnectStt == null) {
-                //LLog.d(TAG, "tvConnectStt == null -> new tvConnectStt");
-                tvConnectStt = new TextView(activity);
-                tvConnectStt.setTextColor(Color.WHITE);
-                tvConnectStt.setBackgroundColor(ContextCompat.getColor(activity, R.color.RedTrans));
-                tvConnectStt.setPadding(20, 20, 20, 20);
-                tvConnectStt.setGravity(Gravity.CENTER);
-                //tvConnectStt.setText(R.string.check_ur_connection);
-                tvConnectStt.setText(R.string.check_ur_connection);
-                LUIUtil.setTextShadow(tvConnectStt);
-                LUIUtil.setTextSize(tvConnectStt, TypedValue.COMPLEX_UNIT_DIP, 10);
-
-                RelativeLayout.LayoutParams rLParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                rLParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);
-                rootView.addView(tvConnectStt, rLParams);
-                //rootView.requestLayout();
-
-                tvConnectStt.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        hideTvNoConnect();
-                    }
-                });
-            } else {
-                //LLog.d(TAG, "tvConnectStt != null");
-                tvConnectStt.setText(R.string.check_ur_connection);
-            }
-            LAnimationUtil.play(tvConnectStt, Techniques.FadeIn);
-        } else {
-            //LLog.d(TAG, "rootView == null");
-        }
-    }*/
-
-    /*protected void goneTvNoConnect() {
-        if (tvConnectStt != null) {
-            tvConnectStt.setVisibility(View.GONE);
-        }
-    }*/
-
-    /*private void hideTvNoConnect() {
-        if (tvConnectStt != null) {
-            LAnimationUtil.play(tvConnectStt, Techniques.FadeOut, new LAnimationUtil.Callback() {
-                @Override
-                public void onCancel() {
-                    //do nothing
-                }
-
-                @Override
-                public void onEnd() {
-                    if (tvConnectStt != null) {
-                        tvConnectStt.setVisibility(View.GONE);
-                    }
-                }
-
-                @Override
-                public void onRepeat() {
-                    //do nothing
-                }
-
-                @Override
-                public void onStart() {
-                    //do nothing
-                }
-            });
-            tvConnectStt = null;
-        }
-    }*/
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
