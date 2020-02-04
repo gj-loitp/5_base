@@ -29,6 +29,8 @@ https://github.com/Cutta/ContinuousScrollableImageView
 
 https://github.com/gjiazhe/PanoramaImageView
 
+https://github.com/gjiazhe/ScrollParallaxImageView
+
 **License**
 ```
 Copyright 2019 Loitp93
