@@ -8,71 +8,20 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
 import com.core.utilities.LPopupMenu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.core.utilities.LUIUtil
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
 import com.views.LToast
-import io.github.inflationx.calligraphy3.CalligraphyUtils
+import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import loitp.basemaster.R
 
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary))
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-
-        /*CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
-        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));*/
-
-        /*LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
-        appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
-            @Override
-            public void onStateChange(LAppBarLayout.State toolbarChange) {
-                //LLog.d(TAG, "toolbarChange: " + toolbarChange);
-                if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
-                    //COLLAPSED appBarLayout min
-                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
-                } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
-                    //EXPANDED appBarLayout max
-                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
-                } else {
-                    //IDLE appBarLayout not min not max
-                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
-                }
-            }
-        });*/
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener(this)
-
-        //findViewById(R.id.bt_menu).setOnClickListener(this);
-
-        val mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
-
-        val mViewPager = findViewById<ViewPager>(R.id.viewpager)
-        mViewPager.adapter = mSectionsPagerAdapter
-
-        val tabLayout = findViewById<TabLayout>(R.id.tabs)
-        tabLayout.setupWithViewPager(mViewPager)
-        changeTabsFont(tabLayout, com.core.common.Constants.FONT_PATH)
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -84,6 +33,49 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_collapsingtoolbar_withtablayout
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary))
+
+        setSupportActionBar(toolbar)
+
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
+
+//        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+//        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
+//        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
+//        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));
+
+//        LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
+//        appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
+//            @Override
+//            public void onStateChange(LAppBarLayout.State toolbarChange) {
+//                //LLog.d(TAG, "toolbarChange: " + toolbarChange);
+//                if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
+//                    //COLLAPSED appBarLayout min
+//                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
+//                } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
+//                    //EXPANDED appBarLayout max
+//                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
+//                } else {
+//                    //IDLE appBarLayout not min not max
+//                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
+//                }
+//            }
+//        });
+
+        fab.setOnClickListener(this)
+
+        val mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
+
+        viewpager.adapter = mSectionsPagerAdapter
+
+        tabs.setupWithViewPager(viewpager)
+        LUIUtil.changeTabsFont(tabLayout = tabs, fontName = Constants.FONT_PATH)
     }
 
     override fun onClick(v: View) {
@@ -109,7 +101,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
         companion object {
 
-            private val ARG_SECTION_NUMBER = "section_number"
+            private const val ARG_SECTION_NUMBER = "section_number"
 
             fun newInstance(sectionNumber: Int): PlaceholderFragment {
                 val fragment = PlaceholderFragment()
@@ -121,7 +113,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         }
     }
 
-    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             return PlaceholderFragment.newInstance(position + 1)
@@ -141,18 +133,18 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         }
     }
 
-    private fun changeTabsFont(tabLayout: TabLayout, fontName: String) {
-        val vg = tabLayout.getChildAt(0) as ViewGroup
-        val tabsCount = vg.childCount
-        for (j in 0 until tabsCount) {
-            val vgTab = vg.getChildAt(j) as ViewGroup
-            val tabChildsCount = vgTab.childCount
-            for (i in 0 until tabChildsCount) {
-                val tabViewChild = vgTab.getChildAt(i)
-                if (tabViewChild is TextView) {
-                    CalligraphyUtils.applyFontToTextView(tabLayout.context, tabViewChild, fontName)
-                }
-            }
-        }
-    }
+//    private fun changeTabsFont(tabLayout: TabLayout, fontName: String) {
+//        val vg = tabLayout.getChildAt(0) as ViewGroup
+//        val tabsCount = vg.childCount
+//        for (j in 0 until tabsCount) {
+//            val vgTab = vg.getChildAt(j) as ViewGroup
+//            val tabChildsCount = vgTab.childCount
+//            for (i in 0 until tabChildsCount) {
+//                val tabViewChild = vgTab.getChildAt(i)
+//                if (tabViewChild is TextView) {
+//                    CalligraphyUtils.applyFontToTextView(tabLayout.context, tabViewChild, fontName)
+//                }
+//            }
+//        }
+//    }
 }

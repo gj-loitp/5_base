@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
     android:fitsSystemWindows="true">
 
     <com.views.LAppBarLayout
@@ -35,10 +36,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:contentInsetEnd="0dp"
-                android:contentInsetLeft="0dp"
-                android:contentInsetRight="0dp"
                 android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetEnd="0dp"
+                android:contentInsetRight="0dp"
                 app:contentInsetEnd="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetRight="0dp"
@@ -66,7 +67,7 @@
                     </LinearLayout>
 
                     <com.views.button.circularimageclick.LCircularClickImageButton
-                        android:id="@+id/bt_menu"
+                        android:id="@+id/btMenu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
                         android:layout_alignParentEnd="true"
@@ -87,13 +88,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
             app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="bottom" />
     </com.views.LAppBarLayout>
 
     <RelativeLayout
-        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
