@@ -32,10 +32,9 @@
                 style="@style/ButtonMenu"
                 android:text="Programmatically" />
 
-            <Button
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRecyclerView"
+                style="@style/ButtonMenu"
                 android:text="RecyclerView" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

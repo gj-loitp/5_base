@@ -17,7 +17,7 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btSample.setOnClickListener(this)
         btSampleViewgroup.setOnClickListener(this)
         btProgrammatically.setOnClickListener(this)
-//        findViewById<View>(R.id.recyclerView).setOnClickListener { startActivity(Intent(activity, ExpansionPanelSampleActivityRecycler::class.java)) }
+        btRecyclerView.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -43,6 +43,9 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             }
             btProgrammatically -> {
                 intent = Intent(activity, ExpansionPanelSampleActivityProgrammatically::class.java)
+            }
+            btRecyclerView -> {
+                intent = Intent(activity, ExpansionPanelSampleActivityRecycler::class.java)
             }
         }
         intent?.let {
