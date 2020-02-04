@@ -21,7 +21,7 @@ import com.utils.util.AppUtils;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.SplashActivity;
 
 public class FirebaseMsgService extends FirebaseMessagingService {

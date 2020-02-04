@@ -12,7 +12,7 @@ import com.core.utilities.LDisplayUtil;
 import com.views.shadowviewhelper.ShadowProperty;
 import com.views.shadowviewhelper.ShadowViewDrawable;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 public class ShadowViewHelperActivity extends BaseFontActivity {

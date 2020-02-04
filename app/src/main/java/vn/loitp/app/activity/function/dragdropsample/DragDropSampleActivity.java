@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class DragDropSampleActivity extends BaseFontActivity {
     private ImageView paper;

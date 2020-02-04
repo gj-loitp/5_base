@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 
 open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChangeListener {

@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.swipeawaydialog
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/kakajika/SwipeAwayDialog
 class SwipeAwayDialogActivity : BaseFontActivity(), View.OnClickListener {

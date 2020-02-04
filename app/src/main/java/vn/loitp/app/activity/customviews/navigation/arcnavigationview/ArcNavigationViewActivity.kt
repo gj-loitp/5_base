@@ -11,7 +11,7 @@ import com.core.base.BaseFontActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var drawerLayout: DrawerLayout? = null

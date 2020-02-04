@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) : RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
 

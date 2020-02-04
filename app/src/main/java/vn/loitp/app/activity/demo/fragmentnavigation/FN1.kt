@@ -7,7 +7,7 @@ import android.widget.Button
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FN1 : BaseFragment(), OnBackPressedListener {
     override fun setTag(): String? {

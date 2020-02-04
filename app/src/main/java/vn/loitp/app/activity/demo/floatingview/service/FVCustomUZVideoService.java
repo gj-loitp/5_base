@@ -5,7 +5,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Rect;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
@@ -22,7 +21,7 @@ import com.views.LToast;
 import com.views.floatingview.FloatingViewListener;
 import com.views.floatingview.FloatingViewManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FVCustomUZVideoService extends Service implements FloatingViewListener {
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";

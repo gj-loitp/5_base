@@ -5,7 +5,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.core.base.BaseFontActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CustomBehaviorActivity : BaseFontActivity() {
     private var mShowFabButton: FloatingActionButton? = null

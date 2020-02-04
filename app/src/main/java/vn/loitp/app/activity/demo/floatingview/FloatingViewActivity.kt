@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.floatingview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.floatingview.fragment.FVControlFragment
 
 class FloatingViewActivity : BaseFontActivity() {

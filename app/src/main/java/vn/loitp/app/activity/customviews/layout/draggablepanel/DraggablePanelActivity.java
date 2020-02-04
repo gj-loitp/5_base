@@ -8,7 +8,7 @@ import com.core.utilities.LLog;
 import com.views.layout.draggablepanel.DraggableListener;
 import com.views.layout.draggablepanel.DraggablePanel;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;

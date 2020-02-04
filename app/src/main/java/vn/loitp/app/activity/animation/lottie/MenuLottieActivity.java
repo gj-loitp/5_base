@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://www.lottiefiles.com/?page=1
 public class MenuLottieActivity extends BaseFontActivity {

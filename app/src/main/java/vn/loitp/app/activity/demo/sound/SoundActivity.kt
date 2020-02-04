@@ -7,7 +7,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSoundUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class SoundActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

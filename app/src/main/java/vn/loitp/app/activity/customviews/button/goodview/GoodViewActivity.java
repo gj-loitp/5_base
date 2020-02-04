@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.core.base.BaseFontActivity;
 import com.views.button.goodview.LGoodView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/venshine/GoodView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3854
 public class GoodViewActivity extends BaseFontActivity {

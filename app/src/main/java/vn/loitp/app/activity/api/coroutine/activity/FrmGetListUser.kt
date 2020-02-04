@@ -11,7 +11,7 @@ import com.core.utilities.LUIUtil
 import com.interfaces.RecyclerViewCallback
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.app.LApplication
 

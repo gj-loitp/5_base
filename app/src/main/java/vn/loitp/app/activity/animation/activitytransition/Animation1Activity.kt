@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
 import com.data.ActivityData
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class Animation1Activity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

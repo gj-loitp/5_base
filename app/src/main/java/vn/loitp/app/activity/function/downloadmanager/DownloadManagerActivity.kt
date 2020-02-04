@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.activity_download_manager.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.io.File
 
 class DownloadManagerActivity : BaseFontActivity() {

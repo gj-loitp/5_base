@@ -15,7 +15,7 @@ import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_l_edit_text.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class LEditTextActivity : BaseFontActivity() {
 

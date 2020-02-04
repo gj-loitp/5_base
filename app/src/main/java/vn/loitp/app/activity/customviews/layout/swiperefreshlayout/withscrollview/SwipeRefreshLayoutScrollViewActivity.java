@@ -10,7 +10,7 @@ import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;

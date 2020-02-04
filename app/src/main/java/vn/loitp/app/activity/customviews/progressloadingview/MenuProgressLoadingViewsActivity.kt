@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity

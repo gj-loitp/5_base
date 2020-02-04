@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.core.base.BaseFragment;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FrmMenu extends BaseFragment {
 

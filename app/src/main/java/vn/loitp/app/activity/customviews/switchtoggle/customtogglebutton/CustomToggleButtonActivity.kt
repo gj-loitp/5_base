@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.switchtoggle.customtogglebutton.LCustomToggle
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CustomToggleButtonActivity : BaseFontActivity() {
 

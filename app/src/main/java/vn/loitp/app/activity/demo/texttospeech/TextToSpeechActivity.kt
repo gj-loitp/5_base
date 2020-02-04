@@ -8,7 +8,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LTextToSpeechUtil
 import kotlinx.android.synthetic.main.activity_text_to_speech.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
 

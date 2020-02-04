@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class RefreshViewPagerActivity extends BaseFontActivity {
 

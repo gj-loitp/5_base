@@ -17,7 +17,7 @@ import com.core.utilities.LUIUtil;
 import com.daimajia.androidanimations.library.Techniques;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewhorizontal.VGReVHorizontal;
 import vn.loitp.app.activity.demo.film.grouprecyclerviewvertical.VGReVVertical;
 import vn.loitp.app.activity.demo.film.groupviewpager.VGViewPager;

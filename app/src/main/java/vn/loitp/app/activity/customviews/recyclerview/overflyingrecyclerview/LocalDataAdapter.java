@@ -11,7 +11,7 @@ import com.views.LToast;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class LocalDataAdapter extends RecyclerView.Adapter<LocalDataAdapter.ViewHolder> {
     private int[] images = {R.drawable.iv, R.drawable.buildings, R.drawable.bus,

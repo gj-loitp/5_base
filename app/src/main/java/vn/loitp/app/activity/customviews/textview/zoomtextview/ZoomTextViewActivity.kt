@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ZoomTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

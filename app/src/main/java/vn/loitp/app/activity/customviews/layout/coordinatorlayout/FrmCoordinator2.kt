@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 
 import com.core.base.BaseFragment
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FrmCoordinator2 : BaseFragment() {
     override fun setLayoutResourceId(): Int {

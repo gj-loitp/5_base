@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FacebookCommentActivity : BaseFontActivity() {
 

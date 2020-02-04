@@ -10,7 +10,7 @@ import com.core.utilities.LAnimationUtil
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class AnimationViewActivity : BaseFontActivity() {

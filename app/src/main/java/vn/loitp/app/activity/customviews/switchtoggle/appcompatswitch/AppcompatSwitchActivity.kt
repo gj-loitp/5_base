@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.activity_appcompat_switch.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class AppcompatSwitchActivity : BaseFontActivity() {
 

@@ -9,7 +9,7 @@ import com.core.utilities.LLog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu_firebase.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity
 import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity

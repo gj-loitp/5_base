@@ -7,7 +7,7 @@ import android.view.ViewGroup
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 

@@ -8,7 +8,7 @@ import android.widget.ListView
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.autoselect.DemoAutoSelectActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.basic.DemoBasicActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.customview01.DemoCustomView01Activity

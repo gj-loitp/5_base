@@ -7,7 +7,7 @@ import com.views.LToast
 import com.views.layout.circularview.CircularView
 import com.views.layout.circularview.Marker
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/sababado/CircularView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=238
 class CircularViewActivity : BaseFontActivity() {

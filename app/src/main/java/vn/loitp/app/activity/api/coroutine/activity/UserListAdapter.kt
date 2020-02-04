@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.model.UserTest
 
 class UserListAdapter(private val context: Context,

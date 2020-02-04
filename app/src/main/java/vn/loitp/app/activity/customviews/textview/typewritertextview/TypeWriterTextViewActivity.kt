@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.views.textview.typewriter.LTypeWriterTextView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class TypeWriterTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

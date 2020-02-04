@@ -27,7 +27,7 @@ import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;

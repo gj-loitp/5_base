@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.answerview.LAnswerView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class AnswerViewActivity extends BaseFontActivity {
 

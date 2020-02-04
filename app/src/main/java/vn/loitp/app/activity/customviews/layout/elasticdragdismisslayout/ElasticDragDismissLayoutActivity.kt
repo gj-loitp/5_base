@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/Commit451/ElasticDragDismissLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3098
 class ElasticDragDismissLayoutActivity : BaseFontActivity() {

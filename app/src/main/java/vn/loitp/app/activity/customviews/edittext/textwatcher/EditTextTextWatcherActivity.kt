@@ -5,7 +5,7 @@ import com.core.base.BaseActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_edittext_text_watcher.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class EditTextTextWatcherActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

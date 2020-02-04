@@ -41,7 +41,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by loitp on 3/27/2018.

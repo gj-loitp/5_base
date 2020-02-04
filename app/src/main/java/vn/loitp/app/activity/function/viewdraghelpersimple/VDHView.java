@@ -17,7 +17,7 @@ import androidx.customview.widget.ViewDragHelper;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class VDHView extends LinearLayout {
     private final String TAG = getClass().getSimpleName();

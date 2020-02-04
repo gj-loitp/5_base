@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_recyclerview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity

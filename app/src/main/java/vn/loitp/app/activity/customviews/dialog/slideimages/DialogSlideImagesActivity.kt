@@ -7,7 +7,7 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class DialogSlideImagesActivity : BaseFontActivity() {
 

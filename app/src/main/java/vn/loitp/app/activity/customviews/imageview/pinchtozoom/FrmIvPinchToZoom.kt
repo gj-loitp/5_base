@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.fragment_iv.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FrmIvPinchToZoom : Fragment() {
 

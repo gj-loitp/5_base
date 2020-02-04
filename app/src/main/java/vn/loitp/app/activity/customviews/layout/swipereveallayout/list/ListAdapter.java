@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ListAdapter extends ArrayAdapter<String> {
     private final LayoutInflater mInflater;

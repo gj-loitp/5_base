@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.imageview.zoom.ColorGridDrawable
 import kotlinx.android.synthetic.main.activity_zoomimageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ZoomImageViewActivity : BaseFontActivity() {
 

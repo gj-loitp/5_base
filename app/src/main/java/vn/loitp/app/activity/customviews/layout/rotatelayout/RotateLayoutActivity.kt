@@ -7,7 +7,7 @@ import com.core.utilities.LDeviceUtil
 import com.views.layout.rotatelayout.LRotateLayout
 import kotlinx.android.synthetic.main.activity_rotate_layout.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class RotateLayoutActivity : BaseFontActivity() {
 

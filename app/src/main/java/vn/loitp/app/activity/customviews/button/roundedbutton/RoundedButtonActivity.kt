@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_rounded_button.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class RoundedButtonActivity : BaseFontActivity() {
 

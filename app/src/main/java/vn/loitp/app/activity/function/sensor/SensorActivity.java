@@ -14,7 +14,7 @@ import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 import com.views.layout.rotatelayout.LRotateLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 public class SensorActivity extends BaseFontActivity {

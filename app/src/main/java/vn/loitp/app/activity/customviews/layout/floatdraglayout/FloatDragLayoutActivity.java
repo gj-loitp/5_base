@@ -14,7 +14,7 @@ import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 import com.views.layout.floatdraglayout.FloatDragPopupWindow;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
 

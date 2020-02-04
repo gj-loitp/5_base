@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_q_button.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class QButtonActivity : BaseFontActivity() {
 

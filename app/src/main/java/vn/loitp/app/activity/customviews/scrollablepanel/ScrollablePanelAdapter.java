@@ -13,11 +13,7 @@ import com.views.scrollablepanel.PanelAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
-
-/**
- * Created by kelin on 16-11-18.
- */
+import vn.loitp.app.R;
 
 public class ScrollablePanelAdapter extends PanelAdapter {
     private static final int TITLE_TYPE = 4;

@@ -9,7 +9,7 @@ import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
 
 public class TTTAPIPageListActivity extends BaseFontActivity {

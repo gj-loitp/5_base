@@ -12,7 +12,7 @@ import com.views.animation.confetti.ConfettoGenerator
 import com.views.animation.confetti.confetto.BitmapConfetto
 import com.views.animation.confetti.confetto.Confetto
 import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/jinatonic/confetti

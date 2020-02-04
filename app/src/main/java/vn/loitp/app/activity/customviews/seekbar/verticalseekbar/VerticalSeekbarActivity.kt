@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.views.seekbar.vertical.LVerticalSeekBar
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/h6ah4i/android-verticalseekbar
 class VerticalSeekbarActivity : BaseFontActivity() {

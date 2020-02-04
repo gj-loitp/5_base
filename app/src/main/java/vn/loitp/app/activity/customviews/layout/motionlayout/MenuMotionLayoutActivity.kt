@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_motion_layout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExample2Activity
 import vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo.MotionLayoutFragmentExampleActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.viewpagerdemo.MotionLayoutViewPagerActivity

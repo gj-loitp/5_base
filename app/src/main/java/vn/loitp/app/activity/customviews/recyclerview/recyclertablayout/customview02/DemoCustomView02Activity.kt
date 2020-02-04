@@ -12,7 +12,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData

@@ -1,15 +1,13 @@
 package vn.loitp.app.activity.customviews.textview.textdecorator;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.textdecorator.OnTextClickListener;
 import com.views.textview.textdecorator.LTextDecorator;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 public class TextDecoratorActivity extends BaseFontActivity {

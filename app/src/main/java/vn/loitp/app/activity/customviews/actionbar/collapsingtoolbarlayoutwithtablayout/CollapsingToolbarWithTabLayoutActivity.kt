@@ -19,7 +19,7 @@ import com.core.utilities.LUIUtil
 import com.google.android.material.snackbar.Snackbar
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
 

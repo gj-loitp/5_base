@@ -11,7 +11,7 @@ import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 import com.views.wwlmusic.utils.LWWLMusicViewHelper;
 import com.views.wwlvideo.LWWLVideo;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
 import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;

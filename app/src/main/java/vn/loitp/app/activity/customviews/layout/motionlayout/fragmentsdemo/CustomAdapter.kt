@@ -17,14 +17,14 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.graphics.Rect
-import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import loitp.basemaster.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.recyclerview.widget.RecyclerView
+import vn.loitp.app.R
 
 class CustomAdapter(private val userList: ArrayList<User>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 

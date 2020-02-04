@@ -13,7 +13,7 @@ import com.views.viewpager.lockable.LockableViewPager;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv;
 
 public class LockableViewPagerActivity extends BaseFontActivity {

@@ -23,7 +23,7 @@ import com.views.viewpager.swipeout.LSwipeOutViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.views.scratchview.LScratchTextView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ScratchViewTextActivity : BaseFontActivity() {
 

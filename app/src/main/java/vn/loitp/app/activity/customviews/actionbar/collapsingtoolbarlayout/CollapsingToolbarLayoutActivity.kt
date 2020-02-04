@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.views.LAppBarLayout
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 

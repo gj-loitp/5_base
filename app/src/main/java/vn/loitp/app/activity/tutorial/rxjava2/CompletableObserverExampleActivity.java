@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.tutorial.rxjava2;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class CompletableObserverExampleActivity extends BaseFontActivity {

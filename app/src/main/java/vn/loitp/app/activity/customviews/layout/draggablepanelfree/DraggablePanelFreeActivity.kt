@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.views.layout.draggablepanelfree.DraggablePanelFreeLayout
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class DraggablePanelFreeActivity : BaseFontActivity() {
     private var dpfl: DraggablePanelFreeLayout? = null

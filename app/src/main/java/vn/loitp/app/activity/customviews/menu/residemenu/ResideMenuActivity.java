@@ -15,7 +15,7 @@ import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
 import com.views.menu.residemenu.ResideMenuItem;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;

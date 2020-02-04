@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import com.views.LToast;
 import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ExampleCardPopupL extends LRelativePopupWindow {
 

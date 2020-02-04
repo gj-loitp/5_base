@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.textview.scrollnumber.MultiScrollNumber
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ScrollNumberActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

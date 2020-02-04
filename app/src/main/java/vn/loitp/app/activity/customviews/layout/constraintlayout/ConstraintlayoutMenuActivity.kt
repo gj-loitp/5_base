@@ -8,7 +8,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset.ConstraintSetActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity

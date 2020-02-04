@@ -12,6 +12,7 @@ import com.utils.util.ConvertUtils
 import gun0912.tedimagepicker.builder.TedImagePicker
 import gun0912.tedimagepicker.builder.TedRxImagePicker
 import kotlinx.android.synthetic.main.activity_ted_image_picker_demo.*
+import vn.loitp.app.R
 import java.io.File
 
 class DemoTedImagePickerActivity : BaseFontActivity() {
@@ -35,7 +36,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return loitp.basemaster.R.layout.activity_ted_image_picker_demo
+        return R.layout.activity_ted_image_picker_demo
     }
 
     private fun setNormalSingleButton() {

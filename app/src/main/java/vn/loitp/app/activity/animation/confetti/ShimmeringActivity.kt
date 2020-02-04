@@ -13,7 +13,7 @@ import com.views.animation.confetti.Utils
 import com.views.animation.confetti.confetto.Confetto
 import com.views.animation.confetti.confetto.ShimmeringConfetto
 import kotlinx.android.synthetic.main.activity_falling_confetti_from_top.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/jinatonic/confetti

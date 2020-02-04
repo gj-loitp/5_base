@@ -24,7 +24,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 import vn.loitp.app.app.LApplication;
 

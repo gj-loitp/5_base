@@ -17,15 +17,15 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import loitp.basemaster.R
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import vn.loitp.app.R
 
 class ListFragment : Fragment() {
 

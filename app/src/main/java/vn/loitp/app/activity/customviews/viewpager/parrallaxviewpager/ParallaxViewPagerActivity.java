@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ParallaxViewPagerActivity extends BaseFontActivity {
 

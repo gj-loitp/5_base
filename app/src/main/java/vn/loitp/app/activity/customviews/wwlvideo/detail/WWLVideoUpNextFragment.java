@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 

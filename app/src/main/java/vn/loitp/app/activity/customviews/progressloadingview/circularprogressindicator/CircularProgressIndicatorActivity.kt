@@ -10,7 +10,7 @@ import android.widget.SimpleAdapter
 import com.core.base.BaseFontActivity
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_circular_progress_indicator.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListener,

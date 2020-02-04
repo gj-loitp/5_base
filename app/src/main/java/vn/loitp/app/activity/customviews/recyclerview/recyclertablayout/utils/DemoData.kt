@@ -2,9 +2,9 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils
 
 import android.content.Context
 import android.graphics.Color
-import loitp.basemaster.R
 import org.json.JSONException
 import org.json.JSONObject
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.ColorItem
 import java.io.IOException
 import java.nio.charset.Charset

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSharedPrefsUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 
 class SharedPrefsActivity : BaseFontActivity() {

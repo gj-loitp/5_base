@@ -12,7 +12,7 @@ import com.task.AsyncTaskDownloadPdfStream
 import com.task.GetPdfCoroutine
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pdf_demo.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.io.File
 
 //https://github.com/barteksc/AndroidPdfViewer

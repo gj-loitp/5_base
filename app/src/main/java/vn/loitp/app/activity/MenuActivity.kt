@@ -11,7 +11,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.ads.MenuAdsActivity
 import vn.loitp.app.activity.animation.MenuAnimationActivity
 import vn.loitp.app.activity.api.MenuAPIActivity

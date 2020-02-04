@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_button_menu.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity

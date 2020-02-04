@@ -12,7 +12,7 @@ import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.recyclerview.gallery.GalleryLayoutManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;

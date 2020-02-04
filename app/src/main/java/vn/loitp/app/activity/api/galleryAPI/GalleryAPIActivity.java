@@ -22,7 +22,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 public class GalleryAPIActivity extends BaseFontActivity {

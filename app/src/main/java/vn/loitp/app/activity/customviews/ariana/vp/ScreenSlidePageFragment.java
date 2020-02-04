@@ -12,7 +12,7 @@ import com.core.utilities.LStoreUtil;
 import com.views.ariana.ArianaTextListener;
 import com.views.ariana.GradientAngle;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ScreenSlidePageFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";

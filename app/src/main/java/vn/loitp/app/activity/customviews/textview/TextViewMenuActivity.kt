@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_textview.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
 import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity

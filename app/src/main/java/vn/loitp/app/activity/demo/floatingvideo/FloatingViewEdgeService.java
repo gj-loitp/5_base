@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import com.core.utilities.LDeviceUtil;
 import com.core.utilities.LScreenUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by loitp on 3/27/2018.

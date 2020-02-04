@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.views.LToast
 import com.views.button.lbutton.LButton
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class LButtonActivity : BaseFontActivity(), OnClickListener {
 

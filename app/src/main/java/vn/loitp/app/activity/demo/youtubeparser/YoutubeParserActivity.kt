@@ -6,7 +6,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.function.youtubeparser.ui.FrmYoutubeParser
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class YoutubeParserActivity : BaseFontActivity() {
 

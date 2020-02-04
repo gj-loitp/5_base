@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.views.recyclerview.parallaxyay.ParallaxRecyclerView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ParallaxYayandroidRecyclerViewActivity extends BaseFontActivity {
     private TestRecyclerAdapter testRecyclerAdapter;

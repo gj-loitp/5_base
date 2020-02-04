@@ -2,12 +2,11 @@ package vn.loitp.app.activity.api.truyentranhtuan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class TTTAPIMenuActivity extends BaseFontActivity {
     @Override

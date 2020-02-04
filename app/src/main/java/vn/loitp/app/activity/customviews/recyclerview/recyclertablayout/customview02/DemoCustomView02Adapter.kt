@@ -12,7 +12,7 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
 
 /**

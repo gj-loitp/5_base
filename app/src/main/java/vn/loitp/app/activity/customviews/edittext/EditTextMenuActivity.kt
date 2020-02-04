@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_edittext.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSuggestActivity

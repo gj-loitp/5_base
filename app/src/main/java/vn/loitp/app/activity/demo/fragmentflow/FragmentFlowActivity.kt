@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.base.BaseFragment
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_fragment_flow.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FragmentFlowActivity : BaseFontActivity() {
 

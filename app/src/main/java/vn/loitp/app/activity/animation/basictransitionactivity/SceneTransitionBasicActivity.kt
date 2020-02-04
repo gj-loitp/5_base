@@ -10,7 +10,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 

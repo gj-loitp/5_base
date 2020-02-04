@@ -11,7 +11,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_l_card_view.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class LCardViewActivity : BaseFontActivity() {
 

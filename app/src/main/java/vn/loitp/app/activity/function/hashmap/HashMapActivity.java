@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity;
 import java.util.HashMap;
 import java.util.Map;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class HashMapActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView tv;

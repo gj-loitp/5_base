@@ -24,7 +24,7 @@ import com.function.notification.config.LightSettings
 import com.function.notification.config.NottiConf
 import com.function.notification.config.VibrationSettings
 import kotlinx.android.synthetic.main.activity_notification_menu.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.SplashActivity
 import java.util.*
 

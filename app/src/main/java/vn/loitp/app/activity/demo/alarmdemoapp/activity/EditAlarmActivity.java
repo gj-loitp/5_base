@@ -25,7 +25,7 @@ import com.core.utilities.LActivityUtil;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 

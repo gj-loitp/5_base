@@ -9,7 +9,7 @@ import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.io.File
 

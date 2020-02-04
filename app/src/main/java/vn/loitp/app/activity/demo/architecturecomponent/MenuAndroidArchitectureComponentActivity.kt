@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_architecture_component.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActivity
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity

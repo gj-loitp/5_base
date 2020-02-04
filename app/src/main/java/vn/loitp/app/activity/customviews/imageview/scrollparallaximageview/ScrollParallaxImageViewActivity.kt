@@ -6,7 +6,7 @@ import com.views.imageview.scrollparallax.LScrollParallaxImageView
 import com.views.imageview.scrollparallax.parallaxstyle.HorizontalScaleStyle
 import com.views.imageview.scrollparallax.parallaxstyle.VerticalMovingStyle
 import kotlinx.android.synthetic.main.activity_scrollparallax_imageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/gjiazhe/ScrollParallaxImageView
 class ScrollParallaxImageViewActivity : BaseFontActivity() {

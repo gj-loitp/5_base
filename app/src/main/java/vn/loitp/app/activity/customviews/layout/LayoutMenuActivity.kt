@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_layout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity

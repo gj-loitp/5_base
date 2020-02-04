@@ -9,7 +9,7 @@ import com.core.utilities.LDeviceUtil;
 import com.views.LToast;
 import com.views.layout.fixedgridlayout.LFixedGridLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FixedGridLayoutActivity extends BaseFontActivity {
 

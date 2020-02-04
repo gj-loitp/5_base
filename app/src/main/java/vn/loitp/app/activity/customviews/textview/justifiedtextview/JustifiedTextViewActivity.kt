@@ -6,7 +6,7 @@ import android.widget.LinearLayout
 import com.core.base.BaseFontActivity
 import com.views.textview.justified.LJustifiedTextView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class JustifiedTextViewActivity : BaseFontActivity() {
 

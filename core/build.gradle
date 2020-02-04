@@ -165,4 +165,7 @@ dependencies {
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.2'
+
+    //https://github.com/florent37/ShapeOfView
+    api 'com.github.florent37:shapeofview:1.4.7'
 }

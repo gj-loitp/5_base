@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_circle_imageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
 class CircleImageViewActivity : BaseFontActivity() {

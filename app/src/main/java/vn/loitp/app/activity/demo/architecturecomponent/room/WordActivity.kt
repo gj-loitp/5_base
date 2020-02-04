@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_room_work.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
 

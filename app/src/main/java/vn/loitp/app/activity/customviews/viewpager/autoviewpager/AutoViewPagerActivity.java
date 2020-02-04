@@ -11,7 +11,7 @@ import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.views.viewpager.auto.LAutoViewPager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class AutoViewPagerActivity extends BaseFontActivity {
 

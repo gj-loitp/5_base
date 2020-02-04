@@ -29,7 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android

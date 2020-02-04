@@ -16,9 +16,9 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
 import com.views.LToast
-import loitp.basemaster.BuildConfig
-import loitp.basemaster.R
 import okhttp3.*
+import vn.loitp.app.BuildConfig
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.io.IOException
 

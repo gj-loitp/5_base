@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class NavigationViewWithTextActivity : BaseFontActivity() {

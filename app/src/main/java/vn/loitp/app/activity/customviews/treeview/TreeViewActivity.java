@@ -8,10 +8,10 @@ import androidx.annotation.NonNull;
 
 import com.core.base.BaseFontActivity;
 import com.views.treeview.BaseTreeAdapter;
-import com.views.treeview.TreeNode;
 import com.views.treeview.LTreeView;
+import com.views.treeview.TreeNode;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/Team-Blox/TreeView
 public class TreeViewActivity extends BaseFontActivity {

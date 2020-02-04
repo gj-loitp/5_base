@@ -3,7 +3,7 @@ package vn.loitp.app.activity.demo.fragmentflow
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.frm_flow_0.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FrmFlow0 : FrmFlowBase() {
     override fun onBackClick(): Boolean {

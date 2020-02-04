@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 

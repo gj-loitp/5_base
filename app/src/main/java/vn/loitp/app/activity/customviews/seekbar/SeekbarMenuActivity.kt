@@ -7,7 +7,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity
 import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity
 import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity

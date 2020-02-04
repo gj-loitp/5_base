@@ -4,12 +4,10 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
@@ -19,7 +17,7 @@ import com.views.LToast;
 import com.views.floatingview.FloatingViewListener;
 import com.views.floatingview.FloatingViewManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FVChatHeadService extends Service implements FloatingViewListener {
     private static final String TAG = "FVChatHeadService";

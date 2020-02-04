@@ -6,7 +6,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class AdmobBannerActivity : BaseFontActivity() {
     private var adView: AdView? = null

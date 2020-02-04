@@ -15,7 +15,7 @@ import com.core.utilities.LPopupMenu;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;

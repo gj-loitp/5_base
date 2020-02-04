@@ -12,7 +12,7 @@ import com.views.exo.PlayerManager;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //custom UI exo_playback_control_view.xml
 public class ExoPlayerActivity extends BaseFontActivity {

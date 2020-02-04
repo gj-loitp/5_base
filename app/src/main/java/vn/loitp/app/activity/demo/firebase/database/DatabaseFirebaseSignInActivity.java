@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {

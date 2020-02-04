@@ -5,7 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 

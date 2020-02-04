@@ -16,7 +16,7 @@ import com.views.calendar.cosmocalendar.selection.criteria.month.NextMonthCriter
 import com.views.calendar.cosmocalendar.selection.criteria.month.PreviousMonthCriteria
 import com.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.util.*
 import kotlin.collections.ArrayList

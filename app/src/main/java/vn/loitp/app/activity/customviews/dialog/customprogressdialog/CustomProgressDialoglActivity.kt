@@ -5,7 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CustomProgressDialoglActivity : BaseFontActivity() {
 

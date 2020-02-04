@@ -14,7 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class IntervalExampleActivity extends BaseFontActivity {

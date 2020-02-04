@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import loitp.basemaster.R
+import androidx.fragment.app.Fragment
+import vn.loitp.app.R
 
 class MotionLayoutMainFragment : Fragment() {
 

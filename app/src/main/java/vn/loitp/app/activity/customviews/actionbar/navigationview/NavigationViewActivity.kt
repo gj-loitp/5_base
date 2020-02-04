@@ -9,7 +9,7 @@ import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.navigationview.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class NavigationViewActivity : BaseFontActivity() {

@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.activity_shadow_layout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/lijiankun24/ShadowLayout
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {

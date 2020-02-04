@@ -7,8 +7,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_mvp.*
-import loitp.basemaster.R
-
+import vn.loitp.app.R
 
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 

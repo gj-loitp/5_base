@@ -6,7 +6,7 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class OverScrollActivity : BaseFontActivity() {
 

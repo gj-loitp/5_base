@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieViewHolder> {

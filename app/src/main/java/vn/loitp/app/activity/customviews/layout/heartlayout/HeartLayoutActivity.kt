@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.layout.heartlayout.LHeartLayout
 import kotlinx.android.synthetic.main.activity_heart_layout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class HeartLayoutActivity : BaseFontActivity() {

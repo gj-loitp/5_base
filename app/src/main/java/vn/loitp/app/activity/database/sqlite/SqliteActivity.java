@@ -10,13 +10,12 @@ import com.core.utilities.LLog;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
-    private final int PAGE_SIZE = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +160,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void getContactListPage(int page) {
+        int PAGE_SIZE = 5;
         List<Contact> contactList = db.getContactListWithPage(page, PAGE_SIZE);
         showDialogMsg("getContactListPage page: " + page + "\n" + LApplication.Companion.getGson().toJson(contactList), null);
     }

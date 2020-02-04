@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.api.truyentranhtuan;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
@@ -11,7 +10,7 @@ import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.AddComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 

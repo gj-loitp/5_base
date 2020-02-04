@@ -8,7 +8,7 @@ import android.widget.TextView
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class AutoFitTextViewActivity : BaseFontActivity() {
     private var mOutput: TextView? = null

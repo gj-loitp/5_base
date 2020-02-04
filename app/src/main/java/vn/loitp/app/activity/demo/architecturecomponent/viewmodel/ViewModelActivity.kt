@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_view_model.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 import java.util.*

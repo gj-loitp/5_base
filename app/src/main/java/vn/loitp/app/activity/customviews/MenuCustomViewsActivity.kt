@@ -7,7 +7,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
 import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity

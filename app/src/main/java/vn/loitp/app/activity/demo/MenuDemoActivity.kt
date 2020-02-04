@@ -10,7 +10,7 @@ import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity

@@ -6,7 +6,7 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.views.seekbar.boxedvertical.LBoxedVertical
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291

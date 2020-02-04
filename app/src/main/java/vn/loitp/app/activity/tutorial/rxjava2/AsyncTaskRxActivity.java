@@ -20,7 +20,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import kotlin.Unit;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {

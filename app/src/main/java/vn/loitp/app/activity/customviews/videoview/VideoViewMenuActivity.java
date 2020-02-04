@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LActivityUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2;
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3;

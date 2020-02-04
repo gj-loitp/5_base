@@ -7,7 +7,7 @@ import com.core.utilities.LStoreUtil
 import com.views.LToast
 import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.activity_action_bar.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class LActionbarActivity : BaseFontActivity() {
 

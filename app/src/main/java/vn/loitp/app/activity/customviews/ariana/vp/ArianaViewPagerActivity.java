@@ -12,7 +12,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.views.ariana.ArianaBackgroundListener;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/akshay2211/Ariana?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6235
 public class ArianaViewPagerActivity extends BaseFontActivity {

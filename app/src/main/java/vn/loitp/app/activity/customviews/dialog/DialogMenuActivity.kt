@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_dialog.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity

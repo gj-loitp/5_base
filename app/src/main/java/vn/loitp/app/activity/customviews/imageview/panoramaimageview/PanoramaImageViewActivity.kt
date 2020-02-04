@@ -6,7 +6,7 @@ import com.core.utilities.LLog
 import com.views.imageview.panorama.GyroscopeObserver
 import com.views.imageview.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.activity_panorama_imageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/gjiazhe/PanoramaImageView
 class PanoramaImageViewActivity : BaseFontActivity() {

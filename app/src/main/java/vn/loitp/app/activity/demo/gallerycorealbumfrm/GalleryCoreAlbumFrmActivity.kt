@@ -5,6 +5,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm
 import com.core.utilities.LScreenUtil
+import vn.loitp.app.R
 
 class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
 
@@ -14,7 +15,7 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
         val bundle = Bundle()
         bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
         frm.arguments = bundle
-        LScreenUtil.addFragment(activity = activity, containerFrameLayoutIdRes = loitp.basemaster.R.id.flContainer, fragment = frm, isAddToBackStack = false)
+        LScreenUtil.addFragment(activity = activity, containerFrameLayoutIdRes = R.id.flContainer, fragment = frm, isAddToBackStack = false)
     }
 
     override fun setFullScreen(): Boolean {
@@ -26,6 +27,6 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return loitp.basemaster.R.layout.activity_gallery_core_album_frm
+        return R.layout.activity_gallery_core_album_frm
     }
 }

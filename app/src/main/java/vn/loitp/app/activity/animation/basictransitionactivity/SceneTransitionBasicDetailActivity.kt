@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
 

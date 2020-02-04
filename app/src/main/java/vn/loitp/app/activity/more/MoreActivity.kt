@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.helper.more.FrmMore
 import com.core.utilities.LScreenUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class MoreActivity : BaseFontActivity() {
 

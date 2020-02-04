@@ -15,7 +15,7 @@ import com.github.florent37.expansionpanel.ExpansionHeader
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmatically.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionpanel.Utils.dpToPx
 
 class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {

@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 

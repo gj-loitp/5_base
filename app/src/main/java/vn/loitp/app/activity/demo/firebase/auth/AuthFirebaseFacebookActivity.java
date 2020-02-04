@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
 import com.core.base.BaseFontActivity;
@@ -27,10 +25,7 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +33,7 @@ import com.views.LToast;
 
 import java.security.MessageDigest;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android

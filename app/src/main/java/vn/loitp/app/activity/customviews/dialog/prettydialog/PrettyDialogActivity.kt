@@ -8,7 +8,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.views.LToast
 import com.views.dialog.prettydialog.PrettyDialog
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/mjn1369/PrettyDialog
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {

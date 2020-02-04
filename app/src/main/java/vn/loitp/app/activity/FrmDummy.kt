@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.core.base.BaseFragment
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FrmDummy : BaseFragment() {
     override fun setTag(): String? {

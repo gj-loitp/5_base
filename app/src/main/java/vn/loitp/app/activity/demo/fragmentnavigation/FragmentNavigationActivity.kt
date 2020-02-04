@@ -7,7 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.google.android.material.navigation.NavigationView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 

@@ -15,7 +15,7 @@ import com.views.recyclerview.banner.BannerLayout;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by test on 2017/11/22.

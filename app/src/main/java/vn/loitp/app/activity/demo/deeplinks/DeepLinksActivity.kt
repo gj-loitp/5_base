@@ -3,7 +3,7 @@ package vn.loitp.app.activity.demo.deeplinks
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_deep_link.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class DeepLinksActivity : BaseFontActivity() {
 

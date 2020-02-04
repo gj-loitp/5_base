@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.button.circularimageclick
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_circular_image_click.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //guide https://github.com/hoang8f/android-flat-button
 class CircularImageClickActivity : BaseFontActivity() {

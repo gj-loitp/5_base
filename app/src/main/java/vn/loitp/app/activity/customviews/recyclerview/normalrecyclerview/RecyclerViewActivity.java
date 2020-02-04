@@ -20,7 +20,7 @@ import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 //https://github.com/wasabeef/recyclerview-animators

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LUIUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {

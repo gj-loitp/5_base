@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private final String TAG = getClass().getSimpleName();

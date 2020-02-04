@@ -15,10 +15,10 @@ import com.core.utilities.LUIUtil;
 
 import java.util.ArrayList;
 
-import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.loitp.app.R;
 
 public class TestAPIRetrofit2Activity extends BaseFontActivity {
     private RecyclerView mRecyclerView;

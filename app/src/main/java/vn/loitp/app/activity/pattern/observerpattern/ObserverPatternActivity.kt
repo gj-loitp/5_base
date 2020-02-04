@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.views.LToast
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, RepositoryObserver {

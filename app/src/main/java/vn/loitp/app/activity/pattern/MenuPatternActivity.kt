@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_pattern.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity

@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_recycler.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder
 
 class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {

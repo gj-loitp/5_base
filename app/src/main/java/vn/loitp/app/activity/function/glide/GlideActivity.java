@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class GlideActivity extends BaseFontActivity implements View.OnClickListener {
     private ImageView iv;

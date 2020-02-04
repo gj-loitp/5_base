@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_pinch_to_zoom_vp.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.util.*
 

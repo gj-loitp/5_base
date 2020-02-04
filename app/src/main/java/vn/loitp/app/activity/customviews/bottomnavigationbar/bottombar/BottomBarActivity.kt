@@ -11,7 +11,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.views.LToast
 import com.views.bottombar.LBottomBar
 import kotlinx.android.synthetic.main.activity_bottom_bar.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class BottomBarActivity : BaseFontActivity() {
 

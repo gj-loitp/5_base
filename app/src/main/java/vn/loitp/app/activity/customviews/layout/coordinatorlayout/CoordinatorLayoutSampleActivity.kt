@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 class CoordinatorLayoutSampleActivity : BaseFontActivity() {

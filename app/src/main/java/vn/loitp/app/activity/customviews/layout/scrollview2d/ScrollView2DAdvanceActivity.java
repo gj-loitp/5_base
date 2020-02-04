@@ -20,7 +20,7 @@ import com.views.scrollview.LHorizontalScrollView;
 import com.views.scrollview.LScrollView;
 import com.views.scrollview.TwoDScrollView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ScrollView2DAdvanceActivity extends BaseFontActivity {
     private final int WIDTH_PX = 300;

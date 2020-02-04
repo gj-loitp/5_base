@@ -1,15 +1,13 @@
 package vn.loitp.app.activity.customviews.textview.selectabletextView;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
-import com.views.textview.selectable.SelectableListener;
 import com.views.textview.selectable.LSelectableView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class SelectableTextViewActivity extends BaseFontActivity {
     private TextView emptyBoxBtn;

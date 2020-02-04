@@ -7,7 +7,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {

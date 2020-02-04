@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;

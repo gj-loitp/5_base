@@ -14,7 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
 class EditTextAutoSuggestActivity : BaseFontActivity() {

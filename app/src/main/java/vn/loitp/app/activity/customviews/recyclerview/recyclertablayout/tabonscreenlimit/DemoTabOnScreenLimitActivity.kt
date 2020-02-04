@@ -4,18 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
-
-import java.util.Collections
-
-import loitp.basemaster.R
-import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.ColorItem
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData

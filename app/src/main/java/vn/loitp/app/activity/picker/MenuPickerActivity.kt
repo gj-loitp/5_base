@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_picker_menu.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity

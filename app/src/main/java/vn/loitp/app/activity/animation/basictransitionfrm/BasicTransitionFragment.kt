@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
     // We transition between these Scenes

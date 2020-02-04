@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.views.button.shinebutton.LShineView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ShineButtonActivity : BaseFontActivity() {
     private var bt0: LShineView? = null

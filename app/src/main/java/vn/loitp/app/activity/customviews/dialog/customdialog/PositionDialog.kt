@@ -12,7 +12,7 @@ import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
 import com.core.utilities.LLog
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class PositionDialog : DialogFragment() {
     private val TAG = "TAG" + javaClass.simpleName

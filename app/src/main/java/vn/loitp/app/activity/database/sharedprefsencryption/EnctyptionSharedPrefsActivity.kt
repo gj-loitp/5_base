@@ -6,7 +6,7 @@ import com.core.utilities.LEncryptionSharedPrefsUtil
 import com.core.utilities.LLog
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 

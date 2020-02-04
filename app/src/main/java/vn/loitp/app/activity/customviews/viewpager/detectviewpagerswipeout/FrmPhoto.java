@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.

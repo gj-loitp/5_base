@@ -9,7 +9,7 @@ import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FloatDragWindowModeActivity extends BaseActivity {
     private FrameLayout containerWindows;

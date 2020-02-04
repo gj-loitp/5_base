@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.google.android.material.snackbar.Snackbar
 import com.views.seekbar.circular.LCircularSeekBar
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.text.DecimalFormat
 
 //https://github.com/akaita/CircularSeekBar

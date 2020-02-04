@@ -1,14 +1,15 @@
 package vn.loitp.app.activity.customviews.wwlvideo.detail;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
 /**

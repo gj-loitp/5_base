@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.helper.admobrewardedvideo.AdmobRewardedVideoActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity
 

@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class BasicTransition1Activity : BaseFontActivity() {
 

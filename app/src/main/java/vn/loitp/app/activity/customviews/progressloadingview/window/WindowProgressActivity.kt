@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.progressloadingview.window
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_window_progress.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class WindowProgressActivity : BaseFontActivity() {
 

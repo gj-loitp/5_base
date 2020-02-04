@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
 //https://github.com/Piasy/BigImageViewer

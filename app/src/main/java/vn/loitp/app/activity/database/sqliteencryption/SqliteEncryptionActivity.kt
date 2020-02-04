@@ -11,7 +11,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
 class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {

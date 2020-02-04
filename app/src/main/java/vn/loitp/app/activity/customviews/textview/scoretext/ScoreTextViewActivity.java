@@ -3,14 +3,13 @@ package vn.loitp.app.activity.customviews.textview.scoretext;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ScoreTextViewActivity extends BaseFontActivity {
     private TextView tv;

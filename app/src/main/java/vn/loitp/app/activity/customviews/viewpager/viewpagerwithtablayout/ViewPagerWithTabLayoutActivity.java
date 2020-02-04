@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/geftimov/android-viewpager-transformers
 public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {

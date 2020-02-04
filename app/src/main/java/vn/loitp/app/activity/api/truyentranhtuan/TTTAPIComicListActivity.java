@@ -12,7 +12,7 @@ import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;

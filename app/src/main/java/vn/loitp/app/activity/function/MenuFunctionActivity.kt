@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_function_menu.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
 import vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity

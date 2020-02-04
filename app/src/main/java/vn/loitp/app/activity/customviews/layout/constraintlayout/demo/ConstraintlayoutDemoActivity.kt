@@ -6,7 +6,7 @@ import android.widget.Button
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ConstraintlayoutDemoActivity : BaseFontActivity() {
     private var button: Button? = null

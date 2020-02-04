@@ -7,7 +7,7 @@ import com.core.utilities.LKeyBoardUtil
 import com.views.setSafeOnClickListener
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.activity_keyboard.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/ParkSangGwon/TedKeyboardObserver
 class KeyboardActivity : BaseFontActivity() {

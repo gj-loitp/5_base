@@ -8,7 +8,7 @@ import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 
 public class TTTAPIFavListActivity extends BaseFontActivity {

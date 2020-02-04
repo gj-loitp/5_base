@@ -7,7 +7,7 @@ import com.views.LToast;
 import com.views.switchtoggle.toggle.LabeledSwitch;
 import com.views.switchtoggle.toggle.interfaces.OnToggledListener;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
 public class ToggleActivity extends BaseFontActivity {

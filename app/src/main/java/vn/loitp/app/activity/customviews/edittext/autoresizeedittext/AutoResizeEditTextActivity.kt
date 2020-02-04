@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.edittext.autoresizeedittext
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class AutoResizeEditTextActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

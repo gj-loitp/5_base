@@ -6,7 +6,7 @@ import android.widget.SeekBar
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class SeekbarActivity : BaseFontActivity() {
 

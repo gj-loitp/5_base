@@ -2,11 +2,7 @@ package vn.loitp.app.activity.customviews.wwlmusic.utils;
 
 import com.utils.util.AppUtils;
 
-import loitp.basemaster.R;
-
-/**
- * Created by thangn on 2/27/17.
- */
+import vn.loitp.app.R;
 
 public class WWLMusicDataset {
     public static DatasetItem[] datasetItems;

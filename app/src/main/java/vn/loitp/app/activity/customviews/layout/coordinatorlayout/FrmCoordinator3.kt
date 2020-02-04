@@ -5,7 +5,7 @@ import android.view.View
 
 import com.core.base.BaseFragment
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FrmCoordinator3 : BaseFragment() {
     override fun setLayoutResourceId(): Int {

@@ -9,7 +9,7 @@ import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.model.UserTest
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 

@@ -16,7 +16,7 @@ import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;

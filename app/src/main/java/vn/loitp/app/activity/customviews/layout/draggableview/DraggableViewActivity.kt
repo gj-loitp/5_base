@@ -7,7 +7,7 @@ import com.core.utilities.LLog
 import com.views.layout.draggablepanel.DraggableListener
 import com.views.layout.draggablepanel.DraggableView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class DraggableViewActivity : BaseFontActivity() {
     private lateinit var draggableView: DraggableView

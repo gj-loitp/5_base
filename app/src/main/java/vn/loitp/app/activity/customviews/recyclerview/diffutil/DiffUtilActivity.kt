@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_diff_util.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class DiffUtilActivity : BaseFontActivity() {

@@ -6,7 +6,7 @@ import com.core.common.Constants.URL_IMG_5
 import com.core.utilities.LImageUtil
 import com.views.imageview.blur.LBlurImageView
 import kotlinx.android.synthetic.main.activity_blur_imageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class BlurImageViewActivity : BaseFontActivity() {
 

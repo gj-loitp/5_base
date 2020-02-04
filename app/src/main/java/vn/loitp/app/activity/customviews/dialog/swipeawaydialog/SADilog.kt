@@ -14,7 +14,7 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.views.LToast
 import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class SADilog : SwipeAwayDialogFragment() {
     private val TAG = javaClass.simpleName

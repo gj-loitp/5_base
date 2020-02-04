@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_database.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
 import vn.loitp.app.activity.database.sharedprefs.SharedPrefsActivity

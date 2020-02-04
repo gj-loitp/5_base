@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.restapi.restclient.RestClient
 import kotlinx.android.synthetic.main.activity_menu_api.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity

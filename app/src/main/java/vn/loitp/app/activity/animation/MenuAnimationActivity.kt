@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity

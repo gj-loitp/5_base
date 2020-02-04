@@ -13,7 +13,7 @@ import com.google.gson.Gson
 import com.utils.util.Utils
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9

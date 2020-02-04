@@ -15,7 +15,7 @@ import com.core.utilities.LPickerUtil;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/siralam/BSImagePicker
 public class BSImagePickerActivity extends BaseFontActivity implements BSImagePicker.OnSingleImageSelectedListener, BSImagePicker.OnMultiImageSelectedListener {

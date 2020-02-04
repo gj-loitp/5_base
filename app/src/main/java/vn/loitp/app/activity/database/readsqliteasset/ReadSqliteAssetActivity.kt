@@ -5,7 +5,7 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class ReadSqliteAssetActivity : BaseFontActivity() {

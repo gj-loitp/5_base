@@ -7,7 +7,7 @@ import com.core.utilities.LImageUtil
 import com.views.imageview.kenburnview.LKenBurnsView
 import com.views.imageview.kenburnview.LTransition
 import kotlinx.android.synthetic.main.activity_kenburn_view.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class KenburnViewActivity : BaseFontActivity() {
 

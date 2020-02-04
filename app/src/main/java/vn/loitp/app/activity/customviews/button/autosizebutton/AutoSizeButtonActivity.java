@@ -10,7 +10,7 @@ import com.core.utilities.LScreenUtil;
 import com.views.LToast;
 import com.views.autosize.imagebuttonwithsize.ImageButtonWithSize;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class AutoSizeButtonActivity extends BaseFontActivity implements OnClickListener {
 

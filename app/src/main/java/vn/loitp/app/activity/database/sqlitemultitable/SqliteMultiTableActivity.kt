@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag

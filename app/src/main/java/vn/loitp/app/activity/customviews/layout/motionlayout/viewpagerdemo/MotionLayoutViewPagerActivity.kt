@@ -21,7 +21,7 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.viewpager.widget.ViewPager
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class MotionLayoutViewPagerActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {

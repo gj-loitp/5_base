@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.api.coroutine.activity
 
 import com.core.base.BaseFontActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CoroutineAPIActivity : BaseFontActivity() {
 

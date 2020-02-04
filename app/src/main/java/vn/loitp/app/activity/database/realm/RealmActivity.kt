@@ -12,7 +12,7 @@ import com.views.LToast
 import com.views.setSafeOnClickListener
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
 class RealmActivity : BaseFontActivity() {

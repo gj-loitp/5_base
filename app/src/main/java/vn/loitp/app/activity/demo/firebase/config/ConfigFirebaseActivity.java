@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.firebase.config;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,8 +13,8 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.views.LToast;
 
-import loitp.basemaster.BuildConfig;
-import loitp.basemaster.R;
+import vn.loitp.app.BuildConfig;
+import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 public class ConfigFirebaseActivity extends BaseFontActivity {
@@ -33,12 +32,7 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
         mWelcomeTextView = findViewById(R.id.welcomeTextView);
 
         Button fetchButton = findViewById(R.id.fetchButton);
-        fetchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fetchWelcome();
-            }
-        });
+        fetchButton.setOnClickListener(v -> fetchWelcome());
 
         // Get Remote Config instance.
         // [START get_remote_config_instance]

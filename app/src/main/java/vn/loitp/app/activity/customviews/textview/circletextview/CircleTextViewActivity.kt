@@ -6,7 +6,7 @@ import android.text.SpannableStringBuilder
 import com.core.base.BaseFontActivity
 import com.views.textview.circle.LCircleTextView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CircleTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

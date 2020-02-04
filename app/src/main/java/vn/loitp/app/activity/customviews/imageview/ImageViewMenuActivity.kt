@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_imageview.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
 import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity

@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class VideoActivity extends BaseFontActivity implements VideoRendererEventListener {
     private SimpleExoPlayerView simpleExoPlayerView;

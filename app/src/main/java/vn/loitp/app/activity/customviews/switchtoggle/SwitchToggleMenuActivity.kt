@@ -7,7 +7,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity

@@ -3,11 +3,7 @@ package vn.loitp.app.activity.customviews.layout.circularview
 import com.views.layout.circularview.Marker
 import com.views.layout.circularview.SimpleCircularViewAdapter
 
-import loitp.basemaster.R
-
-/**
- * Created by LENOVO on 2/28/2018.
- */
+import vn.loitp.app.R
 
 class MySimpleCircularViewAdapter : SimpleCircularViewAdapter() {
     override fun getCount(): Int {

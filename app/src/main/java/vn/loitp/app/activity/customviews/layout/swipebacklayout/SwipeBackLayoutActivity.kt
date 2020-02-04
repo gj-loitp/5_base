@@ -10,7 +10,7 @@ import com.core.utilities.LScreenUtil
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.layout.swipeback.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.activity_swipeback_layout.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/gongwen/SwipeBackLayout
 class SwipeBackLayoutActivity : BaseFontActivity() {

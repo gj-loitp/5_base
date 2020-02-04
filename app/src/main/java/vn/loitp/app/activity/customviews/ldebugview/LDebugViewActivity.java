@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity;
 import com.views.ldebugview.LComunicateDebug;
 import com.views.ldebugview.LDebug;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {

@@ -10,7 +10,7 @@ import com.views.recyclerview.banner.BannerLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 /**

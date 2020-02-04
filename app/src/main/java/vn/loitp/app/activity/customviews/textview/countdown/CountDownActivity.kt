@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.views.textview.countdown.LCountDownView
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CountDownActivity : BaseFontActivity() {
 

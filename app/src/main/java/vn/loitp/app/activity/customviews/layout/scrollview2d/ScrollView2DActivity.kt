@@ -7,7 +7,7 @@ import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.scrollview.TwoDScrollView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ScrollView2DActivity : BaseFontActivity() {
 

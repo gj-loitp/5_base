@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 public class ValueAnimatorActivity extends BaseFontActivity {

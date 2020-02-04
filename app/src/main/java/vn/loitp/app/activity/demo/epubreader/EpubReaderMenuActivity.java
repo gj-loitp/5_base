@@ -1,8 +1,6 @@
 package vn.loitp.app.activity.demo.epubreader;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 
@@ -17,7 +15,7 @@ import com.function.epub.task.GetListBookFromDeviceAndAssetTask;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class EpubReaderMenuActivity extends BaseFontActivity {
     private ProgressBar progressBar;

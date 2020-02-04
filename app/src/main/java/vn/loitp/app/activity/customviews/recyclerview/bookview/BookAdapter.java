@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.MovieViewHolder> {

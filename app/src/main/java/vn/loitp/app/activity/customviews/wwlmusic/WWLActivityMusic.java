@@ -6,7 +6,7 @@ import com.core.base.BaseFontActivity;
 import com.views.wwlmusic.layout.LWWLMusic;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;

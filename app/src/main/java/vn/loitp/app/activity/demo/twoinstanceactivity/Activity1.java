@@ -4,12 +4,11 @@ import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class Activity1 extends BaseFontActivity {
 

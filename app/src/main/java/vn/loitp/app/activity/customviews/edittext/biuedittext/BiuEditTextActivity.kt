@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.edittext.biuedittext
 
 import android.os.Bundle
 import com.core.base.BaseActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //guide https://github.com/xujinyang/BiuEditText
 class BiuEditTextActivity : BaseActivity() {

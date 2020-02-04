@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 

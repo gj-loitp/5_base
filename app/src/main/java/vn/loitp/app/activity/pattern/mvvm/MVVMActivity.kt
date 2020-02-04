@@ -4,14 +4,11 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.core.base.BaseFontActivity
-import loitp.basemaster.BR
-import loitp.basemaster.R
+import vn.loitp.app.BR
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvvm.model.User
 import vn.loitp.app.activity.pattern.mvvm.viewModel.UserViewModel
 
-/**
- * Created by Qichuan on 02/12/17.
- */
 class MVVMActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false

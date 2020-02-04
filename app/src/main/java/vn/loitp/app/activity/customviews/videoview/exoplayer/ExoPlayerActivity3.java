@@ -7,7 +7,7 @@ import com.core.utilities.LScreenUtil;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.views.exo.PlayerManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ExoPlayerActivity3 extends BaseFontActivity {
     private PlayerView playerView0;

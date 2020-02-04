@@ -5,7 +5,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.data.EventBusData
 import kotlinx.android.synthetic.main.frm_text.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class NetworkActivity : BaseFontActivity() {
 

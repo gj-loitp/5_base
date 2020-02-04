@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_fidgetspinner_imageview.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FidgetSpinnerImageViewActivity : BaseFontActivity() {
 
