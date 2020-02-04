@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,22 +18,22 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_auto_size_button"
+                android:id="@+id/btAutoSizeButton"
                 style="@style/ButtonMenu"
                 android:text="Auto size button" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_circular_image_click"
+                android:id="@+id/btCircularImageClick"
                 style="@style/ButtonMenu"
                 android:text="Circular Image Click" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_goodview"
+                android:id="@+id/btGoodView"
                 style="@style/ButtonMenu"
                 android:text="GoodView" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_l_button"
+                android:id="@+id/btlButton"
                 style="@style/ButtonMenu"
                 android:text="LButton" />
 
@@ -44,21 +43,20 @@
                 android:text="QButton" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_rounded_button"
+                android:id="@+id/btRoundedButton"
                 style="@style/ButtonMenu"
                 android:text="Rounded Button" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_shine_button"
+                android:id="@+id/btShineButton"
                 style="@style/ButtonMenu"
                 android:text="Shine Button" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Button" />
 </RelativeLayout>
-

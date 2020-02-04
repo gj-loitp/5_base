@@ -9,10 +9,6 @@ import com.core.utilities.LLog;
 import com.utils.util.ConvertUtils;
 import com.utils.util.ScreenUtils;
 
-/**
- * Created by LENOVO on 4/19/2018.
- */
-
 public class ImageButtonWithSize extends ImageButton {
     private final String TAG = getClass().getSimpleName();
 
