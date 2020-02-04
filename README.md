@@ -31,6 +31,8 @@ https://github.com/gjiazhe/PanoramaImageView
 
 https://github.com/gjiazhe/ScrollParallaxImageView
 
+https://github.com/gongwen/SwipeBackLayout
+
 **License**
 ```
 Copyright 2019 Loitp93

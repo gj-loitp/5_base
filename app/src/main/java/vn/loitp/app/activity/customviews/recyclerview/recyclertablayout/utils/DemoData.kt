@@ -2,24 +2,14 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils
 
 import android.content.Context
 import android.graphics.Color
-import com.google.ads.interactivemedia.v3.internal.`is`
-
-import org.json.JSONArray
+import loitp.basemaster.R
 import org.json.JSONException
 import org.json.JSONObject
-
-import java.io.IOException
-import java.io.InputStream
-import java.util.ArrayList
-import java.util.Arrays
-
-import loitp.basemaster.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.ColorItem
+import java.io.IOException
 import java.nio.charset.Charset
+import java.util.*
 
-/**
- * Created by Shinichi Nishimura on 2015/07/22.
- */
 object DemoData {
 
     fun loadDemoColorItems(context: Context): List<ColorItem> {
