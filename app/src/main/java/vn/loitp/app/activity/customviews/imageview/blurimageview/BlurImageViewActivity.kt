@@ -24,7 +24,7 @@ class BlurImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         LBlurImageView.with(applicationContext)
                 .load(R.drawable.iv)
                 .intensity(20f)

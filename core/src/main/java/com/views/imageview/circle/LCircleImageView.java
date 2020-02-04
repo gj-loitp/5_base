@@ -1,9 +1,5 @@
 package com.views.imageview.circle;
 
-/**
- * Created by www.muathu@gmail.com on 10/14/2017.
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
