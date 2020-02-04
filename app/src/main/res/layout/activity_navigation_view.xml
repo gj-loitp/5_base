@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
     android:orientation="vertical">
 
     <com.views.navigationview.LNavigationView
         android:id="@+id/nv"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/White" />
 
     <TextView
-        android:id="@+id/tv_msg"
+        android:id="@+id/tvMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10"
@@ -19,18 +21,17 @@
         android:textSize="@dimen/txt_18" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_0"
+        android:id="@+id/bt0"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_first" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_1"
+        android:id="@+id/bt1"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_last" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_2"
+        android:id="@+id/bt2"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_2" />
 </LinearLayout>
-
