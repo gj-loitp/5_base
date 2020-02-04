@@ -55,21 +55,15 @@ class ColorPickerDialogFragment : BottomSheetDialogFragment() {
                 when (seekBar.id) {
                     R.id.sb_red -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(redProgress, 0, 0), mode)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            seekBar.thumb.setColorFilter(Color.rgb(redProgress, 0, 0), mode)
-                        }
+                        seekBar.thumb.setColorFilter(Color.rgb(redProgress, 0, 0), mode)
                     }
                     R.id.sb_green -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(0, greenProgress, 0), mode)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            seekBar.thumb.setColorFilter(Color.rgb(0, greenProgress, 0), mode)
-                        }
+                        seekBar.thumb.setColorFilter(Color.rgb(0, greenProgress, 0), mode)
                     }
                     R.id.sb_blue -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(0, 0, blueProgress), mode)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            seekBar.thumb.setColorFilter(Color.rgb(0, 0, blueProgress), mode)
-                        }
+                        seekBar.thumb.setColorFilter(Color.rgb(0, 0, blueProgress), mode)
                     }
                 }
             }

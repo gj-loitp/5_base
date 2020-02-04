@@ -30,7 +30,7 @@ class VerticalSeekbarActivity : BaseFontActivity() {
                 LLog.d(TAG, "onStopTrackingTouch")
             }
         })
-        findViewById<View>(R.id.bt).setOnClickListener { v -> seekBar1.progress = 30 }
+        findViewById<View>(R.id.bt).setOnClickListener { _ -> seekBar1.progress = 30 }
     }
 
     override fun setFullScreen(): Boolean {

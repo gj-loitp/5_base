@@ -100,10 +100,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.printBeautyJson(bike, button)
             button.isAllCaps = false
             button.gravity = Gravity.START
-            button.setOnClickListener { v ->
+            button.setOnClickListener { _ ->
                 updateBike(bike, button)
             }
-            button.setOnLongClickListener { v ->
+            button.setOnLongClickListener { _ ->
                 deleteBike(bike, button)
                 true
             }
@@ -194,7 +194,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                     }
                 }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
-                                { id ->
+                                { _ ->
                                     LUIUtil.printBeautyJson(bike, button)
                                     hideProgress()
                                 },

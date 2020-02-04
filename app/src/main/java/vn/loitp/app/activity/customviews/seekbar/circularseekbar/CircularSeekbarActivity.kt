@@ -20,7 +20,7 @@ class CircularSeekbarActivity : BaseFontActivity() {
         seekBar.ringColor = Color.DKGRAY
 
         seekBar.setOnCenterClickedListener { seekBar1, progress ->
-            Snackbar.make(seekBar1, "Reset", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(seekBar1, "Reset progress $progress", Snackbar.LENGTH_SHORT).show()
             seekBar1.progress = 0f
         }
         seekBar.setOnCircularSeekBarChangeListener(object : LCircularSeekBar.OnCircularSeekBarChangeListener {

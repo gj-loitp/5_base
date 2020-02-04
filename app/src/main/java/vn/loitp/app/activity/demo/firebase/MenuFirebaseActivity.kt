@@ -1,17 +1,14 @@
 package vn.loitp.app.activity.demo.firebase
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LLog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu_firebase.*
-
 import loitp.basemaster.R
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity
@@ -61,7 +58,7 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_database_simple -> intent = Intent(activity, DatabaseSimpleFirebaseActivity::class.java)
             R.id.bt_fcm -> intent = Intent(activity, FCMFirebaseActivity::class.java)
             R.id.btGetFCMToken -> {
-                getFCMToken(activity)
+                getFCMToken()
             }
             R.id.btResetInstanceId -> {
                 resetInstanceId()
@@ -73,7 +70,7 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
         }
     }
 
-    private fun getFCMToken(context: Context) {
+    private fun getFCMToken() {
         FirebaseInstanceId.getInstance().instanceId
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {

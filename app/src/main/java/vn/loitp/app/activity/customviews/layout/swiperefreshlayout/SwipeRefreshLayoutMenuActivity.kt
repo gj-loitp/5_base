@@ -15,12 +15,12 @@ class SwipeRefreshLayoutMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_with_scroll_view).setOnClickListener { v ->
+        findViewById<View>(R.id.bt_with_scroll_view).setOnClickListener { _ ->
             val intent = Intent(activity, SwipeRefreshLayoutScrollViewActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
-        findViewById<View>(R.id.bt_with_recycler_view).setOnClickListener { v ->
+        findViewById<View>(R.id.bt_with_recycler_view).setOnClickListener { _ ->
             val intent = Intent(activity, SwipeRefreshLayoutRecyclerViewActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)

@@ -12,38 +12,38 @@ class CustomDialogActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        btToggleFullScreen.setOnClickListener { v ->
+        btToggleFullScreen.setOnClickListener { _ ->
             isFullScreen = !isFullScreen
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = isFullScreen)
         }
-        btDefault.setOnClickListener { v ->
+        btDefault.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.DEFAULT)
         }
-        btTopLeft.setOnClickListener { v ->
+        btTopLeft.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_LEFT)
         }
-        btTopCenter.setOnClickListener { v ->
+        btTopCenter.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_CENTER)
         }
-        btTopRight.setOnClickListener { v ->
+        btTopRight.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_RIGHT)
         }
-        btCenterLeft.setOnClickListener { v ->
+        btCenterLeft.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_LEFT)
         }
-        btCenterCenter.setOnClickListener { v ->
+        btCenterCenter.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_CENTER)
         }
-        btCenterRight.setOnClickListener { v ->
+        btCenterRight.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_RIGHT)
         }
-        btBottomLeft.setOnClickListener { v ->
+        btBottomLeft.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_LEFT)
         }
-        btBottomCenter.setOnClickListener { v ->
+        btBottomCenter.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_CENTER)
         }
-        btBottomRight.setOnClickListener { v ->
+        btBottomRight.setOnClickListener { _ ->
             PositionDialog().showImmersivePos(activity = activity, anchorView = anchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_RIGHT)
         }
     }
@@ -53,7 +53,7 @@ class CustomDialogActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String? {
-        return "TAG" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

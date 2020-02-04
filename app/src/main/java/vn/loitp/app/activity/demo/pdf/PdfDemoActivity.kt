@@ -220,11 +220,11 @@ class PdfDemoActivity : BaseFontActivity() {
                 .onPageError { page, t -> LLog.e(TAG, "onPageError $page -> $t") }
                 .onRender { nbPages -> LLog.d(TAG, "onInitiallyRendered nbPages $nbPages") } // called after document is rendered for the first time
                 // called on single tap, return true if handled, false to toggle scroll handle visibility
-                .onTap { e ->
+                .onTap { _ ->
                     LLog.d(TAG, "onTap")
                     false
                 }
-                .onLongPress { e -> LLog.d(TAG, "OnLongPressListener") }
+                .onLongPress { _ -> LLog.d(TAG, "OnLongPressListener") }
                 .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
                 .password(null)
                 .scrollHandle(DefaultScrollHandle(this))

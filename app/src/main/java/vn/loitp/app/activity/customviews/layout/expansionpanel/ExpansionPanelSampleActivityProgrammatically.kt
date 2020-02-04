@@ -39,7 +39,7 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
         val ex2 = addDynamicLayout()
 
         //example of how to add a listener
-        ex1.addListener { expansionLayout, expanded ->
+        ex1.addListener { _, _ ->
 
         }
         val expansionLayoutCollection = ExpansionLayoutCollection()

@@ -45,7 +45,7 @@ class FrmGetListUser : BaseFragment() {
 
     private fun setupViews() {
         context?.let {
-            userListAdapter = UserListAdapter(it, callback = { position, userTest ->
+            userListAdapter = UserListAdapter(it, callback = { _, userTest ->
                 val bundle = Bundle()
                 bundle.putSerializable(FrmUser.KEY_USER, userTest)
                 findNavController().navigate(R.id.action_frmGetListUser_to_frmUser, bundle)

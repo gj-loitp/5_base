@@ -140,7 +140,7 @@ class RealmActivity : BaseFontActivity() {
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { dialog, _ ->
             val text = input.text.toString()
             ipb.onText(text)
             dialog.cancel()

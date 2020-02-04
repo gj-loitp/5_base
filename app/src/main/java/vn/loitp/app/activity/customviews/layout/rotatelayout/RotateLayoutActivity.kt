@@ -16,7 +16,7 @@ class RotateLayoutActivity : BaseFontActivity() {
 
         val lRotateLayout = findViewById<LRotateLayout>(R.id.rotate_layout)
 
-        bt.setOnClickListener { v ->
+        bt.setOnClickListener { _ ->
             val angle = LDeviceUtil.getRandomNumber(360)
             lRotateLayout.angle = angle
         }

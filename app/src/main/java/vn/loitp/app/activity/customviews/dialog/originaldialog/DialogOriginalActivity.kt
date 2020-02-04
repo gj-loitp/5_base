@@ -155,11 +155,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { _, which ->
             val text = input.text.toString()
             LToast.show(activity, "Text $text")
         }
-        builder.setNegativeButton("Cancel") { dialog, which -> dialog.cancel() }
+        builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
 
         val dialog = builder.create()
         dialog.show()

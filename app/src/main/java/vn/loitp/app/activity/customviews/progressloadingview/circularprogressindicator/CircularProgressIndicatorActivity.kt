@@ -32,15 +32,15 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
         textSize.setOnSeekBarChangeListener(this)
         dotWidth.setOnSeekBarChangeListener(this)
 
-        drawDot.setOnCheckedChangeListener { buttonView, isChecked ->
+        drawDot.setOnCheckedChangeListener { _, isChecked ->
             circularProgress.setShouldDrawDot(isChecked)
             dotWidth.isEnabled = isChecked
             dotColor.isEnabled = isChecked
         }
-        useCustomTextAdapter.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.setProgressTextAdapter(if (isChecked) TIME_TEXT_ADAPTER else null) }
-        fillBackground.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.isFillBackgroundEnabled = isChecked }
+        useCustomTextAdapter.setOnCheckedChangeListener { _, isChecked -> circularProgress.setProgressTextAdapter(if (isChecked) TIME_TEXT_ADAPTER else null) }
+        fillBackground.setOnCheckedChangeListener { _, isChecked -> circularProgress.isFillBackgroundEnabled = isChecked }
 
-        progressCap.setOnCheckedChangeListener { group, checkedId ->
+        progressCap.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rb_cap_butt -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_BUTT
                 R.id.rb_cap_round -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_ROUND
@@ -49,7 +49,7 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
 
         circularProgress.onProgressChangeListener = CircularProgressIndicator.OnProgressChangeListener { progress, maxProgress -> Log.d("PROGRESS", String.format("Current: %1$.0f, max: %2$.0f", progress, maxProgress)) }
 
-        animationSwitch.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.isAnimationEnabled = isChecked }
+        animationSwitch.setOnCheckedChangeListener { _, isChecked -> circularProgress.isAnimationEnabled = isChecked }
 
         val gradients = ArrayList<HashMap<String, String>>()
         var gradient = HashMap<String, String>()

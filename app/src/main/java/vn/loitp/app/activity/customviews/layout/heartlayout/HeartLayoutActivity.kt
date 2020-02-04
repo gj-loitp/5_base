@@ -2,15 +2,11 @@ package vn.loitp.app.activity.customviews.layout.heartlayout
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-
 import com.core.base.BaseFontActivity
 import com.views.layout.heartlayout.LHeartLayout
 import kotlinx.android.synthetic.main.activity_heart_layout.*
-
-import java.util.Random
-
 import loitp.basemaster.R
+import java.util.*
 
 class HeartLayoutActivity : BaseFontActivity() {
     private val mRandom = Random()
@@ -19,7 +15,7 @@ class HeartLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mLHeartLayout = findViewById(R.id.heart_layout)
-        rootView.setOnClickListener { v -> mLHeartLayout.addHeart(randomColor()) }
+        rootView.setOnClickListener { _ -> mLHeartLayout.addHeart(randomColor()) }
     }
 
     override fun setFullScreen(): Boolean {

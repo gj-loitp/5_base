@@ -17,8 +17,8 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         dpfl = findViewById(R.id.dpfl)
         tvState = findViewById(R.id.tv_state)
-        findViewById<View>(R.id.bt_maximize).setOnClickListener { view -> dpfl!!.maximize() }
-        findViewById<View>(R.id.bt_minimize).setOnClickListener { view -> dpfl!!.minimize() }
+        findViewById<View>(R.id.bt_maximize).setOnClickListener { _ -> dpfl!!.maximize() }
+        findViewById<View>(R.id.bt_minimize).setOnClickListener { _ -> dpfl!!.minimize() }
         dpfl!!.setCallback { state -> tvState!!.text = "onStateChange " + state.name }
     }
 

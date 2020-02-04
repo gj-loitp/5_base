@@ -9,11 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
-
 import androidx.fragment.app.Fragment
-
-import com.views.LToast
-
 import loitp.basemaster.R
 
 class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
@@ -34,10 +30,7 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_basic_transition, container, false)!!
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            LToast.show(activity!!, "requires API level 19 or higher")
-            return view
-        }
+
         val radioGroup = view.findViewById<RadioGroup>(R.id.select_scene)
         radioGroup.setOnCheckedChangeListener(this)
         mSceneRoot = view.findViewById(R.id.scene_root)

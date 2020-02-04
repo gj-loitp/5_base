@@ -105,6 +105,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                 }).build()
     }
 
+    @Suppress("INTEGER_OVERFLOW")
     fun getSize(size: Int): String {
         var s = ""
         val kb = (size / 1024).toDouble()

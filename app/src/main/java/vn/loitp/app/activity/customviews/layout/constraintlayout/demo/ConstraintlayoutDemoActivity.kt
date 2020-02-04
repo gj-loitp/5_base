@@ -19,9 +19,9 @@ class ConstraintlayoutDemoActivity : BaseFontActivity() {
         bt0 = findViewById(R.id.bt_0)
         bt1 = findViewById(R.id.bt_1)
         bt2 = findViewById(R.id.bt_2)
-        button?.setOnClickListener { v -> button?.visibility = View.GONE }
-        bt0?.setOnClickListener { v -> bt2?.visibility = View.GONE }
-        bt1?.setOnClickListener { v -> bt2?.visibility = View.VISIBLE }
+        button?.setOnClickListener { _ -> button?.visibility = View.GONE }
+        bt0?.setOnClickListener { _ -> bt2?.visibility = View.GONE }
+        bt1?.setOnClickListener { _ -> bt2?.visibility = View.VISIBLE }
     }
 
     override fun setFullScreen(): Boolean {

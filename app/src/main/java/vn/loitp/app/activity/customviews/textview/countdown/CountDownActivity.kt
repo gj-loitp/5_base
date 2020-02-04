@@ -28,7 +28,7 @@ class CountDownActivity : BaseFontActivity() {
             }
         })
 
-        btStart.setOnClickListener { v ->
+        btStart.setOnClickListener { _ ->
             btStart.isEnabled = false
             lCountDownView.setShowOrHide(true)
             lCountDownView.start(5)

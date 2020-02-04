@@ -106,7 +106,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:4.2.0'
+    //api 'com.github.tplloi:basemaster:4.2.1'
 
     //region database
 
