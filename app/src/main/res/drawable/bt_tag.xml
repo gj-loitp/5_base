@@ -5,7 +5,7 @@
         <shape>
             <solid android:color="@color/LightGrey" />
 
-            <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
+            <stroke android:width="0.5dp" android:color="@color/LightGrey" />
 
             <corners android:radius="@dimen/round_45" />
 
@@ -16,7 +16,7 @@
         <shape>
             <gradient android:angle="270" android:endColor="@color/White" android:startColor="@color/White" />
 
-            <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
+            <stroke android:width="0.5dp" android:color="@color/LightGrey" />
 
             <corners android:radius="@dimen/round_45" />
 
