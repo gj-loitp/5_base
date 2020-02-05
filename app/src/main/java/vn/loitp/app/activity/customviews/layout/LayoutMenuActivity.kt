@@ -28,6 +28,7 @@ import vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutA
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
+import vn.loitp.app.activity.customviews.layout.shapeofview.ShapeOfViewActivity
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
@@ -64,6 +65,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btSwipeRevealLayout.setOnClickListener(this)
         btRoundableLayout.setOnClickListener(this)
         btShadowLayout.setOnClickListener(this)
+        btShapeOfView.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -106,6 +108,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btScrollView2dAdvance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
             btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)
             btShadowLayout -> intent = Intent(activity, ShadowLayoutActivity::class.java)
+            btShapeOfView -> intent = Intent(activity, ShapeOfViewActivity::class.java)
             btRoundableLayout -> intent = Intent(activity, RoundableLayoutActivity::class.java)
         }
         intent?.let {

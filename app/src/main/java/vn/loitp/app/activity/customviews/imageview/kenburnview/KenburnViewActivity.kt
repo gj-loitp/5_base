@@ -9,6 +9,7 @@ import com.views.imageview.kenburnview.LTransition
 import kotlinx.android.synthetic.main.activity_kenburn_view.*
 import vn.loitp.app.R
 
+//https://github.com/flavioarfaria/KenBurnsView
 class KenburnViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

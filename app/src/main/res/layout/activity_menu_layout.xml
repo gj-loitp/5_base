@@ -123,6 +123,11 @@
                 android:text="@string/shadow_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShapeOfView"
+                style="@style/ButtonMenu"
+                android:text="Shape Of View" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSquareLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/square_layout" />
