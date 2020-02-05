@@ -2,12 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +20,7 @@
             android:orientation="vertical">
 
             <com.views.button.roundedbutton.LRoundedButton
-                android:id="@+id/bt_0"
+                android:id="@+id/bt0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
@@ -38,7 +37,7 @@
                 tools:ignore="HardcodedText" />
 
             <com.views.button.roundedbutton.LRoundedButton
-                android:id="@+id/bt_1"
+                android:id="@+id/bt1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -54,7 +53,7 @@
                 app:buttonRippleColor="@color/Red" />
 
             <com.views.button.roundedbutton.LRoundedButton
-                android:id="@+id/bt_2"
+                android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
@@ -70,7 +69,7 @@
                 app:buttonRippleColor="@color/colorPrimaryTrans" />
 
             <com.views.button.roundedbutton.LRoundedButton
-                android:id="@+id/bt_3"
+                android:id="@+id/bt3"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
@@ -84,11 +83,10 @@
                 app:buttonRippleAlpha="100"
                 app:buttonRippleColor="@color/colorPrimary" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/rounded_button" />
 </RelativeLayout>
-

@@ -8,17 +8,6 @@ import vn.loitp.app.R
 
 class QButtonActivity : BaseFontActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        btn.setCornerRadious(5)
-        btn.setStrokeWidth(5)
-        btn.setStrokeDashGap(5)
-        btn.setStrokeDashWidth(90)
-        btn.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        btn.setStrokeColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark))
-    }
-
     override fun setFullScreen(): Boolean {
         return false
     }
@@ -29,5 +18,16 @@ class QButtonActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_q_button
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        btn.setCornerRadious(5)
+        btn.setStrokeWidth(5)
+        btn.setStrokeDashGap(5)
+        btn.setStrokeDashWidth(90)
+        btn.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
+        btn.setStrokeColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark))
     }
 }
