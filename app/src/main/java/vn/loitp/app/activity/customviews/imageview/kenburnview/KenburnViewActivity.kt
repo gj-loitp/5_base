@@ -4,8 +4,10 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
+import com.core.utilities.LSocialUtil
 import com.views.imageview.kenburnview.LKenBurnsView
 import com.views.imageview.kenburnview.LTransition
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_kenburn_view.*
 import vn.loitp.app.R
 
@@ -29,6 +31,10 @@ class KenburnViewActivity : BaseFontActivity() {
         }
         btResume.setOnClickListener {
             kbv.resume()
+        }
+
+        tvMenu.setSafeOnClickListener {
+            LSocialUtil.openUrlInBrowser(activity, "https://github.com/flavioarfaria/KenBurnsView")
         }
     }
 

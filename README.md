@@ -34,6 +34,8 @@ https://github.com/gjiazhe/PanoramaImageView
 
 https://github.com/gjiazhe/ScrollParallaxImageView
 
+https://github.com/flavioarfaria/KenBurnsView
+
 https://github.com/hoang8f/android-flat-button
 
 https://github.com/venshine/GoodView
