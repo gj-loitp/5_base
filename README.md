@@ -23,7 +23,10 @@ In order to keep modules independent, we decoupled the behavior required for eac
 
 
 **Git**
+
 https://github.com/zladnrms/RoundableLayout
+
+https://github.com/gongwen/SwipeBackLayout
 
 https://github.com/Cutta/ContinuousScrollableImageView
 
@@ -31,7 +34,9 @@ https://github.com/gjiazhe/PanoramaImageView
 
 https://github.com/gjiazhe/ScrollParallaxImageView
 
-https://github.com/gongwen/SwipeBackLayout
+https://github.com/hoang8f/android-flat-button
+
+https://github.com/venshine/GoodView
 
 **License**
 ```
