@@ -8,18 +8,26 @@ import android.widget.LinearLayout
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import com.core.utilities.LLog
+import com.core.utilities.LSocialUtil
 import com.utils.util.ConvertUtils
+import com.views.setSafeOnClickListener
 import gun0912.tedimagepicker.builder.TedImagePicker
 import gun0912.tedimagepicker.builder.TedRxImagePicker
 import kotlinx.android.synthetic.main.activity_ted_image_picker_demo.*
 import vn.loitp.app.R
 import java.io.File
 
+//https://github.com/ParkSangGwon/TedImagePicker
 class DemoTedImagePickerActivity : BaseFontActivity() {
     private var selectedUriList: List<Uri>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        tvMenu.setSafeOnClickListener {
+            LSocialUtil.openUrlInBrowser(activity, "https://github.com/ParkSangGwon/TedImagePicker")
+        }
+
         setNormalSingleButton()
         setNormalMultiButton()
         setRxSingleButton()
@@ -83,6 +91,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     private fun setRxMultiButton() {
         btnRxMulti.setOnClickListener {
             TedRxImagePicker.with(this)
+                    .selectedUri(selectedUriList)
                     .startMultiImage()
                     .subscribe(this::showMultiImage, Throwable::printStackTrace)
         }

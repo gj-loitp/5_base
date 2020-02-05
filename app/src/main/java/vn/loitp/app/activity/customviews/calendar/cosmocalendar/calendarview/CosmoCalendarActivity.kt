@@ -21,6 +21,7 @@ import vn.loitp.app.app.LApplication
 import java.util.*
 import kotlin.collections.ArrayList
 
+//https://github.com/ApplikeySolutions/CosmoCalendar
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
     private var threeMonthsCriteriaList = ArrayList<BaseCriteria>()
     private var fridayCriteria: WeekDayCriteria? = null

@@ -159,7 +159,7 @@ dependencies {
     api 'com.asksira.android:bsimagepicker:1.1.0'
 
     //https://github.com/ParkSangGwon/TedImagePicker
-    api 'gun0912.ted:tedimagepicker:1.0.4'
+    api 'gun0912.ted:tedimagepicker:1.0.8'
 
     //endregion
 
