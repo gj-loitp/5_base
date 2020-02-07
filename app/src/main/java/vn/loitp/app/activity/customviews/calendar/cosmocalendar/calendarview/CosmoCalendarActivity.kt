@@ -39,6 +39,11 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
         initViews()
         createCriterias()
+
+        /*calendarView.currentDayIconRes = R.drawable.circle
+        calendarView.selectionManager = RangeSelectionManager() {
+            LLog.d(TAG, "logSelectedDaysMenuClick " + VinApplication.gson.toJson(calendarView.selectedDays))
+        }*/
     }
 
     override fun setFullScreen(): Boolean {
