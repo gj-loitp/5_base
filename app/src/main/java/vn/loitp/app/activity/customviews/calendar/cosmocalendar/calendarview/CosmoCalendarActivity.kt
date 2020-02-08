@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.OrientationHelper
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
+import com.views.calendar.cosmocalendar.selection.RangeSelectionManager
 import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.WeekDayCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.month.CurrentMonthCriteria
@@ -40,10 +41,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         initViews()
         createCriterias()
 
-        /*calendarView.currentDayIconRes = R.drawable.circle
-        calendarView.selectionManager = RangeSelectionManager() {
-            LLog.d(TAG, "logSelectedDaysMenuClick " + VinApplication.gson.toJson(calendarView.selectedDays))
-        }*/
+        //calendarView.currentDayIconRes = R.drawable.circle
     }
 
     override fun setFullScreen(): Boolean {
@@ -192,6 +190,8 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
                 calendarView.selectionType = SelectionType.RANGE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
+
+                //addDefaultRange()
             }
             R.id.rb_none -> {
                 calendarView.selectionType = SelectionType.NONE
@@ -199,5 +199,12 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
                 menuThreeMonth.isVisible = false
             }
         }
+    }
+
+    private fun addDefaultRange() {
+        calendarView.selectionManager = RangeSelectionManager() {
+            LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
+        }
+        calendarView.update()
     }
 }
