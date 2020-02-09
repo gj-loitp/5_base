@@ -8,6 +8,7 @@ import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
+import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
 import com.views.calendar.cosmocalendar.selection.RangeSelectionManager
 import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
@@ -191,7 +192,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
 
-                //addDefaultRange()
+                addDefaultRange()
             }
             R.id.rb_none -> {
                 calendarView.selectionType = SelectionType.NONE
@@ -202,9 +203,17 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     }
 
     private fun addDefaultRange() {
-        calendarView.selectionManager = RangeSelectionManager() {
+        calendarView.selectionManager = RangeSelectionManager {
             LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
         }
-        calendarView.update()
+        if (calendarView.selectionManager is RangeSelectionManager) {
+            calendarView.clearSelections()
+            val rangeSelectionManager: RangeSelectionManager = calendarView.selectionManager as RangeSelectionManager
+            val calendar: Calendar = Calendar.getInstance()
+            calendar.add(Calendar.DATE, 3)
+            rangeSelectionManager.toggleDay(Day(Calendar.getInstance()))
+            rangeSelectionManager.toggleDay(Day(calendar))
+            calendarView.update()
+        }
     }
 }
