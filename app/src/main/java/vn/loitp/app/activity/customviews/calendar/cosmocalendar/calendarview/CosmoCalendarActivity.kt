@@ -42,6 +42,13 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         initViews()
         createCriterias()
 
+        //add min date and max date
+        /*val c = Calendar.getInstance()
+        calendarView.minDate = c
+
+        c.add(Calendar.DATE, 30)
+        calendarView.maxDate = c*/
+
         //calendarView.currentDayIconRes = R.drawable.circle
     }
 
@@ -175,7 +182,9 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
             R.id.rbHideFlBottomSelectionBar -> {
                 calendarView.isShowFlBottomSelectionBar = false
             }
-            R.id.rb_horizontal -> calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
+            R.id.rb_horizontal -> {
+                calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
+            }
             R.id.rb_vertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
             R.id.rb_single -> {
                 calendarView.selectionType = SelectionType.SINGLE
