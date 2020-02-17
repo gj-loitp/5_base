@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,17 +17,17 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_bs_image_picker"
+                android:id="@+id/btBsImagePicker"
                 style="@style/ButtonMenu"
                 android:text="@string/bs_image_picker" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_image_picker_with_crop"
+                android:id="@+id/btImagePickerWithCrop"
                 style="@style/ButtonMenu"
                 android:text="@string/image_picker_with_crop" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_crop"
+                android:id="@+id/btCrop"
                 style="@style/ButtonMenu"
                 android:text="Crop" />
 
@@ -36,12 +35,16 @@
                 android:id="@+id/btTedImagePicker"
                 style="@style/ButtonMenu"
                 android:text="TedImagePicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTimePicker"
+                style="@style/ButtonMenu"
+                android:text="TimePicker" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/picker_menu" />
 </RelativeLayout>
-

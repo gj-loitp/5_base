@@ -11,16 +11,16 @@ import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
 import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
+import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
 
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
-        findViewById<View>(R.id.bt_bs_image_picker).setOnClickListener(this)
-        findViewById<View>(R.id.bt_image_picker_with_crop).setOnClickListener(this)
-        findViewById<View>(R.id.bt_crop).setOnClickListener(this)
-        btTedImagePicker.setOnClickListener(this)
+        btBsImagePicker.setOnClickListener(this)
+        btImagePickerWithCrop.setOnClickListener(this)
+        btCrop.setOnClickListener(this)
+        btTimePicker.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -37,14 +37,15 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_bs_image_picker -> intent = Intent(activity, BSImagePickerActivity::class.java)
-            R.id.bt_image_picker_with_crop -> intent = Intent(activity, ImageWithCropActivity::class.java)
-            R.id.bt_crop -> intent = Intent(activity, CropActivity::class.java)
-            R.id.btTedImagePicker -> intent = Intent(activity, DemoTedImagePickerActivity::class.java)
+        when (v) {
+            btBsImagePicker -> intent = Intent(activity, BSImagePickerActivity::class.java)
+            btImagePickerWithCrop -> intent = Intent(activity, ImageWithCropActivity::class.java)
+            btCrop -> intent = Intent(activity, CropActivity::class.java)
+            btTedImagePicker -> intent = Intent(activity, DemoTedImagePickerActivity::class.java)
+            btTimePicker -> intent = Intent(activity, TimePickerActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }
