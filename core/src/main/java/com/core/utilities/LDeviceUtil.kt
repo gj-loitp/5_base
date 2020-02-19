@@ -74,6 +74,18 @@ object LDeviceUtil {
         return r.nextInt(max)
     }
 
+    fun getRandomString(maxLeng: Int): String? {
+        val generator = Random()
+        val randomStringBuilder = StringBuilder()
+        val randomLength = generator.nextInt(maxLeng)
+        var tempChar: Char
+        for (i in 0 until randomLength) {
+            tempChar = (generator.nextInt(96) + 32).toChar()
+            randomStringBuilder.append(tempChar)
+        }
+        return randomStringBuilder.toString()
+    }
+
     fun isCanOverlay(activity: Activity?): Boolean {
         if (activity == null) {
             return false

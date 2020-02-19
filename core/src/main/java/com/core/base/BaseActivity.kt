@@ -50,6 +50,12 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
+    protected abstract fun setFullScreen(): Boolean
+
+    protected abstract fun setTag(): String?
+
+    protected abstract fun setLayoutResourceId(): Int
+
     override fun onCreate(savedInstanceState: Bundle?) {
         activity = this
         TAG = "TAG" + setTag()
@@ -200,12 +206,6 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         })
     }
-
-    protected abstract fun setFullScreen(): Boolean
-
-    protected abstract fun setTag(): String?
-
-    protected abstract fun setLayoutResourceId(): Int
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.Elastic
 import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.fixedgridlayout.FixedGridLayoutActivity
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
+import vn.loitp.app.activity.customviews.layout.flowlayout.FlowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity
 import vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity
@@ -66,6 +67,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btRoundableLayout.setOnClickListener(this)
         btShadowLayout.setOnClickListener(this)
         btShapeOfView.setOnClickListener(this)
+        btFlowLayout.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -110,6 +112,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btShadowLayout -> intent = Intent(activity, ShadowLayoutActivity::class.java)
             btShapeOfView -> intent = Intent(activity, ShapeOfViewActivity::class.java)
             btRoundableLayout -> intent = Intent(activity, RoundableLayoutActivity::class.java)
+            btFlowLayout -> intent = Intent(activity, FlowLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

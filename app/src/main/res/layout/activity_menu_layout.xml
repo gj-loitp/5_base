@@ -78,6 +78,11 @@
                 android:text="@string/floatdraglayout_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFlowLayout"
+                style="@style/ButtonMenu"
+                android:text="Flow layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btHeartLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/heart_layout" />
