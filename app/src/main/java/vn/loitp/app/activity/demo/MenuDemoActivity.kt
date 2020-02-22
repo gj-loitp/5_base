@@ -28,7 +28,6 @@ import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
-import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity
 import java.util.*
 
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
@@ -65,7 +64,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         }
         findViewById<View>(R.id.bt_epub_reader).setOnClickListener(this)
         findViewById<View>(R.id.bt_2_instance_activity).setOnClickListener(this)
-        findViewById<View>(R.id.bt_youtube_parser).setOnClickListener(this)
         findViewById<View>(R.id.bt_fragment_navigation).setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
@@ -129,7 +127,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_epub_reader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
             R.id.bt_floating_view -> intent = Intent(activity, FloatingViewActivity::class.java)
             R.id.bt_2_instance_activity -> intent = Intent(activity, Activity1::class.java)
-            R.id.bt_youtube_parser -> intent = Intent(activity, YoutubeParserChannelActivity::class.java)
             R.id.bt_fragment_navigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
             R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
             R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)

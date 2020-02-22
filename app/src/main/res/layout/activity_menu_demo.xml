@@ -121,11 +121,6 @@
                 android:id="@+id/bt_video"
                 style="@style/ButtonMenu"
                 android:text="@string/video" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_youtube_parser"
-                style="@style/ButtonMenu"
-                android:text="@string/youtube_parser" />
         </LinearLayout>
     </ScrollView>
 
