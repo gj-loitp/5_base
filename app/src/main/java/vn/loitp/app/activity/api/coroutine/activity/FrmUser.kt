@@ -5,7 +5,6 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.core.base.BaseFragment
 import com.core.utilities.LImageUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
@@ -37,7 +36,6 @@ class FrmUser : BaseFragment() {
 
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
-            LLog.d(TAG, "setOnRefreshListener")
             swipeRefreshLayout.isRefreshing = false
         }
 

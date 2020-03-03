@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LLog
 import com.data.EventBusData
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
@@ -24,9 +25,9 @@ import org.greenrobot.eventbus.ThreadMode
  * Created by loitp on 2019/7/12
  */
 abstract class BaseFragment : Fragment() {
-    protected lateinit var TAG: String
+    protected var TAG: String? = null
     protected var compositeDisposable = CompositeDisposable()
-    protected lateinit var frmRootView: View
+    protected var frmRootView: View? = null
     protected var fragmentCallback: FragmentCallback? = null
 
     private val DEFAULT_CHILD_ANIMATION_DURATION = 400
@@ -51,6 +52,18 @@ abstract class BaseFragment : Fragment() {
         compositeDisposable.clear()
         EventBus.getDefault().unregister(this)
         super.onDestroyView()
+    }
+
+    protected fun logD(msg: String) {
+        TAG?.let {
+            LLog.d(it, msg)
+        }
+    }
+
+    protected fun logE(msg: String) {
+        TAG?.let {
+            LLog.e(it, msg)
+        }
     }
 
     /*override fun onAttach(context: Context?) {
@@ -120,7 +133,7 @@ abstract class BaseFragment : Fragment() {
             // ...and if it can be loaded, return that animation's duration
             return nextAnim?.duration ?: defValue
         } catch (ex: NoSuchFieldException) {
-            //LLog.d(TAG, "Unable to load next animation from parent.", ex)
+            //logD("Unable to load next animation from parent.", ex)
             ex.printStackTrace()
             return defValue
         } catch (ex: IllegalAccessException) {
@@ -139,7 +152,7 @@ abstract class BaseFragment : Fragment() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected())
+        //logD(TAG, "onMessageEvent " + event.isConnected())
         onNetworkChange(event)
     }
 

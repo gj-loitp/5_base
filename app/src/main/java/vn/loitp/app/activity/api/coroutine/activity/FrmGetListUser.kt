@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.api.coroutine.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFragment
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.interfaces.RecyclerViewCallback
 import com.views.setSafeOnClickListener
@@ -28,17 +29,26 @@ class FrmGetListUser : BaseFragment() {
         return R.layout.frm_coroutine_get_list
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        if (frmRootView == null) {
+            logD("onViewCreated frmRootView == null")
+            return super.onCreateView(inflater, container, savedInstanceState)
+        } else {
+            logD("onViewCreated frmRootView != null")
+            return frmRootView
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        LLog.d(TAG, "onViewCreated")
         setupViews()
         setupViewModels()
 
         testViewModel?.let { tvm ->
             if (tvm.userTestListLiveData.value == null) {
-                LLog.d(TAG, "tvm.userAction.value == null")
+                logD("tvm.userAction.value == null")
                 testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
             } else {
-                LLog.d(TAG, "tvm.userAction.value != null")
+                logD("tvm.userAction.value != null")
             }
         }
     }
@@ -51,28 +61,28 @@ class FrmGetListUser : BaseFragment() {
                 findNavController().navigate(R.id.action_frmGetListUser_to_frmUser, bundle)
             })
         }
-        rvUserTest.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
         LUIUtil.setScrollChange(rvUserTest, object : RecyclerViewCallback {
             override fun onTop() {
             }
 
             override fun onBottom() {
-                LLog.d(TAG, "onBottom")
+                logD("onBottom")
                 page += 1
                 testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
             }
         })
 
         btBack.setSafeOnClickListener {
-            LLog.d(TAG, "popBackStack")
+            logD("popBackStack")
             activity?.onBackPressed()
             //findNavController().popBackStack()
         }
 
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
-            LLog.d(TAG, "setOnRefreshListener")
+            logD("setOnRefreshListener")
             page = 1
             testViewModel?.getUserTestListByPage(page = page, isRefresh = true)
         }
@@ -82,7 +92,7 @@ class FrmGetListUser : BaseFragment() {
         testViewModel = getViewModel(TestViewModel::class.java)
         testViewModel?.let { tvm ->
             tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { action ->
-                LLog.d(TAG, "userAction.observe action.isDoing ${action.isDoing}")
+                logD("userAction.observe action.isDoing ${action.isDoing}")
                 action.isDoing?.let { isDoing ->
                     //LLog.d(TAG, "observe isDoing $isDoing")
                     swipeRefreshLayout.isRefreshing = isDoing
@@ -95,7 +105,7 @@ class FrmGetListUser : BaseFragment() {
                 }
 
                 action.errorResponse?.let { error ->
-                    LLog.e(TAG, "observe error " + LApplication.gson.toJson(error))
+                    logE("observe error " + LApplication.gson.toJson(error))
                     error.message?.let {
                         showDialogError(it, Runnable {
                             //do nothing
@@ -104,7 +114,7 @@ class FrmGetListUser : BaseFragment() {
                 }
             })
             tvm.userTestListLiveData.observe(viewLifecycleOwner, Observer {
-                LLog.d(TAG, "userTestList.observe size: ${it?.size}")
+                logD("userTestList.observe size: ${it?.size}")
                 userListAdapter?.setList(it)
             })
         }

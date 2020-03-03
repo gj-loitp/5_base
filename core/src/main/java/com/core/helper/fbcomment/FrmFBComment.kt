@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
 import com.core.common.Constants
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
@@ -150,7 +149,7 @@ class FrmFBComment : BaseFragment() {
         }
 
         override fun onConsoleMessage(cm: ConsoleMessage): Boolean {
-            LLog.d(TAG, "onConsoleMessage: " + cm.message())
+            logD("onConsoleMessage: " + cm.message())
             return true
         }
 

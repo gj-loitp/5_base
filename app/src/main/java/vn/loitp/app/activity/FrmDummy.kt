@@ -1,9 +1,7 @@
 package vn.loitp.app.activity
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import com.core.base.BaseFragment
 import vn.loitp.app.R
@@ -13,11 +11,10 @@ class FrmDummy : BaseFragment() {
         return javaClass.simpleName
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val tv = frmRootView.findViewById<TextView>(R.id.tv)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val tv = view.findViewById<TextView>(R.id.tv)
         tv.text = "DUMMYYYYYYYYYYYYYYYYYYY"
-        //val list: List<String> = ArrayList<String>()
-        return frmRootView
     }
 
     override fun setLayoutResourceId(): Int {
