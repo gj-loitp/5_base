@@ -1,12 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.scrollview2d
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.scrollview.TwoDScrollView
-
 import vn.loitp.app.R
 
 class ScrollView2DActivity : BaseFontActivity() {
@@ -14,7 +11,9 @@ class ScrollView2DActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val twoDScrollView = findViewById<TwoDScrollView>(R.id.sv)
-        twoDScrollView.setScrollChangeListner { _, x, y, oldx, oldy -> LLog.d(TAG, "setScrollChangeListner $x - $y - $oldx - $oldy") }
+        twoDScrollView.setScrollChangeListner { _, x, y, oldx, oldy ->
+            logD("setScrollChangeListner $x - $y - $oldx - $oldy")
+        }
         LUIUtil.setDelay(2000, Runnable {
             twoDScrollView.smoothScrollTo(300, 300)
         })

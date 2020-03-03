@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import com.core.utilities.LLog
 import com.core.utilities.LSocialUtil
 import com.utils.util.ConvertUtils
 import com.views.setSafeOnClickListener
@@ -49,10 +48,10 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
 
     private fun setNormalSingleButton() {
         btnNormalSingle.setOnClickListener {
-            LLog.d(TAG, "setNormalSingleButton")
+            logD("setNormalSingleButton")
             TedImagePicker.with(context = this)
                     .start { uri ->
-                        LLog.d(TAG, msg = "setNormalSingleButton $uri")
+                        logD("setNormalSingleButton $uri")
                         showSingleImage(uri)
                     }
         }
@@ -64,7 +63,9 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
                     //.mediaType(MediaType.IMAGE)
                     //.scrollIndicatorDateFormat("YYYYMMDD")
                     //.buttonGravity(ButtonGravity.BOTTOM)
-                    .errorListener { message -> LLog.d(TAG, "message: $message") }
+                    .errorListener { message ->
+                        logD("message: $message")
+                    }
                     .selectedUri(selectedUriList)
                     .startMultiImage { list: List<Uri> -> showMultiImage(list) }
         }

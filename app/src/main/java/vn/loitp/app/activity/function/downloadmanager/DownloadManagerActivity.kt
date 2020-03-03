@@ -5,7 +5,6 @@ import alirezat775.lib.downloader.core.OnDownloadListener
 import android.os.Bundle
 import android.os.Handler
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.activity_download_manager.*
 import vn.loitp.app.R
@@ -51,7 +50,7 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     private fun getDownloader() {
         val path = LStoreUtil.getFolderPath(activity, "ZZZTestDownloader")
-        LLog.d(TAG, "getDownloader path $path")
+        logD("getDownloader path $path")
         val map = HashMap<String, String>()
         map.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI")
 
@@ -64,17 +63,17 @@ class DownloadManagerActivity : BaseFontActivity() {
                 .downloadListener(object : OnDownloadListener {
                     override fun onStart() {
                         handler.post { tvCurrentStatus.text = "onStart" }
-                        LLog.d(TAG, "onStart")
+                        logD("onStart")
                     }
 
                     override fun onPause() {
                         handler.post { tvCurrentStatus.text = "onPause" }
-                        LLog.d(TAG, "onPause")
+                        logD("onPause")
                     }
 
                     override fun onResume() {
                         handler.post { tvCurrentStatus.text = "onResume" }
-                        LLog.d(TAG, "onResume")
+                        logD("onResume")
                     }
 
                     override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
@@ -85,22 +84,22 @@ class DownloadManagerActivity : BaseFontActivity() {
                             tvTotalSize.text = getSize(totalSize)
                             sbDownloadProgress.progress = percent
                         }
-                        LLog.d(TAG, "onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
+                        logD("onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
                     }
 
                     override fun onCompleted(file: File?) {
                         handler.post { tvCurrentStatus.text = "onCompleted ${file?.path}" }
-                        LLog.d(TAG, "onCompleted: file --> $file")
+                        logD("onCompleted: file --> $file")
                     }
 
                     override fun onFailure(reason: String?) {
                         handler.post { tvCurrentStatus.text = "onFailure: reason --> $reason" }
-                        LLog.d(TAG, "onFailure: reason --> $reason")
+                        logE("onFailure: reason --> $reason")
                     }
 
                     override fun onCancel() {
                         handler.post { tvCurrentStatus.text = "onCancel" }
-                        LLog.d(TAG, "onCancel")
+                        logD("onCancel")
                     }
                 }).build()
     }

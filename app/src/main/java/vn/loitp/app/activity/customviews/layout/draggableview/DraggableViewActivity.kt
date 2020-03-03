@@ -1,12 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.draggableview
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.layout.draggablepanel.DraggableListener
 import com.views.layout.draggablepanel.DraggableView
-
 import vn.loitp.app.R
 
 class DraggableViewActivity : BaseFontActivity() {
@@ -22,19 +19,19 @@ class DraggableViewActivity : BaseFontActivity() {
 
         draggableView.setDraggableListener(object : DraggableListener {
             override fun onMaximized() {
-                LLog.d(TAG, "onMaximized")
+                logD("onMaximized")
             }
 
             override fun onMinimized() {
-                LLog.d(TAG, "onMinimized")
+               logD("onMinimized")
             }
 
             override fun onClosedToLeft() {
-                LLog.d(TAG, "onClosedToLeft")
+                logD("onClosedToLeft")
             }
 
             override fun onClosedToRight() {
-                LLog.d(TAG, "onClosedToRight")
+                logD("onClosedToRight")
             }
         })
     }

@@ -3,7 +3,6 @@ package vn.loitp.app.activity.database.sharedprefsencryption
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
-import com.core.utilities.LLog
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
@@ -101,9 +100,9 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val type = object : TypeToken<List<User>>() {
             }.type
             val value = LEncryptionSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, User::class.java, type)
-            LLog.d(TAG, "list size: " + value.size)
+            logD("list size: " + value.size)
             for (i in value.indices) {
-                LLog.d(TAG, "$i -> ${value[i].fullName}")
+                logD("$i -> ${value[i].fullName}")
             }
             showLong("Value: " + LApplication.gson.toJson(value))
         }

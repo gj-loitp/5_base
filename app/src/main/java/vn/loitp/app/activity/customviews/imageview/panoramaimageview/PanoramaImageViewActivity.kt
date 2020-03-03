@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.imageview.panoramaimageview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.imageview.panorama.GyroscopeObserver
 import com.views.imageview.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.activity_panorama_imageview.*
@@ -39,7 +38,7 @@ class PanoramaImageViewActivity : BaseFontActivity() {
 // Set GyroscopeObserver for PanoramaImageView.
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver)
         panoramaImageView.setOnPanoramaScrollListener { _: LPanoramaImageView?, offsetProgress: Float ->
-            LLog.d(TAG, "onScrolled offsetProgress $offsetProgress")
+            logD("onScrolled offsetProgress $offsetProgress")
         }
     }
 

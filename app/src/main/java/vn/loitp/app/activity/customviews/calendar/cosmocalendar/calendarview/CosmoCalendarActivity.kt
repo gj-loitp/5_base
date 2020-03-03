@@ -7,7 +7,6 @@ import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
 import com.views.calendar.cosmocalendar.selection.RangeSelectionManager
@@ -170,7 +169,6 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun logSelectedDaysMenuClick() {
         showShort("Selected " + calendarView.selectedDays.size)
-        LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
     }
 
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {
@@ -213,7 +211,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun addDefaultRange() {
         calendarView.selectionManager = RangeSelectionManager {
-            LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
+            logD("logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
         }
         if (calendarView.selectionManager is RangeSelectionManager) {
             calendarView.clearSelections()

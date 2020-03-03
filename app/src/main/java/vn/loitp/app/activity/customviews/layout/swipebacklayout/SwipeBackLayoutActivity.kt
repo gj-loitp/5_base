@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.RadioGroup
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.layout.swipeback.SwipeBackLayout.OnSwipeBackListener
@@ -41,13 +40,13 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
 
         swipeBackLayout.setSwipeBackListener(object : OnSwipeBackListener {
             override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
-                LLog.d(TAG, "onViewPositionChanged swipeBackFraction $swipeBackFraction")
+                logD("onViewPositionChanged swipeBackFraction $swipeBackFraction")
                 val newY = screenH * swipeBackFraction
                 view.translationY = newY
             }
 
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
-                LLog.d(TAG, "onViewSwipeFinished")
+                logD("onViewSwipeFinished")
                 if (isEnd) {
                     finish()
                     LActivityUtil.transActivityNoAniamtion(activity)
@@ -65,7 +64,7 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
     }
 
     override fun onDestroy() {
-        LLog.d(TAG, "onDestroy")
+        logD("onDestroy")
         super.onDestroy()
     }
 }

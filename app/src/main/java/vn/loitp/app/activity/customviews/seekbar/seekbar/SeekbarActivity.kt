@@ -2,10 +2,7 @@ package vn.loitp.app.activity.customviews.seekbar.seekbar
 
 import android.os.Bundle
 import android.widget.SeekBar
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
-
 import vn.loitp.app.R
 
 class SeekbarActivity : BaseFontActivity() {
@@ -15,15 +12,15 @@ class SeekbarActivity : BaseFontActivity() {
         val sb = findViewById<SeekBar>(R.id.sb)
         sb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                LLog.d(TAG, "onProgressChanged $progress")
+                logD("onProgressChanged $progress")
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
-                LLog.d(TAG, "onStartTrackingTouch")
+                logD("onStartTrackingTouch")
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                LLog.d(TAG, "onStopTrackingTouch")
+                logD("onStopTrackingTouch")
             }
         })
     }

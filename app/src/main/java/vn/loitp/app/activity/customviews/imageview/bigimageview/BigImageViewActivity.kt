@@ -4,7 +4,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -33,13 +32,13 @@ class BigImageViewActivity : BaseFontActivity() {
             }
 
             override fun onProgress(progress: Int) {
-                LLog.d(TAG, "onProgress $progress")
+                logD("onProgress $progress")
             }
 
             override fun onFinish() {}
 
             override fun onSuccess(image: File) {
-                LLog.d(TAG, "onSuccess")
+                logD("onSuccess")
                 val ssiv = bigImageView.ssiv
                 if (ssiv != null) {
                     ssiv.isZoomEnabled = true

@@ -13,7 +13,6 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -45,7 +44,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
         LAVLoadingIndicatorView = findViewById(R.id.av)
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        LLog.d(TAG, "admobBannerUnitId $admobBannerUnitId")
+        logD("admobBannerUnitId $admobBannerUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
@@ -63,7 +62,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        LLog.d(TAG, "bkgRootView $bkgRootView")
+        logD("bkgRootView $bkgRootView")
         if (bkgRootView == Constants.NOT_FOUND) {
             rootView?.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         } else {

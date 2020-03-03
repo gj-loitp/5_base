@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.pdf
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LStoreUtil
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
@@ -89,8 +88,8 @@ class PdfDemoActivity : BaseFontActivity() {
         asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, object : AsyncTaskDownloadPdf.Callback {
 
             override fun onSuccess(durationSec: Long, durationHHmmss: String, file: File) {
-                LLog.d(TAG, "onSuccess $durationSec - $durationHHmmss")
-                LLog.d(TAG, "onSuccess " + file.path)
+                logD("onSuccess $durationSec - $durationHHmmss")
+                logD("onSuccess " + file.path)
                 showShort("onSuccess after $durationSec seconds")
                 pdfView.visibility = View.VISIBLE
                 showPDF(file)
@@ -98,12 +97,12 @@ class PdfDemoActivity : BaseFontActivity() {
             }
 
             override fun onError(e: Exception) {
-                LLog.d(TAG, "onError")
+                logE("onError $e")
                 updateUIProgress(isLoadding = false)
             }
 
             override fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float) {
-                LLog.d(TAG, "onProgressUpdate $downloadedSize - $totalSize - $percent")
+                logD("onProgressUpdate $downloadedSize - $totalSize - $percent")
                 pb.progress = percent.toInt()
             }
         })
@@ -144,7 +143,7 @@ class PdfDemoActivity : BaseFontActivity() {
                     }
                 },
                 resultFile = { file ->
-                    LLog.d(TAG, "GetPdfTask ${file?.path}")
+                    logD("GetPdfTask ${file?.path}")
                     pdfView.visibility = View.VISIBLE
                     file?.let { f ->
                         showPDF(f)
@@ -213,18 +212,32 @@ class PdfDemoActivity : BaseFontActivity() {
                 .swipeHorizontal(true)
                 .enableDoubletap(true)
                 .defaultPage(0)
-                .onLoad { nbPages -> LLog.d(TAG, "loadComplete $nbPages") } // called after document is loaded and starts to be rendered
-                .onPageChange { page, pageCount -> LLog.d(TAG, "onPageChange $page/$pageCount") }
-                .onPageScroll { page, positionOffset -> LLog.d(TAG, "onPageScrolled $page - $positionOffset") }
-                .onError { t -> LLog.e(TAG, "onError $t") }
-                .onPageError { page, t -> LLog.e(TAG, "onPageError $page -> $t") }
-                .onRender { nbPages -> LLog.d(TAG, "onInitiallyRendered nbPages $nbPages") } // called after document is rendered for the first time
+                .onLoad { nbPages ->
+                    logD("loadComplete $nbPages")
+                } // called after document is loaded and starts to be rendered
+                .onPageChange { page, pageCount ->
+                    logD("onPageChange $page/$pageCount")
+                }
+                .onPageScroll { page, positionOffset ->
+                    logD("onPageScrolled $page - $positionOffset")
+                }
+                .onError { t ->
+                    logE("onError $t")
+                }
+                .onPageError { page, t ->
+                    logE("onPageError $page -> $t")
+                }
+                .onRender { nbPages ->
+                    logD("onInitiallyRendered nbPages $nbPages")
+                } // called after document is rendered for the first time
                 // called on single tap, return true if handled, false to toggle scroll handle visibility
                 .onTap { _ ->
-                    LLog.d(TAG, "onTap")
+                    logD("onTap")
                     false
                 }
-                .onLongPress { _ -> LLog.d(TAG, "OnLongPressListener") }
+                .onLongPress { _ ->
+                    logD("OnLongPressListener")
+                }
                 .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
                 .password(null)
                 .scrollHandle(DefaultScrollHandle(this))

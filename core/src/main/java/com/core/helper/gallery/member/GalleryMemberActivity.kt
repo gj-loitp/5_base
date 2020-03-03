@@ -20,11 +20,9 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.google.gson.Gson
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -68,7 +66,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         rootView.setBackgroundResource(resBkgRootView)
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        LLog.d(TAG, "adUnitId $adUnitId")
+        logD("adUnitId $adUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
@@ -93,9 +91,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             handleException(Exception(getString(R.string.err_unknow)))
             return
         }
-        LLog.d(TAG, "photosetID $photosetID")
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-        LLog.d(TAG, "photosSize $photosSize")
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
@@ -141,7 +137,6 @@ class GalleryMemberActivity : BaseFontActivity() {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        LLog.d(TAG, "last item")
                         photosetsGetPhotos(photosetID!!)
                     }
                 }
@@ -170,8 +165,6 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun init() {
-        LLog.d(TAG, "init photosSize $photosSize")
-
         totalPage = if (photosSize % PER_PAGE_SIZE == 0) {
             photosSize / PER_PAGE_SIZE
         } else {
@@ -202,7 +195,6 @@ class GalleryMemberActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    LLog.d(TAG, "photosetsGetList onSuccess " + Gson().toJson(wrapperPhotosetGetlist))
                     for (photoset in wrapperPhotosetGetlist.photosets.photoset) {
                         if (photoset.id == photosetID) {
                             photosSize = Integer.parseInt(photoset.photos)
@@ -211,7 +203,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                         }
                     }
                 }, { e ->
-                    LLog.e(TAG, "photosetsGetList onFail $e")
+                    logE("photosetsGetList onFail $e")
                     handleException(e)
                     LAVLoadingIndicatorView.smoothToHide()
                 }))
@@ -219,10 +211,10 @@ class GalleryMemberActivity : BaseFontActivity() {
 
     private fun photosetsGetPhotos(photosetID: String) {
         if (isLoading) {
-            LLog.d(TAG, "photosetsGetList isLoading true -> return")
+            logD("photosetsGetList isLoading true -> return")
             return
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos $currentPage/$totalPage")
+        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
         LAVLoadingIndicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
@@ -230,7 +222,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return")
+            logD("currentPage <= 0 -> return")
             currentPage = 0
             LAVLoadingIndicatorView.smoothToHide()
             return
@@ -243,7 +235,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
-                    LLog.d(TAG, "photosetsGetPhotos $currentPage/$totalPage")
+                    logD("photosetsGetPhotos $currentPage/$totalPage")
 
                     val s = wrapperPhotosetGetPhotos.photoset.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
@@ -255,7 +247,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                     isLoading = false
                     currentPage--
                 }, { e ->
-                    LLog.e(TAG, "photosetsGetPhotos onFail $e")
+                    logE("photosetsGetPhotos onFail $e")
                     handleException(e)
                     LAVLoadingIndicatorView.smoothToHide()
                     isLoading = true
@@ -301,23 +293,23 @@ class GalleryMemberActivity : BaseFontActivity() {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now")
+                            logD("onPermissionsChecked do you work now")
                             goToHome()
                         } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted")
+                            logD("!areAllPermissionsGranted")
                             showShouldAcceptPermission()
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings")
+                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
                             showSettingsDialog()
                         }
                         isShowDialogCheck = true
                     }
 
                     override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown")
+                        logD("onPermissionRationaleShouldBeShown")
                         token.continuePermissionRequest()
                     }
                 })

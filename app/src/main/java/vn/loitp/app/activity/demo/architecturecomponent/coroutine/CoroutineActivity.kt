@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_coroutine.*
@@ -63,7 +62,7 @@ class CoroutineActivity : BaseFontActivity() {
         repeat(100_000) {
             // launch 100_000 coroutines
             launch {
-                LLog.d(TAG, "hello " + System.currentTimeMillis())
+                logD("hello " + System.currentTimeMillis())
             }
         }
     }
@@ -72,31 +71,31 @@ class CoroutineActivity : BaseFontActivity() {
         newSingleThreadContext("thread1").use { ctx1 ->
             // tạo một context là ctx1 chứ chưa launch coroutine.
             // ctx1 sẽ có 1 element là dispatcher quyết định coroutine sẽ chạy trên 1 thread tên là thread1
-            LLog.d(TAG, "ctx1 - ${Thread.currentThread().name}")
+            logD("ctx1 - ${Thread.currentThread().name}")
 
             newSingleThreadContext("thread2").use { ctx2 ->
                 // tạo một context là ctx2 chứ vẫn chưa launch coroutine
                 // ctx2 sẽ có 1 element là dispatcher quyết định coroutine sẽ chạy trên 1 thread tên là thread2
-                LLog.d(TAG, "ctx2 - ${Thread.currentThread().name}")
+                logD("ctx2 - ${Thread.currentThread().name}")
 
                 // bắt đầu chạy coroutine với context là ctx1
                 runBlocking(ctx1) {
                     // coroutine đang chạy trên context ctx1 và trên thread thread1
-                    LLog.d(TAG, "Started in ctx1 - ${Thread.currentThread().name}")
+                    logD("Started in ctx1 - ${Thread.currentThread().name}")
 
                     // sử dụng hàm withContext để chuyển đổi context từ ctx1 qua ctx2
                     withContext(ctx2) {
                         // coroutine đang chạy với context ctx2 và trên thread thread2
-                        LLog.d(TAG, "Working in ctx2 - ${Thread.currentThread().name}")
+                        logD("Working in ctx2 - ${Thread.currentThread().name}")
                     }
 
                     // coroutine đã thoát ra block withContext nên sẽ chạy lại với context ctx1 và trên thread thread1
-                    LLog.d(TAG, "Back to ctx1 - ${Thread.currentThread().name}")
+                    logD("Back to ctx1 - ${Thread.currentThread().name}")
                 }
             }
-            LLog.d(TAG, "out of ctx2 block - ${Thread.currentThread().name}")
+            logD("out of ctx2 block - ${Thread.currentThread().name}")
         }
-        LLog.d(TAG, "out of ctx1 block - ${Thread.currentThread().name}")
+        logD("out of ctx1 block - ${Thread.currentThread().name}")
     }
 
     private fun testJoin() {
@@ -104,11 +103,11 @@ class CoroutineActivity : BaseFontActivity() {
             val job = GlobalScope.launch {
                 // launch a new coroutine and keep a reference to its Job
                 delay(5000L)
-                LLog.d(TAG, "World!")
+                logD("World!")
             }
-            LLog.d(TAG, "Hello,")
+            logD("Hello,")
             job.join() // wait until child coroutine completes
-            LLog.d(TAG, "Kotlin")
+            logD("Kotlin")
         }
     }
 
@@ -117,18 +116,18 @@ class CoroutineActivity : BaseFontActivity() {
             val job = launch {
                 try {
                     repeat(1000) { i ->
-                        LLog.d(TAG, "I'm sleeping $i")
+                        logD("I'm sleeping $i")
                         delay(500L)
                     }
                 } finally {
                     // Tranh thủ close resource trong này đi nha :D
-                    LLog.d(TAG, "I'm running finally")
+                    logD("I'm running finally")
                 }
             }
             delay(1300L) // delay a bit
-            LLog.d(TAG, "I'm tired of waiting!")
+            logD("I'm tired of waiting!")
             job.cancel() // cancels the job
-            LLog.d(TAG, "Now I can quit.")
+            logD("Now I can quit.")
         }
     }
 
@@ -146,9 +145,9 @@ class CoroutineActivity : BaseFontActivity() {
             val time = measureTimeMillis {
                 val one = async { getOne() }
                 val two = async { getTwo() }
-                LLog.d(TAG, "total: ${one.await() + two.await()}")
+                logD("total: ${one.await() + two.await()}")
             }
-            LLog.d(TAG, "testCompose time: $time ms")
+            logD("testCompose time: $time ms")
         }
     }
 
@@ -156,11 +155,11 @@ class CoroutineActivity : BaseFontActivity() {
         runBlocking {
             val result = withTimeoutOrNull(timeMillis = 10000) {
                 repeat(1000) { i ->
-                    LLog.d(TAG, "testTimeOut $i: " + System.currentTimeMillis())
+                    logD("testTimeOut $i: " + System.currentTimeMillis())
                     delay(500)
                 }
             }
-            LLog.d(TAG, "testTimeOut result: $result")
+            logD("testTimeOut result: $result")
         }
     }
 

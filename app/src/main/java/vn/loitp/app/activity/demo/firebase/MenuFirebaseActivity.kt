@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu_firebase.*
@@ -77,7 +76,7 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
                         return@OnCompleteListener
                     }
                     val fcmToken = task.result?.token
-                    LLog.d(TAG, "FCM token: $fcmToken")
+                    logD("FCM token: $fcmToken")
                     showDialogMsg("getFCMToken fcmToken: $fcmToken")
                 })
     }
@@ -87,12 +86,12 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
             try {
                 FirebaseInstanceId.getInstance().deleteInstanceId()
                 FirebaseInstanceId.getInstance().instanceId
-                LLog.d(TAG, "InstanceId removed and regenerated.")
+                logD("InstanceId removed and regenerated.")
                 runOnUiThread {
                     showDialogMsg("resetInstanceId success")
                 }
             } catch (e: IOException) {
-                LLog.e(TAG, "resetInstanceId $e")
+                logE("resetInstanceId $e")
                 showDialogError("resetInstanceId failed: $e")
             }
         }).start()

@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.seekbar.boxedvertical.LBoxedVertical
 import vn.loitp.app.R
 import java.util.*
@@ -23,19 +22,19 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
 
         bv.setOnBoxedPointsChangeListener(object : LBoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: LBoxedVertical, value: Int) {
-                LLog.d(TAG, "onPointsChanged $value")
+                logD("onPointsChanged $value")
                 stringList.add(0, "onPointsChanged $value")
                 print()
             }
 
             override fun onStartTrackingTouch(boxedPoints: LBoxedVertical) {
-                LLog.d(TAG, "onStartTrackingTouch")
+                logD("onStartTrackingTouch")
                 stringList.add(0, "onStartTrackingTouch")
                 print()
             }
 
             override fun onStopTrackingTouch(boxedPoints: LBoxedVertical) {
-                LLog.d(TAG, "onStopTrackingTouch")
+                logD("onStopTrackingTouch")
                 stringList.add(0, "onStopTrackingTouch")
                 print()
                 bv.setBackgroundColor(Color.RED)

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.TypedValue
 import android.widget.TextView
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
 import vn.loitp.app.R
@@ -143,7 +142,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
     }
 
     private fun showMsg(msg: String) {
-        LLog.d(TAG, msg)
+        logD(msg)
         val tv = TextView(activity)
         tv.text = msg
         LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 10)

@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -40,7 +39,7 @@ class FbCommentActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        LLog.d(TAG, "adUnitId $adUnitId")
+        logD("adUnitId $adUnitId")
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
@@ -195,7 +194,7 @@ class FbCommentActivity : BaseFontActivity() {
         }
 
         override fun onConsoleMessage(cm: ConsoleMessage): Boolean {
-            LLog.d(TAG, "onConsoleMessage: " + cm.message())
+            logD("onConsoleMessage: " + cm.message())
             return true
         }
 

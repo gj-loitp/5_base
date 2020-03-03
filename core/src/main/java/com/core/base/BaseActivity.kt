@@ -29,15 +29,13 @@ import org.greenrobot.eventbus.ThreadMode
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected lateinit var activity: Activity
-    protected lateinit var TAG: String
-    //protected boolean isShowTvConnectStt = false;
+    protected var TAG: String? = null
 
     protected var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
     protected var isIdleTime = false
 
-    //protected var rootView: RelativeLayout? = null
     private var interstitialAd: InterstitialAd? = null
     protected var isShowAdWhenExit = false
     protected var isShowAnimWhenExit = true
@@ -79,12 +77,10 @@ abstract class BaseActivity : AppCompatActivity() {
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
                     override fun onConnected() {
-                        //LLog.d(TAG, "OnNetworkConnectionChangeListener onConnected")
                         LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = true)
                     }
 
                     override fun onDisconnected() {
-                        //LLog.d(TAG, "OnNetworkConnectionChangeListener onDisconnected")
                         LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = false)
                     }
 
@@ -99,21 +95,6 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isShowAdWhenExit) {
             interstitialAd = LUIUtil.createAdFull(activity)
         }
-
-//        val view = activity.findViewById<View>(R.id.scroll_view)
-//        view?.let { v ->
-//            if (v is ScrollView) {
-//                LUIUtil.setPullLikeIOSVertical(v)
-//            } else if (v is NestedScrollView) {
-//                LUIUtil.setPullLikeIOSVertical(v)
-//            }
-//        }
-
-//        try {
-//            rootView = activity.findViewById(R.id.root_view)
-//        } catch (e: ClassCastException) {
-//            Log.e(TAG, "ClassCastException $e")
-//        }
     }
 
     override fun onUserInteraction() {
@@ -131,11 +112,10 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
-        LLog.d(TAG, "onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
+        logD("onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
     open fun startIdleTimeHandler(delayMls: Long) {
-        //LLog.d(TAG, "startIdleTimeHandler delayMls: $delayMls")
         delayMlsIdleTime = delayMls
         handlerIdleTime = Handler()
         runnableIdleTime = Runnable {
@@ -185,7 +165,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun handleException(throwable: Throwable) {
-        LLog.e(TAG, "handleException: $throwable")
+        logE("handleException: $throwable")
         showDialogError("Error: $throwable")
     }
 
@@ -224,14 +204,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
-        //TAG = "onMessageEvent"
-        //LLog.d(TAG, "onMessageEvent isConnected: " + event.isConnected)
         onNetworkChange(event)
-        /*if (event.isConnected) {
-            hideTvNoConnect()
-        } else {
-            showTvNoConnect()
-        }*/
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
@@ -258,5 +231,17 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
+    }
+
+    protected fun logD(msg: String) {
+        TAG?.let {
+            LLog.d(it, msg)
+        }
+    }
+
+    protected fun logE(msg: String) {
+        TAG?.let {
+            LLog.e(it, msg)
+        }
     }
 }

@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import vn.loitp.app.R
@@ -58,7 +57,6 @@ class AnimationViewActivity : BaseFontActivity() {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Choose:")
         builder.setItems(arr) { _, position ->
-            LLog.d(TAG, "onClick $position")
             if (tvGuide?.visibility != View.VISIBLE) {
                 tvGuide?.visibility = View.VISIBLE
             }

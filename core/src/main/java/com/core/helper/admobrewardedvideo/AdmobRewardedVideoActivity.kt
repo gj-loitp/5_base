@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.R
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.google.android.gms.ads.AdRequest
@@ -87,7 +86,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     private fun displayRewardAd() {
-        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd?.isLoaded)
+        logD("displayRewardAd isLoaded: " + mAd?.isLoaded)
         if (mAd?.isLoaded == true) {
             mAd?.show()
         } else {
@@ -96,40 +95,39 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     override fun onRewarded(reward: RewardItem) {
-        LLog.d(TAG, "onRewarded")
+        logD("onRewarded")
         onBackPressed()
     }
 
     override fun onRewardedVideoAdLeftApplication() {
-        LLog.d(TAG, "onRewardedVideoAdLeftApplication")
+        logD("onRewardedVideoAdLeftApplication")
     }
 
     override fun onRewardedVideoAdClosed() {
-        LLog.d(TAG, "onRewardedVideoAdClosed")
+        logD("onRewardedVideoAdClosed")
     }
 
     override fun onRewardedVideoAdFailedToLoad(errorCode: Int) {
-        LLog.d(TAG, "onRewardedVideoAdFailedToLoad $errorCode")
+        logD("onRewardedVideoAdFailedToLoad $errorCode")
         onBackPressed()
     }
 
     override fun onRewardedVideoCompleted() {
-        LLog.d(TAG, "onRewardedVideoCompleted")
+        logD("onRewardedVideoCompleted")
     }
 
     override fun onRewardedVideoAdLoaded() {
-        LLog.d(TAG, "onRewardedVideoAdLoaded")
-        //avLoadingIndicatorView.smoothToHide();
+        logD("onRewardedVideoAdLoaded")
         tv.setText(R.string.open_gift)
         LAnimationUtil.play(rootView, Techniques.Pulse)
         animationViewGift.playAnimation()
     }
 
     override fun onRewardedVideoAdOpened() {
-        LLog.d(TAG, "onRewardedVideoAdOpened")
+        logD("onRewardedVideoAdOpened")
     }
 
     override fun onRewardedVideoStarted() {
-        LLog.d(TAG, "onRewardedVideoStarted")
+        logD("onRewardedVideoStarted")
     }
 }

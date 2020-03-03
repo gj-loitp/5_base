@@ -72,7 +72,6 @@ class SplashActivity : BaseFontActivity() {
                         override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                             // check if all permissions are granted
                             if (report.areAllPermissionsGranted()) {
-                                LLog.d(TAG, "onPermissionsChecked do you work now")
                                 val isNeedCheckReady = false
                                 if (isNeedCheckReady) {
                                     checkReady()
@@ -81,20 +80,17 @@ class SplashActivity : BaseFontActivity() {
                                     goToHome()
                                 }
                             } else {
-                                LLog.d(TAG, "!areAllPermissionsGranted")
                                 showShouldAcceptPermission()
                             }
 
                             // check for permanent denial of any permission
                             if (report.isAnyPermissionPermanentlyDenied) {
-                                LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings")
                                 showSettingsDialog()
                             }
                             isShowDialogCheck = true
                         }
 
                         override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                            LLog.d(TAG, "onPermissionRationaleShouldBeShown")
                             token.continuePermissionRequest()
                         }
                     })
@@ -155,13 +151,12 @@ class SplashActivity : BaseFontActivity() {
             goToHome()
             return
         }
-        LLog.d(TAG, "checkReady")
         val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
         val request = Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build()
         val okHttpClient = OkHttpClient()
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                LLog.d(TAG, "onFailure $e")
+                logE("onFailure $e")
                 showDialogNotReady()
             }
 
@@ -170,7 +165,7 @@ class SplashActivity : BaseFontActivity() {
                 if (response.isSuccessful) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     val versionServer = Integer.parseInt(response.body()!!.string())
-                    LLog.d(TAG, "onResponse $versionServer")
+                    logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
                         LPrefUtil.setCheckAppReady(activity, true)
@@ -179,7 +174,7 @@ class SplashActivity : BaseFontActivity() {
                         showDialogNotReady()
                     }
                 } else {
-                    LLog.d(TAG, "onResponse !isSuccessful: $response")
+                    logD("onResponse !isSuccessful: $response")
                     showDialogNotReady()
                 }
             }
@@ -235,8 +230,7 @@ class SplashActivity : BaseFontActivity() {
             }
 
             override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
-                //LPrefUtil.setGGAppSetting(activity, app);
+                logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
             }
         })
     }

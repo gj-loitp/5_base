@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
@@ -44,7 +43,6 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
         nv.setStringList(stringList)
         nv.setNVCallback(object : LTextNavigationView.NVCallback {
             override fun onIndexChange(index: Int, s: String?) {
-                LLog.d(TAG, "onIndexChange $index -> $s")
                 tvMsg?.text = "$index -> $s"
             }
         })

@@ -14,7 +14,10 @@ import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.core.utilities.*
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.karumi.dexter.Dexter
@@ -40,7 +43,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        LLog.d(TAG, "admobBannerUnitId $admobBannerUnitId")
+       logD("admobBannerUnitId $admobBannerUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
         if (admobBannerUnitId == null || admobBannerUnitId!!.isEmpty()) {
             lnAdview.visibility = View.GONE
@@ -60,7 +63,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         }
         LImageUtil.load(activity, urlCoverSplashScreen, ivBkg)
         bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        LLog.d(TAG, "bkgRootView $bkgRootView")
+        logD("bkgRootView $bkgRootView")
         if (bkgRootView == Constants.NOT_FOUND) {
             rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         } else {
@@ -130,23 +133,23 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now")
+                            logD("onPermissionsChecked do you work now")
                             goToHome()
                         } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted")
+                            logD("!areAllPermissionsGranted")
                             showShouldAcceptPermission()
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings")
+                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
                             showSettingsDialog()
                         }
                         isShowDialogCheck = true
                     }
 
                     override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown")
+                        logD("onPermissionRationaleShouldBeShown")
                         token.continuePermissionRequest()
                     }
                 })

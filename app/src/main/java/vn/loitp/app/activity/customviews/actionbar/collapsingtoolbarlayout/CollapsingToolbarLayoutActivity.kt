@@ -7,7 +7,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LPopupMenu
 import com.google.android.material.snackbar.Snackbar
 import com.views.LAppBarLayout
@@ -31,11 +30,11 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
             override fun onStateChange(toolbarChange: LAppBarLayout.State) {
                 when (toolbarChange) {
                     LAppBarLayout.State.COLLAPSED -> //COLLAPSED appBarLayout min
-                        LLog.d(TAG, "COLLAPSED toolbarChange: $toolbarChange")
+                        logD("COLLAPSED toolbarChange: $toolbarChange")
                     LAppBarLayout.State.EXPANDED -> //EXPANDED appBarLayout max
-                        LLog.d(TAG, "EXPANDED toolbarChange: $toolbarChange")
+                        logD("EXPANDED toolbarChange: $toolbarChange")
                     else -> //IDLE appBarLayout not min not max
-                        LLog.d(TAG, "IDLE toolbarChange: $toolbarChange")
+                        logD("IDLE toolbarChange: $toolbarChange")
                 }
             }
         })

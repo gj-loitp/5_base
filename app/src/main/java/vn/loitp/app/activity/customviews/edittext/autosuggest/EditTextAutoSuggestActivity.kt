@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.LToast
 import com.views.edittext.autosuggest.LAutoSuggestEditText
@@ -15,7 +14,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
@@ -69,7 +67,6 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     }
 
     private fun fakeCallAPI0(text: String) {
-        LLog.d(TAG, "fakeCallAPI0 $text")
         disposableSearch?.dispose()
         if (text.isEmpty()) {
             return
@@ -87,22 +84,19 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnDispose {
-                    LLog.d(TAG, "doOnDispose")
+                    logD("doOnDispose")
                 }
                 .subscribe(
                         {
-                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
                             aet0.setResultList(it)
                         },
                         {
-                            LLog.e(TAG, "fakeCallAPI0 $it")
                             aet0.clearResultList()
                         }
                 )
     }
 
     private fun fakeCallAPI1(text: String) {
-        LLog.d(TAG, "fakeCallAPI0 $text")
         disposableSearch?.dispose()
         if (text.isEmpty()) {
             return
@@ -120,15 +114,13 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnDispose {
-                    LLog.d(TAG, "doOnDispose")
+                    logD("doOnDispose")
                 }
                 .subscribe(
                         {
-                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
                             aet1.setResultList(it)
                         },
                         {
-                            LLog.e(TAG, "fakeCallAPI0 $it")
                             aet1.clearResultList()
                         }
                 )

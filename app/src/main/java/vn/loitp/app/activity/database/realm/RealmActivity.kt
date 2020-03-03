@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.views.LToast
 import com.views.setSafeOnClickListener
 import io.realm.Realm
@@ -153,7 +152,7 @@ class RealmActivity : BaseFontActivity() {
         showInputDialog(object : InputCallback {
             override fun onText(text: String?) {
                 text?.let {
-                    LLog.d(TAG, "searchById $it")
+                    logD("searchById $it")
                     try {
                         val id: Long = it.toLong()
                         val mb = RealmController.getInstance(activity).getMyBook(id)

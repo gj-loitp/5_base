@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
-import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_view_model.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
@@ -22,7 +21,6 @@ class ViewModelActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LLog.d(TAG, "onCreate")
 
         colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
         colorChangerViewModel.colorResource.observe(this, Observer {
@@ -50,9 +48,9 @@ class ViewModelActivity : BaseFontActivity() {
         var countToStop = 0
         timeChangerViewModel.timerValue.observe(this, Observer {
             countToStop++
-            LLog.d(TAG, "countToStop $countToStop")
+            logD("countToStop $countToStop")
             if (countToStop >= 15) {
-                LLog.d(TAG, "countToStop $countToStop -> STOP")
+                logD("countToStop $countToStop -> STOP")
                 tvTime.text = "countToStop: $countToStop -> STOP"
                 timeChangerViewModel.timerValue.removeObservers(this)
                 return@Observer

@@ -11,7 +11,6 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_l_edit_text.*
@@ -48,7 +47,6 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun onTextChanged(s: String) {
-                    LLog.d(TAG, "onTextChanged s: $s")
                     if (s.isEmpty()) {
                         ivRight.visibility = View.GONE
                     } else {
@@ -58,7 +56,7 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
-                    LLog.d(TAG, "setOnFocusChangeListener isFocus: $isFocus")
+                    logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
 
             }
@@ -97,7 +95,6 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun onTextChanged(s: String) {
-                    LLog.d(TAG, "onTextChanged s: $s")
                     if (s.isEmpty()) {
                         ivRight.visibility = View.GONE
                     } else {
@@ -107,7 +104,7 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
-                    LLog.d(TAG, "setOnFocusChangeListener isFocus: $isFocus")
+                    logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
 
             }
