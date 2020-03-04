@@ -32,6 +32,11 @@
                 android:text="Crop" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNumbePicker"
+                style="@style/ButtonMenu"
+                android:text="Number Picker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTedImagePicker"
                 style="@style/ButtonMenu"
                 android:text="TedImagePicker" />

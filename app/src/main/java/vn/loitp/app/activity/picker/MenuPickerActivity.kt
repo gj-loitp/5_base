@@ -10,6 +10,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
+import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
 import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
 
@@ -21,6 +22,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         btImagePickerWithCrop.setOnClickListener(this)
         btCrop.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
+        btNumbePicker.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -43,6 +45,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
             btCrop -> intent = Intent(activity, CropActivity::class.java)
             btTedImagePicker -> intent = Intent(activity, DemoTedImagePickerActivity::class.java)
             btTimePicker -> intent = Intent(activity, TimePickerActivity::class.java)
+            btNumbePicker -> intent = Intent(activity, NumberPickerActivity::class.java)
         }
         intent?.let {
             startActivity(it)
