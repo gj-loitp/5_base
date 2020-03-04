@@ -12,6 +12,7 @@ import java.util.*
 class TimePickerActivity : BaseFontActivity() {
 
     private var picker: TimePickerDialog? = null
+    private var pickerRange: RangeTimePickerDialog? = null
 
     override fun setFullScreen(): Boolean {
         return false
@@ -46,6 +47,23 @@ class TimePickerActivity : BaseFontActivity() {
                         btDialog.text = "$sHour - $sMinute"
                     }, hour, minutes, true)
             picker?.show()
+        }
+
+        btDialogRange.setSafeOnClickListener {
+            val cal: Calendar = Calendar.getInstance()
+            val hour: Int = cal.get(Calendar.HOUR_OF_DAY)
+            val minutes: Int = cal.get(Calendar.MINUTE)
+            pickerRange = RangeTimePickerDialog(activity,
+                    TimePickerDialog.OnTimeSetListener { tp, sHour, sMinute ->
+                        btDialogRange.text = "$sHour - $sMinute"
+                        logD("$sHour - $sMinute")
+                    }, hour, minutes, true)
+
+            pickerRange?.let {
+                it.setMin(5, 30)
+                it.setMax(10, 20)
+                it.show()
+            }
         }
     }
 }
