@@ -3,20 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:background="@color/WhiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Toggle Button Group" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="SingleSelectToggleGroup with RadioButton" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-        android:id="@+id/group_single_radiobutton"
+        android:id="@+id/groupSingleRadioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="@dimen/padding_15"
         app:tbgChildSpacing="8dp">
 
         <RadioButton
@@ -63,14 +67,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
-        android:id="@+id/group_multi_custom_compoundbutton"
+        android:id="@+id/groupMultiCustomCompoundButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="@dimen/padding_15"
         app:tbgChildSpacing="8dp">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
@@ -105,15 +108,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
-        android:id="@+id/group_multi_custom_togglebutton"
+        android:id="@+id/groupMultiCustomToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="@dimen/padding_15"
         app:tbgChildSpacing="8dp">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomToggleButton
@@ -145,12 +146,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-        android:id="@+id/group_single_custom_compoundtogglebutton"
+        android:id="@+id/groupSingleCustomCompoundToggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tbgChildSpacing="auto">

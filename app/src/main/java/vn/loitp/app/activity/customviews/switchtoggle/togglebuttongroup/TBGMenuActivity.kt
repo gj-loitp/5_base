@@ -38,7 +38,7 @@ class TBGMenuActivity : BaseFontActivity() {
             LActivityUtil.tranIn(activity)
         }
         btnCustomButtonSample.setOnClickListener {
-            val intent = Intent(activity, CustomButtonActivity::class.java)
+            val intent = Intent(activity, TBGCustomButtonActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

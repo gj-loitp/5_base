@@ -10,30 +10,30 @@ import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
 
 import vn.loitp.app.R;
 
-public class CustomButtonActivity extends AppCompatActivity {
-    private static final String LOG_TAG = CustomButtonActivity.class.getSimpleName();
+public class TBGCustomButtonActivity extends AppCompatActivity {
+    private static final String LOG_TAG = TBGCustomButtonActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_button);
+        setContentView(R.layout.activity_tbg_custom_button);
         init();
     }
 
     private void init() {
-        SingleSelectToggleGroup singleRadioButton = findViewById(R.id.group_single_radiobutton);
+        SingleSelectToggleGroup singleRadioButton = findViewById(R.id.groupSingleRadioButton);
         singleRadioButton.setOnCheckedChangeListener(new SingleSelectListener());
 
         MultiSelectToggleGroup multiCustomCompoundButton =
-                findViewById(R.id.group_multi_custom_compoundbutton);
+                findViewById(R.id.groupMultiCustomCompoundButton);
         multiCustomCompoundButton.setOnCheckedChangeListener(new MultiSelectListener());
 
         MultiSelectToggleGroup multiCustomToggleButton =
-                findViewById(R.id.group_multi_custom_togglebutton);
+                findViewById(R.id.groupMultiCustomToggleButton);
         multiCustomToggleButton.setOnCheckedChangeListener(new MultiSelectListener());
 
         SingleSelectToggleGroup singleCompoundToggleButton =
-                findViewById(R.id.group_single_custom_compoundtogglebutton);
+                findViewById(R.id.groupSingleCustomCompoundToggleButton);
         singleCompoundToggleButton.setOnCheckedChangeListener(new SingleSelectListener());
     }
 

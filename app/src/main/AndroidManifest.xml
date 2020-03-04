@@ -1162,7 +1162,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.CustomButtonActivity"
+            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGCustomButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGFlowLabelActivity"
