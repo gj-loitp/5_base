@@ -188,5 +188,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.2"
     androidTestImplementation "androidx.room:room-testing:2.2.2"
     //endregion
+
+    //https://github.com/nex3z/ToggleButtonGroup
+    api 'com.nex3z:toggle-button-group:1.2.0'
 }
 apply plugin: 'com.google.gms.google-services'

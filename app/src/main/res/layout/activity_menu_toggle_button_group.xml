@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Toggle Button Group" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMultiSelectSample"
+        style="@style/ButtonMenu"
+        android:layout_marginTop="@dimen/margin_10"
+        android:text="Multi Select Sample" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSingleSelectSample"
+        style="@style/ButtonMenu"
+        android:text="Single Select Sample" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLabelSample"
+        style="@style/ButtonMenu"
+        android:text="Label Sample" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCustomButtonSample"
+        style="@style/ButtonMenu"
+        android:text="Custom Button Sample" />
+
+</LinearLayout>

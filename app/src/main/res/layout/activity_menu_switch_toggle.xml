@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -18,26 +18,30 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_appcompat_switch"
+                android:id="@+id/btAppcompatSwitch"
                 style="@style/ButtonMenu"
                 android:text="Appcompat Switch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_custom_toggle_button"
+                android:id="@+id/btCustomToggleButton"
                 style="@style/ButtonMenu"
                 android:text="Custom Toggle Button" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_toggle"
+                android:id="@+id/btToggle"
                 style="@style/ButtonMenu"
                 android:text="Toggle" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btToggleButtonGroup"
+                style="@style/ButtonMenu"
+                android:text="Toggle Button Group" />
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Switch Toggle Menu" />
 </RelativeLayout>
-
