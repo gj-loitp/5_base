@@ -33,7 +33,7 @@ class TBGMenuActivity : BaseFontActivity() {
             LActivityUtil.tranIn(activity)
         }
         btnLabelSample.setOnClickListener {
-            val intent = Intent(activity, FlowLabelActivity::class.java)
+            val intent = Intent(activity, TBGFlowLabelActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp"
-    tools:context="com.nex3z.togglebuttongroup.sample.FlowLabelActivity">
+    android:background="@color/WhiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Toggle Button Group" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupWeekdays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15"
         app:tbgChildSpacing="auto"
         app:tbgChildSpacingForLastRow="align"
         app:tbgRowSpacing="8dp">
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_sun"
+            android:id="@+id/lbSun"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SUN"/>
+            android:text="SUN" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_mon"
+            android:id="@+id/lbMon"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="MON"/>
+            android:text="MON" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_tue"
+            android:id="@+id/lbTue"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="TUE"/>
+            android:text="TUE" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_wed"
+            android:id="@+id/lbWed"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="WED"/>
+            android:text="WED" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_thu"
+            android:id="@+id/lbThu"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="THU"/>
+            android:text="THU" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_fri"
+            android:id="@+id/lbFri"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="FRI"/>
+            android:text="FRI" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
-            android:id="@+id/lb_sat"
+            android:id="@+id/lbSat"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SAT"/>
+            android:text="SAT" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
-        android:id="@+id/group_dummy"
+        android:id="@+id/groupDummy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:padding="@dimen/padding_15"
         app:tbgChildSpacing="auto"
         app:tbgChildSpacingForLastRow="align"
         app:tbgRowSpacing="8dp">
