@@ -12,7 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity
-import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.MenuToggleButtonGroupActivity
+import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.TBGMenuActivity
 
 class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
 
@@ -42,7 +42,7 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
             btAppcompatSwitch -> intent = Intent(activity, AppcompatSwitchActivity::class.java)
             btCustomToggleButton -> intent = Intent(activity, CustomToggleButtonActivity::class.java)
             btToggle -> intent = Intent(activity, ToggleActivity::class.java)
-            btToggleButtonGroup -> intent = Intent(activity, MenuToggleButtonGroupActivity::class.java)
+            btToggleButtonGroup -> intent = Intent(activity, TBGMenuActivity::class.java)
         }
         intent?.let {
             startActivity(it)

@@ -1168,13 +1168,13 @@
             android:name=".activity.customviews.switchtoggle.togglebuttongroup.FlowLabelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.MenuToggleButtonGroupActivity"
+            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.switchtoggle.togglebuttongroup.MultiSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.SingleSelectActivity"
+            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGSingleSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

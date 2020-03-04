@@ -1,46 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context="com.nex3z.togglebuttongroup.sample.SingleSelectActivity">
+    android:background="@color/WhiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Single click" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-        android:id="@+id/group_choices"
-        android:layout_width="match_parent"
+        android:id="@+id/groupChoices"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:tbgCheckedButton="@+id/choice_a">
+        android:padding="@dimen/padding_15"
+        app:tbgCheckedButton="@+id/choiceA">
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choice_a"
+            android:id="@+id/choiceA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="A"/>
+            android:text="A"
+            android:textSize="16sp" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choice_b"
+            android:id="@+id/choiceB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="B"/>
+            android:text="B"
+            android:textSize="16sp" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choice_c"
+            android:id="@+id/choiceC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="C"/>
+            android:text="C"
+            android:textSize="16sp" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choice_d"
+            android:id="@+id/choiceD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="D"/>
+            android:text="D"
+            android:textSize="16sp" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 

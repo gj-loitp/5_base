@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_toggle_button_group.*
+import kotlinx.android.synthetic.main.activity_tbg_menu.*
 import vn.loitp.app.R
 
-class MenuToggleButtonGroupActivity : BaseFontActivity() {
+class TBGMenuActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
@@ -17,7 +17,7 @@ class MenuToggleButtonGroupActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_toggle_button_group
+        return R.layout.activity_tbg_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MenuToggleButtonGroupActivity : BaseFontActivity() {
             LActivityUtil.tranIn(activity)
         }
         btnSingleSelectSample.setOnClickListener {
-            val intent = Intent(activity, SingleSelectActivity::class.java)
+            val intent = Intent(activity, TBGSingleSelectActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
