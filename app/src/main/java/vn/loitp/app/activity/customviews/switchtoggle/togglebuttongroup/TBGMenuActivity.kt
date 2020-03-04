@@ -7,6 +7,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_tbg_menu.*
 import vn.loitp.app.R
 
+//https://github.com/nex3z/ToggleButtonGroup
 class TBGMenuActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
