@@ -10,7 +10,7 @@
     tools:context="com.nex3z.togglebuttongroup.sample.FlowLabelActivity">
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-        android:id="@+id/group_weekdays"
+        android:id="@+id/groupWeekdays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tbgChildSpacing="auto"

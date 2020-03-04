@@ -23,7 +23,7 @@ class TBGMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         btnMultiSelectSample.setOnClickListener {
-            val intent = Intent(activity, MultiSelectActivity::class.java)
+            val intent = Intent(activity, TBGMultiSelectActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

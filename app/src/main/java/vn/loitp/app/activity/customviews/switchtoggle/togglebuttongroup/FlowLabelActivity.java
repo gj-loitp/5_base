@@ -22,7 +22,7 @@ public class FlowLabelActivity extends AppCompatActivity {
     }
 
     private void init() {
-        SingleSelectToggleGroup singleWeekdays = findViewById(R.id.group_weekdays);
+        SingleSelectToggleGroup singleWeekdays = findViewById(R.id.groupWeekdays);
         singleWeekdays.setOnCheckedChangeListener(new SingleSelectToggleGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SingleSelectToggleGroup group, int checkedId) {
