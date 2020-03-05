@@ -30,8 +30,17 @@ class NumberPickerActivity : BaseFontActivity() {
             }
         })
 
-        bt.setSafeOnClickListener {
-            lnb.setValue(valueH = 1, valueM = 30, valueS = 45)
+        btSet.setSafeOnClickListener {
+            lnb.setMinMaxValue(valueH = 1, valueM = 30, valueS = 45)
+        }
+        btMin.setSafeOnClickListener {
+            lnb.setMinValue(minValueH = 5, minValueM = 5, minValueS = 5)
+        }
+        btMax.setSafeOnClickListener {
+            lnb.setMaxValue(maxValueH = 10, maxValueM = 10, maxValueS = 10)
+        }
+        btReset.setSafeOnClickListener {
+            lnb.resetMinMaxValue()
         }
     }
 }

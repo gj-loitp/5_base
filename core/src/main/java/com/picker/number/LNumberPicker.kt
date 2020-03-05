@@ -9,6 +9,12 @@ import kotlinx.android.synthetic.main.view_l_number_picker.view.*
 
 class LNumberPicker : RelativeLayout {
     private val TAG = javaClass.simpleName
+    private var minValueH = 0
+    private var maxValueH = 23
+    private var minValueM = 0
+    private var maxValueM = 59
+    private var minValueS = 0
+    private var maxValueS = 59
 
     private var callBack: Callback? = null
 
@@ -34,15 +40,7 @@ class LNumberPicker : RelativeLayout {
 
     private fun init() {
         View.inflate(context, R.layout.view_l_number_picker, this)
-
-        numberPickerH.minValue = 0
-        numberPickerH.maxValue = 23
-
-        numberPickerM.minValue = 0
-        numberPickerM.maxValue = 59
-
-        numberPickerS.minValue = 0
-        numberPickerS.maxValue = 59
+        setMinMaxValue()
 
         numberPickerH.setOnValueChangedListener { _, _, _ ->
             cal()
@@ -53,6 +51,17 @@ class LNumberPicker : RelativeLayout {
         numberPickerS.setOnValueChangedListener { _, _, _ ->
             cal()
         }
+    }
+
+    private fun setMinMaxValue() {
+        numberPickerH.minValue = minValueH
+        numberPickerH.maxValue = maxValueH
+
+        numberPickerM.minValue = minValueM
+        numberPickerM.maxValue = maxValueM
+
+        numberPickerS.minValue = minValueS
+        numberPickerS.maxValue = maxValueS
     }
 
     private fun cal() {
@@ -77,19 +86,46 @@ class LNumberPicker : RelativeLayout {
         callBack?.onValueChangedNumberPicker(h = h, m = m, s = s)
     }
 
-    fun setValue(valueH: Int, valueM: Int, valueS: Int) {
-        if (valueH < 0 || valueH > 23) {
-            throw IllegalArgumentException("0 <= ValueH <= 23")
+    fun setMinMaxValue(valueH: Int, valueM: Int, valueS: Int) {
+        if (valueH < minValueH || valueH > maxValueH) {
+            throw IllegalArgumentException("$minValueH <= ValueH <= $maxValueH")
         }
-        if (valueM < 0 || valueM > 59) {
-            throw IllegalArgumentException("0 <= valueM <= 59")
+        if (valueM < minValueM || valueM > maxValueM) {
+            throw IllegalArgumentException("$minValueM <= valueM <= $maxValueM")
         }
-        if (valueS < 0 || valueS > 59) {
-            throw IllegalArgumentException("0 <= ValueS <= 59")
+        if (valueS < minValueS || valueS > maxValueS) {
+            throw IllegalArgumentException("$minValueS <= ValueS <= $maxValueS")
         }
         numberPickerH.value = valueH
         numberPickerM.value = valueM
         numberPickerS.value = valueS
         cal()
+    }
+
+    fun setMinValue(minValueH: Int, minValueM: Int, minValueS: Int) {
+        this.minValueH = minValueH
+        this.minValueM = minValueM
+        this.minValueS = minValueS
+
+        setMinMaxValue()
+    }
+
+    fun setMaxValue(maxValueH: Int, maxValueM: Int, maxValueS: Int) {
+        this.maxValueH = maxValueH
+        this.maxValueM = maxValueM
+        this.maxValueS = maxValueS
+
+        setMinMaxValue()
+    }
+
+    fun resetMinMaxValue() {
+        minValueH = 0
+        maxValueH = 23
+        minValueM = 0
+        maxValueM = 59
+        minValueS = 0
+        maxValueS = 59
+
+        setMinMaxValue()
     }
 }

@@ -31,9 +31,24 @@
                 android:textSize="@dimen/txt_18" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt"
+                android:id="@+id/btSet"
                 style="@style/ButtonMenu"
                 android:text="Set" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMin"
+                style="@style/ButtonMenu"
+                android:text="Min" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMax"
+                style="@style/ButtonMenu"
+                android:text="Max" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btReset"
+                style="@style/ButtonMenu"
+                android:text="Reset" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
