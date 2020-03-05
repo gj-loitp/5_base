@@ -39,7 +39,6 @@ class FrmUser : BaseFragment() {
             swipeRefreshLayout.isRefreshing = false
         }
 
-
         val bundle = arguments
         bundle?.let { b ->
             val userTest = b.getSerializable(KEY_USER)
