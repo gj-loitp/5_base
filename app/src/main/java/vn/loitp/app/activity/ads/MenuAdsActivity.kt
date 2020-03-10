@@ -46,3 +46,4 @@ class MenuAdsActivity : BaseFontActivity() {
         return R.layout.activity_menu_ads
     }
 }
+
