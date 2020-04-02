@@ -95,7 +95,7 @@ object LToast {
             toast.show()
             toastList.add(toast)
         } catch (e: Exception) {
-            LLog.d(TAG, "LToast$e")
+            e.printStackTrace()
         }
 
     }
