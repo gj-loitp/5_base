@@ -6,6 +6,7 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_coordinator_layout.*
 
 import vn.loitp.app.R
 
@@ -19,7 +20,7 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_2).setOnClickListener(this)
         findViewById<View>(R.id.bt_3).setOnClickListener(this)
         findViewById<View>(R.id.bt_4).setOnClickListener(this)
-
+        bt5.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -54,9 +55,13 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_3)
             }
+            R.id.bt5 -> {
+                intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
+                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_4)
+            }
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

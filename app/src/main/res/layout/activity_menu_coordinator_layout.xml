@@ -42,6 +42,11 @@
                 style="@style/ButtonMenu"
                 android:text="App bar scrolling with overlapping content in Flexible space" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt5"
+                style="@style/ButtonMenu"
+                android:text="RecyclerView" />
+
         </LinearLayout>
     </ScrollView>
 
