@@ -77,10 +77,10 @@ android {
         }
     }
 
-    /*dexOptions {
+    dexOptions {
         jumboMode true
         javaMaxHeapSize "4g"
-    }*/
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

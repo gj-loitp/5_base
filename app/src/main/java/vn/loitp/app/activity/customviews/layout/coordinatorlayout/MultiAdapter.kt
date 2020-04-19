@@ -11,7 +11,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    // Allows to remember the last item shown on screen
     private val TAG = "loitpp" + javaClass.simpleName
     private val moviesList = ArrayList<Movie>()
 
