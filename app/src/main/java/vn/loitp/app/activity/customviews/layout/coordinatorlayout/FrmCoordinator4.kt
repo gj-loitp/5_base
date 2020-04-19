@@ -11,7 +11,6 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants.URL_IMG
 
 class FrmCoordinator4 : BaseFragment() {
-    private val movieList = ArrayList<Movie>()
     private var mAdapter: MultiAdapter? = null
 
     override fun setLayoutResourceId(): Int {
@@ -20,7 +19,7 @@ class FrmCoordinator4 : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mAdapter = MultiAdapter(activity, movieList)
+        mAdapter = MultiAdapter()
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.adapter = mAdapter
@@ -33,10 +32,11 @@ class FrmCoordinator4 : BaseFragment() {
     }
 
     private fun prepareMovieData() {
-        for (i in 0..100) {
+        val movieList = ArrayList<Movie>()
+        for (i in 0..2) {
             val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", URL_IMG)
             movieList.add(movie)
         }
-        mAdapter?.notifyDataSetChanged()
+        mAdapter?.setList(movieList)
     }
 }
