@@ -5,12 +5,8 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
-import com.core.utilities.LUIUtil
-import com.views.animation.confetti.CommonConfetti
-import com.views.animation.confetti.ConfettiManager
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_donate.*
-import java.util.*
 
 class FrmDonate : BaseFragment() {
     override fun setTag(): String? {
@@ -23,7 +19,6 @@ class FrmDonate : BaseFragment() {
     private var goldLight: Int = 0
     private var colorPrimary: Int = 0
     private var colors: IntArray? = null
-    private val activeConfettiManagers = ArrayList<ConfettiManager>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,25 +64,9 @@ class FrmDonate : BaseFragment() {
             colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
             colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
         }
-
-        LUIUtil.setDelay(mls = 500, runnable = Runnable {
-            activeConfettiManagers.add(generateOnce())
-        })
     }
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_frm_donate
-    }
-
-    private fun generateOnce(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).oneShot()
-    }
-
-    private fun generateStream(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).stream(3000)
-    }
-
-    private fun generateInfinite(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).infinite()
     }
 }
