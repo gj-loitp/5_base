@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.views.button.roundedbutton.LRoundedButton
+            <life.sabujak.roundedbutton.RoundedButton
                 android:id="@+id/bt0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 app:buttonRippleColor="@color/Blue"
                 tools:ignore="HardcodedText" />
 
-            <com.views.button.roundedbutton.LRoundedButton
+            <life.sabujak.roundedbutton.RoundedButton
                 android:id="@+id/bt1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 app:buttonRippleAlpha="80"
                 app:buttonRippleColor="@color/Red" />
 
-            <com.views.button.roundedbutton.LRoundedButton
+            <life.sabujak.roundedbutton.RoundedButton
                 android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 app:buttonRippleAlpha="50"
                 app:buttonRippleColor="@color/colorPrimaryTrans" />
 
-            <com.views.button.roundedbutton.LRoundedButton
+            <life.sabujak.roundedbutton.RoundedButton
                 android:id="@+id/bt3"
                 android:layout_width="200dp"
                 android:layout_height="200dp"

@@ -16,9 +16,9 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.AppUtils
-import com.views.button.roundedbutton.LRoundedButton
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
+import life.sabujak.roundedbutton.RoundedButton
 import java.util.*
 
 class AdHelperActivity : BaseFontActivity() {
@@ -142,7 +142,7 @@ class AdHelperActivity : BaseFontActivity() {
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             val tv = layout.findViewById<TextView>(R.id.tv)
             val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
-            val btOkay = layout.findViewById<LRoundedButton>(R.id.btOkay)
+            val btOkay = layout.findViewById<RoundedButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
                 LImageUtil.load(activity, it, imageView)

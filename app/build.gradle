@@ -191,5 +191,6 @@ dependencies {
 
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.0'
+
 }
 apply plugin: 'com.google.gms.google-services'

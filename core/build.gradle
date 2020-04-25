@@ -177,4 +177,7 @@ dependencies {
 
     //https://github.com/tplloi/QButton
     api 'com.github.manojbhadane:QButton:v1.3'
+
+    //https://github.com/tplloi/RoundedButton
+    api 'com.github.sabujak-sabujak:RoundedButton:v0.1.1'
 }
