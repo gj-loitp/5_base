@@ -40,11 +40,6 @@
                 android:text="@string/circle_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_cirlularroundrect_imageview"
-                style="@style/ButtonMenu"
-                android:text="@string/circular_roundrect_imageview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_continuous_scrollable_imageview"
                 style="@style/ButtonMenu"
                 android:text="@string/continuous_scrollable_imageview" />

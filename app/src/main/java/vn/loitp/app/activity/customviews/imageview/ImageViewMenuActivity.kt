@@ -14,7 +14,6 @@ import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActi
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
 import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.circularroundrectimageview.CircularRoundRectImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity
@@ -36,7 +35,6 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         findViewById<View>(R.id.bt_touch_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_zoom_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_fidgetspinner).setOnClickListener(this)
-        findViewById<View>(R.id.bt_cirlularroundrect_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_continuous_scrollable_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_scroll_parallax_imageview).setOnClickListener(this)
         findViewById<View>(R.id.bt_panorama_imageview).setOnClickListener(this)
@@ -68,7 +66,6 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             R.id.bt_touch_imageview -> intent = Intent(activity, TouchImageViewActivity::class.java)
             R.id.bt_zoom_imageview -> intent = Intent(activity, ZoomImageViewActivity::class.java)
             R.id.bt_fidgetspinner -> intent = Intent(activity, FidgetSpinnerImageViewActivity::class.java)
-            R.id.bt_cirlularroundrect_imageview -> intent = Intent(activity, CircularRoundRectImageViewActivity::class.java)
             R.id.bt_continuous_scrollable_imageview -> intent = Intent(activity, ContinuousScrollableImageViewActivity::class.java)
             R.id.bt_scroll_parallax_imageview -> intent = Intent(activity, ScrollParallaxImageViewActivity::class.java)
             R.id.bt_panorama_imageview -> intent = Intent(activity, PanoramaImageViewActivity::class.java)
