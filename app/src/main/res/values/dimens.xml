@@ -10,4 +10,7 @@
     <dimen name="margin_100">100dp</dimen>
     <dimen name="tab_height">48dp</dimen>
     <dimen name="tab_width">300dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

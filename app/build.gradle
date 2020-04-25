@@ -192,5 +192,8 @@ dependencies {
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.0'
 
+    //https://github.com/shiburagi/Drawer-Behavior
+    api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
