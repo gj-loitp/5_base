@@ -180,4 +180,7 @@ dependencies {
 
     //https://github.com/tplloi/RoundedButton
     api 'com.github.sabujak-sabujak:RoundedButton:v0.1.1'
+
+    //https://github.com/tplloi/ShineButton
+    api 'com.sackcentury:shinebutton:1.0.0'
 }
