@@ -28,11 +28,6 @@
                 android:text="@string/answerview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_ariana"
-                style="@style/ButtonMenu"
-                android:text="@string/ariana" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_bottom_bar"
                 style="@style/ButtonMenu"
                 android:text="@string/bottom_navigation_bar" />

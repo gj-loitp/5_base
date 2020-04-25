@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
-import vn.loitp.app.activity.customviews.ariana.ArianaMenuActivity
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
@@ -45,7 +44,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_ariana).setOnClickListener(this)
         findViewById<View>(R.id.bt_view_pager).setOnClickListener(this)
         findViewById<View>(R.id.bt_button).setOnClickListener(this)
         findViewById<View>(R.id.bt_progress_loading).setOnClickListener(this)
@@ -94,7 +92,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v.id) {
-            R.id.bt_ariana -> intent = Intent(activity, ArianaMenuActivity::class.java)
             R.id.bt_view_pager -> intent = Intent(activity, ViewPagerMenuActivity::class.java)
             R.id.bt_button -> intent = Intent(activity, ButtonMenuActivity::class.java)
             R.id.bt_progress_loading -> intent = Intent(activity, MenuProgressLoadingViewsActivity::class.java)
