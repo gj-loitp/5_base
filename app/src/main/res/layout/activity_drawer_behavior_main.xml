@@ -3,86 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonDefault"
+            style="@style/ButtonMenu"
+            android:text="default" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="32dp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_default"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="default" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance1"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance1"
+            style="@style/ButtonMenu"
+            android:text="Advance 1" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance2"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 2" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance2"
+            style="@style/ButtonMenu"
+            android:text="Advance 2" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance3"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 3" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance3"
+            style="@style/ButtonMenu"
+            android:text="Advance 3" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance4"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 4" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance4"
+            style="@style/ButtonMenu"
+            android:text="Advance 4" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance5"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 5 (Card)" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance5"
+            style="@style/ButtonMenu"
+            android:text="Advance 5 (Card)" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance6"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 6 (RTL)" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance6"
+            style="@style/ButtonMenu"
+            android:text="Advance 6 (RTL)" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_advance_3d_1"
-                style="@style/ButtonMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="15"
-                android:text="Advance 3D" />
-        </LinearLayout>
-    </FrameLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAdvance3d_1"
+            style="@style/ButtonMenu"
+            android:text="Advance 3D" />
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

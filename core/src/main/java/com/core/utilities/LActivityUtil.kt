@@ -42,56 +42,80 @@ object LActivityUtil {
     @JvmStatic
     fun tranIn(context: Context) {
         val typeActivityTransition = ActivityData.instance.type
-        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
-            transActivityNoAniamtion(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
-            //do nothing
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
-            slideLeft(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
-            slideRight(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
-            slideDown(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
-            slideUp(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
-            fade(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_ZOOM) {
-            zoom(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
-            windmill(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
-            diagonal(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
-            spin(context as Activity)
+        when (typeActivityTransition) {
+            Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
+                transActivityNoAniamtion(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
+                //do nothing
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
+                slideLeft(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
+                slideRight(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
+                slideDown(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
+                slideUp(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
+                fade(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
+                zoom(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
+                windmill(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
+                diagonal(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
+                spin(context as Activity)
+            }
         }
     }
 
     @JvmStatic
     fun tranOut(context: Context) {
         val typeActivityTransition = ActivityData.instance.type
-        if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM) {
-            transActivityNoAniamtion(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT) {
-            //do nothing
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT) {
-            slideRight(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT) {
-            slideLeft(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN) {
-            slideUp(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP) {
-            slideDown(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_FADE) {
-            fade(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_ZOOM) {
-            zoom(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL) {
-            windmill(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL) {
-            diagonal(context as Activity)
-        } else if (typeActivityTransition == Constants.TYPE_ACTIVITY_TRANSITION_SPIN) {
-            spin(context as Activity)
+        when (typeActivityTransition) {
+            Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
+                transActivityNoAniamtion(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
+                //do nothing
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
+                slideRight(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
+                slideLeft(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
+                slideUp(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
+                slideDown(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
+                fade(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
+                zoom(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
+                windmill(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
+                diagonal(context as Activity)
+            }
+            Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
+                spin(context as Activity)
+            }
         }
     }
 
