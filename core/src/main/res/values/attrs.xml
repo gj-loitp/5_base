@@ -199,11 +199,7 @@
         <attr name="indeterminateArcAnimationDuration" format="integer" />
         <attr name="indeterminateRotationAnimationDuration" format="integer" />
     </declare-styleable>
-    <declare-styleable name="LRealtimeBlurView">
-        <attr name="realtimeBlurRadius" format="dimension" />
-        <attr name="realtimeDownsampleFactor" format="float" />
-        <attr name="realtimeOverlayColor" format="color" />
-    </declare-styleable>
+
     <declare-styleable name="LAutoViewPager">
         <attr name="avp_indeterminate" format="boolean" />
         <attr name="avp_autoScroll" format="boolean" />

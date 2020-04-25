@@ -11,7 +11,7 @@ import com.R
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import com.views.realtimeblurview.LRealtimeBlurView
+import com.github.mmin18.widget.RealtimeBlurView
 
 /**
  * Created by www.muathu@gmail.com on 7/25/2019.
@@ -19,7 +19,7 @@ import com.views.realtimeblurview.LRealtimeBlurView
 
 class LBottomBar : RelativeLayout, View.OnClickListener {
     private val TAG = javaClass.simpleName
-    lateinit var blurViewL: LRealtimeBlurView
+    lateinit var realtimeBlurView: RealtimeBlurView
     lateinit var llIcon0: RelativeLayout
     lateinit var llIcon1: RelativeLayout
     lateinit var llIcon2: RelativeLayout
@@ -76,7 +76,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
 
     private fun init() {
         View.inflate(context, R.layout.view_l_bottom_bar, this)
-        this.blurViewL = findViewById(R.id.real_time_blur_view)
+        this.realtimeBlurView = findViewById(R.id.real_time_blur_view)
         this.llIcon0 = findViewById(R.id.ll_icon_0)
         this.llIcon1 = findViewById(R.id.ll_icon_1)
         this.llIcon2 = findViewById(R.id.ll_icon_2)

@@ -6,7 +6,7 @@
     android:layout_height="@dimen/w_60"
     android:animateLayoutChanges="true">
 
-    <com.views.realtimeblurview.LRealtimeBlurView
+    <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/real_time_blur_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

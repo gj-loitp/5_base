@@ -160,3 +160,7 @@ public *;
 -dontwarn com.yalantis.ucrop**
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
+
+#https://github.com/mmin18/RealtimeBlurView
+-keep class android.support.v8.renderscript.** { *; }
+-keep class androidx.renderscript.** { *; }

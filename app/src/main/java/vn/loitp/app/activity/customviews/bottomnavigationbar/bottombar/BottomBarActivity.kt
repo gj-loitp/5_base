@@ -39,8 +39,8 @@ class BottomBarActivity : BaseFontActivity() {
                 }
             })
         }
-        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.blurViewL.setOverlayColor(ContextCompat.getColor(activity, R.color.RedTrans)) }
-        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.blurViewL.setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans)) }
+        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.RedTrans)) }
+        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans)) }
         findViewById<View>(R.id.bt_count_1).setOnClickListener { lBottomBar.setCount(1) }
         findViewById<View>(R.id.bt_count_3).setOnClickListener { lBottomBar.setCount(3) }
         findViewById<View>(R.id.bt_count_5).setOnClickListener { lBottomBar.setCount(5) }

@@ -142,3 +142,7 @@
   native *** rsn*(...);
   native *** n*(...);
 }
+
+#https://github.com/mmin18/RealtimeBlurView
+-keep class android.support.v8.renderscript.** { *; }
+-keep class androidx.renderscript.** { *; }
