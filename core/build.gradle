@@ -174,4 +174,7 @@ dependencies {
 
     //https://github.com/hdodenhof/CircleImageView
     api 'de.hdodenhof:circleimageview:3.1.0'
+
+    //https://github.com/tplloi/QButton
+    api 'com.github.manojbhadane:QButton:v1.3'
 }

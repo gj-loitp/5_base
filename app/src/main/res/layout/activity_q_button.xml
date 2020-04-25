@@ -20,7 +20,7 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_10">
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -33,7 +33,7 @@
                 app:qb_strokeColor="@color/Orange"
                 app:qb_strokeWidth="1" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:id="@+id/btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 app:qb_strokeColor="@color/colorPrimaryDark"
                 app:qb_strokeWidth="0" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -57,7 +57,7 @@
                 app:qb_strokeColor="@color/colorPrimary"
                 app:qb_strokeWidth="5" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -71,7 +71,7 @@
                 app:qb_strokeDashWidth="90"
                 app:qb_strokeWidth="5" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -85,7 +85,7 @@
                 app:qb_strokeDashWidth="90"
                 app:qb_strokeWidth="15" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -96,7 +96,7 @@
                 app:qb_strokeColor="@color/DarkRed"
                 app:qb_strokeWidth="0" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -107,7 +107,7 @@
                 app:qb_strokeColor="@color/DarkBlue"
                 app:qb_strokeWidth="5" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -118,7 +118,7 @@
                 app:qb_strokeColor="@color/GreenYellow"
                 app:qb_strokeWidth="15" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -131,7 +131,7 @@
                 app:qb_strokeDashWidth="90"
                 app:qb_strokeWidth="5" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -140,7 +140,7 @@
                 app:qb_backgroundColor="@color/colorAccent"
                 app:qb_radius="35" />
 
-            <com.views.button.qbutton.QButton
+            <com.manojbhadane.QButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
