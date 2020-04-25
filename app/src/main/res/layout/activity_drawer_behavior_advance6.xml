@@ -13,7 +13,7 @@
 
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -24,7 +24,7 @@
         app:menu="@menu/activity_drawer_behavior_drawer" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_notification"
+        android:id="@+id/navViewNotification"
         android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

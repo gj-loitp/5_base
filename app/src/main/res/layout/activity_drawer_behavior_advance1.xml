@@ -5,30 +5,30 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
         android:background="@color/white"
-        app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
+        android:fitsSystemWindows="true"
         android:theme="@style/Widget.Design.NavigationView"
+        app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
         app:menu="@menu/activity_drawer_behavior_drawer" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_notification"
-        android:background="@color/colorPrimary"
+        android:id="@+id/navViewNotification"
         android:layout_width="800dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:background="@color/colorPrimary"
         android:fitsSystemWindows="false">
-        <include layout="@layout/view_drawer_behavior_content_notification"/>
+
+        <include layout="@layout/view_drawer_behavior_content_notification" />
     </com.google.android.material.navigation.NavigationView>
 
     <include
