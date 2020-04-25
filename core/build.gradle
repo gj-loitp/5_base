@@ -171,4 +171,7 @@ dependencies {
 
     //https://github.com/mmin18/RealtimeBlurView
     api 'com.github.mmin18:realtimeblurview:1.2.1'
+
+    //https://github.com/hdodenhof/CircleImageView
+    api 'de.hdodenhof:circleimageview:3.1.0'
 }

@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
-import com.views.imageview.circle.LCircleImageView;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import vn.loitp.app.R;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
@@ -34,7 +34,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName, tvMsg, tvTime;
-        public LCircleImageView avt;
+        public CircleImageView avt;
         public LinearLayout rootView;
 
         public UserViewHolder(View view) {

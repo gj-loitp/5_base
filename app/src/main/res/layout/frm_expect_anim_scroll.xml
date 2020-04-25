@@ -81,7 +81,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.imageview.circle.LCircleImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"

@@ -8,14 +8,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.core.utilities.LLog;
-import com.views.imageview.circle.LCircleImageView;
 
 import org.jetbrains.annotations.NotNull;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Obaro on 18/07/2016.
  */
-public class CustomBehavior extends CoordinatorLayout.Behavior<LCircleImageView> {
+public class CustomBehavior extends CoordinatorLayout.Behavior<CircleImageView> {
 
     private final String TAG = getClass().getSimpleName();
 
@@ -24,12 +25,12 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<LCircleImageView>
     }
 
     @Override
-    public boolean layoutDependsOn(@NotNull CoordinatorLayout parent, @NotNull LCircleImageView child, @NotNull View dependency) {
+    public boolean layoutDependsOn(@NotNull CoordinatorLayout parent, @NotNull CircleImageView child, @NotNull View dependency) {
         return dependency instanceof Toolbar;
     }
 
     @Override
-    public boolean onDependentViewChanged(@NotNull CoordinatorLayout parent, LCircleImageView child, View dependency) {
+    public boolean onDependentViewChanged(@NotNull CoordinatorLayout parent, CircleImageView child, View dependency) {
         int[] dependencyLocation = new int[2];
         int[] childLocation = new int[2];
 

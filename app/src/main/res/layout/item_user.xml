@@ -12,7 +12,7 @@
     android:paddingEnd="@dimen/padding_10"
     android:paddingBottom="@dimen/padding_15">
 
-    <com.views.imageview.circle.LCircleImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avt"
         android:layout_width="@dimen/w_70"
         android:layout_height="@dimen/w_70"
