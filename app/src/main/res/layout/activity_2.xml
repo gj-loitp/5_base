@@ -10,12 +10,12 @@
         android:text="Activity2" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_go_to_1"
+        android:id="@+id/btGoTo1"
         style="@style/ButtonMenu"
         android:text="go to Activity1" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_go_to_3"
+        android:id="@+id/btGoTo3"
         style="@style/ButtonMenu"
         android:text="go to Activity3" />
 </LinearLayout>

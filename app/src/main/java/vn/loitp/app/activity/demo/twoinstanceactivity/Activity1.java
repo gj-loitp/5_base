@@ -16,12 +16,12 @@ public class Activity1 extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.d(getTAG(), "suzuki onCreate");
-        findViewById(R.id.bt_go_to_2).setOnClickListener(view -> {
+        findViewById(R.id.btGoTo2).setOnClickListener(view -> {
             Intent intent = new Intent(Activity1.this, Activity2.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         });
-        findViewById(R.id.bt_go_to_3).setOnClickListener(view -> {
+        findViewById(R.id.btGoTo3).setOnClickListener(view -> {
             Intent intent = new Intent(Activity1.this, Activity3.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
