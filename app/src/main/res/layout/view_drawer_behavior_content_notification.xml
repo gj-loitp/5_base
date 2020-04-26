@@ -13,9 +13,10 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_notifications_none_white_24dp"
         android:drawablePadding="6dp"
-        android:text="Loitpppppppppp"
+        android:text="@string/loitp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
-        android:textColor="@color/Red" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium" />
 
     <androidx.legacy.widget.Space
         android:layout_width="wrap_content"
@@ -49,8 +50,8 @@ Trước đó, chiều 14/3, UBND Quận 1 cũng đã có văn bản chỉ đạ
 Theo đó, từ 18 giờ tối nay (14/3), UBND Quận 1 đề nghị các cơ sở kinh doanh dịch vụ rạp chiếu phim, massage, karaoke, quán bar, beerclub, vũ trường hoạt động riêng lẻ và các nhà hàng khách sạn có kinh doanh loại hình dịch vụ trên tạm ngưng hoạt động.
 
 "
-            android:textColor="@color/red01"
-            android:textSize="@dimen/text_medium" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
 
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
