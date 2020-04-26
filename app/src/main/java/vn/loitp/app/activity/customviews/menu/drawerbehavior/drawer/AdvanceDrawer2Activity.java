@@ -82,7 +82,7 @@ public class AdvanceDrawer2Activity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_right_drawer:
+            case R.id.actionRightDrawer:
                 drawer.openDrawer(Gravity.END);
                 return true;
         }

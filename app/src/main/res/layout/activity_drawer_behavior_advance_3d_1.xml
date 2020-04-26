@@ -2,11 +2,11 @@
 <com.infideap.drawerbehavior.Advance3DDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary"
     tools:openDrawer="start">
 
     <include
@@ -21,18 +21,19 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:background="@color/colorPrimary"
         app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
         app:menu="@menu/activity_drawer_behavior_drawer" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navViewNotification"
-        android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:background="@color/colorPrimary"
         android:fitsSystemWindows="false">
-        <include layout="@layout/view_drawer_behavior_content_notification"/>
+
+        <include layout="@layout/view_drawer_behavior_content_notification" />
+
     </com.google.android.material.navigation.NavigationView>
 
 </com.infideap.drawerbehavior.Advance3DDrawerLayout>

@@ -9,12 +9,11 @@ import androidx.core.view.GravityCompat
 import com.core.base.BaseFontActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_drawer_behavior_advance1.*
+import kotlinx.android.synthetic.main.activity_drawer_behavior_advance_3d_1.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R
 
-class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+class Advance3DDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun setFullScreen(): Boolean {
         return false
     }
@@ -24,7 +23,7 @@ class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationIt
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance1
+        return R.layout.activity_drawer_behavior_advance_3d_1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +34,19 @@ class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationIt
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
+
         navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.useCustomBehavior(Gravity.START)
-        drawerLayout?.useCustomBehavior(Gravity.END)
+
+        drawerLayout?.apply {
+            setViewScale(Gravity.START, 0.96f)
+            setRadius(Gravity.START, 20f)
+            setViewElevation(Gravity.START, 8f)
+            setViewRotation(Gravity.START, 15f)
+        }
     }
 
     override fun onBackPressed() {
