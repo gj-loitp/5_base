@@ -19,7 +19,7 @@
         android:text="go to Activity2" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_go_to_float"
+        android:id="@+id/btGoToFloat"
         style="@style/ButtonMenu"
         android:text="go to Float" />
 </LinearLayout>
