@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.ads.admobinterstitial
 
 import android.os.Bundle
-import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.InterstitialAd
+import kotlinx.android.synthetic.main.activity_admob_interstitial.*
 import vn.loitp.app.R
 
 class AdmobInterstitialActivity : BaseFontActivity() {
@@ -15,7 +15,6 @@ class AdmobInterstitialActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false//remove show duplicate ads in BaseActivity
         interstitialAd = LUIUtil.createAdFull(activity)
-        val tv = findViewById<TextView>(R.id.tv)
         val s = LStoreUtil.readTxtFromRawFolder(activity, R.raw.ad_full)
         tv.text = s
     }
@@ -33,7 +32,7 @@ class AdmobInterstitialActivity : BaseFontActivity() {
     }
 
     override fun onBackPressed() {
-        LUIUtil.displayInterstitial(interstitialAd!!)
+        LUIUtil.displayInterstitial(interstitialAd)
         super.onBackPressed()
     }
 }

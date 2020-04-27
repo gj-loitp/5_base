@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.ads.admobbanner
 
 import android.os.Bundle
-import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdView
+import kotlinx.android.synthetic.main.activity_admob_banner.*
 import vn.loitp.app.R
 
 class AdmobBannerActivity : BaseFontActivity() {
@@ -19,7 +19,6 @@ class AdmobBannerActivity : BaseFontActivity() {
         adView = findViewById(R.id.adView)
         LUIUtil.createAdBanner(adView!!)
 
-        val tv = findViewById<TextView>(R.id.tv)
         val poem = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp)
         tv.text = poem
     }
@@ -37,17 +36,17 @@ class AdmobBannerActivity : BaseFontActivity() {
     }
 
     public override fun onPause() {
-        adView!!.pause()
+        adView?.pause()
         super.onPause()
     }
 
     public override fun onResume() {
-        adView!!.resume()
+        adView?.resume()
         super.onResume()
     }
 
     public override fun onDestroy() {
-        adView!!.destroy()
+        adView?.destroy()
         super.onDestroy()
     }
 }

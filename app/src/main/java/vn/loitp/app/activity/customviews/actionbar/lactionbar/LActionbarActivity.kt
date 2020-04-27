@@ -6,7 +6,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.views.LToast
 import com.views.actionbar.LActionBar
-import kotlinx.android.synthetic.main.activity_action_bar.*
+import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
 
 class LActionbarActivity : BaseFontActivity() {
@@ -25,7 +25,7 @@ class LActionbarActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_action_bar
+        return R.layout.activity_l_action_bar
     }
 
     private fun setupActionBar() {
