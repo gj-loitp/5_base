@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.views.button.goodview.LGoodView
-import kotlinx.android.synthetic.main.activity_good_view.*
+import kotlinx.android.synthetic.main.activity_button_goodview.*
 import vn.loitp.app.R
 
 //https://github.com/venshine/GoodView
@@ -21,7 +21,7 @@ class GoodViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_good_view
+        return R.layout.activity_button_goodview
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,7 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil.toggleScreenOritation
 import com.core.utilities.LScreenUtil.screenWidth
-import kotlinx.android.synthetic.main.activity_autosize_button.*
+import kotlinx.android.synthetic.main.activity_button_autosize.*
 import vn.loitp.app.R
 
 class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
@@ -18,7 +18,7 @@ class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_autosize_button
+        return R.layout.activity_button_autosize
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

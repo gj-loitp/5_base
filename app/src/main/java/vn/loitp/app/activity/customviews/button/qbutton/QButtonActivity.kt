@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.button.qbutton
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_q_button.*
+import kotlinx.android.synthetic.main.activity_button_q.*
 import vn.loitp.app.R
 
 class QButtonActivity : BaseFontActivity() {
@@ -17,7 +17,7 @@ class QButtonActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_q_button
+        return R.layout.activity_button_q
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

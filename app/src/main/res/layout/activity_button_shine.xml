@@ -15,7 +15,8 @@
         android:layout_below="@+id/tvMenu"
         android:gravity="center"
         android:text="You can custom more effect"
-        android:textSize="@dimen/txt_14" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
 
     <com.sackcentury.shinebuttonlib.ShineButton
         android:id="@+id/bt0"
@@ -33,5 +34,6 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:text="Click above button"
-        android:textSize="@dimen/txt_14" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>

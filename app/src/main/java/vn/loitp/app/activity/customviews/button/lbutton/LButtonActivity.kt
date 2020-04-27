@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_l_button.*
+import kotlinx.android.synthetic.main.activity_button_l.*
 import vn.loitp.app.R
 
 class LButtonActivity : BaseFontActivity(), OnClickListener {
@@ -18,7 +18,7 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_button
+        return R.layout.activity_button_l
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
