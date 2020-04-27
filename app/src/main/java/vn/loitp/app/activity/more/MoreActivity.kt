@@ -10,7 +10,7 @@ class MoreActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LScreenUtil.addFragment(activity, R.id.fl_container, FrmMore(), false)
+        LScreenUtil.addFragment(activity, R.id.flContainer, FrmMore(), false)
     }
 
     override fun setFullScreen(): Boolean {

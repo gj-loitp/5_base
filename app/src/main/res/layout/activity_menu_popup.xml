@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tv"
@@ -18,27 +16,27 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_1"
+                android:id="@+id/btShow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Touch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_2"
+                android:id="@+id/btShow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="Touch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_3"
+                android:id="@+id/btShow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:text="Touch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_4"
+                android:id="@+id/btShow4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -46,13 +44,13 @@
                 android:text="Touch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_5"
+                android:id="@+id/btShow5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Touch" />
         </RelativeLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tv"
