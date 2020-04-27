@@ -23,7 +23,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                app:border_color="@color/Red"
                 app:degree_color="@color/Blue"
                 app:degree_value_color="@color/colorAccent"
                 app:degrees_step="5"

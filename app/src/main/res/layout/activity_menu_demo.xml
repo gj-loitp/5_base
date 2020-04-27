@@ -43,11 +43,6 @@
                 android:text="@string/epub_reader" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_film"
-                style="@style/ButtonMenu"
-                android:text="@string/film" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_firebase"
                 style="@style/ButtonMenu"
                 android:text="@string/firebase" />

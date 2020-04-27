@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_layout.*
+import kotlinx.android.synthetic.main.activity_layout_menu.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity
@@ -17,7 +18,6 @@ import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActiv
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity
 import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity
 import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity
-import vn.loitp.app.activity.customviews.layout.fixedgridlayout.FixedGridLayoutActivity
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowlayout.FlowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity
@@ -41,6 +41,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)
         btDraggablePanelFree.setOnClickListener(this)
         btDraggableView.setOnClickListener(this)
@@ -61,7 +62,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btRelativePopupWindow.setOnClickListener(this)
         btMotionLayout.setOnClickListener(this)
         btExpansionPanel.setOnClickListener(this)
-        btFixedGridLayout.setOnClickListener(this)
         btScrollView2d.setOnClickListener(this)
         btScrollView2dAdvance.setOnClickListener(this)
         btSwipeRevealLayout.setOnClickListener(this)
@@ -81,12 +81,13 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_layout
+        return R.layout.activity_layout_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
+            btAspectRatioLayout -> intent = Intent(activity, AspectRatioLayoutActivity::class.java)
             btDraggablePanel -> intent = Intent(activity, DraggablePanelActivity::class.java)
             btDraggablePanelFree -> intent = Intent(activity, DraggablePanelFreeActivity::class.java)
             btDraggableView -> intent = Intent(activity, DraggableViewActivity::class.java)
@@ -107,7 +108,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btRelativePopupWindow -> intent = Intent(activity, RelativePopupWindowActivity::class.java)
             btMotionLayout -> intent = Intent(activity, MenuMotionLayoutActivity::class.java)
             btExpansionPanel -> intent = Intent(activity, ExpansionLayoutMenuActivity::class.java)
-            btFixedGridLayout -> intent = Intent(activity, FixedGridLayoutActivity::class.java)
             btScrollView2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
             btScrollView2dAdvance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
             btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)

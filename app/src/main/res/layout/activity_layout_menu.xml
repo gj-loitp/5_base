@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/WhiteSmoke">
@@ -16,6 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAspectRatioLayout"
+                style="@style/ButtonMenu"
+                android:text="Aspect Ratio Layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutoLinearLayout"
@@ -66,11 +70,6 @@
                 android:id="@+id/btExpansionPanel"
                 style="@style/ButtonMenu"
                 android:text="Expansion Panel" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btFixedGridLayout"
-                style="@style/ButtonMenu"
-                android:text="@string/fixed_grid_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFloatDragLayout"

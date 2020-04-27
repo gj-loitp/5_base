@@ -60,19 +60,9 @@
                 android:text="ParallaxRecyclerView" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_overflying_recyclerview"
-                style="@style/ButtonMenu"
-                android:text="Overflying RecyclerView" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_parallax_recyclerview_yayandroid"
                 style="@style/ButtonMenu"
                 android:text="ParallaxRecyclerView Yayandroid" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_recyclerview_banner"
-                style="@style/ButtonMenu"
-                android:text="RecyclerBanner" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRecyclerTabLayout"

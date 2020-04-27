@@ -16,22 +16,23 @@
         <enum name="centerCrop" value="6" />
         <enum name="centerInside" value="7" />
     </attr>
-    <attr name="interval" format="integer" />
-    <attr name="showIndicator" format="boolean" />
-    <attr name="autoPlaying" format="boolean" />
+
     <declare-styleable name="RecyclerViewPager">
         <attr name="rvp_triggerOffset" format="float" />
         <attr name="rvp_flingFactor" format="float" />
         <attr name="rvp_singlePageFling" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="LSProgressBar">
         <attr name="filterColor" format="color" />
     </declare-styleable>
+
     <declare-styleable name="GridCenterView">
         <attr name="dividerHeight" format="dimension" />
         <attr name="dividerColor" format="reference" />
         <attr name="spanNumber" format="integer" />
     </declare-styleable>
+
     <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
             <enum name="left_overlay" value="0" />
@@ -44,6 +45,7 @@
         <attr name="left_shadow" format="reference" />
         <attr name="right_shadow" format="reference" />
     </declare-styleable>
+
     <declare-styleable name="LabelsView">
         <attr name="max_labels" format="integer" />
         <attr name="show_cross" format="boolean" />
@@ -55,25 +57,10 @@
         <attr name="label_padding" format="dimension" />
     </declare-styleable>
 
-<!--    <declare-styleable name="ShineButton">-->
-<!--        <attr name="btn_color" format="color" />-->
-<!--        <attr name="btn_fill_color" format="color" />-->
-<!--        <attr name="shine_count" format="integer" />-->
-<!--        <attr name="shine_turn_angle" format="float" />-->
-<!--        <attr name="small_shine_offset_angle" format="float" />-->
-<!--        <attr name="enable_flashing" format="boolean" />-->
-<!--        <attr name="allow_random_color" format="boolean" />-->
-<!--        <attr name="small_shine_color" format="color" />-->
-<!--        <attr name="big_shine_color" format="color" />-->
-<!--        <attr name="shine_animation_duration" format="integer" />-->
-<!--        <attr name="click_animation_duration" format="integer" />-->
-<!--        <attr name="shine_distance_multiple" format="float" />-->
-<!--        <attr name="shine_size" format="dimension" />-->
-<!--    </declare-styleable>-->
-
     <declare-styleable name="PorterImageView">
         <attr name="siShape" format="integer|reference" />
     </declare-styleable>
+
     <declare-styleable name="LAVLoadingIndicatorView">
         <attr name="minWidth" format="dimension" />
         <attr name="maxWidth" format="dimension" />
@@ -82,6 +69,7 @@
         <attr name="indicatorName" format="string" />
         <attr name="indicatorColor" format="color" />
     </declare-styleable>
+
     <declare-styleable name="LColorSwitchCompat">
         <attr name="toggleOnColor" format="color" />
         <attr name="toggleOffColor" format="color" />
@@ -106,26 +94,31 @@
             <enum name="realZoom" value="1" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LRoundedImage">
         <attr name="rounded_radius" format="float" />
     </declare-styleable>
-    <declare-styleable name="CircleImage">
-        <attr name="border_width" format="dimension" />
-        <attr name="border_color" format="color" />
-        <attr name="add_shadow" format="boolean" />
-        <attr name="shadow_color" format="color" />
-        <attr name="shadow_radius" format="float" />
-    </declare-styleable>
+
+<!--    <declare-styleable name="CircleImage">-->
+<!--        <attr name="border_width" format="dimension" />-->
+<!--        <attr name="border_color" format="color" />-->
+<!--        <attr name="add_shadow" format="boolean" />-->
+<!--        <attr name="shadow_color" format="color" />-->
+<!--        <attr name="shadow_radius" format="float" />-->
+<!--    </declare-styleable>-->
+
     <declare-styleable name="LColorTextView">
         <attr name="color_texts" format="string" />
         <attr name="color_arrays" format="string" />
     </declare-styleable>
+
     <declare-styleable name="MultiScrollNumber">
         <attr name="primary_number" format="integer" />
         <attr name="target_number" format="integer" />
         <attr name="number_size" format="integer" />
         <!--<attr name="number_color" format="color"/>-->
     </declare-styleable>
+
     <declare-styleable name="LVerticalMarqueeTextView">
         <attr name="autoStartMarquee" format="boolean" />
         <attr name="marqueeSpeed" format="reference|integer" />
@@ -145,9 +138,11 @@
             <enum name="monospace" value="3" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LTranslucentView">
         <attr name="translucentBackgroundColor" format="color" />
     </declare-styleable>
+
     <declare-styleable name="LMaterialTextField">
         <attr name="mtf_cardCollapsedHeight" format="dimension" />
         <attr name="mtf_labelColor" format="color" />
@@ -157,6 +152,7 @@
         <attr name="mtf_openKeyboardOnFocus" format="boolean" />
         <attr name="mtf_backgroundColor" format="color" />
     </declare-styleable>
+
     <declare-styleable name="BiuEditStyle">
         <attr name="biu_text_color" format="color" />
         <attr name="biu_text_start_size" format="dimension" />
@@ -167,6 +163,7 @@
             <enum name="flydown" value="1" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LCustomToggle">
         <attr name="ctg_addLeftIcon" format="reference" type="drawable" />
         <attr name="ctg_addRightIcon" format="reference" />
@@ -180,6 +177,7 @@
             <enum name="extra_animation" value="2" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LCircularProgressBar">
         <attr name="maximum" format="float" />
         <attr name="progress" format="float" />
@@ -202,6 +200,7 @@
         <attr name="avp_autoScroll" format="boolean" />
         <attr name="avp_duration" format="integer" />
     </declare-styleable>
+
     <declare-styleable name="ShapeFlyer">
         <attr name="shape_width" format="dimension" />
         <attr name="shape_height" format="dimension" />
@@ -212,11 +211,13 @@
         <attr name="from_alpha" format="float" />
         <attr name="to_alpha" format="float" />
     </declare-styleable>
+
     <!--LoadingButton-->
     <declare-styleable name="ParallaxImageView">
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="LCircularSeekBar">
         <attr name="enabled" format="boolean" />
         <attr name="showIndicator_circular_seekbar" format="boolean" />
@@ -233,24 +234,19 @@
         <attr name="progressTextColor" format="color" />
         <attr name="progressTextSize" format="float" />
     </declare-styleable>
+
     <declare-styleable name="AutofitEditText">
-        <!-- Minimum size of the text. -->
         <attr name="minTextSize" format="dimension" />
-        <!-- Amount of precision used to calculate the correct text size to fit within its
-        bounds. Lower precision is more precise and takes more time. -->
         <attr name="precision" format="float" />
-        <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFit" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="LAutofitTextView">
-        <!-- Minimum size of the text. -->
         <attr name="minTextSizeTv" format="dimension" />
-        <!-- Amount of precision used to calculate the correct text size to fit within its
-        bounds. Lower precision is more precise and takes more time. -->
         <attr name="precisionTv" format="float" />
-        <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
         <attr name="sizeToFitTv" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="ArcDrawer">
         <attr name="arc_width" format="dimension" />
         <attr name="arc_cropDirection" format="enum">
@@ -258,6 +254,7 @@
             <enum name="cropOutside" value="1" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="buttonLoading">
         <attr name="BL_enable" format="boolean" />
         <attr name="BL_idParent" format="integer" />
@@ -276,17 +273,20 @@
             <enum name="animationFinish" value="4" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LContinuousScrollableImageView">
         <attr name="imageSrc" format="reference" />
         <attr name="direction" />
         <attr name="duration" format="integer" />
         <attr name="scaleType" />
     </declare-styleable>
+
     <declare-styleable name="LPanoramaImageView">
         <attr name="piv_enablePanoramaMode" format="boolean" />
         <attr name="piv_invertScrollDirection" format="boolean" />
         <attr name="piv_show_scrollbar" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="draggable_panel">
         <attr name="top_fragment_height" format="dimension" />
         <attr name="x_scale_factor" format="float" />
@@ -298,6 +298,7 @@
         <attr name="enable_click_to_minimize_panel" format="boolean" />
         <attr name="enable_touch_listener_panel" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="draggable_view">
         <attr name="top_view_id" format="reference" />
         <attr name="bottom_view_id" format="reference" />
@@ -311,61 +312,45 @@
         <attr name="enable_click_to_minimize_view" format="boolean" />
         <attr name="top_view_resize" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="LTreeView">
         <attr name="level_separation" format="dimension" />
         <attr name="line_thickness" format="dimension" />
         <attr name="line_color" format="color" />
     </declare-styleable>
+
     <declare-styleable name="DraggableFlipView">
         <attr name="dragDetectAngle" format="integer" />
         <attr name="draggableAngle" format="integer" />
         <attr name="frontView" format="reference" />
         <attr name="backView" format="reference" />
     </declare-styleable>
+
     <declare-styleable name="CircularView">
-        <!-- The text that will appear in the center of the view. -->
         <attr name="text_circular" format="string" />
-        <!-- The size of the text that appears in the center of the view. -->
         <attr name="textSize_circular" format="dimension" />
-        <!-- The color of the text that appears in the center of the view. -->
         <attr name="textColor_circular" format="color" />
-        <!-- The color of the center of the background. -->
         <attr name="centerBackgroundColor" format="color" />
-        <!-- The drawable of the center view -->
         <attr name="centerDrawable" format="reference" />
-        <!-- Starting points for where the markers will be drawn. -->
         <attr name="markerStartingPoint" format="float">
-            <!-- Starting point at the top of the view. -->
             <enum name="top" value="270" />
-            <!-- Starting point at the bottom of the view. -->
             <enum name="bottom" value="90" />
-            <!-- Starting point at the left of the view. -->
             <enum name="left" value="180" />
-            <!-- Starting point at the right of the view. -->
             <enum name="right" value="0" />
         </attr>
-        <!-- Flag that determines if the highlighted marker will be drawn on top of others. -->
         <attr name="drawHighlightedMarkerOnTop" format="boolean" />
-        <!-- The degree that is highlighted. -->
         <attr name="highlightedDegree" format="float">
-            <!-- Starting point at the top of the view. -->
             <enum name="top" value="270" />
-            <!-- Starting point at the bottom of the view. -->
             <enum name="bottom" value="90" />
-            <!-- Starting point at the left of the view. -->
             <enum name="left" value="180" />
-            <!-- Starting point at the right of the view. -->
             <enum name="right" value="0" />
         </attr>
-        <!-- Flag that determines if markers will animate when the highlight animation is not running. -->
         <attr name="animateMarkersOnStillHighlight" format="boolean" />
-        <!-- Flag that determine if this object's drawable should fit inside of the center circle. -->
         <attr name="fitToCircle" format="boolean" />
-        <!-- Attribute to display markers when in edit parrallaxMode. -->
         <attr name="editMode_markerCount" format="integer" />
-        <!-- Set the marker radius for edit parrallaxMode only. -->
         <attr name="editMode_markerRadius" format="integer" />
     </declare-styleable>
+
     <declare-styleable name="Toggle">
         <attr name="textOn" format="string" />
         <attr name="textOff" format="string" />
@@ -377,56 +362,34 @@
         <attr name="android:textSize" />
         <attr name="android:enabled" />
     </declare-styleable>
+
     <declare-styleable name="LAutoLinearLayout">
-        <!-- Standard orientation constant. -->
         <attr name="auto_orientation">
-            <!-- Defines an horizontal widget. -->
             <enum name="horizontal" value="0" />
-            <!-- Defines a vertical widget. -->
             <enum name="vertical" value="1" />
         </attr>
-        <!-- Specifies how an object should position its content, on both the X and Y axes,
-             within its own bounds.  -->
         <attr name="auto_gravity">
-            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30" />
-            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50" />
-            <!-- Push object to the left of its container, not changing its size. -->
             <flag name="left" value="0x03" />
-            <!-- Push object to the right of its container, not changing its size. -->
             <flag name="right" value="0x05" />
-            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10" />
-            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill_vertical" value="0x70" />
-            <!-- Place object in the horizontal center of its container, not changing its size. -->
             <flag name="center_horizontal" value="0x01" />
-            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
             <flag name="fill_horizontal" value="0x07" />
-            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
             <flag name="center" value="0x11" />
-            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill" value="0x77" />
-            <!-- Additional option that can be set to have the top and/or bottom edges of
-                 the child clipped to its container's bounds.
-                 The clip will be based on the vertical gravity: a top gravity will clip the bottom
-                 edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
             <flag name="clip_vertical" value="0x80" />
-            <!-- Additional option that can be set to have the left and/or right edges of
-                 the child clipped to its container's bounds.
-                 The clip will be based on the horizontal gravity: a left gravity will clip the right
-                 edge, a right gravity will clip the left edge, and neither will clip both edges. -->
             <flag name="clip_horizontal" value="0x08" />
-            <!-- Push object to the beginning of its container, not changing its size. -->
             <flag name="start" value="0x00800003" />
-            <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="AutoLinearLayoutTheme">
         <attr name="autoLinearLayoutStyle" format="reference" />
     </declare-styleable>
+
     <declare-styleable name="SwipeableLayout">
         <attr name="swipeSpeed" format="float" />
         <attr name="swipeOrientation" format="enum">
@@ -437,11 +400,13 @@
         </attr>
         <attr name="scrollAndClickable" format="boolean" />
     </declare-styleable>
+
     <declare-styleable name="LMovieView">
         <attr name="android:src" />
         <attr name="android:title" />
         <attr name="android:adjustViewBounds" />
     </declare-styleable>
+
     <declare-styleable name="LBoxedVertical">
         <attr name="points" format="integer" />
         <attr name="max_boxed" format="integer" />
@@ -463,10 +428,7 @@
         <attr name="textEnabled_boxed" format="boolean" />
         <attr name="imageEnabled_boxed" format="boolean" />
     </declare-styleable>
-    <!--<attr name="orientation" format="enum">
-        <enum name="horizontal" value="0" />
-        <enum name="vertical" value="1" />
-    </attr>-->
+
     <declare-styleable name="SwipeBackLayout">
         <attr name="swipeBackFactor" format="float" />
         <attr name="maskAlpha" format="integer" />
@@ -478,32 +440,7 @@
             <enum name="bottom" value="8" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="RecyclerViewBannerBase">
-        <attr name="interval" />
-        <attr name="showIndicator_banner_base" />
-        <attr name="orientation_banner_base" />
-        <attr name="autoPlaying" />
-        <attr name="indicatorSelectedSrc" format="color|reference" />
-        <attr name="indicatorUnselectedSrc" format="color|reference" />
-        <attr name="indicatorSpace" format="dimension|reference" />
-        <attr name="indicatorMarginLeft" format="dimension|reference" />
-        <attr name="indicatorMarginRight" format="dimension|reference" />
-        <attr name="indicatorMarginBottom" format="dimension|reference" />
-        <attr name="indicatorGravity" format="enum">
-            <enum name="left" value="0" />
-            <enum name="center" value="1" />
-            <enum name="right" value="2" />
-        </attr>
-    </declare-styleable>
-    <declare-styleable name="BannerLayout">
-        <attr name="interval" />
-        <attr name="showIndicator_banner_layout" />
-        <attr name="orientation_banner_layout" />
-        <attr name="autoPlaying" />
-        <attr name="itemSpace" format="integer" />
-        <attr name="centerScale" format="float" />
-        <attr name="moveSpeed" format="float" />
-    </declare-styleable>
+
     <declare-styleable name="LVerticalSeekBar">
         <attr name="VSseekBarRotation">
             <!-- Clock wise - 90 deg; top = min, bottom = max -->
@@ -512,6 +449,7 @@
             <enum name="CW270" value="270" />
         </attr>
     </declare-styleable>
+
     <declare-styleable name="LCompass">
         <attr name="degree_color" format="color" />
         <attr name="show_orientation_labels" format="boolean" />
@@ -523,6 +461,7 @@
         <attr name="show_border" format="boolean" />
         <attr name="border_color_compass" format="color" />
     </declare-styleable>
+
     <declare-styleable name="LHeartLayout">
         <attr name="initX" format="dimension" />
         <attr name="initY" format="dimension" />
@@ -535,6 +474,7 @@
         <attr name="bezierFactor" format="integer" />
         <attr name="anim_duration" format="integer" />
     </declare-styleable>
+
     <declare-styleable name="WatchWhileLayout">
         <attr name="playerViewId" format="reference" />
         <attr name="playerTopLeftViewId" format="reference" />
@@ -545,23 +485,20 @@
         <attr name="miniPlayerWidth" format="dimension" />
         <attr name="miniPlayerPadding" format="dimension" />
     </declare-styleable>
+
     <declare-styleable name="FixedAspectRatio">
         <attr name="aspectRatio" format="fraction" />
     </declare-styleable>
+
     <declare-styleable name="FixedAspectRatioRelativeLayout">
         <attr name="aspectRatioRelativeLayout" format="fraction" />
     </declare-styleable>
+
     <declare-styleable name="LRotateLayout">
         <!-- Child view of this layout will be rotated by this angle. -->
         <attr name="angle" format="integer" />
     </declare-styleable>
-    <declare-styleable name="lFixedGridLayout">
-        <attr name="lNumRows" />
-        <attr name="lNumColumns" />
-        <attr name="lHorizontalSpacing" />
-        <attr name="lVerticalSpacing" />
-        <attr name="lHorizontalDivider" />
-    </declare-styleable>
+
     <declare-styleable name="LCropImageView">
         <attr name="LcropGuidelines">
             <enum name="off" value="0" />
@@ -652,15 +589,6 @@
         <attr name="minDistRequestDisallowParent" format="dimension" />
     </declare-styleable>
 
-<!--    <declare-styleable name="LRoundedButton">-->
-<!--        <attr name="buttonColor" format="color" />-->
-<!--        <attr name="buttonGradientStartColor" format="color" />-->
-<!--        <attr name="buttonGradientEndColor" format="color" />-->
-<!--        <attr name="buttonCornerRadius" format="dimension" />-->
-<!--        <attr name="buttonRippleColor" format="color" />-->
-<!--        <attr name="buttonRippleAlpha" format="integer" />-->
-<!--    </declare-styleable>-->
-
     <!-- ShadowLayout 阴影 -->
     <declare-styleable name="LShadowLayout">
         <attr name="shadowColor" format="color" />
@@ -720,7 +648,6 @@
     </declare-styleable>
 
     <declare-styleable name="WP10ProgressBar" parent="WP7ProgressBar">
-        <attr name="wpIterval" />
         <attr name="wpAnimationDuration" />
         <attr name="wpIndicatorHeight" />
         <attr name="wpIndicatorColor" />
@@ -758,16 +685,12 @@
         <attr name="lrl_cornerRightSide" format="dimension" />
     </declare-styleable>
 
-<!--    <declare-styleable name="QButton">-->
-<!--        <attr name="qb_backgroundColor" format="color" />-->
-<!--        <attr name="qb_radius" format="integer" />-->
-<!--        <attr name="qb_strokeColor" format="color" />-->
-<!--        <attr name="qb_strokeWidth" format="integer" />-->
-<!--        <attr name="qb_strokeDashWidth" format="integer" />-->
-<!--        <attr name="qb_strokeDashGap" format="integer" />-->
-<!--    </declare-styleable>-->
-
     <declare-styleable name="CalendarView">
+
+        <attr name="orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
 
         <attr name="firstDayOfTheWeek" format="enum">
             <enum name="sunday" value="1" />
@@ -784,11 +707,6 @@
             <enum name="multiple" value="1" />
             <enum name="range" value="2" />
             <enum name="none" value="3" />
-        </attr>
-
-        <attr name="orientation" format="enum">
-            <enum name="horizontal" value="0" />
-            <enum name="vertical" value="1" />
         </attr>
 
         <attr name="calendarBackgroundColor" format="color" />

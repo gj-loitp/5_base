@@ -16,7 +16,6 @@ import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureC
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
-import vn.loitp.app.activity.demo.film.FilmDemoActivity
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
@@ -43,7 +42,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_floating_video).setOnClickListener(this)
         findViewById<View>(R.id.bt_floating_view).setOnClickListener(this)
         findViewById<View>(R.id.bt_firebase).setOnClickListener(this)
-        findViewById<View>(R.id.bt_film).setOnClickListener(this)
         if (Constants.IS_DEBUG) {
             findViewById<View>(R.id.bt_gallery_core).visibility = View.VISIBLE
             findViewById<View>(R.id.bt_gallery_core).setOnClickListener(this)
@@ -94,7 +92,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_floating_widget -> intent = Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
             R.id.bt_floating_video -> intent = Intent(activity, FloatingWidgetActivity::class.java)
             R.id.bt_firebase -> intent = Intent(activity, MenuFirebaseActivity::class.java)
-            R.id.bt_film -> intent = Intent(activity, FilmDemoActivity::class.java)
             R.id.bt_gallery_core -> {
                 intent = Intent(activity, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
