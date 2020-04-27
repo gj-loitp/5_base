@@ -30,6 +30,7 @@ import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivit
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.shapeofview.ShapeOfViewActivity
+import vn.loitp.app.activity.customviews.layout.splitpanellayout.SplitPanelLayoutActivity
 import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
@@ -68,6 +69,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btShadowLayout.setOnClickListener(this)
         btShapeOfView.setOnClickListener(this)
         btFlowLayout.setOnClickListener(this)
+        btSplitPanelLayout.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -113,6 +115,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btShapeOfView -> intent = Intent(activity, ShapeOfViewActivity::class.java)
             btRoundableLayout -> intent = Intent(activity, RoundableLayoutActivity::class.java)
             btFlowLayout -> intent = Intent(activity, FlowLayoutActivity::class.java)
+            btSplitPanelLayout -> intent = Intent(activity, SplitPanelLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

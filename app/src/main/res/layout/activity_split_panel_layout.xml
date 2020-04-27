@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
+
+    <com.views.layout.splitpanellayout.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        spl:splitterBackground="@drawable/bkg_et"
+        spl:splitterDraggingBackground="#88000000"
+        spl:splitterOrientation="vertical"
+        spl:splitterPanelSizeMin="48dip"
+        spl:splitterPosition="69%"
+        spl:splitterSize="4dip">
+
+        <TextView
+            android:id="@+id/tvFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/hello_world"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_medium" />
+
+        <TextView
+            android:id="@+id/tvSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/hello_world"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_medium" />
+
+    </com.views.layout.splitpanellayout.SplitPaneLayout>
+</RelativeLayout>

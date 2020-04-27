@@ -133,6 +133,11 @@
                 android:text="Shape Of View" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSplitPanelLayout"
+                style="@style/ButtonMenu"
+                android:text="Split Panel Layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSquareLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/square_layout" />
