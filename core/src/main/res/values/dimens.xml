@@ -66,6 +66,7 @@
     <dimen name="txt_100">100sp</dimen>
     <dimen name="txt_150">150sp</dimen>
 
+    <dimen name="round_medium">15dp</dimen>
     <dimen name="round_5">5dp</dimen>
     <dimen name="round_10">10dp</dimen>
     <dimen name="round_15">15dp</dimen>

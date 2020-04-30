@@ -36,7 +36,7 @@ class SplashActivity : BaseFontActivity() {
         val tv = findViewById<TextView>(R.id.tv)
         tv.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        val tvPolicy = findViewById<TextView>(R.id.tv_policy)
+        val tvPolicy = findViewById<TextView>(R.id.tvPolicy)
         LUIUtil.setTextShadow(tvPolicy)
         tvPolicy.setOnClickListener { LSocialUtil.openBrowserPolicy(activity) }
 

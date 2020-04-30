@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tv_policy"
+        android:layout_above="@+id/tvPolicy"
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
@@ -19,32 +17,32 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_api"
+                android:id="@+id/btApi"
                 style="@style/ButtonMenu"
                 android:text="@string/api" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_ads"
+                android:id="@+id/btAds"
                 style="@style/ButtonMenu"
                 android:text="@string/ads" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_animation"
+                android:id="@+id/btAnimation"
                 style="@style/ButtonMenu"
                 android:text="@string/animation" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_custom_view"
+                android:id="@+id/btCustomView"
                 style="@style/ButtonMenu"
                 android:text="@string/custom_views" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_database"
+                android:id="@+id/btDatabase"
                 style="@style/ButtonMenu"
                 android:text="@string/database" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_picker"
+                android:id="@+id/btPicker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
 
@@ -59,12 +57,12 @@
                 android:text="Service" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_demo"
+                android:id="@+id/btDemo"
                 style="@style/ButtonMenu"
                 android:text="@string/demo_app" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_function"
+                android:id="@+id/btFunction"
                 style="@style/ButtonMenu"
                 android:text="@string/function" />
 
@@ -74,52 +72,52 @@
                 android:text="@string/network" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_pattern"
+                android:id="@+id/btPattern"
                 style="@style/ButtonMenu"
                 android:text="@string/pattern" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_tutorial"
+                android:id="@+id/btTutorial"
                 style="@style/ButtonMenu"
                 android:text="@string/tutorial" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_rate_app"
+                android:id="@+id/btRateApp"
                 style="@style/ButtonMenu"
                 android:text="@string/rate_app" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_more_app"
+                android:id="@+id/btMoreApp"
                 style="@style/ButtonMenu"
                 android:text="@string/more_app" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_chat"
+                android:id="@+id/btChat"
                 style="@style/ButtonMenu"
                 android:text="@string/chat_with_dev" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fb_fanpage"
+                android:id="@+id/btFbFanpage"
                 style="@style/ButtonMenu"
                 android:text="@string/fb_fanpage" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_ad_helper"
+                android:id="@+id/btAdHelper"
                 style="@style/ButtonMenu"
                 android:text="Vì sao bạn thấy quảng cáo?" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_frm_more"
+                android:id="@+id/btFrmMore"
                 style="@style/ButtonMenu"
                 android:text="@string/th_m" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_donation"
+                android:id="@+id/btDonation"
                 style="@style/ButtonMenu"
                 android:text="@string/donation" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_github"
+                android:id="@+id/btGithub"
                 style="@style/ButtonMenu"
                 android:text="@string/github" />
         </LinearLayout>
@@ -131,7 +129,7 @@
         android:text="@string/main_menu" />
 
     <TextView
-        android:id="@+id/tv_policy"
+        android:id="@+id/tvPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

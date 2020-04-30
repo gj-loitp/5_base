@@ -82,7 +82,7 @@ dependencies {
     //region view
     api 'androidx.appcompat:appcompat:1.1.0'
     api 'com.google.android.material:material:1.2.0-alpha02'
-    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.recyclerview:recyclerview:1.2.0-alpha02'
     api 'androidx.cardview:cardview:1.0.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     //endregion

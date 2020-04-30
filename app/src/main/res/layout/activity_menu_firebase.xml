@@ -32,7 +32,7 @@
                 android:text="Config" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_database"
+                android:id="@+id/btDatabase"
                 style="@style/ButtonMenu"
                 android:text="Database" />
 
