@@ -26,6 +26,7 @@ object Constants {
     val URL_IMG_11 = "https://c2.staticflickr.com/6/5542/30333782080_ef19d1b037_b.jpg"
     val URL_IMG_12 = "https://c2.staticflickr.com/6/5491/30597322996_f317c58a31_h.jpg"
     val URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg"
+    val URL_IMG_ANDROID = "https://live.staticflickr.com/4501/37154024293_0c1c0ea3ce.jpg"
     //endregion
 
     val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
