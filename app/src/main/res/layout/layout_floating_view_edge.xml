@@ -20,7 +20,7 @@
             android:id="@+id/v_bkg_destroy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/RedTrans"
+            android:background="@color/red50"
             android:visibility="gone" />
     </RelativeLayout>
 </FrameLayout>

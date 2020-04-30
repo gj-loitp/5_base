@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,15 +26,15 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_55"
                 android:layout_marginBottom="@dimen/margin_55"
-                app:backgroundColor="@color/LightBlue"
+                app:backgroundColor="@color/lightBlue"
                 app:cornerRadius_boxed="20"
                 app:defaultValueBoxedVertical="50"
                 app:imageEnabled_boxed="false"
                 app:max_boxed="100"
-                app:progressColor="@color/Blue"
+                app:progressColor="@color/blue"
                 app:step="1"
                 app:textBottomPadding="20"
-                app:textColor_boxed="@color/White"
+                app:textColor_boxed="@color/white"
                 app:textEnabled_boxed="true"
                 app:textSize_boxed="8sp"
                 app:touchDisabled_boxed="false" />

@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
+    android:background="@color/whiteSmoke"
     android:fitsSystemWindows="true">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:src="@drawable/l_ic_play_arrow_black_48dp"
-            android:tint="@color/White"
+            android:tint="@color/white"
             app:layout_anchor="@id/cardView1"
             app:layout_anchorGravity="bottom|end" />
 

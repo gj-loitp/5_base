@@ -50,7 +50,7 @@
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:visibility="invisible" />
 </RelativeLayout>
 

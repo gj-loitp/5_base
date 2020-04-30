@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
+    android:background="@color/whiteSmoke"
     android:padding="@dimen/padding_15">
 
     <com.views.switchtoggle.customtogglebutton.LCustomToggle
@@ -29,7 +29,7 @@
         app:ctg_addMagnification="5"
         app:ctg_addRightIcon="@drawable/ic_play_arrow"
         app:ctg_addSlideBackgroundColor="@color/colorPrimary"
-        app:ctg_addSlideColor="@color/red04" />
+        app:ctg_addSlideColor="@color/red" />
 
     <com.views.switchtoggle.customtogglebutton.LCustomToggle
         android:id="@+id/toggle_xml_3"
@@ -42,7 +42,7 @@
         app:ctg_addMagnification="10"
         app:ctg_addRightIcon="@drawable/ic_play_arrow"
         app:ctg_addSlideBackgroundColor="@color/grey"
-        app:ctg_addSlideColor="@color/Blue" />
+        app:ctg_addSlideColor="@color/blue" />
 
 </RelativeLayout>
 

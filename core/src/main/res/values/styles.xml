@@ -66,7 +66,7 @@
     </style>
 
     <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:background">@color/black_35</item>
+        <item name="android:background">@color/black35</item>
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
         </item>
     </style>
@@ -122,7 +122,7 @@
     <style name="Label">
         <item name="android:padding">@dimen/padding_label_view</item>
         <item name="android:layout_margin">@dimen/margin_between_labels</item>
-        <item name="android:background">@color/default_background_label</item>
+        <item name="android:background">@color/whiteSmoke</item>
     </style>
 
     <style name="AVLoadingIndicatorView">

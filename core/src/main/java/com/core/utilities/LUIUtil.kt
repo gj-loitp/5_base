@@ -57,10 +57,10 @@ object LUIUtil {
     private var lastOffset = 0.0f
     private var isUp = false
 
-    private val colors = intArrayOf(R.color.LightBlue, R.color.LightCoral, R.color.LightCyan,
-            R.color.LightGoldenrodYellow, R.color.LightGreen, R.color.LightGrey, R.color.LightPink,
-            R.color.LightSalmon, R.color.LightSeaGreen, R.color.LightSlateGray, R.color.LightSteelBlue,
-            R.color.LightYellow, R.color.LightSkyBlue)
+    private val colors = intArrayOf(R.color.lightBlue, R.color.lightCoral, R.color.lightCyan,
+            R.color.lightGoldenrodYellow, R.color.lightGreen, R.color.lightGrey, R.color.lightPink,
+            R.color.lightSalmon, R.color.lightSeaGreen, R.color.lightSlateGray, R.color.lightSteelBlue,
+            R.color.lightYellow, R.color.lightSkyBlue)
 
     var fontForAll: String? = null
         set(fontForAll) {

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/lbutton_change_drawable_of_pressed_state_programmatically_with_one_line_code_lbutton_setpresseddrawable"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_medium" />
 
             <com.views.button.lbutton.LButton

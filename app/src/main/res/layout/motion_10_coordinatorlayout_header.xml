@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/copyright"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_32"
         android:transformPivotX="0dp"
         android:transformPivotY="0dp" />

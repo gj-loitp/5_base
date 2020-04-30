@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
+    android:background="@color/whiteSmoke"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         android:layout_marginRight="@dimen/margin_15"
         android:layout_marginBottom="@dimen/margin_8"
         android:layout_weight="1"
-        android:background="@color/LightGreen"
+        android:background="@color/lightGreen"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -31,7 +31,7 @@
         android:layout_marginRight="@dimen/margin_15"
         android:layout_marginBottom="@dimen/margin_15"
         android:layout_weight="1"
-        android:background="@color/LightPink"
+        android:background="@color/lightPink"
         android:gravity="center"
         android:orientation="vertical">
 

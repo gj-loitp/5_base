@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ScrollView
@@ -13,9 +13,9 @@
             android:id="@+id/tvInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Black"
+            android:background="@color/black"
             android:padding="@dimen/padding_10"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_12"
             android:textStyle="bold" />
     </ScrollView>

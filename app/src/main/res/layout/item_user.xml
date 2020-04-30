@@ -29,7 +29,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt_20"
             android:textStyle="bold" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/Gray"
+            android:textColor="@color/gray"
             android:textSize="@dimen/txt_10" />
     </LinearLayout>
 </LinearLayout>

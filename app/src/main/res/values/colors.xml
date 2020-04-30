@@ -11,20 +11,20 @@
     <color name="text">#ffffff</color>
 
     <!--region cosmocalendar-->
-    <color name="default_calendar_background_color">@color/White</color>
-    <color name="default_month_text_color">@color/Black</color>
-    <color name="default_other_day_text_color">@color/WhiteSmoke</color>
-    <color name="default_day_text_color">@color/Black</color>
-    <color name="default_weekend_day_text_color">@color/Red</color>
-    <color name="default_week_day_title_text_color">@color/DarkCyan</color>
-    <color name="default_selected_day_text_color">@color/White</color>
-    <color name="default_selected_day_background_color">@color/DarkGreen</color>
-    <color name="default_selected_day_background_start_color">@color/DarkBlue</color>
-    <color name="default_selected_day_background_end_color">@color/Blue</color>
+    <color name="default_calendar_background_color">@color/white</color>
+    <color name="default_month_text_color">@color/black</color>
+    <color name="default_other_day_text_color">@color/whiteSmoke</color>
+    <color name="default_day_text_color">@color/black</color>
+    <color name="default_weekend_day_text_color">@color/red</color>
+    <color name="default_week_day_title_text_color">@color/darkCyan</color>
+    <color name="default_selected_day_text_color">@color/white</color>
+    <color name="default_selected_day_background_color">@color/darkGreen</color>
+    <color name="default_selected_day_background_start_color">@color/darkBlue</color>
+    <color name="default_selected_day_background_end_color">@color/blue</color>
     <!--<color name="default_connected_day_text_color">#f00</color>-->
     <!--<color name="default_connected_day_selected_text_color">#f00</color>-->
-    <color name="default_disabled_day_text_color">@color/DarkGray</color>
+    <color name="default_disabled_day_text_color">@color/darkGray</color>
     <color name="default_border_color">@color/colorPrimary</color>
-    <color name="default_selection_bar_month_title_text_color">@color/Brown</color>
+    <color name="default_selection_bar_month_title_text_color">@color/brown</color>
     <!--endregion cosmocalendar-->
 </resources>

@@ -50,7 +50,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             field = colorOn
             refreshUI()
         }
-    var colorIvOff = R.color.Black
+    var colorIvOff = R.color.black
         set(colorOff) {
             field = colorOff
             refreshUI()

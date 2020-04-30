@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="@dimen/margin_30"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/iv"
-                app:civ_border_color="@color/black_85"
+                app:civ_border_color="@color/black85"
                 app:civ_border_width="@dimen/w_10" />
 
         </LinearLayout>

@@ -29,8 +29,7 @@ import com.core.utilities.LUIUtil
 import java.util.*
 
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
-    /*public enum BUTTON_TYPE{FILL,BORDER}*/
-    internal var defaultIconTint: Int = R.color.pdlg_color_blue
+    internal var defaultIconTint: Int = R.color.colorPrimary
     internal var resources: Resources
     internal var llContent: LinearLayout? = null
     internal var llButtons: LinearLayout? = null
@@ -137,7 +136,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTitleColor(color: Int?): PrettyDialog {
-        tvTitle?.setTextColor(ContextCompat.getColor(context, color ?: R.color.pdlg_color_black))
+        tvTitle?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
         return this
     }
 
@@ -152,7 +151,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setMessageColor(color: Int?): PrettyDialog {
-        tvMessage?.setTextColor(ContextCompat.getColor(context, color ?: R.color.pdlg_color_black))
+        tvMessage?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
         return this
     }
 

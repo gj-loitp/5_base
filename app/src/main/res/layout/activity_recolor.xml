@@ -53,7 +53,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="ReColor Background"
-                    android:textColor="@color/White"
+                    android:textColor="@color/white"
                     tools:ignore="HardcodedText" />
             </LinearLayout>
 
@@ -73,7 +73,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="ReColor CardView"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -96,7 +96,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="ReColor status bar"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,7 +114,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="ReColor Navigation bar"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -130,7 +130,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="ReColor Both"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -154,7 +154,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Pulse Status bar"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -172,7 +172,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Pulse Navigation bar"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,7 +188,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Pulse Both"
-                        android:textColor="@color/White" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

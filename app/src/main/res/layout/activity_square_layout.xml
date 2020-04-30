@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -19,33 +19,33 @@
                 android:layout_width="@dimen/w_50"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_5"
-                android:background="@color/red01" />
+                android:background="@color/blue" />
 
             <com.views.layout.squarelayout.LSquareFrameLayout
                 android:layout_width="@dimen/w_250"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_5"
-                android:background="@color/green01" />
+                android:background="@color/green" />
 
             <com.views.layout.squarelayout.LSquareFrameLayout
                 android:layout_width="@dimen/w_80"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_margin="@dimen/margin_5"
-                android:background="@color/blue01" />
+                android:background="@color/red" />
 
             <com.views.layout.squarelayout.LSquareFrameLayout
                 android:layout_width="@dimen/w_100"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/margin_5"
-                android:background="@color/Pink" />
+                android:background="@color/pink" />
 
             <com.views.layout.squarelayout.LSquareFrameLayout
                 android:layout_width="@dimen/w_250"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_5"
-                android:background="@color/purple01" />
+                android:background="@color/purple" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

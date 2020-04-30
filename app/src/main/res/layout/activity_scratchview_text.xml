@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.scratchview.LScratchTextView
         android:id="@+id/scratchview"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_5"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:textSize="@dimen/txt_14" />
 </RelativeLayout>
 

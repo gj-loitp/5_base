@@ -20,7 +20,7 @@
             android:paddingLeft="@dimen/pdlg_space"
             android:paddingTop="@dimen/pdlg_space"
             android:paddingRight="@dimen/pdlg_space"
-            android:textColor="@color/pdlg_color_black"
+            android:textColor="@color/black"
             android:textSize="@dimen/pdlg_tv_title"
             android:textStyle="bold" />
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/pdlg_space"
-            android:textColor="@color/pdlg_color_black"
+            android:textColor="@color/black"
             android:textSize="@dimen/pdlg_tv_message" />
 
         <ScrollView
@@ -63,6 +63,6 @@
             android:layout_margin="@dimen/pdlg_border_size"
             android:contentDescription="@string/app_name"
             android:src="@drawable/pdlg_icon_close"
-            android:tint="@color/pdlg_color_blue" />
+            android:tint="@color/blue" />
     </LinearLayout>
 </FrameLayout>

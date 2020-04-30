@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -24,7 +24,7 @@
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 android:elevation="4dp"
-                app:shape_circle_borderColor="@color/Black"
+                app:shape_circle_borderColor="@color/black"
                 app:shape_circle_borderWidth="2dp">
 
                 <ImageView
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -48,7 +48,7 @@
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
                 android:elevation="4dp"
-                app:shape_roundRect_borderColor="@color/Black"
+                app:shape_roundRect_borderColor="@color/black"
                 app:shape_roundRect_borderWidth="2dp"
                 app:shape_roundRect_bottomLeftRadius="10dp"
                 app:shape_roundRect_bottomRightRadius="10dp"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.CutCornerView>
 
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.ArcView>
 
@@ -167,7 +167,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.DiagonalView>
 
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.TriangleView>
 
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.BubbleView>
 
@@ -240,7 +240,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.StarView>
 
@@ -262,7 +262,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.PolygonView>
 
@@ -288,7 +288,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
             </com.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView>
 
             <com.github.florent37.shapeofview.shapes.ArcView
@@ -309,7 +309,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/White" />
+                    android:textColor="@color/white" />
 
             </com.github.florent37.shapeofview.shapes.ArcView>
         </LinearLayout>

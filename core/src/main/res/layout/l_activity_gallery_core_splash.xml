@@ -37,7 +37,7 @@
                 android:layout_marginTop="@dimen/margin_55"
                 android:gravity="center"
                 android:text="@string/copyright"
-                android:textColor="@color/White"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_14" />
 
             <com.views.progressloadingview.avl.LAVLoadingIndicatorView
@@ -49,7 +49,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_55"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/white"
                 app:indicatorName="LineScalePulseOutRapidIndicator" />
 
             <TextView
@@ -60,7 +60,7 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_5"
                 android:text="@string/lgallery"
-                android:textColor="@color/White"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_50" />
         </RelativeLayout>
     </ScrollView>

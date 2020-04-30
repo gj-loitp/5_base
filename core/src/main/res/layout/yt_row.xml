@@ -9,7 +9,7 @@
     android:layout_marginRight="@dimen/margin_10"
     android:layout_marginBottom="@dimen/margin_5"
     android:foreground="?android:selectableItemBackground"
-    card_view:cardBackgroundColor="@color/White"
+    card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="0dp"
     card_view:cardElevation="@dimen/w_3"
     card_view:cardUseCompatPadding="true">
@@ -32,7 +32,7 @@
             android:layout_below="@+id/iv"
             android:maxLines="2"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt_16" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_below="@+id/tv_title"
             android:gravity="center|end|bottom"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/Gray"
+            android:textColor="@color/gray"
             android:textSize="@dimen/txt_10" />
 
     </RelativeLayout>

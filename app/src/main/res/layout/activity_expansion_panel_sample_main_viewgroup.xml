@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_15"
-            app:cardBackgroundColor="@color/White"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/round_15"
             app:cardElevation="@dimen/w_3"
             app:cardUseCompatPadding="true">
@@ -30,14 +30,14 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_1"
-                    android:background="@color/Gray" />
+                    android:background="@color/gray" />
 
                 <include layout="@layout/view_expansion_panel_sample_panel" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/w_1"
-                    android:background="@color/Gray" />
+                    android:background="@color/gray" />
 
                 <include layout="@layout/view_expansion_panel_sample_panel" />
 

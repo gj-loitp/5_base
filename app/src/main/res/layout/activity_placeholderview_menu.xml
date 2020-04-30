@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Menu Place Holder View"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
             <androidx.appcompat.widget.AppCompatButton

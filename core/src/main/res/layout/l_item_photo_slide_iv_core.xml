@@ -29,7 +29,7 @@
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_margin="@dimen/margin_10"
-            app:indicatorColor="@color/White"
+            app:indicatorColor="@color/white"
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_18" />
     </LinearLayout>
 </RelativeLayout>

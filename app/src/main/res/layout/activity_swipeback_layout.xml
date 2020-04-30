@@ -81,7 +81,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_150"
-            android:background="@color/RedTrans" />
+            android:background="@color/red50" />
 
     </RelativeLayout>
 

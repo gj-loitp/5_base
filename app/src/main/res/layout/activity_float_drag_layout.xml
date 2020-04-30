@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_change_to_fullscreen"

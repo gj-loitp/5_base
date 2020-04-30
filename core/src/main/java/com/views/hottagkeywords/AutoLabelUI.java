@@ -80,7 +80,7 @@ public class AutoLabelUI extends AutoViewGroup implements LLabelView.OnClickCros
                 mTextSize = typedArray.getDimensionPixelSize(R.styleable.LabelsView_text_size,
                         getResources().getDimensionPixelSize(R.dimen.label_title_size));
                 mTextColor = typedArray.getColor(R.styleable.LabelsView_text_color, getResources().getColor(android.R.color.white));
-                mBackgroundResource = typedArray.getResourceId(R.styleable.LabelsView_label_background_res, R.color.default_background_label);
+                mBackgroundResource = typedArray.getResourceId(R.styleable.LabelsView_label_background_res, R.color.green);
                 mMaxLabels = typedArray.getInteger(R.styleable.LabelsView_max_labels, AutoLabelUISettings.DEFAULT_MAX_LABELS);
                 mShowCross = typedArray.getBoolean(R.styleable.LabelsView_show_cross, AutoLabelUISettings.DEFAULT_SHOW_CROSS);
                 mIconCross = typedArray.getResourceId(R.styleable.LabelsView_icon_cross, AutoLabelUISettings.DEFAULT_ICON_CROSS);

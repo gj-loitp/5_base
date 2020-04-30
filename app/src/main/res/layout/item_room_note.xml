@@ -9,7 +9,7 @@
     android:layout_marginTop="@dimen/margin_10"
     android:layout_marginEnd="@dimen/margin_10"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/White"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/round_5"
     app:cardElevation="@dimen/w_5"
     app:cardUseCompatPadding="true">
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="@dimen/padding_10"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt_10"
             android:textStyle="bold"
             tools:text="@string/app_name" />

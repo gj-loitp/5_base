@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -36,10 +36,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/DarkCyan"
+                android:background="@color/darkCyan"
                 android:padding="@dimen/padding_5"
                 android:text="@string/large_text"
-                android:textColor="@color/White" />
+                android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>
 
@@ -53,10 +53,10 @@
             android:id="@+id/view_header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_250"
-            android:background="@color/black_85"
+            android:background="@color/black85"
             android:gravity="center"
             android:text="view_header"
-            android:textColor="@color/White" />
+            android:textColor="@color/white" />
 
         <ScrollView
             android:id="@+id/view_desc"
@@ -68,10 +68,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/WhiteTrans99"
+                android:background="@color/whiteTrans99"
                 android:padding="@dimen/padding_15"
                 android:text="@string/large_text"
-                android:textColor="@color/Black" />
+                android:textColor="@color/black" />
         </ScrollView>
 
     </com.views.layout.draggablepanelfree.DraggablePanelFreeLayout>

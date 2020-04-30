@@ -4,13 +4,13 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.layout.circularview.CircularView
         android:id="@+id/circular_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:centerBackgroundColor="@color/LightYellow"
+        app:centerBackgroundColor="@color/lightYellow"
         app:centerDrawable="@mipmap/ic_launcher" />
 
 </RelativeLayout>

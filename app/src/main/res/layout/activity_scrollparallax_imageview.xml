@@ -43,5 +43,5 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_15"
         android:text="ScrollParallaxImageView extends ImageView, and provides parallax effects when it scrolls in the screen.It can be use in any view which can scroll its content, like ListView, RecyclerView, ScrollView, etc."
-        android:textColor="@color/White" />
+        android:textColor="@color/white" />
 </RelativeLayout>

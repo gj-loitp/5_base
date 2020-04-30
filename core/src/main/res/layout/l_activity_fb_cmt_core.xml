@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/White"
+        android:background="@color/white"
         android:fitsSystemWindows="true">
 
         <com.views.actionbar.LActionBar

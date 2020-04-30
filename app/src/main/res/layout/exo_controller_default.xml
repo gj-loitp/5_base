@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/Blue"
+    android:background="@color/blue"
     android:layoutDirection="ltr"
     android:orientation="vertical">
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="exo_controller_default.xml"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_18"
         android:textStyle="bold" />
 

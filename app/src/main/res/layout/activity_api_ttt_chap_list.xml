@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -24,14 +24,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_10" />
 
         </LinearLayout>

@@ -17,7 +17,7 @@
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/DarkCyan"
+		android:background="@color/darkCyan"
 		android:singleLine="true"
 		android:padding="16dp"
 		android:textColor="@android:color/white"

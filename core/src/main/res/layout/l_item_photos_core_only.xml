@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_14" />
 
     <com.github.piasy.biv.view.BigImageView
@@ -54,8 +54,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_baseline_bug_report_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -69,8 +69,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_baseline_cloud_download_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -84,8 +84,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_baseline_chat_black_48dp"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -99,8 +99,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_ic_share_black_48dp"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -115,5 +115,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
-        android:background="@color/White" />
+        android:background="@color/white" />
 </LinearLayout>

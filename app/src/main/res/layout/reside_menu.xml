@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <LinearLayout
         android:id="@+id/layout_top"
@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/White"
+            android:background="@color/white"
             android:contentDescription="@string/app_name" />
 
         <FrameLayout
@@ -29,7 +29,7 @@
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/ic_more_vert_grey"
-                android:backgroundTint="@color/White" />
+                android:backgroundTint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
                 android:layout_gravity="center"
                 android:padding="7dp"
                 android:text="RESideMenu DEMO"
-                android:textColor="@color/White"
+                android:textColor="@color/white"
                 android:textSize="24sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -47,13 +47,13 @@
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/ic_more_vert_grey"
-                android:backgroundTint="@color/White" />
+                android:backgroundTint="@color/white" />
         </FrameLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/White"
+            android:background="@color/white"
             android:contentDescription="@string/app_name" />
     </LinearLayout>
 

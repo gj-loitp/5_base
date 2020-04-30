@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary_600"
+        android:background="@color/colorPrimary60"
         android:orientation="vertical">
 
         <View
@@ -59,7 +59,7 @@
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:text="Title"
-                            android:textColor="@color/white_text_primary"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/medium_font_size"
                             android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                             android:ellipsize="end"
                             android:maxLines="2"
                             android:text="Subtitle"
-                            android:textColor="@color/white_text_secondary"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/small_font_size" />
                     </LinearLayout>
 

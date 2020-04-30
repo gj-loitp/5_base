@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.layout.zoomlayout.ZoomLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Zoom Layout Textview"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
             <ImageView

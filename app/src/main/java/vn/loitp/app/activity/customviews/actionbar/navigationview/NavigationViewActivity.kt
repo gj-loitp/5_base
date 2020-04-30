@@ -29,8 +29,8 @@ class NavigationViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         nv.apply {
-            colorOn = ContextCompat.getColor(activity, R.color.Red)
-            colorOff = ContextCompat.getColor(activity, R.color.Gray)
+            colorOn = ContextCompat.getColor(activity, R.color.red)
+            colorOff = ContextCompat.getColor(activity, R.color.gray)
             tv?.setTextColor(Color.BLACK)
             LUIUtil.setTextSize(textView = this.tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = 20)//20dp
         }

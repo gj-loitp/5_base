@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="false"
-    android:background="@color/black_85">
+    android:background="@color/black85">
 
     <!--<ImageView
         android:id="@+id/iv_bkg"
@@ -33,6 +33,6 @@
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:singleLine="true"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_50" />
 </RelativeLayout>

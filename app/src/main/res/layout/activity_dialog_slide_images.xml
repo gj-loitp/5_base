@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -12,7 +12,7 @@
         android:layout_width="@dimen/w_70"
         android:layout_height="@dimen/w_70"
         android:contentDescription="@string/app_name"
-        android:src="@color/WhiteSmoke" />
+        android:src="@color/whiteSmoke" />
 
     <ImageView
         android:id="@+id/iv1"
@@ -20,7 +20,7 @@
         android:layout_height="@dimen/w_70"
         android:layout_marginStart="@dimen/margin_5"
         android:contentDescription="@string/app_name"
-        android:src="@color/WhiteSmoke" />
+        android:src="@color/whiteSmoke" />
 
     <ImageView
         android:id="@+id/iv2"
@@ -28,5 +28,5 @@
         android:layout_height="@dimen/w_70"
         android:layout_marginStart="@dimen/margin_5"
         android:contentDescription="@string/app_name"
-        android:src="@color/WhiteSmoke" />
+        android:src="@color/whiteSmoke" />
 </LinearLayout>

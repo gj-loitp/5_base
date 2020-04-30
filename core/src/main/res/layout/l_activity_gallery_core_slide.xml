@@ -57,8 +57,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_baseline_bug_report_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />
@@ -70,8 +70,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_baseline_cloud_download_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />
@@ -85,8 +85,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/l_ic_share_black_48dp"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />

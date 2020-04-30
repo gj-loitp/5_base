@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.viewpager.parrallax.LParallaxViewPager
         android:id="@+id/viewpager"
@@ -14,10 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/black_85"
+        android:background="@color/black85"
         android:gravity="center"
         android:padding="@dimen/padding_5"
         android:text="Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY"
-        android:textColor="@color/White" />
+        android:textColor="@color/white" />
 </RelativeLayout>
 

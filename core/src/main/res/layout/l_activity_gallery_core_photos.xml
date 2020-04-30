@@ -42,7 +42,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_centerInParent="true"
             android:layout_marginBottom="@dimen/margin_15"
-            app:indicatorColor="@color/White"
+            app:indicatorColor="@color/white"
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -56,7 +56,7 @@
             android:src="@drawable/l_page"
             android:tint="@color/colorPrimary"
             android:visibility="invisible"
-            app:backgroundTint="@color/White"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="normal" />

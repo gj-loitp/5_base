@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
         android:id="@+id/scroll_view"

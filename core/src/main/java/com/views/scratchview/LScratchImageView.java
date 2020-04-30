@@ -154,8 +154,8 @@ public class LScratchImageView extends ImageView {
         Rect rect = new Rect(0, 0, mScratchBitmap.getWidth(), mScratchBitmap.getHeight());
         mDrawable.setBounds(rect);
 
-        int startGradientColor = ContextCompat.getColor(getContext(), R.color.scratch_start_gradient);
-        int endGradientColor = ContextCompat.getColor(getContext(), R.color.scratch_end_gradient);
+        int startGradientColor = ContextCompat.getColor(getContext(), R.color.scratchStartGradient);
+        int endGradientColor = ContextCompat.getColor(getContext(), R.color.scratchEndGradient);
 
         mGradientBgPaint.setShader(new LinearGradient(0, 0, 0, getHeight(), startGradientColor, endGradientColor, Shader.TileMode.MIRROR));
 

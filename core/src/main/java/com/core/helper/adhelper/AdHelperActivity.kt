@@ -149,10 +149,10 @@ class AdHelperActivity : BaseFontActivity() {
             }
 
             tv.text = adPage.title
-            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.White))
+            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.white))
 
             tvMsg.text = adPage.msg
-            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White))
+            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.white))
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"

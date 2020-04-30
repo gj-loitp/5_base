@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -33,7 +33,7 @@
                 app:buttonGradientEndColor="@color/colorPrimaryTrans"
                 app:buttonGradientStartColor="@color/colorPrimary"
                 app:buttonRippleAlpha="10"
-                app:buttonRippleColor="@color/Blue"
+                app:buttonRippleColor="@color/blue"
                 tools:ignore="HardcodedText" />
 
             <life.sabujak.roundedbutton.RoundedButton
@@ -44,13 +44,13 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_5"
                 android:text="Button"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="20dp"
-                app:buttonGradientEndColor="@color/Granite"
-                app:buttonGradientStartColor="@color/Green"
+                app:buttonGradientEndColor="@color/granite"
+                app:buttonGradientStartColor="@color/green"
                 app:buttonRippleAlpha="80"
-                app:buttonRippleColor="@color/Red" />
+                app:buttonRippleColor="@color/red" />
 
             <life.sabujak.roundedbutton.RoundedButton
                 android:id="@+id/bt2"
@@ -63,8 +63,8 @@
                 android:textColor="#ffffff"
                 android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="20dp"
-                app:buttonGradientEndColor="@color/Blue"
-                app:buttonGradientStartColor="@color/Red"
+                app:buttonGradientEndColor="@color/blue"
+                app:buttonGradientStartColor="@color/red"
                 app:buttonRippleAlpha="50"
                 app:buttonRippleColor="@color/colorPrimaryTrans" />
 
@@ -78,8 +78,8 @@
                 android:textColor="#ffffff"
                 android:textSize="@dimen/txt_20"
                 app:buttonCornerRadius="100dp"
-                app:buttonGradientEndColor="@color/Pine_Green"
-                app:buttonGradientStartColor="@color/Yellow"
+                app:buttonGradientEndColor="@color/pineGreen"
+                app:buttonGradientStartColor="@color/yellow"
                 app:buttonRippleAlpha="100"
                 app:buttonRippleColor="@color/colorPrimary" />
         </LinearLayout>

@@ -14,7 +14,7 @@
 		android:id="@+id/title"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textColor="@color/Black"
+		android:textColor="@color/black"
 		android:textSize="16dp"
 		android:textStyle="bold" />
 

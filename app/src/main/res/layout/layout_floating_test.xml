@@ -17,7 +17,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_close"
-            android:tint="@color/White"
+            android:tint="@color/white"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/close_btn"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_18" />
 
         <androidx.appcompat.widget.AppCompatButton

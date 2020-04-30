@@ -16,7 +16,7 @@
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
         android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
-        android:tint="@color/White" />
+        android:tint="@color/white" />
 
     <ImageView
         android:id="@+id/iv_next"
@@ -26,5 +26,5 @@
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
         android:src="@drawable/l_baseline_keyboard_arrow_right_black_48dp"
-        android:tint="@color/White" />
+        android:tint="@color/white" />
 </RelativeLayout>

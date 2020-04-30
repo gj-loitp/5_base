@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/White">
+    android:background="@color/white">
 
     <com.views.imageview.continuousscrollable.LContinuousScrollableImageView
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
-        android:background="@color/White">
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/btPrevScreen"

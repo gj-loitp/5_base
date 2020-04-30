@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.imageview.panorama.LPanoramaImageView
         android:id="@+id/panoramaImageView"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_15"
         android:text="An imageView can auto scroll with device rotating: Vertical or Horizontal"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_14"
         android:textStyle="bold" />
 

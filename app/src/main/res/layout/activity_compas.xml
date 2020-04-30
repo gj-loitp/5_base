@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -23,11 +23,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                app:degree_color="@color/Blue"
+                app:degree_color="@color/blue"
                 app:degree_value_color="@color/colorAccent"
                 app:degrees_step="5"
                 app:needle="@drawable/l_ic_needle"
-                app:orientation_labels_color="@color/Red"
+                app:orientation_labels_color="@color/red"
                 app:show_border="false"
                 app:show_degree_value="false"
                 app:show_orientation_labels="true" />

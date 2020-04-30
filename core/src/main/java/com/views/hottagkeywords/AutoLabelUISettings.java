@@ -103,7 +103,7 @@ public class AutoLabelUISettings implements Parcelable {
         private int bIconCross = DEFAULT_ICON_CROSS;
         private int bTextColor = android.R.color.white;
         private int bTextSize = R.dimen.label_title_size;
-        private int bBackgroundResource = R.color.default_background_label;
+        private int bBackgroundResource = R.color.green;
         private boolean bLabelsClickables = DEFAULT_LABELS_CLICKABLES;
         private int bLabelPadding = R.dimen.padding_label_view;
 

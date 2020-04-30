@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.views.imageview.touch.LTouchImageView
         android:id="@+id/lTouchImageView"
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:padding="@dimen/padding_15"
         android:text="Try to zoom"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_20"
         android:textStyle="bold" />
 </RelativeLayout>

@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textSize="14sp"
-                app:colorBorder="@color/DeepPink"
+                app:colorBorder="@color/deepPink"
                 app:on="false" />
 
             <com.views.switchtoggle.toggle.LabeledSwitch
@@ -31,10 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textSize="14sp"
-                app:colorBorder="@color/DarkCyan"
-                app:colorDisabled="@color/Gray"
-                app:colorOff="@color/Black"
-                app:colorOn="@color/Red"
+                app:colorBorder="@color/darkCyan"
+                app:colorDisabled="@color/gray"
+                app:colorOff="@color/black"
+                app:colorOn="@color/red"
                 app:on="true" />
 
             <com.views.switchtoggle.toggle.LabeledSwitch
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textSize="14sp"
-                app:colorBorder="@color/Blue"
+                app:colorBorder="@color/blue"
                 app:on="false" />
         </LinearLayout>
 

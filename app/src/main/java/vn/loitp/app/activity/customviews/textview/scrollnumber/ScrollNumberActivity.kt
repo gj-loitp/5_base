@@ -12,7 +12,7 @@ class ScrollNumberActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         val scrollNumber = findViewById<MultiScrollNumber>(R.id.scroll_number)
 
-        scrollNumber.setTextColors(intArrayOf(R.color.red01, R.color.orange01, R.color.blue01, R.color.green01, R.color.purple01))
+        scrollNumber.setTextColors(intArrayOf(R.color.red50, R.color.orange, R.color.blue, R.color.green, R.color.purple))
         //scrollNumber.setTextSize(64);
 
         //scrollNumber.setNumber(64, 2048);

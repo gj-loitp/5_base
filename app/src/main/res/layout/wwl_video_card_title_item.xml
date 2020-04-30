@@ -17,6 +17,6 @@
         android:paddingLeft="0.0dip"
         android:paddingTop="0.0dip"
         android:text="Up next"
-        android:textColor="@color/WhiteSmoke"
+        android:textColor="@color/whiteSmoke"
         android:textSize="16.0sp" />
 </LinearLayout>

@@ -4,14 +4,14 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_150"
-    card_view:cardBackgroundColor="@color/LightGrey"
+    card_view:cardBackgroundColor="@color/lightGrey"
     card_view:cardCornerRadius="0dp"
     card_view:cardElevation="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/White"
+        android:background="@color/white"
         android:foreground="?android:attr/selectableItemBackground">
 
         <ImageView
@@ -29,7 +29,7 @@
             android:padding="@dimen/padding_3"
             android:singleLine="true"
             android:text="@string/app_name"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_22" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

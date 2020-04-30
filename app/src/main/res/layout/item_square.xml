@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:singleLine="true"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:textSize="@dimen/txt_8"/>
 </RelativeLayout>

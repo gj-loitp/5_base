@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -23,7 +23,7 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_15"
                 android:text="Try to scroll this image (540 x 1952)"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
             <com.views.imageview.strectchy.LStretchyImageView

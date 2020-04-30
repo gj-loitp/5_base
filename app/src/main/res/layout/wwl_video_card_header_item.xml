@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary_600"
+    android:background="@color/colorPrimary60"
     android:orientation="vertical"
     android:padding="@dimen/padding_5">
 
@@ -32,7 +32,7 @@
         android:paddingBottom="16.0dip"
         android:paddingLeft="0.0dip"
         android:text="LOLTube"
-        android:textColor="@color/WhiteSmoke"
+        android:textColor="@color/whiteSmoke"
         android:textSize="14.0sp" />
 
     <View

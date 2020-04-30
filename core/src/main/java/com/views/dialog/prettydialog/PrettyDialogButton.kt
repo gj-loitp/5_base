@@ -27,8 +27,8 @@ internal class PrettyDialogButton(
         var tf: Typeface?,
         /*PrettyDialog.BUTTON_TYPE type,*/
         var callback: Runnable?) : LinearLayout(mContext) {
-    var defaultBackgroundColor: Int = R.color.pdlg_color_blue
-    private var defaultTextColor: Int = R.color.pdlg_color_white
+    var defaultBackgroundColor: Int = R.color.black
+    private var defaultTextColor: Int = R.color.white
     var tv: TextView? = null
     var iv: ImageView? = null
 

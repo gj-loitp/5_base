@@ -23,8 +23,8 @@ class BottomBarActivity : BaseFontActivity() {
         with(lBottomBar) {
             paddingOnInDp = context.resources.getDimension(R.dimen.padding_10).toInt()
             paddingOffInDp = context.resources.getDimension(R.dimen.padding_15).toInt()
-            colorIvOn = R.color.Red
-            colorIvOff = R.color.Pink
+            colorIvOn = R.color.red
+            colorIvOff = R.color.pink
             setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
             setItem0(R.drawable.l_baseline_bug_report_black_48, "Bug report")
             setItem1(R.drawable.l_baseline_add_black_48, "Add")
@@ -39,8 +39,8 @@ class BottomBarActivity : BaseFontActivity() {
                 }
             })
         }
-        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.RedTrans)) }
-        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.GreenTrans)) }
+        findViewById<View>(R.id.bt_blur_view_red).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.red50)) }
+        findViewById<View>(R.id.bt_blur_view_green).setOnClickListener { lBottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(activity, R.color.green33)) }
         findViewById<View>(R.id.bt_count_1).setOnClickListener { lBottomBar.setCount(1) }
         findViewById<View>(R.id.bt_count_3).setOnClickListener { lBottomBar.setCount(3) }
         findViewById<View>(R.id.bt_count_5).setOnClickListener { lBottomBar.setCount(5) }

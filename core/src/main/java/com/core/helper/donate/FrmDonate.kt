@@ -13,10 +13,10 @@ class FrmDonate : BaseFragment() {
         return javaClass.simpleName
     }
 
-    private var goldDark: Int = 0
-    private var goldMed: Int = 0
-    private var gold: Int = 0
-    private var goldLight: Int = 0
+    private var red: Int = 0
+    private var green: Int = 0
+    private var blue: Int = 0
+    private var violet: Int = 0
     private var colorPrimary: Int = 0
     private var colors: IntArray? = null
 
@@ -57,12 +57,12 @@ class FrmDonate : BaseFragment() {
                 .build()
 
         context?.let {
-            goldDark = ContextCompat.getColor(it, R.color.gold_dark)
-            goldMed = ContextCompat.getColor(it, R.color.gold_med)
-            gold = ContextCompat.getColor(it, R.color.gold)
-            goldLight = ContextCompat.getColor(it, R.color.gold_light)
+            red = ContextCompat.getColor(it, R.color.red)
+            green = ContextCompat.getColor(it, R.color.green)
+            blue = ContextCompat.getColor(it, R.color.blue)
+            violet = ContextCompat.getColor(it, R.color.violet)
             colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
-            colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
+            colors = intArrayOf(red, green, blue, violet, colorPrimary)
         }
     }
 

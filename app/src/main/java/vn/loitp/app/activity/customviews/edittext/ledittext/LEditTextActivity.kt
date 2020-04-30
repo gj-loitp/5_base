@@ -22,9 +22,9 @@ class LEditTextActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         lEditTextId.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
-            colorError = ContextCompat.getColor(activity, R.color.Red)
+            colorFocus = ContextCompat.getColor(activity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
+            colorError = ContextCompat.getColor(activity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.remove)
             setStrokeWidth(5)
@@ -63,9 +63,9 @@ class LEditTextActivity : BaseFontActivity() {
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
-            colorError = ContextCompat.getColor(activity, R.color.Red)
+            colorFocus = ContextCompat.getColor(activity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
+            colorError = ContextCompat.getColor(activity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.l_baseline_visibility_black_48dp)
             setStrokeWidth(5)

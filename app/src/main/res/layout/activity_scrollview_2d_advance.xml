@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <LinearLayout
         android:id="@+id/ll_control"
@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line"
-            android:textColor="@color/Black" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt_10"
             tools:ignore="SpUsage" />
     </LinearLayout>
@@ -40,7 +40,7 @@
             android:id="@+id/vg_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/LightCyan"
+            android:background="@color/lightCyan"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/vg_1"
-            android:background="@color/LightPink"
+            android:background="@color/lightPink"
             android:overScrollMode="never"
             android:scrollbars="none">
 
@@ -65,7 +65,7 @@
                 android:id="@+id/ll_2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/LightCyan"
+                android:background="@color/lightCyan"
                 android:orientation="horizontal" />
         </com.views.scrollview.LHorizontalScrollView>
 
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_below="@+id/vg_1"
-            android:background="@color/LightSeaGreen"
+            android:background="@color/lightSeaGreen"
             android:overScrollMode="never"
             android:scrollbars="none">
 
@@ -91,7 +91,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/vg_2"
             android:layout_toEndOf="@+id/vg_3"
-            android:background="@color/LightGrey">
+            android:background="@color/lightGrey">
 
             <RelativeLayout
                 android:id="@+id/rl_4"

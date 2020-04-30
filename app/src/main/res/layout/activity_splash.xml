@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_5"
-        app:realtimeOverlayColor="@color/black_35" />
+        app:realtimeOverlayColor="@color/black35" />
 
     <ImageView
         android:layout_width="@dimen/w_250"
@@ -35,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_10"
-        app:indicatorColor="@color/White"
+        app:indicatorColor="@color/white"
         app:indicatorName="PacmanIndicator" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tvPolicy"
         android:gravity="center"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_18"
         android:textStyle="bold" />
 

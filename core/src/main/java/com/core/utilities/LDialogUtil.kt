@@ -315,7 +315,7 @@ object LDialogUtil {
         }
         dialog.window?.let {
             //it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            it.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.black_65)))
+            it.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.black65)))
             it.setDimAmount(amount)
 
             val wlp = it.attributes

@@ -19,7 +19,7 @@
             android:gravity="center"
             android:padding="8dip"
             android:text="..."
-            android:textColor="@color/Blue"
+            android:textColor="@color/blue"
             android:textSize="@dimen/txt_30"
             android:textStyle="bold" />
 

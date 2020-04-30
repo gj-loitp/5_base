@@ -28,7 +28,7 @@ You can resize main log window by dragging down right corner of the log window.
 Clear the screen by clicking on the right upper corner.
 Easy use. Only three API methods.
 Easy link with Gradle."
-				android:textColor="@color/Black"
+				android:textColor="@color/black"
 				android:textSize="@dimen/txt_14" />
 
 			<androidx.appcompat.widget.AppCompatButton

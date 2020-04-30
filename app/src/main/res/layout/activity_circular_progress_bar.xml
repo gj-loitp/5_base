@@ -4,7 +4,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         android:id="@+id/scroll_view"
@@ -27,7 +27,7 @@
                 app:backgroundStrokeColor="@color/grey"
                 app:backgroundStrokeWidth="5dp"
                 app:drawBackgroundStroke="true"
-                app:foregroundStrokeColor="@color/Red"
+                app:foregroundStrokeColor="@color/red"
                 app:foregroundStrokeWidth="15dp"
                 app:indeterminate="true"
                 app:indeterminateArcAnimationDuration="600"
@@ -43,10 +43,10 @@
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_10"
                 app:animateProgress="true"
-                app:backgroundStrokeColor="@color/red04"
+                app:backgroundStrokeColor="@color/red"
                 app:backgroundStrokeWidth="15dp"
                 app:drawBackgroundStroke="true"
-                app:foregroundStrokeColor="@color/White"
+                app:foregroundStrokeColor="@color/white"
                 app:foregroundStrokeWidth="5dp"
                 app:indeterminate="true"
                 app:indeterminateArcAnimationDuration="600"
@@ -62,10 +62,10 @@
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_10"
                 app:animateProgress="true"
-                app:backgroundStrokeColor="@color/red04"
+                app:backgroundStrokeColor="@color/red"
                 app:backgroundStrokeWidth="2dp"
                 app:drawBackgroundStroke="true"
-                app:foregroundStrokeColor="@color/Blue"
+                app:foregroundStrokeColor="@color/blue"
                 app:foregroundStrokeWidth="20dp"
                 app:indeterminate="true"
                 app:indeterminateArcAnimationDuration="500"
