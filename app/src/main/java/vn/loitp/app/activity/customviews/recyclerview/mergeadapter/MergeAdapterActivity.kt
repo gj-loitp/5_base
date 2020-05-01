@@ -48,6 +48,13 @@ class MergeAdapterActivity : BaseFontActivity() {
         bannerAdapter = BannerAdapter(ArrayList())
 
         aboutMeAdapter?.let { ama ->
+            ama.onClickRootListener = { aboutMe, position ->
+                aboutMe.name = System.currentTimeMillis().toString()
+                ama.notifyItemChanged(position)
+            }
+        }
+
+        aboutMeAdapter?.let { ama ->
             usersAdapter?.let { ua ->
                 bannerAdapter?.let { ba ->
                     val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba)

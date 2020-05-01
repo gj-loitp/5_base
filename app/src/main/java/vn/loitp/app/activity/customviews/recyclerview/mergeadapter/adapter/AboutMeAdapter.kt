@@ -4,11 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_layout_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
 class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView.Adapter<AboutMeAdapter.DataViewHolder>() {
+
+    var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
     fun setData(aboutMe: ArrayList<AboutMe>) {
         this.listAboutMe.clear()
@@ -16,10 +19,14 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
         notifyDataSetChanged()
     }
 
-    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(aboutMe: AboutMe) {
             itemView.textViewUser.text = aboutMe.name
             itemView.textViewAboutMe.text = aboutMe.aboutMe
+
+            itemView.layoutRoot.setSafeOnClickListener {
+                onClickRootListener?.invoke(aboutMe, absoluteAdapterPosition)
+            }
         }
     }
 
